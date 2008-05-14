@@ -62,7 +62,7 @@ AMTAR = ${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run tar
 AUTOCONF = ${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run autoconf
 AUTOHEADER = ${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run autoheader
 AUTOMAKE = ${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run automake-1.10
-AWK = mawk
+AWK = gawk
 CC = gcc
 CCAS = gcc
 CCASDEPMODE = depmode=gcc3
@@ -144,7 +144,7 @@ mandir = ${datarootdir}/man
 mkdir_p = /bin/mkdir -p
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /tmp/local
+prefix = /usr/local
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
