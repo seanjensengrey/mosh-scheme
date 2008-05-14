@@ -1440,7 +1440,7 @@ uninstall-am: uninstall-dist_pkgconfigDATA uninstall-dist_pkgdataDATA \
 # Putting these at the top causes cord to be built first, and not find libgc.a
 # on HP/UX.  There may be a better fix.
 
-# [monar]
+# [mosh]
 install:
 test:
 check:

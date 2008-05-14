@@ -1232,7 +1232,7 @@ atest: testc testp testcu
 #win32/testc.c: $(srcdir)/test.rb $(srcdir)/testconv.rb
 #	ruby -Ke $(srcdir)/testconv.rb -win < $(srcdir)/test.rb | nkf -cs > $@
 
-# [monar]
+# [mosh]
 install:
 
 check:
