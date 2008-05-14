@@ -1,14 +1,13 @@
-#summary One-sentence summary of this page.
+#summary Features of Mosh 0.0.1
 
-= Introduction =
-
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
-ddd
+= Features of Mosh 0.0.1 =
+ * Core Scheme
+ * UTF-8 input/ouput
+ * Quasiquote
+ * Apply
+ * Regexp
+ * Traditional macro
+ * 30bit fixnum
+ * Simple port
+ * Simple CGI
+ * Format
