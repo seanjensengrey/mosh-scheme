@@ -1101,6 +1101,10 @@ Object getCompiler() {
 		Object::Nil,
 		MIS(16),
 		Object::Nil,
+		MIS(16),
+		Object::Nil,
+		MIS(16),
+		Object::Nil,
 		MIS(14),
 		MI(10),
 		MI(1),
@@ -37583,5 +37587,5 @@ Object getCompiler() {
 		MIS(33),
 		MIS(79),
 	};
-	return Object::makeVector(36610, code);
+	return Object::makeVector(36614, code);
 }
