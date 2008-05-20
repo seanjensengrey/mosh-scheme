@@ -1,0 +1,59 @@
+2008-05-19  higepon  <higepon@users.sourceforge.jp>
+
+        * 0.0.3 released.
+
+        * library.scm : Added for-all.
+
+        * library.scm (even?): Added even? defined at Base Library.
+
+        * freeproc.cpp : Added modulo procedure (mod a b).
+
+        * VM.cpp : Added division support for Integer(Fixnum).
+
+        * freeproc.cpp (scheme::applyEx): Fixed apply bug.
+
+2008-05-18  higepon  <higepon@users.sourceforge.jp>
+
+        * Added typed-vector for R6RS Record base.
+
+        * TypedVector.h : Added.
+
+2008-05-17  higepon  <higepon@users.sourceforge.jp>
+
+        * freeproc.cpp (scheme::raiseContinuableEx): Added (raise-continuable ...).
+
+        * scripts/gen-test.scm (print-test): Added mosh-only syntax, it is used for tests only for mosh.
+
+        * macro.scm (guard): Added guard macro and document.
+
+        * VM.cpp (VM::withExceptionHandler): Added with-exception-handler and document.
+
+        * library.scm (raise): Added (raise ...) document.
+
+        * Added (raise obj) procedure.
+
+        * VM.cpp (VM::showStackTrace): Fixed SEGV with stack overflow.
+
+        * Regexp.cpp: Fixed Regexp endian problem by masa_edw.
+
+        * VM.cpp : Changed call frame structure, SEGV with stack trace fixed.
+
+2008-05-15  higepon  <higepon@users.sourceforge.jp>
+
+        * compiler.scm (pass1/sexp->iform): Fixed, (+) => 0, (*) => 1, thx leque.
+
+2008-05-14  higepon  <higepon@users.sourceforge.jp>
+
+        * compiler.scm (cond->if): Fixed the bug when cond clause like (cond ((3))).
+
+        * library.scm (REPL): Added REPL.
+
+        * freeproc.cpp (scheme::evalEx): Added (eval ...). Currently second argument of eval is ignored.
+
+        * 0.0.2 released.
+
+        * Symbol.h (scheme): OS X build patch by mesa_edw.
+
+2008-05-13  higepon  <higepon@users.sourceforge.jp>
+
+        * 0.0.1 released.
