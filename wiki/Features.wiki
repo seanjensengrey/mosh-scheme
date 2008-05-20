@@ -1,6 +1,6 @@
-#summary Features of Mosh 0.0.1
+#summary Features of Mosh 0.0.3
 
-= Features of Mosh 0.0.1 =
+= Features of Mosh 0.0.3 =
  * Core Scheme
  * UTF-8 input/ouput
  * Quasiquote
@@ -11,3 +11,4 @@
  * Simple port
  * Simple CGI
  * Format
+ * R6RS Exception
