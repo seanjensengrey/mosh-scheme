@@ -970,6 +970,9 @@ Object getCompiler() {
 		SA("top level :$:compile"),
 		SA("compile-no-optimize"),
 		SA("top level :$:compile-no-optimize"),
+		SA("acond"),
+		SA("guard"),
+		SA("receive"),
 	};
 	static Object code[] = {
 		MIS(59),
@@ -6229,6 +6232,9 @@ Object getCompiler() {
 		MIS(33),
 		MIS(33),
 		MIS(33),
+		MIS(59),
+		MIS(59),
+		MIS(59),
 		MIS(50),
 		symbols[241],
 		MIS(17),
@@ -37585,7 +37591,14 @@ Object getCompiler() {
 		MIS(33),
 		MIS(33),
 		MIS(33),
+		MIS(50),
+		symbols[586],
+		MIS(89),
+		MI(5),
+		MIS(89),
+		Object::cons(Object::cons(symbols[958], Object::cons(MIS(106), Object::cons(MI(51), Object::cons(MIS(14), Object::cons(MI(80), Object::cons(MI(1), Object::cons(Object::True, Object::cons(MI(1), Object::cons(MI(5), Object::cons(Object::cons(Object::False, Object::cons(symbols[138], symbols[638])), Object::cons(MIS(65), Object::cons(MIS(35), Object::cons(MIS(58), Object::cons(MI(5), Object::cons(MIS(16), Object::cons(Object::Nil, Object::cons(MIS(30), Object::cons(MI(66), Object::cons(MIS(27), Object::cons(MIS(73), Object::cons(MIS(91), Object::cons(MIS(18), Object::cons(MI(2), Object::cons(MIS(65), Object::cons(MIS(94), Object::cons(MIS(23), Object::cons(MI(4), Object::cons(MIS(69), Object::cons(MIS(1), Object::cons(MI(0), Object::cons(MIS(78), Object::cons(MI(2), Object::cons(MIS(64), Object::cons(symbols[593], Object::cons(MIS(76), Object::cons(MIS(65), Object::cons(MIS(94), Object::cons(MIS(16), Object::cons(Object::Nil, Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(89), Object::cons(Object::Nil, Object::cons(MIS(15), Object::cons(MIS(89), Object::cons(symbols[623], Object::cons(MIS(3), Object::cons(MIS(75), Object::cons(symbols[593], Object::cons(MIS(89), Object::cons(symbols[651], Object::cons(MIS(3), Object::cons(MIS(75), Object::cons(Object::Nil, Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(89), Object::cons(Object::Nil, Object::cons(MIS(15), Object::cons(MIS(3), Object::cons(MIS(65), Object::cons(MIS(13), Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(89), Object::cons(symbols[958], Object::cons(MIS(3), Object::cons(MIS(70), Object::cons(MIS(13), Object::cons(MIS(15), Object::cons(MIS(89), Object::cons(Object::Nil, Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(89), Object::cons(Object::Nil, Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(26), Object::cons(MI(2), Object::cons(MIS(84), Object::cons(MIS(33), Object::cons(MIS(33), Object::cons(MIS(33), Object::cons(MIS(33), Object::Nil)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))), Object::cons(Object::cons(symbols[959], Object::cons(MIS(14), Object::cons(MI(58), Object::cons(MI(2), Object::cons(Object::True, Object::cons(MI(0), Object::cons(MI(6), Object::cons(Object::cons(Object::False, Object::cons(symbols[138], Object::cons(symbols[123], symbols[506]))), Object::cons(MIS(64), Object::cons(symbols[429], Object::cons(MIS(64), Object::cons(symbols[608], Object::cons(MIS(65), Object::cons(MIS(94), Object::cons(MIS(16), Object::cons(Object::Nil, Object::cons(MIS(15), Object::cons(MIS(89), Object::cons(symbols[606], Object::cons(MIS(3), Object::cons(MIS(65), Object::cons(MIS(95), Object::cons(MIS(64), Object::cons(symbols[541], Object::cons(MIS(64), Object::cons(symbols[427], Object::cons(MIS(65), Object::cons(MIS(94), Object::cons(MIS(16), Object::cons(Object::Nil, Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(89), Object::cons(Object::Nil, Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(89), Object::cons(Object::Nil, Object::cons(MIS(15), Object::cons(MIS(0), Object::cons(MIS(15), Object::cons(MIS(89), Object::cons(Object::Nil, Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(89), Object::cons(symbols[608], Object::cons(MIS(89), Object::cons(Object::Nil, Object::cons(MIS(3), Object::cons(MIS(66), Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(89), Object::cons(Object::Nil, Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(85), Object::cons(MIS(33), Object::Nil))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))), Object::cons(Object::cons(symbols[960], Object::cons(MIS(14), Object::cons(MI(34), Object::cons(MI(1), Object::cons(Object::True, Object::cons(MI(0), Object::cons(MI(5), Object::cons(Object::cons(Object::False, Object::cons(symbols[138], symbols[322])), Object::cons(MIS(64), Object::cons(symbols[126], Object::cons(MIS(64), Object::cons(symbols[608], Object::cons(MIS(64), Object::cons(Object::Nil, Object::cons(MIS(65), Object::cons(MIS(9), Object::cons(MIS(89), Object::cons(Object::Nil, Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(89), Object::cons(symbols[608], Object::cons(MIS(3), Object::cons(MIS(65), Object::cons(MIS(94), Object::cons(MIS(65), Object::cons(MIS(12), Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(89), Object::cons(Object::Nil, Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(15), Object::cons(MIS(84), Object::cons(MIS(33), Object::Nil))))))))))))))))))))))))))))))))))))), Object::Nil))),
+		MIS(63),
 		MIS(79),
 	};
-	return Object::makeVector(36614, code);
+	return Object::makeVector(36624, code);
 }
