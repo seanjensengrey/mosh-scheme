@@ -11,4 +11,4 @@
  * Simple port
  * Simple CGI
  * Format
- * R6RS Exception
+ * [Exception]
