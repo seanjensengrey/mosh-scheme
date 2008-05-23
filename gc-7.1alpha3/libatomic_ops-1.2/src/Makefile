@@ -99,7 +99,7 @@ AMTAR = ${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run tar
 AUTOCONF = ${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run autoconf
 AUTOHEADER = ${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run autoheader
 AUTOMAKE = ${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run automake-1.10
-AWK = gawk
+AWK = mawk
 CC = gcc
 CCAS = gcc
 CCASDEPMODE = depmode=gcc3
