@@ -2,7 +2,7 @@
 const int cProcNum = 116;
 static const Object cProcs[] = {
      Object::makeCProcedure(memvEx),
-     Object::makeCProcedure(macroexpandEx),
+     Object::makeCProcedure(macroexpand1Ex),
      Object::makeCProcedure(exitEx),
      Object::makeCProcedure(assqEx),
      Object::makeCProcedure(divEx),
@@ -121,7 +121,7 @@ static const Object cProcs[] = {
 #ifdef ENABLE_PROFILER
 static const ucs4char* cProcNames[] = {
      UC("memv"),
-     UC("macroexpand"),
+     UC("macroexpand-1"),
      UC("exit"),
      UC("assq"),
      UC("div"),
