@@ -35,7 +35,6 @@ PATH: /usr/sbin
 PATH: /usr/bin
 PATH: /sbin
 PATH: /bin
-PATH: /usr/bin/X11
 PATH: /usr/games
 
 
@@ -56,8 +55,10 @@ configure:2143: result: yes
 configure:2168: checking for a thread-safe mkdir -p
 configure:2207: result: /bin/mkdir -p
 configure:2220: checking for gawk
-configure:2236: found /usr/bin/gawk
-configure:2247: result: gawk
+configure:2250: result: no
+configure:2220: checking for mawk
+configure:2236: found /usr/bin/mawk
+configure:2247: result: mawk
 configure:2258: checking whether make sets $(MAKE)
 configure:2280: result: yes
 configure:2511: checking for ranlib
@@ -294,7 +295,7 @@ ac_cv_path_EGREP='/bin/grep -E'
 ac_cv_path_GREP=/bin/grep
 ac_cv_path_install='/usr/bin/install -c'
 ac_cv_path_mkdir=/bin/mkdir
-ac_cv_prog_AWK=gawk
+ac_cv_prog_AWK=mawk
 ac_cv_prog_CPP='gcc -E'
 ac_cv_prog_ac_ct_CC=gcc
 ac_cv_prog_ac_ct_RANLIB=ranlib
@@ -317,7 +318,7 @@ AMTAR='${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run tar'
 AUTOCONF='${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run autoconf'
 AUTOHEADER='${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run autoheader'
 AUTOMAKE='${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run automake-1.10'
-AWK='gawk'
+AWK='mawk'
 CC='gcc'
 CCAS='gcc'
 CCASDEPMODE='depmode=gcc3'
