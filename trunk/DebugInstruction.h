@@ -115,7 +115,9 @@ public:
         REFER_LOCAL0_VECTOR_REF = 106,
         REFER_FREE_PUSH = 107,
         REFER_LOCAL_PUSH = 108,
-        COUNT = 109,
+        VALUES = 109,
+        RECEIVE = 110,
+        COUNT = 111,
         OPERAND_MAX = 5
     };
     static const char* toString(int v) {
@@ -229,6 +231,8 @@ public:
             case REFER_LOCAL0_VECTOR_REF: { return "REFER_LOCAL0_VECTOR_REF";}
             case REFER_FREE_PUSH: { return "REFER_FREE_PUSH";}
             case REFER_LOCAL_PUSH: { return "REFER_LOCAL_PUSH";}
+            case VALUES: { return "VALUES";}
+            case RECEIVE: { return "RECEIVE";}
     }};
 };
 #endif // __SCHEME_DEBUG_INSTRUCTION_H__

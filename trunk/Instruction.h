@@ -118,6 +118,8 @@ public:
         REFER_LOCAL0_VECTOR_REF = 3374,
         REFER_FREE_PUSH = 3406,
         REFER_LOCAL_PUSH = 3438,
+        VALUES = 3470,
+        RECEIVE = 3502,
     };
 };
 }; // namespace scheme
