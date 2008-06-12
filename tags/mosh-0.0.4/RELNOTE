@@ -1,0 +1,87 @@
+Mosh 0.0.4 Release Note
+============================
+
+What's Mosh
+----------------
+
+Mosh is A Fast R6RS Scheme interpreter.
+
+  Homepage:
+    http://code.google.com/p/mosh-scheme/
+
+
+About This Release
+------------------
+
+Ported Andrew Wright' pattern match library.
+It's very useful.
+    (match ...)
+    (match-lambda ...)
+    (match-let ...)
+    (match-letrec ...)
+
+Added a sample application.
+    Grass language interpreter.(example/grass.scm)
+
+Added pre-compiled macro support.
+
+Rewrote multiple values system.
+
+Added many procedures.
+    (hash-table-keys ...)
+    (vector-for-each ...)
+    (hash-table-for-each ...)
+    (exit)
+    (string-ref ...)
+    (div ...)
+    (list? ...)
+    (macroexpand ...)
+    (procedure? ...)
+    (with-input-from-file ...)
+    (load ...) for internal use.
+    char>=?, char>?, char<=? and char<?.
+    cons*
+
+Added EOF handling for Ctrl-D to REPL.
+
+Fixed many bugs.
+    div bug (thx leque)
+    case bug (thx leque)
+    (read) can't read "...".
+    SEGV with (write '(quote))
+
+Mosh 0.0.3 Release Note
+============================
+
+What's Mosh
+----------------
+
+Mosh is A Fast R6RS Scheme interpreter.
+
+  Homepage:
+    http://code.google.com/p/mosh-scheme/
+
+
+About This Release
+------------------
+
+Added R6RS exceptions system.
+  (raise ...)
+  (raise-continuable ...)
+  (with-exception-handler ...)
+  (guard ...)
+
+Added a simple REPL (Read Eval Print Loop).
+
+Added (eval ...) procedure.
+
+Added division and modulo support (Fixnum only).
+
+Changed a stack frame structure for better stack trace.
+
+Fixed many bugs.
+  (apply proc ...) rest argument bug.
+  SEGV with stack overflow.
+  Regexp endian problem on OSX PPC (thx masa_edw).
+  (+) should be 0 and (*) should be 1 (thx leque).
+  cond clause like (cond ((3))).
