@@ -12193,7 +12193,7 @@ Object list110 = arrayToList(array110, 18);
 
 static Object array111[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9787)};
+ MI(9782)};
 Object list111 = arrayToList(array111, 2);
 
 static Object array112[] = {
@@ -12204,7 +12204,7 @@ Object list112 = arrayToList(array112, 3);
 
 static Object array113[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9769)};
+ MI(9764)};
 Object list113 = arrayToList(array113, 2);
 
 static Object array114[] = {
@@ -12482,7 +12482,7 @@ Object list157 = arrayToList(array157, 3);
 
 static Object array158[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9606)};
+ MI(9601)};
 Object list158 = arrayToList(array158, 2);
 
 static Object array159[] = {
@@ -12493,7 +12493,7 @@ Object list159 = arrayToList(array159, 3);
 
 static Object array160[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9604)};
+ MI(9599)};
 Object list160 = arrayToList(array160, 2);
 
 static Object array161[] = {
@@ -12504,7 +12504,7 @@ Object list161 = arrayToList(array161, 3);
 
 static Object array162[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9601)};
+ MI(9596)};
 Object list162 = arrayToList(array162, 2);
 
 static Object array163[] = {
@@ -12529,7 +12529,7 @@ Object list165 = arrayToList(array165, 5);
 
 static Object array166[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9521)};
+ MI(9516)};
 Object list166 = arrayToList(array166, 2);
 
 static Object array167[] = {
@@ -12539,7 +12539,7 @@ Object list167 = arrayToList(array167, 2);
 
 static Object array168[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9519)};
+ MI(9514)};
 Object list168 = arrayToList(array168, 2);
 
 static Object array169[] = {
@@ -12550,7 +12550,7 @@ Object list169 = arrayToList(array169, 3);
 
 static Object array170[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9480)};
+ MI(9475)};
 Object list170 = arrayToList(array170, 2);
 
 static Object array171[] = {
@@ -12567,7 +12567,7 @@ Object list172 = arrayToList(array172, 2);
 
 static Object array173[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9460)};
+ MI(9455)};
 Object list173 = arrayToList(array173, 2);
 
 static Object array174[] = {
@@ -12578,7 +12578,7 @@ Object list174 = arrayToList(array174, 3);
 
 static Object array175[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9456)};
+ MI(9451)};
 Object list175 = arrayToList(array175, 2);
 
 static Object array176[] = {
@@ -12593,7 +12593,7 @@ Object list177 = arrayToList(array177, 1);
 
 static Object array178[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9451)};
+ MI(9446)};
 Object list178 = arrayToList(array178, 2);
 
 static Object array179[] = {
@@ -12604,7 +12604,7 @@ Object list179 = arrayToList(array179, 3);
 
 static Object array180[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9439)};
+ MI(9434)};
 Object list180 = arrayToList(array180, 2);
 
 static Object array181[] = {
@@ -12620,7 +12620,7 @@ Object list181 = arrayToList(array181, 8);
 
 static Object array182[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9383)};
+ MI(9378)};
 Object list182 = arrayToList(array182, 2);
 
 static Object array183[] = {
@@ -12636,7 +12636,7 @@ Object list183 = arrayToList(array183, 8);
 
 static Object array184[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9368)};
+ MI(9363)};
 Object list184 = arrayToList(array184, 2);
 
 static Object array185[] = {
@@ -12647,7 +12647,7 @@ Object list185 = arrayToList(array185, 3);
 
 static Object array186[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9365)};
+ MI(9360)};
 Object list186 = arrayToList(array186, 2);
 
 static Object array187[] = {
@@ -12658,7 +12658,7 @@ Object list187 = arrayToList(array187, 3);
 
 static Object array188[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9357)};
+ MI(9352)};
 Object list188 = arrayToList(array188, 2);
 
 static Object array189[] = {
@@ -12678,7 +12678,7 @@ Object list190 = arrayToList(array190, 1);
 
 static Object array191[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9318)};
+ MI(9315)};
 Object list191 = arrayToList(array191, 2);
 
 static Object array192[] = {
@@ -12695,7 +12695,7 @@ Object list193 = arrayToList(array193, 2);
 
 static Object array194[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9314)};
+ MI(9311)};
 Object list194 = arrayToList(array194, 2);
 
 static Object array195[] = {
@@ -12706,7 +12706,7 @@ Object list195 = arrayToList(array195, 3);
 
 static Object array196[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9298)};
+ MI(9295)};
 Object list196 = arrayToList(array196, 2);
 
 static Object array197[] = {
@@ -12717,7 +12717,7 @@ Object list197 = arrayToList(array197, 3);
 
 static Object array198[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9282)};
+ MI(9279)};
 Object list198 = arrayToList(array198, 2);
 
 static Object array199[] = {
@@ -12728,7 +12728,7 @@ Object list199 = arrayToList(array199, 3);
 
 static Object array200[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9269)};
+ MI(9266)};
 Object list200 = arrayToList(array200, 2);
 
 static Object array201[] = {
@@ -12748,7 +12748,7 @@ Object list202 = arrayToList(array202, 1);
 
 static Object array203[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9213)};
+ MI(9212)};
 Object list203 = arrayToList(array203, 2);
 
 static Object array204[] = {
@@ -12759,7 +12759,7 @@ Object list204 = arrayToList(array204, 3);
 
 static Object array205[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9192)};
+ MI(9191)};
 Object list205 = arrayToList(array205, 2);
 
 static Object array206[] = {
@@ -70304,7 +70304,7 @@ MIS(59),
  MIS(33),
  MIS(33),
  MIS(14),
- MI(479),
+ MI(472),
  MI(6),
  Object::False,
  MI(0),
@@ -70656,13 +70656,6 @@ MIS(59),
  list207,
  MIS(78),
  MI(1),
- MIS(23),
- MI(6),
- MIS(64),
- Object::makeString(UC("************ recccccccccccc")),
- MIS(102),
- symbols[507],
- MI(1),
  MIS(49),
  MI(8),
  MIS(94),
@@ -70811,11 +70804,10 @@ MIS(59),
  MIS(33),
  MIS(33),
  MIS(33),
- MIS(33),
  MIS(106),
  MI(109),
  MIS(14),
- MI(540),
+ MI(522),
  MI(6),
  Object::False,
  MI(1),
@@ -70845,7 +70837,7 @@ MIS(59),
  MI(6),
  MI(6),
  MIS(30),
- MI(508),
+ MI(490),
  MIS(27),
  MIS(73),
  MIS(76),
@@ -71144,9 +71136,9 @@ MIS(59),
  MI(14),
  MIS(106),
  MI(9),
+ MIS(73),
  MIS(106),
  MI(15),
- MIS(73),
  MIS(106),
  MI(8),
  MIS(106),
@@ -71186,12 +71178,12 @@ MIS(59),
  MI(1),
  MIS(27),
  MIS(106),
- MI(5),
- MIS(106),
- MI(8),
+ MI(9),
  MIS(73),
  MIS(106),
  MI(3),
+ MIS(106),
+ MI(5),
  MIS(106),
  MI(7),
  MIS(106),
@@ -71230,29 +71222,11 @@ MIS(59),
  list202,
  MIS(78),
  MI(1),
- MIS(23),
- MI(6),
- MIS(64),
- Object::makeString(UC("******************** let")),
- MIS(102),
- symbols[506],
- MI(1),
- MIS(23),
- MI(10),
- MIS(106),
- MI(8),
- MIS(16),
- MI(6),
- MIS(62),
- MIS(3),
- MIS(102),
- symbols[507],
- MI(1),
  MIS(49),
- MI(7),
+ MI(8),
  MIS(94),
  MIS(49),
- MI(6),
+ MI(7),
  MIS(10),
  MIS(83),
  MIS(65),
@@ -71285,7 +71259,7 @@ MIS(59),
  MI(1),
  MIS(3),
  MIS(106),
- MI(8),
+ MI(5),
  MIS(16),
  MI(6),
  MIS(62),
@@ -71299,7 +71273,7 @@ MIS(59),
  Object::Nil,
  MIS(3),
  MIS(49),
- MI(6),
+ MI(7),
  MIS(95),
  MIS(106),
  MI(4),
@@ -71320,7 +71294,7 @@ MIS(59),
  MI(2),
  MIS(3),
  MIS(49),
- MI(7),
+ MI(8),
  MIS(95),
  MIS(23),
  MI(14),
@@ -71387,12 +71361,10 @@ MIS(59),
  MIS(33),
  MIS(33),
  MIS(33),
- MIS(33),
- MIS(33),
  MIS(106),
  MI(109),
  MIS(14),
- MI(710),
+ MI(693),
  MI(6),
  Object::False,
  MI(1),
@@ -71759,9 +71731,9 @@ MIS(59),
  MI(9),
  MIS(106),
  MI(8),
+ MIS(73),
  MIS(106),
  MI(16),
- MIS(73),
  MIS(106),
  MI(7),
  MIS(106),
@@ -71791,8 +71763,9 @@ MIS(59),
  MI(5),
  MIS(106),
  MI(4),
+ MIS(106),
+ MI(3),
  MIS(91),
- MIS(93),
  MIS(92),
  MIS(106),
  MI(11),
@@ -71925,13 +71898,13 @@ MIS(59),
  MIS(78),
  MI(1),
  MIS(27),
- MIS(106),
- MI(10),
  MIS(73),
  MIS(106),
- MI(9),
+ MI(10),
  MIS(106),
  MI(4),
+ MIS(106),
+ MI(9),
  MIS(106),
  MI(8),
  MIS(106),
@@ -71972,32 +71945,14 @@ MIS(59),
  list190,
  MIS(78),
  MI(1),
- MIS(23),
- MI(6),
- MIS(64),
- Object::makeString(UC("******************** letrec")),
- MIS(102),
- symbols[506],
- MI(1),
- MIS(23),
- MI(10),
- MIS(106),
- MI(9),
- MIS(16),
- MI(6),
- MIS(62),
- MIS(3),
- MIS(102),
- symbols[507],
- MI(1),
  MIS(65),
  MIS(94),
  MIS(49),
- MI(8),
+ MI(9),
  MIS(10),
  MIS(83),
  MIS(49),
- MI(7),
+ MI(8),
  MIS(10),
  MIS(83),
  MIS(64),
@@ -72027,7 +71982,7 @@ MIS(59),
  MI(1),
  MIS(3),
  MIS(106),
- MI(9),
+ MI(6),
  MIS(16),
  MI(6),
  MIS(62),
@@ -72061,10 +72016,10 @@ MIS(59),
  MI(2),
  MIS(3),
  MIS(49),
- MI(8),
+ MI(9),
  MIS(95),
  MIS(49),
- MI(7),
+ MI(8),
  MIS(95),
  MIS(23),
  MI(14),
@@ -72104,8 +72059,6 @@ MIS(59),
  MI(6),
  MIS(17),
  symbols[1076],
- MIS(33),
- MIS(33),
  MIS(33),
  MIS(33),
  MIS(33),
@@ -77677,7 +77630,7 @@ MIS(59),
  list110,
  MIS(63),
  MIS(79)};
-Object list1559 = arrayToList(array1559, 56861);
+Object list1559 = arrayToList(array1559, 56814);
 
-	return Object::makeVector(56861, array1559);
+	return Object::makeVector(56814, array1559);
 }
