@@ -4126,7 +4126,6 @@
            (if (> (length frees-here) 0)
                (pass3/collect-free frees-here locals frees)
                (quote (0)))))
-        (pp "************ recccccccccccc")
         (quasiquote
           ((unquote
              (code-stack-sum body-code vals-code free-code))
@@ -4203,8 +4202,6 @@
                (if (> (length frees-here) 0)
                    (pass3/collect-free frees-here locals frees)
                    (quote (0)))))
-            (dd "******************** let")
-            (pp ($let.src iform))
             (quasiquote
               ((unquote
                  (code-stack-sum body-code args-code free-code))
@@ -4290,8 +4287,6 @@
            (if (> (length frees-here) 0)
                (pass3/collect-free frees-here locals frees)
                (quote (0)))))
-        (dd "******************** letrec")
-        (pp ($let.src iform))
         (quasiquote
           ((unquote
              (code-stack-sum free-code assign-code body-code))
