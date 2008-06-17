@@ -322,15 +322,16 @@
 (define $LET 2)
 
 (define
-  ($let type lvars inits body tail?)
+  ($let type lvars inits body tail? src)
   (let1 v
-        (make-vector 6)
+        (make-vector 7)
         (vector-set! v 0 $LET)
         (vector-set! v 1 type)
         (vector-set! v 2 lvars)
         (vector-set! v 3 inits)
         (vector-set! v 4 body)
         (vector-set! v 5 tail?)
+        (vector-set! v 6 src)
         v))
 
 (define-macro
@@ -352,6 +353,10 @@
 (define-macro
   ($let.tail? iform)
   (quasiquote (vector-ref (unquote iform) 5)))
+
+(define-macro
+  ($let.src iform)
+  (quasiquote (vector-ref (unquote iform) 6)))
 
 (define-macro
   ($let.set-type! iform type)
@@ -377,6 +382,11 @@
   ($let.set-tail?! iform tail?)
   (quasiquote
     (vector-set! (unquote iform) 5 (unquote tail?))))
+
+(define-macro
+  ($let.set-src! iform src)
+  (quasiquote
+    (vector-set! (unquote iform) 6 (unquote src))))
 
 (define $SEQ 3)
 
@@ -1212,9 +1222,13 @@
                     ($map1 (lambda (s) (pass1/expand s)) sexp)))
                ((let1) (pass1/expand (let1->let sexp)))
                ((let)
+                (dd "let sourc")
+                (pp (source-info sexp))
                 (if (let-is-named? sexp)
                     (pass1/expand (named-let->letrec sexp))
-                    (expand-let (second sexp) (cddr sexp))))
+                    (set-source-info!
+                      (expand-let (second sexp) (cddr sexp))
+                      (source-info sexp))))
                ((let*) (pass1/expand (let*->let sexp)))
                ((cond) (pass1/expand (cond->if sexp)))
                ((lambda)
@@ -1422,6 +1436,8 @@
          (vars ($map1 car args))
          (vals ($map1 cadr args))
          (body (cdddr sexp)))
+        (dd "named-let->letrec sexp")
+        (pp (source-info sexp))
         (quasiquote
           (letrec
             (((unquote name)
@@ -2095,7 +2111,8 @@
                               library
                               (append this-lvars lvars)
                               tail?)
-                            tail?)))
+                            tail?
+                            (source-info sexp))))
                ((letrec)
                 (let* ((vars ($map1 car (second sexp)))
                        (vals ($map1 cadr (second sexp)))
@@ -2125,7 +2142,8 @@
                               library
                               (append this-lvars lvars)
                               tail?)
-                            tail?)))
+                            tail?
+                            (source-info sexp))))
                ((lambda)
                 (pass1/lambda->iform
                   (quote <proc>)
@@ -2722,7 +2740,8 @@
                                  ($map1 (lambda (x) (iform-copy x al))
                                         ($let.inits iform)))
                            (iform-copy ($let.body iform) newalist)
-                           ($let.tail? iform))))
+                           ($let.tail? iform)
+                           ($let.src iform))))
               ((= $LAMBDA t)
                (let* ((ret (iform-copy-zip-lvs
                              ($lambda.lvars iform)
@@ -3059,6 +3078,7 @@
              lvars
              args
              ($lambda.body iform)
+             #f
              #f)))
 
 (define
@@ -4162,6 +4182,8 @@
                (if (> (length frees-here) 0)
                    (pass3/collect-free frees-here locals frees)
                    (quote (0)))))
+            (dd "******************** let")
+            (pp ($let.src iform))
             (quasiquote
               ((unquote
                  (code-stack-sum body-code args-code free-code))
@@ -4245,6 +4267,8 @@
            (if (> (length frees-here) 0)
                (pass3/collect-free frees-here locals frees)
                (quote (0)))))
+        (dd "******************** letrec")
+        (pp ($let.src iform))
         (quasiquote
           ((unquote
              (code-stack-sum free-code assign-code body-code))
