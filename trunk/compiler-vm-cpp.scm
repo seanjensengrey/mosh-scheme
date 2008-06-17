@@ -1220,16 +1220,25 @@
                 (if (define-is-lambda? sexp)
                     (pass1/expand (define->lambda sexp))
                     ($map1 (lambda (s) (pass1/expand s)) sexp)))
-               ((let1) (pass1/expand (let1->let sexp)))
+               ((let1)
+                (set-source-info!
+                  (pass1/expand (let1->let sexp))
+                  (source-info sexp)))
                ((let)
                 (dd "let sourc")
+                (pp sexp)
                 (pp (source-info sexp))
                 (if (let-is-named? sexp)
-                    (pass1/expand (named-let->letrec sexp))
+                    (set-source-info!
+                      (pass1/expand (named-let->letrec sexp))
+                      (source-info sexp))
                     (set-source-info!
                       (expand-let (second sexp) (cddr sexp))
                       (source-info sexp))))
-               ((let*) (pass1/expand (let*->let sexp)))
+               ((let*)
+                (set-source-info!
+                  (pass1/expand (let*->let sexp))
+                  (source-info sexp)))
                ((cond) (pass1/expand (cond->if sexp)))
                ((lambda)
                 (cond ((lambda-has-define? sexp)
@@ -1262,8 +1271,15 @@
                                    (unquote body)
                                    (unquote-splicing more))))))
                        (else (syntax-error "malformed unless"))))
-               ((aif) (pass1/expand (aif->let sexp)))
-               ((case) (pass1/expand (case->cond sexp)))
+               ((aif)
+                (let1 v
+                      (pass1/expand (aif->let sexp))
+                      (set-source-info! v (source-info sexp))
+                      v))
+               ((case)
+                (set-source-info!
+                  (pass1/expand (case->cond sexp))
+                  (source-info sexp)))
                ((quasiquote) (expand-quasiquote (cadr sexp) 0))
                (else sexp)))
         (else sexp)))
@@ -1305,15 +1321,18 @@
                   (and (pair? s) (eq? (quote define) (car s))))
                 body))
          (defines (first ret))
-         (rest (second ret)))
+         (rest (second ret))
+         (letrec-body
+           (quasiquote
+             (letrec
+               (unquote
+                 (map (lambda (d) (list (second d) (third d)))
+                      (map pass1/expand defines)))
+               (unquote-splicing rest))))
+         (letrec-body
+           (set-source-info! letrec-body (source-info sexp))))
         (quasiquote
-          (lambda
-            (unquote args)
-            (letrec
-              (unquote
-                (map (lambda (d) (list (second d) (third d)))
-                     (map pass1/expand defines)))
-              (unquote-splicing rest))))))
+          (lambda (unquote args) (unquote letrec-body)))))
 
 (define
   (define->lambda sexp)
@@ -3988,6 +4007,7 @@
                   (if (> (length frees-here) 0)
                       (pass3/collect-free frees-here locals frees)
                       (quote (0)))))
+               (pp "eeeeeeeeeeeeeeeeeemmm")
                (quasiquote
                  ((unquote
                     (code-stack-sum args-code body-code free-code))
@@ -3995,7 +4015,7 @@
                   (unquote-splicing (code-body free-code))
                   (unquote-splicing
                     (if (> (length frees-here) 0)
-                        (list (quote DISPLAY) (length frees-here))
+                        (list (quote DISPLAY) (length frees-here) #f)
                         (quote ())))
                   (unquote-splicing (code-body args-code))
                   (unquote-splicing boxes-code)
@@ -4106,6 +4126,7 @@
            (if (> (length frees-here) 0)
                (pass3/collect-free frees-here locals frees)
                (quote (0)))))
+        (pp "************ recccccccccccc")
         (quasiquote
           ((unquote
              (code-stack-sum body-code vals-code free-code))
@@ -4113,7 +4134,7 @@
            (unquote-splicing (code-body free-code))
            (unquote-splicing
              (if (> (length frees-here) 0)
-                 (list (quote DISPLAY) (length frees-here))
+                 (list (quote DISPLAY) (length frees-here) #f)
                  (quote ())))
            (unquote-splicing (code-body vals-code))
            RECEIVE
@@ -4191,7 +4212,9 @@
                (unquote-splicing (code-body free-code))
                (unquote-splicing
                  (if (> (length frees-here) 0)
-                     (list (quote DISPLAY) (length frees-here))
+                     (list (quote DISPLAY)
+                           (length frees-here)
+                           ($let.src iform))
                      (quote ())))
                (unquote-splicing (code-body args-code))
                (unquote-splicing boxes-code)
@@ -4276,7 +4299,9 @@
            (unquote-splicing (code-body free-code))
            (unquote-splicing
              (if (> (length frees-here) 0)
-                 (list (quote DISPLAY) (length frees-here))
+                 (list (quote DISPLAY)
+                       (length frees-here)
+                       ($let.src iform))
                  (quote ())))
            (unquote-splicing init-code)
            (unquote-splicing boxes-code)
