@@ -1187,6 +1187,13 @@
                      (length args)
                      1)))))
 
+(define-macro
+  ($src x sexp)
+  (quasiquote
+    (set-source-info!
+      (make-list-with-src-slot (unquote x))
+      (source-info (unquote sexp)))))
+
 (define
   (pass1/expand sexp)
   (define
@@ -1219,47 +1226,55 @@
                ((define)
                 (if (define-is-lambda? sexp)
                     (pass1/expand (define->lambda sexp))
-                    ($map1 (lambda (s) (pass1/expand s)) sexp)))
-               ((let1) (pass1/expand (let1->let sexp)))
+                    ($src ($map1 (lambda (s) (pass1/expand s)) sexp)
+                          sexp)))
+               ((let1)
+                ($src (pass1/expand (let1->let sexp)) sexp))
                ((let)
                 (if (let-is-named? sexp)
-                    (pass1/expand (named-let->letrec sexp))
-                    (expand-let (second sexp) (cddr sexp))))
-               ((let*) (pass1/expand (let*->let sexp)))
-               ((cond) (pass1/expand (cond->if sexp)))
+                    ($src (pass1/expand (named-let->letrec sexp))
+                          sexp)
+                    ($src (expand-let (second sexp) (cddr sexp))
+                          sexp)))
+               ((let*)
+                ($src (pass1/expand (let*->let sexp)) sexp))
+               ((cond)
+                ($src (pass1/expand (cond->if sexp)) sexp))
                ((lambda)
                 (cond ((lambda-has-define? sexp)
-                       (set-source-info!
-                         (pass1/expand (internal-define->letrec sexp))
-                         (source-info sexp)))
-                      (else (set-source-info!
-                              (make-list-with-src-slot
-                                (quasiquote
-                                  (lambda
-                                    (unquote (cadr sexp))
-                                    (unquote-splicing
-                                      (pass1/expand (cddr sexp))))))
-                              (source-info sexp)))))
+                       ($src (pass1/expand
+                               ($src (internal-define->letrec sexp) sexp))
+                             sexp))
+                      (else ($src (quasiquote
+                                    (lambda
+                                      (unquote (cadr sexp))
+                                      (unquote-splicing
+                                        (pass1/expand (cddr sexp)))))
+                                  sexp))))
                ((when)
                 (match sexp
                        (((quote when) pred body . more)
-                        (pass1/expand
-                          (quasiquote
-                            (cond ((unquote pred)
-                                   (unquote body)
-                                   (unquote-splicing more))))))
+                        ($src (pass1/expand
+                                (quasiquote
+                                  (cond ((unquote pred)
+                                         (unquote body)
+                                         (unquote-splicing more)))))
+                              sexp))
                        (else (syntax-error "malformed when"))))
                ((unless)
                 (match sexp
                        (((quote unless) pred body . more)
-                        (pass1/expand
-                          (quasiquote
-                            (cond ((not (unquote pred))
-                                   (unquote body)
-                                   (unquote-splicing more))))))
+                        ($src (pass1/expand
+                                (quasiquote
+                                  (cond ((not (unquote pred))
+                                         (unquote body)
+                                         (unquote-splicing more)))))
+                              sexp))
                        (else (syntax-error "malformed unless"))))
-               ((aif) (pass1/expand (aif->let sexp)))
-               ((case) (pass1/expand (case->cond sexp)))
+               ((aif)
+                ($src (pass1/expand (aif->let sexp)) sexp))
+               ((case)
+                ($src (pass1/expand (case->cond sexp)) sexp))
                ((quasiquote) (expand-quasiquote (cadr sexp) 0))
                (else sexp)))
         (else sexp)))
@@ -1303,27 +1318,29 @@
          (defines (first ret))
          (rest (second ret))
          (letrec-body
-           (quasiquote
-             (letrec
-               (unquote
-                 (map (lambda (d) (list (second d) (third d)))
-                      (map pass1/expand defines)))
-               (unquote-splicing rest)))))
-        (quasiquote
-          (lambda (unquote args) (unquote letrec-body)))))
+           ($src (quasiquote
+                   (letrec
+                     (unquote
+                       (map (lambda (d) (list (second d) (third d)))
+                            (map pass1/expand defines)))
+                     (unquote-splicing rest)))
+                 sexp)))
+        ($src (quasiquote
+                (lambda (unquote args) (unquote letrec-body)))
+              sexp)))
 
 (define
   (define->lambda sexp)
   (let ((args (cadr sexp)) (body (cddr sexp)))
-       (let1 closure
-             (make-list-with-src-slot
-               (quasiquote
-                 (lambda
-                   (unquote (cdr args))
-                   (unquote-splicing body))))
-             (set-source-info! closure (source-info sexp))
-             (quasiquote
-               (define (unquote (car args)) (unquote closure))))))
+       (quasiquote
+         (define
+           (unquote (car args))
+           (unquote
+             ($src (quasiquote
+                     (lambda
+                       (unquote (cdr args))
+                       (unquote-splicing body)))
+                   sexp))))))
 
 (define
   (unless->cond sexp)
@@ -1338,9 +1355,10 @@
                  ((args args))
                  (if (null? args)
                      body
-                     (quasiquote
-                       ((let ((unquote (car args)))
-                             (unquote-splicing (loop (cdr args)))))))))))
+                     ($src (quasiquote
+                             ((let ((unquote (car args)))
+                                   (unquote-splicing (loop (cdr args))))))
+                           sexp))))))
 
 (define
   (cond->if sexp)
@@ -1432,14 +1450,16 @@
          (args (caddr sexp))
          (vars ($map1 car args))
          (vals ($map1 cadr args))
-         (body (cdddr sexp)))
-        (dd "named-let->letrec sexp")
-        (pp (source-info sexp))
-        (quasiquote
-          (letrec
-            (((unquote name)
-              (lambda (unquote vars) (unquote-splicing body))))
-            ((unquote name) (unquote-splicing vals))))))
+         (body (cdddr sexp))
+         (lambda-body
+           ($src (quasiquote
+                   (lambda (unquote vars) (unquote-splicing body)))
+                 sexp)))
+        ($src (quasiquote
+                (letrec
+                  (((unquote name) (unquote lambda-body)))
+                  ((unquote name) (unquote-splicing vals))))
+              sexp)))
 
 (define
   (replace-proc sexp a b)
@@ -2143,7 +2163,7 @@
                             (source-info sexp))))
                ((lambda)
                 (pass1/lambda->iform
-                  (quote <proc>)
+                  (quote lambda)
                   sexp
                   library
                   lvars))
