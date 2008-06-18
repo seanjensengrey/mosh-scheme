@@ -1220,22 +1220,12 @@
                 (if (define-is-lambda? sexp)
                     (pass1/expand (define->lambda sexp))
                     ($map1 (lambda (s) (pass1/expand s)) sexp)))
-               ((let1)
-                (set-source-info!
-                  (pass1/expand (let1->let sexp))
-                  (source-info sexp)))
+               ((let1) (pass1/expand (let1->let sexp)))
                ((let)
                 (if (let-is-named? sexp)
-                    (set-source-info!
-                      (pass1/expand (named-let->letrec sexp))
-                      (source-info sexp))
-                    (set-source-info!
-                      (expand-let (second sexp) (cddr sexp))
-                      (source-info sexp))))
-               ((let*)
-                (set-source-info!
-                  (pass1/expand (let*->let sexp))
-                  (source-info sexp)))
+                    (pass1/expand (named-let->letrec sexp))
+                    (expand-let (second sexp) (cddr sexp))))
+               ((let*) (pass1/expand (let*->let sexp)))
                ((cond) (pass1/expand (cond->if sexp)))
                ((lambda)
                 (cond ((lambda-has-define? sexp)
@@ -1268,15 +1258,8 @@
                                    (unquote body)
                                    (unquote-splicing more))))))
                        (else (syntax-error "malformed unless"))))
-               ((aif)
-                (let1 v
-                      (pass1/expand (aif->let sexp))
-                      (set-source-info! v (source-info sexp))
-                      v))
-               ((case)
-                (set-source-info!
-                  (pass1/expand (case->cond sexp))
-                  (source-info sexp)))
+               ((aif) (pass1/expand (aif->let sexp)))
+               ((case) (pass1/expand (case->cond sexp)))
                ((quasiquote) (expand-quasiquote (cadr sexp) 0))
                (else sexp)))
         (else sexp)))
@@ -1325,9 +1308,7 @@
                (unquote
                  (map (lambda (d) (list (second d) (third d)))
                       (map pass1/expand defines)))
-               (unquote-splicing rest))))
-         (letrec-body
-           (set-source-info! letrec-body (source-info sexp))))
+               (unquote-splicing rest)))))
         (quasiquote
           (lambda (unquote args) (unquote letrec-body)))))
 
@@ -4004,7 +3985,6 @@
                   (if (> (length frees-here) 0)
                       (pass3/collect-free frees-here locals frees)
                       (quote (0)))))
-               (pp "eeeeeeeeeeeeeeeeeemmm")
                (quasiquote
                  ((unquote
                     (code-stack-sum args-code body-code free-code))
@@ -4012,7 +3992,7 @@
                   (unquote-splicing (code-body free-code))
                   (unquote-splicing
                     (if (> (length frees-here) 0)
-                        (list (quote DISPLAY) (length frees-here) #f)
+                        (list (quote DISPLAY) (length frees-here))
                         (quote ())))
                   (unquote-splicing (code-body args-code))
                   (unquote-splicing boxes-code)
@@ -4130,7 +4110,7 @@
            (unquote-splicing (code-body free-code))
            (unquote-splicing
              (if (> (length frees-here) 0)
-                 (list (quote DISPLAY) (length frees-here) #f)
+                 (list (quote DISPLAY) (length frees-here))
                  (quote ())))
            (unquote-splicing (code-body vals-code))
            RECEIVE
@@ -4206,9 +4186,7 @@
                (unquote-splicing (code-body free-code))
                (unquote-splicing
                  (if (> (length frees-here) 0)
-                     (list (quote DISPLAY)
-                           (length frees-here)
-                           (quasiquote ((unquote ($let.src iform)) let)))
+                     (list (quote DISPLAY) (length frees-here))
                      (quote ())))
                (unquote-splicing (code-body args-code))
                (unquote-splicing boxes-code)
@@ -4291,9 +4269,7 @@
            (unquote-splicing (code-body free-code))
            (unquote-splicing
              (if (> (length frees-here) 0)
-                 (list (quote DISPLAY)
-                       (length frees-here)
-                       (quasiquote ((unquote ($let.src iform)) letrec)))
+                 (list (quote DISPLAY) (length frees-here))
                  (quote ())))
            (unquote-splicing init-code)
            (unquote-splicing boxes-code)
