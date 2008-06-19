@@ -2232,10 +2232,6 @@
                 (operator-nargs->iform
                   (quote /)
                   (quote NUMBER_DIV)))
-               ((append)
-                (operator-nargs->iform
-                  (quote append)
-                  (quote APPEND)))
                ((=)
                 (numcmp->iform
                   (quote =)
@@ -3707,7 +3703,6 @@
   (let1 args
         ($asm.args iform)
         (case ($asm.insn iform)
-              ((APPEND) (compile-2arg (quote APPEND) args))
               ((NUMBER_ADD)
                (compile-2arg (quote NUMBER_ADD) args))
               ((NUMBER_SUB)
@@ -4651,6 +4646,15 @@
                        (((quote PUSH) (quote FRAME) . rest)
                         (iter (quasiquote
                                 (PUSH_FRAME (unquote-splicing rest)))))
+                       (((and x (not (quote CONSTANT_PUSH)))
+                         (quote PUSH)
+                         (quote FRAME)
+                         .
+                         rest)
+                        (iter (quasiquote
+                                ((unquote x)
+                                 PUSH_FRAME
+                                 (unquote-splicing rest)))))
                        (((quote REFER_FREE) 3 . rest)
                         (iter (quasiquote
                                 (REFER_FREE3 (unquote-splicing rest)))))
@@ -4710,7 +4714,7 @@
                                   (unquote n)
                                   (unquote-splicing rest)))))
                        (else (cons (car s) (iter (cdr s))))))))
-  (iter sexp))
+  sexp)
 
 (define
   (compile sexp)
