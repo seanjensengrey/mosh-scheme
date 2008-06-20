@@ -112,21 +112,15 @@
                       (unquote ret)))))))
 
 (define
-  (set-union l1 l2)
+  (%set-union l1 l2)
   (define
     (set-cons x lst)
     (if (memq x lst) lst (cons x lst)))
   (define
     (rec lst1 lst2)
-    (let ((lst1 (if (or (pair? lst1) (null? lst1))
-                    lst1
-                    (list lst1)))
-          (lst2 (if (or (pair? lst2) (null? lst2))
-                    lst2
-                    (list lst2))))
-         (if (null? lst1)
-             lst2
-             (rec (cdr lst1) (set-cons (car lst1) lst2)))))
+    (cond ((null? lst1) lst2)
+          ((null? lst2) lst1)
+          (else (rec (cdr lst1) (set-cons (car lst1) lst2)))))
   (rec l1 l2))
 
 (define
@@ -3991,8 +3985,8 @@
                   (pass3 body
                          vars
                          frees-here
-                         (set-union can-frees vars)
-                         (set-union
+                         (%set-union can-frees vars)
+                         (%set-union
                            sets-here
                            (set-intersect sets frees-here))
                          (if tail (+ tail (length vars) 2) #f)))
@@ -4075,7 +4069,7 @@
           (unquote-splicing
             (if tail (quote ()) (list end-of-frame)))))))
 
-(define (pass3/$lambda iform locals frees can-frees sets tail) (let* ((vars ($lambda.lvars iform)) (body ($lambda.body iform)) (frees-here (pass3/find-free body vars (append locals frees can-frees))) (sets-here (append (pass3/find-sets body vars) sets)) (boxes-code (pass3/make-boxes sets-here vars)) (body-code (pass3 body vars frees-here (set-union can-frees vars) (set-union sets-here (set-intersect sets frees-here)) (length vars))) (free-code (if (> (length frees-here) 0) (pass3/collect-free frees-here locals frees) '(0))) (end-of-closure (make-label))) `(0 ,@(code-body free-code) CLOSURE ,(ref-label end-of-closure) ,(length vars) ,(> ($lambda.optarg iform) 0) ,(length frees-here) ,(+ (code-stack-sum body-code free-code) (length vars) 4) ,($lambda.src iform) ,@boxes-code ,@(code-body body-code) RETURN ,(length vars) ,end-of-closure)))(define
+(define (pass3/$lambda iform locals frees can-frees sets tail) (let* ((vars ($lambda.lvars iform)) (body ($lambda.body iform)) (frees-here (pass3/find-free body vars (append locals frees can-frees))) (sets-here (append (pass3/find-sets body vars) sets)) (boxes-code (pass3/make-boxes sets-here vars)) (body-code (pass3 body vars frees-here (%set-union can-frees vars) (%set-union sets-here (set-intersect sets frees-here)) (length vars))) (free-code (if (> (length frees-here) 0) (pass3/collect-free frees-here locals frees) '(0))) (end-of-closure (make-label))) `(0 ,@(code-body free-code) CLOSURE ,(ref-label end-of-closure) ,(length vars) ,(> ($lambda.optarg iform) 0) ,(length frees-here) ,(+ (code-stack-sum body-code free-code) (length vars) 4) ,($lambda.src iform) ,@boxes-code ,@(code-body body-code) RETURN ,(length vars) ,end-of-closure)))(define
   (pass3/$receive
     iform
     locals
@@ -4102,8 +4096,8 @@
            (pass3 body
                   vars
                   frees-here
-                  (set-union can-frees vars)
-                  (set-union
+                  (%set-union can-frees vars)
+                  (%set-union
                     sets-here
                     (set-intersect sets frees-here))
                   (if tail (+ tail (length vars) 2) #f)))
@@ -4177,8 +4171,8 @@
                (pass3 body
                       vars
                       frees-here
-                      (set-union can-frees vars)
-                      (set-union
+                      (%set-union can-frees vars)
+                      (%set-union
                         sets-here
                         (set-intersect sets frees-here))
                       (if tail (+ tail (length vars) 2) #f)))
@@ -4248,8 +4242,8 @@
            (pass3 body
                   vars
                   frees-here
-                  (set-union can-frees vars)
-                  (set-union
+                  (%set-union can-frees vars)
+                  (%set-union
                     sets-here
                     (set-intersect sets frees-here))
                   (if tail (+ tail (length vars) 2) #f)))
@@ -4266,8 +4260,8 @@
                  (pass3 x
                         vars
                         frees-here
-                        (set-union can-frees vars)
-                        (set-union
+                        (%set-union can-frees vars)
+                        (%set-union
                           sets-here
                           (set-intersect sets frees-here))
                         #f)
