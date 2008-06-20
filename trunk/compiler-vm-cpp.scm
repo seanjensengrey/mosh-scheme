@@ -3173,6 +3173,35 @@
                                         args))
                                iform))))))
 
+(define test-table (make-eq-hashtable))
+
+(define
+  (get table a b c)
+  (aif (hashtable-ref table a #f)
+       (aif (hashtable-ref it b #f)
+            (hashtable-ref it c #f)
+            #f)
+       #f))
+
+(define
+  (set table a b c v)
+  (aif (hashtable-ref table a #f)
+       (let1 it2
+             (hashtable-ref it b #f)
+             (if it2
+                 (hashtable-set! it2 c v)
+                 (let1 t
+                       (make-eq-hashtable)
+                       (hashtable-set! it b t)
+                       (hashtable-set! t c v))))
+       (let1 t
+             (make-eq-hashtable)
+             (hashtable-set! table a t)
+             (let1 t2
+                   (make-eq-hashtable)
+                   (hashtable-set! t b t2)
+                   (hashtable-set! t2 c v)))))
+
 (define
   (pass3/find-free iform locals can-frees)
   (define
@@ -3196,7 +3225,7 @@
                         labels-seen)))
                 ((= $SEQ t)
                  ($append-map1
-                   (lambda (fm) (rec fm locals labels-seen))
+                   (lambda (fm) (rec fm l labels-seen))
                    ($seq.body i)))
                 ((= $LAMBDA t)
                  (rec ($lambda.body i)
