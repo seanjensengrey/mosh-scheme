@@ -3353,7 +3353,7 @@
   (fold (lambda
           (x y)
           (cons (+ (car y) (car x))
-                (append (cdr y) (cdr x))))
+                (append! (cdr y) (cdr x))))
         (quote (0))
         ($map1-with-tail proc lst)))
 
@@ -4474,15 +4474,18 @@
   (quasiquote
     (begin (vector-set! ret j (unquote insn))
            (vector-set! ret (+ j 1) (vector-ref v (+ i 1)))
-           (loop (+ i 2) (+ j 2) labels))))
+           (loop (+ i 2) (+ j 2)))))
 
 (define-macro
   (pass4/fixup-labels-insn insn)
   (quasiquote
     (let1 label
-          (assq (vector-ref code (+ i 1)) labels)
+          (hashtable-ref
+            labels
+            (vector-ref code (+ i 1))
+            #f)
           (cond (label (vector-set! code i (unquote insn))
-                       (vector-set! code (+ i 1) (- (cdr label) i 1))
+                       (vector-set! code (+ i 1) (- label i 1))
                        (loop (+ i 2)))
                 (else (loop (+ i 1)))))))
 
@@ -4491,9 +4494,10 @@
   (define
     (collect-labels)
     (let* ((len (vector-length v))
-           (ret (make-vector len (quote NOP))))
+           (ret (make-vector len (quote NOP)))
+           (labels (make-eq-hashtable)))
           (let loop
-               ((i 0) (j 0) (labels (quote ())))
+               ((i 0) (j 0))
                (cond ((= i len) (values ret labels))
                      (else (let1 insn
                                  (vector-ref v i)
@@ -4525,11 +4529,10 @@
                                        ((and (vector? insn)
                                              (> (vector-length insn) 0)
                                              (tag? insn $LABEL))
-                                        (loop (+ i 1) j (acons insn j labels)))
+                                        (hashtable-set! labels insn j)
+                                        (loop (+ i 1) j))
                                        (else (vector-set! ret j insn)
-                                             (loop (+ i 1)
-                                                   (+ j 1)
-                                                   labels)))))))))
+                                             (loop (+ i 1) (+ j 1))))))))))
   (receive
     (code labels)
     (collect-labels)
