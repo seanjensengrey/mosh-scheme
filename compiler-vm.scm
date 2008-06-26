@@ -3403,15 +3403,31 @@
   (list (quote builder)))
 
 (define
-  (code-builder-put! cb x)
+  (code-builder-put1! cb x)
   (append! cb (list x)))
+
+(define
+  (code-builder-put2! cb a b)
+  (append! cb (list a b)))
+
+(define
+  (code-builder-put3! cb a b c)
+  (append! cb (list a b c)))
+
+(define
+  (code-builder-put4! cb a b c d)
+  (append! cb (list a b c d)))
+
+(define
+  (code-builder-put5! cb a b c d e)
+  (append! cb (list a b c d e)))
 
 (define
   (code-builder-append! cb1 cb2)
   (let loop
        ((e (cdr cb2)))
        (cond ((null? e) (quote ()))
-             (else (code-builder-put! cb1 (car e))
+             (else (code-builder-put1! cb1 (car e))
                    (loop (cdr e))))))
 
 (define (code-builder-emit cb) (cdr cb))
@@ -3420,10 +3436,44 @@
   (cput! cb . more)
   (match more
          (() (quote ()))
-         ((x . y)
+         ((a b c d e . f)
           (quasiquote
-            (begin (code-builder-put! (unquote cb) (unquote x))
-                   (cput! (unquote cb) (unquote-splicing y)))))))
+            (begin (code-builder-put5!
+                     (unquote cb)
+                     (unquote a)
+                     (unquote b)
+                     (unquote c)
+                     (unquote d)
+                     (unquote e))
+                   (cput! (unquote cb) (unquote-splicing f)))))
+         ((a b c d . e)
+          (quasiquote
+            (begin (code-builder-put4!
+                     (unquote cb)
+                     (unquote a)
+                     (unquote b)
+                     (unquote c)
+                     (unquote d))
+                   (cput! (unquote cb) (unquote-splicing e)))))
+         ((a b c . d)
+          (quasiquote
+            (begin (code-builder-put3!
+                     (unquote cb)
+                     (unquote a)
+                     (unquote b)
+                     (unquote c))
+                   (cput! (unquote cb) (unquote-splicing d)))))
+         ((a b . c)
+          (quasiquote
+            (begin (code-builder-put2!
+                     (unquote cb)
+                     (unquote a)
+                     (unquote b))
+                   (cput! (unquote cb) (unquote-splicing c)))))
+         ((a . b)
+          (quasiquote
+            (begin (code-builder-put1! (unquote cb) (unquote a))
+                   (cput! (unquote cb) (unquote-splicing b)))))))
 
 (define
   (pass3/collect-free frees-here locals frees)
