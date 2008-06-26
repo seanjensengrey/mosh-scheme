@@ -3061,8 +3061,6 @@
                                         args))
                                iform))))))
 
-(define test-table (make-eq-hashtable))
-
 (define
   (pass3/find-free iform locals can-frees)
   (define
@@ -3273,11 +3271,11 @@
                    (cput! (unquote cb) (unquote-splicing b)))))))
 
 (define
-  (zass3/collect-free cb frees-here locals frees)
+  (pass3/collect-free cb frees-here locals frees)
   (fold (lambda
           (i accum)
           (let1 size
-                (zass3/compile-refer cb i locals frees)
+                (pass3/compile-refer cb i locals frees)
                 (cput! cb (quote PUSH))
                 (+ size accum)))
         0
@@ -3305,7 +3303,7 @@
                (next-local (cdr locals) (+ n 1))))))
 
 (define
-  (zass3/compile-refer cb lvar locals frees)
+  (pass3/compile-refer cb lvar locals frees)
   (pass3/symbol-lookup
     lvar
     locals
@@ -3314,7 +3312,7 @@
     (lambda (n) (cput! cb (quote REFER_FREE) n) 0)))
 
 (define
-  (zass3/compile-assign cb lvar locals frees)
+  (pass3/compile-assign cb lvar locals frees)
   (pass3/symbol-lookup
     lvar
     locals
@@ -3323,7 +3321,7 @@
     (lambda (n) (cput! cb (quote ASSIGN_FREE) n) 0)))
 
 (define
-  (zass3/make-boxes cb sets vars)
+  (pass3/make-boxes cb sets vars)
   ($for-each1-with-rindex
     (lambda
       (index var)
@@ -3331,15 +3329,15 @@
     vars))
 
 (define
-  zass3/dispatch-table
+  pass3/dispatch-table
   (make-vector $INSN-NUM))
 
 (define
-  (zass3/register insn proc)
-  (vector-set! zass3/dispatch-table insn proc))
+  (pass3/register insn proc)
+  (vector-set! pass3/dispatch-table insn proc))
 
 (define
-  (zass3/$const
+  (pass3/$const
     cb
     iform
     locals
@@ -3351,7 +3349,7 @@
   0)
 
 (define
-  (zass3/$it
+  (pass3/$it
     cb
     iform
     locals
@@ -3362,7 +3360,7 @@
   0)
 
 (define
-  (zass3/$list
+  (pass3/$list
     cb
     iform
     locals
@@ -3376,7 +3374,7 @@
           (fold (lambda
                   (i accum)
                   (let1 size
-                        (zass3/rec cb i locals frees can-frees sets tail)
+                        (pass3/rec cb i locals frees can-frees sets tail)
                         (cput! cb (quote PUSH))
                         (+ size accum)))
                 0
@@ -3384,7 +3382,7 @@
           (cput! cb (quote LIST) (length args)))))
 
 (define
-  (zass3/$local-ref
+  (pass3/$local-ref
     cb
     iform
     locals
@@ -3392,7 +3390,7 @@
     can-frees
     sets
     tail)
-  (zass3/compile-refer
+  (pass3/compile-refer
     cb
     ($local-ref.lvar iform)
     locals
@@ -3402,7 +3400,7 @@
   0)
 
 (define
-  (zass3/$local-assign
+  (pass3/$local-assign
     cb
     iform
     locals
@@ -3411,7 +3409,7 @@
     sets
     tail)
   (let ((val-stack-size
-          (zass3/rec
+          (pass3/rec
             cb
             ($local-assign.val iform)
             locals
@@ -3420,7 +3418,7 @@
             sets
             #f))
         (var-stack-size
-          (zass3/compile-assign
+          (pass3/compile-assign
             cb
             ($local-ref.lvar iform)
             locals
@@ -3440,7 +3438,7 @@
       (symbol->string sym))))
 
 (define
-  (zass3/$global-ref
+  (pass3/$global-ref
     cb
     iform
     locals
@@ -3465,7 +3463,7 @@
                    (else (next-free (cdr free) (+ n 1)))))))
 
 (define
-  (zass3/$global-assign
+  (pass3/$global-assign
     cb
     iform
     locals
@@ -3479,7 +3477,7 @@
              ((free frees) (n 0))
              (cond ((null? free)
                     (begin0
-                      (zass3/rec
+                      (pass3/rec
                         cb
                         ($global-assign.val iform)
                         locals
@@ -3494,7 +3492,7 @@
                                sym))))
                    ((eq? ($lvar.sym (car free)) sym)
                     (begin0
-                      (zass3/rec
+                      (pass3/rec
                         cb
                         ($global-assign.val iform)
                         locals
@@ -3506,7 +3504,7 @@
                    (else (next-free (cdr free) (+ n 1)))))))
 
 (define
-  (zass3/$seq
+  (pass3/$seq
     cb
     iform
     locals
@@ -3521,7 +3519,7 @@
                          (if (null? (cdr form)) tail #f)
                          (loop (cdr form)
                                (+ size
-                                  (zass3/rec
+                                  (pass3/rec
                                     cb
                                     (car form)
                                     locals
@@ -3531,7 +3529,7 @@
                                     tail?))))))))
 
 (define
-  (zass3/$undef
+  (pass3/$undef
     cb
     iform
     locals
@@ -3543,7 +3541,7 @@
   0)
 
 (define
-  (zass3/$asm
+  (pass3/$asm
     cb
     iform
     locals
@@ -3554,7 +3552,7 @@
   (define
     (compile-1arg insn args)
     (begin0
-      (zass3/rec
+      (pass3/rec
         cb
         (first args)
         locals
@@ -3565,7 +3563,7 @@
       (cput! cb insn)))
   (define
     (compile-2arg insn args)
-    (let ((x (zass3/compile-arg
+    (let ((x (pass3/compile-arg
                cb
                (first args)
                locals
@@ -3573,7 +3571,7 @@
                can-frees
                sets
                #f))
-          (y (zass3/rec
+          (y (pass3/rec
                cb
                (second args)
                locals
@@ -3585,7 +3583,7 @@
          (+ x y)))
   (define
     (compile-3arg insn args)
-    (let ((x (zass3/compile-arg
+    (let ((x (pass3/compile-arg
                cb
                (first args)
                locals
@@ -3593,7 +3591,7 @@
                can-frees
                sets
                #f))
-          (y (zass3/compile-arg
+          (y (pass3/compile-arg
                cb
                (second args)
                locals
@@ -3601,7 +3599,7 @@
                can-frees
                sets
                #f))
-          (z (zass3/rec
+          (z (pass3/rec
                cb
                (third args)
                locals
@@ -3618,7 +3616,7 @@
          (cond ((null? args) stack-size)
                ((null? (cdr args))
                 (+ stack-size
-                   (zass3/rec
+                   (pass3/rec
                      cb
                      (car args)
                      locals
@@ -3628,7 +3626,7 @@
                      #f)))
                (else (loop (cdr args)
                            (+ stack-size
-                              (zass3/compile-arg
+                              (pass3/compile-arg
                                 cb
                                 (car args)
                                 locals
@@ -3696,7 +3694,7 @@
                      (make-label)
                      (cput! cb (quote FRAME) (ref-label end-of-frame))
                      (let1 arg2-size
-                           (zass3/rec
+                           (pass3/rec
                              cb
                              (second args)
                              locals
@@ -3706,7 +3704,7 @@
                              #f)
                            (cput! cb (quote PUSH))
                            (let1 arg1-size
-                                 (zass3/rec
+                                 (pass3/rec
                                    cb
                                    (first args)
                                    locals
@@ -3716,10 +3714,10 @@
                                    #f)
                                  (cput! cb (quote APPLY) end-of-frame)
                                  (+ arg1-size arg2-size)))))
-              (else (print "unknown insn on zass3/$asm")))))
+              (else (print "unknown insn on pass3/$asm")))))
 
 (define
-  (zass3/$if
+  (pass3/$if
     cb
     iform
     locals
@@ -3730,7 +3728,7 @@
   (let ((end-of-else (make-label))
         (begin-of-else (make-label)))
        (let1 test-size
-             (zass3/rec
+             (pass3/rec
                cb
                ($if.test iform)
                locals
@@ -3740,7 +3738,7 @@
                #f)
              (cput! cb (quote TEST) (ref-label begin-of-else))
              (let1 then-size
-                   (zass3/rec
+                   (pass3/rec
                      cb
                      ($if.then iform)
                      locals
@@ -3753,7 +3751,7 @@
                           (ref-label end-of-else)
                           begin-of-else)
                    (let1 else-size
-                         (zass3/rec
+                         (pass3/rec
                            cb
                            ($if.else iform)
                            locals
@@ -3765,7 +3763,7 @@
                          (+ test-size then-size else-size))))))
 
 (define
-  (zass3/$define
+  (pass3/$define
     cb
     iform
     locals
@@ -3774,7 +3772,7 @@
     sets
     tail)
   (begin0
-    (zass3/rec
+    (pass3/rec
       cb
       ($define.val iform)
       locals
@@ -3789,7 +3787,7 @@
              ($define.sym iform)))))
 
 (define
-  (zass3/compile-arg
+  (pass3/compile-arg
     cb
     arg
     locals
@@ -3798,12 +3796,12 @@
     sets
     tail)
   (let1 size
-        (zass3/rec cb arg locals frees can-frees sets #f)
+        (pass3/rec cb arg locals frees can-frees sets #f)
         (cput! cb (quote PUSH))
         (+ size 1)))
 
 (define
-  (zass3/compile-args
+  (pass3/compile-args
     cb
     args
     locals
@@ -3814,7 +3812,7 @@
   (fold (lambda
           (i accum)
           (let1 size
-                (zass3/compile-arg
+                (pass3/compile-arg
                   cb
                   i
                   locals
@@ -3827,7 +3825,7 @@
         args))
 
 (define
-  (zass3/$call
+  (pass3/$call
     cb
     iform
     locals
@@ -3843,7 +3841,7 @@
                       (quote REDUCE)
                       (length ($call.args iform)))
                (begin0
-                 (zass3/compile-args
+                 (pass3/compile-args
                    cb
                    ($call.args iform)
                    locals
@@ -3871,12 +3869,12 @@
                (cput! cb (quote LET_FRAME))
                (let1 free-size
                      (if (> (length frees-here) 0)
-                         (zass3/collect-free cb frees-here locals frees)
+                         (pass3/collect-free cb frees-here locals frees)
                          0)
                      (when (> (length frees-here) 0)
                            (cput! cb (quote DISPLAY) (length frees-here)))
                      (let1 args-size
-                           (zass3/compile-args
+                           (pass3/compile-args
                              cb
                              ($call.args iform)
                              locals
@@ -3884,13 +3882,13 @@
                              can-frees
                              sets
                              #f)
-                           (zass3/make-boxes cb sets-here vars)
+                           (pass3/make-boxes cb sets-here vars)
                            (cput! cb
                                   (quote ENTER)
                                   (length ($call.args iform))
                                   label)
                            (let1 body-size
-                                 (zass3/rec
+                                 (pass3/rec
                                    cb
                                    body
                                    vars
@@ -3910,7 +3908,7 @@
                       tail
                       (cput! cb (quote FRAME) (ref-label end-of-frame)))
                     (let* ((args-size
-                             (zass3/compile-args
+                             (pass3/compile-args
                                cb
                                ($call.args iform)
                                locals
@@ -3919,7 +3917,7 @@
                                sets
                                #f))
                            (proc-size
-                             (zass3/rec
+                             (pass3/rec
                                cb
                                ($call.proc iform)
                                locals
@@ -3939,7 +3937,7 @@
                           (+ args-size proc-size))))))
 
 (define
-  (zass3/$call-cc
+  (pass3/$call-cc
     cb
     iform
     locals
@@ -3957,7 +3955,7 @@
                (if tail 1 0)
                (quote PUSH))
         (begin0
-          (zass3/rec
+          (pass3/rec
             cb
             ($call-cc.proc iform)
             locals
@@ -3970,7 +3968,7 @@
           (unless tail (cput! cb end-of-frame)))))
 
 (define
-  (zass3/$lambda
+  (pass3/$lambda
     cb
     iform
     locals
@@ -3991,7 +3989,7 @@
          (lambda-cb (make-code-builder)))
         (let1 free-size
               (if (> (length frees-here) 0)
-                  (zass3/collect-free cb frees-here locals frees)
+                  (pass3/collect-free cb frees-here locals frees)
                   0)
               (cput! cb
                      (quote CLOSURE)
@@ -4000,7 +3998,7 @@
                      (> ($lambda.optarg iform) 0)
                      (length frees-here))
               (let1 body-size
-                    (zass3/rec
+                    (pass3/rec
                       lambda-cb
                       body
                       vars
@@ -4013,7 +4011,7 @@
                     (cput! cb
                            (+ body-size free-size (length vars) 4)
                            ($lambda.src iform))
-                    (zass3/make-boxes cb sets-here vars)
+                    (pass3/make-boxes cb sets-here vars)
                     (code-builder-append! cb lambda-cb)
                     (cput! cb
                            (quote RETURN)
@@ -4022,7 +4020,7 @@
                     0))))
 
 (define
-  (zass3/$receive
+  (pass3/$receive
     cb
     iform
     locals
@@ -4047,12 +4045,12 @@
         (cput! cb (quote LET_FRAME))
         (let1 free-size
               (if (> (length frees-here) 0)
-                  (zass3/collect-free cb frees-here locals frees)
+                  (pass3/collect-free cb frees-here locals frees)
                   0)
               (when (> (length frees-here) 0)
                     (cput! cb (quote DISPLAY) (length frees-here)))
               (let1 vals-size
-                    (zass3/rec
+                    (pass3/rec
                       cb
                       ($receive.vals iform)
                       locals
@@ -4064,10 +4062,10 @@
                            (quote RECEIVE)
                            ($receive.reqargs iform)
                            ($receive.optarg iform))
-                    (zass3/make-boxes cb sets-here vars)
+                    (pass3/make-boxes cb sets-here vars)
                     (cput! cb (quote ENTER) (length vars))
                     (let1 body-size
-                          (zass3/rec
+                          (pass3/rec
                             cb
                             body
                             vars
@@ -4081,7 +4079,7 @@
                           (+ body-size vals-size free-size))))))
 
 (define
-  (zass3/$let
+  (pass3/$let
     cb
     iform
     locals
@@ -4090,7 +4088,7 @@
     sets
     tail)
   (if (eq? ($let.type iform) (quote rec))
-      (zass3/letrec
+      (pass3/letrec
         cb
         iform
         locals
@@ -4119,12 +4117,12 @@
             (cput! cb (quote LET_FRAME))
             (let1 free-size
                   (if (> (length frees-here) 0)
-                      (zass3/collect-free cb frees-here locals frees)
+                      (pass3/collect-free cb frees-here locals frees)
                       0)
                   (when (> (length frees-here) 0)
                         (cput! cb (quote DISPLAY) (length frees-here)))
                   (let1 args-size
-                        (zass3/compile-args
+                        (pass3/compile-args
                           cb
                           ($let.inits iform)
                           locals
@@ -4132,10 +4130,10 @@
                           can-frees
                           sets
                           tail)
-                        (zass3/make-boxes cb sets-here vars)
+                        (pass3/make-boxes cb sets-here vars)
                         (cput! cb (quote ENTER) (length vars))
                         (let1 body-size
-                              (zass3/rec
+                              (pass3/rec
                                 cb
                                 body
                                 vars
@@ -4149,7 +4147,7 @@
                               (+ body-size args-size free-size)))))))
 
 (define
-  (zass3/letrec
+  (pass3/letrec
     cb
     iform
     locals
@@ -4185,7 +4183,7 @@
         (cput! cb (quote LET_FRAME))
         (let1 free-size
               (if (> (length frees-here) 0)
-                  (zass3/collect-free cb frees-here locals frees)
+                  (pass3/collect-free cb frees-here locals frees)
                   0)
               (when (> (length frees-here) 0)
                     (cput! cb (quote DISPLAY) (length frees-here)))
@@ -4194,14 +4192,14 @@
                    (cond ((null? args) (quote ()))
                          (else (cput! cb (quote UNDEF) (quote PUSH))
                                (loop (cdr args)))))
-              (zass3/make-boxes cb sets-here vars)
+              (pass3/make-boxes cb sets-here vars)
               (cput! cb (quote ENTER) (length vars))
               (let1 assign-size
                     (let loop
                          ((args args) (size 0) (index 0))
                          (cond ((null? args) size)
                                (else (let1 stack-size
-                                           (zass3/rec
+                                           (pass3/rec
                                              cb
                                              (car args)
                                              vars
@@ -4218,7 +4216,7 @@
                                                  (+ stack-size size)
                                                  (+ index 1))))))
                     (let1 body-size
-                          (zass3/rec
+                          (pass3/rec
                             cb
                             body
                             vars
@@ -4232,7 +4230,7 @@
                           (+ free-size assign-size body-size))))))
 
 (define
-  (zass3/$import
+  (pass3/$import
     cb
     iform
     locals
@@ -4260,7 +4258,7 @@
   (rec iform))
 
 (define
-  (zass3/$library
+  (pass3/$library
     cb
     iform
     locals
@@ -4274,50 +4272,50 @@
          iform)
   0)
 
-(zass3/register $CONST zass3/$const)
+(pass3/register $CONST pass3/$const)
 
-(zass3/register $LAMBDA zass3/$lambda)
+(pass3/register $LAMBDA pass3/$lambda)
 
-(zass3/register $LOCAL-REF zass3/$local-ref)
+(pass3/register $LOCAL-REF pass3/$local-ref)
 
-(zass3/register
+(pass3/register
   $LOCAL-ASSIGN
-  zass3/$local-assign)
+  pass3/$local-assign)
 
-(zass3/register
+(pass3/register
   $GLOBAL-ASSIGN
-  zass3/$global-assign)
+  pass3/$global-assign)
 
-(zass3/register $GLOBAL-REF zass3/$global-ref)
+(pass3/register $GLOBAL-REF pass3/$global-ref)
 
-(zass3/register $SEQ zass3/$seq)
+(pass3/register $SEQ pass3/$seq)
 
-(zass3/register $UNDEF zass3/$undef)
+(pass3/register $UNDEF pass3/$undef)
 
-(zass3/register $IF zass3/$if)
+(pass3/register $IF pass3/$if)
 
-(zass3/register $ASM zass3/$asm)
+(pass3/register $ASM pass3/$asm)
 
-(zass3/register $DEFINE zass3/$define)
+(pass3/register $DEFINE pass3/$define)
 
-(zass3/register $CALL zass3/$call)
+(pass3/register $CALL pass3/$call)
 
-(zass3/register $CALL-CC zass3/$call-cc)
+(pass3/register $CALL-CC pass3/$call-cc)
 
-(zass3/register $LET zass3/$let)
+(pass3/register $LET pass3/$let)
 
-(zass3/register $LIST zass3/$list)
+(pass3/register $LIST pass3/$list)
 
-(zass3/register $LIBRARY zass3/$library)
+(pass3/register $LIBRARY pass3/$library)
 
-(zass3/register $IMPORT zass3/$import)
+(pass3/register $IMPORT pass3/$import)
 
-(zass3/register $IT zass3/$it)
+(pass3/register $IT pass3/$it)
 
-(zass3/register $RECEIVE zass3/$receive)
+(pass3/register $RECEIVE pass3/$receive)
 
 (define
-  (zass3/rec
+  (pass3/rec
     cb
     iform
     locals
@@ -4326,7 +4324,7 @@
     sets
     tail)
   ((vector-ref
-     zass3/dispatch-table
+     pass3/dispatch-table
      (vector-ref iform 0))
    cb
    iform
@@ -4337,10 +4335,10 @@
    tail))
 
 (define
-  (zass3 iform locals frees can-frees sets tail)
+  (pass3 iform locals frees can-frees sets tail)
   (let1 cb
         (make-code-builder)
-        (zass3/rec
+        (pass3/rec
           cb
           iform
           locals
@@ -4361,7 +4359,7 @@
         ($append-map1
           (lambda
             (sexp)
-            (zass3 (pass2/optimize
+            (pass3 (pass2/optimize
                      (pass1/sexp->iform
                        (pass1/expand sexp)
                        lib
@@ -4386,7 +4384,7 @@
           (pass4/fixup-labels
             (list->vector
               (merge-insn
-                (zass3 (pass2/optimize
+                (pass3 (pass2/optimize
                          (pass1/sexp->iform
                            ss
                            (if (null? lib) top-level-library (car lib))
@@ -4681,7 +4679,7 @@
 (define
   (compile sexp)
   (pass4 (merge-insn
-           (zass3 (let1 x
+           (pass3 (let1 x
                         (pass2/optimize
                           (pass1/sexp->iform
                             (pass1/expand sexp)
@@ -4698,7 +4696,7 @@
 
 (define
   (compile-no-optimize sexp)
-  (pass4 (zass3 (pass1/sexp->iform
+  (pass4 (pass3 (pass1/sexp->iform
                   (pass1/expand sexp)
                   top-level-library
                   (quote ())
