@@ -106,28 +106,6 @@
                    " ")))))
 
 (define
-  (make-gensym)
-  (let1 i
-        0
-        (lambda
-          ()
-          (set! i (+ i 1))
-          (string->symbol (format "G~d" i)))))
-
-(define-macro
-  with-gensym
-  (lambda
-    body
-    (let ((org (gensym)) (ret (gensym)))
-         (quasiquote
-           (let1 (unquote org)
-                 gensym
-                 (set! gensym (unquote (make-gensym)))
-                 (let (((unquote ret) (begin (unquote-splicing body))))
-                      (set! gensym (unquote org))
-                      (unquote ret)))))))
-
-(define
   (%set-union l1 l2)
   (define
     (set-cons x lst)
@@ -140,24 +118,12 @@
   (rec l1 l2))
 
 (define
-  (set-minus lst1 lst2)
-  (if (null? lst1)
-      (quote ())
-      (if (memq (car lst1) lst2)
-          (set-minus (cdr lst1) lst2)
-          (cons (car lst1) (set-minus (cdr lst1) lst2)))))
-
-(define
   (set-intersect lst1 lst2)
   (if (null? lst1)
       (quote ())
       (if (memq (car lst1) lst2)
           (cons (car lst1) (set-intersect (cdr lst1) lst2))
           (set-intersect (cdr lst1) lst2))))
-
-(define
-  (log . msg)
-  (display msg (current-error-port)))
 
 (define
   ($map1 f l)
@@ -180,53 +146,10 @@
       (cons (f (car l) (null? (cdr l)))
             ($map1-with-tail f (cdr l)))))
 
-(define
-  ($map1-with-rindex f l)
-  (define
-    (iter f l i)
-    (if (null? l)
-        l
-        (cons (f (car l) i) (iter f (cdr l) (- i 1)))))
-  (iter f l (- (length l) 1)))
-
-(define
-  ($map1-with-index f l)
-  (define
-    (iter f l i)
-    (if (null? l)
-        l
-        (cons (f (car l) i) (iter f (cdr l) (+ i 1)))))
-  (iter f l 0))
-
-(define
-  ($reverse-append-map1 proc l)
-  (let loop
-       ((l l))
-       (if (null? l)
-           (quote ())
-           (append2 (loop (cdr l)) (proc (car l))))))
-
-(define
-  ($append-map1-with-rindex proc l)
-  (let loop
-       ((l l) (i (- (length l) 1)))
-       (if (null? l)
-           (quote ())
-           (append2 (proc (car l) i) (loop (cdr l) (- i 1))))))
-
-(define
-  ($append-map1-with-tail proc l)
-  (apply append ($map1-with-tail proc l)))
-
 (define-macro
   ($append-map1 f l)
   (quasiquote
     (apply append ($map1 (unquote f) (unquote l)))))
-
-(define-macro
-  ($append!-map1 f l)
-  (quasiquote
-    (apply append! ($map1 (unquote f) (unquote l)))))
 
 (define
   (uniq lst)
@@ -1439,21 +1362,6 @@
                (cond (unquote-splicing expanded-clauses))))))
 
 (define
-  (named-let->let sexp)
-  (let* ((name (cadr sexp))
-         (args (caddr sexp))
-         (vars ($map1 car args))
-         (vals ($map1 cadr args))
-         (temp-name (gensym))
-         (body (replace-proc (cdddr sexp) name temp-name)))
-        (quasiquote
-          (let1 (unquote temp-name)
-                (quote ())
-                (set! (unquote temp-name)
-                      (lambda (unquote vars) (unquote-splicing body)))
-                ((unquote temp-name) (unquote-splicing vals))))))
-
-(define
   (named-let->letrec sexp)
   (let* ((name (cadr sexp))
          (args (caddr sexp))
@@ -1469,13 +1377,6 @@
                   (((unquote name) (unquote lambda-body)))
                   ((unquote name) (unquote-splicing vals))))
               sexp)))
-
-(define
-  (replace-proc sexp a b)
-  (cond ((pair? sexp)
-         (if (eq? (car sexp) a) (set-car! sexp b) #f)
-         ($map1 (lambda (s) (replace-proc s a b)) sexp))
-        (else sexp)))
 
 (define
   (aif->let sexp)
@@ -1625,22 +1526,6 @@
         (if (= 1 (length iforms))
             (car iforms)
             ($seq iforms tail?))))
-
-(define
-  ($take lis k)
-  (if (< (length lis) k)
-      lis
-      (let recur
-           ((lis lis) (k k))
-           (if (zero? k)
-               (quote ())
-               (cons (car lis) (recur (cdr lis) (- k 1)))))))
-
-(define
-  ($drop x i)
-  (let loop
-       ((n i) (l x))
-       (if (<= n 0) l (loop (- n 1) (cdr l)))))
 
 (define
   (pass1/lambda->iform name sexp library lvars)
@@ -2642,16 +2527,6 @@
    closures))
 
 (define
-  (pv v)
-  (let loop
-       ((i 0))
-       (if (>= i (vector-length v))
-           (begin (cond ((vector? (vector-ref v i)) (dd "<iform> "))
-                        ((pair? (vector-ref v i)) (dd "<pair> "))
-                        (else (dd (vector-ref v i)) (dd " ")))
-                  (loop (+ i 1))))))
-
-(define
   (pass2/optimize-local-ref iform)
   (let* ((lvar ($local-ref.lvar iform))
          (init-val ($lvar.init-val lvar)))
@@ -3189,33 +3064,6 @@
 (define test-table (make-eq-hashtable))
 
 (define
-  (get table a b c)
-  (aif (hashtable-ref table a #f)
-       (aif (hashtable-ref it b #f)
-            (hashtable-ref it c #f)
-            #f)
-       #f))
-
-(define
-  (set table a b c v)
-  (aif (hashtable-ref table a #f)
-       (let1 it2
-             (hashtable-ref it b #f)
-             (if it2
-                 (hashtable-set! it2 c v)
-                 (let1 t
-                       (make-eq-hashtable)
-                       (hashtable-set! it b t)
-                       (hashtable-set! t c v))))
-       (let1 t
-             (make-eq-hashtable)
-             (hashtable-set! table a t)
-             (let1 t2
-                   (make-eq-hashtable)
-                   (hashtable-set! t b t2)
-                   (hashtable-set! t2 c v)))))
-
-(define
   (pass3/find-free iform locals can-frees)
   (define
     (rec i l labels-seen)
@@ -3348,57 +3196,6 @@
   (uniq (rec iform)))
 
 (define
-  ($append-map1-sum proc lst)
-  (fold (lambda
-          (x y)
-          (cons (+ (car y) (car x))
-                (append2 (cdr y) (cdr x))))
-        (quote (0))
-        ($map1 proc lst)))
-
-(define
-  ($append-map1-with-tail-sum proc lst)
-  (fold (lambda
-          (x y)
-          (cons (+ (car y) (car x))
-                (append! (cdr y) (cdr x))))
-        (quote (0))
-        ($map1-with-tail proc lst)))
-
-(define
-  ($append-map1-with-rindex-sum proc lst)
-  (fold (lambda
-          (x y)
-          (cons (+ (car y) (car x))
-                (append2 (cdr y) (cdr x))))
-        (quote (0))
-        ($map1-with-rindex proc lst)))
-
-(define
-  ($append-map1-with-index-sum proc lst)
-  (fold (lambda
-          (x y)
-          (cons (+ (car y) (car x))
-                (append2 (cdr y) (cdr x))))
-        (quote (0))
-        ($map1-with-index proc lst)))
-
-(define-macro
-  (code-stack-sum . code)
-  (quasiquote
-    (+ (unquote-splicing
-         (map (lambda (x) (quasiquote (car (unquote x))))
-              code)))))
-
-(define-macro
-  (code-stack code)
-  (quasiquote (car (unquote code))))
-
-(define-macro
-  (code-body code)
-  (quasiquote (cdr (unquote code))))
-
-(define
   (make-code-builder)
   (list (quote builder)))
 
@@ -3476,16 +3273,6 @@
                    (cput! (unquote cb) (unquote-splicing b)))))))
 
 (define
-  (pass3/collect-free frees-here locals frees)
-  ($append-map1-sum
-    (lambda
-      (x)
-      (append2
-        (pass3/compile-refer x locals frees)
-        (quote (PUSH))))
-    (reverse frees-here)))
-
-(define
   (zass3/collect-free cb frees-here locals frees)
   (fold (lambda
           (i accum)
@@ -3518,19 +3305,6 @@
                (next-local (cdr locals) (+ n 1))))))
 
 (define
-  (pass3/compile-refer lvar locals frees)
-  (pass3/symbol-lookup
-    lvar
-    locals
-    frees
-    (lambda
-      (n)
-      (quasiquote (0 REFER_LOCAL (unquote n))))
-    (lambda
-      (n)
-      (quasiquote (0 REFER_FREE (unquote n))))))
-
-(define
   (zass3/compile-refer cb lvar locals frees)
   (pass3/symbol-lookup
     lvar
@@ -3540,19 +3314,6 @@
     (lambda (n) (cput! cb (quote REFER_FREE) n) 0)))
 
 (define
-  (pass3/compile-assign lvar locals frees)
-  (pass3/symbol-lookup
-    lvar
-    locals
-    frees
-    (lambda
-      (n)
-      (quasiquote (0 ASSIGN_LOCAL (unquote n))))
-    (lambda
-      (n)
-      (quasiquote (0 ASSIGN_FREE (unquote n))))))
-
-(define
   (zass3/compile-assign cb lvar locals frees)
   (pass3/symbol-lookup
     lvar
@@ -3560,16 +3321,6 @@
     frees
     (lambda (n) (cput! cb (quote ASSIGN_LOCAL) n) 0)
     (lambda (n) (cput! cb (quote ASSIGN_FREE) n) 0)))
-
-(define
-  (pass3/make-boxes sets vars)
-  ($append-map1-with-rindex
-    (lambda
-      (x n)
-      (if (memq x sets)
-          (quasiquote (BOX (unquote n)))
-          (quote ())))
-    vars))
 
 (define
   (zass3/make-boxes cb sets vars)
@@ -3584,27 +3335,8 @@
   (make-vector $INSN-NUM))
 
 (define
-  pass3/dispatch-table
-  (make-vector $INSN-NUM))
-
-(define
-  (pass3/register insn proc)
-  (vector-set! pass3/dispatch-table insn proc))
-
-(define
   (zass3/register insn proc)
   (vector-set! zass3/dispatch-table insn proc))
-
-(define
-  (pass3/$const
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (quasiquote
-    (0 CONSTANT (unquote ($const.val iform)))))
 
 (define
   (zass3/$const
@@ -3619,16 +3351,6 @@
   0)
 
 (define
-  (pass3/$it
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (quasiquote (0)))
-
-(define
   (zass3/$it
     cb
     iform
@@ -3638,29 +3360,6 @@
     sets
     tail)
   0)
-
-(define
-  (pass3/$list
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (let1 args
-        ($list.args iform)
-        (quasiquote
-          ((unquote-splicing
-             ($append-map1-sum
-               (lambda
-                 (i)
-                 (quasiquote
-                   ((unquote-splicing
-                      (pass3 i locals frees can-frees sets tail))
-                    PUSH)))
-               args))
-           LIST
-           (unquote (length args))))))
 
 (define
   (zass3/$list
@@ -3685,23 +3384,6 @@
           (cput! cb (quote LIST) (length args)))))
 
 (define
-  (pass3/$local-ref
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (append2
-    (pass3/compile-refer
-      ($local-ref.lvar iform)
-      locals
-      frees)
-    (if (memq ($local-ref.lvar iform) sets)
-        (quote (INDIRECT))
-        (quote ()))))
-
-(define
   (zass3/$local-ref
     cb
     iform
@@ -3718,29 +3400,6 @@
   (when (memq ($local-ref.lvar iform) sets)
         (cput! cb (quote INDIRECT)))
   0)
-
-(define
-  (pass3/$local-assign
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (let ((valc (pass3 ($local-assign.val iform)
-                     locals
-                     frees
-                     can-frees
-                     sets
-                     #f))
-        (varc (pass3/compile-assign
-                ($local-ref.lvar iform)
-                locals
-                frees)))
-       (quasiquote
-         ((unquote (code-stack-sum valc varc))
-          (unquote-splicing (code-body valc))
-          (unquote-splicing (code-body varc))))))
 
 (define
   (zass3/$local-assign
@@ -3781,30 +3440,6 @@
       (symbol->string sym))))
 
 (define
-  (pass3/$global-ref
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (let1 sym
-        ($global-ref.sym iform)
-        (let next-free
-             ((free frees) (n 0))
-             (cond ((null? free)
-                    (quasiquote
-                      (0
-                       REFER_GLOBAL
-                       (unquote
-                         (merge-libname-sym
-                           ($global-ref.libname iform)
-                           sym)))))
-                   ((eq? ($lvar.sym (car free)) sym)
-                    (quasiquote (0 REFER_FREE (unquote n))))
-                   (else (next-free (cdr free) (+ n 1)))))))
-
-(define
   (zass3/$global-ref
     cb
     iform
@@ -3827,45 +3462,6 @@
                    ((eq? ($lvar.sym (car free)) sym)
                     (cput! cb (quote REFER_FREE) n)
                     0)
-                   (else (next-free (cdr free) (+ n 1)))))))
-
-(define
-  (pass3/$global-assign
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (let1 sym
-        ($global-assign.sym iform)
-        (let next-free
-             ((free frees) (n 0))
-             (cond ((null? free)
-                    (quasiquote
-                      ((unquote-splicing
-                         (pass3 ($global-assign.val iform)
-                                locals
-                                frees
-                                can-frees
-                                sets
-                                #f))
-                       ASSIGN_GLOBAL
-                       (unquote
-                         (merge-libname-sym
-                           ($global-assign.libname iform)
-                           sym)))))
-                   ((eq? ($lvar.sym (car free)) sym)
-                    (quasiquote
-                      ((unquote-splicing
-                         (pass3 ($global-assign.val iform)
-                                locals
-                                frees
-                                can-frees
-                                sets
-                                #f))
-                       ASSIGN_FREE
-                       (unquote n))))
                    (else (next-free (cdr free) (+ n 1)))))))
 
 (define
@@ -3910,25 +3506,6 @@
                    (else (next-free (cdr free) (+ n 1)))))))
 
 (define
-  (pass3/$seq
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  ($append-map1-with-tail-sum
-    (lambda
-      (i tail?)
-      (pass3 i
-             locals
-             frees
-             can-frees
-             sets
-             (if tail? tail #f)))
-    ($seq.body iform)))
-
-(define
   (zass3/$seq
     cb
     iform
@@ -3954,16 +3531,6 @@
                                     tail?))))))))
 
 (define
-  (pass3/$undef
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (quote (0 UNDEF)))
-
-(define
   (zass3/$undef
     cb
     iform
@@ -3974,165 +3541,6 @@
     tail)
   (cput! cb (quote UNDEF))
   0)
-
-(define
-  (pass3/$asm
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (define
-    (sum lst)
-    (if (null? lst) 0 (+ (car lst) (sum (cdr lst)))))
-  (define
-    (push-arg i)
-    (pass3/compile-arg
-      i
-      locals
-      frees
-      can-frees
-      sets
-      tail))
-  (define
-    (compile-1arg insn args)
-    (quasiquote
-      ((unquote-splicing
-         (pass3 (first args)
-                locals
-                frees
-                can-frees
-                sets
-                #f))
-       (unquote insn))))
-  (define
-    (compile-2arg insn args)
-    (let ((x (push-arg (first args)))
-          (y (pass3 (second args)
-                    locals
-                    frees
-                    can-frees
-                    sets
-                    #f)))
-         (let1 val
-               (quasiquote
-                 ((unquote (code-stack-sum x y))
-                  (unquote-splicing (code-body x))
-                  (unquote-splicing (code-body y))
-                  (unquote insn)))
-               val)))
-  (define
-    (compile-3arg insn args)
-    (let ((x (push-arg (first args)))
-          (y (push-arg (second args)))
-          (z (pass3 (third args)
-                    locals
-                    frees
-                    can-frees
-                    sets
-                    #f)))
-         (quasiquote
-           ((unquote (code-stack-sum x y z))
-            (unquote-splicing (code-body x))
-            (unquote-splicing (code-body y))
-            (unquote-splicing (code-body z))
-            (unquote insn)))))
-  (define
-    (compile-n-args args)
-    (if (null? args)
-        (quote (0))
-        (let1 code
-              (let loop
-                   ((args args))
-                   (if (null? (cdr args))
-                       (list (pass3 (car args) locals frees can-frees sets #f))
-                       (cons (push-arg (car args)) (loop (cdr args)))))
-              (quasiquote
-                ((unquote (sum ($map1 car code)))
-                 (unquote-splicing ($append-map1 cdr code)))))))
-  (let1 args
-        ($asm.args iform)
-        (case ($asm.insn iform)
-              ((NUMBER_ADD)
-               (compile-2arg (quote NUMBER_ADD) args))
-              ((NUMBER_SUB)
-               (compile-2arg (quote NUMBER_SUB) args))
-              ((NUMBER_MUL)
-               (compile-2arg (quote NUMBER_MUL) args))
-              ((NUMBER_DIV)
-               (compile-2arg (quote NUMBER_DIV) args))
-              ((NUMBER_EQUAL)
-               (compile-2arg (quote NUMBER_EQUAL) args))
-              ((NUMBER_GE)
-               (compile-2arg (quote NUMBER_GE) args))
-              ((NUMBER_GT)
-               (compile-2arg (quote NUMBER_GT) args))
-              ((NUMBER_LT)
-               (compile-2arg (quote NUMBER_LT) args))
-              ((NUMBER_LE)
-               (compile-2arg (quote NUMBER_LE) args))
-              ((CONS) (compile-2arg (quote CONS) args))
-              ((CAR) (compile-1arg (quote CAR) args))
-              ((CDR) (compile-1arg (quote CDR) args))
-              ((CAAR) (compile-1arg (quote CAAR) args))
-              ((CADR) (compile-1arg (quote CADR) args))
-              ((CDAR) (compile-1arg (quote CDAR) args))
-              ((CDDR) (compile-1arg (quote CDDR) args))
-              ((SET_CDR) (compile-2arg (quote SET_CDR) args))
-              ((SET_CAR) (compile-2arg (quote SET_CAR) args))
-              ((MAKE_VECTOR)
-               (compile-2arg (quote MAKE_VECTOR) args))
-              ((VECTOR_LENGTH)
-               (compile-1arg (quote VECTOR_LENGTH) args))
-              ((VECTOR_SET)
-               (compile-3arg (quote VECTOR_SET) args))
-              ((VECTOR_REF)
-               (compile-2arg (quote VECTOR_REF) args))
-              ((EQ) (compile-2arg (quote EQ) args))
-              ((EQV) (compile-2arg (quote EQV) args))
-              ((EQUAL) (compile-2arg (quote EQUAL) args))
-              ((PAIR_P) (compile-1arg (quote PAIR_P) args))
-              ((NULL_P) (compile-1arg (quote NULL_P) args))
-              ((SYMBOL_P) (compile-1arg (quote SYMBOL_P) args))
-              ((VECTOR_P) (compile-1arg (quote VECTOR_P) args))
-              ((NOT) (compile-1arg (quote NOT) args))
-              ((OPEN_INPUT_FILE)
-               (compile-1arg (quote OPEN_INPUT_FILE) args))
-              ((READ) (compile-1arg (quote READ) args))
-              ((READ_CHAR)
-               (compile-1arg (quote READ_CHAR) args))
-              ((VALUES)
-               (quasiquote
-                 ((unquote-splicing (compile-n-args args))
-                  VALUES
-                  (unquote (length args)))))
-              ((APPLY)
-               (let ((arg1-c
-                       (pass3 (first args)
-                              locals
-                              frees
-                              can-frees
-                              sets
-                              #f))
-                     (arg2-c
-                       (pass3 (second args)
-                              locals
-                              frees
-                              can-frees
-                              sets
-                              #f))
-                     (end-of-frame (make-label)))
-                    (quasiquote
-                      ((unquote (code-stack-sum arg1-c arg2-c))
-                       FRAME
-                       (unquote (ref-label end-of-frame))
-                       (unquote-splicing (code-body arg2-c))
-                       PUSH
-                       (unquote-splicing (code-body arg1-c))
-                       APPLY
-                       (unquote end-of-frame)))))
-              (else (print "unknown insn on pass3/$asm")))))
 
 (define
   (zass3/$asm
@@ -4311,85 +3719,6 @@
               (else (print "unknown insn on zass3/$asm")))))
 
 (define
-  (pass3/$if
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (define
-    (push-arg i)
-    (let1 code
-          (pass3 i locals frees can-frees sets #f)
-          (quasiquote
-            ((unquote (+ (code-stack code) 1))
-             (unquote-splicing (code-body code))
-             PUSH))))
-  (define
-    (pass3/test i)
-    (define
-      (gen-test1 op)
-      (quasiquote
-        ((unquote-splicing
-           (pass3 (first ($asm.args i))
-                  locals
-                  frees
-                  can-frees
-                  sets
-                  #f))
-         (unquote op))))
-    (define
-      (gen-test2 op)
-      (let ((x (push-arg (first ($asm.args i))))
-            (y (pass3 (second ($asm.args i))
-                      locals
-                      frees
-                      can-frees
-                      sets
-                      #f)))
-           (quasiquote
-             ((unquote (code-stack-sum x y))
-              (unquote-splicing (code-body x))
-              (unquote-splicing (code-body y))
-              (unquote op)))))
-    (if (tag? i $ASM)
-        (case ($asm.insn i)
-              (else (quasiquote
-                      ((unquote-splicing
-                         (pass3 i locals frees can-frees sets #f))
-                       TEST))))
-        (quasiquote
-          ((unquote-splicing
-             (pass3 i locals frees can-frees sets #f))
-           TEST))))
-  (let ((thenc (pass3 ($if.then iform)
-                      locals
-                      frees
-                      can-frees
-                      sets
-                      tail))
-        (elsec (pass3 ($if.else iform)
-                      locals
-                      frees
-                      can-frees
-                      sets
-                      tail))
-        (testc (pass3/test ($if.test iform)))
-        (end-of-else (make-label))
-        (begin-of-else (make-label)))
-       (quasiquote
-         ((unquote (code-stack-sum thenc elsec testc))
-          (unquote-splicing (code-body testc))
-          (unquote (ref-label begin-of-else))
-          (unquote-splicing (code-body thenc))
-          UNFIXED_JUMP
-          (unquote (ref-label end-of-else))
-          (unquote begin-of-else)
-          (unquote-splicing (code-body elsec))
-          (unquote end-of-else)))))
-
-(define
   (zass3/$if
     cb
     iform
@@ -4436,28 +3765,6 @@
                          (+ test-size then-size else-size))))))
 
 (define
-  (pass3/$define
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (quasiquote
-    ((unquote-splicing
-       (pass3 ($define.val iform)
-              locals
-              frees
-              can-frees
-              sets
-              #f))
-     DEFINE_GLOBAL
-     (unquote
-       (merge-libname-sym
-         ($define.libname iform)
-         ($define.sym iform))))))
-
-(define
   (zass3/$define
     cb
     iform
@@ -4480,28 +3787,6 @@
            (merge-libname-sym
              ($define.libname iform)
              ($define.sym iform)))))
-
-(define
-  (pass3/compile-arg
-    arg
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (cond ((tag? arg $ASM)
-         (let1 compiled
-               (pass3 arg locals frees can-frees sets #f)
-               (quasiquote
-                 ((unquote (+ 1 (code-stack compiled)))
-                  (unquote-splicing (code-body compiled))
-                  PUSH))))
-        (else (let* ((code (pass3 arg locals frees can-frees sets #f))
-                     (compiled (code-body code)))
-                    (quasiquote
-                      ((unquote (+ (code-stack code) 1))
-                       (unquote-splicing compiled)
-                       PUSH))))))
 
 (define
   (zass3/compile-arg
@@ -4540,145 +3825,6 @@
                 (+ size accum)))
         0
         args))
-
-(define
-  (pass3/compile-args
-    args
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  ($append-map1-sum
-    (lambda
-      (arg)
-      (pass3/compile-arg
-        arg
-        locals
-        frees
-        can-frees
-        sets
-        tail))
-    args))
-
-(define (pass3/merge-insn sexp) sexp)
-
-(define
-  (pass3/$call
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (define
-    (compile-apply i code)
-    (let1 procc
-          (code-body code)
-          (quasiquote
-            ((unquote (code-stack code))
-             (unquote-splicing procc)
-             (unquote-splicing
-               (if tail
-                   (list (quote SHIFT) (length ($call.args i)) tail)
-                   (quote ())))
-             CALL
-             (unquote (length ($call.args i)))))))
-  (case ($call.type iform)
-        ((jump)
-         (let ((argsc (pass3/compile-args
-                        ($call.args iform)
-                        locals
-                        frees
-                        can-frees
-                        sets
-                        #f))
-               (label ($lambda.body ($call.proc ($call.proc iform)))))
-              (quasiquote
-                ((unquote (code-stack argsc))
-                 (unquote-splicing
-                   (list (quote REDUCE) (length ($call.args iform))))
-                 (unquote-splicing (code-body argsc))
-                 SHIFT
-                 (unquote (length ($call.args iform)))
-                 (unquote (length ($call.args iform)))
-                 UNFIXED_JUMP
-                 (unquote label)))))
-        ((embed)
-         (let* ((label ($lambda.body ($call.proc iform)))
-                (body ($label.body label))
-                (vars ($lambda.lvars ($call.proc iform)))
-                (frees-here
-                  (pass3/find-free
-                    body
-                    vars
-                    (append2 locals (append2 frees can-frees))))
-                (args-code
-                  (pass3/compile-args
-                    ($call.args iform)
-                    locals
-                    frees-here
-                    can-frees
-                    sets
-                    #f))
-                (sets-here
-                  (append2 (pass3/find-sets body vars) sets))
-                (boxes-code (pass3/make-boxes sets-here vars))
-                (body-code
-                  (pass3 body
-                         vars
-                         frees-here
-                         (%set-union can-frees vars)
-                         (%set-union
-                           sets-here
-                           (set-intersect sets frees-here))
-                         (if tail (+ tail (length vars) 2) #f)))
-                (free-code
-                  (if (> (length frees-here) 0)
-                      (pass3/collect-free frees-here locals frees)
-                      (quote (0)))))
-               (quasiquote
-                 ((unquote
-                    (code-stack-sum args-code body-code free-code))
-                  LET_FRAME
-                  (unquote-splicing (code-body free-code))
-                  (unquote-splicing
-                    (if (> (length frees-here) 0)
-                        (list (quote DISPLAY) (length frees-here))
-                        (quote ())))
-                  (unquote-splicing (code-body args-code))
-                  (unquote-splicing boxes-code)
-                  (unquote-splicing
-                    (list (quote ENTER) (length ($call.args iform))))
-                  (unquote label)
-                  (unquote-splicing (code-body body-code))
-                  (unquote-splicing
-                    (list (quote LEAVE) (length ($call.args iform))))))))
-        (else (let* ((procc (pass3 ($call.proc iform)
-                                   locals
-                                   frees
-                                   can-frees
-                                   sets
-                                   #f))
-                     (argsc (pass3/compile-args
-                              ($call.args iform)
-                              locals
-                              frees
-                              can-frees
-                              sets
-                              #f))
-                     (applyc (compile-apply iform procc))
-                     (end-of-frame (make-label)))
-                    (quasiquote
-                      ((unquote (code-stack-sum argsc applyc))
-                       (unquote-splicing
-                         (if tail
-                             (quote ())
-                             (list (quote FRAME) (ref-label end-of-frame))))
-                       (unquote-splicing (code-body argsc))
-                       (unquote-splicing (code-body applyc))
-                       (unquote-splicing
-                         (if tail (quote ()) (list end-of-frame)))))))))
 
 (define
   (zass3/$call
@@ -4793,38 +3939,6 @@
                           (+ args-size proc-size))))))
 
 (define
-  (pass3/$call-cc
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (let ((argc (pass3 ($call-cc.proc iform)
-                     locals
-                     frees
-                     can-frees
-                     sets
-                     #f))
-        (end-of-frame (make-label)))
-       (quasiquote
-         ((unquote (code-stack argc))
-          (unquote-splicing
-            (if tail
-                (quote ())
-                (list (quote FRAME) (ref-label end-of-frame))))
-          MAKE_CONTINUATION
-          (unquote (if tail 1 0))
-          PUSH
-          (unquote-splicing (code-body argc))
-          (unquote-splicing
-            (if tail (list (quote SHIFT) 1 tail) (quote ())))
-          CALL
-          1
-          (unquote-splicing
-            (if tail (quote ()) (list end-of-frame)))))))
-
-(define
   (zass3/$call-cc
     cb
     iform
@@ -4854,57 +3968,6 @@
           (when tail (cput! cb (quote SHIFT) 1 tail))
           (cput! cb (quote CALL) 1)
           (unless tail (cput! cb end-of-frame)))))
-
-(define
-  (pass3/$lambda
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (let* ((vars ($lambda.lvars iform))
-         (body ($lambda.body iform))
-         (frees-here
-           (pass3/find-free
-             body
-             vars
-             (append2 locals (append2 frees can-frees))))
-         (sets-here
-           (append2 (pass3/find-sets body vars) sets))
-         (boxes-code (pass3/make-boxes sets-here vars))
-         (body-code
-           (pass3 body
-                  vars
-                  frees-here
-                  (%set-union can-frees vars)
-                  (%set-union
-                    sets-here
-                    (set-intersect sets frees-here))
-                  (length vars)))
-         (free-code
-           (if (> (length frees-here) 0)
-               (pass3/collect-free frees-here locals frees)
-               (quote (0))))
-         (end-of-closure (make-label)))
-        (quasiquote
-          (0
-           (unquote-splicing (code-body free-code))
-           CLOSURE
-           (unquote (ref-label end-of-closure))
-           (unquote (length vars))
-           (unquote (> ($lambda.optarg iform) 0))
-           (unquote (length frees-here))
-           (unquote
-             (+ (code-stack-sum body-code free-code)
-                (length vars)
-                4))
-           (unquote ($lambda.src iform))
-           (unquote-splicing boxes-code)
-           (unquote-splicing (code-body body-code))
-           RETURN
-           (unquote (length vars))
-           (unquote end-of-closure)))))
 
 (define
   (zass3/$lambda
@@ -4957,69 +4020,6 @@
                            (length vars)
                            end-of-closure)
                     0))))
-
-(define
-  (pass3/$receive
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (let* ((vars ($receive.lvars iform))
-         (body ($receive.body iform))
-         (frees-here
-           (append2
-             (pass3/find-free
-               ($receive.vals iform)
-               locals
-               (append2 locals (append2 frees can-frees)))
-             (pass3/find-free
-               body
-               vars
-               (append2 locals (append2 frees can-frees)))))
-         (sets-here
-           (append2 (pass3/find-sets body vars) sets))
-         (boxes-code (pass3/make-boxes sets-here vars))
-         (body-code
-           (pass3 body
-                  vars
-                  frees-here
-                  (%set-union can-frees vars)
-                  (%set-union
-                    sets-here
-                    (set-intersect sets frees-here))
-                  (if tail (+ tail (length vars) 2) #f)))
-         (vals-code
-           (pass3 ($receive.vals iform)
-                  locals
-                  frees-here
-                  can-frees
-                  sets
-                  #f))
-         (free-code
-           (if (> (length frees-here) 0)
-               (pass3/collect-free frees-here locals frees)
-               (quote (0)))))
-        (quasiquote
-          ((unquote
-             (code-stack-sum body-code vals-code free-code))
-           LET_FRAME
-           (unquote-splicing (code-body free-code))
-           (unquote-splicing
-             (if (> (length frees-here) 0)
-                 (list (quote DISPLAY) (length frees-here))
-                 (quote ())))
-           (unquote-splicing (code-body vals-code))
-           RECEIVE
-           (unquote ($receive.reqargs iform))
-           (unquote ($receive.optarg iform))
-           (unquote-splicing boxes-code)
-           (unquote-splicing
-             (list (quote ENTER) (length vars)))
-           (unquote-splicing (code-body body-code))
-           (unquote-splicing
-             (list (quote LEAVE) (length vars)))))))
 
 (define
   (zass3/$receive
@@ -5079,79 +4079,6 @@
                             (if tail (+ tail (length vars) 2) #f))
                           (cput! cb (quote LEAVE) (length vars))
                           (+ body-size vals-size free-size))))))
-
-(define
-  (pass3/$let
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (if (eq? ($let.type iform) (quote rec))
-      (pass3/letrec
-        iform
-        locals
-        frees
-        can-frees
-        sets
-        tail)
-      (let* ((vars ($let.lvars iform))
-             (body ($let.body iform))
-             (frees-here
-               (append2
-                 ($append-map1
-                   (lambda
-                     (i)
-                     (pass3/find-free
-                       i
-                       locals
-                       (append2 locals (append2 frees can-frees))))
-                   ($let.inits iform))
-                 (pass3/find-free
-                   body
-                   vars
-                   (append2 locals (append2 frees can-frees)))))
-             (sets-here
-               (append2 (pass3/find-sets body vars) sets))
-             (boxes-code (pass3/make-boxes sets-here vars))
-             (body-code
-               (pass3 body
-                      vars
-                      frees-here
-                      (%set-union can-frees vars)
-                      (%set-union
-                        sets-here
-                        (set-intersect sets frees-here))
-                      (if tail (+ tail (length vars) 2) #f)))
-             (args-code
-               (pass3/compile-args
-                 ($let.inits iform)
-                 locals
-                 frees-here
-                 can-frees
-                 sets
-                 tail))
-             (free-code
-               (if (> (length frees-here) 0)
-                   (pass3/collect-free frees-here locals frees)
-                   (quote (0)))))
-            (quasiquote
-              ((unquote
-                 (code-stack-sum body-code args-code free-code))
-               LET_FRAME
-               (unquote-splicing (code-body free-code))
-               (unquote-splicing
-                 (if (> (length frees-here) 0)
-                     (list (quote DISPLAY) (length frees-here))
-                     (quote ())))
-               (unquote-splicing (code-body args-code))
-               (unquote-splicing boxes-code)
-               (unquote-splicing
-                 (list (quote ENTER) (length vars)))
-               (unquote-splicing (code-body body-code))
-               (unquote-splicing
-                 (list (quote LEAVE) (length vars))))))))
 
 (define
   (zass3/$let
@@ -5220,90 +4147,6 @@
                                 (if tail (+ tail (length vars) 2) #f))
                               (cput! cb (quote LEAVE) (length vars))
                               (+ body-size args-size free-size)))))))
-
-(define
-  (pass3/letrec
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (let* ((vars ($let.lvars iform))
-         (body ($let.body iform))
-         (frees-here
-           (append2
-             ($append-map1
-               (lambda
-                 (i)
-                 (pass3/find-free
-                   i
-                   vars
-                   (append2 locals (append2 frees can-frees))))
-               ($let.inits iform))
-             (pass3/find-free
-               body
-               vars
-               (append2 locals (append2 frees can-frees)))))
-         (sets-here
-           (append
-             vars
-             (pass3/find-sets body vars)
-             ($append-map1
-               (lambda (i) (pass3/find-sets i vars))
-               ($let.inits iform))
-             sets))
-         (boxes-code (pass3/make-boxes sets-here vars))
-         (body-code
-           (pass3 body
-                  vars
-                  frees-here
-                  (%set-union can-frees vars)
-                  (%set-union
-                    sets-here
-                    (set-intersect sets frees-here))
-                  (if tail (+ tail (length vars) 2) #f)))
-         (args ($let.inits iform))
-         (init-code
-           ($append-map1
-             (lambda (x) (quote (UNDEF PUSH)))
-             args))
-         (assign-code
-           ($append-map1-with-index-sum
-             (lambda
-               (x n)
-               (append
-                 (pass3 x
-                        vars
-                        frees-here
-                        (%set-union can-frees vars)
-                        (%set-union
-                          sets-here
-                          (set-intersect sets frees-here))
-                        #f)
-                 (list (quote ASSIGN_LOCAL) n)))
-             args))
-         (free-code
-           (if (> (length frees-here) 0)
-               (pass3/collect-free frees-here locals frees)
-               (quote (0)))))
-        (quasiquote
-          ((unquote
-             (code-stack-sum free-code assign-code body-code))
-           LET_FRAME
-           (unquote-splicing (code-body free-code))
-           (unquote-splicing
-             (if (> (length frees-here) 0)
-                 (list (quote DISPLAY) (length frees-here))
-                 (quote ())))
-           (unquote-splicing init-code)
-           (unquote-splicing boxes-code)
-           (unquote-splicing
-             (list (quote ENTER) (length vars)))
-           (unquote-splicing (code-body assign-code))
-           (unquote-splicing (code-body body-code))
-           (unquote-splicing
-             (list (quote LEAVE) (length vars)))))))
 
 (define
   (zass3/letrec
@@ -5389,32 +4232,6 @@
                           (+ free-size assign-size body-size))))))
 
 (define
-  (pass3/$import
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (define
-    (rec i)
-    ($append-map1
-      (lambda
-        (s)
-        (let* ((libname ($import-spec.libname s))
-               (lib (hashtable-ref libraries libname))
-               (end-of-frame (make-label)))
-              (quasiquote
-                ((unquote-splicing (rec ($library.import lib)))
-                 FRAME
-                 (unquote (ref-label end-of-frame))
-                 IMPORT
-                 (unquote libname)
-                 (unquote end-of-frame)))))
-      ($import.import-specs i)))
-  (cons 0 (rec iform)))
-
-(define
   (zass3/$import
     cb
     iform
@@ -5443,20 +4260,6 @@
   (rec iform))
 
 (define
-  (pass3/$library
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (quasiquote
-    (0
-     LIBRARY
-     (unquote ($library.name iform))
-     (unquote iform))))
-
-(define
   (zass3/$library
     cb
     iform
@@ -5470,48 +4273,6 @@
          ($library.name iform)
          iform)
   0)
-
-(pass3/register $CONST pass3/$const)
-
-(pass3/register $LAMBDA pass3/$lambda)
-
-(pass3/register $LOCAL-REF pass3/$local-ref)
-
-(pass3/register
-  $LOCAL-ASSIGN
-  pass3/$local-assign)
-
-(pass3/register
-  $GLOBAL-ASSIGN
-  pass3/$global-assign)
-
-(pass3/register $GLOBAL-REF pass3/$global-ref)
-
-(pass3/register $SEQ pass3/$seq)
-
-(pass3/register $UNDEF pass3/$undef)
-
-(pass3/register $IF pass3/$if)
-
-(pass3/register $ASM pass3/$asm)
-
-(pass3/register $DEFINE pass3/$define)
-
-(pass3/register $CALL pass3/$call)
-
-(pass3/register $CALL-CC pass3/$call-cc)
-
-(pass3/register $LET pass3/$let)
-
-(pass3/register $LIST pass3/$list)
-
-(pass3/register $LIBRARY pass3/$library)
-
-(pass3/register $IMPORT pass3/$import)
-
-(pass3/register $IT pass3/$it)
-
-(pass3/register $RECEIVE pass3/$receive)
 
 (zass3/register $CONST zass3/$const)
 
@@ -5556,18 +4317,6 @@
 (zass3/register $RECEIVE zass3/$receive)
 
 (define
-  (pass3 iform locals frees can-frees sets tail)
-  ((vector-ref
-     pass3/dispatch-table
-     (vector-ref iform 0))
-   iform
-   locals
-   frees
-   can-frees
-   sets
-   tail))
-
-(define
   (zass3/rec
     cb
     iform
@@ -5607,34 +4356,23 @@
     (list->vector (append2 lst (quote (HALT))))))
 
 (define
-  (proxy-pass3
-    iform
-    locals
-    frees
-    can-frees
-    sets
-    tail)
-  (zass3 iform locals frees can-frees sets tail))
-
-(define
   (compile-library-body! lib)
   (let1 body
         ($append-map1
           (lambda
             (sexp)
-            (proxy-pass3
-              (pass2/optimize
-                (pass1/sexp->iform
-                  (pass1/expand sexp)
-                  lib
-                  (quote ())
-                  #f)
-                (quote ()))
-              (quote ())
-              *free-lvars*
-              (quote ())
-              (quote ())
-              #f))
+            (zass3 (pass2/optimize
+                     (pass1/sexp->iform
+                       (pass1/expand sexp)
+                       lib
+                       (quote ())
+                       #f)
+                     (quote ()))
+                   (quote ())
+                   *free-lvars*
+                   (quote ())
+                   (quote ())
+                   #f))
           ($library.body lib))
         ($library.set-compiled-body!
           lib
@@ -5648,19 +4386,18 @@
           (pass4/fixup-labels
             (list->vector
               (merge-insn
-                (proxy-pass3
-                  (pass2/optimize
-                    (pass1/sexp->iform
-                      ss
-                      (if (null? lib) top-level-library (car lib))
-                      (quote ())
-                      #f)
-                    (quote ()))
-                  (quote ())
-                  *free-lvars*
-                  (quote ())
-                  (quote ())
-                  #f)))))))
+                (zass3 (pass2/optimize
+                         (pass1/sexp->iform
+                           ss
+                           (if (null? lib) top-level-library (car lib))
+                           (quote ())
+                           #f)
+                         (quote ()))
+                       (quote ())
+                       *free-lvars*
+                       (quote ())
+                       (quote ())
+                       #f)))))))
 
 (define-macro
   (pass4/fixup-labels-clollect insn)
@@ -5944,34 +4681,32 @@
 (define
   (compile sexp)
   (pass4 (merge-insn
-           (proxy-pass3
-             (let1 x
-                   (pass2/optimize
-                     (pass1/sexp->iform
-                       (pass1/expand sexp)
-                       top-level-library
-                       (quote ())
-                       #f)
-                     (quote ()))
-                   x)
-             (quote ())
-             *free-lvars*
-             (quote ())
-             (quote ())
-             #f))))
+           (zass3 (let1 x
+                        (pass2/optimize
+                          (pass1/sexp->iform
+                            (pass1/expand sexp)
+                            top-level-library
+                            (quote ())
+                            #f)
+                          (quote ()))
+                        x)
+                  (quote ())
+                  *free-lvars*
+                  (quote ())
+                  (quote ())
+                  #f))))
 
 (define
   (compile-no-optimize sexp)
-  (pass4 (proxy-pass3
-           (pass1/sexp->iform
-             (pass1/expand sexp)
-             top-level-library
-             (quote ())
-             #f)
-           (quote ())
-           *free-lvars*
-           (quote ())
-           (quote ())
-           #f)))
+  (pass4 (zass3 (pass1/sexp->iform
+                  (pass1/expand sexp)
+                  top-level-library
+                  (quote ())
+                  #f)
+                (quote ())
+                *free-lvars*
+                (quote ())
+                (quote ())
+                #f)))
 
 (define (main args) (if (= (length args) 2) (let1 port (open-string-input-port (second args)) (write (compile (read port))))))
