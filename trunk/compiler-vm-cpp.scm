@@ -4311,17 +4311,17 @@
    tail))
 
 (define
-  (pass3 iform locals frees can-frees sets tail)
+  (pass3 iform)
   (let1 cb
         (make-code-builder)
         (pass3/rec
           cb
           iform
-          locals
-          frees
-          can-frees
-          sets
-          tail)
+          (quote ())
+          *free-lvars*
+          (quote ())
+          (quote ())
+          #f)
         (code-builder-emit cb)))
 
 (define
@@ -4341,12 +4341,7 @@
                        lib
                        (quote ())
                        #f)
-                     (quote ()))
-                   (quote ())
-                   *free-lvars*
-                   (quote ())
-                   (quote ())
-                   #f))
+                     (quote ()))))
           ($library.body lib))
         ($library.set-compiled-body!
           lib
@@ -4366,12 +4361,7 @@
                            (if (null? lib) top-level-library (car lib))
                            (quote ())
                            #f)
-                         (quote ()))
-                       (quote ())
-                       *free-lvars*
-                       (quote ())
-                       (quote ())
-                       #f)))))))
+                         (quote ())))))))))
 
 (define-macro
   (pass4/fixup-labels-clollect insn)
@@ -4663,12 +4653,7 @@
                             (quote ())
                             #f)
                           (quote ()))
-                        x)
-                  (quote ())
-                  *free-lvars*
-                  (quote ())
-                  (quote ())
-                  #f))))
+                        x)))))
 
 (define
   (compile-no-optimize sexp)
@@ -4676,11 +4661,6 @@
                   (pass1/expand sexp)
                   top-level-library
                   (quote ())
-                  #f)
-                (quote ())
-                *free-lvars*
-                (quote ())
-                (quote ())
-                #f)))
+                  #f))))
 
 #f
