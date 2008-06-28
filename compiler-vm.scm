@@ -106,27 +106,6 @@
                    " ")))))
 
 (define
-  (%set-union l1 l2)
-  (define
-    (set-cons x lst)
-    (if (memq x lst) lst (cons x lst)))
-  (define
-    (rec lst1 lst2)
-    (cond ((null? lst1) lst2)
-          ((null? lst2) lst1)
-          (else (rec (cdr lst1) (set-cons (car lst1) lst2)))))
-  (rec l1 l2))
-
-(define
-  (%set-intersect lst1 lst2)
-  (if (null? lst1)
-      (quote ())
-      (if (memq2 (car lst1) lst2)
-          (cons (car lst1)
-                (%set-intersect (cdr lst1) lst2))
-          (%set-intersect (cdr lst1) lst2))))
-
-(define
   ($map1 f l)
   (if (null? l)
       l
@@ -3893,9 +3872,7 @@
                                    vars
                                    frees-here
                                    (append2 can-frees vars)
-                                   (%set-union
-                                     (append2 sets-for-this-lvars sets)
-                                     (%set-intersect sets frees-here))
+                                   (append2 sets-for-this-lvars sets)
                                    (if tail (+ tail (length vars) 2) #f))
                                  (cput! cb
                                         (quote LEAVE)
@@ -4002,9 +3979,7 @@
                       vars
                       frees-here
                       (append2 can-frees vars)
-                      (%set-union
-                        (append2 sets-for-this-lvars sets)
-                        (%set-intersect sets frees-here))
+                      (append2 sets-for-this-lvars sets)
                       (length vars))
                     (cput! cb
                            (+ body-size free-size (length vars) 4)
@@ -4068,9 +4043,7 @@
                             vars
                             frees-here
                             (append2 can-frees vars)
-                            (%set-union
-                              (append2 sets-for-this-lvars sets)
-                              (%set-intersect sets frees-here))
+                            (append2 sets-for-this-lvars sets)
                             (if tail (+ tail (length vars) 2) #f))
                           (cput! cb (quote LEAVE) (length vars))
                           (+ body-size vals-size free-size))))))
@@ -4135,9 +4108,7 @@
                                 vars
                                 frees-here
                                 (append2 can-frees vars)
-                                (%set-union
-                                  (append2 sets-for-this-lvars sets)
-                                  (%set-intersect sets frees-here))
+                                (append2 sets-for-this-lvars sets)
                                 (if tail (+ tail (length vars) 2) #f))
                               (cput! cb (quote LEAVE) (length vars))
                               (+ body-size args-size free-size)))))))
@@ -4201,13 +4172,9 @@
                                                 vars
                                                 frees-here
                                                 new-can-frees
-                                                (%set-union
-                                                  (append2
-                                                    sets-for-this-lvars
-                                                    sets)
-                                                  (%set-intersect
-                                                    sets
-                                                    frees-here))
+                                                (append2
+                                                  sets-for-this-lvars
+                                                  sets)
                                                 #f)
                                               (cput! cb
                                                      (quote ASSIGN_LOCAL)
@@ -4222,9 +4189,7 @@
                             vars
                             frees-here
                             new-can-frees
-                            (%set-union
-                              (append2 sets-for-this-lvars sets)
-                              (%set-intersect sets frees-here))
+                            (append2 sets-for-this-lvars sets)
                             (if tail (+ tail (length vars) 2) #f))
                           (cput! cb (quote LEAVE) (length vars))
                           (+ free-size assign-size body-size))))))
