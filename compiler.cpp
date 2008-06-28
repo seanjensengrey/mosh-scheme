@@ -1152,13 +1152,13 @@ Object getCompiler() {
 		SA("top level :$:pass3/$library"),
 		SA("pass3/rec"),
 		SA("pass3"),
+		SA("top level :$:*free-lvars*"),
 		SA("top level :$:pass3"),
 		SA("pass4"),
 		SA("top level :$:pass4/fixup-labels"),
 		SA("top level :$:pass4"),
 		SA("compile-library-body!"),
 		SA("lib"),
-		SA("top level :$:*free-lvars*"),
 		SA("top level :$:compile-library-body!"),
 		SA("compile-partial"),
 		SA("top level :$:merge-insn"),
@@ -15424,7 +15424,7 @@ Object list110 = arrayToList(array110, 18);
 
 static Object array111[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(10036)};
+ MI(10021)};
 Object list111 = arrayToList(array111, 2);
 
 static Object array112[] = {
@@ -15435,7 +15435,7 @@ Object list112 = arrayToList(array112, 3);
 
 static Object array113[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(10018)};
+ MI(10008)};
 Object list113 = arrayToList(array113, 2);
 
 static Object array114[] = {
@@ -15720,7 +15720,7 @@ Object list158 = arrayToList(array158, 3);
 
 static Object array159[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9846)};
+ MI(9836)};
 Object list159 = arrayToList(array159, 2);
 
 static Object array160[] = {
@@ -15731,7 +15731,7 @@ Object list160 = arrayToList(array160, 3);
 
 static Object array161[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9844)};
+ MI(9834)};
 Object list161 = arrayToList(array161, 2);
 
 static Object array162[] = {
@@ -15742,7 +15742,7 @@ Object list162 = arrayToList(array162, 3);
 
 static Object array163[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9841)};
+ MI(9831)};
 Object list163 = arrayToList(array163, 2);
 
 static Object array164[] = {
@@ -15753,7 +15753,7 @@ Object list164 = arrayToList(array164, 3);
 
 static Object array165[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9808)};
+ MI(9798)};
 Object list165 = arrayToList(array165, 2);
 
 static Object array166[] = {
@@ -15764,7 +15764,7 @@ Object list166 = arrayToList(array166, 3);
 
 static Object array167[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9766)};
+ MI(9756)};
 Object list167 = arrayToList(array167, 2);
 
 static Object array168[] = {
@@ -15776,7 +15776,7 @@ Object list168 = arrayToList(array168, 4);
 
 static Object array169[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9761)};
+ MI(9751)};
 Object list169 = arrayToList(array169, 2);
 
 static Object array170[] = {
@@ -15786,7 +15786,7 @@ Object list170 = arrayToList(array170, 2);
 
 static Object array171[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9759)};
+ MI(9749)};
 Object list171 = arrayToList(array171, 2);
 
 static Object array172[] = {
@@ -15797,14 +15797,14 @@ Object list172 = arrayToList(array172, 3);
 
 static Object array173[] = {
 Object::makeString(UC("compiler-with-library.scm")),
- MI(9718)};
+ MI(9713)};
 Object list173 = arrayToList(array173, 2);
 
 static Object array174[] = {
 list173,
  symbols[1147],
  symbols[256],
- symbols[1144]};
+ symbols[1145]};
 Object list174 = arrayToList(array174, 4);
 
 static Object array175[] = {
@@ -15830,8 +15830,8 @@ Object list178 = arrayToList(array178, 2);
 
 static Object array179[] = {
 list178,
- symbols[1143],
- symbols[1144]};
+ symbols[1144],
+ symbols[1145]};
 Object list179 = arrayToList(array179, 3);
 
 static Object array180[] = {
@@ -15845,7 +15845,7 @@ Object list181 = arrayToList(array181, 2);
 
 static Object array182[] = {
 list181,
- symbols[1140],
+ symbols[1141],
  symbols[203]};
 Object list182 = arrayToList(array182, 3);
 
@@ -15857,13 +15857,8 @@ Object list183 = arrayToList(array183, 2);
 static Object array184[] = {
 list183,
  symbols[1138],
- symbols[944],
- symbols[1047],
- symbols[1067],
- symbols[1048],
- symbols[1080],
- symbols[448]};
-Object list184 = arrayToList(array184, 8);
+ symbols[944]};
+Object list184 = arrayToList(array184, 3);
 
 static Object array185[] = {
 Object::makeString(UC("compiler-with-library.scm")),
@@ -100417,30 +100412,15 @@ MIS(58),
  MI(143),
  MIS(2),
  MIS(13),
- MI(83),
- MI(6),
+ MI(68),
+ MI(1),
  Object::False,
  MI(2),
- MI(19),
+ MI(14),
  list184,
  MIS(26),
  MIS(50),
  MI(0),
- MIS(2),
- MIS(50),
- MI(1),
- MIS(2),
- MIS(50),
- MI(2),
- MIS(2),
- MIS(50),
- MI(3),
- MIS(2),
- MIS(50),
- MI(4),
- MIS(2),
- MIS(50),
- MI(5),
  MIS(2),
  MIS(48),
  MI(0),
@@ -100449,7 +100429,7 @@ MIS(58),
  MI(1),
  MIS(2),
  MIS(17),
- MI(8),
+ MI(3),
  MIS(22),
  MI(5),
  MIS(48),
@@ -100465,22 +100445,22 @@ MIS(58),
  MI(0),
  MIS(2),
  MIS(48),
- MI(7),
- MIS(2),
- MIS(48),
- MI(6),
- MIS(2),
- MIS(48),
- MI(5),
- MIS(2),
- MIS(48),
- MI(4),
- MIS(2),
- MIS(48),
- MI(3),
- MIS(2),
- MIS(48),
  MI(2),
+ MIS(2),
+ MIS(15),
+ Object::Nil,
+ MIS(2),
+ MIS(49),
+ symbols[1139],
+ MIS(2),
+ MIS(15),
+ Object::Nil,
+ MIS(2),
+ MIS(15),
+ Object::Nil,
+ MIS(2),
+ MIS(15),
+ Object::False,
  MIS(2),
  MIS(49),
  symbols[1091],
@@ -100493,15 +100473,15 @@ MIS(58),
  MI(1),
  MIS(55),
  MI(1),
- MI(9),
+ MI(4),
  MIS(0),
  MI(1),
  MIS(25),
  MI(1),
  MIS(52),
- MI(6),
+ MI(1),
  MIS(16),
- symbols[1139],
+ symbols[1140],
  MIS(32),
  MIS(32),
  MIS(32),
@@ -100536,7 +100516,7 @@ MIS(58),
  MI(1),
  MIS(2),
  MIS(49),
- symbols[1141],
+ symbols[1142],
  MIS(55),
  MI(1),
  MI(1),
@@ -100545,7 +100525,7 @@ MIS(58),
  MIS(52),
  MI(1),
  MIS(16),
- symbols[1142],
+ symbols[1143],
  MIS(32),
  MIS(32),
  MIS(32),
@@ -100559,7 +100539,7 @@ MIS(58),
  MI(131),
  MIS(2),
  MIS(13),
- MI(151),
+ MI(136),
  MI(1),
  Object::False,
  MI(3),
@@ -100584,21 +100564,21 @@ MIS(58),
  MIS(17),
  MI(5),
  MIS(22),
- MI(93),
+ MI(78),
  MIS(48),
  MI(2),
  MIS(2),
  MIS(22),
- MI(83),
+ MI(68),
  MIS(50),
  MI(0),
  MIS(2),
  MIS(13),
- MI(66),
+ MI(51),
  MI(1),
  Object::False,
  MI(1),
- MI(18),
+ MI(13),
  list177,
  MIS(22),
  MI(34),
@@ -100636,28 +100616,13 @@ MIS(58),
  MIS(0),
  MI(2),
  MIS(2),
- MIS(15),
- Object::Nil,
- MIS(2),
  MIS(49),
- symbols[1145],
- MIS(2),
- MIS(15),
- Object::Nil,
- MIS(2),
- MIS(15),
- Object::Nil,
- MIS(2),
- MIS(15),
- Object::False,
- MIS(2),
- MIS(49),
- symbols[1139],
+ symbols[1140],
  MIS(55),
- MI(6),
+ MI(1),
  MI(1),
  MIS(0),
- MI(6),
+ MI(1),
  MIS(52),
  MI(1),
  MIS(2),
@@ -100702,7 +100667,7 @@ MIS(58),
  MI(2),
  MIS(2),
  MIS(49),
- symbols[1142],
+ symbols[1143],
  MIS(0),
  MI(1),
  MIS(62),
@@ -100725,11 +100690,11 @@ MIS(58),
  MI(126),
  MIS(2),
  MIS(13),
- MI(120),
+ MI(105),
  MI(2),
  Object::True,
  MI(1),
- MI(24),
+ MI(19),
  list174,
  MIS(26),
  MIS(50),
@@ -100753,13 +100718,13 @@ MIS(58),
  MIS(18),
  MI(1),
  MIS(22),
- MI(80),
+ MI(65),
  MIS(22),
- MI(73),
+ MI(58),
  MIS(22),
- MI(66),
+ MI(51),
  MIS(22),
- MI(59),
+ MI(44),
  MIS(22),
  MI(37),
  MIS(22),
@@ -100799,25 +100764,10 @@ MIS(58),
  MIS(0),
  MI(2),
  MIS(2),
- MIS(15),
- Object::Nil,
- MIS(2),
  MIS(49),
- symbols[1145],
- MIS(2),
- MIS(15),
- Object::Nil,
- MIS(2),
- MIS(15),
- Object::Nil,
- MIS(2),
- MIS(15),
- Object::False,
- MIS(2),
- MIS(49),
- symbols[1139],
+ symbols[1140],
  MIS(0),
- MI(6),
+ MI(1),
  MIS(2),
  MIS(49),
  symbols[1148],
@@ -100830,7 +100780,7 @@ MIS(58),
  MI(1),
  MIS(2),
  MIS(49),
- symbols[1141],
+ symbols[1142],
  MIS(0),
  MI(1),
  MIS(2),
@@ -102898,7 +102848,7 @@ MIS(58),
  MIS(52),
  MI(1),
  MIS(16),
- symbols[1141],
+ symbols[1142],
  MIS(32),
  MIS(32),
  MIS(32),
@@ -103011,7 +102961,7 @@ MIS(58),
  MIS(0),
  MI(2),
  MIS(16),
- symbols[1145],
+ symbols[1139],
  MIS(32),
  MIS(32),
  MIS(13),
@@ -108473,16 +108423,16 @@ MIS(58),
  MIS(32),
  MIS(32),
  MIS(13),
- MI(88),
+ MI(73),
  MI(1),
  Object::False,
  MI(0),
- MI(21),
+ MI(16),
  list114,
  MIS(22),
- MI(71),
+ MI(56),
  MIS(22),
- MI(64),
+ MI(49),
  MIS(26),
  MIS(22),
  MI(34),
@@ -108527,25 +108477,10 @@ MIS(58),
  MIS(25),
  MI(1),
  MIS(2),
- MIS(15),
- Object::Nil,
- MIS(2),
  MIS(49),
- symbols[1145],
- MIS(2),
- MIS(15),
- Object::Nil,
- MIS(2),
- MIS(15),
- Object::Nil,
- MIS(2),
- MIS(15),
- Object::False,
- MIS(2),
- MIS(49),
- symbols[1139],
+ symbols[1140],
  MIS(0),
- MI(6),
+ MI(1),
  MIS(2),
  MIS(49),
  symbols[1148],
@@ -108553,7 +108488,7 @@ MIS(58),
  MI(1),
  MIS(2),
  MIS(49),
- symbols[1142],
+ symbols[1143],
  MIS(55),
  MI(1),
  MI(1),
@@ -108570,14 +108505,14 @@ MIS(58),
  MIS(32),
  MIS(32),
  MIS(13),
- MI(63),
+ MI(48),
  MI(1),
  Object::False,
  MI(0),
- MI(17),
+ MI(12),
  list112,
  MIS(22),
- MI(46),
+ MI(31),
  MIS(22),
  MI(24),
  MIS(22),
@@ -108604,28 +108539,13 @@ MIS(58),
  MIS(0),
  MI(4),
  MIS(2),
- MIS(15),
- Object::Nil,
- MIS(2),
  MIS(49),
- symbols[1145],
- MIS(2),
- MIS(15),
- Object::Nil,
- MIS(2),
- MIS(15),
- Object::Nil,
- MIS(2),
- MIS(15),
- Object::False,
- MIS(2),
- MIS(49),
- symbols[1139],
+ symbols[1140],
  MIS(0),
- MI(6),
+ MI(1),
  MIS(2),
  MIS(49),
- symbols[1142],
+ symbols[1143],
  MIS(55),
  MI(1),
  MI(1),
@@ -108651,7 +108571,7 @@ MIS(58),
  list110,
  MIS(62),
  MIS(78)};
-Object list1639 = arrayToList(array1639, 84093);
+Object list1639 = arrayToList(array1639, 84018);
 
-	return Object::makeVector(84093, array1639);
+	return Object::makeVector(84018, array1639);
 }
