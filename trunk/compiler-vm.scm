@@ -3864,10 +3864,7 @@
                     body
                     vars
                     (append2 locals (append2 frees can-frees))))
-                (sets-here
-                  (append2
-                    (pass3/find-sets body vars)
-                    (debug-print sets))))
+                (sets-for-this-lvars (pass3/find-sets body vars)))
                (cput! cb (quote LET_FRAME))
                (let1 free-size
                      (if (> (length frees-here) 0)
@@ -3884,7 +3881,7 @@
                              can-frees
                              sets
                              #f)
-                           (pass3/make-boxes cb sets-here vars)
+                           (pass3/make-boxes cb sets-for-this-lvars vars)
                            (cput! cb
                                   (quote ENTER)
                                   (length ($call.args iform))
@@ -3897,7 +3894,7 @@
                                    frees-here
                                    (append2 can-frees vars)
                                    (%set-union
-                                     sets-here
+                                     (append2 sets-for-this-lvars sets)
                                      (%set-intersect sets frees-here))
                                    (if tail (+ tail (length vars) 2) #f))
                                  (cput! cb
@@ -3985,8 +3982,7 @@
              body
              vars
              (append2 locals (append2 frees can-frees))))
-         (sets-here
-           (append2 (pass3/find-sets body vars) sets))
+         (sets-for-this-lvars (pass3/find-sets body vars))
          (end-of-closure (make-label))
          (lambda-cb (make-code-builder)))
         (let1 free-size
@@ -4007,13 +4003,13 @@
                       frees-here
                       (append2 can-frees vars)
                       (%set-union
-                        sets-here
+                        (append2 sets-for-this-lvars sets)
                         (%set-intersect sets frees-here))
                       (length vars))
                     (cput! cb
                            (+ body-size free-size (length vars) 4)
                            ($lambda.src iform))
-                    (pass3/make-boxes cb sets-here vars)
+                    (pass3/make-boxes cb sets-for-this-lvars vars)
                     (code-builder-append! cb lambda-cb)
                     (cput! cb
                            (quote RETURN)
@@ -4042,8 +4038,7 @@
                body
                vars
                (append2 locals (append2 frees can-frees)))))
-         (sets-here
-           (append2 (pass3/find-sets body vars) sets)))
+         (sets-for-this-lvars (pass3/find-sets body vars)))
         (cput! cb (quote LET_FRAME))
         (let1 free-size
               (if (> (length frees-here) 0)
@@ -4064,7 +4059,7 @@
                            (quote RECEIVE)
                            ($receive.reqargs iform)
                            ($receive.optarg iform))
-                    (pass3/make-boxes cb sets-here vars)
+                    (pass3/make-boxes cb sets-for-this-lvars vars)
                     (cput! cb (quote ENTER) (length vars))
                     (let1 body-size
                           (pass3/rec
@@ -4074,7 +4069,7 @@
                             frees-here
                             (append2 can-frees vars)
                             (%set-union
-                              sets-here
+                              (append2 sets-for-this-lvars sets)
                               (%set-intersect sets frees-here))
                             (if tail (+ tail (length vars) 2) #f))
                           (cput! cb (quote LEAVE) (length vars))
@@ -4114,8 +4109,7 @@
                    body
                    vars
                    (append2 locals (append2 frees can-frees)))))
-             (sets-here
-               (append2 (pass3/find-sets body vars) sets)))
+             (sets-for-this-lvars (pass3/find-sets body vars)))
             (cput! cb (quote LET_FRAME))
             (let1 free-size
                   (if (> (length frees-here) 0)
@@ -4132,7 +4126,7 @@
                           can-frees
                           sets
                           tail)
-                        (pass3/make-boxes cb sets-here vars)
+                        (pass3/make-boxes cb sets-for-this-lvars vars)
                         (cput! cb (quote ENTER) (length vars))
                         (let1 body-size
                               (pass3/rec
@@ -4142,7 +4136,7 @@
                                 frees-here
                                 (append2 can-frees vars)
                                 (%set-union
-                                  sets-here
+                                  (append2 sets-for-this-lvars sets)
                                   (%set-intersect sets frees-here))
                                 (if tail (+ tail (length vars) 2) #f))
                               (cput! cb (quote LEAVE) (length vars))
@@ -4173,14 +4167,13 @@
                body
                vars
                (append2 locals (append2 frees can-frees)))))
-         (sets-here
+         (sets-for-this-lvars
            (append
              vars
              (pass3/find-sets body vars)
              ($append-map1
                (lambda (i) (pass3/find-sets i vars))
-               ($let.inits iform))
-             sets))
+               ($let.inits iform))))
          (args ($let.inits iform)))
         (cput! cb (quote LET_FRAME))
         (let1 free-size
@@ -4194,7 +4187,7 @@
                    (cond ((null? args) (quote ()))
                          (else (cput! cb (quote UNDEF) (quote PUSH))
                                (loop (cdr args)))))
-              (pass3/make-boxes cb sets-here vars)
+              (pass3/make-boxes cb sets-for-this-lvars vars)
               (cput! cb (quote ENTER) (length vars))
               (let* ((new-can-frees (append2 can-frees vars))
                      (assign-size
@@ -4209,7 +4202,9 @@
                                                 frees-here
                                                 new-can-frees
                                                 (%set-union
-                                                  sets-here
+                                                  (append2
+                                                    sets-for-this-lvars
+                                                    sets)
                                                   (%set-intersect
                                                     sets
                                                     frees-here))
@@ -4228,7 +4223,7 @@
                             frees-here
                             new-can-frees
                             (%set-union
-                              sets-here
+                              (append2 sets-for-this-lvars sets)
                               (%set-intersect sets frees-here))
                             (if tail (+ tail (length vars) 2) #f))
                           (cput! cb (quote LEAVE) (length vars))
