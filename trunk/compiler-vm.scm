@@ -3074,14 +3074,12 @@
                    ($append-map1
                      (lambda (fm) (rec fm l labels-seen))
                      ($let.inits i))
-                   (rec ($let.body i)
-                        (append2 l ($let.lvars i))
-                        labels-seen)))
+                   (rec ($let.body i) ($let.lvars i) labels-seen)))
                 ((= $RECEIVE t)
                  (append2
                    (rec ($receive.vals i) l labels-seen)
                    (rec ($receive.body i)
-                        (append2 l ($receive.lvars i))
+                        ($receive.lvars i)
                         labels-seen)))
                 ((= $SEQ t)
                  ($append-map1
@@ -3089,14 +3087,15 @@
                    ($seq.body i)))
                 ((= $LAMBDA t)
                  (rec ($lambda.body i)
-                      (append2 l ($lambda.lvars i))
+                      ($lambda.lvars i)
                       labels-seen))
                 ((= $LOCAL-ASSIGN t)
                  (let1 lvar
                        ($local-assign.lvar i)
-                       (append2
-                         (if (memq lvar can-frees) (list lvar) (quote ()))
-                         (rec ($local-assign.val i) l labels-seen))))
+                       (if (memq lvar can-frees)
+                           (cons lvar
+                                 (rec ($local-assign.val i) l labels-seen))
+                           (rec ($local-assign.val i) l labels-seen))))
                 ((= $LOCAL-REF t)
                  (let1 lvar
                        ($local-ref.lvar i)
@@ -3421,7 +3420,7 @@
         (var-stack-size
           (pass3/compile-assign
             cb
-            ($local-ref.lvar iform)
+            ($local-assign.lvar iform)
             locals
             frees)))
        (+ val-stack-size var-stack-size)))
@@ -3866,7 +3865,9 @@
                     vars
                     (append2 locals (append2 frees can-frees))))
                 (sets-here
-                  (append2 (pass3/find-sets body vars) sets)))
+                  (append2
+                    (pass3/find-sets body vars)
+                    (debug-print sets))))
                (cput! cb (quote LET_FRAME))
                (let1 free-size
                      (if (> (length frees-here) 0)
@@ -3894,7 +3895,7 @@
                                    body
                                    vars
                                    frees-here
-                                   (%set-union can-frees vars)
+                                   (append2 can-frees vars)
                                    (%set-union
                                      sets-here
                                      (%set-intersect sets frees-here))
@@ -4004,7 +4005,7 @@
                       body
                       vars
                       frees-here
-                      (%set-union can-frees vars)
+                      (append2 can-frees vars)
                       (%set-union
                         sets-here
                         (%set-intersect sets frees-here))
@@ -4071,7 +4072,7 @@
                             body
                             vars
                             frees-here
-                            (%set-union can-frees vars)
+                            (append2 can-frees vars)
                             (%set-union
                               sets-here
                               (%set-intersect sets frees-here))
@@ -4139,7 +4140,7 @@
                                 body
                                 vars
                                 frees-here
-                                (%set-union can-frees vars)
+                                (append2 can-frees vars)
                                 (%set-union
                                   sets-here
                                   (%set-intersect sets frees-here))
@@ -4195,36 +4196,37 @@
                                (loop (cdr args)))))
               (pass3/make-boxes cb sets-here vars)
               (cput! cb (quote ENTER) (length vars))
-              (let1 assign-size
-                    (let loop
-                         ((args args) (size 0) (index 0))
-                         (cond ((null? args) size)
-                               (else (let1 stack-size
-                                           (pass3/rec
-                                             cb
-                                             (car args)
-                                             vars
-                                             frees-here
-                                             (%set-union can-frees vars)
-                                             (%set-union
-                                               sets-here
-                                               (%set-intersect
-                                                 sets
-                                                 frees-here))
-                                             #f)
-                                           (cput! cb
-                                                  (quote ASSIGN_LOCAL)
-                                                  index)
-                                           (loop (cdr args)
-                                                 (+ stack-size size)
-                                                 (+ index 1))))))
+              (let* ((new-can-frees (append2 can-frees vars))
+                     (assign-size
+                       (let loop
+                            ((args args) (size 0) (index 0))
+                            (cond ((null? args) size)
+                                  (else (let1 stack-size
+                                              (pass3/rec
+                                                cb
+                                                (car args)
+                                                vars
+                                                frees-here
+                                                new-can-frees
+                                                (%set-union
+                                                  sets-here
+                                                  (%set-intersect
+                                                    sets
+                                                    frees-here))
+                                                #f)
+                                              (cput! cb
+                                                     (quote ASSIGN_LOCAL)
+                                                     index)
+                                              (loop (cdr args)
+                                                    (+ stack-size size)
+                                                    (+ index 1))))))))
                     (let1 body-size
                           (pass3/rec
                             cb
                             body
                             vars
                             frees-here
-                            (%set-union can-frees vars)
+                            new-can-frees
                             (%set-union
                               sets-here
                               (%set-intersect sets frees-here))
