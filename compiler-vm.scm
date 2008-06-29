@@ -3268,6 +3268,15 @@
             (begin (code-builder-put1! (unquote cb) (unquote a))
                    (cput! (unquote cb) (unquote-splicing b)))))))
 
+(define-macro
+  (pass3/add-sets! sets new-sets)
+  (quasiquote
+    (if (null? (unquote new-sets))
+        (unquote sets)
+        (hashtable-set-true!
+          (eq-hashtable-copy (unquote sets))
+          (unquote new-sets)))))
+
 (define
   (pass3/collect-free cb frees-here locals frees)
   (fold (lambda
@@ -3891,9 +3900,7 @@
                                    vars
                                    frees-here
                                    (append2 can-frees vars)
-                                   (hashtable-set-true!
-                                     (eq-hashtable-copy sets)
-                                     sets-for-this-lvars)
+                                   (pass3/add-sets! sets sets-for-this-lvars)
                                    (if tail (+ tail (length vars) 2) #f))
                                  (cput! cb
                                         (quote LEAVE)
@@ -4000,11 +4007,7 @@
                       vars
                       frees-here
                       (append2 can-frees vars)
-                      (if (null? sets-for-this-lvars)
-                          sets
-                          (hashtable-set-true!
-                            (eq-hashtable-copy sets)
-                            sets-for-this-lvars))
+                      (pass3/add-sets! sets sets-for-this-lvars)
                       (length vars))
                     (cput! cb
                            (+ body-size free-size (length vars) 4)
@@ -4068,11 +4071,7 @@
                             vars
                             frees-here
                             (append2 can-frees vars)
-                            (if (null? sets-for-this-lvars)
-                                sets
-                                (hashtable-set-true!
-                                  (eq-hashtable-copy sets)
-                                  sets-for-this-lvars))
+                            (pass3/add-sets! sets sets-for-this-lvars)
                             (if tail (+ tail (length vars) 2) #f))
                           (cput! cb (quote LEAVE) (length vars))
                           (+ body-size vals-size free-size))))))
@@ -4137,11 +4136,7 @@
                                 vars
                                 frees-here
                                 (append2 can-frees vars)
-                                (if (null? sets-for-this-lvars)
-                                    sets
-                                    (hashtable-set-true!
-                                      (eq-hashtable-copy sets)
-                                      sets-for-this-lvars))
+                                (pass3/add-sets! sets sets-for-this-lvars)
                                 (if tail (+ tail (length vars) 2) #f))
                               (cput! cb (quote LEAVE) (length vars))
                               (+ body-size args-size free-size)))))))
@@ -4205,11 +4200,9 @@
                                                 vars
                                                 frees-here
                                                 new-can-frees
-                                                (if (null? sets-for-this-lvars)
-                                                    sets
-                                                    (hashtable-set-true!
-                                                      (eq-hashtable-copy sets)
-                                                      sets-for-this-lvars))
+                                                (pass3/add-sets!
+                                                  sets
+                                                  sets-for-this-lvars)
                                                 #f)
                                               (cput! cb
                                                      (quote ASSIGN_LOCAL)
@@ -4224,11 +4217,7 @@
                             vars
                             frees-here
                             new-can-frees
-                            (if (null? sets-for-this-lvars)
-                                sets
-                                (hashtable-set-true!
-                                  (eq-hashtable-copy sets)
-                                  sets-for-this-lvars))
+                            (pass3/add-sets! sets sets-for-this-lvars)
                             (if tail (+ tail (length vars) 2) #f))
                           (cput! cb (quote LEAVE) (length vars))
                           (+ free-size assign-size body-size))))))
