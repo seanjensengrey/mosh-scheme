@@ -116,7 +116,8 @@ public:
         REFER_LOCAL_PUSH = 107,
         VALUES = 108,
         RECEIVE = 109,
-        COUNT = 110,
+        UNFIXED_JUMP = 110,
+        COUNT = 111,
         OPERAND_MAX = 5
     };
     static const char* toString(int v) {
@@ -231,6 +232,7 @@ public:
             case REFER_LOCAL_PUSH: { return "REFER_LOCAL_PUSH";}
             case VALUES: { return "VALUES";}
             case RECEIVE: { return "RECEIVE";}
+            case UNFIXED_JUMP: { return "UNFIXED_JUMP";}
     }};
 };
 #endif // __SCHEME_DEBUG_INSTRUCTION_H__
