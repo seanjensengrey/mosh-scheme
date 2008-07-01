@@ -1848,10 +1848,51 @@
                                           (get-timeofday)
                                           (let1 v
                                                 (begin (unquote-splicing more))
+                                                (dd "(log ")
                                                 (dd (quote (unquote p)))
                                                 (dd (unquote temp))
-                                                (pp (get-timeofday))
+                                                (dd (get-timeofday))
+                                                (dd ")
+")
                                                 v))))))))
+                 clauses)))))
+
+(define-macro
+  (case-with-lambda val . clauses)
+  (quasiquote
+    (case (unquote val)
+          (unquote-splicing
+            (map (lambda
+                   (clause)
+                   (match clause
+                          (((quote else) . more)
+                           (quasiquote
+                             (else ((lambda
+                                      (else)
+                                      (set! else 3)
+                                      (unquote-splicing more))
+                                    4))))
+                          ((p . more)
+                           (if (and (pair? p) (symbol? (car p)))
+                               (let1 sym
+                                     (string->symbol
+                                       (string-append
+                                         "profile-"
+                                         (symbol->string (car p))))
+                                     (quasiquote
+                                       ((unquote p)
+                                        ((lambda
+                                           ((unquote sym))
+                                           (set! (unquote sym) 3)
+                                           (unquote-splicing more))
+                                         4))))
+                               (quasiquote
+                                 ((unquote p)
+                                  ((lambda
+                                     (anonymous)
+                                     (set! anonymous 3)
+                                     (unquote-splicing more))
+                                   4)))))))
                  clauses)))))
 
 (define
@@ -1867,17 +1908,19 @@
     (operator-nargs->iform op tag)
     (let* ((args (cdr sexp)) (len (length args)))
           (cond ((= 0 len)
-                 (case op
-                       ((+) (sexp->iform 0))
-                       ((*) (sexp->iform 1))
-                       (else (error op " got too few argment"))))
+                 (case-with-lambda
+                   op
+                   ((+) (sexp->iform 0))
+                   ((*) (sexp->iform 1))
+                   (else (error op " got too few argment"))))
                 ((= 1 len)
-                 (case op
-                       ((-) (sexp->iform (* -1 (car args))))
-                       ((/)
-                        (sexp->iform
-                          (quasiquote (/ 1 (unquote (car args))))))
-                       (else (sexp->iform (car args)))))
+                 (case-with-lambda
+                   op
+                   ((-) (sexp->iform (* -1 (car args))))
+                   ((/)
+                    (sexp->iform
+                      (quasiquote (/ 1 (unquote (car args))))))
+                   (else (sexp->iform (car args)))))
                 ((= 2 len)
                  ($asm tag
                        (list (sexp->iform (first args))
@@ -1949,7 +1992,7 @@
                 (else (sexp->iform
                         (conditions->if (apply-each-pair operator args)))))))
   (cond ((pair? sexp)
-         (case-with-time
+         (case-with-lambda
            (car sexp)
            ((cons)
             ($asm (quote CONS)
@@ -1967,7 +2010,6 @@
             ($asm (quote VALUES)
                   ($map1 sexp->iform (cdr sexp))))
            ((define)
-            (pp (get-timeofday))
             (match sexp
                    (((quote define) name ((quote lambda) . more))
                     (let1 closure
