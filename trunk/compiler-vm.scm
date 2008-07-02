@@ -1496,10 +1496,9 @@
          (#t ($global-ref (quote (top level)) symbol))))
 
 (define
-  (pass1/assign->iform sexp library lvars tail?)
-  (let* ((symbol (second sexp))
-         (val (third sexp))
-         (iform (pass1/sexp->iform val library lvars tail?)))
+  (pass1/assign symbol val library lvars tail?)
+  (let1 iform
+        (pass1/sexp->iform val library lvars tail?)
         (acond ((find10
                   (lambda (lvar) (eq? ($lvar.sym lvar) symbol))
                   lvars)
@@ -1904,6 +1903,12 @@
       lvars
       tail?)))
 
+(define-macro
+  (pass1/map-s->i sexp)
+  (quasiquote
+    ($map1 (lambda (s) (pass1/s->i s))
+           (unquote sexp))))
+
 (define
   (pass1/call proc args library lvars tail?)
   (acond ((and (symbol? proc)
@@ -1916,26 +1921,112 @@
           (let* ((lib (hashtable-ref libraries (second it) #f))
                  (macro (assoc (third it) ($library.macro lib))))
                 (if macro
-                    (pass1/s->if (vm/apply (cdr macro) args))
+                    (pass1/s->i (vm/apply (cdr macro) args))
                     ($call (pass1/s->i proc)
-                           ($map1 (lambda (x) (pass1/s->i x)) args)
+                           (pass1/map-s->i args)
                            tail?
                            #f))))
          (#t
           ($call (pass1/s->i proc)
-                 ($map1 (lambda (x) (pass1/s->i x)) args)
+                 (pass1/map-s->i args)
                  tail?
                  #f))))
 
 (define
+  (pass1/define sexp library lvars tail?)
+  (match sexp
+         (((quote define) name ((quote lambda) . more))
+          (let1 closure
+                (make-list-with-src-slot
+                  (cons (quote lambda) more))
+                (set-source-info!
+                  closure
+                  (source-info (third sexp)))
+                ($define
+                  ($library.name library)
+                  name
+                  (pass1/lambda->iform name closure library lvars))))
+         (else ($define
+                 ($library.name library)
+                 (second sexp)
+                 (pass1/s->i (third sexp))))))
+
+(define
+  (pass1/let
+    vars
+    vals
+    body
+    source-info
+    library
+    lvars
+    tail?)
+  (let* ((inits (pass1/map-s->i vals))
+         (this-lvars
+           (map (lambda (sym init) ($lvar sym init 0 0))
+                vars
+                inits)))
+        ($let (quote let)
+              this-lvars
+              inits
+              (pass1/body->iform
+                (pass1/expand body)
+                library
+                (append2 this-lvars lvars)
+                tail?)
+              tail?
+              source-info)))
+
+(define
+  (pass1/letrec
+    vars
+    vals
+    body
+    source-info
+    library
+    lvars
+    tail?)
+  (let* ((this-lvars
+           ($map1 (lambda (sym) ($lvar sym ($undef) 0 0))
+                  vars))
+         (inits ($map1 (lambda
+                         (x)
+                         (pass1/sexp->iform
+                           x
+                           library
+                           (append2 this-lvars lvars)
+                           tail?))
+                       vals)))
+        (for-each
+          (lambda
+            (lvar init)
+            ($lvar.set-init-val! lvar init))
+          this-lvars
+          inits)
+        ($let (quote rec)
+              this-lvars
+              inits
+              (pass1/body->iform
+                (pass1/expand body)
+                library
+                (append2 this-lvars lvars)
+                tail?)
+              tail?
+              source-info)))
+
+(define
+  (pass1/if test then more library lvars tail?)
+  ($if (pass1/sexp->iform
+         (pass1/expand test)
+         library
+         lvars
+         #f)
+       (pass1/s->i then)
+       (if (null? more)
+           ($undef)
+           (pass1/s->i (car more)))))
+
+(define
   (pass1/sexp->iform sexp library lvars tail?)
-  (define
-    (sexp->iform sexp)
-    (pass1/sexp->iform
-      (pass1/expand sexp)
-      library
-      lvars
-      tail?))
   (define
     (operator-nargs->iform op tag)
     (let* ((args (cdr sexp)) (len (length args)))
@@ -1956,7 +2047,7 @@
                        (list (pass1/s->i (first args))
                              (pass1/s->i (second args)))))
                 (else (let1 args-iform
-                            ($map1 sexp->iform args)
+                            (pass1/map-s->i args)
                             (fold (lambda (x y) ($asm tag (list y x)))
                                   (car args-iform)
                                   (cdr args-iform)))))))
@@ -2030,8 +2121,7 @@
                   library
                   lvars))
                ((cons)
-                ($asm (quote CONS)
-                      ($map1 sexp->iform (cdr sexp))))
+                ($asm (quote CONS) (pass1/map-s->i (cdr sexp))))
                ((and)
                 (pass1/and->iform sexp library lvars tail?))
                ((or) (pass1/or->iform sexp library lvars tail?))
@@ -2042,29 +2132,9 @@
                   lvars
                   tail?))
                ((values)
-                ($asm (quote VALUES)
-                      ($map1 sexp->iform (cdr sexp))))
+                ($asm (quote VALUES) (pass1/map-s->i (cdr sexp))))
                ((define)
-                (match sexp
-                       (((quote define) name ((quote lambda) . more))
-                        (let1 closure
-                              (make-list-with-src-slot
-                                (cons (quote lambda) more))
-                              (set-source-info!
-                                closure
-                                (source-info (third sexp)))
-                              ($define
-                                ($library.name library)
-                                name
-                                (pass1/lambda->iform
-                                  name
-                                  closure
-                                  library
-                                  lvars))))
-                       (else ($define
-                               ($library.name library)
-                               (second sexp)
-                               (pass1/s->i (third sexp))))))
+                (pass1/define sexp library lvars tail?))
                ((define-macro)
                 (if (pair? (second sexp))
                     ($library.set-macro!
@@ -2104,85 +2174,41 @@
                                   tail?))))
                        (else (syntax-error "malformed receive"))))
                ((let)
-                (let* ((vars ($map1 car (second sexp)))
-                       (vals ($map1 cadr (second sexp)))
-                       (body (cddr sexp))
-                       (inits ($map1 sexp->iform vals))
-                       (this-lvars
-                         (map (lambda (sym init) ($lvar sym init 0 0))
-                              vars
-                              inits)))
-                      ($let (quote let)
-                            this-lvars
-                            inits
-                            (pass1/body->iform
-                              (pass1/expand body)
-                              library
-                              (append2 this-lvars lvars)
-                              tail?)
-                            tail?
-                            (source-info sexp))))
+                (pass1/let
+                  ($map1 car (second sexp))
+                  ($map1 cadr (second sexp))
+                  (cddr sexp)
+                  (source-info sexp)
+                  library
+                  lvars
+                  tail?))
                ((letrec)
-                (let* ((vars ($map1 car (second sexp)))
-                       (vals ($map1 cadr (second sexp)))
-                       (body (cddr sexp))
-                       (this-lvars
-                         ($map1 (lambda (sym) ($lvar sym ($undef) 0 0))
-                                vars))
-                       (inits ($map1 (lambda
-                                       (x)
-                                       (pass1/sexp->iform
-                                         x
-                                         library
-                                         (append2 this-lvars lvars)
-                                         tail?))
-                                     vals)))
-                      (for-each
-                        (lambda
-                          (lvar init)
-                          ($lvar.set-init-val! lvar init))
-                        this-lvars
-                        inits)
-                      ($let (quote rec)
-                            this-lvars
-                            inits
-                            (pass1/body->iform
-                              (pass1/expand body)
-                              library
-                              (append2 this-lvars lvars)
-                              tail?)
-                            tail?
-                            (source-info sexp))))
+                (pass1/letrec
+                  ($map1 car (second sexp))
+                  ($map1 cadr (second sexp))
+                  (cddr sexp)
+                  (source-info sexp)
+                  library
+                  lvars
+                  tail?))
                ((library)
                 (pass1/library->iform sexp library lvars))
                ((import) (pass1/import->iform sexp library))
                ((set!)
-                (pass1/assign->iform
-                  (quasiquote
-                    (set! (unquote (second sexp))
-                          (unquote (pass1/expand (third sexp)))))
+                (pass1/assign
+                  (second sexp)
+                  (pass1/expand (third sexp))
                   library
                   lvars
                   tail?))
                ((if)
-                (let ((test (second sexp)) (then (third sexp)))
-                     ($if (pass1/sexp->iform
-                            (pass1/expand test)
-                            library
-                            lvars
-                            #f)
-                          (pass1/sexp->iform
-                            (pass1/expand then)
-                            library
-                            lvars
-                            tail?)
-                          (if (null? (cdddr sexp))
-                              ($undef)
-                              (pass1/sexp->iform
-                                (pass1/expand (fourth sexp))
-                                library
-                                lvars
-                                tail?)))))
+                (pass1/if
+                  (second sexp)
+                  (third sexp)
+                  (cdddr sexp)
+                  library
+                  lvars
+                  tail?))
                ((call/cc)
                 ($call-cc (pass1/s->i (second sexp)) tail?))
                ((call-with-current-continuation)
