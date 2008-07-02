@@ -1895,6 +1895,40 @@
                                    4)))))))
                  clauses)))))
 
+(define-macro
+  (pass1/s->i sexp)
+  (quasiquote
+    (pass1/sexp->iform
+      (pass1/expand (unquote sexp))
+      library
+      lvars
+      tail?)))
+
+(define
+  (pass1/call sexp library lvars tail?)
+  (let1 proc
+        (first sexp)
+        (acond ((and (symbol? proc)
+                     (assoc proc ($library.macro library)))
+                (pass1/s->i (vm/apply (cdr it) (cdr sexp))))
+               ((and (symbol? proc)
+                     (find10
+                       (lambda (sym) (eq? (first sym) proc))
+                       ($library.import-syms library)))
+                (let* ((lib (hashtable-ref libraries (second it) #f))
+                       (mac (assoc (third it) ($library.macro lib))))
+                      (if mac
+                          (pass1/s->if (vm/apply (cdr mac) (cdr sexp)))
+                          ($call (pass1/s->i proc)
+                                 ($map1 (lambda (x) (pass1/s->i x)) (cdr sexp))
+                                 tail?
+                                 #f))))
+               (#t
+                ($call (pass1/s->i proc)
+                       ($map1 (lambda (x) (pass1/s->i x)) (cdr sexp))
+                       tail?
+                       #f)))))
+
 (define
   (pass1/sexp->iform sexp library lvars tail?)
   (define
@@ -1908,19 +1942,17 @@
     (operator-nargs->iform op tag)
     (let* ((args (cdr sexp)) (len (length args)))
           (cond ((= 0 len)
-                 (case-with-lambda
-                   op
-                   ((+) (sexp->iform 0))
-                   ((*) (sexp->iform 1))
-                   (else (error op " got too few argment"))))
+                 (case op
+                       ((+) (sexp->iform 0))
+                       ((*) (sexp->iform 1))
+                       (else (error op " got too few argment"))))
                 ((= 1 len)
-                 (case-with-lambda
-                   op
-                   ((-) (sexp->iform (* -1 (car args))))
-                   ((/)
-                    (sexp->iform
-                      (quasiquote (/ 1 (unquote (car args))))))
-                   (else (sexp->iform (car args)))))
+                 (case op
+                       ((-) (sexp->iform (* -1 (car args))))
+                       ((/)
+                        (sexp->iform
+                          (quasiquote (/ 1 (unquote (car args))))))
+                       (else (sexp->iform (car args)))))
                 ((= 2 len)
                  ($asm tag
                        (list (sexp->iform (first args))
@@ -1992,277 +2024,253 @@
                 (else (sexp->iform
                         (conditions->if (apply-each-pair operator args)))))))
   (cond ((pair? sexp)
-         (case-with-lambda
-           (car sexp)
-           ((cons)
-            ($asm (quote CONS)
-                  ($map1 sexp->iform (cdr sexp))))
-           ((and)
-            (pass1/and->iform sexp library lvars tail?))
-           ((or) (pass1/or->iform sexp library lvars tail?))
-           ((begin)
-            (pass1/body->iform
-              (pass1/expand (cdr sexp))
-              library
-              lvars
-              tail?))
-           ((values)
-            ($asm (quote VALUES)
-                  ($map1 sexp->iform (cdr sexp))))
-           ((define)
-            (match sexp
-                   (((quote define) name ((quote lambda) . more))
-                    (let1 closure
-                          (make-list-with-src-slot
-                            (cons (quote lambda) more))
-                          (set-source-info!
-                            closure
-                            (source-info (third sexp)))
-                          ($define
-                            ($library.name library)
-                            name
-                            (pass1/lambda->iform name closure library lvars))))
-                   (else ($define
-                           ($library.name library)
-                           (second sexp)
-                           (sexp->iform (third sexp))))))
-           ((define-macro)
-            (if (pair? (second sexp))
-                ($library.set-macro!
+         (case (car sexp)
+               ((lambda)
+                (pass1/lambda->iform
+                  (quote lambda)
+                  sexp
                   library
-                  (acons (caadr sexp)
-                         (compile-partial
-                           (quasiquote
-                             (lambda
-                               (unquote (cdadr sexp))
-                               (unquote (third sexp))))
-                           library)
-                         ($library.macro library)))
-                ($library.set-macro!
+                  lvars))
+               ((cons)
+                ($asm (quote CONS)
+                      ($map1 sexp->iform (cdr sexp))))
+               ((and)
+                (pass1/and->iform sexp library lvars tail?))
+               ((or) (pass1/or->iform sexp library lvars tail?))
+               ((begin)
+                (pass1/body->iform
+                  (pass1/expand (cdr sexp))
                   library
-                  (acons (second sexp)
-                         (compile-partial (third sexp))
-                         ($library.macro library))))
-            ($undef))
-           ((receive)
-            (match sexp
-                   (((quote receive) vars vals . body)
-                    (receive
-                      (vars reqargs optarg)
-                      (parse-lambda-args vars)
-                      (let1 this-lvars
-                            ($map1 (lambda (sym) ($lvar sym #f 0 0)) vars)
-                            ($receive
-                              this-lvars
-                              reqargs
-                              optarg
-                              (sexp->iform vals)
-                              (pass1/body->iform
-                                (pass1/expand body)
-                                library
-                                (append2 this-lvars lvars)
-                                tail?)
-                              tail?))))
-                   (else (syntax-error "malformed receive"))))
-           ((let)
-            (let* ((vars ($map1 car (second sexp)))
-                   (vals ($map1 cadr (second sexp)))
-                   (body (cddr sexp))
-                   (inits ($map1 sexp->iform vals))
-                   (this-lvars
-                     (map (lambda (sym init) ($lvar sym init 0 0))
-                          vars
-                          inits)))
-                  ($let (quote let)
+                  lvars
+                  tail?))
+               ((values)
+                ($asm (quote VALUES)
+                      ($map1 sexp->iform (cdr sexp))))
+               ((define)
+                (match sexp
+                       (((quote define) name ((quote lambda) . more))
+                        (let1 closure
+                              (make-list-with-src-slot
+                                (cons (quote lambda) more))
+                              (set-source-info!
+                                closure
+                                (source-info (third sexp)))
+                              ($define
+                                ($library.name library)
+                                name
+                                (pass1/lambda->iform
+                                  name
+                                  closure
+                                  library
+                                  lvars))))
+                       (else ($define
+                               ($library.name library)
+                               (second sexp)
+                               (sexp->iform (third sexp))))))
+               ((define-macro)
+                (if (pair? (second sexp))
+                    ($library.set-macro!
+                      library
+                      (acons (caadr sexp)
+                             (compile-partial
+                               (quasiquote
+                                 (lambda
+                                   (unquote (cdadr sexp))
+                                   (unquote (third sexp))))
+                               library)
+                             ($library.macro library)))
+                    ($library.set-macro!
+                      library
+                      (acons (second sexp)
+                             (compile-partial (third sexp))
+                             ($library.macro library))))
+                ($undef))
+               ((receive)
+                (match sexp
+                       (((quote receive) vars vals . body)
+                        (receive
+                          (vars reqargs optarg)
+                          (parse-lambda-args vars)
+                          (let1 this-lvars
+                                ($map1 (lambda (sym) ($lvar sym #f 0 0)) vars)
+                                ($receive
+                                  this-lvars
+                                  reqargs
+                                  optarg
+                                  (sexp->iform vals)
+                                  (pass1/body->iform
+                                    (pass1/expand body)
+                                    library
+                                    (append2 this-lvars lvars)
+                                    tail?)
+                                  tail?))))
+                       (else (syntax-error "malformed receive"))))
+               ((let)
+                (let* ((vars ($map1 car (second sexp)))
+                       (vals ($map1 cadr (second sexp)))
+                       (body (cddr sexp))
+                       (inits ($map1 sexp->iform vals))
+                       (this-lvars
+                         (map (lambda (sym init) ($lvar sym init 0 0))
+                              vars
+                              inits)))
+                      ($let (quote let)
+                            this-lvars
+                            inits
+                            (pass1/body->iform
+                              (pass1/expand body)
+                              library
+                              (append2 this-lvars lvars)
+                              tail?)
+                            tail?
+                            (source-info sexp))))
+               ((letrec)
+                (let* ((vars ($map1 car (second sexp)))
+                       (vals ($map1 cadr (second sexp)))
+                       (body (cddr sexp))
+                       (this-lvars
+                         ($map1 (lambda (sym) ($lvar sym ($undef) 0 0))
+                                vars))
+                       (inits ($map1 (lambda
+                                       (x)
+                                       (pass1/sexp->iform
+                                         x
+                                         library
+                                         (append2 this-lvars lvars)
+                                         tail?))
+                                     vals)))
+                      (for-each
+                        (lambda
+                          (lvar init)
+                          ($lvar.set-init-val! lvar init))
                         this-lvars
-                        inits
-                        (pass1/body->iform
-                          (pass1/expand body)
-                          library
-                          (append2 this-lvars lvars)
-                          tail?)
-                        tail?
-                        (source-info sexp))))
-           ((letrec)
-            (let* ((vars ($map1 car (second sexp)))
-                   (vals ($map1 cadr (second sexp)))
-                   (body (cddr sexp))
-                   (this-lvars
-                     ($map1 (lambda (sym) ($lvar sym ($undef) 0 0))
-                            vars))
-                   (inits ($map1 (lambda
-                                   (x)
-                                   (pass1/sexp->iform
-                                     x
-                                     library
-                                     (append2 this-lvars lvars)
-                                     tail?))
-                                 vals)))
-                  (for-each
-                    (lambda
-                      (lvar init)
-                      ($lvar.set-init-val! lvar init))
-                    this-lvars
-                    inits)
-                  ($let (quote rec)
-                        this-lvars
-                        inits
-                        (pass1/body->iform
-                          (pass1/expand body)
-                          library
-                          (append2 this-lvars lvars)
-                          tail?)
-                        tail?
-                        (source-info sexp))))
-           ((lambda)
-            (pass1/lambda->iform
-              (quote lambda)
-              sexp
-              library
-              lvars))
-           ((library)
-            (pass1/library->iform sexp library lvars))
-           ((import) (pass1/import->iform sexp library))
-           ((set!)
-            (pass1/assign->iform
-              (quasiquote
-                (set! (unquote (second sexp))
-                      (unquote (pass1/expand (third sexp)))))
-              library
-              lvars
-              tail?))
-           ((if)
-            (let ((test (second sexp)) (then (third sexp)))
-                 ($if (pass1/sexp->iform
-                        (pass1/expand test)
-                        library
-                        lvars
-                        #f)
-                      (pass1/sexp->iform
-                        (pass1/expand then)
-                        library
-                        lvars
-                        tail?)
-                      (if (null? (cdddr sexp))
-                          ($undef)
-                          (pass1/sexp->iform
-                            (pass1/expand (fourth sexp))
+                        inits)
+                      ($let (quote rec)
+                            this-lvars
+                            inits
+                            (pass1/body->iform
+                              (pass1/expand body)
+                              library
+                              (append2 this-lvars lvars)
+                              tail?)
+                            tail?
+                            (source-info sexp))))
+               ((library)
+                (pass1/library->iform sexp library lvars))
+               ((import) (pass1/import->iform sexp library))
+               ((set!)
+                (pass1/assign->iform
+                  (quasiquote
+                    (set! (unquote (second sexp))
+                          (unquote (pass1/expand (third sexp)))))
+                  library
+                  lvars
+                  tail?))
+               ((if)
+                (let ((test (second sexp)) (then (third sexp)))
+                     ($if (pass1/sexp->iform
+                            (pass1/expand test)
                             library
                             lvars
-                            tail?)))))
-           ((call/cc)
-            ($call-cc (sexp->iform (second sexp)) tail?))
-           ((call-with-current-continuation)
-            ($call-cc (sexp->iform (second sexp)) tail?))
-           ((quote) ($const (second sexp)))
-           ((make-vector)
-            (if (null? (cddr sexp))
-                ($asm (quote MAKE_VECTOR)
-                      (list (pass1/sexp->iform
-                              (pass1/expand (second sexp))
-                              library
-                              lvars
-                              tail?)
-                            (pass1/sexp->iform
-                              (pass1/expand (quote ()))
-                              library
-                              lvars
-                              tail?)))
-                (call-2args->iform (quote MAKE_VECTOR))))
-           ((+)
-            (operator-nargs->iform
-              (quote +)
-              (quote NUMBER_ADD)))
-           ((-)
-            (operator-nargs->iform
-              (quote -)
-              (quote NUMBER_SUB)))
-           ((*)
-            (operator-nargs->iform
-              (quote *)
-              (quote NUMBER_MUL)))
-           ((/)
-            (operator-nargs->iform
-              (quote /)
-              (quote NUMBER_DIV)))
-           ((=)
-            (numcmp->iform
-              (quote =)
-              (cdr sexp)
-              (quote NUMBER_EQUAL)))
-           ((>=)
-            (numcmp->iform
-              (quote >=)
-              (cdr sexp)
-              (quote NUMBER_GE)))
-           ((>)
-            (numcmp->iform
-              (quote >)
-              (cdr sexp)
-              (quote NUMBER_GT)))
-           ((<)
-            (numcmp->iform
-              (quote <)
-              (cdr sexp)
-              (quote NUMBER_LT)))
-           ((<=)
-            (numcmp->iform
-              (quote <=)
-              (cdr sexp)
-              (quote NUMBER_LE)))
-           ((vector?) (call-1arg->iform (quote VECTOR_P)))
-           ((vector-length)
-            (call-1arg->iform (quote VECTOR_LENGTH)))
-           ((vector-set!)
-            (call-3args->iform (quote VECTOR_SET)))
-           ((vector-ref)
-            (call-2args->iform (quote VECTOR_REF)))
-           ((car) (call-1arg->iform (quote CAR)))
-           ((cdr) (call-1arg->iform (quote CDR)))
-           ((caar) (call-1arg->iform (quote CAAR)))
-           ((cadr) (call-1arg->iform (quote CADR)))
-           ((cdar) (call-1arg->iform (quote CDAR)))
-           ((cddr) (call-1arg->iform (quote CDDR)))
-           ((set-car!) (call-2args->iform (quote SET_CAR)))
-           ((set-cdr!) (call-2args->iform (quote SET_CDR)))
-           ((eq?) (call-2args->iform (quote EQ)))
-           ((eqv?) (call-2args->iform (quote EQV)))
-           ((equal?) (call-2args->iform (quote EQUAL)))
-           ((not) (call-1arg->iform (quote NOT)))
-           ((null?) (call-1arg->iform (quote NULL_P)))
-           ((pair?) (call-1arg->iform (quote PAIR_P)))
-           ((symbol?) (call-1arg->iform (quote SYMBOL_P)))
-           ((read) (call-1arg-optional->iform (quote READ)))
-           ((read-char)
-            (call-1arg-optional->iform (quote READ_CHAR)))
-           (else (let1 proc
-                       (first sexp)
-                       (acond ((and (symbol? proc)
-                                    (assoc proc ($library.macro library)))
-                               (sexp->iform (vm/apply (cdr it) (cdr sexp))))
-                              ((and (symbol? proc)
-                                    (find10
-                                      (lambda (sym) (eq? (first sym) proc))
-                                      ($library.import-syms library)))
-                               (let* ((lib (hashtable-ref
-                                             libraries
-                                             (second it)
-                                             #f))
-                                      (mac (assoc (third it)
-                                                  ($library.macro lib))))
-                                     (if mac
-                                         (sexp->iform
-                                           (pass1/expand
-                                             (vm/apply (cdr mac) (cdr sexp))))
-                                         ($call (sexp->iform proc)
-                                                ($map1 sexp->iform (cdr sexp))
-                                                tail?
-                                                #f))))
-                              (#t
-                               ($call (sexp->iform proc)
-                                      ($map1 sexp->iform (cdr sexp))
-                                      tail?
-                                      #f)))))))
+                            #f)
+                          (pass1/sexp->iform
+                            (pass1/expand then)
+                            library
+                            lvars
+                            tail?)
+                          (if (null? (cdddr sexp))
+                              ($undef)
+                              (pass1/sexp->iform
+                                (pass1/expand (fourth sexp))
+                                library
+                                lvars
+                                tail?)))))
+               ((call/cc)
+                ($call-cc (sexp->iform (second sexp)) tail?))
+               ((call-with-current-continuation)
+                ($call-cc (sexp->iform (second sexp)) tail?))
+               ((quote) ($const (second sexp)))
+               ((make-vector)
+                (if (null? (cddr sexp))
+                    ($asm (quote MAKE_VECTOR)
+                          (list (pass1/sexp->iform
+                                  (pass1/expand (second sexp))
+                                  library
+                                  lvars
+                                  tail?)
+                                (pass1/sexp->iform
+                                  (pass1/expand (quote ()))
+                                  library
+                                  lvars
+                                  tail?)))
+                    (call-2args->iform (quote MAKE_VECTOR))))
+               ((+)
+                (operator-nargs->iform
+                  (quote +)
+                  (quote NUMBER_ADD)))
+               ((-)
+                (operator-nargs->iform
+                  (quote -)
+                  (quote NUMBER_SUB)))
+               ((*)
+                (operator-nargs->iform
+                  (quote *)
+                  (quote NUMBER_MUL)))
+               ((/)
+                (operator-nargs->iform
+                  (quote /)
+                  (quote NUMBER_DIV)))
+               ((=)
+                (numcmp->iform
+                  (quote =)
+                  (cdr sexp)
+                  (quote NUMBER_EQUAL)))
+               ((>=)
+                (numcmp->iform
+                  (quote >=)
+                  (cdr sexp)
+                  (quote NUMBER_GE)))
+               ((>)
+                (numcmp->iform
+                  (quote >)
+                  (cdr sexp)
+                  (quote NUMBER_GT)))
+               ((<)
+                (numcmp->iform
+                  (quote <)
+                  (cdr sexp)
+                  (quote NUMBER_LT)))
+               ((<=)
+                (numcmp->iform
+                  (quote <=)
+                  (cdr sexp)
+                  (quote NUMBER_LE)))
+               ((vector?) (call-1arg->iform (quote VECTOR_P)))
+               ((vector-length)
+                (call-1arg->iform (quote VECTOR_LENGTH)))
+               ((vector-set!)
+                (call-3args->iform (quote VECTOR_SET)))
+               ((vector-ref)
+                (call-2args->iform (quote VECTOR_REF)))
+               ((car) (call-1arg->iform (quote CAR)))
+               ((cdr) (call-1arg->iform (quote CDR)))
+               ((caar) (call-1arg->iform (quote CAAR)))
+               ((cadr) (call-1arg->iform (quote CADR)))
+               ((cdar) (call-1arg->iform (quote CDAR)))
+               ((cddr) (call-1arg->iform (quote CDDR)))
+               ((set-car!) (call-2args->iform (quote SET_CAR)))
+               ((set-cdr!) (call-2args->iform (quote SET_CDR)))
+               ((eq?) (call-2args->iform (quote EQ)))
+               ((eqv?) (call-2args->iform (quote EQV)))
+               ((equal?) (call-2args->iform (quote EQUAL)))
+               ((not) (call-1arg->iform (quote NOT)))
+               ((null?) (call-1arg->iform (quote NULL_P)))
+               ((pair?) (call-1arg->iform (quote PAIR_P)))
+               ((symbol?) (call-1arg->iform (quote SYMBOL_P)))
+               ((read) (call-1arg-optional->iform (quote READ)))
+               ((read-char)
+                (call-1arg-optional->iform (quote READ_CHAR)))
+               (else (pass1/call sexp library lvars tail?))))
         ((symbol? sexp)
          (pass1/refer->iform sexp library lvars))
         (else ($const sexp))))
