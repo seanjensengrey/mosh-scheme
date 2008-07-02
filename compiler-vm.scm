@@ -1132,30 +1132,33 @@
       (source-info (unquote sexp)))))
 
 (define
+  (lambda-has-define? sexp)
+  (and (not (null? (cddr sexp)))
+       (pair? (third sexp))
+       (eq? (car (third sexp)) (quote define))))
+
+(define
+  (let1->let sexp)
+  (quasiquote
+    (let (((unquote (second sexp)) (unquote (third sexp))))
+         (unquote-splicing (cdddr sexp)))))
+
+(define
+  (expand-let vars body)
+  (let1 expanded-vars
+        (fold-right
+          (lambda
+            (x y)
+            (cons (list (first x) (pass1/expand (second x)))
+                  y))
+          (quote ())
+          vars)
+        (quasiquote
+          (let (unquote expanded-vars)
+               (unquote-splicing (pass1/expand body))))))
+
+(define
   (pass1/expand sexp)
-  (define
-    (lambda-has-define? sexp)
-    (and (not (null? (cddr sexp)))
-         (pair? (third sexp))
-         (eq? (car (third sexp)) (quote define))))
-  (define
-    (let1->let sexp)
-    (quasiquote
-      (let (((unquote (second sexp)) (unquote (third sexp))))
-           (unquote-splicing (cdddr sexp)))))
-  (define
-    (expand-let vars body)
-    (let1 expanded-vars
-          (fold-right
-            (lambda
-              (x y)
-              (cons (list (first x) (pass1/expand (second x)))
-                    y))
-            (quote ())
-            vars)
-          (quasiquote
-            (let (unquote expanded-vars)
-                 (unquote-splicing (pass1/expand body))))))
   (cond ((pair? sexp)
          (case (first sexp)
                ((quote) sexp)
@@ -1331,26 +1334,27 @@
                          (loop (cdr clauses))))))))
 
 (define
+  (expand-clauses clauses tmpname)
+  (let loop
+       ((clauses clauses))
+       (if (null? clauses)
+           (quote ())
+           (if (eq? (quote else) (caar clauses))
+               clauses
+               (if (= 1 (length (caar clauses)))
+                   (cons (quasiquote
+                           ((eqv? (quote (unquote (caaar clauses)))
+                                  (unquote tmpname))
+                            (unquote-splicing (cdar clauses))))
+                         (loop (cdr clauses)))
+                   (cons (quasiquote
+                           ((memv (unquote tmpname)
+                                  (quote (unquote (caar clauses))))
+                            (unquote-splicing (cdar clauses))))
+                         (loop (cdr clauses))))))))
+
+(define
   (case->cond sexp)
-  (define
-    (expand-clauses clauses tmpname)
-    (let loop
-         ((clauses clauses))
-         (if (null? clauses)
-             (quote ())
-             (if (eq? (quote else) (caar clauses))
-                 clauses
-                 (if (= 1 (length (caar clauses)))
-                     (cons (quasiquote
-                             ((eqv? (quote (unquote (caaar clauses)))
-                                    (unquote tmpname))
-                              (unquote-splicing (cdar clauses))))
-                           (loop (cdr clauses)))
-                     (cons (quasiquote
-                             ((memv (unquote tmpname)
-                                    (quote (unquote (caar clauses))))
-                              (unquote-splicing (cdar clauses))))
-                           (loop (cdr clauses))))))))
   (let* ((pred (cadr sexp))
          (clauses (cddr sexp))
          (tmpname (gensym))
@@ -1390,76 +1394,81 @@
   (symbol? (cadr sexp)))
 
 (define
+  (finalize-quasiquote mode arg)
+  (cond ((eq? mode (quote quote))
+         (list (quote quote) arg))
+        ((eq? mode (quote unquote)) arg)
+        ((eq? mode (quote unquote-splicing))
+         (error ",@ in invalid context" arg))
+        (else (cons mode arg))))
+
+(define
+  (descend-quasiquote x level return)
+  (cond ((vector? x)
+         (descend-quasiquote-vector x level return))
+        ((not (pair? x)) (return (quote quote) x))
+        ((interesting-to-quasiquote? x (quote quasiquote))
+         (descend-quasiquote-pair x (+ level 1) return))
+        ((interesting-to-quasiquote? x (quote unquote))
+         (cond ((= level 0) (return (quote unquote) (cadr x)))
+               (else (descend-quasiquote-pair x (- level 1) return))))
+        ((interesting-to-quasiquote?
+           x
+           (quote unquote-splicing))
+         (cond ((= level 0)
+                (return (quote unquote-splicing) (cadr x)))
+               (else (descend-quasiquote-pair x (- level 1) return))))
+        (else (descend-quasiquote-pair x level return))))
+
+(define
+  (descend-quasiquote-pair x level return)
+  (descend-quasiquote
+    (car x)
+    level
+    (lambda
+      (car-mode car-arg)
+      (descend-quasiquote
+        (cdr x)
+        level
+        (lambda
+          (cdr-mode cdr-arg)
+          (cond ((and (eq? car-mode (quote quote))
+                      (eq? cdr-mode (quote quote)))
+                 (return (quote quote) x))
+                ((eq? car-mode (quote unquote-splicing))
+                 (cond ((and (eq? cdr-mode (quote quote))
+                             (null? cdr-arg))
+                        (return (quote unquote) car-arg))
+                       (else (return
+                               (quote append2)
+                               (list car-arg
+                                     (finalize-quasiquote
+                                       cdr-mode
+                                       cdr-arg))))))
+                (else (return
+                        (quote cons)
+                        (list (finalize-quasiquote car-mode car-arg)
+                              (finalize-quasiquote cdr-mode cdr-arg))))))))))
+
+(define
+  (descend-quasiquote-vector x level return)
+  (descend-quasiquote
+    (vector->list x)
+    level
+    (lambda
+      (mode arg)
+      (if (equal? mode (quote quote))
+          (return (quote quote) x)
+          (return
+            (quote list->vector)
+            (list (finalize-quasiquote mode arg)))))))
+
+(define
+  (interesting-to-quasiquote? x marker)
+  (and (pair? x) (eq? (car x) marker)))
+
+(define
   (expand-quasiquote x level)
-  (define
-    (finalize-quasiquote mode arg)
-    (cond ((eq? mode (quote quote))
-           (list (quote quote) arg))
-          ((eq? mode (quote unquote)) arg)
-          ((eq? mode (quote unquote-splicing))
-           (error ",@ in invalid context" arg))
-          (else (cons mode arg))))
-  (define
-    (descend-quasiquote x level return)
-    (cond ((vector? x)
-           (descend-quasiquote-vector x level return))
-          ((not (pair? x)) (return (quote quote) x))
-          ((interesting-to-quasiquote? x (quote quasiquote))
-           (descend-quasiquote-pair x (+ level 1) return))
-          ((interesting-to-quasiquote? x (quote unquote))
-           (cond ((= level 0) (return (quote unquote) (cadr x)))
-                 (else (descend-quasiquote-pair x (- level 1) return))))
-          ((interesting-to-quasiquote?
-             x
-             (quote unquote-splicing))
-           (cond ((= level 0)
-                  (return (quote unquote-splicing) (cadr x)))
-                 (else (descend-quasiquote-pair x (- level 1) return))))
-          (else (descend-quasiquote-pair x level return))))
-  (define
-    (descend-quasiquote-pair x level return)
-    (descend-quasiquote
-      (car x)
-      level
-      (lambda
-        (car-mode car-arg)
-        (descend-quasiquote
-          (cdr x)
-          level
-          (lambda
-            (cdr-mode cdr-arg)
-            (cond ((and (eq? car-mode (quote quote))
-                        (eq? cdr-mode (quote quote)))
-                   (return (quote quote) x))
-                  ((eq? car-mode (quote unquote-splicing))
-                   (cond ((and (eq? cdr-mode (quote quote))
-                               (null? cdr-arg))
-                          (return (quote unquote) car-arg))
-                         (else (return
-                                 (quote append2)
-                                 (list car-arg
-                                       (finalize-quasiquote
-                                         cdr-mode
-                                         cdr-arg))))))
-                  (else (return
-                          (quote cons)
-                          (list (finalize-quasiquote car-mode car-arg)
-                                (finalize-quasiquote cdr-mode cdr-arg))))))))))
-  (define
-    (descend-quasiquote-vector x level return)
-    (descend-quasiquote
-      (vector->list x)
-      level
-      (lambda
-        (mode arg)
-        (if (equal? mode (quote quote))
-            (return (quote quote) x)
-            (return
-              (quote list->vector)
-              (list (finalize-quasiquote mode arg)))))))
-  (define
-    (interesting-to-quasiquote? x marker)
-    (and (pair? x) (eq? (car x) marker)))
   (descend-quasiquote x level finalize-quasiquote))
 
 (define
@@ -1526,15 +1535,16 @@
             ($seq iforms tail?))))
 
 (define
+  (dotpair->list p)
+  (let loop
+       ((p p))
+       (cond ((and (not (pair? p)) (not (null? p)))
+              (cons p (quote ())))
+             ((null? p) (quote ()))
+             (else (cons (car p) (loop (cdr p)))))))
+
+(define
   (pass1/lambda->iform name sexp library lvars)
-  (define
-    (dotpair->list p)
-    (let loop
-         ((p p))
-         (cond ((and (not (pair? p)) (not (null? p)))
-                (cons p (quote ())))
-               ((null? p) (quote ()))
-               (else (cons (car p) (loop (cdr p)))))))
   (let* ((vars (second sexp))
          (body (cddr sexp))
          (parsed-vars (parse-lambda-vars vars))
@@ -1952,6 +1962,28 @@
                  (pass1/s->i (third sexp))))))
 
 (define
+  (pass1/receive sexp library lvars tail?)
+  (match sexp
+         (((quote receive) vars vals . body)
+          (receive
+            (vars reqargs optarg)
+            (parse-lambda-args vars)
+            (let1 this-lvars
+                  ($map1 (lambda (sym) ($lvar sym #f 0 0)) vars)
+                  ($receive
+                    this-lvars
+                    reqargs
+                    optarg
+                    (pass1/s->i vals)
+                    (pass1/body->iform
+                      (pass1/expand body)
+                      library
+                      (append2 this-lvars lvars)
+                      tail?)
+                    tail?))))
+         (else (syntax-error "malformed receive"))))
+
+(define
   (pass1/let
     vars
     vals
@@ -2026,92 +2058,131 @@
            (pass1/s->i (car more)))))
 
 (define
+  (pass1/define-macro sexp library lvars tail?)
+  (if (pair? (second sexp))
+      ($library.set-macro!
+        library
+        (acons (caadr sexp)
+               (compile-partial
+                 (quasiquote
+                   (lambda
+                     (unquote (cdadr sexp))
+                     (unquote (third sexp))))
+                 library)
+               ($library.macro library)))
+      ($library.set-macro!
+        library
+        (acons (second sexp)
+               (compile-partial (third sexp))
+               ($library.macro library))))
+  ($undef))
+
+(define
+  (pass1/asm-numcmp
+    tag
+    operator
+    args
+    library
+    lvars
+    tail?)
+  (let1 len
+        (length args)
+        (cond ((> 2 len)
+               (error operator " got too few argument"))
+              ((= 2 len)
+               ($asm tag
+                     (list (pass1/s->i (first args))
+                           (pass1/s->i (second args)))))
+              (else (pass1/s->i
+                      (conditions->if (apply-each-pair operator args)))))))
+
+(define
+  (pass1/asm-1-arg tag arg1 library lvars tail?)
+  ($asm tag (list (pass1/s->i arg1))))
+
+(define
+  (pass1/asm-2-arg
+    tag
+    arg1
+    arg2
+    library
+    lvars
+    tail?)
+  ($asm tag
+        (list (pass1/s->i arg1) (pass1/s->i arg2))))
+
+(define
+  (pass1/asm-3-arg
+    tag
+    arg1
+    arg2
+    arg3
+    library
+    lvars
+    tail?)
+  ($asm tag
+        (list (pass1/s->i arg1)
+              (pass1/s->i arg2)
+              (pass1/s->i arg3))))
+
+(define
+  (pass1/asm-1-arg-optional
+    tag
+    args
+    library
+    lvars
+    tail?)
+  (let1 arg1
+        (if (null? args) (quote ()) (car args))
+        ($asm tag (list (pass1/s->i arg1)))))
+
+(define
+  (pass1/asm-2-arg-optional
+    tag
+    arg1
+    rest
+    library
+    lvars
+    tail?)
+  (let1 arg2
+        (if (null? rest) (quote ()) (car rest))
+        ($asm tag
+              (list (pass1/s->i arg1) (pass1/s->i arg2)))))
+
+(define
+  (pass1/asm-n-args
+    tag
+    operator
+    args
+    library
+    lvars
+    tail?)
+  (let1 len
+        (length args)
+        (cond ((zero? len)
+               (case operator
+                     ((+) (pass1/s->i 0))
+                     ((*) (pass1/s->i 1))
+                     (else (error operator " got too few argment"))))
+              ((= 1 len)
+               (case operator
+                     ((-) (pass1/s->i (* -1 (car args))))
+                     ((/)
+                      (pass1/s->i
+                        (quasiquote (/ 1 (unquote (car args))))))
+                     (else (pass1/s->i (car args)))))
+              ((= 2 len)
+               ($asm tag
+                     (list (pass1/s->i (first args))
+                           (pass1/s->i (second args)))))
+              (else (let1 args-iform
+                          (pass1/map-s->i args)
+                          (fold (lambda (x y) ($asm tag (list y x)))
+                                (car args-iform)
+                                (cdr args-iform)))))))
+
+(define
   (pass1/sexp->iform sexp library lvars tail?)
-  (define
-    (operator-nargs->iform op tag)
-    (let* ((args (cdr sexp)) (len (length args)))
-          (cond ((= 0 len)
-                 (case op
-                       ((+) (pass1/s->i 0))
-                       ((*) (pass1/s->i 1))
-                       (else (error op " got too few argment"))))
-                ((= 1 len)
-                 (case op
-                       ((-) (pass1/s->i (* -1 (car args))))
-                       ((/)
-                        (pass1/s->i
-                          (quasiquote (/ 1 (unquote (car args))))))
-                       (else (pass1/s->i (car args)))))
-                ((= 2 len)
-                 ($asm tag
-                       (list (pass1/s->i (first args))
-                             (pass1/s->i (second args)))))
-                (else (let1 args-iform
-                            (pass1/map-s->i args)
-                            (fold (lambda (x y) ($asm tag (list y x)))
-                                  (car args-iform)
-                                  (cdr args-iform)))))))
-  (define
-    (call-1arg->iform tag)
-    ($asm tag
-          (list (pass1/sexp->iform
-                  (pass1/expand (second sexp))
-                  library
-                  lvars
-                  tail?))))
-  (define
-    (call-1arg-optional->iform tag)
-    ($asm tag
-          (list (pass1/sexp->iform
-                  (if (null? (cdr sexp))
-                      (quote ())
-                      (pass1/expand (second sexp)))
-                  library
-                  lvars
-                  tail?))))
-  (define
-    (call-2args->iform tag)
-    ($asm tag
-          (list (pass1/sexp->iform
-                  (pass1/expand (second sexp))
-                  library
-                  lvars
-                  tail?)
-                (pass1/sexp->iform
-                  (pass1/expand (third sexp))
-                  library
-                  lvars
-                  tail?))))
-  (define
-    (call-3args->iform tag)
-    ($asm tag
-          (list (pass1/sexp->iform
-                  (pass1/expand (second sexp))
-                  library
-                  lvars
-                  tail?)
-                (pass1/sexp->iform
-                  (pass1/expand (third sexp))
-                  library
-                  lvars
-                  tail?)
-                (pass1/sexp->iform
-                  (pass1/expand (fourth sexp))
-                  library
-                  lvars
-                  tail?))))
-  (define
-    (numcmp->iform operator args tag)
-    (let1 len
-          (length args)
-          (cond ((> 2 len)
-                 (error operator " got too few argument"))
-                ((= 2 len)
-                 ($asm tag
-                       (list (pass1/s->i (first args))
-                             (pass1/s->i (second args)))))
-                (else (pass1/s->i
-                        (conditions->if (apply-each-pair operator args)))))))
   (cond ((pair? sexp)
          (case (car sexp)
                ((lambda)
@@ -2136,43 +2207,9 @@
                ((define)
                 (pass1/define sexp library lvars tail?))
                ((define-macro)
-                (if (pair? (second sexp))
-                    ($library.set-macro!
-                      library
-                      (acons (caadr sexp)
-                             (compile-partial
-                               (quasiquote
-                                 (lambda
-                                   (unquote (cdadr sexp))
-                                   (unquote (third sexp))))
-                               library)
-                             ($library.macro library)))
-                    ($library.set-macro!
-                      library
-                      (acons (second sexp)
-                             (compile-partial (third sexp))
-                             ($library.macro library))))
-                ($undef))
+                (pass1/define-macro sexp library lvars tail?))
                ((receive)
-                (match sexp
-                       (((quote receive) vars vals . body)
-                        (receive
-                          (vars reqargs optarg)
-                          (parse-lambda-args vars)
-                          (let1 this-lvars
-                                ($map1 (lambda (sym) ($lvar sym #f 0 0)) vars)
-                                ($receive
-                                  this-lvars
-                                  reqargs
-                                  optarg
-                                  (pass1/s->i vals)
-                                  (pass1/body->iform
-                                    (pass1/expand body)
-                                    library
-                                    (append2 this-lvars lvars)
-                                    tail?)
-                                  tail?))))
-                       (else (syntax-error "malformed receive"))))
+                (pass1/receive sexp library lvars tail?))
                ((let)
                 (pass1/let
                   ($map1 car (second sexp))
@@ -2214,86 +2251,241 @@
                ((call-with-current-continuation)
                 ($call-cc (pass1/s->i (second sexp)) tail?))
                ((quote) ($const (second sexp)))
-               ((make-vector)
-                (if (null? (cddr sexp))
-                    ($asm (quote MAKE_VECTOR)
-                          (list (pass1/sexp->iform
-                                  (pass1/expand (second sexp))
-                                  library
-                                  lvars
-                                  tail?)
-                                (pass1/sexp->iform
-                                  (pass1/expand (quote ()))
-                                  library
-                                  lvars
-                                  tail?)))
-                    (call-2args->iform (quote MAKE_VECTOR))))
                ((+)
-                (operator-nargs->iform
+                (pass1/asm-n-args
+                  (quote NUMBER_ADD)
                   (quote +)
-                  (quote NUMBER_ADD)))
+                  (cdr sexp)
+                  library
+                  lvars
+                  tail?))
                ((-)
-                (operator-nargs->iform
+                (pass1/asm-n-args
+                  (quote NUMBER_SUB)
                   (quote -)
-                  (quote NUMBER_SUB)))
+                  (cdr sexp)
+                  library
+                  lvars
+                  tail?))
                ((*)
-                (operator-nargs->iform
+                (pass1/asm-n-args
+                  (quote NUMBER_MUL)
                   (quote *)
-                  (quote NUMBER_MUL)))
+                  (cdr sexp)
+                  library
+                  lvars
+                  tail?))
                ((/)
-                (operator-nargs->iform
+                (pass1/asm-n-args
+                  (quote NUMBER_DIV)
                   (quote /)
-                  (quote NUMBER_DIV)))
+                  (cdr sexp)
+                  library
+                  lvars
+                  tail?))
                ((=)
-                (numcmp->iform
+                (pass1/asm-numcmp
+                  (quote NUMBER_EQUAL)
                   (quote =)
                   (cdr sexp)
-                  (quote NUMBER_EQUAL)))
+                  library
+                  lvars
+                  tail?))
                ((>=)
-                (numcmp->iform
+                (pass1/asm-numcmp
+                  (quote NUMBER_GE)
                   (quote >=)
                   (cdr sexp)
-                  (quote NUMBER_GE)))
+                  library
+                  lvars
+                  tail?))
                ((>)
-                (numcmp->iform
+                (pass1/asm-numcmp
+                  (quote NUMBER_GT)
                   (quote >)
                   (cdr sexp)
-                  (quote NUMBER_GT)))
+                  library
+                  lvars
+                  tail?))
                ((<)
-                (numcmp->iform
+                (pass1/asm-numcmp
+                  (quote NUMBER_LT)
                   (quote <)
                   (cdr sexp)
-                  (quote NUMBER_LT)))
+                  library
+                  lvars
+                  tail?))
                ((<=)
-                (numcmp->iform
+                (pass1/asm-numcmp
+                  (quote NUMBER_LE)
                   (quote <=)
                   (cdr sexp)
-                  (quote NUMBER_LE)))
-               ((vector?) (call-1arg->iform (quote VECTOR_P)))
+                  library
+                  lvars
+                  tail?))
+               ((vector?)
+                (pass1/asm-1-arg
+                  (quote VECTOR_P)
+                  (second sexp)
+                  library
+                  lvars
+                  tail?))
                ((vector-length)
-                (call-1arg->iform (quote VECTOR_LENGTH)))
+                (pass1/asm-1-arg
+                  (quote VECTOR_LENGTH)
+                  (second sexp)
+                  library
+                  lvars
+                  tail?))
                ((vector-set!)
-                (call-3args->iform (quote VECTOR_SET)))
+                (pass1/asm-3-arg
+                  (quote VECTOR_SET)
+                  (second sexp)
+                  (third sexp)
+                  (fourth sexp)
+                  library
+                  lvars
+                  tail?))
                ((vector-ref)
-                (call-2args->iform (quote VECTOR_REF)))
-               ((car) (call-1arg->iform (quote CAR)))
-               ((cdr) (call-1arg->iform (quote CDR)))
-               ((caar) (call-1arg->iform (quote CAAR)))
-               ((cadr) (call-1arg->iform (quote CADR)))
-               ((cdar) (call-1arg->iform (quote CDAR)))
-               ((cddr) (call-1arg->iform (quote CDDR)))
-               ((set-car!) (call-2args->iform (quote SET_CAR)))
-               ((set-cdr!) (call-2args->iform (quote SET_CDR)))
-               ((eq?) (call-2args->iform (quote EQ)))
-               ((eqv?) (call-2args->iform (quote EQV)))
-               ((equal?) (call-2args->iform (quote EQUAL)))
-               ((not) (call-1arg->iform (quote NOT)))
-               ((null?) (call-1arg->iform (quote NULL_P)))
-               ((pair?) (call-1arg->iform (quote PAIR_P)))
-               ((symbol?) (call-1arg->iform (quote SYMBOL_P)))
-               ((read) (call-1arg-optional->iform (quote READ)))
+                (pass1/asm-2-arg
+                  (quote VECTOR_REF)
+                  (second sexp)
+                  (third sexp)
+                  library
+                  lvars
+                  tail?))
+               ((make-vector)
+                (pass1/asm-2-arg-optional
+                  (quote MAKE_VECTOR)
+                  (second sexp)
+                  (cddr sexp)
+                  library
+                  lvars
+                  tail?))
+               ((car)
+                (pass1/asm-1-arg
+                  (quote CAR)
+                  (second sexp)
+                  library
+                  lvars
+                  tail?))
+               ((cdr)
+                (pass1/asm-1-arg
+                  (quote CDR)
+                  (second sexp)
+                  library
+                  lvars
+                  tail?))
+               ((caar)
+                (pass1/asm-1-arg
+                  (quote CAAR)
+                  (second sexp)
+                  library
+                  lvars
+                  tail?))
+               ((cadr)
+                (pass1/asm-1-arg
+                  (quote CADR)
+                  (second sexp)
+                  library
+                  lvars
+                  tail?))
+               ((cdar)
+                (pass1/asm-1-arg
+                  (quote CDAR)
+                  (second sexp)
+                  library
+                  lvars
+                  tail?))
+               ((cddr)
+                (pass1/asm-1-arg
+                  (quote CDDR)
+                  (second sexp)
+                  library
+                  lvars
+                  tail?))
+               ((set-car!)
+                (pass1/asm-2-arg
+                  (quote SET_CAR)
+                  (second sexp)
+                  (third sexp)
+                  library
+                  lvars
+                  tail?))
+               ((set-cdr!)
+                (pass1/asm-2-arg
+                  (quote SET_CDR)
+                  (second sexp)
+                  (third sexp)
+                  library
+                  lvars
+                  tail?))
+               ((eq?)
+                (pass1/asm-2-arg
+                  (quote EQ)
+                  (second sexp)
+                  (third sexp)
+                  library
+                  lvars
+                  tail?))
+               ((eqv?)
+                (pass1/asm-2-arg
+                  (quote EQV)
+                  (second sexp)
+                  (third sexp)
+                  library
+                  lvars
+                  tail?))
+               ((equal?)
+                (pass1/asm-2-arg
+                  (quote EQUAL)
+                  (second sexp)
+                  (third sexp)
+                  library
+                  lvars
+                  tail?))
+               ((not)
+                (pass1/asm-1-arg
+                  (quote NOT)
+                  (second sexp)
+                  library
+                  lvars
+                  tail?))
+               ((null?)
+                (pass1/asm-1-arg
+                  (quote NULL_P)
+                  (second sexp)
+                  library
+                  lvars
+                  tail?))
+               ((pair?)
+                (pass1/asm-1-arg
+                  (quote PAIR_P)
+                  (second sexp)
+                  library
+                  lvars
+                  tail?))
+               ((symbol?)
+                (pass1/asm-1-arg
+                  (quote SYMBOL_P)
+                  (second sexp)
+                  library
+                  lvars
+                  tail?))
+               ((read)
+                (pass1/asm-1-arg-optional
+                  (quote READ)
+                  (cdr sexp)
+                  library
+                  lvars
+                  tail?))
                ((read-char)
-                (call-1arg-optional->iform (quote READ_CHAR)))
+                (pass1/asm-1-arg-optional
+                  (quote READ_CHAR)
+                  (cdr sexp)
+                  library
+                  lvars
+                  tail?))
                (else (pass1/call
                        (car sexp)
                        (cdr sexp)
@@ -3643,6 +3835,125 @@
   0)
 
 (define
+  (pass3/$asm-1-arg
+    cb
+    insn
+    arg1
+    locals
+    frees
+    can-frees
+    sets)
+  (begin0
+    (pass3/rec
+      cb
+      arg1
+      locals
+      frees
+      can-frees
+      sets
+      #f)
+    (cput! cb insn)))
+
+(define
+  (pass3/$asm-2-arg
+    cb
+    insn
+    arg1
+    arg2
+    locals
+    frees
+    can-frees
+    sets)
+  (let ((x (pass3/compile-arg
+             cb
+             arg1
+             locals
+             frees
+             can-frees
+             sets
+             #f))
+        (y (pass3/rec
+             cb
+             arg2
+             locals
+             frees
+             can-frees
+             sets
+             #f)))
+       (cput! cb insn)
+       (+ x y)))
+
+(define
+  (pass3/$asm-3-arg
+    cb
+    insn
+    arg1
+    arg2
+    arg3
+    locals
+    frees
+    can-frees
+    sets)
+  (let ((x (pass3/compile-arg
+             cb
+             arg1
+             locals
+             frees
+             can-frees
+             sets
+             #f))
+        (y (pass3/compile-arg
+             cb
+             arg2
+             locals
+             frees
+             can-frees
+             sets
+             #f))
+        (z (pass3/rec
+             cb
+             arg3
+             locals
+             frees
+             can-frees
+             sets
+             #f)))
+       (cput! cb insn)
+       (+ x y z)))
+
+(define
+  (pass3/$asm-n-args
+    cb
+    args
+    locals
+    frees
+    can-frees
+    sets)
+  (let loop
+       ((args args) (stack-size 0))
+       (cond ((null? args) stack-size)
+             ((null? (cdr args))
+              (+ stack-size
+                 (pass3/rec
+                   cb
+                   (car args)
+                   locals
+                   frees
+                   can-frees
+                   sets
+                   #f)))
+             (else (loop (cdr args)
+                         (+ stack-size
+                            (pass3/compile-arg
+                              cb
+                              (car args)
+                              locals
+                              frees
+                              can-frees
+                              sets
+                              #f)))))))
+
+(define
   (pass3/$asm
     cb
     iform
@@ -3651,145 +3962,334 @@
     can-frees
     sets
     tail)
-  (define
-    (compile-1arg insn args)
-    (begin0
-      (pass3/rec
-        cb
-        (first args)
-        locals
-        frees
-        can-frees
-        sets
-        #f)
-      (cput! cb insn)))
-  (define
-    (compile-2arg insn args)
-    (let ((x (pass3/compile-arg
-               cb
-               (first args)
-               locals
-               frees
-               can-frees
-               sets
-               #f))
-          (y (pass3/rec
-               cb
-               (second args)
-               locals
-               frees
-               can-frees
-               sets
-               #f)))
-         (cput! cb insn)
-         (+ x y)))
-  (define
-    (compile-3arg insn args)
-    (let ((x (pass3/compile-arg
-               cb
-               (first args)
-               locals
-               frees
-               can-frees
-               sets
-               #f))
-          (y (pass3/compile-arg
-               cb
-               (second args)
-               locals
-               frees
-               can-frees
-               sets
-               #f))
-          (z (pass3/rec
-               cb
-               (third args)
-               locals
-               frees
-               can-frees
-               sets
-               #f)))
-         (cput! cb insn)
-         (+ x y z)))
-  (define
-    (compile-n-args args)
-    (let loop
-         ((args args) (stack-size 0))
-         (cond ((null? args) stack-size)
-               ((null? (cdr args))
-                (+ stack-size
-                   (pass3/rec
-                     cb
-                     (car args)
-                     locals
-                     frees
-                     can-frees
-                     sets
-                     #f)))
-               (else (loop (cdr args)
-                           (+ stack-size
-                              (pass3/compile-arg
-                                cb
-                                (car args)
-                                locals
-                                frees
-                                can-frees
-                                sets
-                                #f)))))))
   (let1 args
         ($asm.args iform)
         (case ($asm.insn iform)
               ((NUMBER_ADD)
-               (compile-2arg (quote NUMBER_ADD) args))
+               (pass3/$asm-2-arg
+                 cb
+                 (quote NUMBER_ADD)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
               ((NUMBER_SUB)
-               (compile-2arg (quote NUMBER_SUB) args))
+               (pass3/$asm-2-arg
+                 cb
+                 (quote NUMBER_SUB)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
               ((NUMBER_MUL)
-               (compile-2arg (quote NUMBER_MUL) args))
+               (pass3/$asm-2-arg
+                 cb
+                 (quote NUMBER_MUL)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
               ((NUMBER_DIV)
-               (compile-2arg (quote NUMBER_DIV) args))
+               (pass3/$asm-2-arg
+                 cb
+                 (quote NUMBER_DIV)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
               ((NUMBER_EQUAL)
-               (compile-2arg (quote NUMBER_EQUAL) args))
+               (pass3/$asm-2-arg
+                 cb
+                 (quote NUMBER_EQUAL)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
               ((NUMBER_GE)
-               (compile-2arg (quote NUMBER_GE) args))
+               (pass3/$asm-2-arg
+                 cb
+                 (quote NUMBER_GE)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
               ((NUMBER_GT)
-               (compile-2arg (quote NUMBER_GT) args))
+               (pass3/$asm-2-arg
+                 cb
+                 (quote NUMBER_GT)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
               ((NUMBER_LT)
-               (compile-2arg (quote NUMBER_LT) args))
+               (pass3/$asm-2-arg
+                 cb
+                 (quote NUMBER_LT)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
               ((NUMBER_LE)
-               (compile-2arg (quote NUMBER_LE) args))
-              ((CONS) (compile-2arg (quote CONS) args))
-              ((CAR) (compile-1arg (quote CAR) args))
-              ((CDR) (compile-1arg (quote CDR) args))
-              ((CAAR) (compile-1arg (quote CAAR) args))
-              ((CADR) (compile-1arg (quote CADR) args))
-              ((CDAR) (compile-1arg (quote CDAR) args))
-              ((CDDR) (compile-1arg (quote CDDR) args))
-              ((SET_CDR) (compile-2arg (quote SET_CDR) args))
-              ((SET_CAR) (compile-2arg (quote SET_CAR) args))
+               (pass3/$asm-2-arg
+                 cb
+                 (quote NUMBER_LE)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((CONS)
+               (pass3/$asm-2-arg
+                 cb
+                 (quote CONS)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((CAR)
+               (pass3/$asm-1-arg
+                 cb
+                 (quote CAR)
+                 (first args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((CDR)
+               (pass3/$asm-1-arg
+                 cb
+                 (quote CDR)
+                 (first args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((CAAR)
+               (pass3/$asm-1-arg
+                 cb
+                 (quote CAAR)
+                 (first args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((CADR)
+               (pass3/$asm-1-arg
+                 cb
+                 (quote CADR)
+                 (first args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((CDAR)
+               (pass3/$asm-1-arg
+                 cb
+                 (quote CDAR)
+                 (first args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((CDDR)
+               (pass3/$asm-1-arg
+                 cb
+                 (quote CDDR)
+                 (first args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((SET_CDR)
+               (pass3/$asm-2-arg
+                 cb
+                 (quote SET_CDR)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((SET_CAR)
+               (pass3/$asm-2-arg
+                 cb
+                 (quote SET_CAR)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
               ((MAKE_VECTOR)
-               (compile-2arg (quote MAKE_VECTOR) args))
+               (pass3/$asm-2-arg
+                 cb
+                 (quote MAKE_VECTOR)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
               ((VECTOR_LENGTH)
-               (compile-1arg (quote VECTOR_LENGTH) args))
+               (pass3/$asm-1-arg
+                 cb
+                 (quote VECTOR_LENGTH)
+                 (first args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
               ((VECTOR_SET)
-               (compile-3arg (quote VECTOR_SET) args))
+               (pass3/$asm-3-arg
+                 cb
+                 (quote VECTOR_SET)
+                 (first args)
+                 (second args)
+                 (third args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
               ((VECTOR_REF)
-               (compile-2arg (quote VECTOR_REF) args))
-              ((EQ) (compile-2arg (quote EQ) args))
-              ((EQV) (compile-2arg (quote EQV) args))
-              ((EQUAL) (compile-2arg (quote EQUAL) args))
-              ((PAIR_P) (compile-1arg (quote PAIR_P) args))
-              ((NULL_P) (compile-1arg (quote NULL_P) args))
-              ((SYMBOL_P) (compile-1arg (quote SYMBOL_P) args))
-              ((VECTOR_P) (compile-1arg (quote VECTOR_P) args))
-              ((NOT) (compile-1arg (quote NOT) args))
+               (pass3/$asm-2-arg
+                 cb
+                 (quote VECTOR_REF)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((EQ)
+               (pass3/$asm-2-arg
+                 cb
+                 (quote EQ)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((EQV)
+               (pass3/$asm-2-arg
+                 cb
+                 (quote EQV)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((EQUAL)
+               (pass3/$asm-2-arg
+                 cb
+                 (quote EQUAL)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((PAIR_P)
+               (pass3/$asm-1-arg
+                 cb
+                 (quote PAIR_P)
+                 (first args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((NULL_P)
+               (pass3/$asm-1-arg
+                 cb
+                 (quote NULL_P)
+                 (first args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((SYMBOL_P)
+               (pass3/$asm-1-arg
+                 cb
+                 (quote SYMBOL_P)
+                 (first args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((VECTOR_P)
+               (pass3/$asm-1-arg
+                 cb
+                 (quote VECTOR_P)
+                 (first args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((NOT)
+               (pass3/$asm-1-arg
+                 cb
+                 (quote NOT)
+                 (first args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
               ((OPEN_INPUT_FILE)
-               (compile-1arg (quote OPEN_INPUT_FILE) args))
-              ((READ) (compile-1arg (quote READ) args))
+               (pass3/$asm-1-arg
+                 cb
+                 (quote OPEN_INPUT_FILE)
+                 (first args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
+              ((READ)
+               (pass3/$asm-1-arg
+                 cb
+                 (quote READ)
+                 (first args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
               ((READ_CHAR)
-               (compile-1arg (quote READ_CHAR) args))
+               (pass3/$asm-1-arg
+                 cb
+                 (quote READ_CHAR)
+                 (first args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
               ((VALUES)
                (begin0
-                 (compile-n-args args)
+                 (pass3/$asm-n-args
+                   cb
+                   args
+                   locals
+                   frees
+                   can-frees
+                   sets)
                  (cput! cb (quote VALUES) (length args))))
               ((APPLY)
                (let1 end-of-frame
