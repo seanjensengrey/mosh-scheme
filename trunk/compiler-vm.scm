@@ -3392,6 +3392,7 @@
                         (found (find10
                                  (lambda (x) (eq? ($lvar.sym x) sym))
                                  can-frees)))
+;                   (if (eq? sym 'code-builder-put2!)  (format #t "sym = ~a found=~a can-frees=~a\n" sym found can-frees))
                        (if found (list found) (quote ()))))
                 ((= $UNDEF t) (quote ()))
                 ((= $IF t)
@@ -3478,41 +3479,7 @@
                 (else (error "pass3/find-sets unknown iform:" i)))))
   (uniq (rec iform)))
 
-(define
-  (make-code-builder)
-  (list (quote builder)))
-
-(define
-  (code-builder-put1! cb x)
-  (append! cb (list x)))
-
-(define
-  (code-builder-put2! cb a b)
-  (append! cb (list a b)))
-
-(define
-  (code-builder-put3! cb a b c)
-  (append! cb (list a b c)))
-
-(define
-  (code-builder-put4! cb a b c d)
-  (append! cb (list a b c d)))
-
-(define
-  (code-builder-put5! cb a b c d e)
-  (append! cb (list a b c d e)))
-
-(define
-  (code-builder-append! cb1 cb2)
-  (let loop
-       ((e (cdr cb2)))
-       (cond ((null? e) (quote ()))
-             (else (code-builder-put1! cb1 (car e))
-                   (loop (cdr e))))))
-
-(define (code-builder-emit cb) (cdr cb))
-
-(define-macro
+(define (make-code-builder) (list 'builder))(define (code-builder-put1! cb x) (append! cb (list x)))(define (code-builder-put2! cb a b) (append! cb (list a b)))(define (code-builder-put3! cb a b c) (append! cb (list a b c)))(define (code-builder-put4! cb a b c d) (append! cb (list a b c d)))(define (code-builder-put5! cb a b c d e) (append! cb (list a b c d e)))(define (code-builder-append! cb1 cb2) (let loop ((e (cdr cb2))) (cond ((null? e) '()) (else (code-builder-put1! cb1 (car e)) (loop (cdr e))))))(define (code-builder-emit cb) (cdr cb))(define-macro
   (cput! cb . more)
   (match more
          (() (quote ()))
@@ -3577,6 +3544,7 @@
 
 (define
   (pass3/symbol-lookup
+    cb
     lvar
     locals
     frees
@@ -3590,29 +3558,51 @@
                 (cond ((null? free)
                        (error "pass3/symbol-lookup bug? Unknown lvar:"
                               lvar))
-                      ((eq? (car free) lvar) (return-free n))
+                      ((eq? (car free) lvar) (return-free cb n))
                       (else (next-free (cdr free) (+ n 1)))))
            (if (eq? (car locals) lvar)
-               (return-local n)
+               (return-local cb n)
                (next-local (cdr locals) (+ n 1))))))
+
+(define
+  (pass3/return-refer-local cb n)
+  (cput! cb (quote REFER_LOCAL) n)
+  0)
+
+(define
+  (pass3/return-refer-free cb n)
+  (cput! cb (quote REFER_FREE) n)
+  0)
 
 (define
   (pass3/compile-refer cb lvar locals frees)
   (pass3/symbol-lookup
+    cb
     lvar
     locals
     frees
-    (lambda (n) (cput! cb (quote REFER_LOCAL) n) 0)
-    (lambda (n) (cput! cb (quote REFER_FREE) n) 0)))
+    pass3/return-refer-local
+    pass3/return-refer-free))
+
+(define
+  (pass3/return-assign-local cb n)
+  (cput! cb (quote ASSIGN_LOCAL) n)
+  0)
+
+(define
+  (pass3/return-assign-free cb n)
+  (cput! cb (quote ASSIGN_FREE) n)
+  0)
 
 (define
   (pass3/compile-assign cb lvar locals frees)
   (pass3/symbol-lookup
+    cb
     lvar
     locals
     frees
-    (lambda (n) (cput! cb (quote ASSIGN_LOCAL) n) 0)
-    (lambda (n) (cput! cb (quote ASSIGN_FREE) n) 0)))
+    pass3/return-assign-local
+    pass3/return-assign-free))
 
 (define
   (pass3/make-boxes cb sets vars)
