@@ -3392,7 +3392,6 @@
                         (found (find10
                                  (lambda (x) (eq? ($lvar.sym x) sym))
                                  can-frees)))
-;                   (if (eq? sym 'code-builder-put2!)  (format #t "sym = ~a found=~a can-frees=~a\n" sym found can-frees))
                        (if found (list found) (quote ()))))
                 ((= $UNDEF t) (quote ()))
                 ((= $IF t)
