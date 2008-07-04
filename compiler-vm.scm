@@ -3348,6 +3348,24 @@
                                iform))))))
 
 (define
+  (pass3/exists-in-can-frees? lvar can-frees)
+  (if (null? can-frees)
+      #f
+      (if (memq lvar (car can-frees))
+          #t
+          (pass3/exists-in-can-frees? lvar (cdr can-frees)))))
+
+(define
+  (pass3/find-sym-in-can-frees sym can-frees)
+  (if (null? can-frees)
+      #f
+      (aif (find10
+             (lambda (x) (eq? ($lvar.sym x) sym))
+             (car can-frees))
+           it
+           (pass3/find-sym-in-can-frees sym (cdr can-frees)))))
+
+(define
   (pass3/find-free iform locals can-frees)
   (define
     (rec i l labels-seen)
@@ -3377,7 +3395,7 @@
                 ((= $LOCAL-ASSIGN t)
                  (let1 lvar
                        ($local-assign.lvar i)
-                       (if (memq lvar can-frees)
+                       (if (pass3/exists-in-can-frees? lvar can-frees)
                            (cons lvar
                                  (rec ($local-assign.val i) l labels-seen))
                            (rec ($local-assign.val i) l labels-seen))))
@@ -3385,13 +3403,12 @@
                  (let1 lvar
                        ($local-ref.lvar i)
                        (cond ((memq lvar l) (quote ()))
-                             ((memq lvar can-frees) (list lvar))
+                             ((pass3/exists-in-can-frees? lvar can-frees)
+                              (list lvar))
                              (else (quote ())))))
                 ((= $GLOBAL-REF t)
                  (let* ((sym ($global-ref.sym i))
-                        (found (find10
-                                 (lambda (x) (eq? ($lvar.sym x) sym))
-                                 can-frees)))
+                        (found (pass3/find-sym-in-can-frees sym can-frees)))
                        (if found (list found) (quote ()))))
                 ((= $UNDEF t) (quote ()))
                 ((= $IF t)
@@ -4415,6 +4432,22 @@
         0
         args))
 
+(define-macro
+  (pass3/add-can-frees1 can-frees vars)
+  (quasiquote
+    (append2
+      (unquote can-frees)
+      (list (unquote vars)))))
+
+(define-macro
+  (pass3/add-can-frees2 can-frees vars1 vars2)
+  (quasiquote
+    (append2
+      (append2
+        (unquote can-frees)
+        (list (unquote vars1)))
+      (list (unquote vars2)))))
+
 (define
   (pass3/$call
     cb
@@ -4454,7 +4487,7 @@
                   (pass3/find-free
                     body
                     vars
-                    (append2 locals (append2 frees can-frees))))
+                    (pass3/add-can-frees2 can-frees locals frees)))
                 (sets-for-this-lvars (pass3/find-sets body vars)))
                (cput! cb (quote LET_FRAME))
                (let1 free-size
@@ -4483,7 +4516,7 @@
                                    body
                                    vars
                                    frees-here
-                                   (append2 can-frees vars)
+                                   (pass3/add-can-frees1 can-frees vars)
                                    (pass3/add-sets! sets sets-for-this-lvars)
                                    (if tail (+ tail (length vars) 2) #f))
                                  (cput! cb
@@ -4570,7 +4603,7 @@
            (pass3/find-free
              body
              vars
-             (append2 locals (append2 frees can-frees))))
+             (pass3/add-can-frees2 can-frees locals frees)))
          (sets-for-this-lvars (pass3/find-sets body vars))
          (end-of-closure (make-label))
          (lambda-cb (make-code-builder)))
@@ -4590,7 +4623,7 @@
                       body
                       vars
                       frees-here
-                      (append2 can-frees vars)
+                      (pass3/add-can-frees1 can-frees vars)
                       (pass3/add-sets! sets sets-for-this-lvars)
                       (length vars))
                     (cput! cb
@@ -4620,11 +4653,11 @@
              (pass3/find-free
                ($receive.vals iform)
                locals
-               (append2 locals (append2 frees can-frees)))
+               (pass3/add-can-frees2 can-frees locals frees))
              (pass3/find-free
                body
                vars
-               (append2 locals (append2 frees can-frees)))))
+               (pass3/add-can-frees2 can-frees locals frees))))
          (sets-for-this-lvars (pass3/find-sets body vars)))
         (cput! cb (quote LET_FRAME))
         (let1 free-size
@@ -4654,7 +4687,7 @@
                             body
                             vars
                             frees-here
-                            (append2 can-frees vars)
+                            (pass3/add-can-frees1 can-frees vars)
                             (pass3/add-sets! sets sets-for-this-lvars)
                             (if tail (+ tail (length vars) 2) #f))
                           (cput! cb (quote LEAVE) (length vars))
@@ -4688,12 +4721,12 @@
                      (pass3/find-free
                        i
                        locals
-                       (append2 locals (append2 frees can-frees))))
+                       (pass3/add-can-frees2 can-frees frees locals)))
                    ($let.inits iform))
                  (pass3/find-free
                    body
                    vars
-                   (append2 locals (append2 frees can-frees)))))
+                   (pass3/add-can-frees2 can-frees frees locals))))
              (sets-for-this-lvars (pass3/find-sets body vars)))
             (cput! cb (quote LET_FRAME))
             (let1 free-size
@@ -4719,7 +4752,7 @@
                                 body
                                 vars
                                 frees-here
-                                (append2 can-frees vars)
+                                (pass3/add-can-frees1 can-frees vars)
                                 (pass3/add-sets! sets sets-for-this-lvars)
                                 (if tail (+ tail (length vars) 2) #f))
                               (cput! cb (quote LEAVE) (length vars))
@@ -4744,12 +4777,12 @@
                  (pass3/find-free
                    i
                    vars
-                   (append2 locals (append2 frees can-frees))))
+                   (pass3/add-can-frees2 can-frees locals frees)))
                ($let.inits iform))
              (pass3/find-free
                body
                vars
-               (append2 locals (append2 frees can-frees)))))
+               (pass3/add-can-frees2 can-frees locals frees))))
          (sets-for-this-lvars
            (append
              vars
@@ -4772,7 +4805,8 @@
                                (loop (cdr args)))))
               (pass3/make-boxes cb sets-for-this-lvars vars)
               (cput! cb (quote ENTER) (length vars))
-              (let* ((new-can-frees (append2 can-frees vars))
+              (let* ((new-can-frees
+                       (pass3/add-can-frees1 can-frees vars))
                      (assign-size
                        (let loop
                             ((args args) (size 0) (index 0))
