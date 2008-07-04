@@ -61,7 +61,7 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) \
 	mosh-read.$(OBJEXT) mosh-Port.$(OBJEXT) mosh-Regexp.$(OBJEXT) \
 	mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
 	mosh-freeproc.$(OBJEXT) mosh-TypedVector.$(OBJEXT) \
-	mosh-SString.$(OBJEXT)
+	mosh-CompilerProcedures.$(OBJEXT) mosh-SString.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
 mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB) libcompiler.a
 mosh_LINK = $(CXXLD) $(mosh_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
@@ -246,6 +246,8 @@ Box.h                \
 TypedVector.h        \
 TypedVector.cpp      \
 CodeBuilder.h        \
+CompilerProcedures.cpp\
+CompilerProcedures.h\
 SString.cpp          \
 ucs4string.h
 
@@ -374,6 +376,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcompiler_a-compiler.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompilerProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Port.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Regexp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-SString.Po@am__quote@
@@ -538,6 +541,20 @@ mosh-TypedVector.obj: TypedVector.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TypedVector.cpp' object='mosh-TypedVector.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-TypedVector.obj `if test -f 'TypedVector.cpp'; then $(CYGPATH_W) 'TypedVector.cpp'; else $(CYGPATH_W) '$(srcdir)/TypedVector.cpp'; fi`
+
+mosh-CompilerProcedures.o: CompilerProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-CompilerProcedures.o -MD -MP -MF $(DEPDIR)/mosh-CompilerProcedures.Tpo -c -o mosh-CompilerProcedures.o `test -f 'CompilerProcedures.cpp' || echo '$(srcdir)/'`CompilerProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-CompilerProcedures.Tpo $(DEPDIR)/mosh-CompilerProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CompilerProcedures.cpp' object='mosh-CompilerProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-CompilerProcedures.o `test -f 'CompilerProcedures.cpp' || echo '$(srcdir)/'`CompilerProcedures.cpp
+
+mosh-CompilerProcedures.obj: CompilerProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-CompilerProcedures.obj -MD -MP -MF $(DEPDIR)/mosh-CompilerProcedures.Tpo -c -o mosh-CompilerProcedures.obj `if test -f 'CompilerProcedures.cpp'; then $(CYGPATH_W) 'CompilerProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/CompilerProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-CompilerProcedures.Tpo $(DEPDIR)/mosh-CompilerProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CompilerProcedures.cpp' object='mosh-CompilerProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-CompilerProcedures.obj `if test -f 'CompilerProcedures.cpp'; then $(CYGPATH_W) 'CompilerProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/CompilerProcedures.cpp'; fi`
 
 mosh-SString.o: SString.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-SString.o -MD -MP -MF $(DEPDIR)/mosh-SString.Tpo -c -o mosh-SString.o `test -f 'SString.cpp' || echo '$(srcdir)/'`SString.cpp
