@@ -1495,10 +1495,15 @@
                val))))
 
 (define
+  (pass1/find-symbol-in-lvars symbol lvars)
+  (cond ((null? lvars) #f)
+        ((eq? symbol ($lvar.sym (car lvars)))
+         (car lvars))
+        (else (pass1/find-symbol-in-lvars symbol (cdr lvars)))))
+
+(define
   (pass1/refer->iform symbol library lvars)
-  (acond ((find10
-            (lambda (lvar) (eq? ($lvar.sym lvar) symbol))
-            lvars)
+  (acond ((pass1/find-symbol-in-lvars symbol lvars)
           ($lvar.ref-count++! it)
           ($local-ref it))
          ((pass1/lib-refer->iform symbol library) it)
@@ -1508,9 +1513,7 @@
   (pass1/assign symbol val library lvars tail?)
   (let1 iform
         (pass1/sexp->iform val library lvars tail?)
-        (acond ((find10
-                  (lambda (lvar) (eq? ($lvar.sym lvar) symbol))
-                  lvars)
+        (acond ((pass1/find-symbol-in-lvars symbol lvars)
                 ($lvar.set-count++! it)
                 ($local-assign it iform))
                ((pass1/lib-assign->iform symbol library iform)
@@ -3549,14 +3552,17 @@
 
 (define
   (pass3/collect-free cb frees-here locals frees)
-  (fold (lambda
-          (i accum)
-          (let1 size
-                (pass3/compile-refer cb i locals frees)
-                (cput! cb (quote PUSH))
-                (+ size accum)))
-        0
-        (reverse frees-here)))
+  (let loop
+       ((size 0) (reversed-frees (reverse frees-here)))
+       (cond ((null? reversed-frees) size)
+             (else (let1 stack-size
+                         (pass3/compile-refer
+                           cb
+                           (car reversed-frees)
+                           locals
+                           frees)
+                         (cput! cb (quote PUSH))
+                         (loop (+ size stack-size) (cdr reversed-frees)))))))
 
 (define
   (pass3/symbol-lookup
@@ -4417,20 +4423,19 @@
     can-frees
     sets
     tail)
-  (fold (lambda
-          (i accum)
-          (let1 size
-                (pass3/compile-arg
-                  cb
-                  i
-                  locals
-                  frees
-                  can-frees
-                  sets
-                  tail)
-                (+ size accum)))
-        0
-        args))
+  (let loop
+       ((size 0) (iform args))
+       (cond ((null? iform) size)
+             (else (loop (+ size
+                            (pass3/compile-arg
+                              cb
+                              (car iform)
+                              locals
+                              frees
+                              can-frees
+                              sets
+                              tail))
+                         (cdr iform))))))
 
 (define-macro
   (pass3/add-can-frees1 can-frees vars)
@@ -4459,26 +4464,24 @@
     tail)
   (case ($call.type iform)
         ((jump)
-         (let1 label
-               ($lambda.body ($call.proc ($call.proc iform)))
-               (cput! cb
-                      (quote REDUCE)
-                      (length ($call.args iform)))
-               (begin0
-                 (pass3/compile-args
-                   cb
-                   ($call.args iform)
-                   locals
-                   frees
-                   can-frees
-                   sets
-                   #f)
-                 (cput! cb
-                        (quote SHIFT)
-                        (length ($call.args iform))
-                        (length ($call.args iform))
-                        (quote UNFIXED_JUMP)
-                        label))))
+         (let ((label ($lambda.body ($call.proc ($call.proc iform))))
+               (args-length (length ($call.args iform))))
+              (cput! cb (quote REDUCE) args-length)
+              (begin0
+                (pass3/compile-args
+                  cb
+                  ($call.args iform)
+                  locals
+                  frees
+                  can-frees
+                  sets
+                  #f)
+                (cput! cb
+                       (quote SHIFT)
+                       args-length
+                       args-length
+                       (quote UNFIXED_JUMP)
+                       label))))
         ((embed)
          (let* ((label ($lambda.body ($call.proc iform)))
                 (body ($label.body label))
@@ -4490,39 +4493,36 @@
                     (pass3/add-can-frees2 can-frees locals frees)))
                 (sets-for-this-lvars (pass3/find-sets body vars)))
                (cput! cb (quote LET_FRAME))
-               (let1 free-size
-                     (if (> (length frees-here) 0)
-                         (pass3/collect-free cb frees-here locals frees)
-                         0)
-                     (when (> (length frees-here) 0)
-                           (cput! cb (quote DISPLAY) (length frees-here)))
-                     (let1 args-size
-                           (pass3/compile-args
-                             cb
-                             ($call.args iform)
-                             locals
-                             frees-here
-                             can-frees
-                             sets
-                             #f)
-                           (pass3/make-boxes cb sets-for-this-lvars vars)
-                           (cput! cb
-                                  (quote ENTER)
-                                  (length ($call.args iform))
-                                  label)
-                           (let1 body-size
-                                 (pass3/rec
-                                   cb
-                                   body
-                                   vars
-                                   frees-here
-                                   (pass3/add-can-frees1 can-frees vars)
-                                   (pass3/add-sets! sets sets-for-this-lvars)
-                                   (if tail (+ tail (length vars) 2) #f))
-                                 (cput! cb
-                                        (quote LEAVE)
-                                        (length ($call.args iform)))
-                                 (+ args-size body-size free-size))))))
+               (let* ((frees-here-length (length frees-here))
+                      (free-size
+                        (if (> frees-here-length 0)
+                            (pass3/collect-free cb frees-here locals frees)
+                            0)))
+                     (when (> frees-here-length 0)
+                           (cput! cb (quote DISPLAY) frees-here-length))
+                     (let ((args-size
+                             (pass3/compile-args
+                               cb
+                               ($call.args iform)
+                               locals
+                               frees-here
+                               can-frees
+                               sets
+                               #f))
+                           (args-length (length ($call.args iform))))
+                          (pass3/make-boxes cb sets-for-this-lvars vars)
+                          (cput! cb (quote ENTER) args-length label)
+                          (let1 body-size
+                                (pass3/rec
+                                  cb
+                                  body
+                                  vars
+                                  frees-here
+                                  (pass3/add-can-frees1 can-frees vars)
+                                  (pass3/add-sets! sets sets-for-this-lvars)
+                                  (if tail (+ tail (length vars) 2) #f))
+                                (cput! cb (quote LEAVE) args-length)
+                                (+ args-size body-size free-size))))))
         (else (let1 end-of-frame
                     (make-label)
                     (unless
@@ -4545,15 +4545,11 @@
                                frees
                                can-frees
                                sets
-                               #f)))
+                               #f))
+                           (args-length (length ($call.args iform))))
                           (when tail
-                                (cput! cb
-                                       (quote SHIFT)
-                                       (length ($call.args iform))
-                                       tail))
-                          (cput! cb
-                                 (quote CALL)
-                                 (length ($call.args iform)))
+                                (cput! cb (quote SHIFT) args-length tail))
+                          (cput! cb (quote CALL) args-length)
                           (unless tail (cput! cb end-of-frame))
                           (+ args-size proc-size))))))
 
@@ -4606,36 +4602,38 @@
              (pass3/add-can-frees2 can-frees locals frees)))
          (sets-for-this-lvars (pass3/find-sets body vars))
          (end-of-closure (make-label))
-         (lambda-cb (make-code-builder)))
-        (let1 free-size
-              (if (> (length frees-here) 0)
-                  (pass3/collect-free cb frees-here locals frees)
-                  0)
+         (lambda-cb (make-code-builder))
+         (frees-here-length (length frees-here))
+         (free-size
+           (if (> frees-here-length 0)
+               (pass3/collect-free cb frees-here locals frees)
+               0))
+         (vars-length (length vars)))
+        (cput! cb
+               (quote CLOSURE)
+               (ref-label end-of-closure)
+               vars-length
+               (> ($lambda.optarg iform) 0)
+               frees-here-length)
+        (let1 body-size
+              (pass3/rec
+                lambda-cb
+                body
+                vars
+                frees-here
+                (pass3/add-can-frees1 can-frees vars)
+                (pass3/add-sets! sets sets-for-this-lvars)
+                vars-length)
               (cput! cb
-                     (quote CLOSURE)
-                     (ref-label end-of-closure)
-                     (length vars)
-                     (> ($lambda.optarg iform) 0)
-                     (length frees-here))
-              (let1 body-size
-                    (pass3/rec
-                      lambda-cb
-                      body
-                      vars
-                      frees-here
-                      (pass3/add-can-frees1 can-frees vars)
-                      (pass3/add-sets! sets sets-for-this-lvars)
-                      (length vars))
-                    (cput! cb
-                           (+ body-size free-size (length vars) 4)
-                           ($lambda.src iform))
-                    (pass3/make-boxes cb sets-for-this-lvars vars)
-                    (code-builder-append! cb lambda-cb)
-                    (cput! cb
-                           (quote RETURN)
-                           (length vars)
-                           end-of-closure)
-                    0))))
+                     (+ body-size free-size vars-length 4)
+                     ($lambda.src iform))
+              (pass3/make-boxes cb sets-for-this-lvars vars)
+              (code-builder-append! cb lambda-cb)
+              (cput! cb
+                     (quote RETURN)
+                     vars-length
+                     end-of-closure)
+              0)))
 
 (define
   (pass3/$receive
