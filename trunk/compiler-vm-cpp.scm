@@ -4658,38 +4658,40 @@
                (pass3/add-can-frees2 can-frees locals frees))))
          (sets-for-this-lvars (pass3/find-sets body vars)))
         (cput! cb (quote LET_FRAME))
-        (let1 free-size
-              (if (> (length frees-here) 0)
-                  (pass3/collect-free cb frees-here locals frees)
-                  0)
-              (when (> (length frees-here) 0)
-                    (cput! cb (quote DISPLAY) (length frees-here)))
-              (let1 vals-size
-                    (pass3/rec
-                      cb
-                      ($receive.vals iform)
-                      locals
-                      frees-here
-                      can-frees
-                      sets
-                      #f)
-                    (cput! cb
-                           (quote RECEIVE)
-                           ($receive.reqargs iform)
-                           ($receive.optarg iform))
-                    (pass3/make-boxes cb sets-for-this-lvars vars)
-                    (cput! cb (quote ENTER) (length vars))
-                    (let1 body-size
-                          (pass3/rec
-                            cb
-                            body
-                            vars
-                            frees-here
-                            (pass3/add-can-frees1 can-frees vars)
-                            (pass3/add-sets! sets sets-for-this-lvars)
-                            (if tail (+ tail (length vars) 2) #f))
-                          (cput! cb (quote LEAVE) (length vars))
-                          (+ body-size vals-size free-size))))))
+        (let* ((frees-here-length (length frees-here))
+               (free-size
+                 (if (> frees-here-length 0)
+                     (pass3/collect-free cb frees-here locals frees)
+                     0)))
+              (when (> frees-here-length 0)
+                    (cput! cb (quote DISPLAY) frees-here-length))
+              (let ((vals-size
+                      (pass3/rec
+                        cb
+                        ($receive.vals iform)
+                        locals
+                        frees-here
+                        can-frees
+                        sets
+                        #f))
+                    (vars-length (length vars)))
+                   (cput! cb
+                          (quote RECEIVE)
+                          ($receive.reqargs iform)
+                          ($receive.optarg iform))
+                   (pass3/make-boxes cb sets-for-this-lvars vars)
+                   (cput! cb (quote ENTER) vars-length)
+                   (let1 body-size
+                         (pass3/rec
+                           cb
+                           body
+                           vars
+                           frees-here
+                           (pass3/add-can-frees1 can-frees vars)
+                           (pass3/add-sets! sets sets-for-this-lvars)
+                           (if tail (+ tail vars-length 2) #f))
+                         (cput! cb (quote LEAVE) vars-length)
+                         (+ body-size vals-size free-size))))))
 
 (define
   (pass3/$let
