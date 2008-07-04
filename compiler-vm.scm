@@ -4727,14 +4727,16 @@
                    body
                    vars
                    (pass3/add-can-frees2 can-frees frees locals))))
-             (sets-for-this-lvars (pass3/find-sets body vars)))
+             (sets-for-this-lvars (pass3/find-sets body vars))
+             (frees-here-length (length frees-here))
+             (vars-length (length vars)))
             (cput! cb (quote LET_FRAME))
             (let1 free-size
-                  (if (> (length frees-here) 0)
+                  (if (> frees-here-length 0)
                       (pass3/collect-free cb frees-here locals frees)
                       0)
-                  (when (> (length frees-here) 0)
-                        (cput! cb (quote DISPLAY) (length frees-here)))
+                  (when (> frees-here-length 0)
+                        (cput! cb (quote DISPLAY) frees-here-length))
                   (let1 args-size
                         (pass3/compile-args
                           cb
@@ -4745,7 +4747,7 @@
                           sets
                           tail)
                         (pass3/make-boxes cb sets-for-this-lvars vars)
-                        (cput! cb (quote ENTER) (length vars))
+                        (cput! cb (quote ENTER) vars-length)
                         (let1 body-size
                               (pass3/rec
                                 cb
@@ -4754,8 +4756,8 @@
                                 frees-here
                                 (pass3/add-can-frees1 can-frees vars)
                                 (pass3/add-sets! sets sets-for-this-lvars)
-                                (if tail (+ tail (length vars) 2) #f))
-                              (cput! cb (quote LEAVE) (length vars))
+                                (if tail (+ tail vars-length 2) #f))
+                              (cput! cb (quote LEAVE) vars-length)
                               (+ body-size args-size free-size)))))))
 
 (define
