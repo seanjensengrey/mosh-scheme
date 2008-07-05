@@ -1072,7 +1072,7 @@
   (quasiquote
     ($library.set-import-syms!
       (unquote library)
-      (append2
+      (append
         ($library.import-syms (unquote library))
         (unquote import-syms)))))
 
@@ -1081,7 +1081,7 @@
   (quasiquote
     ($library.set-import!
       (unquote library)
-      (append2
+      (append
         ($library.import (unquote library))
         (list (unquote import))))))
 
@@ -1239,7 +1239,7 @@
                   (list (quote ()) lst)
                   (values found (quote ()))))
              ((pred (car lst))
-              (loop (append2 found (list (car lst))) (cdr lst)))
+              (loop (append found (list (car lst))) (cdr lst)))
              (else (if (null? found)
                        (list (quote ()) lst)
                        (list found lst))))))
@@ -1440,7 +1440,7 @@
                              (null? cdr-arg))
                         (return (quote unquote) car-arg))
                        (else (return
-                               (quote append2)
+                               (quote append)
                                (list car-arg
                                      (finalize-quasiquote
                                        cdr-mode
@@ -1570,7 +1570,7 @@
           (pass1/body->iform
             body
             library
-            (append2 this-lvars lvars)
+            (append this-lvars lvars)
             #t)
           (quote ())
           (quote ()))))
@@ -1667,7 +1667,7 @@
                ((and (pair? (car export))
                      (eq? (caar export) (quote rename)))
                 (loop (cdr export)
-                      (append2
+                      (append
                         ret
                         ($map1 (lambda
                                  (p)
@@ -1975,7 +1975,7 @@
                     (pass1/body->iform
                       (pass1/expand body)
                       library
-                      (append2 this-lvars lvars)
+                      (append this-lvars lvars)
                       tail?)
                     tail?))))
          (else (syntax-error "malformed receive"))))
@@ -2000,7 +2000,7 @@
               (pass1/body->iform
                 (pass1/expand body)
                 library
-                (append2 this-lvars lvars)
+                (append this-lvars lvars)
                 tail?)
               tail?
               source-info)))
@@ -2022,7 +2022,7 @@
                          (pass1/sexp->iform
                            x
                            library
-                           (append2 this-lvars lvars)
+                           (append this-lvars lvars)
                            tail?))
                        vals)))
         (for-each
@@ -2037,7 +2037,7 @@
               (pass1/body->iform
                 (pass1/expand body)
                 library
-                (append2 this-lvars lvars)
+                (append this-lvars lvars)
                 tail?)
               tail?
               source-info)))
@@ -2248,6 +2248,14 @@
                ((call-with-current-continuation)
                 ($call-cc (pass1/s->i (second sexp)) tail?))
                ((quote) ($const (second sexp)))
+               ((append)
+                (pass1/asm-n-args
+                  (quote APPEND2)
+                  (quote dummy)
+                  (cdr sexp)
+                  library
+                  lvars
+                  tail?))
                ((+)
                 (pass1/asm-n-args
                   (quote NUMBER_ADD)
@@ -2841,7 +2849,7 @@
              (cond ((null? new-vars)
                     (if (null? removed-inits)
                         body
-                        ($seq (append2 removed-inits (list body))
+                        ($seq (append removed-inits (list body))
                               ($let.tail? iform))))
                    (else ($let.set-lvars! iform new-vars)
                          ($let.set-inits! iform new-inits)
@@ -2851,10 +2859,10 @@
                            (if (tag? body $SEQ)
                                ($seq.set-body!
                                  body
-                                 (append2 removed-inits ($seq.body body)))
+                                 (append removed-inits ($seq.body body)))
                                ($let.set-body!
                                  iform
-                                 ($seq (append2 removed-inits (list body))
+                                 ($seq (append removed-inits (list body))
                                        ($let.tail? iform)))))
                          iform)))))
 
@@ -3066,7 +3074,7 @@
       (receive
         (reqs opts)
         (split-at iargs reqargs)
-        (append2 reqs (list ($list opts))))))
+        (append reqs (list ($list opts))))))
 
 (define
   (argcount-ok? args reqargs optarg?)
@@ -3281,7 +3289,7 @@
       (let* ((ret-args (pass2/split-args iargs reqargs))
              (reqs (car ret-args))
              (opts (cdr ret-args)))
-            (append2 reqs (list ($list opts))))))
+            (append reqs (list ($list opts))))))
 
 (define
   (pass2/split-args args reqargs)
@@ -3370,13 +3378,13 @@
           (tag i)
           (cond ((= $CONST t) (quote ()))
                 ((= $LET t)
-                 (append2
+                 (append
                    ($append-map1
                      (lambda (fm) (rec fm l labels-seen))
                      ($let.inits i))
                    (rec ($let.body i) ($let.lvars i) labels-seen)))
                 ((= $RECEIVE t)
-                 (append2
+                 (append
                    (rec ($receive.vals i) l labels-seen)
                    (rec ($receive.body i)
                         ($receive.lvars i)
@@ -3409,9 +3417,9 @@
                        (if found (list found) (quote ()))))
                 ((= $UNDEF t) (quote ()))
                 ((= $IF t)
-                 (append2
+                 (append
                    (rec ($if.test i) l labels-seen)
-                   (append2
+                   (append
                      (rec ($if.then i) l labels-seen)
                      (rec ($if.else i) l labels-seen))))
                 ((= $ASM t)
@@ -3421,7 +3429,7 @@
                 ((= $DEFINE t)
                  (rec ($define.val i) l labels-seen))
                 ((= $CALL t)
-                 (append2
+                 (append
                    ($append-map1
                      (lambda (fm) (rec fm l labels-seen))
                      ($call.args i))
@@ -3971,6 +3979,16 @@
   (let1 args
         ($asm.args iform)
         (case ($asm.insn iform)
+              ((APPEND2)
+               (pass3/$asm-2-arg
+                 cb
+                 (quote APPEND2)
+                 (first args)
+                 (second args)
+                 locals
+                 frees
+                 can-frees
+                 sets))
               ((NUMBER_ADD)
                (pass3/$asm-2-arg
                  cb
@@ -4434,15 +4452,15 @@
 (define-macro
   (pass3/add-can-frees1 can-frees vars)
   (quasiquote
-    (append2
+    (append
       (unquote can-frees)
       (list (unquote vars)))))
 
 (define-macro
   (pass3/add-can-frees2 can-frees vars1 vars2)
   (quasiquote
-    (append2
-      (append2
+    (append
+      (append
         (unquote can-frees)
         (list (unquote vars1)))
       (list (unquote vars2)))))
@@ -4641,7 +4659,7 @@
   (let* ((vars ($receive.lvars iform))
          (body ($receive.body iform))
          (frees-here
-           (append2
+           (append
              (pass3/find-free
                ($receive.vals iform)
                locals
@@ -4708,7 +4726,7 @@
       (let* ((vars ($let.lvars iform))
              (body ($let.body iform))
              (frees-here
-               (append2
+               (append
                  ($append-map1
                    (lambda
                      (i)
@@ -4766,7 +4784,7 @@
   (let* ((vars ($let.lvars iform))
          (body ($let.body iform))
          (frees-here
-           (append2
+           (append
              ($append-map1
                (lambda
                  (i)
@@ -4960,7 +4978,7 @@
 (define
   (pass4 lst)
   (pass4/fixup-labels
-    (list->vector (append2 lst (quote (HALT))))))
+    (list->vector (append lst (quote (HALT))))))
 
 (define
   (compile-library-body! lib)
