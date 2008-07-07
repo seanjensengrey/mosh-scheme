@@ -3500,7 +3500,7 @@
                 (else (error "pass3/find-sets unknown iform:" i)))))
   (uniq (rec iform)))
 
-(define (make-code-builder) (list 'builder))(define (code-builder-put1! cb x) (append! cb (list x)))(define (code-builder-put2! cb a b) (append! cb (list a b)))(define (code-builder-put3! cb a b c) (append! cb (list a b c)))(define (code-builder-put4! cb a b c d) (append! cb (list a b c d)))(define (code-builder-put5! cb a b c d e) (append! cb (list a b c d e)))(define (code-builder-append! cb1 cb2) (let loop ((e (cdr cb2))) (cond ((null? e) '()) (else (code-builder-put1! cb1 (car e)) (loop (cdr e))))))(define (code-builder-emit cb) (cdr cb))(define code-builder-put-insn-arg1! code-builder-put2!)(define-macro
+(define (make-code-builder) (list 'builder))(define (code-builder-put1! cb x) (append! cb (list x)))(define (code-builder-put2! cb a b) (append! cb (list a b)))(define (code-builder-put3! cb a b c) (append! cb (list a b c)))(define (code-builder-put4! cb a b c d) (append! cb (list a b c d)))(define (code-builder-put5! cb a b c d e) (append! cb (list a b c d e)))(define (code-builder-append! cb1 cb2) (let loop ((e (cdr cb2))) (cond ((null? e) '()) (else (code-builder-put1! cb1 (car e)) (loop (cdr e))))))(define (code-builder-emit cb) (cdr cb))(define code-builder-put-insn-arg1! code-builder-put2!)(define code-builder-put-insn-arg0! code-builder-put1!)(define-macro
   (cput! cb . more)
   (match more
          (() (quote ()))
@@ -3563,7 +3563,7 @@
                            (car reversed-frees)
                            locals
                            frees)
-                         (cput! cb (quote PUSH))
+                         (code-builder-put-insn-arg0! cb (quote PUSH))
                          (loop (+ size stack-size) (cdr reversed-frees)))))))
 
 (define
@@ -3616,12 +3616,18 @@
 
 (define
   (pass3/return-assign-local cb n)
-  (cput! cb (quote ASSIGN_LOCAL) n)
+  (code-builder-put-insn-arg1!
+    cb
+    (quote ASSIGN_LOCAL)
+    n)
   0)
 
 (define
   (pass3/return-assign-free cb n)
-  (cput! cb (quote ASSIGN_FREE) n)
+  (code-builder-put-insn-arg1!
+    cb
+    (quote ASSIGN_FREE)
+    n)
   0)
 
 (define
@@ -3639,7 +3645,11 @@
   ($for-each1-with-rindex
     (lambda
       (index var)
-      (if (memq var sets) (cput! cb (quote BOX) index)))
+      (if (memq var sets)
+          (code-builder-put-insn-arg1!
+            cb
+            (quote BOX)
+            index)))
     vars))
 
 (define
@@ -3659,7 +3669,10 @@
     can-frees
     sets
     tail)
-  (cput! cb (quote CONSTANT) ($const.val iform))
+  (code-builder-put-insn-arg1!
+    cb
+    (quote CONSTANT)
+    ($const.val iform))
   0)
 
 (define
@@ -3689,11 +3702,14 @@
                   (i accum)
                   (let1 size
                         (pass3/rec cb i locals frees can-frees sets tail)
-                        (cput! cb (quote PUSH))
+                        (code-builder-put-insn-arg0! cb (quote PUSH))
                         (+ size accum)))
                 0
                 args)
-          (cput! cb (quote LIST) (length args)))))
+          (code-builder-put-insn-arg1!
+            cb
+            (quote LIST)
+            (length args)))))
 
 (define
   (pass3/$local-ref
@@ -3710,7 +3726,7 @@
     locals
     frees)
   (when (hashtable-ref sets ($local-ref.lvar iform) #f)
-        (cput! cb (quote INDIRECT)))
+        (code-builder-put-insn-arg0! cb (quote INDIRECT)))
   0)
 
 (define
@@ -3765,14 +3781,18 @@
         (let next-free
              ((free frees) (n 0))
              (cond ((null? free)
-                    (cput! cb
-                           (quote REFER_GLOBAL)
-                           (merge-libname-sym
-                             ($global-ref.libname iform)
-                             sym))
+                    (code-builder-put-insn-arg1!
+                      cb
+                      (quote REFER_GLOBAL)
+                      (merge-libname-sym
+                        ($global-ref.libname iform)
+                        sym))
                     0)
                    ((eq? ($lvar.sym (car free)) sym)
-                    (cput! cb (quote REFER_FREE) n)
+                    (code-builder-put-insn-arg1!
+                      cb
+                      (quote REFER_FREE)
+                      n)
                     0)
                    (else (next-free (cdr free) (+ n 1)))))))
 
@@ -3799,11 +3819,12 @@
                         can-frees
                         sets
                         #f)
-                      (cput! cb
-                             (quote ASSIGN_GLOBAL)
-                             (merge-libname-sym
-                               ($global-assign.libname iform)
-                               sym))))
+                      (code-builder-put-insn-arg1!
+                        cb
+                        (quote ASSIGN_GLOBAL)
+                        (merge-libname-sym
+                          ($global-assign.libname iform)
+                          sym))))
                    ((eq? ($lvar.sym (car free)) sym)
                     (begin0
                       (pass3/rec
@@ -3814,7 +3835,10 @@
                         can-frees
                         sets
                         #f)
-                      (cput! cb (quote ASSIGN_FREE) n)))
+                      (code-builder-put-insn-arg1!
+                        cb
+                        (quote ASSIGN_FREE)
+                        n)))
                    (else (next-free (cdr free) (+ n 1)))))))
 
 (define
@@ -3851,7 +3875,7 @@
     can-frees
     sets
     tail)
-  (cput! cb (quote UNDEF))
+  (code-builder-put-insn-arg0! cb (quote UNDEF))
   0)
 
 (define
@@ -3872,7 +3896,7 @@
       can-frees
       sets
       #f)
-    (cput! cb insn)))
+    (code-builder-put-insn-arg0! cb insn)))
 
 (define
   (pass3/$asm-2-arg
@@ -3900,7 +3924,7 @@
              can-frees
              sets
              #f)))
-       (cput! cb insn)
+       (code-builder-put-insn-arg0! cb insn)
        (+ x y)))
 
 (define
@@ -3938,7 +3962,7 @@
              can-frees
              sets
              #f)))
-       (cput! cb insn)
+       (code-builder-put-insn-arg0! cb insn)
        (+ x y z)))
 
 (define
@@ -4320,11 +4344,17 @@
                    frees
                    can-frees
                    sets)
-                 (cput! cb (quote VALUES) (length args))))
+                 (code-builder-put-insn-arg1!
+                   cb
+                   (quote VALUES)
+                   (length args))))
               ((APPLY)
                (let1 end-of-frame
                      (make-label)
-                     (cput! cb (quote FRAME) (ref-label end-of-frame))
+                     (code-builder-put-insn-arg1!
+                       cb
+                       (quote FRAME)
+                       (ref-label end-of-frame))
                      (let1 arg2-size
                            (pass3/rec
                              cb
@@ -4334,7 +4364,7 @@
                              can-frees
                              sets
                              #f)
-                           (cput! cb (quote PUSH))
+                           (code-builder-put-insn-arg0! cb (quote PUSH))
                            (let1 arg1-size
                                  (pass3/rec
                                    cb
@@ -4429,7 +4459,7 @@
     tail)
   (let1 size
         (pass3/rec cb arg locals frees can-frees sets #f)
-        (cput! cb (quote PUSH))
+        (code-builder-put-insn-arg0! cb (quote PUSH))
         (+ size 1)))
 
 (define
@@ -4529,7 +4559,11 @@
                                #f))
                            (args-length (length ($call.args iform))))
                           (pass3/make-boxes cb sets-for-this-lvars vars)
-                          (cput! cb (quote ENTER) args-length label)
+                          (code-builder-put-insn-arg1!
+                            cb
+                            (quote ENTER)
+                            args-length)
+                          (cput! cb label)
                           (let1 body-size
                                 (pass3/rec
                                   cb
@@ -4539,7 +4573,10 @@
                                   (pass3/add-can-frees1 can-frees vars)
                                   (pass3/add-sets! sets sets-for-this-lvars)
                                   (if tail (+ tail (length vars) 2) #f))
-                                (cput! cb (quote LEAVE) args-length)
+                                (code-builder-put-insn-arg1!
+                                  cb
+                                  (quote LEAVE)
+                                  args-length)
                                 (+ args-size body-size free-size))))))
         (else (let1 end-of-frame
                     (make-label)
@@ -4587,8 +4624,8 @@
           (cput! cb (quote FRAME) (ref-label end-of-frame)))
         (cput! cb
                (quote MAKE_CONTINUATION)
-               (if tail 1 0)
-               (quote PUSH))
+               (if tail 1 0))
+        (code-builder-put-insn-arg0! cb (quote PUSH))
         (begin0
           (pass3/rec
             cb
@@ -4699,7 +4736,10 @@
                           ($receive.reqargs iform)
                           ($receive.optarg iform))
                    (pass3/make-boxes cb sets-for-this-lvars vars)
-                   (cput! cb (quote ENTER) vars-length)
+                   (code-builder-put-insn-arg1!
+                     cb
+                     (quote ENTER)
+                     vars-length)
                    (let1 body-size
                          (pass3/rec
                            cb
@@ -4709,7 +4749,10 @@
                            (pass3/add-can-frees1 can-frees vars)
                            (pass3/add-sets! sets sets-for-this-lvars)
                            (if tail (+ tail vars-length 2) #f))
-                         (cput! cb (quote LEAVE) vars-length)
+                         (code-builder-put-insn-arg1!
+                           cb
+                           (quote LEAVE)
+                           vars-length)
                          (+ body-size vals-size free-size))))))
 
 (define
@@ -4766,7 +4809,10 @@
                           sets
                           tail)
                         (pass3/make-boxes cb sets-for-this-lvars vars)
-                        (cput! cb (quote ENTER) vars-length)
+                        (code-builder-put-insn-arg1!
+                          cb
+                          (quote ENTER)
+                          vars-length)
                         (let1 body-size
                               (pass3/rec
                                 cb
@@ -4776,7 +4822,10 @@
                                 (pass3/add-can-frees1 can-frees vars)
                                 (pass3/add-sets! sets sets-for-this-lvars)
                                 (if tail (+ tail vars-length 2) #f))
-                              (cput! cb (quote LEAVE) vars-length)
+                              (code-builder-put-insn-arg1!
+                                cb
+                                (quote LEAVE)
+                                vars-length)
                               (+ body-size args-size free-size)))))))
 
 (define
@@ -4824,10 +4873,14 @@
               (let loop
                    ((args args))
                    (cond ((null? args) (quote ()))
-                         (else (cput! cb (quote UNDEF) (quote PUSH))
+                         (else (cput! cb (quote UNDEF))
+                               (code-builder-put-insn-arg0! cb (quote PUSH))
                                (loop (cdr args)))))
               (pass3/make-boxes cb sets-for-this-lvars vars)
-              (cput! cb (quote ENTER) vars-length)
+              (code-builder-put-insn-arg1!
+                cb
+                (quote ENTER)
+                vars-length)
               (let* ((new-can-frees
                        (pass3/add-can-frees1 can-frees vars))
                      (assign-size
@@ -4860,7 +4913,10 @@
                             new-can-frees
                             (pass3/add-sets! sets sets-for-this-lvars)
                             (if tail (+ tail vars-length 2) #f))
-                          (cput! cb (quote LEAVE) vars-length)
+                          (code-builder-put-insn-arg1!
+                            cb
+                            (quote LEAVE)
+                            vars-length)
                           (+ free-size assign-size body-size))))))
 
 (define
