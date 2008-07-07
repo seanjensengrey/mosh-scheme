@@ -3500,7 +3500,7 @@
                 (else (error "pass3/find-sets unknown iform:" i)))))
   (uniq (rec iform)))
 
-(define (make-code-builder) (list 'builder))(define (code-builder-put1! cb x) (append! cb (list x)))(define (code-builder-put2! cb a b) (append! cb (list a b)))(define (code-builder-put3! cb a b c) (append! cb (list a b c)))(define (code-builder-put4! cb a b c d) (append! cb (list a b c d)))(define (code-builder-put5! cb a b c d e) (append! cb (list a b c d e)))(define (code-builder-append! cb1 cb2) (let loop ((e (cdr cb2))) (cond ((null? e) '()) (else (code-builder-put1! cb1 (car e)) (loop (cdr e))))))(define (code-builder-emit cb) (cdr cb))(define-macro
+(define (make-code-builder) (list 'builder))(define (code-builder-put1! cb x) (append! cb (list x)))(define (code-builder-put2! cb a b) (append! cb (list a b)))(define (code-builder-put3! cb a b c) (append! cb (list a b c)))(define (code-builder-put4! cb a b c d) (append! cb (list a b c d)))(define (code-builder-put5! cb a b c d e) (append! cb (list a b c d e)))(define (code-builder-append! cb1 cb2) (let loop ((e (cdr cb2))) (cond ((null? e) '()) (else (code-builder-put1! cb1 (car e)) (loop (cdr e))))))(define (code-builder-emit cb) (cdr cb))(define code-builder-put-insn-arg1! code-builder-put2!)(define-macro
   (cput! cb . more)
   (match more
          (() (quote ()))
@@ -3590,12 +3590,18 @@
 
 (define
   (pass3/return-refer-local cb n)
-  (cput! cb (quote REFER_LOCAL) n)
+  (code-builder-put-insn-arg1!
+    cb
+    (quote REFER_LOCAL)
+    n)
   0)
 
 (define
   (pass3/return-refer-free cb n)
-  (cput! cb (quote REFER_FREE) n)
+  (code-builder-put-insn-arg1!
+    cb
+    (quote REFER_FREE)
+    n)
   0)
 
 (define
@@ -4641,10 +4647,11 @@
                      ($lambda.src iform))
               (pass3/make-boxes cb sets-for-this-lvars vars)
               (code-builder-append! cb lambda-cb)
-              (cput! cb
-                     (quote RETURN)
-                     vars-length
-                     end-of-closure)
+              (code-builder-put-insn-arg1!
+                cb
+                (quote RETURN)
+                vars-length)
+              (cput! cb end-of-closure)
               0)))
 
 (define
