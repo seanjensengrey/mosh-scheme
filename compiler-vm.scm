@@ -3500,13 +3500,13 @@
                 (else (error "pass3/find-sets unknown iform:" i)))))
   (uniq (rec iform)))
 
-(define (make-code-builder) (list 'builder))(define (code-builder-put1! cb x) (append! cb (list x)))(define (code-builder-put2! cb a b) (append! cb (list a b)))(define (code-builder-put3! cb a b c) (append! cb (list a b c)))(define (code-builder-put4! cb a b c d) (append! cb (list a b c d)))(define (code-builder-put5! cb a b c d e) (append! cb (list a b c d e)))(define (code-builder-append! cb1 cb2) (let loop ((e (cdr cb2))) (cond ((null? e) '()) (else (code-builder-put1! cb1 (car e)) (loop (cdr e))))))(define (code-builder-emit cb) (cdr cb))(define code-builder-put-insn-arg1! code-builder-put2!)(define code-builder-put-insn-arg0! code-builder-put1!)(define-macro
+(define (make-code-builder) (list 'builder))(define (code-builder-put-extra1! cb x) (append! cb (list x)))(define (code-builder-put-extra2! cb a b) (append! cb (list a b)))(define (code-builder-put-extra3! cb a b c) (append! cb (list a b c)))(define (code-builder-put-extra4! cb a b c d) (append! cb (list a b c d)))(define (code-builder-put-extra5! cb a b c d e) (append! cb (list a b c d e)))(define (code-builder-append! cb1 cb2) (let loop ((e (cdr cb2))) (cond ((null? e) '()) (else (code-builder-put-extra1! cb1 (car e)) (loop (cdr e))))))(define (code-builder-emit cb) (cdr cb))(define code-builder-put-insn-arg1! code-builder-put-extra2!)(define code-builder-put-insn-arg0! code-builder-put-extra1!)(define-macro
   (cput! cb . more)
   (match more
          (() (quote ()))
          ((a b c d e . f)
           (quasiquote
-            (begin (code-builder-put5!
+            (begin (code-builder-put-extra5!
                      (unquote cb)
                      (unquote a)
                      (unquote b)
@@ -3516,7 +3516,7 @@
                    (cput! (unquote cb) (unquote-splicing f)))))
          ((a b c d . e)
           (quasiquote
-            (begin (code-builder-put4!
+            (begin (code-builder-put-extra4!
                      (unquote cb)
                      (unquote a)
                      (unquote b)
@@ -3525,7 +3525,7 @@
                    (cput! (unquote cb) (unquote-splicing e)))))
          ((a b c . d)
           (quasiquote
-            (begin (code-builder-put3!
+            (begin (code-builder-put-extra3!
                      (unquote cb)
                      (unquote a)
                      (unquote b)
@@ -3533,14 +3533,16 @@
                    (cput! (unquote cb) (unquote-splicing d)))))
          ((a b . c)
           (quasiquote
-            (begin (code-builder-put2!
+            (begin (code-builder-put-extra2!
                      (unquote cb)
                      (unquote a)
                      (unquote b))
                    (cput! (unquote cb) (unquote-splicing c)))))
          ((a . b)
           (quasiquote
-            (begin (code-builder-put1! (unquote cb) (unquote a))
+            (begin (code-builder-put-extra1!
+                     (unquote cb)
+                     (unquote a))
                    (cput! (unquote cb) (unquote-splicing b)))))))
 
 (define-macro
@@ -4398,7 +4400,10 @@
                can-frees
                sets
                #f)
-             (cput! cb (quote TEST) (ref-label begin-of-else))
+             (code-builder-put-insn-arg1!
+               cb
+               (quote TEST)
+               (ref-label begin-of-else))
              (let1 then-size
                    (pass3/rec
                      cb
@@ -4582,7 +4587,10 @@
                     (make-label)
                     (unless
                       tail
-                      (cput! cb (quote FRAME) (ref-label end-of-frame)))
+                      (code-builder-put-insn-arg1!
+                        cb
+                        (quote FRAME)
+                        (ref-label end-of-frame)))
                     (let* ((args-size
                              (pass3/compile-args
                                cb
@@ -4604,7 +4612,10 @@
                            (args-length (length ($call.args iform))))
                           (when tail
                                 (cput! cb (quote SHIFT) args-length tail))
-                          (cput! cb (quote CALL) args-length)
+                          (code-builder-put-insn-arg1!
+                            cb
+                            (quote CALL)
+                            args-length)
                           (unless tail (cput! cb end-of-frame))
                           (+ args-size proc-size))))))
 
@@ -4621,7 +4632,10 @@
         (make-label)
         (unless
           tail
-          (cput! cb (quote FRAME) (ref-label end-of-frame)))
+          (code-builder-put-insn-arg1!
+            cb
+            (quote FRAME)
+            (ref-label end-of-frame)))
         (cput! cb
                (quote MAKE_CONTINUATION)
                (if tail 1 0))
@@ -4636,7 +4650,7 @@
             sets
             #f)
           (when tail (cput! cb (quote SHIFT) 1 tail))
-          (cput! cb (quote CALL) 1)
+          (code-builder-put-insn-arg1! cb (quote CALL) 1)
           (unless tail (cput! cb end-of-frame)))))
 
 (define
@@ -4898,9 +4912,10 @@
                                                   sets
                                                   sets-for-this-lvars)
                                                 #f)
-                                              (cput! cb
-                                                     (quote ASSIGN_LOCAL)
-                                                     index)
+                                              (code-builder-put-insn-arg1!
+                                                cb
+                                                (quote ASSIGN_LOCAL)
+                                                index)
                                               (loop (cdr args)
                                                     (+ stack-size size)
                                                     (+ index 1))))))))
@@ -4937,12 +4952,11 @@
                (lib (hashtable-ref libraries libname))
                (end-of-frame (make-label)))
               (rec ($library.import lib))
-              (cput! cb
-                     (quote FRAME)
-                     (ref-label end-of-frame)
-                     (quote IMPORT)
-                     libname
-                     end-of-frame)))
+              (code-builder-put-insn-arg1!
+                cb
+                (quote FRAME)
+                (ref-label end-of-frame))
+              (cput! cb (quote IMPORT) libname end-of-frame)))
       ($import.import-specs form))
     0)
   (rec iform))
@@ -5182,181 +5196,7 @@
   ($map1 (lambda (p) ($lvar p (quote ()) 0 0))
          *free-vars-decl*))
 
-(define
-  (merge-insn sexp)
-  (define
-    (iter s)
-    (cond ((null? s) (quote ()))
-          (else (match s
-                       (((quote REFER_LOCAL0_PUSH)
-                         (quote CONSTANT)
-                         .
-                         rest)
-                        (iter (quasiquote
-                                (REFER_LOCAL0_PUSH_CONSTANT
-                                  (unquote-splicing rest)))))
-                       (((quote REFER_LOCAL1_PUSH)
-                         (quote CONSTANT)
-                         .
-                         rest)
-                        (iter (quasiquote
-                                (REFER_LOCAL1_PUSH_CONSTANT
-                                  (unquote-splicing rest)))))
-                       (((quote REFER_LOCAL) 1 (quote PUSH) . rest)
-                        (iter (quasiquote
-                                (REFER_LOCAL1_PUSH (unquote-splicing rest)))))
-                       (((quote REFER_LOCAL) 0 (quote PUSH) . rest)
-                        (iter (quasiquote
-                                (REFER_LOCAL0_PUSH (unquote-splicing rest)))))
-                       (((quote REFER_LOCAL) 0 . rest)
-                        (iter (quasiquote
-                                (REFER_LOCAL0 (unquote-splicing rest)))))
-                       (((and x (not (quote CONSTANT)))
-                         (quote NUMBER_SUB)
-                         (quote PUSH)
-                         .
-                         rest)
-                        (iter (quasiquote
-                                ((unquote x)
-                                 NUMBER_SUB_PUSH
-                                 (unquote-splicing rest)))))
-                       (((quote PUSH) (quote ENTER) . rest)
-                        (iter (cons (quote PUSH_ENTER) rest)))
-                       (((quote CONSTANT) v (quote PUSH) . rest)
-                        (iter (quasiquote
-                                (CONSTANT_PUSH
-                                  (unquote v)
-                                  (unquote-splicing rest)))))
-                       (((quote REFER_FREE) 0 (quote PUSH) . rest)
-                        (iter (quasiquote
-                                (REFER_FREE0_PUSH (unquote-splicing rest)))))
-                       (((quote REFER_FREE) 1 (quote PUSH) . rest)
-                        (iter (quasiquote
-                                (REFER_FREE1_PUSH (unquote-splicing rest)))))
-                       (((quote REFER_FREE) 2 (quote PUSH) . rest)
-                        (iter (quasiquote
-                                (REFER_FREE2_PUSH (unquote-splicing rest)))))
-                       (((quote REFER_FREE) n (quote PUSH) . rest)
-                        (iter (quasiquote
-                                (REFER_FREE_PUSH
-                                  (unquote n)
-                                  (unquote-splicing rest)))))
-                       (((quote REFER_FREE) 0 . rest)
-                        (iter (quasiquote
-                                (REFER_FREE0 (unquote-splicing rest)))))
-                       (((quote REFER_FREE) 1 . rest)
-                        (iter (quasiquote
-                                (REFER_FREE1 (unquote-splicing rest)))))
-                       (((quote REFER_FREE) 2 . rest)
-                        (iter (quasiquote
-                                (REFER_FREE2 (unquote-splicing rest)))))
-                       (((quote REFER_LOCAL) 1 . rest)
-                        (iter (quasiquote
-                                (REFER_LOCAL1 (unquote-splicing rest)))))
-                       (((quote REFER_LOCAL) 2 . rest)
-                        (iter (quasiquote
-                                (REFER_LOCAL2 (unquote-splicing rest)))))
-                       (((quote LEAVE) 1 . rest)
-                        (iter (quasiquote (LEAVE1 (unquote-splicing rest)))))
-                       (((quote NUMBER_LE) (quote TEST) . rest)
-                        (iter (quasiquote
-                                (NUMBER_LE_TEST (unquote-splicing rest)))))
-                       (((quote NUMBER_ADD) (quote PUSH) . rest)
-                        (iter (quasiquote
-                                (NUMBER_ADD_PUSH (unquote-splicing rest)))))
-                       (((quote RETURN) 1 . rest)
-                        (iter (quasiquote (RETURN1 (unquote-splicing rest)))))
-                       (((quote RETURN) 2 . rest)
-                        (iter (quasiquote (RETURN2 (unquote-splicing rest)))))
-                       (((quote RETURN) 3 . rest)
-                        (iter (quasiquote (RETURN3 (unquote-splicing rest)))))
-                       (((quote CALL) 2 . rest)
-                        (iter (quasiquote (CALL2 (unquote-splicing rest)))))
-                       (((quote REFER_LOCAL0)
-                         (quote EQV)
-                         (quote TEST)
-                         .
-                         rest)
-                        (iter (quasiquote
-                                (REFER_LOCAL0_EQV_TEST
-                                  (unquote-splicing rest)))))
-                       (((quote PUSH) (quote CONSTANT) . rest)
-                        (iter (quasiquote
-                                (PUSH_CONSTANT (unquote-splicing rest)))))
-                       (((quote PUSH) (quote FRAME) . rest)
-                        (iter (quasiquote
-                                (PUSH_FRAME (unquote-splicing rest)))))
-                       (((and x (not (quote CONSTANT_PUSH)))
-                         (quote PUSH)
-                         (quote FRAME)
-                         .
-                         rest)
-                        (iter (quasiquote
-                                ((unquote x)
-                                 PUSH_FRAME
-                                 (unquote-splicing rest)))))
-                       (((quote REFER_FREE) 3 . rest)
-                        (iter (quasiquote
-                                (REFER_FREE3 (unquote-splicing rest)))))
-                       (((quote REFER_LOCAL) 3 . rest)
-                        (iter (quasiquote
-                                (REFER_LOCAL3 (unquote-splicing rest)))))
-                       (((quote CAR) (quote PUSH) . rest)
-                        (iter (quasiquote (CAR_PUSH (unquote-splicing rest)))))
-                       (((quote CDR) (quote PUSH) . rest)
-                        (iter (quasiquote (CDR_PUSH (unquote-splicing rest)))))
-                       (((quote REFER_FREE0) (quote INDIRECT) . rest)
-                        (iter (quasiquote
-                                (REFER_FREE0_INDIRECT
-                                  (unquote-splicing rest)))))
-                       (((quote REFER_LOCAL2) (quote PUSH) . rest)
-                        (iter (quasiquote
-                                (REFER_LOCAL2_PUSH (unquote-splicing rest)))))
-                       (((quote SHIFT) m n (quote CALL) o . rest)
-                        (iter (quasiquote
-                                (SHIFT_CALL
-                                  (unquote m)
-                                  (unquote n)
-                                  (unquote o)
-                                  (unquote-splicing rest)))))
-                       (((quote CALL) 3 . rest)
-                        (iter (quasiquote (CALL3 (unquote-splicing rest)))))
-                       (((quote REFER_FREE1) (quote INDIRECT) . rest)
-                        (iter (quasiquote
-                                (REFER_FREE1_INDIRECT
-                                  (unquote-splicing rest)))))
-                       (((quote NOT) (quote TEST) . rest)
-                        (iter (quasiquote (NOT_TEST (unquote-splicing rest)))))
-                       (((quote REFER_GLOBAL)
-                         lib-id
-                         (quote CALL)
-                         n
-                         .
-                         rest)
-                        (iter (quasiquote
-                                (REFER_GLOBAL_CALL
-                                  (unquote lib-id)
-                                  (unquote n)
-                                  (unquote-splicing rest)))))
-                       (((quote REFER_LOCAL0)
-                         (quote NUMBER_ADD_PUSH)
-                         .
-                         rest)
-                        (iter (cons (quote REFER_LOCAL0_NUMBER_ADD_PUSH)
-                                    rest)))
-                       (((quote REFER_LOCAL0) (quote VECTOR_SET) . rest)
-                        (iter (cons (quote REFER_LOCAL0_VECTOR_SET) rest)))
-                       (((quote REFER_LOCAL0) (quote VECTOR_REF) . rest)
-                        (iter (cons (quote REFER_LOCAL0_VECTOR_REF) rest)))
-                       (((quote REFER_LOCAL) n (quote PUSH) . rest)
-                        (iter (quasiquote
-                                (REFER_LOCAL_PUSH
-                                  (unquote n)
-                                  (unquote-splicing rest)))))
-                       (else (cons (car s) (iter (cdr s))))))))
-  sexp)
-
-(define
+(define (merge-insn sexp) (define (iter s) (cond ((null? s) '()) (else (match s (('REFER_LOCAL0_PUSH 'CONSTANT . rest) (iter `(REFER_LOCAL0_PUSH_CONSTANT ,@rest))) (('REFER_LOCAL1_PUSH 'CONSTANT . rest) (iter `(REFER_LOCAL1_PUSH_CONSTANT ,@rest))) (('REFER_LOCAL 1 'PUSH . rest) (iter `(REFER_LOCAL1_PUSH ,@rest))) (('REFER_LOCAL 0 'PUSH . rest) (iter `(REFER_LOCAL0_PUSH ,@rest))) (('REFER_LOCAL 0 . rest) (iter `(REFER_LOCAL0 ,@rest))) (((and x (not 'CONSTANT)) 'NUMBER_SUB 'PUSH . rest) (iter `(,x NUMBER_SUB_PUSH ,@rest))) (('PUSH 'ENTER . rest) (iter (cons 'PUSH_ENTER rest))) (('CONSTANT v 'PUSH . rest) (iter `(CONSTANT_PUSH ,v ,@rest))) (('REFER_FREE 0 'PUSH . rest) (iter `(REFER_FREE0_PUSH ,@rest))) (('REFER_FREE 1 'PUSH . rest) (iter `(REFER_FREE1_PUSH ,@rest))) (('REFER_FREE 2 'PUSH . rest) (iter `(REFER_FREE2_PUSH ,@rest))) (('REFER_FREE n 'PUSH . rest) (iter `(REFER_FREE_PUSH ,n ,@rest))) (('REFER_FREE 0 . rest) (iter `(REFER_FREE0 ,@rest))) (('REFER_FREE 1 . rest) (iter `(REFER_FREE1 ,@rest))) (('REFER_FREE 2 . rest) (iter `(REFER_FREE2 ,@rest))) (('REFER_LOCAL 1 . rest) (iter `(REFER_LOCAL1 ,@rest))) (('REFER_LOCAL 2 . rest) (iter `(REFER_LOCAL2 ,@rest))) (('LEAVE 1 . rest) (iter `(LEAVE1 ,@rest))) (('NUMBER_LE 'TEST . rest) (iter `(NUMBER_LE_TEST ,@rest))) (('NUMBER_ADD 'PUSH . rest) (iter `(NUMBER_ADD_PUSH ,@rest))) (('RETURN 1 . rest) (iter `(RETURN1 ,@rest))) (('RETURN 2 . rest) (iter `(RETURN2 ,@rest))) (('RETURN 3 . rest) (iter `(RETURN3 ,@rest))) (('CALL 2 . rest) (iter `(CALL2 ,@rest))) (('REFER_LOCAL0 'EQV 'TEST . rest) (iter `(REFER_LOCAL0_EQV_TEST ,@rest))) (('PUSH 'CONSTANT . rest) (iter `(PUSH_CONSTANT ,@rest))) (('PUSH 'FRAME . rest) (iter `(PUSH_FRAME ,@rest))) (((and x (not 'CONSTANT_PUSH)) 'PUSH 'FRAME . rest) (iter `(,x PUSH_FRAME ,@rest))) (('REFER_FREE 3 . rest) (iter `(REFER_FREE3 ,@rest))) (('REFER_LOCAL 3 . rest) (iter `(REFER_LOCAL3 ,@rest))) (('CAR 'PUSH . rest) (iter `(CAR_PUSH ,@rest))) (('CDR 'PUSH . rest) (iter `(CDR_PUSH ,@rest))) (('REFER_FREE0 'INDIRECT . rest) (iter `(REFER_FREE0_INDIRECT ,@rest))) (('REFER_LOCAL2 'PUSH . rest) (iter `(REFER_LOCAL2_PUSH ,@rest))) (('SHIFT m n 'CALL o . rest) (iter `(SHIFT_CALL ,m ,n ,o ,@rest))) (('CALL 3 . rest) (iter `(CALL3 ,@rest))) (('REFER_FREE1 'INDIRECT . rest) (iter `(REFER_FREE1_INDIRECT ,@rest))) (('NOT 'TEST . rest) (iter `(NOT_TEST ,@rest))) (('REFER_GLOBAL lib-id 'CALL n . rest) (iter `(REFER_GLOBAL_CALL ,lib-id ,n ,@rest))) (('REFER_LOCAL0 'NUMBER_ADD_PUSH . rest) (iter (cons 'REFER_LOCAL0_NUMBER_ADD_PUSH rest))) (('REFER_LOCAL0 'VECTOR_SET . rest) (iter (cons 'REFER_LOCAL0_VECTOR_SET rest))) (('REFER_LOCAL0 'VECTOR_REF . rest) (iter (cons 'REFER_LOCAL0_VECTOR_REF rest))) (('REFER_LOCAL n 'PUSH . rest) (iter `(REFER_LOCAL_PUSH ,n ,@rest))) (else (cons (car s) (iter (cdr s)))))))) (iter sexp))(define
   (compile sexp)
   (pass4 (merge-insn
            (pass3 (let1 x
