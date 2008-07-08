@@ -3410,7 +3410,7 @@
                        (cond ((memq lvar l) (quote ()))
                              ((pass3/exists-in-can-frees? lvar can-frees)
                               (list lvar))
-                             (else (quote ())))))
+                             (else (error "hige")))))
                 ((= $GLOBAL-REF t)
                  (let* ((sym ($global-ref.sym i))
                         (found (pass3/find-sym-in-can-frees sym can-frees)))
