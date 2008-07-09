@@ -3353,22 +3353,12 @@
                                iform))))))
 
 (define
-  (pass3/exists-in-can-frees? lvar can-frees)
+  (pass3/exists-in-can-frees? sym can-frees)
   (if (null? can-frees)
       #f
-      (if (memq lvar (car can-frees))
+      (if (memq sym (car can-frees))
           #t
-          (pass3/exists-in-can-frees? lvar (cdr can-frees)))))
-
-(define
-  (pass3/find-sym-in-can-frees sym can-frees)
-  (if (null? can-frees)
-      #f
-      (aif (find10
-             (lambda (x) (eq? ($lvar.sym x) sym))
-             (car can-frees))
-           it
-           (pass3/find-sym-in-can-frees sym (cdr can-frees)))))
+          (pass3/exists-in-can-frees? sym (cdr can-frees)))))
 
 (define
   (pass3/find-free iform locals can-frees)
@@ -3398,23 +3388,23 @@
                       ($lambda.lvars i)
                       labels-seen))
                 ((= $LOCAL-ASSIGN t)
-                 (let1 lvar
-                       ($local-assign.lvar i)
-                       (if (pass3/exists-in-can-frees? lvar can-frees)
-                           (cons lvar
+                 (let1 sym
+                       ($lvar.sym ($local-assign.lvar i))
+                       (if (pass3/exists-in-can-frees? sym can-frees)
+                           (cons sym
                                  (rec ($local-assign.val i) l labels-seen))
                            (rec ($local-assign.val i) l labels-seen))))
                 ((= $LOCAL-REF t)
-                 (let1 lvar
-                       ($local-ref.lvar i)
-                       (cond ((memq lvar l) (quote ()))
-                             ((pass3/exists-in-can-frees? lvar can-frees)
-                              (list lvar))
+                 (let1 sym
+                       ($lvar.sym ($local-ref.lvar i))
+                       (cond ((memq sym l) (quote ()))
+                             ((pass3/exists-in-can-frees? sym can-frees)
+                              (list sym))
                              (else (quote ())))))
                 ((= $GLOBAL-REF t)
                  (let* ((sym ($global-ref.sym i))
-                        (found (pass3/find-sym-in-can-frees sym can-frees)))
-                       (if found (list found) (quote ()))))
+                        (found (pass3/exists-in-can-frees? sym can-frees)))
+                       (if found (list sym) (quote ()))))
                 ((= $UNDEF t) (quote ()))
                 ((= $IF t)
                  (append
@@ -3724,7 +3714,7 @@
     tail)
   (pass3/compile-refer
     cb
-    ($local-ref.lvar iform)
+    ($lvar.sym ($local-ref.lvar iform))
     locals
     frees)
   (when (hashtable-ref sets ($local-ref.lvar iform) #f)
@@ -3752,7 +3742,7 @@
         (var-stack-size
           (pass3/compile-assign
             cb
-            ($local-assign.lvar iform)
+            ($lvar.sym ($local-assign.lvar iform))
             locals
             frees)))
        (+ val-stack-size var-stack-size)))
@@ -3790,7 +3780,7 @@
                         ($global-ref.libname iform)
                         sym))
                     0)
-                   ((eq? ($lvar.sym (car free)) sym)
+                   ((eq? (car free) sym)
                     (code-builder-put-insn-arg1!
                       cb
                       (quote REFER_FREE)
@@ -3827,7 +3817,7 @@
                         (merge-libname-sym
                           ($global-assign.libname iform)
                           sym))))
-                   ((eq? ($lvar.sym (car free)) sym)
+                   ((eq? (car free) sym)
                     (begin0
                       (pass3/rec
                         cb
@@ -4539,10 +4529,12 @@
          (let* ((label ($lambda.body ($call.proc iform)))
                 (body ($label.body label))
                 (vars ($lambda.lvars ($call.proc iform)))
+                (vars-sym
+                  ($map1 (lambda (var) ($lvar.sym var)) vars))
                 (frees-here
                   (pass3/find-free
                     body
-                    vars
+                    vars-sym
                     (pass3/add-can-frees2 can-frees locals frees)))
                 (sets-for-this-lvars (pass3/find-sets body vars)))
                (cput! cb (quote LET_FRAME))
@@ -4573,9 +4565,9 @@
                                 (pass3/rec
                                   cb
                                   body
-                                  vars
+                                  vars-sym
                                   frees-here
-                                  (pass3/add-can-frees1 can-frees vars)
+                                  (pass3/add-can-frees1 can-frees vars-sym)
                                   (pass3/add-sets! sets sets-for-this-lvars)
                                   (if tail (+ tail (length vars) 2) #f))
                                 (code-builder-put-insn-arg1!
@@ -4663,6 +4655,8 @@
     sets
     tail)
   (let* ((vars ($lambda.lvars iform))
+         (vars-sym
+           ($map1 (lambda (var) ($lvar.sym var)) vars))
          (body ($lambda.body iform))
          (frees-here
            (pass3/find-free
@@ -4688,9 +4682,9 @@
               (pass3/rec
                 lambda-cb
                 body
-                vars
+                vars-sym
                 frees-here
-                (pass3/add-can-frees1 can-frees vars)
+                (pass3/add-can-frees1 can-frees vars-sym)
                 (pass3/add-sets! sets sets-for-this-lvars)
                 vars-length)
               (cput! cb
@@ -4715,6 +4709,8 @@
     sets
     tail)
   (let* ((vars ($receive.lvars iform))
+         (vars-sym
+           ($map1 (lambda (var) ($lvar.sym var)) vars))
          (body ($receive.body iform))
          (frees-here
            (append
@@ -4724,7 +4720,7 @@
                (pass3/add-can-frees2 can-frees locals frees))
              (pass3/find-free
                body
-               vars
+               vars-sym
                (pass3/add-can-frees2 can-frees locals frees))))
          (sets-for-this-lvars (pass3/find-sets body vars)))
         (cput! cb (quote LET_FRAME))
@@ -4758,9 +4754,9 @@
                          (pass3/rec
                            cb
                            body
-                           vars
+                           vars-sym
                            frees-here
-                           (pass3/add-can-frees1 can-frees vars)
+                           (pass3/add-can-frees1 can-frees vars-sym)
                            (pass3/add-sets! sets sets-for-this-lvars)
                            (if tail (+ tail vars-length 2) #f))
                          (code-builder-put-insn-arg1!
@@ -4788,6 +4784,8 @@
         sets
         tail)
       (let* ((vars ($let.lvars iform))
+             (vars-sym
+               ($map1 (lambda (var) ($lvar.sym var)) vars))
              (body ($let.body iform))
              (frees-here
                (append
@@ -4801,7 +4799,7 @@
                    ($let.inits iform))
                  (pass3/find-free
                    body
-                   vars
+                   vars-sym
                    (pass3/add-can-frees2 can-frees frees locals))))
              (sets-for-this-lvars (pass3/find-sets body vars))
              (frees-here-length (length frees-here))
@@ -4831,9 +4829,9 @@
                               (pass3/rec
                                 cb
                                 body
-                                vars
+                                vars-sym
                                 frees-here
-                                (pass3/add-can-frees1 can-frees vars)
+                                (pass3/add-can-frees1 can-frees vars-sym)
                                 (pass3/add-sets! sets sets-for-this-lvars)
                                 (if tail (+ tail vars-length 2) #f))
                               (code-builder-put-insn-arg1!
@@ -4852,6 +4850,8 @@
     sets
     tail)
   (let* ((vars ($let.lvars iform))
+         (vars-sym
+           ($map1 (lambda (var) ($lvar.sym var)) vars))
          (body ($let.body iform))
          (frees-here
            (append
@@ -4865,7 +4865,7 @@
                ($let.inits iform))
              (pass3/find-free
                body
-               vars
+               vars-sym
                (pass3/add-can-frees2 can-frees locals frees))))
          (sets-for-this-lvars
            (append
@@ -4896,7 +4896,7 @@
                 (quote ENTER)
                 vars-length)
               (let* ((new-can-frees
-                       (pass3/add-can-frees1 can-frees vars))
+                       (pass3/add-can-frees1 can-frees vars-sym))
                      (assign-size
                        (let loop
                             ((args args) (size 0) (index 0))
@@ -4905,7 +4905,7 @@
                                               (pass3/rec
                                                 cb
                                                 (car args)
-                                                vars
+                                                vars-sym
                                                 frees-here
                                                 new-can-frees
                                                 (pass3/add-sets!
@@ -4923,7 +4923,7 @@
                           (pass3/rec
                             cb
                             body
-                            vars
+                            vars-sym
                             frees-here
                             new-can-frees
                             (pass3/add-sets! sets sets-for-this-lvars)
@@ -5046,7 +5046,7 @@
           cb
           iform
           (quote ())
-          *free-lvars*
+          *free-vars-decl*
           (quote ())
           (make-eq-hashtable)
           #f)
@@ -5190,11 +5190,6 @@
                                         (pass4/fixup-labels-insn
                                           (quote PUSH_FRAME)))
                                        (else (loop (+ i 1)))))))))))
-
-(define
-  *free-lvars*
-  ($map1 (lambda (p) ($lvar p (quote ()) 0 0))
-         *free-vars-decl*))
 
 (define
   (compile sexp)
