@@ -5075,7 +5075,7 @@
           lib
           (pass4 (quasiquote ((unquote-splicing body) RETURN 0))))))
 
-(define
+(define-macro (merge-insn sexp) sexp)(define
   (compile-partial sexp . lib)
   (let1 ss
         (pass1/expand sexp)
@@ -5196,7 +5196,7 @@
   ($map1 (lambda (p) ($lvar p (quote ()) 0 0))
          *free-vars-decl*))
 
-(define-macro (merge-insn sexp) sexp)(define
+(define
   (compile sexp)
   (pass4 (merge-insn
            (pass3 (let1 x
