@@ -759,35 +759,25 @@
 (define $LABEL 15)
 
 (define
-  ($label label body)
+  ($label body)
   (let1 v
-        (make-vector 3)
+        (make-vector 2)
         (vector-set! v 0 $LABEL)
-        (vector-set! v 1 label)
-        (vector-set! v 2 body)
+        (vector-set! v 1 body)
         v))
 
 (define-macro
-  ($label.label iform)
-  (quasiquote (vector-ref (unquote iform) 1)))
-
-(define-macro
   ($label.body iform)
-  (quasiquote (vector-ref (unquote iform) 2)))
-
-(define-macro
-  ($label.set-label! iform label)
-  (quasiquote
-    (vector-set! (unquote iform) 1 (unquote label))))
+  (quasiquote (vector-ref (unquote iform) 1)))
 
 (define-macro
   ($label.set-body! iform body)
   (quasiquote
-    (vector-set! (unquote iform) 2 (unquote body))))
+    (vector-set! (unquote iform) 1 (unquote body))))
 
 (define-macro
   (make-label)
-  (quasiquote ($label #f #f)))
+  (quasiquote ($label #f)))
 
 (define-macro (ref-label l) l)
 
@@ -3129,7 +3119,7 @@
        (unless
          (null? rec-calls)
          (let1 body
-               ($label #f ($lambda.body lambda-node))
+               ($label ($lambda.body lambda-node))
                ($lambda.set-body! lambda-node body)
                (dolist
                  (jcall rec-calls)
