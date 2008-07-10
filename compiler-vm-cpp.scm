@@ -207,6 +207,10 @@
         (vector-set! v 4 set-count)
         v))
 
+(define
+  ($lvar.sym-proc iform)
+  (vector-ref iform 1))
+
 (define-macro
   ($lvar.sym iform)
   (quasiquote (vector-ref (unquote iform) 1)))
@@ -4519,8 +4523,7 @@
          (let* ((label ($lambda.body ($call.proc iform)))
                 (body ($label.body label))
                 (vars ($lambda.lvars ($call.proc iform)))
-                (vars-sym
-                  ($map1 (lambda (var) ($lvar.sym var)) vars))
+                (vars-sym ($map1 $lvar.sym-proc vars))
                 (frees-here
                   (pass3/find-free
                     body
@@ -4645,8 +4648,7 @@
     sets
     tail)
   (let* ((vars ($lambda.lvars iform))
-         (vars-sym
-           ($map1 (lambda (var) ($lvar.sym var)) vars))
+         (vars-sym ($map1 $lvar.sym-proc vars))
          (body ($lambda.body iform))
          (frees-here
            (pass3/find-free
@@ -4699,8 +4701,7 @@
     sets
     tail)
   (let* ((vars ($receive.lvars iform))
-         (vars-sym
-           ($map1 (lambda (var) ($lvar.sym var)) vars))
+         (vars-sym ($map1 $lvar.sym-proc vars))
          (body ($receive.body iform))
          (frees-here
            (append
@@ -4774,8 +4775,7 @@
         sets
         tail)
       (let* ((vars ($let.lvars iform))
-             (vars-sym
-               ($map1 (lambda (var) ($lvar.sym var)) vars))
+             (vars-sym ($map1 $lvar.sym-proc vars))
              (body ($let.body iform))
              (frees-here
                (append
@@ -4840,8 +4840,7 @@
     sets
     tail)
   (let* ((vars ($let.lvars iform))
-         (vars-sym
-           ($map1 (lambda (var) ($lvar.sym var)) vars))
+         (vars-sym ($map1 $lvar.sym-proc vars))
          (body ($let.body iform))
          (frees-here
            (append
