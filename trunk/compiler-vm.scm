@@ -207,6 +207,10 @@
         (vector-set! v 4 set-count)
         v))
 
+(define
+  ($lvar.sym-proc iform)
+  (vector-ref iform 1))
+
 (define-macro
   ($lvar.sym iform)
   (quasiquote (vector-ref (unquote iform) 1)))
@@ -4519,8 +4523,7 @@
          (let* ((label ($lambda.body ($call.proc iform)))
                 (body ($label.body label))
                 (vars ($lambda.lvars ($call.proc iform)))
-                (vars-sym
-                  ($map1 (lambda (var) ($lvar.sym var)) vars))
+                (vars-sym ($map1 $lvar.sym-proc vars))
                 (frees-here
                   (pass3/find-free
                     body
@@ -4645,8 +4648,7 @@
     sets
     tail)
   (let* ((vars ($lambda.lvars iform))
-         (vars-sym
-           ($map1 (lambda (var) ($lvar.sym var)) vars))
+         (vars-sym ($map1 $lvar.sym-proc vars))
          (body ($lambda.body iform))
          (frees-here
            (pass3/find-free
@@ -4699,8 +4701,7 @@
     sets
     tail)
   (let* ((vars ($receive.lvars iform))
-         (vars-sym
-           ($map1 (lambda (var) ($lvar.sym var)) vars))
+         (vars-sym ($map1 $lvar.sym-proc vars))
          (body ($receive.body iform))
          (frees-here
            (append
@@ -4774,8 +4775,7 @@
         sets
         tail)
       (let* ((vars ($let.lvars iform))
-             (vars-sym
-               ($map1 (lambda (var) ($lvar.sym var)) vars))
+             (vars-sym ($map1 $lvar.sym-proc vars))
              (body ($let.body iform))
              (frees-here
                (append
@@ -4840,8 +4840,7 @@
     sets
     tail)
   (let* ((vars ($let.lvars iform))
-         (vars-sym
-           ($map1 (lambda (var) ($lvar.sym var)) vars))
+         (vars-sym ($map1 $lvar.sym-proc vars))
          (body ($let.body iform))
          (frees-here
            (append
@@ -5065,7 +5064,7 @@
           lib
           (pass4 (quasiquote ((unquote-splicing body) RETURN 0))))))
 
-(define (merge-insn sexp) (define (iter s) (cond ((null? s) '()) (else (match s (('REFER_LOCAL0_PUSH 'CONSTANT . rest) (iter `(REFER_LOCAL0_PUSH_CONSTANT ,@rest))) (('REFER_LOCAL1_PUSH 'CONSTANT . rest) (iter `(REFER_LOCAL1_PUSH_CONSTANT ,@rest))) (('REFER_LOCAL 1 'PUSH . rest) (iter `(REFER_LOCAL1_PUSH ,@rest))) (('REFER_LOCAL 0 'PUSH . rest) (iter `(REFER_LOCAL0_PUSH ,@rest))) (('REFER_LOCAL 0 . rest) (iter `(REFER_LOCAL0 ,@rest))) (((and x (not 'CONSTANT)) 'NUMBER_SUB 'PUSH . rest) (iter `(,x NUMBER_SUB_PUSH ,@rest))) (('PUSH 'ENTER . rest) (iter (cons 'PUSH_ENTER rest))) (('CONSTANT v 'PUSH . rest) (iter `(CONSTANT_PUSH ,v ,@rest))) (('REFER_FREE 0 'PUSH . rest) (iter `(REFER_FREE0_PUSH ,@rest))) (('REFER_FREE 1 'PUSH . rest) (iter `(REFER_FREE1_PUSH ,@rest))) (('REFER_FREE 2 'PUSH . rest) (iter `(REFER_FREE2_PUSH ,@rest))) (('REFER_FREE n 'PUSH . rest) (iter `(REFER_FREE_PUSH ,n ,@rest))) (('REFER_FREE 0 . rest) (iter `(REFER_FREE0 ,@rest))) (('REFER_FREE 1 . rest) (iter `(REFER_FREE1 ,@rest))) (('REFER_FREE 2 . rest) (iter `(REFER_FREE2 ,@rest))) (('REFER_LOCAL 1 . rest) (iter `(REFER_LOCAL1 ,@rest))) (('REFER_LOCAL 2 . rest) (iter `(REFER_LOCAL2 ,@rest))) (('LEAVE 1 . rest) (iter `(LEAVE1 ,@rest))) (('NUMBER_LE 'TEST . rest) (iter `(NUMBER_LE_TEST ,@rest))) (('NUMBER_ADD 'PUSH . rest) (iter `(NUMBER_ADD_PUSH ,@rest))) (('RETURN 1 . rest) (iter `(RETURN1 ,@rest))) (('RETURN 2 . rest) (iter `(RETURN2 ,@rest))) (('RETURN 3 . rest) (iter `(RETURN3 ,@rest))) (('CALL 2 . rest) (iter `(CALL2 ,@rest))) (('REFER_LOCAL0 'EQV 'TEST . rest) (iter `(REFER_LOCAL0_EQV_TEST ,@rest))) (('PUSH 'CONSTANT . rest) (iter `(PUSH_CONSTANT ,@rest))) (('PUSH 'FRAME . rest) (iter `(PUSH_FRAME ,@rest))) (((and x (not 'CONSTANT_PUSH)) 'PUSH 'FRAME . rest) (iter `(,x PUSH_FRAME ,@rest))) (('REFER_FREE 3 . rest) (iter `(REFER_FREE3 ,@rest))) (('REFER_LOCAL 3 . rest) (iter `(REFER_LOCAL3 ,@rest))) (('CAR 'PUSH . rest) (iter `(CAR_PUSH ,@rest))) (('CDR 'PUSH . rest) (iter `(CDR_PUSH ,@rest))) (('REFER_FREE0 'INDIRECT . rest) (iter `(REFER_FREE0_INDIRECT ,@rest))) (('REFER_LOCAL2 'PUSH . rest) (iter `(REFER_LOCAL2_PUSH ,@rest))) (('SHIFT m n 'CALL o . rest) (iter `(SHIFT_CALL ,m ,n ,o ,@rest))) (('CALL 3 . rest) (iter `(CALL3 ,@rest))) (('REFER_FREE1 'INDIRECT . rest) (iter `(REFER_FREE1_INDIRECT ,@rest))) (('NOT 'TEST . rest) (iter `(NOT_TEST ,@rest))) (('REFER_GLOBAL lib-id 'CALL n . rest) (iter `(REFER_GLOBAL_CALL ,lib-id ,n ,@rest))) (('REFER_LOCAL0 'NUMBER_ADD_PUSH . rest) (iter (cons 'REFER_LOCAL0_NUMBER_ADD_PUSH rest))) (('REFER_LOCAL0 'VECTOR_SET . rest) (iter (cons 'REFER_LOCAL0_VECTOR_SET rest))) (('REFER_LOCAL0 'VECTOR_REF . rest) (iter (cons 'REFER_LOCAL0_VECTOR_REF rest))) (('REFER_LOCAL n 'PUSH . rest) (iter `(REFER_LOCAL_PUSH ,n ,@rest))) (else (cons (car s) (iter (cdr s)))))))) (iter sexp))(define
+(define (merge-insn sexp) (define (iter s) (cond ((null? s) '()) (else (match s (('REFER_LOCAL0_PUSH 'CONSTANT . rest) (iter `(REFER_LOCAL0_PUSH_CONSTANT ,@rest))) (('REFER_LOCAL1_PUSH 'CONSTANT . rest) (iter `(REFER_LOCAL1_PUSH_CONSTANT ,@rest))) (('REFER_LOCAL 1 'PUSH . rest) (iter `(REFER_LOCAL1_PUSH ,@rest))) (('REFER_LOCAL 0 'PUSH . rest) (iter `(REFER_LOCAL0_PUSH ,@rest))) (('REFER_LOCAL 0 . rest) (iter `(REFER_LOCAL0 ,@rest))) (((and x (not 'CONSTANT)) 'NUMBER_SUB 'PUSH . rest) (iter `(,x NUMBER_SUB_PUSH ,@rest))) (('PUSH 'ENTER . rest) (iter (cons 'PUSH_ENTER rest))) (('CONSTANT v 'PUSH . rest) (iter `(CONSTANT_PUSH ,v ,@rest))) (('REFER_FREE 0 'PUSH . rest) (iter `(REFER_FREE0_PUSH ,@rest))) (('REFER_FREE 1 'PUSH . rest) (iter `(REFER_FREE1_PUSH ,@rest))) (('REFER_FREE 2 'PUSH . rest) (iter `(REFER_FREE2_PUSH ,@rest))) (('REFER_FREE n 'PUSH . rest) (iter `(REFER_FREE_PUSH ,n ,@rest))) (('REFER_FREE_PUSH n 'REFER_FREE_PUSH . rest) (iter `(REFER_FREE_PUSH_REFER_FREE_PUSH ,n ,@rest))) (('REFER_FREE 0 . rest) (iter `(REFER_FREE0 ,@rest))) (('REFER_FREE 1 . rest) (iter `(REFER_FREE1 ,@rest))) (('REFER_FREE 2 . rest) (iter `(REFER_FREE2 ,@rest))) (('REFER_LOCAL 1 . rest) (iter `(REFER_LOCAL1 ,@rest))) (('REFER_LOCAL 2 . rest) (iter `(REFER_LOCAL2 ,@rest))) (('LEAVE 1 . rest) (iter `(LEAVE1 ,@rest))) (('NUMBER_LE 'TEST . rest) (iter `(NUMBER_LE_TEST ,@rest))) (('NUMBER_ADD 'PUSH . rest) (iter `(NUMBER_ADD_PUSH ,@rest))) (('RETURN 1 . rest) (iter `(RETURN1 ,@rest))) (('RETURN 2 . rest) (iter `(RETURN2 ,@rest))) (('RETURN 3 . rest) (iter `(RETURN3 ,@rest))) (('CALL 2 . rest) (iter `(CALL2 ,@rest))) (('REFER_LOCAL0 'EQV 'TEST . rest) (iter `(REFER_LOCAL0_EQV_TEST ,@rest))) (('PUSH 'CONSTANT . rest) (iter `(PUSH_CONSTANT ,@rest))) (('PUSH 'FRAME . rest) (iter `(PUSH_FRAME ,@rest))) (((and x (not 'CONSTANT_PUSH)) 'PUSH 'FRAME . rest) (iter `(,x PUSH_FRAME ,@rest))) (('REFER_FREE 3 . rest) (iter `(REFER_FREE3 ,@rest))) (('REFER_LOCAL 3 . rest) (iter `(REFER_LOCAL3 ,@rest))) (('CAR 'PUSH . rest) (iter `(CAR_PUSH ,@rest))) (('CDR 'PUSH . rest) (iter `(CDR_PUSH ,@rest))) (('REFER_FREE0 'INDIRECT . rest) (iter `(REFER_FREE0_INDIRECT ,@rest))) (('REFER_LOCAL2 'PUSH . rest) (iter `(REFER_LOCAL2_PUSH ,@rest))) (('SHIFT m n 'CALL o . rest) (iter `(SHIFT_CALL ,m ,n ,o ,@rest))) (('CALL 3 . rest) (iter `(CALL3 ,@rest))) (('REFER_FREE1 'INDIRECT . rest) (iter `(REFER_FREE1_INDIRECT ,@rest))) (('NOT 'TEST . rest) (iter `(NOT_TEST ,@rest))) (('REFER_GLOBAL lib-id 'CALL n . rest) (iter `(REFER_GLOBAL_CALL ,lib-id ,n ,@rest))) (('REFER_LOCAL0 'NUMBER_ADD_PUSH . rest) (iter (cons 'REFER_LOCAL0_NUMBER_ADD_PUSH rest))) (('REFER_LOCAL0 'VECTOR_SET . rest) (iter (cons 'REFER_LOCAL0_VECTOR_SET rest))) (('REFER_LOCAL0 'VECTOR_REF . rest) (iter (cons 'REFER_LOCAL0_VECTOR_REF rest))) (('REFER_LOCAL n 'PUSH . rest) (iter `(REFER_LOCAL_PUSH ,n ,@rest))) (else (cons (car s) (iter (cdr s)))))))) (iter sexp))(define
   (compile-partial sexp . lib)
   (let1 ss
         (pass1/expand sexp)
