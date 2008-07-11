@@ -54,6 +54,10 @@ libcompiler_a_AR = $(AR) $(ARFLAGS)
 libcompiler_a_LIBADD =
 am_libcompiler_a_OBJECTS = libcompiler_a-compiler.$(OBJEXT)
 libcompiler_a_OBJECTS = $(am_libcompiler_a_OBJECTS)
+libmatch_a_AR = $(AR) $(ARFLAGS)
+libmatch_a_LIBADD =
+am_libmatch_a_OBJECTS = libmatch_a-match.$(OBJEXT)
+libmatch_a_OBJECTS = $(am_libmatch_a_OBJECTS)
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
@@ -62,9 +66,9 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) \
 	mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
 	mosh-freeproc.$(OBJEXT) mosh-TypedVector.$(OBJEXT) \
 	mosh-CodeBuilder.$(OBJEXT) mosh-CompilerProcedures.$(OBJEXT) \
-	mosh-SString.$(OBJEXT)
+	mosh-SString.$(OBJEXT) mosh-BuiltinSymbols.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
-mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB) libcompiler.a
+mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB) libcompiler.a libmatch.a
 mosh_LINK = $(CXXLD) $(mosh_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@
@@ -79,8 +83,10 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libcompiler_a_SOURCES) $(mosh_SOURCES)
-DIST_SOURCES = $(libcompiler_a_SOURCES) $(mosh_SOURCES)
+SOURCES = $(libcompiler_a_SOURCES) $(libmatch_a_SOURCES) \
+	$(mosh_SOURCES)
+DIST_SOURCES = $(libcompiler_a_SOURCES) $(libmatch_a_SOURCES) \
+	$(mosh_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
 	html-recursive info-recursive install-data-recursive \
 	install-dvi-recursive install-exec-recursive \
@@ -251,22 +257,27 @@ CodeBuilder.cpp        \
 CompilerProcedures.cpp\
 CompilerProcedures.h\
 SString.cpp          \
+BuiltinSymbols.cpp\
 ucs4string.h
 
 mosh_OPTS = -D MONA_SCHEME -D USE_BOEHM_GC -Wall -D MOSH_LIB_PATH="\"@MOSH_LIB_PATH@\""
 mosh_CFLAGS = -O2  $(mosh_OPTS) -g -fomit-frame-pointer -D_FILE_OFFSET_BITS=64 -Wall
 #mosh_CFLAGS   = -O2  $(mosh_OPTS) -pg  -D_FILE_OFFSET_BITS=64
 mosh_CXXFLAGS = $(mosh_CFLAGS)
-mosh_LDADD = $(GC_LIB) $(REGEXP_LIB) libcompiler.a
+mosh_LDADD = $(GC_LIB) $(REGEXP_LIB) libcompiler.a libmatch.a
 data_DATA = all-tests.scm repl.scm
 
 # build compiler.cpp with -O0, because -O2 is much slower.
-noinst_LIBRARIES = libcompiler.a
+noinst_LIBRARIES = libcompiler.a libmatch.a
 libcompiler_a_CXXFLAGS = -fomit-frame-pointer $(mosh_OPTS)
 libcompiler_a_SOURCES = compiler.cpp
 
+# noinst_LIBRARIES = libmatch.a
+libmatch_a_CXXFLAGS = -fomit-frame-pointer $(mosh_OPTS)
+libmatch_a_SOURCES = match.cpp
+
 # generated files should be listed here.
-BUILT_SOURCES = Instruction.h compiler.cpp labels.cpp DebugInstruction.h ./compiler-vm.scm cprocedures.cpp ./compiler-gauche.scm
+BUILT_SOURCES = Instruction.h compiler.cpp BuiltinSymbols.cpp labels.cpp DebugInstruction.h ./compiler-vm.scm cprocedures.cpp ./compiler-gauche.scm
 INCLUDES = -I $(BOEHM_GC_DIR)/include -I $(ONIG_DIR)
 EXTRA_DIST = instruction.scm vm.scm library.scm compiler.scm free-vars.scm scripts match.scm test-data.scm doc repl.scm
 GENERATED = \
@@ -277,6 +288,7 @@ compiler-vm-cpp.scm \
 all-tests.scm \
 labels.cpp \
 DebugInstruction.h \
+BuiltinSymbols.cpp\
 ./compiler-gauche.scm \
 ./compiler-vm-outer.scm \
 ./compiler-vm.scm
@@ -344,6 +356,10 @@ libcompiler.a: $(libcompiler_a_OBJECTS) $(libcompiler_a_DEPENDENCIES)
 	-rm -f libcompiler.a
 	$(libcompiler_a_AR) libcompiler.a $(libcompiler_a_OBJECTS) $(libcompiler_a_LIBADD)
 	$(RANLIB) libcompiler.a
+libmatch.a: $(libmatch_a_OBJECTS) $(libmatch_a_DEPENDENCIES) 
+	-rm -f libmatch.a
+	$(libmatch_a_AR) libmatch.a $(libmatch_a_OBJECTS) $(libmatch_a_LIBADD)
+	$(RANLIB) libmatch.a
 install-binPROGRAMS: $(bin_PROGRAMS)
 	@$(NORMAL_INSTALL)
 	test -z "$(bindir)" || $(MKDIR_P) "$(DESTDIR)$(bindir)"
@@ -378,6 +394,8 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcompiler_a-compiler.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmatch_a-match.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-BuiltinSymbols.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CodeBuilder.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompilerProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Port.Po@am__quote@
@@ -418,6 +436,20 @@ libcompiler_a-compiler.obj: compiler.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='compiler.cpp' object='libcompiler_a-compiler.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcompiler_a_CXXFLAGS) $(CXXFLAGS) -c -o libcompiler_a-compiler.obj `if test -f 'compiler.cpp'; then $(CYGPATH_W) 'compiler.cpp'; else $(CYGPATH_W) '$(srcdir)/compiler.cpp'; fi`
+
+libmatch_a-match.o: match.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmatch_a_CXXFLAGS) $(CXXFLAGS) -MT libmatch_a-match.o -MD -MP -MF $(DEPDIR)/libmatch_a-match.Tpo -c -o libmatch_a-match.o `test -f 'match.cpp' || echo '$(srcdir)/'`match.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmatch_a-match.Tpo $(DEPDIR)/libmatch_a-match.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='match.cpp' object='libmatch_a-match.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmatch_a_CXXFLAGS) $(CXXFLAGS) -c -o libmatch_a-match.o `test -f 'match.cpp' || echo '$(srcdir)/'`match.cpp
+
+libmatch_a-match.obj: match.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmatch_a_CXXFLAGS) $(CXXFLAGS) -MT libmatch_a-match.obj -MD -MP -MF $(DEPDIR)/libmatch_a-match.Tpo -c -o libmatch_a-match.obj `if test -f 'match.cpp'; then $(CYGPATH_W) 'match.cpp'; else $(CYGPATH_W) '$(srcdir)/match.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmatch_a-match.Tpo $(DEPDIR)/libmatch_a-match.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='match.cpp' object='libmatch_a-match.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmatch_a_CXXFLAGS) $(CXXFLAGS) -c -o libmatch_a-match.obj `if test -f 'match.cpp'; then $(CYGPATH_W) 'match.cpp'; else $(CYGPATH_W) '$(srcdir)/match.cpp'; fi`
 
 mosh-main.o: main.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-main.o -MD -MP -MF $(DEPDIR)/mosh-main.Tpo -c -o mosh-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp
@@ -586,6 +618,20 @@ mosh-SString.obj: SString.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='SString.cpp' object='mosh-SString.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-SString.obj `if test -f 'SString.cpp'; then $(CYGPATH_W) 'SString.cpp'; else $(CYGPATH_W) '$(srcdir)/SString.cpp'; fi`
+
+mosh-BuiltinSymbols.o: BuiltinSymbols.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-BuiltinSymbols.o -MD -MP -MF $(DEPDIR)/mosh-BuiltinSymbols.Tpo -c -o mosh-BuiltinSymbols.o `test -f 'BuiltinSymbols.cpp' || echo '$(srcdir)/'`BuiltinSymbols.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-BuiltinSymbols.Tpo $(DEPDIR)/mosh-BuiltinSymbols.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='BuiltinSymbols.cpp' object='mosh-BuiltinSymbols.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-BuiltinSymbols.o `test -f 'BuiltinSymbols.cpp' || echo '$(srcdir)/'`BuiltinSymbols.cpp
+
+mosh-BuiltinSymbols.obj: BuiltinSymbols.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-BuiltinSymbols.obj -MD -MP -MF $(DEPDIR)/mosh-BuiltinSymbols.Tpo -c -o mosh-BuiltinSymbols.obj `if test -f 'BuiltinSymbols.cpp'; then $(CYGPATH_W) 'BuiltinSymbols.cpp'; else $(CYGPATH_W) '$(srcdir)/BuiltinSymbols.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-BuiltinSymbols.Tpo $(DEPDIR)/mosh-BuiltinSymbols.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='BuiltinSymbols.cpp' object='mosh-BuiltinSymbols.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-BuiltinSymbols.obj `if test -f 'BuiltinSymbols.cpp'; then $(CYGPATH_W) 'BuiltinSymbols.cpp'; else $(CYGPATH_W) '$(srcdir)/BuiltinSymbols.cpp'; fi`
 install-dataDATA: $(data_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(datadir)" || $(MKDIR_P) "$(DESTDIR)$(datadir)"
@@ -1020,9 +1066,15 @@ Instruction.h: ./instruction.scm
 	@GOSH@ ./scripts/gen-insn.scm $(PWD)/$< > $(PWD)/$@
 
 ##### compiler generation
+BuiltinSymbols.cpp: compiler-with-library.scmc match.scmc
+	@GOSH@ ./scripts/gen-pre-compiled-cpp2.scm -g > $(PWD)/$@
+
 compiler.cpp: compiler-with-library.scmc
-	@GOSH@ ./scripts/gen-pre-compiled-cpp2.scm "getCompiler" $(PWD)/$< > $(PWD)/$@
+	@GOSH@ ./scripts/gen-pre-compiled-cpp2.scm "getBuiltinCompiler" $(PWD)/$< > $(PWD)/$@
 #	@GOSH@ ./scripts/gen-pre-compiled-cpp.scm "getCompiler" $(PWD)/$< > $(PWD)/$@
+
+match.cpp: match.scmc
+	@GOSH@ ./scripts/gen-pre-compiled-cpp2.scm "getBuiltinMatch" $(PWD)/$< > $(PWD)/$@
 
 ./compiler-vm-cpp.scm: ./compiler.scm free-vars-decl.scm
 	@GOSH@ ./scripts/gen-compiler.scm $(PWD)/$< "mosh" > $(PWD)/$@
@@ -1030,8 +1082,11 @@ compiler.cpp: compiler-with-library.scmc
 compiler-with-library.scmc: ./compiler-with-library.scm ./compiler-vm.scm
 	@GOSH@ ./vm.scm compile-file $(PWD)/$< > $(PWD)/$@
 
+match.scmc: ./match.scm ./compiler-vm.scm
+	@GOSH@ ./vm.scm compile-file $(PWD)/$< > $(PWD)/$@
+
 ./compiler-with-library.scm: ./compiler-vm-cpp.scm ./library.scm
-	cat ./library.scm match.scm ./compiler-vm-cpp.scm > $(PWD)/$@
+	cat ./library.scm ./compiler-vm-cpp.scm > $(PWD)/$@
 
 ./free-vars-decl.scm: ./free-vars.scm
 	@GOSH@ ./scripts/gen-free-vars-decl.scm $(PWD)/$< > $(PWD)/$@
