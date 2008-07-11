@@ -887,6 +887,16 @@
     (vector-set! (unquote iform) 5 (unquote macro))))
 
 (define-macro
+  ($library.append-macro! iform macro)
+  (quasiquote
+    (vector-set!
+      (unquote iform)
+      5
+      (append
+        ($library.macro (unquote iform))
+        (unquote macro)))))
+
+(define-macro
   ($library.set-body! iform body)
   (quasiquote
     (vector-set! (unquote iform) 6 (unquote body))))
