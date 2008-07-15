@@ -11167,7 +11167,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array119[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7932)
+        MI(7934)
     };
     Object list119 = Pair::arrayToList(array119, 2);
 
@@ -11180,7 +11180,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array121[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7919)
+        MI(7921)
     };
     Object list121 = Pair::arrayToList(array121, 2);
 
@@ -11193,7 +11193,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array123[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7888)
+        MI(7890)
     };
     Object list123 = Pair::arrayToList(array123, 2);
 
@@ -11206,7 +11206,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array125[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7846)
+        MI(7848)
     };
     Object list125 = Pair::arrayToList(array125, 2);
 
@@ -11220,7 +11220,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array127[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7841)
+        MI(7843)
     };
     Object list127 = Pair::arrayToList(array127, 2);
 
@@ -11232,7 +11232,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array129[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7839)
+        MI(7841)
     };
     Object list129 = Pair::arrayToList(array129, 2);
 
@@ -11245,7 +11245,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array131[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7803)
+        MI(7805)
     };
     Object list131 = Pair::arrayToList(array131, 2);
 
@@ -11265,7 +11265,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array134[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7789)
+        MI(7791)
     };
     Object list134 = Pair::arrayToList(array134, 2);
 
@@ -11278,7 +11278,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array136[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7785)
+        MI(7787)
     };
     Object list136 = Pair::arrayToList(array136, 2);
 
@@ -11296,7 +11296,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array139[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7780)
+        MI(7782)
     };
     Object list139 = Pair::arrayToList(array139, 2);
 
@@ -11309,7 +11309,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array141[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7766)
+        MI(7768)
     };
     Object list141 = Pair::arrayToList(array141, 2);
 
@@ -11322,7 +11322,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array143[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7746)
+        MI(7748)
     };
     Object list143 = Pair::arrayToList(array143, 2);
 
@@ -11341,7 +11341,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array145[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7689)
+        MI(7691)
     };
     Object list145 = Pair::arrayToList(array145, 2);
 
@@ -11360,7 +11360,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array147[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7674)
+        MI(7676)
     };
     Object list147 = Pair::arrayToList(array147, 2);
 
@@ -11373,7 +11373,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array149[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7671)
+        MI(7673)
     };
     Object list149 = Pair::arrayToList(array149, 2);
 
@@ -11386,7 +11386,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array151[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7662)
+        MI(7664)
     };
     Object list151 = Pair::arrayToList(array151, 2);
 
@@ -11405,7 +11405,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array153[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7626)
+        MI(7628)
     };
     Object list153 = Pair::arrayToList(array153, 2);
 
@@ -11420,7 +11420,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array155[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7612)
+        MI(7614)
     };
     Object list155 = Pair::arrayToList(array155, 2);
 
@@ -11433,7 +11433,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array157[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7600)
+        MI(7602)
     };
     Object list157 = Pair::arrayToList(array157, 2);
 
@@ -11446,7 +11446,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array159[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7584)
+        MI(7586)
     };
     Object list159 = Pair::arrayToList(array159, 2);
 
@@ -11459,7 +11459,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array161[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7569)
+        MI(7571)
     };
     Object list161 = Pair::arrayToList(array161, 2);
 
@@ -11478,7 +11478,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array163[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7519)
+        MI(7521)
     };
     Object list163 = Pair::arrayToList(array163, 2);
 
@@ -11491,7 +11491,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array165[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7495)
+        MI(7497)
     };
     Object list165 = Pair::arrayToList(array165, 2);
 
@@ -11510,7 +11510,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array167[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7430)
+        MI(7432)
     };
     Object list167 = Pair::arrayToList(array167, 2);
 
@@ -11529,7 +11529,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array169[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7377)
+        MI(7379)
     };
     Object list169 = Pair::arrayToList(array169, 2);
 
@@ -11548,7 +11548,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array171[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7343)
+        MI(7345)
     };
     Object list171 = Pair::arrayToList(array171, 2);
 
@@ -11567,7 +11567,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array173[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7229)
+        MI(7231)
     };
     Object list173 = Pair::arrayToList(array173, 2);
 
@@ -11586,7 +11586,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array175[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7199)
+        MI(7201)
     };
     Object list175 = Pair::arrayToList(array175, 2);
 
@@ -11600,7 +11600,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array177[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7190)
+        MI(7192)
     };
     Object list177 = Pair::arrayToList(array177, 2);
 
@@ -11619,7 +11619,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array179[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7176)
+        MI(7178)
     };
     Object list179 = Pair::arrayToList(array179, 2);
 
@@ -11638,7 +11638,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array181[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7152)
+        MI(7154)
     };
     Object list181 = Pair::arrayToList(array181, 2);
 
@@ -11657,7 +11657,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array183[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(7103)
+        MI(7105)
     };
     Object list183 = Pair::arrayToList(array183, 2);
 
@@ -11676,7 +11676,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array185[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6722)
+        MI(6724)
     };
     Object list185 = Pair::arrayToList(array185, 2);
 
@@ -11695,7 +11695,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array187[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6698)
+        MI(6700)
     };
     Object list187 = Pair::arrayToList(array187, 2);
 
@@ -11709,7 +11709,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array189[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6690)
+        MI(6692)
     };
     Object list189 = Pair::arrayToList(array189, 2);
 
@@ -11727,7 +11727,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array191[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6652)
+        MI(6654)
     };
     Object list191 = Pair::arrayToList(array191, 2);
 
@@ -11748,7 +11748,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array193[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6623)
+        MI(6625)
     };
     Object list193 = Pair::arrayToList(array193, 2);
 
@@ -11768,7 +11768,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array195[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6603)
+        MI(6605)
     };
     Object list195 = Pair::arrayToList(array195, 2);
 
@@ -11787,7 +11787,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array197[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6591)
+        MI(6593)
     };
     Object list197 = Pair::arrayToList(array197, 2);
 
@@ -11806,7 +11806,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array199[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6575)
+        MI(6577)
     };
     Object list199 = Pair::arrayToList(array199, 2);
 
@@ -11820,7 +11820,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array201[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6566)
+        MI(6568)
     };
     Object list201 = Pair::arrayToList(array201, 2);
 
@@ -11839,7 +11839,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array203[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6532)
+        MI(6534)
     };
     Object list203 = Pair::arrayToList(array203, 2);
 
@@ -11853,7 +11853,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array205[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6521)
+        MI(6523)
     };
     Object list205 = Pair::arrayToList(array205, 2);
 
@@ -11872,7 +11872,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array207[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6503)
+        MI(6505)
     };
     Object list207 = Pair::arrayToList(array207, 2);
 
@@ -11886,7 +11886,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array209[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6492)
+        MI(6494)
     };
     Object list209 = Pair::arrayToList(array209, 2);
 
@@ -11905,7 +11905,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array211[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6484)
+        MI(6486)
     };
     Object list211 = Pair::arrayToList(array211, 2);
 
@@ -11919,7 +11919,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array213[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6454)
+        MI(6456)
     };
     Object list213 = Pair::arrayToList(array213, 2);
 
@@ -11938,7 +11938,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array215[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6436)
+        MI(6438)
     };
     Object list215 = Pair::arrayToList(array215, 2);
 
@@ -11957,7 +11957,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array217[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6423)
+        MI(6425)
     };
     Object list217 = Pair::arrayToList(array217, 2);
 
@@ -11971,7 +11971,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array219[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6411)
+        MI(6413)
     };
     Object list219 = Pair::arrayToList(array219, 2);
 
@@ -11990,7 +11990,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array221[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6400)
+        MI(6402)
     };
     Object list221 = Pair::arrayToList(array221, 2);
 
@@ -12009,7 +12009,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array223[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6385)
+        MI(6387)
     };
     Object list223 = Pair::arrayToList(array223, 2);
 
@@ -12028,7 +12028,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array225[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6381)
+        MI(6383)
     };
     Object list225 = Pair::arrayToList(array225, 2);
 
@@ -12042,7 +12042,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array227[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6368)
+        MI(6370)
     };
     Object list227 = Pair::arrayToList(array227, 2);
 
@@ -12056,7 +12056,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array229[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6365)
+        MI(6367)
     };
     Object list229 = Pair::arrayToList(array229, 2);
 
@@ -12071,7 +12071,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array231[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6355)
+        MI(6357)
     };
     Object list231 = Pair::arrayToList(array231, 2);
 
@@ -12087,7 +12087,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array233[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6347)
+        MI(6349)
     };
     Object list233 = Pair::arrayToList(array233, 2);
 
@@ -12101,7 +12101,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array235[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6339)
+        MI(6341)
     };
     Object list235 = Pair::arrayToList(array235, 2);
 
@@ -12115,7 +12115,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array237[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6329)
+        MI(6331)
     };
     Object list237 = Pair::arrayToList(array237, 2);
 
@@ -12131,7 +12131,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array239[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6321)
+        MI(6323)
     };
     Object list239 = Pair::arrayToList(array239, 2);
 
@@ -12145,7 +12145,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array241[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6313)
+        MI(6315)
     };
     Object list241 = Pair::arrayToList(array241, 2);
 
@@ -12159,7 +12159,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array243[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6302)
+        MI(6304)
     };
     Object list243 = Pair::arrayToList(array243, 2);
 
@@ -12173,7 +12173,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array245[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6299)
+        MI(6301)
     };
     Object list245 = Pair::arrayToList(array245, 2);
 
@@ -12187,7 +12187,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array247[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6291)
+        MI(6293)
     };
     Object list247 = Pair::arrayToList(array247, 2);
 
@@ -12205,7 +12205,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array249[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6279)
+        MI(6281)
     };
     Object list249 = Pair::arrayToList(array249, 2);
 
@@ -12219,7 +12219,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array251[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6277)
+        MI(6279)
     };
     Object list251 = Pair::arrayToList(array251, 2);
 
@@ -12235,7 +12235,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array253[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6177)
+        MI(6179)
     };
     Object list253 = Pair::arrayToList(array253, 2);
 
@@ -12248,7 +12248,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array255[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6175)
+        MI(6177)
     };
     Object list255 = Pair::arrayToList(array255, 2);
 
@@ -12262,7 +12262,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array257[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6163)
+        MI(6165)
     };
     Object list257 = Pair::arrayToList(array257, 2);
 
@@ -12275,7 +12275,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array259[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6154)
+        MI(6156)
     };
     Object list259 = Pair::arrayToList(array259, 2);
 
@@ -12288,7 +12288,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array261[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6147)
+        MI(6149)
     };
     Object list261 = Pair::arrayToList(array261, 2);
 
@@ -12301,7 +12301,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array263[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6114)
+        MI(6116)
     };
     Object list263 = Pair::arrayToList(array263, 2);
 
@@ -12314,7 +12314,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array265[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6103)
+        MI(6105)
     };
     Object list265 = Pair::arrayToList(array265, 2);
 
@@ -12327,7 +12327,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array267[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6095)
+        MI(6097)
     };
     Object list267 = Pair::arrayToList(array267, 2);
 
@@ -12342,7 +12342,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array269[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6093)
+        MI(6095)
     };
     Object list269 = Pair::arrayToList(array269, 2);
 
@@ -12357,7 +12357,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array271[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6085)
+        MI(6087)
     };
     Object list271 = Pair::arrayToList(array271, 2);
 
@@ -12371,7 +12371,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array273[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6079)
+        MI(6081)
     };
     Object list273 = Pair::arrayToList(array273, 2);
 
@@ -12384,7 +12384,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array275[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6070)
+        MI(6072)
     };
     Object list275 = Pair::arrayToList(array275, 2);
 
@@ -12397,7 +12397,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array277[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6048)
+        MI(6050)
     };
     Object list277 = Pair::arrayToList(array277, 2);
 
@@ -12410,7 +12410,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array279[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6033)
+        MI(6035)
     };
     Object list279 = Pair::arrayToList(array279, 2);
 
@@ -12424,7 +12424,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array281[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6026)
+        MI(6028)
     };
     Object list281 = Pair::arrayToList(array281, 2);
 
@@ -12439,7 +12439,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array283[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6024)
+        MI(6026)
     };
     Object list283 = Pair::arrayToList(array283, 2);
 
@@ -12453,7 +12453,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array285[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6007)
+        MI(6009)
     };
     Object list285 = Pair::arrayToList(array285, 2);
 
@@ -12469,7 +12469,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array287[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(6000)
+        MI(6002)
     };
     Object list287 = Pair::arrayToList(array287, 2);
 
@@ -12484,7 +12484,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array289[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5990)
+        MI(5992)
     };
     Object list289 = Pair::arrayToList(array289, 2);
 
@@ -12498,7 +12498,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array291[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5981)
+        MI(5983)
     };
     Object list291 = Pair::arrayToList(array291, 2);
 
@@ -12512,7 +12512,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array293[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5961)
+        MI(5963)
     };
     Object list293 = Pair::arrayToList(array293, 2);
 
@@ -12527,7 +12527,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array295[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5957)
+        MI(5959)
     };
     Object list295 = Pair::arrayToList(array295, 2);
 
@@ -12541,7 +12541,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array297[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5924)
+        MI(5926)
     };
     Object list297 = Pair::arrayToList(array297, 2);
 
@@ -12558,7 +12558,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array299[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5922)
+        MI(5924)
     };
     Object list299 = Pair::arrayToList(array299, 2);
 
@@ -12587,7 +12587,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array303[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5906)
+        MI(5908)
     };
     Object list303 = Pair::arrayToList(array303, 2);
 
@@ -12603,7 +12603,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array305[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5899)
+        MI(5901)
     };
     Object list305 = Pair::arrayToList(array305, 2);
 
@@ -12616,7 +12616,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array307[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5897)
+        MI(5899)
     };
     Object list307 = Pair::arrayToList(array307, 2);
 
@@ -12629,7 +12629,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array309[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5895)
+        MI(5897)
     };
     Object list309 = Pair::arrayToList(array309, 2);
 
@@ -12650,7 +12650,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array312[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5877)
+        MI(5879)
     };
     Object list312 = Pair::arrayToList(array312, 2);
 
@@ -12671,7 +12671,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array315[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5839)
+        MI(5841)
     };
     Object list315 = Pair::arrayToList(array315, 2);
 
@@ -12687,7 +12687,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array317[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5830)
+        MI(5832)
     };
     Object list317 = Pair::arrayToList(array317, 2);
 
@@ -12700,7 +12700,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array319[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5818)
+        MI(5820)
     };
     Object list319 = Pair::arrayToList(array319, 2);
 
@@ -12714,7 +12714,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array321[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5816)
+        MI(5818)
     };
     Object list321 = Pair::arrayToList(array321, 2);
 
@@ -12729,7 +12729,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array323[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5809)
+        MI(5811)
     };
     Object list323 = Pair::arrayToList(array323, 2);
 
@@ -12744,13 +12744,13 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array325[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5792)
+        MI(5794)
     };
     Object list325 = Pair::arrayToList(array325, 2);
 
     static Object array326[] = {
         list325,
-        builtinSymbols[61],
+        builtinSymbols[60],
         builtinSymbols[686],
         builtinSymbols[534],
         builtinSymbols[362],
@@ -12760,7 +12760,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array327[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5783)
+        MI(5785)
     };
     Object list327 = Pair::arrayToList(array327, 2);
 
@@ -12774,7 +12774,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array329[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5744)
+        MI(5746)
     };
     Object list329 = Pair::arrayToList(array329, 2);
 
@@ -12788,7 +12788,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array331[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5742)
+        MI(5744)
     };
     Object list331 = Pair::arrayToList(array331, 2);
 
@@ -12802,7 +12802,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array333[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5692)
+        MI(5694)
     };
     Object list333 = Pair::arrayToList(array333, 2);
 
@@ -12816,7 +12816,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array335[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5688)
+        MI(5690)
     };
     Object list335 = Pair::arrayToList(array335, 2);
 
@@ -12829,7 +12829,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array337[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5682)
+        MI(5684)
     };
     Object list337 = Pair::arrayToList(array337, 2);
 
@@ -12842,7 +12842,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array339[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5677)
+        MI(5679)
     };
     Object list339 = Pair::arrayToList(array339, 2);
 
@@ -12855,7 +12855,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array341[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5656)
+        MI(5658)
     };
     Object list341 = Pair::arrayToList(array341, 2);
 
@@ -12868,7 +12868,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array343[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5612)
+        MI(5614)
     };
     Object list343 = Pair::arrayToList(array343, 2);
 
@@ -12882,7 +12882,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array345[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5609)
+        MI(5611)
     };
     Object list345 = Pair::arrayToList(array345, 2);
 
@@ -12895,7 +12895,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array347[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5607)
+        MI(5609)
     };
     Object list347 = Pair::arrayToList(array347, 2);
 
@@ -12909,7 +12909,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array349[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5602)
+        MI(5604)
     };
     Object list349 = Pair::arrayToList(array349, 2);
 
@@ -12922,7 +12922,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array351[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5599)
+        MI(5601)
     };
     Object list351 = Pair::arrayToList(array351, 2);
 
@@ -12936,7 +12936,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array353[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5569)
+        MI(5571)
     };
     Object list353 = Pair::arrayToList(array353, 2);
 
@@ -12949,7 +12949,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array355[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5550)
+        MI(5552)
     };
     Object list355 = Pair::arrayToList(array355, 2);
 
@@ -12962,7 +12962,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array357[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5542)
+        MI(5544)
     };
     Object list357 = Pair::arrayToList(array357, 2);
 
@@ -12976,7 +12976,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array359[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5500)
+        MI(5502)
     };
     Object list359 = Pair::arrayToList(array359, 2);
 
@@ -12990,7 +12990,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array361[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5498)
+        MI(5500)
     };
     Object list361 = Pair::arrayToList(array361, 2);
 
@@ -13004,7 +13004,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array363[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5494)
+        MI(5496)
     };
     Object list363 = Pair::arrayToList(array363, 2);
 
@@ -13018,7 +13018,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array365[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5484)
+        MI(5486)
     };
     Object list365 = Pair::arrayToList(array365, 2);
 
@@ -13032,7 +13032,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array367[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5475)
+        MI(5477)
     };
     Object list367 = Pair::arrayToList(array367, 2);
 
@@ -13046,7 +13046,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array369[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5470)
+        MI(5472)
     };
     Object list369 = Pair::arrayToList(array369, 2);
 
@@ -13059,7 +13059,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array371[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5466)
+        MI(5468)
     };
     Object list371 = Pair::arrayToList(array371, 2);
 
@@ -13073,7 +13073,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array373[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5435)
+        MI(5437)
     };
     Object list373 = Pair::arrayToList(array373, 2);
 
@@ -13086,7 +13086,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array375[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5431)
+        MI(5433)
     };
     Object list375 = Pair::arrayToList(array375, 2);
 
@@ -13099,7 +13099,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array377[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5427)
+        MI(5429)
     };
     Object list377 = Pair::arrayToList(array377, 2);
 
@@ -13113,7 +13113,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array379[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5422)
+        MI(5424)
     };
     Object list379 = Pair::arrayToList(array379, 2);
 
@@ -13127,7 +13127,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array381[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5412)
+        MI(5414)
     };
     Object list381 = Pair::arrayToList(array381, 2);
 
@@ -13141,7 +13141,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array383[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5406)
+        MI(5408)
     };
     Object list383 = Pair::arrayToList(array383, 2);
 
@@ -13154,7 +13154,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array385[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5399)
+        MI(5401)
     };
     Object list385 = Pair::arrayToList(array385, 2);
 
@@ -13168,7 +13168,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array387[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5383)
+        MI(5385)
     };
     Object list387 = Pair::arrayToList(array387, 2);
 
@@ -13181,7 +13181,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array389[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5376)
+        MI(5378)
     };
     Object list389 = Pair::arrayToList(array389, 2);
 
@@ -13194,7 +13194,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array391[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5349)
+        MI(5351)
     };
     Object list391 = Pair::arrayToList(array391, 2);
 
@@ -13207,7 +13207,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array393[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5336)
+        MI(5338)
     };
     Object list393 = Pair::arrayToList(array393, 2);
 
@@ -13220,7 +13220,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array395[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5311)
+        MI(5313)
     };
     Object list395 = Pair::arrayToList(array395, 2);
 
@@ -13234,7 +13234,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array397[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5266)
+        MI(5268)
     };
     Object list397 = Pair::arrayToList(array397, 2);
 
@@ -13247,7 +13247,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array399[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5248)
+        MI(5250)
     };
     Object list399 = Pair::arrayToList(array399, 2);
 
@@ -13261,7 +13261,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array401[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5241)
+        MI(5243)
     };
     Object list401 = Pair::arrayToList(array401, 2);
 
@@ -13274,7 +13274,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array403[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5240)
+        MI(5242)
     };
     Object list403 = Pair::arrayToList(array403, 2);
 
@@ -13287,7 +13287,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array405[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5237)
+        MI(5239)
     };
     Object list405 = Pair::arrayToList(array405, 2);
 
@@ -13300,7 +13300,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array407[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(5234)
+        MI(5236)
     };
     Object list407 = Pair::arrayToList(array407, 2);
 
@@ -13339,7 +13339,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array413[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(4911)
+        MI(4913)
     };
     Object list413 = Pair::arrayToList(array413, 2);
 
@@ -13355,7 +13355,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array415[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(4907)
+        MI(4909)
     };
     Object list415 = Pair::arrayToList(array415, 2);
 
@@ -13382,7 +13382,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array419[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(4879)
+        MI(4881)
     };
     Object list419 = Pair::arrayToList(array419, 2);
 
@@ -13400,7 +13400,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array421[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(4866)
+        MI(4868)
     };
     Object list421 = Pair::arrayToList(array421, 2);
 
@@ -13418,7 +13418,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array423[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(4855)
+        MI(4857)
     };
     Object list423 = Pair::arrayToList(array423, 2);
 
@@ -13435,7 +13435,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array425[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(4841)
+        MI(4843)
     };
     Object list425 = Pair::arrayToList(array425, 2);
 
@@ -13454,7 +13454,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array427[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(4830)
+        MI(4832)
     };
     Object list427 = Pair::arrayToList(array427, 2);
 
@@ -13472,7 +13472,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array429[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(4826)
+        MI(4828)
     };
     Object list429 = Pair::arrayToList(array429, 2);
 
@@ -13489,7 +13489,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array431[] = {
         Object::makeString(UC("compiler-with-library.scm")),
-        MI(4807)
+        MI(4809)
     };
     Object list431 = Pair::arrayToList(array431, 2);
 
@@ -14458,7 +14458,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array566[] = {
         list565,
-        builtinSymbols[63],
+        builtinSymbols[62],
         builtinSymbols[723]
     };
     Object list566 = Pair::arrayToList(array566, 3);
@@ -15397,7 +15397,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array701[] = {
         list700,
-        builtinSymbols[60],
+        builtinSymbols[64],
         builtinSymbols[521],
         builtinSymbols[522],
         builtinSymbols[523]
@@ -17750,7 +17750,7 @@ Object scheme::getBuiltinCompiler() {
         list1027,
         builtinSymbols[80],
         builtinSymbols[520],
-        builtinSymbols[64]
+        builtinSymbols[63]
     };
     Object list1028 = Pair::arrayToList(array1028, 4);
 
@@ -17764,7 +17764,7 @@ Object scheme::getBuiltinCompiler() {
         list1029,
         builtinSymbols[83],
         builtinSymbols[520],
-        builtinSymbols[64]
+        builtinSymbols[63]
     };
     Object list1030 = Pair::arrayToList(array1030, 4);
 
@@ -17778,7 +17778,7 @@ Object scheme::getBuiltinCompiler() {
         list1031,
         builtinSymbols[82],
         builtinSymbols[520],
-        builtinSymbols[64]
+        builtinSymbols[63]
     };
     Object list1032 = Pair::arrayToList(array1032, 4);
 
@@ -17793,7 +17793,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[336],
         builtinSymbols[681],
         builtinSymbols[520],
-        builtinSymbols[64]
+        builtinSymbols[63]
     };
     Object list1034 = Pair::arrayToList(array1034, 5);
 
@@ -29174,7 +29174,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(86),
         MIS(17),
-        builtinSymbols[840],
+        builtinSymbols[842],
         MIS(33),
         MIS(106),
         MI(19),
@@ -32015,7 +32015,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(83),
         MIS(64),
-        builtinSymbols[62],
+        builtinSymbols[61],
         MIS(88),
         MI(29),
         MIS(23),
@@ -32025,7 +32025,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[842],
+        builtinSymbols[841],
         MI(1),
         MIS(3),
         MIS(102),
@@ -33673,7 +33673,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(84),
         MIS(17),
-        builtinSymbols[842],
+        builtinSymbols[841],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -39037,7 +39037,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[840],
+        builtinSymbols[842],
         MI(3),
         MIS(63),
         MIS(30),
@@ -39066,7 +39066,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[840],
+        builtinSymbols[842],
         MI(3),
         MIS(63),
         MIS(50),
@@ -44399,7 +44399,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(10),
         MIS(50),
-        builtinSymbols[840],
+        builtinSymbols[842],
         MIS(3),
         MIS(92),
         MIS(91),
@@ -46334,7 +46334,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[841],
+        builtinSymbols[840],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -46632,7 +46632,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(98),
         MIS(102),
-        builtinSymbols[841],
+        builtinSymbols[840],
         MI(4),
         MIS(63),
         MIS(106),
@@ -46746,7 +46746,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(92),
         MIS(102),
-        builtinSymbols[841],
+        builtinSymbols[840],
         MI(4),
         MIS(63),
         MIS(74),
@@ -46842,7 +46842,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(91),
         MIS(102),
-        builtinSymbols[841],
+        builtinSymbols[840],
         MI(4),
         MIS(63),
         MIS(65),

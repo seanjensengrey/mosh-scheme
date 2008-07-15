@@ -109,7 +109,7 @@
   (raise (format "syntax error: ~a" msg)))
 
 (define
-  (acons obj1 obj2 obj3)
+  (alist-cons obj1 obj2 obj3)
   (cons (cons obj1 obj2) obj3))
 
 (define
@@ -2063,19 +2063,21 @@
   (if (pair? (second sexp))
       ($library.set-macro!
         library
-        (acons (caadr sexp)
-               (compile-partial
-                 (quasiquote
-                   (lambda
-                     (unquote (cdadr sexp))
-                     (unquote (third sexp))))
-                 library)
-               ($library.macro library)))
+        (alist-cons
+          (caadr sexp)
+          (compile-partial
+            (quasiquote
+              (lambda
+                (unquote (cdadr sexp))
+                (unquote (third sexp))))
+            library)
+          ($library.macro library)))
       ($library.set-macro!
         library
-        (acons (second sexp)
-               (compile-partial (third sexp))
-               ($library.macro library))))
+        (alist-cons
+          (second sexp)
+          (compile-partial (third sexp))
+          ($library.macro library))))
   ($undef))
 
 (define
@@ -2876,7 +2878,7 @@
         ($map1 (lambda (lv) (make-lvar ($lvar.sym lv)))
                orig-lvars)
         (cons new-lvars
-              (foldr2 acons lv-alist orig-lvars new-lvars))))
+              (foldr2 alist-cons lv-alist orig-lvars new-lvars))))
 
 (define
   (iform-copy-lvar lvar lv-alist)
