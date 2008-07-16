@@ -947,7 +947,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         builtinSymbols[0],
         MIS(16),
-        builtinSymbols[712],
+        builtinSymbols[713],
         MIS(1),
         MI(4),
         MIS(3),
@@ -1701,7 +1701,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(89),
         builtinSymbols[0],
         MIS(89),
-        builtinSymbols[712],
+        builtinSymbols[713],
         MIS(1),
         MI(4),
         MIS(3),
@@ -1776,7 +1776,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         builtinSymbols[0],
         MIS(16),
-        builtinSymbols[712],
+        builtinSymbols[713],
         MIS(1),
         MI(4),
         MIS(3),
@@ -9931,7 +9931,7 @@ Object scheme::getBuiltinCompiler() {
     Object list97 = Pair::arrayToList(array97, 3);
 
     static Object array98[] = {
-        builtinSymbols[675],
+        builtinSymbols[676],
         MIS(14),
         MI(34),
         MI(1),
@@ -10153,14 +10153,14 @@ Object scheme::getBuiltinCompiler() {
         list103,
         builtinSymbols[405],
         builtinSymbols[1229],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list104 = Pair::arrayToList(array104, 4);
 
     static Object array105[] = {
         Object::False,
         builtinSymbols[405],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list105 = Pair::arrayToList(array105, 3);
 
@@ -11047,7 +11047,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         builtinSymbols[37],
         MIS(64),
-        builtinSymbols[710],
+        builtinSymbols[711],
         MIS(64),
         builtinSymbols[37],
         MIS(75),
@@ -11174,7 +11174,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array120[] = {
         list119,
         builtinSymbols[222],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list120 = Pair::arrayToList(array120, 3);
 
@@ -11187,7 +11187,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array122[] = {
         list121,
         builtinSymbols[220],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list122 = Pair::arrayToList(array122, 3);
 
@@ -11252,7 +11252,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array132[] = {
         list131,
         builtinSymbols[223],
-        builtinSymbols[723],
+        builtinSymbols[724],
         builtinSymbols[423]
     };
     Object list132 = Pair::arrayToList(array132, 4);
@@ -11272,7 +11272,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array135[] = {
         list134,
         builtinSymbols[405],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list135 = Pair::arrayToList(array135, 3);
 
@@ -11334,7 +11334,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list144 = Pair::arrayToList(array144, 9);
@@ -11353,7 +11353,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list146 = Pair::arrayToList(array146, 9);
@@ -11367,7 +11367,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array148[] = {
         list147,
         builtinSymbols[405],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list148 = Pair::arrayToList(array148, 3);
 
@@ -11398,7 +11398,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list152 = Pair::arrayToList(array152, 9);
@@ -11413,7 +11413,7 @@ Object scheme::getBuiltinCompiler() {
         list153,
         builtinSymbols[405],
         builtinSymbols[79],
-        builtinSymbols[727],
+        builtinSymbols[728],
         builtinSymbols[377]
     };
     Object list154 = Pair::arrayToList(array154, 5);
@@ -11471,7 +11471,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list162 = Pair::arrayToList(array162, 9);
@@ -11503,7 +11503,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list166 = Pair::arrayToList(array166, 9);
@@ -11522,7 +11522,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list168 = Pair::arrayToList(array168, 9);
@@ -11541,7 +11541,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list170 = Pair::arrayToList(array170, 9);
@@ -11560,7 +11560,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list172 = Pair::arrayToList(array172, 9);
@@ -11579,7 +11579,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list174 = Pair::arrayToList(array174, 9);
@@ -11593,7 +11593,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array176[] = {
         list175,
         builtinSymbols[405],
-        builtinSymbols[727],
+        builtinSymbols[728],
         builtinSymbols[365]
     };
     Object list176 = Pair::arrayToList(array176, 4);
@@ -11612,7 +11612,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list178 = Pair::arrayToList(array178, 9);
@@ -11631,7 +11631,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list180 = Pair::arrayToList(array180, 9);
@@ -11650,7 +11650,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list182 = Pair::arrayToList(array182, 9);
@@ -11669,7 +11669,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list184 = Pair::arrayToList(array184, 9);
@@ -11688,7 +11688,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list186 = Pair::arrayToList(array186, 9);
@@ -11703,7 +11703,7 @@ Object scheme::getBuiltinCompiler() {
         list187,
         builtinSymbols[405],
         builtinSymbols[79],
-        builtinSymbols[734]
+        builtinSymbols[735]
     };
     Object list188 = Pair::arrayToList(array188, 4);
 
@@ -11721,7 +11721,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721]
+        builtinSymbols[722]
     };
     Object list190 = Pair::arrayToList(array190, 8);
 
@@ -11742,7 +11742,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721]
+        builtinSymbols[722]
     };
     Object list192 = Pair::arrayToList(array192, 11);
 
@@ -11762,7 +11762,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721]
+        builtinSymbols[722]
     };
     Object list194 = Pair::arrayToList(array194, 10);
 
@@ -11781,7 +11781,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721]
+        builtinSymbols[722]
     };
     Object list196 = Pair::arrayToList(array196, 9);
 
@@ -11799,7 +11799,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list198 = Pair::arrayToList(array198, 9);
@@ -11814,7 +11814,7 @@ Object scheme::getBuiltinCompiler() {
         list199,
         builtinSymbols[405],
         builtinSymbols[323],
-        builtinSymbols[727]
+        builtinSymbols[728]
     };
     Object list200 = Pair::arrayToList(array200, 4);
 
@@ -11832,7 +11832,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list202 = Pair::arrayToList(array202, 9);
@@ -11865,7 +11865,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list206 = Pair::arrayToList(array206, 9);
@@ -11898,7 +11898,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list210 = Pair::arrayToList(array210, 9);
@@ -11913,7 +11913,7 @@ Object scheme::getBuiltinCompiler() {
         list211,
         builtinSymbols[497],
         builtinSymbols[424],
-        builtinSymbols[753]
+        builtinSymbols[754]
     };
     Object list212 = Pair::arrayToList(array212, 4);
 
@@ -11931,7 +11931,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list214 = Pair::arrayToList(array214, 9);
@@ -11950,7 +11950,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list216 = Pair::arrayToList(array216, 9);
@@ -11983,7 +11983,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list220 = Pair::arrayToList(array220, 9);
@@ -12002,7 +12002,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list222 = Pair::arrayToList(array222, 9);
@@ -12021,7 +12021,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[446],
         builtinSymbols[329],
         builtinSymbols[140],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[770]
     };
     Object list224 = Pair::arrayToList(array224, 9);
@@ -12064,7 +12064,7 @@ Object scheme::getBuiltinCompiler() {
         list229,
         builtinSymbols[636],
         builtinSymbols[149],
-        builtinSymbols[721],
+        builtinSymbols[722],
         builtinSymbols[1236]
     };
     Object list230 = Pair::arrayToList(array230, 5);
@@ -12198,8 +12198,8 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[453],
         builtinSymbols[446],
         builtinSymbols[329],
-        builtinSymbols[692],
-        builtinSymbols[691]
+        builtinSymbols[693],
+        builtinSymbols[692]
     };
     Object list248 = Pair::arrayToList(array248, 8);
 
@@ -12212,8 +12212,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array250[] = {
         list249,
         builtinSymbols[405],
-        builtinSymbols[727],
-        builtinSymbols[694]
+        builtinSymbols[728],
+        builtinSymbols[695]
     };
     Object list250 = Pair::arrayToList(array250, 4);
 
@@ -12364,7 +12364,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array272[] = {
         list271,
         builtinSymbols[632],
-        builtinSymbols[753],
+        builtinSymbols[754],
         builtinSymbols[140]
     };
     Object list272 = Pair::arrayToList(array272, 4);
@@ -12432,7 +12432,7 @@ Object scheme::getBuiltinCompiler() {
         list281,
         builtinSymbols[405],
         builtinSymbols[361],
-        builtinSymbols[687],
+        builtinSymbols[688],
         builtinSymbols[667]
     };
     Object list282 = Pair::arrayToList(array282, 5);
@@ -12447,7 +12447,7 @@ Object scheme::getBuiltinCompiler() {
         list283,
         builtinSymbols[602],
         builtinSymbols[79],
-        builtinSymbols[686]
+        builtinSymbols[687]
     };
     Object list284 = Pair::arrayToList(array284, 4);
 
@@ -12460,7 +12460,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array286[] = {
         list285,
         builtinSymbols[584],
-        builtinSymbols[686],
+        builtinSymbols[687],
         builtinSymbols[534],
         builtinSymbols[362],
         builtinSymbols[505]
@@ -12477,7 +12477,7 @@ Object scheme::getBuiltinCompiler() {
         list287,
         builtinSymbols[585],
         builtinSymbols[79],
-        builtinSymbols[686],
+        builtinSymbols[687],
         builtinSymbols[535]
     };
     Object list288 = Pair::arrayToList(array288, 5);
@@ -12550,9 +12550,9 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[405],
         builtinSymbols[1236],
         builtinSymbols[379],
+        builtinSymbols[697],
         builtinSymbols[696],
-        builtinSymbols[695],
-        builtinSymbols[698]
+        builtinSymbols[699]
     };
     Object list298 = Pair::arrayToList(array298, 7);
 
@@ -12596,7 +12596,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[405],
         builtinSymbols[126],
         builtinSymbols[445],
-        builtinSymbols[673],
+        builtinSymbols[674],
         builtinSymbols[1209]
     };
     Object list304 = Pair::arrayToList(array304, 6);
@@ -12681,7 +12681,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[453],
         builtinSymbols[407],
         builtinSymbols[125],
-        builtinSymbols[674]
+        builtinSymbols[675]
     };
     Object list316 = Pair::arrayToList(array316, 6);
 
@@ -12737,7 +12737,7 @@ Object scheme::getBuiltinCompiler() {
         list323,
         builtinSymbols[78],
         builtinSymbols[79],
-        builtinSymbols[686],
+        builtinSymbols[687],
         builtinSymbols[535]
     };
     Object list324 = Pair::arrayToList(array324, 5);
@@ -12751,7 +12751,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array326[] = {
         list325,
         builtinSymbols[60],
-        builtinSymbols[686],
+        builtinSymbols[687],
         builtinSymbols[534],
         builtinSymbols[362],
         builtinSymbols[505]
@@ -13320,7 +13320,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array410[] = {
         list409,
         builtinSymbols[405],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list410 = Pair::arrayToList(array410, 3);
 
@@ -13333,7 +13333,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array412[] = {
         list411,
         builtinSymbols[405],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list412 = Pair::arrayToList(array412, 3);
 
@@ -13346,7 +13346,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array414[] = {
         list413,
         builtinSymbols[575],
-        builtinSymbols[723],
+        builtinSymbols[724],
         builtinSymbols[426],
         builtinSymbols[454],
         builtinSymbols[772]
@@ -13376,7 +13376,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array418[] = {
         list417,
         builtinSymbols[405],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list418 = Pair::arrayToList(array418, 3);
 
@@ -13409,7 +13409,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[552],
         builtinSymbols[769],
         builtinSymbols[75],
-        builtinSymbols[687],
+        builtinSymbols[688],
         builtinSymbols[426],
         builtinSymbols[454],
         builtinSymbols[772]
@@ -13514,7 +13514,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array434[] = {
         list433,
         builtinSymbols[560],
-        builtinSymbols[723],
+        builtinSymbols[724],
         builtinSymbols[426],
         builtinSymbols[454],
         builtinSymbols[772]
@@ -13575,7 +13575,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array442[] = {
         list441,
         builtinSymbols[405],
-        builtinSymbols[753]
+        builtinSymbols[754]
     };
     Object list442 = Pair::arrayToList(array442, 3);
 
@@ -13591,7 +13591,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[1236],
         builtinSymbols[1232],
         builtinSymbols[87],
-        builtinSymbols[730],
+        builtinSymbols[731],
         builtinSymbols[426],
         builtinSymbols[454],
         builtinSymbols[772]
@@ -13607,7 +13607,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array446[] = {
         list445,
         builtinSymbols[405],
-        builtinSymbols[753],
+        builtinSymbols[754],
         builtinSymbols[378]
     };
     Object list446 = Pair::arrayToList(array446, 4);
@@ -13621,7 +13621,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array448[] = {
         list447,
         builtinSymbols[405],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list448 = Pair::arrayToList(array448, 3);
 
@@ -13637,7 +13637,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[1236],
         builtinSymbols[1232],
         builtinSymbols[87],
-        builtinSymbols[730],
+        builtinSymbols[731],
         builtinSymbols[426],
         builtinSymbols[454],
         builtinSymbols[772]
@@ -13660,7 +13660,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array453[] = {
         list452,
         builtinSymbols[405],
-        builtinSymbols[753]
+        builtinSymbols[754]
     };
     Object list453 = Pair::arrayToList(array453, 3);
 
@@ -13682,7 +13682,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array456[] = {
         list455,
         builtinSymbols[573],
-        builtinSymbols[723],
+        builtinSymbols[724],
         builtinSymbols[426],
         builtinSymbols[454],
         builtinSymbols[772]
@@ -13713,7 +13713,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array460[] = {
         list459,
         builtinSymbols[559],
-        builtinSymbols[723],
+        builtinSymbols[724],
         builtinSymbols[426],
         builtinSymbols[454],
         builtinSymbols[772]
@@ -13729,7 +13729,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array462[] = {
         list461,
         builtinSymbols[405],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list462 = Pair::arrayToList(array462, 3);
 
@@ -13742,7 +13742,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array464[] = {
         list463,
         builtinSymbols[405],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list464 = Pair::arrayToList(array464, 3);
 
@@ -13772,7 +13772,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array468[] = {
         list467,
         builtinSymbols[571],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list468 = Pair::arrayToList(array468, 3);
 
@@ -13890,7 +13890,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array486[] = {
         list485,
         builtinSymbols[564],
-        builtinSymbols[723],
+        builtinSymbols[724],
         builtinSymbols[426]
     };
     Object list486 = Pair::arrayToList(array486, 4);
@@ -13918,7 +13918,7 @@ Object scheme::getBuiltinCompiler() {
         list489,
         builtinSymbols[405],
         builtinSymbols[294],
-        builtinSymbols[689]
+        builtinSymbols[690]
     };
     Object list490 = Pair::arrayToList(array490, 4);
 
@@ -13946,7 +13946,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array494[] = {
         list493,
         builtinSymbols[405],
-        builtinSymbols[685],
+        builtinSymbols[686],
         builtinSymbols[424],
         builtinSymbols[374]
     };
@@ -13961,7 +13961,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array496[] = {
         list495,
         builtinSymbols[405],
-        builtinSymbols[754],
+        builtinSymbols[755],
         builtinSymbols[424],
         builtinSymbols[374]
     };
@@ -13976,7 +13976,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array498[] = {
         list497,
         builtinSymbols[570],
-        builtinSymbols[723],
+        builtinSymbols[724],
         builtinSymbols[426],
         builtinSymbols[454]
     };
@@ -14000,7 +14000,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array501[] = {
         Object::False,
         builtinSymbols[405],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list501 = Pair::arrayToList(array501, 3);
 
@@ -14019,7 +14019,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array504[] = {
         list503,
         builtinSymbols[405],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list504 = Pair::arrayToList(array504, 3);
 
@@ -14032,7 +14032,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array506[] = {
         list505,
         builtinSymbols[572],
-        builtinSymbols[723],
+        builtinSymbols[724],
         builtinSymbols[426],
         builtinSymbols[454],
         builtinSymbols[772]
@@ -14057,7 +14057,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array509[] = {
         Object::False,
         builtinSymbols[405],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list509 = Pair::arrayToList(array509, 3);
 
@@ -14076,7 +14076,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array512[] = {
         list511,
         builtinSymbols[405],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list512 = Pair::arrayToList(array512, 3);
 
@@ -14089,7 +14089,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array514[] = {
         list513,
         builtinSymbols[548],
-        builtinSymbols[723],
+        builtinSymbols[724],
         builtinSymbols[426],
         builtinSymbols[454],
         builtinSymbols[772]
@@ -14131,7 +14131,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array520[] = {
         list519,
         builtinSymbols[405],
-        builtinSymbols[753]
+        builtinSymbols[754]
     };
     Object list520 = Pair::arrayToList(array520, 3);
 
@@ -14145,7 +14145,7 @@ Object scheme::getBuiltinCompiler() {
         list521,
         builtinSymbols[565],
         builtinSymbols[505],
-        builtinSymbols[723],
+        builtinSymbols[724],
         builtinSymbols[426],
         builtinSymbols[454]
     };
@@ -14222,7 +14222,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array533[] = {
         list532,
         builtinSymbols[556],
-        builtinSymbols[754],
+        builtinSymbols[755],
         builtinSymbols[1230],
         builtinSymbols[426],
         builtinSymbols[454],
@@ -14245,7 +14245,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array536[] = {
         list535,
         builtinSymbols[574],
-        builtinSymbols[754],
+        builtinSymbols[755],
         builtinSymbols[426],
         builtinSymbols[454]
     };
@@ -14260,7 +14260,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array538[] = {
         list537,
         builtinSymbols[562],
-        builtinSymbols[754],
+        builtinSymbols[755],
         builtinSymbols[454]
     };
     Object list538 = Pair::arrayToList(array538, 4);
@@ -14274,7 +14274,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array540[] = {
         list539,
         builtinSymbols[568],
-        builtinSymbols[754],
+        builtinSymbols[755],
         builtinSymbols[426],
         builtinSymbols[1230]
     };
@@ -14289,7 +14289,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array542[] = {
         list541,
         builtinSymbols[569],
-        builtinSymbols[754],
+        builtinSymbols[755],
         builtinSymbols[426]
     };
     Object list542 = Pair::arrayToList(array542, 4);
@@ -14361,7 +14361,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[251],
         builtinSymbols[1257],
         builtinSymbols[422],
-        builtinSymbols[690]
+        builtinSymbols[691]
     };
     Object list552 = Pair::arrayToList(array552, 5);
 
@@ -14404,7 +14404,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[250],
         builtinSymbols[1257],
         builtinSymbols[422],
-        builtinSymbols[690]
+        builtinSymbols[691]
     };
     Object list558 = Pair::arrayToList(array558, 5);
 
@@ -14419,7 +14419,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[249],
         builtinSymbols[1257],
         builtinSymbols[422],
-        builtinSymbols[690]
+        builtinSymbols[691]
     };
     Object list560 = Pair::arrayToList(array560, 5);
 
@@ -14446,7 +14446,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array564[] = {
         list563,
         builtinSymbols[418],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list564 = Pair::arrayToList(array564, 3);
 
@@ -14459,7 +14459,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array566[] = {
         list565,
         builtinSymbols[62],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list566 = Pair::arrayToList(array566, 3);
 
@@ -14472,7 +14472,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array568[] = {
         list567,
         builtinSymbols[506],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list568 = Pair::arrayToList(array568, 3);
 
@@ -14485,7 +14485,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array570[] = {
         list569,
         builtinSymbols[148],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list570 = Pair::arrayToList(array570, 3);
 
@@ -14553,7 +14553,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array580[] = {
         list579,
         builtinSymbols[226],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list580 = Pair::arrayToList(array580, 3);
 
@@ -14579,7 +14579,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array584[] = {
         list583,
         builtinSymbols[416],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list584 = Pair::arrayToList(array584, 3);
 
@@ -14592,7 +14592,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array586[] = {
         list585,
         builtinSymbols[1222],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list586 = Pair::arrayToList(array586, 3);
 
@@ -14605,7 +14605,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array588[] = {
         list587,
         builtinSymbols[241],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list588 = Pair::arrayToList(array588, 3);
 
@@ -14631,7 +14631,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array592[] = {
         list591,
         builtinSymbols[405],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list592 = Pair::arrayToList(array592, 3);
 
@@ -14644,7 +14644,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array594[] = {
         list593,
         builtinSymbols[387],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list594 = Pair::arrayToList(array594, 3);
 
@@ -14698,7 +14698,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array602[] = {
         list601,
         builtinSymbols[243],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list602 = Pair::arrayToList(array602, 3);
 
@@ -14743,7 +14743,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array608[] = {
         list607,
         builtinSymbols[405],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list608 = Pair::arrayToList(array608, 3);
 
@@ -14756,7 +14756,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array610[] = {
         list609,
         builtinSymbols[561],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list610 = Pair::arrayToList(array610, 3);
 
@@ -14797,7 +14797,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array616[] = {
         list615,
         builtinSymbols[420],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list616 = Pair::arrayToList(array616, 3);
 
@@ -14810,7 +14810,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array618[] = {
         list617,
         builtinSymbols[406],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list618 = Pair::arrayToList(array618, 3);
 
@@ -14851,7 +14851,7 @@ Object scheme::getBuiltinCompiler() {
         list623,
         builtinSymbols[405],
         builtinSymbols[540],
-        builtinSymbols[689]
+        builtinSymbols[690]
     };
     Object list624 = Pair::arrayToList(array624, 4);
 
@@ -14897,7 +14897,7 @@ Object scheme::getBuiltinCompiler() {
         list630,
         builtinSymbols[28],
         builtinSymbols[454],
-        builtinSymbols[686],
+        builtinSymbols[687],
         builtinSymbols[534],
         builtinSymbols[1232],
         builtinSymbols[87],
@@ -15029,7 +15029,7 @@ Object scheme::getBuiltinCompiler() {
         list648,
         builtinSymbols[6],
         builtinSymbols[424],
-        builtinSymbols[753],
+        builtinSymbols[754],
         builtinSymbols[1230]
     };
     Object list649 = Pair::arrayToList(array649, 5);
@@ -15085,7 +15085,7 @@ Object scheme::getBuiltinCompiler() {
         list656,
         builtinSymbols[9],
         builtinSymbols[424],
-        builtinSymbols[753],
+        builtinSymbols[754],
         builtinSymbols[1230]
     };
     Object list657 = Pair::arrayToList(array657, 5);
@@ -15100,7 +15100,7 @@ Object scheme::getBuiltinCompiler() {
         list658,
         builtinSymbols[10],
         builtinSymbols[424],
-        builtinSymbols[753]
+        builtinSymbols[754]
     };
     Object list659 = Pair::arrayToList(array659, 4);
 
@@ -15140,9 +15140,9 @@ Object scheme::getBuiltinCompiler() {
     static Object array665[] = {
         list664,
         builtinSymbols[16],
-        builtinSymbols[733],
+        builtinSymbols[734],
         builtinSymbols[505],
-        builtinSymbols[686],
+        builtinSymbols[687],
         builtinSymbols[534],
         builtinSymbols[454],
         builtinSymbols[87],
@@ -15179,7 +15179,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[382],
         builtinSymbols[87],
         builtinSymbols[772],
-        builtinSymbols[733]
+        builtinSymbols[734]
     };
     Object list669 = Pair::arrayToList(array669, 8);
 
@@ -15231,10 +15231,10 @@ Object scheme::getBuiltinCompiler() {
     static Object array677[] = {
         list676,
         builtinSymbols[24],
-        builtinSymbols[753],
+        builtinSymbols[754],
         builtinSymbols[381],
-        builtinSymbols[676],
-        builtinSymbols[716]
+        builtinSymbols[677],
+        builtinSymbols[717]
     };
     Object list677 = Pair::arrayToList(array677, 6);
 
@@ -15261,7 +15261,7 @@ Object scheme::getBuiltinCompiler() {
         list680,
         builtinSymbols[405],
         builtinSymbols[450],
-        builtinSymbols[689]
+        builtinSymbols[690]
     };
     Object list681 = Pair::arrayToList(array681, 4);
 
@@ -15273,7 +15273,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array683[] = {
         list682,
-        builtinSymbols[682],
+        builtinSymbols[683],
         builtinSymbols[450],
         builtinSymbols[654]
     };
@@ -15303,7 +15303,7 @@ Object scheme::getBuiltinCompiler() {
         list686,
         builtinSymbols[405],
         builtinSymbols[450],
-        builtinSymbols[689]
+        builtinSymbols[690]
     };
     Object list687 = Pair::arrayToList(array687, 4);
 
@@ -15372,7 +15372,7 @@ Object scheme::getBuiltinCompiler() {
         list696,
         builtinSymbols[405],
         builtinSymbols[505],
-        builtinSymbols[689]
+        builtinSymbols[690]
     };
     Object list697 = Pair::arrayToList(array697, 4);
 
@@ -15412,7 +15412,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array703[] = {
         list702,
-        builtinSymbols[760],
+        builtinSymbols[761],
         builtinSymbols[503]
     };
     Object list703 = Pair::arrayToList(array703, 3);
@@ -15517,64 +15517,64 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[141],
         builtinSymbols[180],
         builtinSymbols[517],
-        builtinSymbols[714],
         builtinSymbols[715],
-        builtinSymbols[761],
-        builtinSymbols[700],
-        builtinSymbols[680],
-        builtinSymbols[677],
-        builtinSymbols[704],
-        builtinSymbols[703],
+        builtinSymbols[716],
+        builtinSymbols[762],
         builtinSymbols[701],
-        builtinSymbols[702],
+        builtinSymbols[681],
+        builtinSymbols[678],
         builtinSymbols[705],
+        builtinSymbols[704],
+        builtinSymbols[702],
+        builtinSymbols[703],
+        builtinSymbols[706],
         builtinSymbols[465],
-        builtinSymbols[748],
-        builtinSymbols[746],
-        builtinSymbols[743],
-        builtinSymbols[741],
-        builtinSymbols[744],
         builtinSymbols[749],
-        builtinSymbols[738],
+        builtinSymbols[747],
+        builtinSymbols[744],
+        builtinSymbols[742],
+        builtinSymbols[745],
+        builtinSymbols[750],
+        builtinSymbols[739],
         builtinSymbols[518],
-        builtinSymbols[693],
+        builtinSymbols[694],
         builtinSymbols[275],
         builtinSymbols[671],
         builtinSymbols[196],
-        builtinSymbols[751],
+        builtinSymbols[752],
         builtinSymbols[342],
         builtinSymbols[343],
         builtinSymbols[278],
         builtinSymbols[531],
-        builtinSymbols[765],
         builtinSymbols[766],
+        builtinSymbols[767],
         builtinSymbols[530],
         builtinSymbols[205],
         builtinSymbols[252],
         builtinSymbols[344],
-        builtinSymbols[767],
+        builtinSymbols[673],
         builtinSymbols[300],
-        builtinSymbols[763],
-        builtinSymbols[742],
+        builtinSymbols[764],
+        builtinSymbols[743],
         builtinSymbols[193],
         builtinSymbols[385],
         builtinSymbols[325],
         builtinSymbols[236],
         builtinSymbols[237],
-        builtinSymbols[717],
         builtinSymbols[718],
+        builtinSymbols[719],
         builtinSymbols[199],
         builtinSymbols[1255],
         builtinSymbols[337],
-        builtinSymbols[750],
+        builtinSymbols[751],
         builtinSymbols[1248],
         builtinSymbols[441],
         builtinSymbols[495],
         builtinSymbols[277],
         builtinSymbols[494],
         builtinSymbols[88],
-        builtinSymbols[755],
-        builtinSymbols[747],
+        builtinSymbols[756],
+        builtinSymbols[748],
         builtinSymbols[281],
         builtinSymbols[349],
         builtinSymbols[462],
@@ -15595,20 +15595,20 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[1227],
         builtinSymbols[466],
         builtinSymbols[274],
-        builtinSymbols[764],
-        builtinSymbols[762],
+        builtinSymbols[765],
+        builtinSymbols[763],
         builtinSymbols[91],
         builtinSymbols[92],
-        builtinSymbols[735],
+        builtinSymbols[736],
         builtinSymbols[340],
         builtinSymbols[1228],
         builtinSymbols[529],
         builtinSymbols[528],
         builtinSymbols[204],
         builtinSymbols[1237],
-        builtinSymbols[678],
         builtinSymbols[679],
-        builtinSymbols[730],
+        builtinSymbols[680],
+        builtinSymbols[731],
         builtinSymbols[282],
         builtinSymbols[284],
         builtinSymbols[668],
@@ -15632,7 +15632,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[496],
         builtinSymbols[660],
         builtinSymbols[444],
-        builtinSymbols[758],
+        builtinSymbols[759],
         builtinSymbols[264],
         builtinSymbols[194],
         builtinSymbols[195],
@@ -15640,7 +15640,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[198],
         builtinSymbols[670],
         builtinSymbols[1238],
-        builtinSymbols[719],
+        builtinSymbols[720],
         builtinSymbols[128],
         builtinSymbols[32],
         builtinSymbols[68],
@@ -15666,8 +15666,8 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[562],
         builtinSymbols[15],
         builtinSymbols[23],
-        builtinSymbols[757],
-        builtinSymbols[720]
+        builtinSymbols[758],
+        builtinSymbols[721]
     };
     Object list718 = Pair::arrayToList(array718, 156);
 
@@ -15720,7 +15720,7 @@ Object scheme::getBuiltinCompiler() {
         list725,
         builtinSymbols[405],
         builtinSymbols[206],
-        builtinSymbols[707]
+        builtinSymbols[708]
     };
     Object list726 = Pair::arrayToList(array726, 4);
 
@@ -15758,8 +15758,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array732[] = {
         list731,
-        builtinSymbols[725],
-        builtinSymbols[688]
+        builtinSymbols[726],
+        builtinSymbols[689]
     };
     Object list732 = Pair::arrayToList(array732, 3);
 
@@ -15784,8 +15784,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array736[] = {
         list735,
-        builtinSymbols[745],
-        builtinSymbols[706],
+        builtinSymbols[746],
+        builtinSymbols[707],
         builtinSymbols[411],
         builtinSymbols[770]
     };
@@ -15838,7 +15838,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array744[] = {
         list743,
-        builtinSymbols[752]
+        builtinSymbols[753]
     };
     Object list744 = Pair::arrayToList(array744, 2);
 
@@ -15864,8 +15864,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array748[] = {
         list747,
-        builtinSymbols[740],
-        builtinSymbols[737]
+        builtinSymbols[741],
+        builtinSymbols[738]
     };
     Object list748 = Pair::arrayToList(array748, 3);
 
@@ -15878,8 +15878,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array750[] = {
         list749,
         builtinSymbols[405],
-        builtinSymbols[687],
-        builtinSymbols[689]
+        builtinSymbols[688],
+        builtinSymbols[690]
     };
     Object list750 = Pair::arrayToList(array750, 4);
 
@@ -15891,8 +15891,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array752[] = {
         list751,
-        builtinSymbols[697],
-        builtinSymbols[737],
+        builtinSymbols[698],
+        builtinSymbols[738],
         builtinSymbols[543],
         builtinSymbols[504]
     };
@@ -15907,8 +15907,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array754[] = {
         list753,
         builtinSymbols[405],
-        builtinSymbols[687],
-        builtinSymbols[689]
+        builtinSymbols[688],
+        builtinSymbols[690]
     };
     Object list754 = Pair::arrayToList(array754, 4);
 
@@ -15921,7 +15921,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array756[] = {
         list755,
         builtinSymbols[448],
-        builtinSymbols[737],
+        builtinSymbols[738],
         builtinSymbols[543],
         builtinSymbols[504]
     };
@@ -15985,7 +15985,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array766[] = {
         list765,
-        builtinSymbols[729],
+        builtinSymbols[730],
         builtinSymbols[1229],
         builtinSymbols[654]
     };
@@ -15999,7 +15999,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array768[] = {
         list767,
-        builtinSymbols[728],
+        builtinSymbols[729],
         builtinSymbols[520],
         builtinSymbols[654]
     };
@@ -16336,7 +16336,7 @@ Object scheme::getBuiltinCompiler() {
         list817,
         builtinSymbols[405],
         builtinSymbols[1257],
-        builtinSymbols[687]
+        builtinSymbols[688]
     };
     Object list818 = Pair::arrayToList(array818, 4);
 
@@ -16350,7 +16350,7 @@ Object scheme::getBuiltinCompiler() {
         list819,
         builtinSymbols[230],
         builtinSymbols[309],
-        builtinSymbols[687]
+        builtinSymbols[688]
     };
     Object list820 = Pair::arrayToList(array820, 4);
 
@@ -16401,7 +16401,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array828[] = {
         list827,
-        builtinSymbols[722],
+        builtinSymbols[723],
         builtinSymbols[1257]
     };
     Object list828 = Pair::arrayToList(array828, 3);
@@ -16414,7 +16414,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array830[] = {
         list829,
-        builtinSymbols[726],
+        builtinSymbols[727],
         builtinSymbols[1257]
     };
     Object list830 = Pair::arrayToList(array830, 3);
@@ -16466,7 +16466,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array838[] = {
         list837,
-        builtinSymbols[708],
+        builtinSymbols[709],
         builtinSymbols[544]
     };
     Object list838 = Pair::arrayToList(array838, 3);
@@ -16944,7 +16944,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array908[] = {
         list907,
-        builtinSymbols[732],
+        builtinSymbols[733],
         builtinSymbols[1257],
         builtinSymbols[393]
     };
@@ -16972,7 +16972,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array912[] = {
         list911,
-        builtinSymbols[731],
+        builtinSymbols[732],
         builtinSymbols[1257],
         builtinSymbols[393]
     };
@@ -17088,7 +17088,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array929[] = {
         list928,
         builtinSymbols[405],
-        builtinSymbols[727],
+        builtinSymbols[728],
         builtinSymbols[84]
     };
     Object list929 = Pair::arrayToList(array929, 4);
@@ -17115,7 +17115,7 @@ Object scheme::getBuiltinCompiler() {
         list932,
         builtinSymbols[405],
         builtinSymbols[89],
-        builtinSymbols[736],
+        builtinSymbols[737],
         builtinSymbols[234]
     };
     Object list933 = Pair::arrayToList(array933, 5);
@@ -17143,7 +17143,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array937[] = {
         list936,
         builtinSymbols[184],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list937 = Pair::arrayToList(array937, 3);
 
@@ -17319,7 +17319,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array964[] = {
         list963,
         builtinSymbols[133],
-        builtinSymbols[737],
+        builtinSymbols[738],
         builtinSymbols[659]
     };
     Object list964 = Pair::arrayToList(array964, 4);
@@ -17333,7 +17333,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array966[] = {
         list965,
         builtinSymbols[134],
-        builtinSymbols[737],
+        builtinSymbols[738],
         builtinSymbols[659]
     };
     Object list966 = Pair::arrayToList(array966, 4);
@@ -17347,7 +17347,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array968[] = {
         list967,
         builtinSymbols[405],
-        builtinSymbols[689],
+        builtinSymbols[690],
         builtinSymbols[94]
     };
     Object list968 = Pair::arrayToList(array968, 4);
@@ -17468,7 +17468,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array986[] = {
         list985,
         builtinSymbols[456],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list986 = Pair::arrayToList(array986, 3);
 
@@ -17480,8 +17480,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array988[] = {
         list987,
-        builtinSymbols[739],
-        builtinSymbols[706]
+        builtinSymbols[740],
+        builtinSymbols[707]
     };
     Object list988 = Pair::arrayToList(array988, 3);
 
@@ -17494,7 +17494,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array990[] = {
         list989,
         builtinSymbols[405],
-        builtinSymbols[759]
+        builtinSymbols[760]
     };
     Object list990 = Pair::arrayToList(array990, 3);
 
@@ -17520,8 +17520,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array994[] = {
         list993,
-        builtinSymbols[756],
-        builtinSymbols[759]
+        builtinSymbols[757],
+        builtinSymbols[760]
     };
     Object list994 = Pair::arrayToList(array994, 3);
 
@@ -17791,7 +17791,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1034[] = {
         list1033,
         builtinSymbols[336],
-        builtinSymbols[681],
+        builtinSymbols[682],
         builtinSymbols[520],
         builtinSymbols[63]
     };
@@ -17859,7 +17859,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1044[] = {
         list1043,
-        builtinSymbols[683],
+        builtinSymbols[684],
         builtinSymbols[654],
         builtinSymbols[400]
     };
@@ -17904,7 +17904,7 @@ Object scheme::getBuiltinCompiler() {
         list1049,
         builtinSymbols[319],
         builtinSymbols[86],
-        builtinSymbols[736],
+        builtinSymbols[737],
         builtinSymbols[401],
         builtinSymbols[402]
     };
@@ -17934,7 +17934,7 @@ Object scheme::getBuiltinCompiler() {
         list1053,
         builtinSymbols[317],
         builtinSymbols[86],
-        builtinSymbols[736],
+        builtinSymbols[737],
         builtinSymbols[400]
     };
     Object list1054 = Pair::arrayToList(array1054, 5);
@@ -17949,7 +17949,7 @@ Object scheme::getBuiltinCompiler() {
         list1055,
         builtinSymbols[315],
         builtinSymbols[86],
-        builtinSymbols[736],
+        builtinSymbols[737],
         builtinSymbols[400]
     };
     Object list1056 = Pair::arrayToList(array1056, 5);
@@ -18101,7 +18101,7 @@ Object scheme::getBuiltinCompiler() {
         list1077,
         builtinSymbols[405],
         builtinSymbols[400],
-        builtinSymbols[696]
+        builtinSymbols[697]
     };
     Object list1078 = Pair::arrayToList(array1078, 4);
 
@@ -18113,7 +18113,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1080[] = {
         list1079,
-        builtinSymbols[693],
+        builtinSymbols[694],
         builtinSymbols[400]
     };
     Object list1080 = Pair::arrayToList(array1080, 3);
@@ -35938,7 +35938,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(65),
         MIS(8),
         MIS(89),
-        builtinSymbols[684],
+        builtinSymbols[685],
         MIS(20),
         MIS(30),
         MI(1),
@@ -36264,7 +36264,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(16),
         MIS(64),
-        builtinSymbols[699],
+        builtinSymbols[700],
         MIS(88),
         MI(5),
         MIS(16),
@@ -36797,7 +36797,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(583),
         MIS(64),
-        builtinSymbols[684],
+        builtinSymbols[685],
         MIS(88),
         MI(212),
         MIS(27),
@@ -38333,7 +38333,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(65),
         MIS(94),
         MIS(16),
-        builtinSymbols[675],
+        builtinSymbols[676],
         MIS(22),
         MIS(58),
         MI(13),
@@ -38837,7 +38837,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[984],
         MI(3),
         MIS(64),
-        builtinSymbols[673],
+        builtinSymbols[674],
         MIS(106),
         MI(3),
         MIS(73),
@@ -40280,7 +40280,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(1130),
         MIS(64),
-        builtinSymbols[675],
+        builtinSymbols[676],
         MIS(88),
         MI(16),
         MIS(106),
@@ -40435,7 +40435,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(975),
         MIS(64),
-        builtinSymbols[711],
+        builtinSymbols[712],
         MIS(88),
         MI(31),
         MIS(49),
@@ -41106,7 +41106,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(304),
         MIS(64),
-        builtinSymbols[714],
+        builtinSymbols[715],
         MIS(88),
         MI(27),
         MIS(64),
@@ -41136,7 +41136,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(274),
         MIS(64),
-        builtinSymbols[715],
+        builtinSymbols[716],
         MIS(88),
         MI(27),
         MIS(64),
@@ -41325,7 +41325,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(85),
         MIS(64),
-        builtinSymbols[758],
+        builtinSymbols[759],
         MIS(88),
         MI(20),
         MIS(64),
@@ -44802,7 +44802,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(10),
         MIS(64),
-        builtinSymbols[673],
+        builtinSymbols[674],
         MIS(88),
         MI(4),
         MIS(70),
@@ -47130,7 +47130,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(36),
         MIS(64),
-        builtinSymbols[673],
+        builtinSymbols[674],
         MIS(88),
         MI(17),
         MIS(106),
@@ -47572,7 +47572,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(3),
         MIS(16),
-        builtinSymbols[673],
+        builtinSymbols[674],
         MIS(30),
         MI(32),
         MIS(91),
@@ -56593,7 +56593,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(62),
         MIS(89),
-        builtinSymbols[673],
+        builtinSymbols[674],
         MIS(20),
         MIS(58),
         MI(20),

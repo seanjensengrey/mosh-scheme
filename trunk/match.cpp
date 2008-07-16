@@ -947,7 +947,7 @@ Object scheme::getBuiltinMatch() {
         MIS(64),
         builtinSymbols[0],
         MIS(16),
-        builtinSymbols[712],
+        builtinSymbols[713],
         MIS(1),
         MI(4),
         MIS(3),
@@ -1701,7 +1701,7 @@ Object scheme::getBuiltinMatch() {
         MIS(89),
         builtinSymbols[0],
         MIS(89),
-        builtinSymbols[712],
+        builtinSymbols[713],
         MIS(1),
         MI(4),
         MIS(3),
@@ -1776,7 +1776,7 @@ Object scheme::getBuiltinMatch() {
         MIS(64),
         builtinSymbols[0],
         MIS(16),
-        builtinSymbols[712],
+        builtinSymbols[713],
         MIS(1),
         MI(4),
         MIS(3),
@@ -9916,7 +9916,7 @@ Object scheme::getBuiltinMatch() {
     Object list91 = Pair::arrayToList(array91, 3);
 
     static Object array92[] = {
-        builtinSymbols[675],
+        builtinSymbols[676],
         MIS(14),
         MI(34),
         MI(1),
@@ -10277,7 +10277,7 @@ Object scheme::getBuiltinMatch() {
         MIS(64),
         builtinSymbols[37],
         MIS(64),
-        builtinSymbols[710],
+        builtinSymbols[711],
         MIS(64),
         builtinSymbols[37],
         MIS(75),
@@ -10597,7 +10597,7 @@ Object scheme::getBuiltinMatch() {
     Object list137 = Pair::arrayToList(array137, 1);
 
     static Object array138[] = {
-        builtinSymbols[715],
+        builtinSymbols[716],
         builtinSymbols[1257],
         builtinSymbols[1260]
     };
@@ -10621,7 +10621,7 @@ Object scheme::getBuiltinMatch() {
     Object list141 = Pair::arrayToList(array141, 1);
 
     static Object array142[] = {
-        builtinSymbols[714],
+        builtinSymbols[715],
         builtinSymbols[1257],
         builtinSymbols[1260]
     };
@@ -10645,7 +10645,7 @@ Object scheme::getBuiltinMatch() {
     Object list145 = Pair::arrayToList(array145, 1);
 
     static Object array146[] = {
-        builtinSymbols[713],
+        builtinSymbols[714],
         builtinSymbols[1257],
         builtinSymbols[1260]
     };
@@ -10700,7 +10700,7 @@ Object scheme::getBuiltinMatch() {
     static Object array155[] = {
         list154,
         builtinSymbols[405],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list155 = Pair::arrayToList(array155, 3);
 
@@ -10930,7 +10930,7 @@ Object scheme::getBuiltinMatch() {
         builtinSymbols[405],
         builtinSymbols[1210],
         builtinSymbols[296],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list188 = Pair::arrayToList(array188, 5);
 
@@ -10944,7 +10944,7 @@ Object scheme::getBuiltinMatch() {
         list189,
         builtinSymbols[405],
         builtinSymbols[1210],
-        builtinSymbols[724],
+        builtinSymbols[725],
         builtinSymbols[396],
         builtinSymbols[399]
     };
@@ -10959,7 +10959,7 @@ Object scheme::getBuiltinMatch() {
     static Object array192[] = {
         list191,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list192 = Pair::arrayToList(array192, 3);
 
@@ -10985,7 +10985,7 @@ Object scheme::getBuiltinMatch() {
     static Object array196[] = {
         list195,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list196 = Pair::arrayToList(array196, 3);
 
@@ -11046,7 +11046,7 @@ Object scheme::getBuiltinMatch() {
     static Object array206[] = {
         list205,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list206 = Pair::arrayToList(array206, 3);
 
@@ -11059,7 +11059,7 @@ Object scheme::getBuiltinMatch() {
     static Object array208[] = {
         list207,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list208 = Pair::arrayToList(array208, 3);
 
@@ -11085,7 +11085,7 @@ Object scheme::getBuiltinMatch() {
     static Object array212[] = {
         list211,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list212 = Pair::arrayToList(array212, 3);
 
@@ -11098,7 +11098,7 @@ Object scheme::getBuiltinMatch() {
     static Object array214[] = {
         list213,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list214 = Pair::arrayToList(array214, 3);
 
@@ -11111,7 +11111,7 @@ Object scheme::getBuiltinMatch() {
     static Object array216[] = {
         list215,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list216 = Pair::arrayToList(array216, 3);
 
@@ -11175,7 +11175,7 @@ Object scheme::getBuiltinMatch() {
     static Object array226[] = {
         list225,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list226 = Pair::arrayToList(array226, 3);
 
@@ -11188,7 +11188,7 @@ Object scheme::getBuiltinMatch() {
     static Object array228[] = {
         list227,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list228 = Pair::arrayToList(array228, 3);
 
@@ -11201,7 +11201,7 @@ Object scheme::getBuiltinMatch() {
     static Object array230[] = {
         list229,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list230 = Pair::arrayToList(array230, 3);
 
@@ -11214,7 +11214,7 @@ Object scheme::getBuiltinMatch() {
     static Object array232[] = {
         list231,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list232 = Pair::arrayToList(array232, 3);
 
@@ -11227,7 +11227,7 @@ Object scheme::getBuiltinMatch() {
     static Object array234[] = {
         list233,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list234 = Pair::arrayToList(array234, 3);
 
@@ -11253,7 +11253,7 @@ Object scheme::getBuiltinMatch() {
     static Object array238[] = {
         list237,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list238 = Pair::arrayToList(array238, 3);
 
@@ -11292,7 +11292,7 @@ Object scheme::getBuiltinMatch() {
     static Object array244[] = {
         list243,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list244 = Pair::arrayToList(array244, 3);
 
@@ -11306,7 +11306,7 @@ Object scheme::getBuiltinMatch() {
         list245,
         builtinSymbols[405],
         builtinSymbols[540],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list246 = Pair::arrayToList(array246, 4);
 
@@ -11319,7 +11319,7 @@ Object scheme::getBuiltinMatch() {
     static Object array248[] = {
         list247,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list248 = Pair::arrayToList(array248, 3);
 
@@ -11333,7 +11333,7 @@ Object scheme::getBuiltinMatch() {
         list249,
         builtinSymbols[405],
         builtinSymbols[540],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list250 = Pair::arrayToList(array250, 4);
 
@@ -11354,7 +11354,7 @@ Object scheme::getBuiltinMatch() {
         builtinSymbols[405],
         builtinSymbols[540],
         builtinSymbols[265],
-        builtinSymbols[724],
+        builtinSymbols[725],
         builtinSymbols[396],
         builtinSymbols[399]
     };
@@ -11369,7 +11369,7 @@ Object scheme::getBuiltinMatch() {
     static Object array255[] = {
         list254,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list255 = Pair::arrayToList(array255, 3);
 
@@ -11382,7 +11382,7 @@ Object scheme::getBuiltinMatch() {
     static Object array257[] = {
         list256,
         builtinSymbols[405],
-        builtinSymbols[724]
+        builtinSymbols[725]
     };
     Object list257 = Pair::arrayToList(array257, 3);
 
@@ -11409,7 +11409,7 @@ Object scheme::getBuiltinMatch() {
         list260,
         builtinSymbols[405],
         builtinSymbols[1257],
-        builtinSymbols[724],
+        builtinSymbols[725],
         builtinSymbols[650],
         builtinSymbols[280],
         builtinSymbols[413],
@@ -11441,7 +11441,7 @@ Object scheme::getBuiltinMatch() {
     static Object array265[] = {
         list264,
         builtinSymbols[405],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list265 = Pair::arrayToList(array265, 3);
 
@@ -11462,7 +11462,7 @@ Object scheme::getBuiltinMatch() {
     static Object array268[] = {
         list267,
         builtinSymbols[405],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list268 = Pair::arrayToList(array268, 3);
 
@@ -11475,7 +11475,7 @@ Object scheme::getBuiltinMatch() {
     static Object array270[] = {
         list269,
         builtinSymbols[405],
-        builtinSymbols[723]
+        builtinSymbols[724]
     };
     Object list270 = Pair::arrayToList(array270, 3);
 
@@ -12219,7 +12219,7 @@ Object scheme::getBuiltinMatch() {
     static Object array380[] = {
         list379,
         builtinSymbols[405],
-        builtinSymbols[709],
+        builtinSymbols[710],
         builtinSymbols[540]
     };
     Object list380 = Pair::arrayToList(array380, 4);
@@ -12487,7 +12487,7 @@ Object scheme::getBuiltinMatch() {
     static Object array421[] = {
         list420,
         builtinSymbols[405],
-        builtinSymbols[706]
+        builtinSymbols[707]
     };
     Object list421 = Pair::arrayToList(array421, 3);
 
@@ -12503,7 +12503,7 @@ Object scheme::getBuiltinMatch() {
         builtinSymbols[65],
         builtinSymbols[536],
         builtinSymbols[513],
-        builtinSymbols[711],
+        builtinSymbols[712],
         builtinSymbols[339],
         builtinSymbols[38],
         builtinSymbols[53]
@@ -12817,10 +12817,10 @@ Object scheme::getBuiltinMatch() {
 
     static Object array471[] = {
         builtinSymbols[545],
-        builtinSymbols[758],
+        builtinSymbols[759],
         builtinSymbols[88],
         builtinSymbols[519],
-        builtinSymbols[751],
+        builtinSymbols[752],
         builtinSymbols[199],
         builtinSymbols[660],
         builtinSymbols[1248]
@@ -14471,7 +14471,7 @@ Object scheme::getBuiltinMatch() {
         MI(9),
         list445,
         MIS(64),
-        builtinSymbols[711],
+        builtinSymbols[712],
         MIS(73),
         MIS(75),
         Object::Nil,
@@ -15004,7 +15004,7 @@ Object scheme::getBuiltinMatch() {
         MI(9),
         list429,
         MIS(64),
-        builtinSymbols[711],
+        builtinSymbols[712],
         MIS(73),
         MIS(75),
         Object::Nil,
@@ -16381,7 +16381,7 @@ Object scheme::getBuiltinMatch() {
         MI(12),
         MIS(94),
         MIS(16),
-        builtinSymbols[711],
+        builtinSymbols[712],
         MIS(22),
         MIS(58),
         MI(62),
@@ -18402,7 +18402,7 @@ Object scheme::getBuiltinMatch() {
         MIS(58),
         MI(8),
         MIS(64),
-        builtinSymbols[711],
+        builtinSymbols[712],
         MIS(65),
         MIS(10),
         MIS(20),
@@ -21513,7 +21513,7 @@ Object scheme::getBuiltinMatch() {
         MIS(58),
         MI(8),
         MIS(64),
-        builtinSymbols[711],
+        builtinSymbols[712],
         MIS(65),
         MIS(10),
         MIS(20),
@@ -22259,7 +22259,7 @@ Object scheme::getBuiltinMatch() {
         MI(7),
         list222,
         MIS(64),
-        builtinSymbols[693],
+        builtinSymbols[694],
         MIS(74),
         Object::Nil,
         MIS(15),
@@ -23779,7 +23779,7 @@ Object scheme::getBuiltinMatch() {
         MIS(58),
         MI(14),
         MIS(64),
-        builtinSymbols[751],
+        builtinSymbols[752],
         MIS(106),
         MI(4),
         MIS(16),
@@ -23868,7 +23868,7 @@ Object scheme::getBuiltinMatch() {
         MIS(58),
         MI(14),
         MIS(64),
-        builtinSymbols[758],
+        builtinSymbols[759],
         MIS(106),
         MI(4),
         MIS(16),
@@ -26305,7 +26305,7 @@ Object scheme::getBuiltinMatch() {
         MIS(58),
         MI(5),
         MIS(16),
-        builtinSymbols[751],
+        builtinSymbols[752],
         MIS(30),
         MI(77),
         MIS(23),
@@ -26379,7 +26379,7 @@ Object scheme::getBuiltinMatch() {
         MIS(58),
         MI(5),
         MIS(16),
-        builtinSymbols[758],
+        builtinSymbols[759],
         MIS(30),
         MI(3),
         MIS(16),
@@ -26658,7 +26658,7 @@ Object scheme::getBuiltinMatch() {
         MIS(74),
         builtinSymbols[0],
         MIS(89),
-        builtinSymbols[712],
+        builtinSymbols[713],
         MIS(87),
         MIS(3),
         MIS(102),
