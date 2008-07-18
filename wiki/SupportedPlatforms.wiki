@@ -1,8 +1,7 @@
 #summary Supported Platforms
 
-= 0.0.1 =
-== build OK ==
-||*Debian Etch*||kernel 2.6.24.1||gcc 3.3.6||gauche 0.8.7||
-||*Ubuntu Edgy*||kernel-2.6.22-14-generic||gcc 4.1.3||gauche 0.8.13||
-== NG ==
-Mac OSX
+*Mac OSX 10.5.3
+
+*Ubuntu Edgy
+
+*Debian Etch
