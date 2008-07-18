@@ -1,2 +1,0 @@
-(load "./psyntax.pp")
-
