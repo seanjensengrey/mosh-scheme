@@ -1,7 +1,8 @@
-#summary Features of Mosh 0.0.3
+#summary Features of Mosh 0.0.5
 
-= Features of Mosh 0.0.3 =
+= Features of Mosh 0.0.5 =
  * Core Scheme
+ * R6RS libyrary system. (psyntax)
  * UTF-8 input/ouput
  * Quasiquote
  * Apply
