@@ -7,7 +7,7 @@
  * [R6RS] List utilities.
  * [R6RS] Records.
  * [R6RS] Exception and conditions.
- * [R6RS] Library form.
+ * [R6RS] Library form *done*
  * [R6RS] eval *done*
 == by version 0.2.0 ==
  * [R6RS] Hashtables.
@@ -15,7 +15,7 @@
  * [R6RS] Bytevectors.
 == by version 0.3.0 ==
  * [R6RS] enumerations
- * [R6RS] syntax-case.
+ * [R6RS] syntax-case *done*
 == by version 0.4.0 ==
  * [R6RS] Numeric tower with Bignum.
  * Cover [R6RS] specfications.
