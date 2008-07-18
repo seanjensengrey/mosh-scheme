@@ -30,15 +30,16 @@ Kernel configured for up to 2 processors.
 Processor type: i486 (Intel 80486)
 Processors active: 0 1
 Primary memory available: 2.00 gigabytes
-Default processor set: 64 tasks, 235 threads, 2 processors
-Load average: 2.39, Mach factor: 0.18
+Default processor set: 85 tasks, 289 threads, 2 processors
+Load average: 1.63, Mach factor: 0.58
 /bin/machine           = unknown
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
 
-PATH: /home/taro/bin
+PATH: /Users/taro/bin
 PATH: /opt/local/bin
 PATH: /opt/local/sbin
+PATH: /usr/local/bin
 PATH: /usr/bin
 PATH: /bin
 PATH: /usr/sbin
@@ -320,14 +321,14 @@ am_cv_CC_dependencies_compiler_type=gcc3
 ## Output variables. ##
 ## ----------------- ##
 
-ACLOCAL='${SHELL} /Users/taro/repos-mosh/trunk/gc-7.1alpha3/libatomic_ops/missing --run aclocal-1.10'
+ACLOCAL='${SHELL} /Users/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run aclocal-1.10'
 AMDEPBACKSLASH='\'
 AMDEP_FALSE='#'
 AMDEP_TRUE=''
-AMTAR='${SHELL} /Users/taro/repos-mosh/trunk/gc-7.1alpha3/libatomic_ops/missing --run tar'
-AUTOCONF='${SHELL} /Users/taro/repos-mosh/trunk/gc-7.1alpha3/libatomic_ops/missing --run autoconf'
-AUTOHEADER='${SHELL} /Users/taro/repos-mosh/trunk/gc-7.1alpha3/libatomic_ops/missing --run autoheader'
-AUTOMAKE='${SHELL} /Users/taro/repos-mosh/trunk/gc-7.1alpha3/libatomic_ops/missing --run automake-1.10'
+AMTAR='${SHELL} /Users/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run tar'
+AUTOCONF='${SHELL} /Users/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run autoconf'
+AUTOHEADER='${SHELL} /Users/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run autoheader'
+AUTOMAKE='${SHELL} /Users/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run automake-1.10'
 AWK='awk'
 CC='gcc'
 CCAS='gcc'
@@ -353,7 +354,7 @@ LDFLAGS=''
 LIBOBJS=''
 LIBS=''
 LTLIBOBJS=''
-MAKEINFO='${SHELL} /Users/taro/repos-mosh/trunk/gc-7.1alpha3/libatomic_ops/missing --run makeinfo'
+MAKEINFO='${SHELL} /Users/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run makeinfo'
 NEED_ASM_FALSE=''
 NEED_ASM_TRUE='#'
 OBJEXT='o'
@@ -400,7 +401,7 @@ host_vendor='apple'
 htmldir='${docdir}'
 includedir='${prefix}/include'
 infodir='${datarootdir}/info'
-install_sh='$(SHELL) /Users/taro/repos-mosh/trunk/gc-7.1alpha3/libatomic_ops/install-sh'
+install_sh='$(SHELL) /Users/taro/mosh/gc-7.1alpha3/libatomic_ops/install-sh'
 libdir='${exec_prefix}/lib'
 libexecdir='${exec_prefix}/libexec'
 localedir='${datarootdir}/locale'
