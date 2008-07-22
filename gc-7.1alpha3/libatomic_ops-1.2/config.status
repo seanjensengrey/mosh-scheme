@@ -541,18 +541,18 @@ s,@LIBS@,|#_!!_#|,g
 s,@build_alias@,|#_!!_#|,g
 s,@host_alias@,|#_!!_#|,g
 s,@target_alias@,|#_!!_#|,g
-s,@build@,|#_!!_#|i386-apple-darwin9.3.0,g
+s,@build@,|#_!!_#|i386-apple-darwin9.4.0,g
 s,@build_cpu@,|#_!!_#|i386,g
 s,@build_vendor@,|#_!!_#|apple,g
-s,@build_os@,|#_!!_#|darwin9.3.0,g
-s,@host@,|#_!!_#|i386-apple-darwin9.3.0,g
+s,@build_os@,|#_!!_#|darwin9.4.0,g
+s,@host@,|#_!!_#|i386-apple-darwin9.4.0,g
 s,@host_cpu@,|#_!!_#|i386,g
 s,@host_vendor@,|#_!!_#|apple,g
-s,@host_os@,|#_!!_#|darwin9.3.0,g
-s,@target@,|#_!!_#|i386-apple-darwin9.3.0,g
+s,@host_os@,|#_!!_#|darwin9.4.0,g
+s,@target@,|#_!!_#|i386-apple-darwin9.4.0,g
 s,@target_cpu@,|#_!!_#|i386,g
 s,@target_vendor@,|#_!!_#|apple,g
-s,@target_os@,|#_!!_#|darwin9.3.0,g
+s,@target_os@,|#_!!_#|darwin9.4.0,g
 s,@INSTALL_PROGRAM@,|#_!!_#|${INSTALL},g
 s,@INSTALL_SCRIPT@,|#_!!_#|${INSTALL},g
 s,@INSTALL_DATA@,|#_!!_#|${INSTALL} -m 644,g
