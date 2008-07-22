@@ -701,7 +701,6 @@ RANLIB
 GOSH
 HAVE_TR1_HASHES
 HAVE_EXT_HASHES
-HAVE_STD_HASHES
 CXXCPP
 GREP
 EGREP
@@ -4003,7 +4002,6 @@ fi
 # Checks for libraries.
 have_tr1_hashes=0
 have_ext_hashes=0
-have_std_hashes=0
 ac_ext=cpp
 ac_cpp='$CXXCPP $CPPFLAGS'
 ac_compile='$CXX -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext >&5'
@@ -4040,17 +4038,17 @@ eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
 	 test -z "$ac_cxx_werror_flag" ||
 	 test ! -s conftest.err
        } && test -s conftest.$ac_objext; then
-
-     { echo "$as_me:$LINENO: result: std::tr1::unordered_map" >&5
-echo "${ECHO_T}std::tr1::unordered_map" >&6; }
-     have_tr1_hashes=1
-
+  have_tr1_hashes=1
 else
   echo "$as_me: failed program was:" >&5
 sed 's/^/| /' conftest.$ac_ext >&5
 
+	have_tr1_hashes=0
+fi
 
-     cat >conftest.$ac_ext <<_ACEOF
+rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+
+cat >conftest.$ac_ext <<_ACEOF
 
 #include <ext/hash_map>
 int main(int, char **)
@@ -4077,65 +4075,16 @@ eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
 	 test -z "$ac_cxx_werror_flag" ||
 	 test ! -s conftest.err
        } && test -s conftest.$ac_objext; then
-
-      { echo "$as_me:$LINENO: result: __gnu_cxx::hash_map" >&5
-echo "${ECHO_T}__gnu_cxx::hash_map" >&6; }
-      have_ext_hashes=1
-
+  have_ext_hashes=1
 else
   echo "$as_me: failed program was:" >&5
 sed 's/^/| /' conftest.$ac_ext >&5
 
-
-      cat >conftest.$ac_ext <<_ACEOF
-
-#include <hash_map>
-int main(int, char **)
-{
-    std::hash_map<int, int> m;
-    m.insert(std::make_pair(1, 2));
-}
-
-_ACEOF
-rm -f conftest.$ac_objext
-if { (ac_try="$ac_compile"
-case "(($ac_try" in
-  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
-  *) ac_try_echo=$ac_try;;
-esac
-eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
-  (eval "$ac_compile") 2>conftest.er1
-  ac_status=$?
-  grep -v '^ *+' conftest.er1 >conftest.err
-  rm -f conftest.er1
-  cat conftest.err >&5
-  echo "$as_me:$LINENO: \$? = $ac_status" >&5
-  (exit $ac_status); } && {
-	 test -z "$ac_cxx_werror_flag" ||
-	 test ! -s conftest.err
-       } && test -s conftest.$ac_objext; then
-
-       { echo "$as_me:$LINENO: result: std::hash_map" >&5
-echo "${ECHO_T}std::hash_map" >&6; }
-       have_std_hashes=1
-
-else
-  echo "$as_me: failed program was:" >&5
-sed 's/^/| /' conftest.$ac_ext >&5
-
-
-       { echo "$as_me:$LINENO: result: no, falling back to std::map (slower)" >&5
-echo "${ECHO_T}no, falling back to std::map (slower)" >&6; }
-
+	have_ext_hashes=0
 fi
 
 rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
-fi
 
-rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
-fi
-
-rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
 
 HAVE_TR1_HASHES=$have_tr1_hashes
 
@@ -4148,13 +4097,6 @@ HAVE_EXT_HASHES=$have_ext_hashes
 
 cat >>confdefs.h <<_ACEOF
 #define HAVE_EXT_HASHES $have_ext_hashes
-_ACEOF
-
-
-HAVE_STD_HASHES=$have_std_hashes
-
-cat >>confdefs.h <<_ACEOF
-#define HAVE_STD_HASHES $have_std_hashes
 _ACEOF
 
 
@@ -7192,7 +7134,6 @@ RANLIB!$RANLIB$ac_delim
 GOSH!$GOSH$ac_delim
 HAVE_TR1_HASHES!$HAVE_TR1_HASHES$ac_delim
 HAVE_EXT_HASHES!$HAVE_EXT_HASHES$ac_delim
-HAVE_STD_HASHES!$HAVE_STD_HASHES$ac_delim
 CXXCPP!$CXXCPP$ac_delim
 GREP!$GREP$ac_delim
 EGREP!$EGREP$ac_delim
@@ -7202,7 +7143,7 @@ LIBOBJS!$LIBOBJS$ac_delim
 LTLIBOBJS!$LTLIBOBJS$ac_delim
 _ACEOF
 
-  if test `sed -n "s/.*$ac_delim\$/X/p" conf$$subs.sed | grep -c X` = 94; then
+  if test `sed -n "s/.*$ac_delim\$/X/p" conf$$subs.sed | grep -c X` = 93; then
     break
   elif $ac_last_try; then
     { { echo "$as_me:$LINENO: error: could not make $CONFIG_STATUS" >&5
