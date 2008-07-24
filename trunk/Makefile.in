@@ -66,7 +66,8 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) \
 	mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
 	mosh-freeproc.$(OBJEXT) mosh-GenericHashTable.$(OBJEXT) \
 	mosh-TypedVector.$(OBJEXT) mosh-CodeBuilder.$(OBJEXT) \
-	mosh-CompilerProcedures.$(OBJEXT) mosh-SString.$(OBJEXT) \
+	mosh-CompilerProcedures.$(OBJEXT) \
+	mosh-HashTableProceduures.$(OBJEXT) mosh-SString.$(OBJEXT) \
 	mosh-BuiltinSymbols.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
 mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB) libcompiler.a libmatch.a
@@ -260,8 +261,10 @@ TypedVector.h        \
 TypedVector.cpp      \
 CodeBuilder.h        \
 CodeBuilder.cpp        \
-CompilerProcedures.cpp\
-CompilerProcedures.h\
+CompilerProcedures.cpp \
+CompilerProcedures.h   \
+HashTableProceduures.cpp \
+HashTableProceduures.h   \
 SString.cpp          \
 BuiltinSymbols.cpp\
 Builtin.h\
@@ -416,6 +419,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CodeBuilder.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompilerProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-GenericHashTable.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-HashTableProceduures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Port.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Regexp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-SString.Po@am__quote@
@@ -636,6 +640,20 @@ mosh-CompilerProcedures.obj: CompilerProcedures.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CompilerProcedures.cpp' object='mosh-CompilerProcedures.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-CompilerProcedures.obj `if test -f 'CompilerProcedures.cpp'; then $(CYGPATH_W) 'CompilerProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/CompilerProcedures.cpp'; fi`
+
+mosh-HashTableProceduures.o: HashTableProceduures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-HashTableProceduures.o -MD -MP -MF $(DEPDIR)/mosh-HashTableProceduures.Tpo -c -o mosh-HashTableProceduures.o `test -f 'HashTableProceduures.cpp' || echo '$(srcdir)/'`HashTableProceduures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-HashTableProceduures.Tpo $(DEPDIR)/mosh-HashTableProceduures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='HashTableProceduures.cpp' object='mosh-HashTableProceduures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-HashTableProceduures.o `test -f 'HashTableProceduures.cpp' || echo '$(srcdir)/'`HashTableProceduures.cpp
+
+mosh-HashTableProceduures.obj: HashTableProceduures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-HashTableProceduures.obj -MD -MP -MF $(DEPDIR)/mosh-HashTableProceduures.Tpo -c -o mosh-HashTableProceduures.obj `if test -f 'HashTableProceduures.cpp'; then $(CYGPATH_W) 'HashTableProceduures.cpp'; else $(CYGPATH_W) '$(srcdir)/HashTableProceduures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-HashTableProceduures.Tpo $(DEPDIR)/mosh-HashTableProceduures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='HashTableProceduures.cpp' object='mosh-HashTableProceduures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-HashTableProceduures.obj `if test -f 'HashTableProceduures.cpp'; then $(CYGPATH_W) 'HashTableProceduures.cpp'; else $(CYGPATH_W) '$(srcdir)/HashTableProceduures.cpp'; fi`
 
 mosh-SString.o: SString.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-SString.o -MD -MP -MF $(DEPDIR)/mosh-SString.Tpo -c -o mosh-SString.o `test -f 'SString.cpp' || echo '$(srcdir)/'`SString.cpp
