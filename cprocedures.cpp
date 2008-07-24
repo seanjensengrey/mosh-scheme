@@ -3,7 +3,7 @@ const int cProcNum = 161;
 static const Object cProcs[] = {
      Object::makeCProcedure(hashtableSizeEx),
      Object::makeCProcedure(hashtablePEx),
-     Object::makeCProcedure(makeHashTableEx),
+     Object::makeCProcedure(makeHashtableEx),
      Object::makeCProcedure(eqHashEx),
      Object::makeCProcedure(setSymbolValueDEx),
      Object::makeCProcedure(symbolValueEx),
@@ -167,7 +167,7 @@ static const Object cProcs[] = {
 static const ucs4char* cProcNames[] = {
      UC("hashtable-size"),
      UC("hashtable?"),
-     UC("make-hash-table"),
+     UC("make-hashtable"),
      UC("eq-hash"),
      UC("set-symbol-value!"),
      UC("symbol-value"),
