@@ -64,9 +64,9 @@ PROGRAMS = $(bin_PROGRAMS)
 am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) \
 	mosh-read.$(OBJEXT) mosh-Port.$(OBJEXT) mosh-Regexp.$(OBJEXT) \
 	mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
-	mosh-freeproc.$(OBJEXT) mosh-GenericHashTable.$(OBJEXT) \
-	mosh-TypedVector.$(OBJEXT) mosh-CodeBuilder.$(OBJEXT) \
-	mosh-CompilerProcedures.$(OBJEXT) \
+	mosh-freeproc.$(OBJEXT) mosh-EqvHashTable.$(OBJEXT) \
+	mosh-GenericHashTable.$(OBJEXT) mosh-TypedVector.$(OBJEXT) \
+	mosh-CodeBuilder.$(OBJEXT) mosh-CompilerProcedures.$(OBJEXT) \
 	mosh-HashTableProceduures.$(OBJEXT) mosh-SString.$(OBJEXT) \
 	mosh-BuiltinSymbols.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
@@ -248,6 +248,8 @@ ByteVector.h         \
 Closure.h            \
 HashTable.h          \
 EqHashTable.h        \
+EqvHashTable.h       \
+EqvHashTable.cpp     \
 GenericHashTable.h   \
 GenericHashTable.cpp \
 Pair.h               \
@@ -419,6 +421,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-BuiltinSymbols.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CodeBuilder.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompilerProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-EqvHashTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-GenericHashTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-HashTableProceduures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Port.Po@am__quote@
@@ -585,6 +588,20 @@ mosh-freeproc.obj: freeproc.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='freeproc.cpp' object='mosh-freeproc.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-freeproc.obj `if test -f 'freeproc.cpp'; then $(CYGPATH_W) 'freeproc.cpp'; else $(CYGPATH_W) '$(srcdir)/freeproc.cpp'; fi`
+
+mosh-EqvHashTable.o: EqvHashTable.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-EqvHashTable.o -MD -MP -MF $(DEPDIR)/mosh-EqvHashTable.Tpo -c -o mosh-EqvHashTable.o `test -f 'EqvHashTable.cpp' || echo '$(srcdir)/'`EqvHashTable.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-EqvHashTable.Tpo $(DEPDIR)/mosh-EqvHashTable.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='EqvHashTable.cpp' object='mosh-EqvHashTable.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-EqvHashTable.o `test -f 'EqvHashTable.cpp' || echo '$(srcdir)/'`EqvHashTable.cpp
+
+mosh-EqvHashTable.obj: EqvHashTable.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-EqvHashTable.obj -MD -MP -MF $(DEPDIR)/mosh-EqvHashTable.Tpo -c -o mosh-EqvHashTable.obj `if test -f 'EqvHashTable.cpp'; then $(CYGPATH_W) 'EqvHashTable.cpp'; else $(CYGPATH_W) '$(srcdir)/EqvHashTable.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-EqvHashTable.Tpo $(DEPDIR)/mosh-EqvHashTable.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='EqvHashTable.cpp' object='mosh-EqvHashTable.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-EqvHashTable.obj `if test -f 'EqvHashTable.cpp'; then $(CYGPATH_W) 'EqvHashTable.cpp'; else $(CYGPATH_W) '$(srcdir)/EqvHashTable.cpp'; fi`
 
 mosh-GenericHashTable.o: GenericHashTable.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-GenericHashTable.o -MD -MP -MF $(DEPDIR)/mosh-GenericHashTable.Tpo -c -o mosh-GenericHashTable.o `test -f 'GenericHashTable.cpp' || echo '$(srcdir)/'`GenericHashTable.cpp
