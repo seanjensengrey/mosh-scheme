@@ -13,8 +13,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1[] = {
         list0,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list1 = Pair::arrayToList(array1, 3);
 
@@ -26,8 +26,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array3[] = {
         list2,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list3 = Pair::arrayToList(array3, 3);
 
@@ -39,8 +39,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array5[] = {
         list4,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list5 = Pair::arrayToList(array5, 3);
 
@@ -52,8 +52,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array7[] = {
         list6,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list7 = Pair::arrayToList(array7, 3);
 
@@ -65,8 +65,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array9[] = {
         list8,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list9 = Pair::arrayToList(array9, 3);
 
@@ -78,8 +78,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array11[] = {
         list10,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list11 = Pair::arrayToList(array11, 3);
 
@@ -91,8 +91,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array13[] = {
         list12,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list13 = Pair::arrayToList(array13, 3);
 
@@ -104,8 +104,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array15[] = {
         list14,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list15 = Pair::arrayToList(array15, 3);
 
@@ -117,8 +117,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array17[] = {
         list16,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list17 = Pair::arrayToList(array17, 3);
 
@@ -130,8 +130,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array19[] = {
         list18,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list19 = Pair::arrayToList(array19, 3);
 
@@ -143,8 +143,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array21[] = {
         list20,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list21 = Pair::arrayToList(array21, 3);
 
@@ -155,7 +155,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array23[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77]
     };
     Object list23 = Pair::arrayToList(array23, 3);
@@ -493,12 +493,12 @@ Object scheme::getBuiltinCompiler() {
         MI(6),
         MIS(93),
         MIS(16),
-        builtinSymbols[459],
+        builtinSymbols[462],
         MIS(1),
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(70),
@@ -600,12 +600,12 @@ Object scheme::getBuiltinCompiler() {
         MI(6),
         MIS(93),
         MIS(16),
-        builtinSymbols[452],
+        builtinSymbols[455],
         MIS(1),
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(70),
@@ -714,7 +714,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(70),
@@ -877,7 +877,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(87),
         MIS(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(70),
@@ -947,12 +947,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         builtinSymbols[0],
         MIS(16),
-        builtinSymbols[706],
+        builtinSymbols[709],
         MIS(1),
         MI(4),
         MIS(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(70),
@@ -1028,7 +1028,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(87),
         MIS(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(70),
@@ -1141,15 +1141,15 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(8),
         MIS(50),
-        builtinSymbols[947],
+        builtinSymbols[950],
         MIS(3),
         MIS(91),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(78),
         MI(1),
@@ -1171,15 +1171,15 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(8),
         MIS(50),
-        builtinSymbols[947],
+        builtinSymbols[950],
         MIS(3),
         MIS(91),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(78),
         MI(1),
@@ -1188,21 +1188,21 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(106),
         MI(4),
         MIS(64),
-        builtinSymbols[409],
+        builtinSymbols[412],
         MIS(23),
         MI(10),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(3),
         MIS(73),
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(3),
         MIS(3),
         MIS(93),
@@ -1399,7 +1399,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(87),
         MIS(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(71),
@@ -1468,7 +1468,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(87),
         MIS(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(71),
@@ -1701,12 +1701,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(89),
         builtinSymbols[0],
         MIS(89),
-        builtinSymbols[706],
+        builtinSymbols[709],
         MIS(1),
         MI(4),
         MIS(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(71),
@@ -1776,12 +1776,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         builtinSymbols[0],
         MIS(16),
-        builtinSymbols[706],
+        builtinSymbols[709],
         MIS(1),
         MI(4),
         MIS(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(71),
@@ -1863,7 +1863,7 @@ Object scheme::getBuiltinCompiler() {
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(12),
@@ -1942,7 +1942,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -1961,7 +1961,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -1995,7 +1995,7 @@ Object scheme::getBuiltinCompiler() {
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(12),
@@ -2021,7 +2021,7 @@ Object scheme::getBuiltinCompiler() {
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(7),
@@ -2117,7 +2117,7 @@ Object scheme::getBuiltinCompiler() {
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(7),
@@ -2136,7 +2136,7 @@ Object scheme::getBuiltinCompiler() {
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(1),
@@ -2151,7 +2151,7 @@ Object scheme::getBuiltinCompiler() {
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(1),
@@ -2371,9 +2371,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array26[] = {
         list25,
-        builtinSymbols[399],
-        builtinSymbols[359],
-        builtinSymbols[1205]
+        builtinSymbols[402],
+        builtinSymbols[362],
+        builtinSymbols[1208]
     };
     Object list26 = Pair::arrayToList(array26, 4);
 
@@ -2385,8 +2385,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array28[] = {
         list27,
-        builtinSymbols[399],
-        builtinSymbols[359]
+        builtinSymbols[402],
+        builtinSymbols[362]
     };
     Object list28 = Pair::arrayToList(array28, 3);
 
@@ -2397,7 +2397,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array30[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77]
     };
     Object list30 = Pair::arrayToList(array30, 3);
@@ -2605,7 +2605,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(93),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(15),
         MIS(90),
@@ -2634,7 +2634,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(3),
         MIS(89),
         Object::Nil,
@@ -2660,7 +2660,7 @@ Object scheme::getBuiltinCompiler() {
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(8),
@@ -2683,7 +2683,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -2700,7 +2700,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -2733,7 +2733,7 @@ Object scheme::getBuiltinCompiler() {
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(8),
@@ -2752,7 +2752,7 @@ Object scheme::getBuiltinCompiler() {
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(1),
@@ -2767,7 +2767,7 @@ Object scheme::getBuiltinCompiler() {
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(1),
@@ -2822,13 +2822,13 @@ Object scheme::getBuiltinCompiler() {
     Object list31 = Pair::arrayToList(array31, 415);
 
     static Object array32[] = {
-        builtinSymbols[504]
+        builtinSymbols[507]
     };
     Object list32 = Pair::arrayToList(array32, 1);
 
     static Object array33[] = {
-        builtinSymbols[514],
-        builtinSymbols[504]
+        builtinSymbols[517],
+        builtinSymbols[507]
     };
     Object list33 = Pair::arrayToList(array33, 2);
 
@@ -2840,14 +2840,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array35[] = {
         list34,
-        builtinSymbols[399],
-        builtinSymbols[498],
-        builtinSymbols[357]
+        builtinSymbols[402],
+        builtinSymbols[501],
+        builtinSymbols[360]
     };
     Object list35 = Pair::arrayToList(array35, 4);
 
     static Object array36[] = {
-        builtinSymbols[514]
+        builtinSymbols[517]
     };
     Object list36 = Pair::arrayToList(array36, 1);
 
@@ -2859,37 +2859,37 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array38[] = {
         list37,
-        builtinSymbols[399],
-        builtinSymbols[498],
-        builtinSymbols[357]
+        builtinSymbols[402],
+        builtinSymbols[501],
+        builtinSymbols[360]
     };
     Object list38 = Pair::arrayToList(array38, 4);
 
     static Object array39[] = {
-        builtinSymbols[1218],
-        builtinSymbols[514],
+        builtinSymbols[1221],
+        builtinSymbols[517],
         MI(0)
     };
     Object list39 = Pair::arrayToList(array39, 3);
 
     static Object array40[] = {
-        builtinSymbols[1216],
-        builtinSymbols[514]
+        builtinSymbols[1219],
+        builtinSymbols[517]
     };
     Object list40 = Pair::arrayToList(array40, 2);
 
     static Object array41[] = {
-        builtinSymbols[514]
+        builtinSymbols[517]
     };
     Object list41 = Pair::arrayToList(array41, 1);
 
     static Object array42[] = {
-        builtinSymbols[514]
+        builtinSymbols[517]
     };
     Object list42 = Pair::arrayToList(array42, 1);
 
     static Object array43[] = {
-        builtinSymbols[1213],
+        builtinSymbols[1216],
         builtinSymbols[245]
     };
     Object list43 = Pair::arrayToList(array43, 2);
@@ -2902,8 +2902,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array45[] = {
         list44,
-        builtinSymbols[399],
-        builtinSymbols[1205]
+        builtinSymbols[402],
+        builtinSymbols[1208]
     };
     Object list45 = Pair::arrayToList(array45, 3);
 
@@ -2915,9 +2915,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array47[] = {
         list46,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[290],
-        builtinSymbols[394]
+        builtinSymbols[397]
     };
     Object list47 = Pair::arrayToList(array47, 4);
 
@@ -2929,8 +2929,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array49[] = {
         list48,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list49 = Pair::arrayToList(array49, 3);
 
@@ -2942,14 +2942,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array51[] = {
         list50,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list51 = Pair::arrayToList(array51, 3);
 
     static Object array52[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77]
     };
     Object list52 = Pair::arrayToList(array52, 3);
@@ -3038,7 +3038,7 @@ Object scheme::getBuiltinCompiler() {
         MI(8),
         MIS(73),
         MIS(50),
-        builtinSymbols[1011],
+        builtinSymbols[1014],
         MIS(99),
         MI(1),
         MI(1),
@@ -3096,7 +3096,7 @@ Object scheme::getBuiltinCompiler() {
         MI(8),
         MIS(73),
         MIS(50),
-        builtinSymbols[1011],
+        builtinSymbols[1014],
         MIS(99),
         MI(1),
         MI(1),
@@ -3216,7 +3216,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(57),
         MIS(58),
@@ -3228,7 +3228,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(102),
-        builtinSymbols[910],
+        builtinSymbols[913],
         MI(1),
         MIS(3),
         MIS(49),
@@ -3269,7 +3269,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(8),
         MIS(102),
-        builtinSymbols[910],
+        builtinSymbols[913],
         MI(1),
         MIS(89),
         Object::Nil,
@@ -3309,7 +3309,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(90),
         MI(5),
@@ -3347,7 +3347,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(68),
         MIS(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(78),
         MI(1),
@@ -3378,7 +3378,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(78),
         MI(1),
@@ -3406,7 +3406,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(18),
         MI(11),
         MIS(50),
-        builtinSymbols[1016],
+        builtinSymbols[1019],
         MIS(58),
         MI(8),
         MIS(23),
@@ -3417,12 +3417,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(13),
         MIS(64),
-        builtinSymbols[659],
+        builtinSymbols[662],
         MIS(23),
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[1014],
+        builtinSymbols[1017],
         MI(1),
         MIS(89),
         Object::Nil,
@@ -3451,25 +3451,25 @@ Object scheme::getBuiltinCompiler() {
         MIS(18),
         MI(10),
         MIS(50),
-        builtinSymbols[1021],
+        builtinSymbols[1024],
         MIS(89),
         builtinSymbols[245],
         MIS(20),
         MIS(58),
         MI(5),
         MIS(16),
-        builtinSymbols[481],
+        builtinSymbols[484],
         MIS(30),
         MI(14),
         MIS(50),
-        builtinSymbols[1021],
+        builtinSymbols[1024],
         MIS(89),
-        builtinSymbols[1213],
+        builtinSymbols[1216],
         MIS(20),
         MIS(58),
         MI(5),
         MIS(16),
-        builtinSymbols[1224],
+        builtinSymbols[1227],
         MIS(30),
         MI(3),
         MIS(16),
@@ -3477,7 +3477,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(1),
         MIS(50),
-        builtinSymbols[1021],
+        builtinSymbols[1024],
         MIS(89),
         builtinSymbols[245],
         MIS(20),
@@ -3486,7 +3486,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(9),
         MIS(50),
-        builtinSymbols[1015],
+        builtinSymbols[1018],
         MIS(20),
         MIS(58),
         MI(53),
@@ -3501,7 +3501,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1015],
+        builtinSymbols[1018],
         MI(1),
         MIS(58),
         MI(33),
@@ -3511,7 +3511,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(60),
         MIS(3),
         MIS(102),
-        builtinSymbols[1183],
+        builtinSymbols[1186],
         MI(1),
         MIS(58),
         MI(3),
@@ -3532,7 +3532,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[1022],
+        builtinSymbols[1025],
         MI(1),
         MIS(34),
         MIS(30),
@@ -3548,7 +3548,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(8),
         MIS(50),
-        builtinSymbols[1009],
+        builtinSymbols[1012],
         MIS(3),
         MIS(49),
         MI(7),
@@ -3558,19 +3558,19 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(8),
         MIS(50),
-        builtinSymbols[1009],
+        builtinSymbols[1012],
         MIS(15),
         MIS(5),
-        builtinSymbols[1009],
+        builtinSymbols[1012],
         MIS(30),
         MI(2),
         MIS(59),
         MIS(30),
         MI(41),
         MIS(50),
-        builtinSymbols[1021],
+        builtinSymbols[1024],
         MIS(89),
-        builtinSymbols[1213],
+        builtinSymbols[1216],
         MIS(20),
         MIS(58),
         MI(25),
@@ -3579,7 +3579,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(8),
         MIS(50),
-        builtinSymbols[1024],
+        builtinSymbols[1027],
         MIS(3),
         MIS(49),
         MI(7),
@@ -3589,10 +3589,10 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(8),
         MIS(50),
-        builtinSymbols[1024],
+        builtinSymbols[1027],
         MIS(15),
         MIS(5),
-        builtinSymbols[1024],
+        builtinSymbols[1027],
         MIS(30),
         MI(2),
         MIS(59),
@@ -3605,12 +3605,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("invalid value for match:structure-control, legal values are")),
         MIS(102),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MI(2),
         MIS(64),
         builtinSymbols[83],
         MIS(50),
-        builtinSymbols[1016],
+        builtinSymbols[1019],
         MIS(58),
         MI(29),
         MIS(64),
@@ -3618,9 +3618,9 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(64),
-        builtinSymbols[480],
+        builtinSymbols[483],
         MIS(64),
-        builtinSymbols[659],
+        builtinSymbols[662],
         MIS(106),
         MI(5),
         MIS(16),
@@ -3649,11 +3649,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(4),
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(106),
         MI(3),
         MIS(64),
-        builtinSymbols[1213],
+        builtinSymbols[1216],
         MIS(106),
         MI(6),
         MIS(72),
@@ -3675,7 +3675,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(8),
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(64),
         list42,
         MIS(64),
@@ -3742,13 +3742,13 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         builtinSymbols[232],
         MIS(74),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(89),
         list36,
         MIS(89),
-        builtinSymbols[1218],
+        builtinSymbols[1221],
         MIS(89),
-        builtinSymbols[514],
+        builtinSymbols[517],
         MIS(3),
         MIS(75),
         Object::Nil,
@@ -3786,13 +3786,13 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         builtinSymbols[232],
         MIS(74),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(89),
         list33,
         MIS(89),
-        builtinSymbols[1219],
+        builtinSymbols[1222],
         MIS(89),
-        builtinSymbols[514],
+        builtinSymbols[517],
         MIS(3),
         MIS(75),
         list32,
@@ -3914,7 +3914,7 @@ Object scheme::getBuiltinCompiler() {
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(12),
@@ -3934,7 +3934,7 @@ Object scheme::getBuiltinCompiler() {
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(6),
@@ -4056,13 +4056,13 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array54[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77]
     };
     Object list54 = Pair::arrayToList(array54, 3);
 
     static Object array55[] = {
-        builtinSymbols[470],
+        builtinSymbols[473],
         MIS(14),
         MI(172),
         MI(1),
@@ -4077,10 +4077,10 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(7),
         MIS(50),
-        builtinSymbols[1013],
+        builtinSymbols[1016],
         MIS(3),
         MIS(102),
-        builtinSymbols[870],
+        builtinSymbols[873],
         MI(1),
         MIS(78),
         MI(1),
@@ -4128,14 +4128,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[470],
+        builtinSymbols[473],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(6),
@@ -4170,17 +4170,17 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(73),
         MIS(75),
-        builtinSymbols[470],
+        builtinSymbols[473],
         MIS(3),
         MIS(69),
         MIS(15),
         MIS(90),
         MI(7),
         MIS(50),
-        builtinSymbols[1013],
+        builtinSymbols[1016],
         MIS(3),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(99),
         MI(3),
@@ -4197,14 +4197,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[470],
+        builtinSymbols[473],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(6),
@@ -4220,14 +4220,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[470],
+        builtinSymbols[473],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(6),
@@ -4263,7 +4263,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array57[] = {
         list56,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[329]
     };
     Object list57 = Pair::arrayToList(array57, 3);
@@ -4276,8 +4276,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array59[] = {
         list58,
-        builtinSymbols[399],
-        builtinSymbols[639],
+        builtinSymbols[402],
+        builtinSymbols[642],
         builtinSymbols[283],
         builtinSymbols[85]
     };
@@ -4291,8 +4291,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array61[] = {
         list60,
-        builtinSymbols[399],
-        builtinSymbols[639],
+        builtinSymbols[402],
+        builtinSymbols[642],
         builtinSymbols[283],
         builtinSymbols[85]
     };
@@ -4306,10 +4306,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array63[] = {
         list62,
-        builtinSymbols[399],
-        builtinSymbols[534],
+        builtinSymbols[402],
+        builtinSymbols[537],
         builtinSymbols[258],
-        builtinSymbols[535],
+        builtinSymbols[538],
         builtinSymbols[259],
         builtinSymbols[85]
     };
@@ -4317,13 +4317,13 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array64[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77]
     };
     Object list64 = Pair::arrayToList(array64, 3);
 
     static Object array65[] = {
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(106),
         MI(150),
         MIS(106),
@@ -4347,10 +4347,10 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(7),
         MIS(50),
-        builtinSymbols[1013],
+        builtinSymbols[1016],
         MIS(3),
         MIS(102),
-        builtinSymbols[870],
+        builtinSymbols[873],
         MI(1),
         MIS(3),
         MIS(14),
@@ -4361,7 +4361,7 @@ Object scheme::getBuiltinCompiler() {
         MI(18),
         list63,
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(73),
         MIS(67),
         MIS(15),
@@ -4399,7 +4399,7 @@ Object scheme::getBuiltinCompiler() {
         MI(14),
         list61,
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(23),
         MI(5),
         MIS(73),
@@ -4407,7 +4407,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(1),
         MI(1),
         MIS(89),
-        builtinSymbols[1213],
+        builtinSymbols[1216],
         MIS(3),
         MIS(66),
         MIS(15),
@@ -4435,7 +4435,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(76),
         MIS(98),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(73),
         MIS(75),
         Object::Nil,
@@ -4450,7 +4450,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(3),
         MIS(50),
-        builtinSymbols[1013],
+        builtinSymbols[1016],
         MIS(9),
         MIS(99),
         MI(4),
@@ -4516,7 +4516,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(72),
         MIS(94),
         MIS(102),
-        builtinSymbols[1008],
+        builtinSymbols[1011],
         MI(2),
         MIS(58),
         MI(138),
@@ -4537,7 +4537,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(58),
         MI(7),
         MIS(64),
-        builtinSymbols[415],
+        builtinSymbols[418],
         MIS(72),
         MIS(15),
         MIS(30),
@@ -4566,14 +4566,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -4596,7 +4596,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -4613,7 +4613,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -4639,14 +4639,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -4672,7 +4672,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[888],
+        builtinSymbols[891],
         MI(1),
         MIS(45),
         MIS(58),
@@ -4682,7 +4682,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[899],
+        builtinSymbols[902],
         MI(1),
         MIS(35),
         MIS(30),
@@ -4719,14 +4719,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[849],
+        builtinSymbols[852],
         MI(1),
         MIS(90),
         MI(6),
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[860],
+        builtinSymbols[863],
         MI(1),
         MIS(3),
         MIS(72),
@@ -4762,14 +4762,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -4792,7 +4792,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -4809,7 +4809,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -4835,14 +4835,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -4863,7 +4863,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(45),
         MIS(58),
@@ -4873,7 +4873,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[891],
+        builtinSymbols[894],
         MI(1),
         MIS(45),
         MIS(58),
@@ -4883,7 +4883,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[891],
+        builtinSymbols[894],
         MI(1),
         MIS(13),
         MIS(35),
@@ -4894,7 +4894,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -4928,20 +4928,6 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[849],
-        MI(1),
-        MIS(90),
-        MI(6),
-        MIS(106),
-        MI(3),
-        MIS(102),
-        builtinSymbols[860],
-        MI(1),
-        MIS(90),
-        MI(6),
-        MIS(106),
-        MI(3),
-        MIS(102),
         builtinSymbols[852],
         MI(1),
         MIS(90),
@@ -4949,7 +4935,21 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[891],
+        builtinSymbols[863],
+        MI(1),
+        MIS(90),
+        MI(6),
+        MIS(106),
+        MI(3),
+        MIS(102),
+        builtinSymbols[855],
+        MI(1),
+        MIS(90),
+        MI(6),
+        MIS(106),
+        MI(3),
+        MIS(102),
+        builtinSymbols[894],
         MI(1),
         MIS(94),
         MIS(72),
@@ -4985,14 +4985,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -5015,7 +5015,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -5032,7 +5032,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -5058,14 +5058,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -5142,14 +5142,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -5172,7 +5172,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -5189,7 +5189,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -5216,14 +5216,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -5300,14 +5300,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -5330,7 +5330,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -5347,7 +5347,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -5374,14 +5374,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -5407,7 +5407,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[888],
+        builtinSymbols[891],
         MI(1),
         MIS(45),
         MIS(58),
@@ -5417,7 +5417,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[899],
+        builtinSymbols[902],
         MI(1),
         MIS(35),
         MIS(30),
@@ -5452,14 +5452,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[849],
+        builtinSymbols[852],
         MI(1),
         MIS(90),
         MI(6),
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[860],
+        builtinSymbols[863],
         MI(1),
         MIS(3),
         MIS(72),
@@ -5495,14 +5495,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -5525,7 +5525,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -5542,7 +5542,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -5568,14 +5568,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -5596,7 +5596,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(45),
         MIS(58),
@@ -5606,7 +5606,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[891],
+        builtinSymbols[894],
         MI(1),
         MIS(45),
         MIS(58),
@@ -5616,7 +5616,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[891],
+        builtinSymbols[894],
         MI(1),
         MIS(13),
         MIS(35),
@@ -5627,7 +5627,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -5661,20 +5661,6 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[849],
-        MI(1),
-        MIS(90),
-        MI(6),
-        MIS(106),
-        MI(3),
-        MIS(102),
-        builtinSymbols[860],
-        MI(1),
-        MIS(90),
-        MI(6),
-        MIS(106),
-        MI(3),
-        MIS(102),
         builtinSymbols[852],
         MI(1),
         MIS(90),
@@ -5682,7 +5668,21 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[891],
+        builtinSymbols[863],
+        MI(1),
+        MIS(90),
+        MI(6),
+        MIS(106),
+        MI(3),
+        MIS(102),
+        builtinSymbols[855],
+        MI(1),
+        MIS(90),
+        MI(6),
+        MIS(106),
+        MI(3),
+        MIS(102),
+        builtinSymbols[894],
         MI(1),
         MIS(94),
         MIS(72),
@@ -5718,14 +5718,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -5748,7 +5748,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -5765,7 +5765,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -5791,14 +5791,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -5875,14 +5875,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -5905,7 +5905,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -5922,7 +5922,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -5949,14 +5949,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -6033,14 +6033,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -6063,7 +6063,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -6080,7 +6080,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -6107,14 +6107,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(14),
@@ -6133,14 +6133,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(9),
@@ -6157,14 +6157,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[477],
+        builtinSymbols[480],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(9),
@@ -6417,13 +6417,13 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array66[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77]
     };
     Object list66 = Pair::arrayToList(array66, 3);
 
     static Object array67[] = {
-        builtinSymbols[475],
+        builtinSymbols[478],
         MIS(106),
         MI(56),
         MIS(14),
@@ -6461,20 +6461,20 @@ Object scheme::getBuiltinCompiler() {
         MIS(65),
         MIS(13),
         MIS(64),
-        builtinSymbols[409],
+        builtinSymbols[412],
         MIS(65),
         MIS(15),
         MIS(30),
         MI(14),
         MIS(64),
-        builtinSymbols[475],
+        builtinSymbols[478],
         MIS(65),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(1),
@@ -6495,7 +6495,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[888],
+        builtinSymbols[891],
         MI(1),
         MIS(45),
         MIS(58),
@@ -6504,7 +6504,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[899],
+        builtinSymbols[902],
         MI(1),
         MIS(35),
         MIS(58),
@@ -6550,13 +6550,13 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[849],
+        builtinSymbols[852],
         MI(1),
         MIS(90),
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[860],
+        builtinSymbols[863],
         MI(1),
         MIS(3),
         MIS(65),
@@ -6572,17 +6572,17 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(7),
         MIS(50),
-        builtinSymbols[1013],
+        builtinSymbols[1016],
         MIS(3),
         MIS(102),
-        builtinSymbols[870],
+        builtinSymbols[873],
         MI(1),
         MIS(1),
         MI(1),
         MIS(58),
         MI(25),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(73),
         MIS(75),
         Object::Nil,
@@ -6592,7 +6592,7 @@ Object scheme::getBuiltinCompiler() {
         Object::Nil,
         MIS(15),
         MIS(89),
-        builtinSymbols[475],
+        builtinSymbols[478],
         MIS(3),
         MIS(98),
         MIS(68),
@@ -6606,10 +6606,10 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(20),
         MIS(64),
-        builtinSymbols[469],
+        builtinSymbols[472],
         MIS(76),
         MIS(74),
-        builtinSymbols[475],
+        builtinSymbols[478],
         MIS(3),
         MIS(98),
         MIS(68),
@@ -6629,14 +6629,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(14),
         MIS(64),
-        builtinSymbols[475],
+        builtinSymbols[478],
         MIS(65),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(1),
@@ -6644,14 +6644,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(14),
         MIS(64),
-        builtinSymbols[475],
+        builtinSymbols[478],
         MIS(65),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(1),
@@ -6702,7 +6702,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array69[] = {
         list68,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[328]
     };
     Object list69 = Pair::arrayToList(array69, 3);
@@ -6715,10 +6715,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array71[] = {
         list70,
-        builtinSymbols[399],
-        builtinSymbols[534],
+        builtinSymbols[402],
+        builtinSymbols[537],
         builtinSymbols[258],
-        builtinSymbols[535],
+        builtinSymbols[538],
         builtinSymbols[259],
         builtinSymbols[85]
     };
@@ -6732,8 +6732,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array73[] = {
         list72,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list73 = Pair::arrayToList(array73, 3);
 
@@ -6745,8 +6745,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array75[] = {
         list74,
-        builtinSymbols[399],
-        builtinSymbols[639],
+        builtinSymbols[402],
+        builtinSymbols[642],
         builtinSymbols[283],
         builtinSymbols[85]
     };
@@ -6754,13 +6754,13 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array76[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77]
     };
     Object list76 = Pair::arrayToList(array76, 3);
 
     static Object array77[] = {
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(106),
         MI(53),
         MIS(106),
@@ -6822,7 +6822,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(90),
         MI(5),
@@ -6833,22 +6833,22 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(2),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(23),
         MI(10),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(3),
         MIS(73),
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(3),
         MIS(89),
-        builtinSymbols[469],
+        builtinSymbols[472],
         MIS(89),
-        builtinSymbols[1213],
+        builtinSymbols[1216],
         MIS(3),
         MIS(65),
         MIS(15),
@@ -6903,7 +6903,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(2),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(73),
         MIS(106),
         MI(6),
@@ -6924,7 +6924,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(15),
         MIS(89),
-        builtinSymbols[469],
+        builtinSymbols[472],
         MIS(89),
         builtinSymbols[220],
         MIS(3),
@@ -6959,10 +6959,10 @@ Object scheme::getBuiltinCompiler() {
         MIS(90),
         MI(7),
         MIS(50),
-        builtinSymbols[1013],
+        builtinSymbols[1016],
         MIS(3),
         MIS(102),
-        builtinSymbols[870],
+        builtinSymbols[873],
         MI(1),
         MIS(78),
         MI(3),
@@ -7067,28 +7067,28 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(7),
         MIS(50),
-        builtinSymbols[1013],
+        builtinSymbols[1016],
         MIS(3),
         MIS(102),
-        builtinSymbols[870],
+        builtinSymbols[873],
         MI(1),
         MIS(3),
         MIS(76),
         MIS(102),
-        builtinSymbols[1008],
+        builtinSymbols[1011],
         MI(2),
         MIS(58),
         MI(7),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(69),
         MIS(15),
         MIS(30),
         MI(29),
         MIS(64),
-        builtinSymbols[415],
+        builtinSymbols[418],
         MIS(74),
-        builtinSymbols[473],
+        builtinSymbols[476],
         MIS(3),
         MIS(76),
         MIS(68),
@@ -7124,14 +7124,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -7154,7 +7154,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -7171,7 +7171,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -7197,14 +7197,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -7223,14 +7223,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(8),
@@ -7295,7 +7295,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(94),
         MIS(102),
-        builtinSymbols[1008],
+        builtinSymbols[1011],
         MI(2),
         MIS(58),
         MI(142),
@@ -7319,7 +7319,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(58),
         MI(8),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(49),
         MI(5),
         MIS(15),
@@ -7349,14 +7349,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -7379,7 +7379,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -7396,7 +7396,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -7422,14 +7422,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -7457,7 +7457,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[888],
+        builtinSymbols[891],
         MI(1),
         MIS(45),
         MIS(58),
@@ -7467,7 +7467,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[899],
+        builtinSymbols[902],
         MI(1),
         MIS(35),
         MIS(30),
@@ -7516,13 +7516,13 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[849],
+        builtinSymbols[852],
         MI(1),
         MIS(90),
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[860],
+        builtinSymbols[863],
         MI(1),
         MIS(3),
         MIS(69),
@@ -7530,7 +7530,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(3),
         MIS(64),
-        builtinSymbols[469],
+        builtinSymbols[472],
         MIS(76),
         MIS(73),
         MIS(67),
@@ -7568,14 +7568,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -7598,7 +7598,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -7615,7 +7615,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -7641,14 +7641,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -7670,7 +7670,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(45),
         MIS(58),
@@ -7680,7 +7680,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[891],
+        builtinSymbols[894],
         MI(1),
         MIS(45),
         MIS(58),
@@ -7690,7 +7690,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[891],
+        builtinSymbols[894],
         MI(1),
         MIS(13),
         MIS(35),
@@ -7701,7 +7701,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -7738,20 +7738,6 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[849],
-        MI(1),
-        MIS(90),
-        MI(6),
-        MIS(106),
-        MI(5),
-        MIS(102),
-        builtinSymbols[860],
-        MI(1),
-        MIS(90),
-        MI(6),
-        MIS(106),
-        MI(5),
-        MIS(102),
         builtinSymbols[852],
         MI(1),
         MIS(90),
@@ -7759,7 +7745,21 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[891],
+        builtinSymbols[863],
+        MI(1),
+        MIS(90),
+        MI(6),
+        MIS(106),
+        MI(5),
+        MIS(102),
+        builtinSymbols[855],
+        MI(1),
+        MIS(90),
+        MI(6),
+        MIS(106),
+        MI(5),
+        MIS(102),
+        builtinSymbols[894],
         MI(1),
         MIS(94),
         MIS(49),
@@ -7796,14 +7796,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -7826,7 +7826,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -7843,7 +7843,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -7869,14 +7869,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -7955,14 +7955,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -7985,7 +7985,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -8002,7 +8002,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -8029,14 +8029,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -8115,14 +8115,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -8145,7 +8145,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -8162,7 +8162,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -8189,14 +8189,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -8224,7 +8224,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[888],
+        builtinSymbols[891],
         MI(1),
         MIS(45),
         MIS(58),
@@ -8234,7 +8234,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[899],
+        builtinSymbols[902],
         MI(1),
         MIS(35),
         MIS(30),
@@ -8281,13 +8281,13 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[849],
+        builtinSymbols[852],
         MI(1),
         MIS(90),
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[860],
+        builtinSymbols[863],
         MI(1),
         MIS(3),
         MIS(69),
@@ -8295,7 +8295,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(3),
         MIS(64),
-        builtinSymbols[469],
+        builtinSymbols[472],
         MIS(76),
         MIS(73),
         MIS(67),
@@ -8333,14 +8333,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -8363,7 +8363,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -8380,7 +8380,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -8406,14 +8406,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -8435,7 +8435,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(45),
         MIS(58),
@@ -8445,7 +8445,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[891],
+        builtinSymbols[894],
         MI(1),
         MIS(45),
         MIS(58),
@@ -8455,7 +8455,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[891],
+        builtinSymbols[894],
         MI(1),
         MIS(13),
         MIS(35),
@@ -8466,7 +8466,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -8503,20 +8503,6 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[849],
-        MI(1),
-        MIS(90),
-        MI(6),
-        MIS(106),
-        MI(5),
-        MIS(102),
-        builtinSymbols[860],
-        MI(1),
-        MIS(90),
-        MI(6),
-        MIS(106),
-        MI(5),
-        MIS(102),
         builtinSymbols[852],
         MI(1),
         MIS(90),
@@ -8524,7 +8510,21 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[891],
+        builtinSymbols[863],
+        MI(1),
+        MIS(90),
+        MI(6),
+        MIS(106),
+        MI(5),
+        MIS(102),
+        builtinSymbols[855],
+        MI(1),
+        MIS(90),
+        MI(6),
+        MIS(106),
+        MI(5),
+        MIS(102),
+        builtinSymbols[894],
         MI(1),
         MIS(94),
         MIS(49),
@@ -8561,14 +8561,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -8591,7 +8591,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -8608,7 +8608,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -8634,14 +8634,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -8720,14 +8720,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -8750,7 +8750,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -8767,7 +8767,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -8794,14 +8794,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -8880,14 +8880,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -8910,7 +8910,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(35),
         MIS(30),
@@ -8927,7 +8927,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(66),
@@ -8954,14 +8954,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(13),
@@ -8980,14 +8980,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(8),
@@ -9004,14 +9004,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(0),
         MIS(64),
-        builtinSymbols[474],
+        builtinSymbols[477],
         MIS(69),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(8),
@@ -9303,20 +9303,20 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array79[] = {
         list78,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[327]
     };
     Object list79 = Pair::arrayToList(array79, 3);
 
     static Object array80[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77]
     };
     Object list80 = Pair::arrayToList(array80, 3);
 
     static Object array81[] = {
-        builtinSymbols[473],
+        builtinSymbols[476],
         MIS(106),
         MI(56),
         MIS(106),
@@ -9372,7 +9372,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[1008],
+        builtinSymbols[1011],
         MI(2),
         MIS(30),
         MI(1),
@@ -9391,9 +9391,9 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(1),
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(74),
-        builtinSymbols[469],
+        builtinSymbols[472],
         MIS(3),
         MIS(73),
         MIS(70),
@@ -9408,14 +9408,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(14),
         MIS(64),
-        builtinSymbols[473],
+        builtinSymbols[476],
         MIS(65),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(1),
@@ -9446,20 +9446,20 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array83[] = {
         list82,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[326]
     };
     Object list83 = Pair::arrayToList(array83, 3);
 
     static Object array84[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77]
     };
     Object list84 = Pair::arrayToList(array84, 3);
 
     static Object array85[] = {
-        builtinSymbols[472],
+        builtinSymbols[475],
         MIS(106),
         MI(56),
         MIS(106),
@@ -9515,7 +9515,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[1008],
+        builtinSymbols[1011],
         MI(2),
         MIS(30),
         MI(1),
@@ -9534,12 +9534,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(1),
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(74),
         Object::Nil,
         MIS(15),
         MIS(89),
-        builtinSymbols[469],
+        builtinSymbols[472],
         MIS(3),
         MIS(73),
         MIS(70),
@@ -9554,14 +9554,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(14),
         MIS(64),
-        builtinSymbols[472],
+        builtinSymbols[475],
         MIS(65),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(1),
@@ -9592,20 +9592,20 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array87[] = {
         list86,
-        builtinSymbols[399],
-        builtinSymbols[1236]
+        builtinSymbols[402],
+        builtinSymbols[1239]
     };
     Object list87 = Pair::arrayToList(array87, 3);
 
     static Object array88[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77]
     };
     Object list88 = Pair::arrayToList(array88, 3);
 
     static Object array89[] = {
-        builtinSymbols[469],
+        builtinSymbols[472],
         MIS(106),
         MI(56),
         MIS(106),
@@ -9672,7 +9672,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(65),
         MIS(95),
         MIS(102),
-        builtinSymbols[1008],
+        builtinSymbols[1011],
         MI(2),
         MIS(30),
         MI(1),
@@ -9732,12 +9732,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(64),
-        builtinSymbols[469],
+        builtinSymbols[472],
         MIS(71),
         MIS(15),
         MIS(3),
         MIS(50),
-        builtinSymbols[1013],
+        builtinSymbols[1016],
         MIS(10),
         MIS(99),
         MI(3),
@@ -9746,7 +9746,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(31),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(73),
         MIS(92),
         MIS(16),
@@ -9762,12 +9762,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(64),
-        builtinSymbols[469],
+        builtinSymbols[472],
         MIS(71),
         MIS(15),
         MIS(3),
         MIS(50),
-        builtinSymbols[1013],
+        builtinSymbols[1016],
         MIS(10),
         MIS(100),
         MIS(89),
@@ -9781,14 +9781,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(14),
         MIS(64),
-        builtinSymbols[469],
+        builtinSymbols[472],
         MIS(65),
         MIS(15),
         MIS(89),
         Object::makeString(UC("syntax error in")),
         MIS(3),
         MIS(50),
-        builtinSymbols[1023],
+        builtinSymbols[1026],
         MIS(99),
         MI(2),
         MI(1),
@@ -9825,7 +9825,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array91[] = {
         Object::False,
-        builtinSymbols[399]
+        builtinSymbols[402]
     };
     Object list91 = Pair::arrayToList(array91, 2);
 
@@ -9848,15 +9848,15 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array93[] = {
         Object::False,
-        builtinSymbols[399],
-        builtinSymbols[639],
+        builtinSymbols[402],
+        builtinSymbols[642],
         builtinSymbols[283],
         builtinSymbols[85]
     };
     Object list93 = Pair::arrayToList(array93, 5);
 
     static Object array94[] = {
-        builtinSymbols[476],
+        builtinSymbols[479],
         MIS(14),
         MI(18),
         MI(3),
@@ -9865,7 +9865,7 @@ Object scheme::getBuiltinCompiler() {
         MI(11),
         list93,
         MIS(64),
-        builtinSymbols[469],
+        builtinSymbols[472],
         MIS(76),
         MIS(73),
         MIS(67),
@@ -9882,7 +9882,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array95[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77]
     };
     Object list95 = Pair::arrayToList(array95, 3);
@@ -9902,13 +9902,13 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[956],
+        builtinSymbols[959],
         MI(1),
         MIS(90),
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1148],
+        builtinSymbols[1151],
         MI(1),
         MIS(15),
         MIS(3),
@@ -9925,13 +9925,13 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array97[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77]
     };
     Object list97 = Pair::arrayToList(array97, 3);
 
     static Object array98[] = {
-        builtinSymbols[669],
+        builtinSymbols[672],
         MIS(14),
         MI(34),
         MI(1),
@@ -9942,7 +9942,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         builtinSymbols[134],
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(64),
         Object::Nil,
         MIS(65),
@@ -9953,7 +9953,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(15),
         MIS(89),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(3),
         MIS(65),
         MIS(94),
@@ -9973,8 +9973,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array99[] = {
         Object::False,
-        builtinSymbols[399],
-        builtinSymbols[1233],
+        builtinSymbols[402],
+        builtinSymbols[1236],
         builtinSymbols[85]
     };
     Object list99 = Pair::arrayToList(array99, 4);
@@ -9989,9 +9989,9 @@ Object scheme::getBuiltinCompiler() {
         MI(22),
         list99,
         MIS(64),
-        builtinSymbols[1229],
+        builtinSymbols[1232],
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(65),
         MIS(94),
         MIS(16),
@@ -10005,7 +10005,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         builtinSymbols[263],
         MIS(64),
-        builtinSymbols[661],
+        builtinSymbols[664],
         MIS(65),
         MIS(94),
         MIS(16),
@@ -10027,7 +10027,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(15),
         MIS(89),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(89),
         Object::Nil,
         MIS(3),
@@ -10046,7 +10046,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array101[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[193]
     };
     Object list101 = Pair::arrayToList(array101, 3);
@@ -10085,7 +10085,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(2),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(76),
         MIS(65),
         MIS(94),
@@ -10097,12 +10097,12 @@ Object scheme::getBuiltinCompiler() {
         Object::Nil,
         MIS(15),
         MIS(89),
-        builtinSymbols[360],
+        builtinSymbols[363],
         MIS(3),
         MIS(75),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(89),
-        builtinSymbols[382],
+        builtinSymbols[385],
         MIS(3),
         MIS(75),
         Object::Nil,
@@ -10151,16 +10151,16 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array104[] = {
         list103,
-        builtinSymbols[399],
-        builtinSymbols[1205],
-        builtinSymbols[700]
+        builtinSymbols[402],
+        builtinSymbols[1208],
+        builtinSymbols[703]
     };
     Object list104 = Pair::arrayToList(array104, 4);
 
     static Object array105[] = {
         Object::False,
-        builtinSymbols[399],
-        builtinSymbols[717]
+        builtinSymbols[402],
+        builtinSymbols[720]
     };
     Object list105 = Pair::arrayToList(array105, 3);
 
@@ -10226,7 +10226,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(93),
         MIS(102),
-        builtinSymbols[895],
+        builtinSymbols[898],
         MI(1),
         MIS(3),
         MIS(70),
@@ -10279,14 +10279,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[856],
+        builtinSymbols[859],
         MI(1),
         MIS(90),
         MI(6),
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[895],
+        builtinSymbols[898],
         MI(1),
         MIS(3),
         MIS(72),
@@ -10294,13 +10294,13 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(6),
         MIS(64),
-        builtinSymbols[415],
+        builtinSymbols[418],
         MIS(64),
-        builtinSymbols[441],
+        builtinSymbols[444],
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(74),
-        builtinSymbols[360],
+        builtinSymbols[363],
         MIS(3),
         MIS(68),
         MIS(89),
@@ -10318,7 +10318,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(107),
         MI(5),
         MIS(64),
-        builtinSymbols[441],
+        builtinSymbols[444],
         MIS(23),
         MI(24),
         MIS(14),
@@ -10342,7 +10342,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(98),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(3),
         MIS(15),
         MIS(89),
@@ -10369,7 +10369,7 @@ Object scheme::getBuiltinCompiler() {
         Object::Nil,
         MIS(15),
         MIS(89),
-        builtinSymbols[441],
+        builtinSymbols[444],
         MIS(3),
         MIS(66),
         MIS(15),
@@ -10398,7 +10398,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(93),
         MIS(102),
-        builtinSymbols[910],
+        builtinSymbols[913],
         MI(1),
         MIS(35),
         MIS(30),
@@ -10416,7 +10416,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(78),
         MI(1),
@@ -10436,7 +10436,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("malformed do")),
         MIS(50),
-        builtinSymbols[1162],
+        builtinSymbols[1165],
         MIS(99),
         MI(1),
         MI(10),
@@ -10477,7 +10477,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(93),
         MIS(102),
-        builtinSymbols[910],
+        builtinSymbols[913],
         MI(1),
         MIS(35),
         MIS(30),
@@ -10493,7 +10493,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(78),
         MI(1),
@@ -10513,7 +10513,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("malformed do")),
         MIS(50),
-        builtinSymbols[1162],
+        builtinSymbols[1165],
         MIS(99),
         MI(1),
         MI(10),
@@ -10531,7 +10531,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("malformed do")),
         MIS(50),
-        builtinSymbols[1162],
+        builtinSymbols[1165],
         MIS(99),
         MI(1),
         MI(10),
@@ -10549,7 +10549,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("malformed do")),
         MIS(50),
-        builtinSymbols[1162],
+        builtinSymbols[1165],
         MIS(99),
         MI(1),
         MI(10),
@@ -10573,7 +10573,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(3),
         MIS(70),
@@ -10593,7 +10593,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MI(1),
         MIS(3),
         MIS(66),
@@ -10602,7 +10602,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(3),
         MIS(67),
@@ -10661,7 +10661,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(93),
         MIS(102),
-        builtinSymbols[910],
+        builtinSymbols[913],
         MI(1),
         MIS(35),
         MIS(30),
@@ -10677,7 +10677,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(78),
         MI(1),
@@ -10697,7 +10697,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("malformed do")),
         MIS(50),
-        builtinSymbols[1162],
+        builtinSymbols[1165],
         MIS(99),
         MI(1),
         MI(10),
@@ -10715,7 +10715,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("malformed do")),
         MIS(50),
-        builtinSymbols[1162],
+        builtinSymbols[1165],
         MIS(99),
         MI(1),
         MI(10),
@@ -10762,7 +10762,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[910],
+        builtinSymbols[913],
         MI(1),
         MIS(35),
         MIS(30),
@@ -10777,7 +10777,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(78),
         MI(1),
@@ -10790,7 +10790,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("malformed do")),
         MIS(50),
-        builtinSymbols[1162],
+        builtinSymbols[1165],
         MIS(99),
         MI(1),
         MI(1),
@@ -10800,7 +10800,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("malformed do")),
         MIS(50),
-        builtinSymbols[1162],
+        builtinSymbols[1165],
         MIS(99),
         MI(1),
         MI(1),
@@ -10810,7 +10810,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("malformed do")),
         MIS(50),
-        builtinSymbols[1162],
+        builtinSymbols[1165],
         MIS(99),
         MI(1),
         MI(1),
@@ -10899,13 +10899,13 @@ Object scheme::getBuiltinCompiler() {
     Object list106 = Pair::arrayToList(array106, 730);
 
     static Object array107[] = {
-        builtinSymbols[1205]
+        builtinSymbols[1208]
     };
     Object list107 = Pair::arrayToList(array107, 1);
 
     static Object array108[] = {
-        builtinSymbols[1233],
-        builtinSymbols[1205]
+        builtinSymbols[1236],
+        builtinSymbols[1208]
     };
     Object list108 = Pair::arrayToList(array108, 2);
 
@@ -10917,14 +10917,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array110[] = {
         list109,
-        builtinSymbols[399],
-        builtinSymbols[357],
+        builtinSymbols[402],
+        builtinSymbols[360],
         builtinSymbols[261]
     };
     Object list110 = Pair::arrayToList(array110, 4);
 
     static Object array111[] = {
-        builtinSymbols[1233]
+        builtinSymbols[1236]
     };
     Object list111 = Pair::arrayToList(array111, 1);
 
@@ -10936,16 +10936,16 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array113[] = {
         list112,
-        builtinSymbols[399],
-        builtinSymbols[357],
+        builtinSymbols[402],
+        builtinSymbols[360],
         builtinSymbols[261]
     };
     Object list113 = Pair::arrayToList(array113, 4);
 
     static Object array114[] = {
         Object::False,
-        builtinSymbols[399],
-        builtinSymbols[499],
+        builtinSymbols[402],
+        builtinSymbols[502],
         builtinSymbols[262]
     };
     Object list114 = Pair::arrayToList(array114, 4);
@@ -10966,16 +10966,16 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(7),
         MIS(64),
-        builtinSymbols[452],
+        builtinSymbols[455],
         MIS(73),
         MIS(102),
-        builtinSymbols[1161],
+        builtinSymbols[1164],
         MI(2),
         MIS(3),
         MIS(66),
         MIS(15),
         MIS(89),
-        builtinSymbols[1213],
+        builtinSymbols[1216],
         MIS(3),
         MIS(66),
         MIS(15),
@@ -11003,15 +11003,15 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[37],
         MIS(76),
         MIS(102),
-        builtinSymbols[1161],
+        builtinSymbols[1164],
         MI(3),
         MIS(89),
         list111,
         MIS(15),
         MIS(89),
-        builtinSymbols[1218],
+        builtinSymbols[1221],
         MIS(89),
-        builtinSymbols[1233],
+        builtinSymbols[1236],
         MIS(3),
         MIS(74),
         Object::Nil,
@@ -11027,7 +11027,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(76),
         MIS(102),
-        builtinSymbols[1006],
+        builtinSymbols[1009],
         MI(2),
         MIS(90),
         MI(50),
@@ -11047,22 +11047,22 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         builtinSymbols[37],
         MIS(64),
-        builtinSymbols[704],
+        builtinSymbols[707],
         MIS(64),
         builtinSymbols[37],
         MIS(75),
         builtinSymbols[0],
         MIS(3),
         MIS(102),
-        builtinSymbols[1161],
+        builtinSymbols[1164],
         MI(6),
         MIS(89),
         list108,
         MIS(15),
         MIS(89),
-        builtinSymbols[1219],
+        builtinSymbols[1222],
         MIS(89),
-        builtinSymbols[1233],
+        builtinSymbols[1236],
         MIS(3),
         MIS(74),
         list107,
@@ -11078,7 +11078,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(76),
         MIS(102),
-        builtinSymbols[1006],
+        builtinSymbols[1009],
         MI(2),
         MIS(0),
         MIS(15),
@@ -11097,9 +11097,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array116[] = {
         Object::False,
-        builtinSymbols[399],
-        builtinSymbols[361],
-        builtinSymbols[449]
+        builtinSymbols[402],
+        builtinSymbols[364],
+        builtinSymbols[452]
     };
     Object list116 = Pair::arrayToList(array116, 4);
 
@@ -11113,7 +11113,7 @@ Object scheme::getBuiltinCompiler() {
         MI(15),
         list116,
         MIS(64),
-        builtinSymbols[1219],
+        builtinSymbols[1222],
         MIS(74),
         MI(5),
         MIS(89),
@@ -11174,7 +11174,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array120[] = {
         list119,
         builtinSymbols[213],
-        builtinSymbols[717]
+        builtinSymbols[720]
     };
     Object list120 = Pair::arrayToList(array120, 3);
 
@@ -11187,7 +11187,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array122[] = {
         list121,
         builtinSymbols[211],
-        builtinSymbols[717]
+        builtinSymbols[720]
     };
     Object list122 = Pair::arrayToList(array122, 3);
 
@@ -11199,8 +11199,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array124[] = {
         list123,
-        builtinSymbols[399],
-        builtinSymbols[357]
+        builtinSymbols[402],
+        builtinSymbols[360]
     };
     Object list124 = Pair::arrayToList(array124, 3);
 
@@ -11212,9 +11212,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array126[] = {
         list125,
-        builtinSymbols[399],
-        builtinSymbols[357],
-        builtinSymbols[384]
+        builtinSymbols[402],
+        builtinSymbols[360],
+        builtinSymbols[387]
     };
     Object list126 = Pair::arrayToList(array126, 4);
 
@@ -11226,7 +11226,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array128[] = {
         list127,
-        builtinSymbols[399]
+        builtinSymbols[402]
     };
     Object list128 = Pair::arrayToList(array128, 2);
 
@@ -11238,8 +11238,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array130[] = {
         list129,
-        builtinSymbols[638],
-        builtinSymbols[1205]
+        builtinSymbols[641],
+        builtinSymbols[1208]
     };
     Object list130 = Pair::arrayToList(array130, 3);
 
@@ -11252,8 +11252,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array132[] = {
         list131,
         builtinSymbols[214],
-        builtinSymbols[717],
-        builtinSymbols[417]
+        builtinSymbols[720],
+        builtinSymbols[420]
     };
     Object list132 = Pair::arrayToList(array132, 4);
 
@@ -11271,8 +11271,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array135[] = {
         list134,
-        builtinSymbols[399],
-        builtinSymbols[717]
+        builtinSymbols[402],
+        builtinSymbols[720]
     };
     Object list135 = Pair::arrayToList(array135, 3);
 
@@ -11285,7 +11285,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array137[] = {
         list136,
         builtinSymbols[212],
-        builtinSymbols[417]
+        builtinSymbols[420]
     };
     Object list137 = Pair::arrayToList(array137, 3);
 
@@ -11302,8 +11302,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array140[] = {
         list139,
-        builtinSymbols[637],
-        builtinSymbols[444]
+        builtinSymbols[640],
+        builtinSymbols[447]
     };
     Object list140 = Pair::arrayToList(array140, 3);
 
@@ -11315,8 +11315,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array142[] = {
         list141,
-        builtinSymbols[596],
-        builtinSymbols[361]
+        builtinSymbols[599],
+        builtinSymbols[364]
     };
     Object list142 = Pair::arrayToList(array142, 3);
 
@@ -11328,14 +11328,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array144[] = {
         list143,
-        builtinSymbols[630],
+        builtinSymbols[633],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list144 = Pair::arrayToList(array144, 9);
 
@@ -11347,14 +11347,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array146[] = {
         list145,
-        builtinSymbols[613],
+        builtinSymbols[616],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list146 = Pair::arrayToList(array146, 9);
 
@@ -11366,8 +11366,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array148[] = {
         list147,
-        builtinSymbols[399],
-        builtinSymbols[700]
+        builtinSymbols[402],
+        builtinSymbols[703]
     };
     Object list148 = Pair::arrayToList(array148, 3);
 
@@ -11379,7 +11379,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array150[] = {
         list149,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[317]
     };
     Object list150 = Pair::arrayToList(array150, 3);
@@ -11392,14 +11392,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array152[] = {
         list151,
-        builtinSymbols[609],
+        builtinSymbols[612],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list152 = Pair::arrayToList(array152, 9);
 
@@ -11411,10 +11411,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array154[] = {
         list153,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77],
-        builtinSymbols[721],
-        builtinSymbols[372]
+        builtinSymbols[724],
+        builtinSymbols[375]
     };
     Object list154 = Pair::arrayToList(array154, 5);
 
@@ -11426,7 +11426,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array156[] = {
         list155,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77]
     };
     Object list156 = Pair::arrayToList(array156, 3);
@@ -11439,8 +11439,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array158[] = {
         list157,
-        builtinSymbols[399],
-        builtinSymbols[357]
+        builtinSymbols[402],
+        builtinSymbols[360]
     };
     Object list158 = Pair::arrayToList(array158, 3);
 
@@ -11452,8 +11452,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array160[] = {
         list159,
-        builtinSymbols[399],
-        builtinSymbols[357]
+        builtinSymbols[402],
+        builtinSymbols[360]
     };
     Object list160 = Pair::arrayToList(array160, 3);
 
@@ -11465,14 +11465,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array162[] = {
         list161,
-        builtinSymbols[628],
+        builtinSymbols[631],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list162 = Pair::arrayToList(array162, 9);
 
@@ -11484,8 +11484,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array164[] = {
         list163,
-        builtinSymbols[399],
-        builtinSymbols[357]
+        builtinSymbols[402],
+        builtinSymbols[360]
     };
     Object list164 = Pair::arrayToList(array164, 3);
 
@@ -11497,14 +11497,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array166[] = {
         list165,
-        builtinSymbols[612],
+        builtinSymbols[615],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list166 = Pair::arrayToList(array166, 9);
 
@@ -11516,14 +11516,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array168[] = {
         list167,
-        builtinSymbols[617],
+        builtinSymbols[620],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list168 = Pair::arrayToList(array168, 9);
 
@@ -11535,14 +11535,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array170[] = {
         list169,
-        builtinSymbols[611],
+        builtinSymbols[614],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list170 = Pair::arrayToList(array170, 9);
 
@@ -11554,14 +11554,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array172[] = {
         list171,
-        builtinSymbols[603],
+        builtinSymbols[606],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list172 = Pair::arrayToList(array172, 9);
 
@@ -11573,14 +11573,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array174[] = {
         list173,
-        builtinSymbols[602],
+        builtinSymbols[605],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list174 = Pair::arrayToList(array174, 9);
 
@@ -11592,9 +11592,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array176[] = {
         list175,
-        builtinSymbols[399],
-        builtinSymbols[721],
-        builtinSymbols[361]
+        builtinSymbols[402],
+        builtinSymbols[724],
+        builtinSymbols[364]
     };
     Object list176 = Pair::arrayToList(array176, 4);
 
@@ -11606,14 +11606,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array178[] = {
         list177,
-        builtinSymbols[622],
+        builtinSymbols[625],
         builtinSymbols[147],
         builtinSymbols[77],
-        builtinSymbols[440],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list178 = Pair::arrayToList(array178, 9);
 
@@ -11625,14 +11625,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array180[] = {
         list179,
-        builtinSymbols[621],
+        builtinSymbols[624],
         builtinSymbols[147],
         builtinSymbols[72],
-        builtinSymbols[440],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list180 = Pair::arrayToList(array180, 9);
 
@@ -11644,14 +11644,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array182[] = {
         list181,
-        builtinSymbols[605],
+        builtinSymbols[608],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list182 = Pair::arrayToList(array182, 9);
 
@@ -11663,14 +11663,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array184[] = {
         list183,
-        builtinSymbols[608],
+        builtinSymbols[611],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list184 = Pair::arrayToList(array184, 9);
 
@@ -11682,14 +11682,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array186[] = {
         list185,
-        builtinSymbols[597],
+        builtinSymbols[600],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list186 = Pair::arrayToList(array186, 9);
 
@@ -11701,9 +11701,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array188[] = {
         list187,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77],
-        builtinSymbols[728]
+        builtinSymbols[731]
     };
     Object list188 = Pair::arrayToList(array188, 4);
 
@@ -11715,13 +11715,13 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array190[] = {
         list189,
-        builtinSymbols[601],
+        builtinSymbols[604],
         builtinSymbols[147],
         builtinSymbols[77],
-        builtinSymbols[440],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715]
+        builtinSymbols[718]
     };
     Object list190 = Pair::arrayToList(array190, 8);
 
@@ -11733,16 +11733,16 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array192[] = {
         list191,
-        builtinSymbols[600],
+        builtinSymbols[603],
         builtinSymbols[147],
-        builtinSymbols[378],
+        builtinSymbols[381],
         builtinSymbols[73],
         builtinSymbols[74],
         builtinSymbols[75],
-        builtinSymbols[440],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715]
+        builtinSymbols[718]
     };
     Object list192 = Pair::arrayToList(array192, 11);
 
@@ -11754,15 +11754,15 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array194[] = {
         list193,
-        builtinSymbols[599],
+        builtinSymbols[602],
         builtinSymbols[147],
-        builtinSymbols[378],
+        builtinSymbols[381],
         builtinSymbols[73],
         builtinSymbols[74],
-        builtinSymbols[440],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715]
+        builtinSymbols[718]
     };
     Object list194 = Pair::arrayToList(array194, 10);
 
@@ -11774,14 +11774,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array196[] = {
         list195,
-        builtinSymbols[598],
+        builtinSymbols[601],
         builtinSymbols[147],
-        builtinSymbols[378],
+        builtinSymbols[381],
         builtinSymbols[73],
-        builtinSymbols[440],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715]
+        builtinSymbols[718]
     };
     Object list196 = Pair::arrayToList(array196, 9);
 
@@ -11793,14 +11793,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array198[] = {
         list197,
-        builtinSymbols[619],
+        builtinSymbols[622],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list198 = Pair::arrayToList(array198, 9);
 
@@ -11812,9 +11812,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array200[] = {
         list199,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[317],
-        builtinSymbols[721]
+        builtinSymbols[724]
     };
     Object list200 = Pair::arrayToList(array200, 4);
 
@@ -11826,14 +11826,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array202[] = {
         list201,
-        builtinSymbols[618],
+        builtinSymbols[621],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list202 = Pair::arrayToList(array202, 9);
 
@@ -11845,9 +11845,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array204[] = {
         list203,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[322],
-        builtinSymbols[498]
+        builtinSymbols[501]
     };
     Object list204 = Pair::arrayToList(array204, 4);
 
@@ -11859,14 +11859,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array206[] = {
         list205,
-        builtinSymbols[606],
+        builtinSymbols[609],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list206 = Pair::arrayToList(array206, 9);
 
@@ -11878,9 +11878,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array208[] = {
         list207,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[322],
-        builtinSymbols[498]
+        builtinSymbols[501]
     };
     Object list208 = Pair::arrayToList(array208, 4);
 
@@ -11892,14 +11892,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array210[] = {
         list209,
-        builtinSymbols[607],
+        builtinSymbols[610],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list210 = Pair::arrayToList(array210, 9);
 
@@ -11911,9 +11911,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array212[] = {
         list211,
-        builtinSymbols[492],
-        builtinSymbols[418],
-        builtinSymbols[748]
+        builtinSymbols[495],
+        builtinSymbols[421],
+        builtinSymbols[751]
     };
     Object list212 = Pair::arrayToList(array212, 4);
 
@@ -11925,14 +11925,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array214[] = {
         list213,
-        builtinSymbols[615],
+        builtinSymbols[618],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list214 = Pair::arrayToList(array214, 9);
 
@@ -11944,14 +11944,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array216[] = {
         list215,
-        builtinSymbols[616],
+        builtinSymbols[619],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list216 = Pair::arrayToList(array216, 9);
 
@@ -11963,8 +11963,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array218[] = {
         list217,
-        builtinSymbols[399],
-        builtinSymbols[357],
+        builtinSymbols[402],
+        builtinSymbols[360],
         builtinSymbols[56]
     };
     Object list218 = Pair::arrayToList(array218, 4);
@@ -11977,14 +11977,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array220[] = {
         list219,
-        builtinSymbols[614],
+        builtinSymbols[617],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list220 = Pair::arrayToList(array220, 9);
 
@@ -11996,14 +11996,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array222[] = {
         list221,
-        builtinSymbols[610],
+        builtinSymbols[613],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list222 = Pair::arrayToList(array222, 9);
 
@@ -12015,14 +12015,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array224[] = {
         list223,
-        builtinSymbols[604],
+        builtinSymbols[607],
         builtinSymbols[147],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[323],
         builtinSymbols[138],
-        builtinSymbols[715],
-        builtinSymbols[764]
+        builtinSymbols[718],
+        builtinSymbols[767]
     };
     Object list224 = Pair::arrayToList(array224, 9);
 
@@ -12034,9 +12034,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array226[] = {
         list225,
-        builtinSymbols[631],
-        builtinSymbols[378],
-        builtinSymbols[652]
+        builtinSymbols[634],
+        builtinSymbols[381],
+        builtinSymbols[655]
     };
     Object list226 = Pair::arrayToList(array226, 4);
 
@@ -12048,9 +12048,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array228[] = {
         list227,
-        builtinSymbols[399],
-        builtinSymbols[372],
-        builtinSymbols[1211]
+        builtinSymbols[402],
+        builtinSymbols[375],
+        builtinSymbols[1214]
     };
     Object list228 = Pair::arrayToList(array228, 4);
 
@@ -12062,10 +12062,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array230[] = {
         list229,
-        builtinSymbols[629],
+        builtinSymbols[632],
         builtinSymbols[147],
-        builtinSymbols[715],
-        builtinSymbols[1212]
+        builtinSymbols[718],
+        builtinSymbols[1215]
     };
     Object list230 = Pair::arrayToList(array230, 5);
 
@@ -12077,10 +12077,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array232[] = {
         list231,
-        builtinSymbols[623],
+        builtinSymbols[626],
         builtinSymbols[147],
-        builtinSymbols[447],
-        builtinSymbols[440],
+        builtinSymbols[450],
+        builtinSymbols[443],
         builtinSymbols[323]
     };
     Object list232 = Pair::arrayToList(array232, 6);
@@ -12093,9 +12093,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array234[] = {
         list233,
-        builtinSymbols[632],
+        builtinSymbols[635],
         builtinSymbols[147],
-        builtinSymbols[498]
+        builtinSymbols[501]
     };
     Object list234 = Pair::arrayToList(array234, 4);
 
@@ -12107,9 +12107,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array236[] = {
         list235,
-        builtinSymbols[633],
+        builtinSymbols[636],
         builtinSymbols[147],
-        builtinSymbols[498]
+        builtinSymbols[501]
     };
     Object list236 = Pair::arrayToList(array236, 4);
 
@@ -12121,10 +12121,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array238[] = {
         list237,
-        builtinSymbols[624],
+        builtinSymbols[627],
         builtinSymbols[147],
-        builtinSymbols[447],
-        builtinSymbols[440],
+        builtinSymbols[450],
+        builtinSymbols[443],
         builtinSymbols[323]
     };
     Object list238 = Pair::arrayToList(array238, 6);
@@ -12137,9 +12137,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array240[] = {
         list239,
-        builtinSymbols[634],
+        builtinSymbols[637],
         builtinSymbols[147],
-        builtinSymbols[498]
+        builtinSymbols[501]
     };
     Object list240 = Pair::arrayToList(array240, 4);
 
@@ -12151,9 +12151,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array242[] = {
         list241,
-        builtinSymbols[635],
+        builtinSymbols[638],
         builtinSymbols[147],
-        builtinSymbols[498]
+        builtinSymbols[501]
     };
     Object list242 = Pair::arrayToList(array242, 4);
 
@@ -12165,9 +12165,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array244[] = {
         list243,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[322],
-        builtinSymbols[498]
+        builtinSymbols[501]
     };
     Object list244 = Pair::arrayToList(array244, 4);
 
@@ -12179,9 +12179,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array246[] = {
         list245,
-        builtinSymbols[399],
-        builtinSymbols[440],
-        builtinSymbols[498]
+        builtinSymbols[402],
+        builtinSymbols[443],
+        builtinSymbols[501]
     };
     Object list246 = Pair::arrayToList(array246, 4);
 
@@ -12193,13 +12193,13 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array248[] = {
         list247,
-        builtinSymbols[636],
+        builtinSymbols[639],
         builtinSymbols[147],
-        builtinSymbols[447],
-        builtinSymbols[440],
+        builtinSymbols[450],
+        builtinSymbols[443],
         builtinSymbols[323],
-        builtinSymbols[686],
-        builtinSymbols[685]
+        builtinSymbols[689],
+        builtinSymbols[688]
     };
     Object list248 = Pair::arrayToList(array248, 8);
 
@@ -12211,9 +12211,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array250[] = {
         list249,
-        builtinSymbols[399],
-        builtinSymbols[721],
-        builtinSymbols[688]
+        builtinSymbols[402],
+        builtinSymbols[724],
+        builtinSymbols[691]
     };
     Object list250 = Pair::arrayToList(array250, 4);
 
@@ -12225,10 +12225,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array252[] = {
         list251,
-        builtinSymbols[620],
+        builtinSymbols[623],
         builtinSymbols[147],
         builtinSymbols[324],
-        builtinSymbols[440],
+        builtinSymbols[443],
         builtinSymbols[323]
     };
     Object list252 = Pair::arrayToList(array252, 6);
@@ -12241,8 +12241,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array254[] = {
         list253,
-        builtinSymbols[399],
-        builtinSymbols[357]
+        builtinSymbols[402],
+        builtinSymbols[360]
     };
     Object list254 = Pair::arrayToList(array254, 3);
 
@@ -12254,9 +12254,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array256[] = {
         list255,
-        builtinSymbols[627],
-        builtinSymbols[361],
-        builtinSymbols[448]
+        builtinSymbols[630],
+        builtinSymbols[364],
+        builtinSymbols[451]
     };
     Object list256 = Pair::arrayToList(array256, 4);
 
@@ -12268,7 +12268,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array258[] = {
         list257,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[307]
     };
     Object list258 = Pair::arrayToList(array258, 3);
@@ -12281,7 +12281,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array260[] = {
         list259,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[307]
     };
     Object list260 = Pair::arrayToList(array260, 3);
@@ -12294,7 +12294,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array262[] = {
         list261,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[307]
     };
     Object list262 = Pair::arrayToList(array262, 3);
@@ -12307,7 +12307,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array264[] = {
         list263,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[307]
     };
     Object list264 = Pair::arrayToList(array264, 3);
@@ -12320,7 +12320,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array266[] = {
         list265,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[307]
     };
     Object list266 = Pair::arrayToList(array266, 3);
@@ -12333,10 +12333,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array268[] = {
         list267,
-        builtinSymbols[399],
-        builtinSymbols[357],
-        builtinSymbols[394],
-        builtinSymbols[397]
+        builtinSymbols[402],
+        builtinSymbols[360],
+        builtinSymbols[397],
+        builtinSymbols[400]
     };
     Object list268 = Pair::arrayToList(array268, 5);
 
@@ -12348,9 +12348,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array270[] = {
         list269,
-        builtinSymbols[626],
-        builtinSymbols[361],
-        builtinSymbols[440],
+        builtinSymbols[629],
+        builtinSymbols[364],
+        builtinSymbols[443],
         builtinSymbols[138]
     };
     Object list270 = Pair::arrayToList(array270, 5);
@@ -12363,8 +12363,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array272[] = {
         list271,
-        builtinSymbols[625],
-        builtinSymbols[748],
+        builtinSymbols[628],
+        builtinSymbols[751],
         builtinSymbols[138]
     };
     Object list272 = Pair::arrayToList(array272, 4);
@@ -12377,8 +12377,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array274[] = {
         list273,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list274 = Pair::arrayToList(array274, 3);
 
@@ -12390,8 +12390,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array276[] = {
         list275,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list276 = Pair::arrayToList(array276, 3);
 
@@ -12403,8 +12403,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array278[] = {
         list277,
-        builtinSymbols[399],
-        builtinSymbols[1188]
+        builtinSymbols[402],
+        builtinSymbols[1191]
     };
     Object list278 = Pair::arrayToList(array278, 3);
 
@@ -12416,8 +12416,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array280[] = {
         list279,
-        builtinSymbols[581],
-        builtinSymbols[361],
+        builtinSymbols[584],
+        builtinSymbols[364],
         builtinSymbols[198]
     };
     Object list280 = Pair::arrayToList(array280, 4);
@@ -12430,10 +12430,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array282[] = {
         list281,
-        builtinSymbols[399],
-        builtinSymbols[357],
-        builtinSymbols[681],
-        builtinSymbols[660]
+        builtinSymbols[402],
+        builtinSymbols[360],
+        builtinSymbols[684],
+        builtinSymbols[663]
     };
     Object list282 = Pair::arrayToList(array282, 5);
 
@@ -12445,9 +12445,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array284[] = {
         list283,
-        builtinSymbols[595],
+        builtinSymbols[598],
         builtinSymbols[77],
-        builtinSymbols[680]
+        builtinSymbols[683]
     };
     Object list284 = Pair::arrayToList(array284, 4);
 
@@ -12459,11 +12459,11 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array286[] = {
         list285,
-        builtinSymbols[577],
-        builtinSymbols[680],
-        builtinSymbols[528],
-        builtinSymbols[358],
-        builtinSymbols[499]
+        builtinSymbols[580],
+        builtinSymbols[683],
+        builtinSymbols[531],
+        builtinSymbols[361],
+        builtinSymbols[502]
     };
     Object list286 = Pair::arrayToList(array286, 6);
 
@@ -12475,10 +12475,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array288[] = {
         list287,
-        builtinSymbols[578],
+        builtinSymbols[581],
         builtinSymbols[77],
-        builtinSymbols[680],
-        builtinSymbols[529]
+        builtinSymbols[683],
+        builtinSymbols[532]
     };
     Object list288 = Pair::arrayToList(array288, 5);
 
@@ -12490,8 +12490,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array290[] = {
         list289,
-        builtinSymbols[399],
-        builtinSymbols[445],
+        builtinSymbols[402],
+        builtinSymbols[448],
         builtinSymbols[52]
     };
     Object list290 = Pair::arrayToList(array290, 4);
@@ -12504,9 +12504,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array292[] = {
         list291,
-        builtinSymbols[585],
-        builtinSymbols[361],
-        builtinSymbols[358]
+        builtinSymbols[588],
+        builtinSymbols[364],
+        builtinSymbols[361]
     };
     Object list292 = Pair::arrayToList(array292, 4);
 
@@ -12518,10 +12518,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array294[] = {
         list293,
-        builtinSymbols[580],
-        builtinSymbols[361],
+        builtinSymbols[583],
+        builtinSymbols[364],
         builtinSymbols[198],
-        builtinSymbols[766]
+        builtinSymbols[769]
     };
     Object list294 = Pair::arrayToList(array294, 5);
 
@@ -12533,7 +12533,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array296[] = {
         list295,
-        builtinSymbols[594],
+        builtinSymbols[597],
         builtinSymbols[197],
         builtinSymbols[198]
     };
@@ -12547,12 +12547,12 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array298[] = {
         list297,
-        builtinSymbols[399],
-        builtinSymbols[1212],
-        builtinSymbols[374],
-        builtinSymbols[690],
-        builtinSymbols[689],
-        builtinSymbols[692]
+        builtinSymbols[402],
+        builtinSymbols[1215],
+        builtinSymbols[377],
+        builtinSymbols[693],
+        builtinSymbols[692],
+        builtinSymbols[695]
     };
     Object list298 = Pair::arrayToList(array298, 7);
 
@@ -12564,24 +12564,24 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array300[] = {
         list299,
-        builtinSymbols[593],
-        builtinSymbols[1212],
-        builtinSymbols[374]
+        builtinSymbols[596],
+        builtinSymbols[1215],
+        builtinSymbols[377]
     };
     Object list300 = Pair::arrayToList(array300, 4);
 
     static Object array301[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[123],
         builtinSymbols[265],
-        builtinSymbols[496]
+        builtinSymbols[499]
     };
     Object list301 = Pair::arrayToList(array301, 5);
 
     static Object array302[] = {
         Object::False,
-        builtinSymbols[399]
+        builtinSymbols[402]
     };
     Object list302 = Pair::arrayToList(array302, 2);
 
@@ -12593,11 +12593,11 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array304[] = {
         list303,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[124],
-        builtinSymbols[439],
-        builtinSymbols[667],
-        builtinSymbols[1186]
+        builtinSymbols[442],
+        builtinSymbols[670],
+        builtinSymbols[1189]
     };
     Object list304 = Pair::arrayToList(array304, 6);
 
@@ -12609,7 +12609,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array306[] = {
         list305,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[265]
     };
     Object list306 = Pair::arrayToList(array306, 3);
@@ -12622,7 +12622,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array308[] = {
         list307,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[265]
     };
     Object list308 = Pair::arrayToList(array308, 3);
@@ -12635,15 +12635,15 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array310[] = {
         list309,
-        builtinSymbols[579],
+        builtinSymbols[582],
         builtinSymbols[124],
-        builtinSymbols[401]
+        builtinSymbols[404]
     };
     Object list310 = Pair::arrayToList(array310, 4);
 
     static Object array311[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[123]
     };
     Object list311 = Pair::arrayToList(array311, 3);
@@ -12656,16 +12656,16 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array313[] = {
         list312,
-        builtinSymbols[588],
-        builtinSymbols[447],
-        builtinSymbols[401]
+        builtinSymbols[591],
+        builtinSymbols[450],
+        builtinSymbols[404]
     };
     Object list313 = Pair::arrayToList(array313, 4);
 
     static Object array314[] = {
         Object::False,
-        builtinSymbols[399],
-        builtinSymbols[385]
+        builtinSymbols[402],
+        builtinSymbols[388]
     };
     Object list314 = Pair::arrayToList(array314, 3);
 
@@ -12677,11 +12677,11 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array316[] = {
         list315,
-        builtinSymbols[586],
-        builtinSymbols[447],
-        builtinSymbols[401],
+        builtinSymbols[589],
+        builtinSymbols[450],
+        builtinSymbols[404],
         builtinSymbols[123],
-        builtinSymbols[668]
+        builtinSymbols[671]
     };
     Object list316 = Pair::arrayToList(array316, 6);
 
@@ -12693,7 +12693,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array318[] = {
         list317,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[137]
     };
     Object list318 = Pair::arrayToList(array318, 3);
@@ -12706,9 +12706,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array320[] = {
         list319,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[125],
-        builtinSymbols[401]
+        builtinSymbols[404]
     };
     Object list320 = Pair::arrayToList(array320, 4);
 
@@ -12720,9 +12720,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array322[] = {
         list321,
-        builtinSymbols[587],
-        builtinSymbols[447],
-        builtinSymbols[401],
+        builtinSymbols[590],
+        builtinSymbols[450],
+        builtinSymbols[404],
         builtinSymbols[137]
     };
     Object list322 = Pair::arrayToList(array322, 5);
@@ -12737,8 +12737,8 @@ Object scheme::getBuiltinCompiler() {
         list323,
         builtinSymbols[76],
         builtinSymbols[77],
-        builtinSymbols[680],
-        builtinSymbols[529]
+        builtinSymbols[683],
+        builtinSymbols[532]
     };
     Object list324 = Pair::arrayToList(array324, 5);
 
@@ -12751,10 +12751,10 @@ Object scheme::getBuiltinCompiler() {
     static Object array326[] = {
         list325,
         builtinSymbols[58],
-        builtinSymbols[680],
-        builtinSymbols[528],
-        builtinSymbols[358],
-        builtinSymbols[499]
+        builtinSymbols[683],
+        builtinSymbols[531],
+        builtinSymbols[361],
+        builtinSymbols[502]
     };
     Object list326 = Pair::arrayToList(array326, 6);
 
@@ -12766,8 +12766,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array328[] = {
         list327,
-        builtinSymbols[399],
-        builtinSymbols[366],
+        builtinSymbols[402],
+        builtinSymbols[369],
         builtinSymbols[199]
     };
     Object list328 = Pair::arrayToList(array328, 4);
@@ -12780,8 +12780,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array330[] = {
         list329,
-        builtinSymbols[399],
-        builtinSymbols[361],
+        builtinSymbols[402],
+        builtinSymbols[364],
         builtinSymbols[199]
     };
     Object list330 = Pair::arrayToList(array330, 4);
@@ -12794,9 +12794,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array332[] = {
         list331,
-        builtinSymbols[365],
-        builtinSymbols[361],
-        builtinSymbols[422]
+        builtinSymbols[368],
+        builtinSymbols[364],
+        builtinSymbols[425]
     };
     Object list332 = Pair::arrayToList(array332, 4);
 
@@ -12808,9 +12808,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array334[] = {
         list333,
-        builtinSymbols[590],
-        builtinSymbols[447],
-        builtinSymbols[401]
+        builtinSymbols[593],
+        builtinSymbols[450],
+        builtinSymbols[404]
     };
     Object list334 = Pair::arrayToList(array334, 4);
 
@@ -12822,8 +12822,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array336[] = {
         list335,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list336 = Pair::arrayToList(array336, 3);
 
@@ -12835,8 +12835,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array338[] = {
         list337,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list338 = Pair::arrayToList(array338, 3);
 
@@ -12848,8 +12848,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array340[] = {
         list339,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list340 = Pair::arrayToList(array340, 3);
 
@@ -12861,8 +12861,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array342[] = {
         list341,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list342 = Pair::arrayToList(array342, 3);
 
@@ -12874,9 +12874,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array344[] = {
         list343,
-        builtinSymbols[362],
-        builtinSymbols[361],
-        builtinSymbols[446]
+        builtinSymbols[365],
+        builtinSymbols[364],
+        builtinSymbols[449]
     };
     Object list344 = Pair::arrayToList(array344, 4);
 
@@ -12888,8 +12888,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array346[] = {
         list345,
-        builtinSymbols[399],
-        builtinSymbols[533]
+        builtinSymbols[402],
+        builtinSymbols[536]
     };
     Object list346 = Pair::arrayToList(array346, 3);
 
@@ -12901,9 +12901,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array348[] = {
         list347,
-        builtinSymbols[363],
-        builtinSymbols[447],
-        builtinSymbols[446]
+        builtinSymbols[366],
+        builtinSymbols[450],
+        builtinSymbols[449]
     };
     Object list348 = Pair::arrayToList(array348, 4);
 
@@ -12915,8 +12915,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array350[] = {
         list349,
-        builtinSymbols[399],
-        builtinSymbols[445]
+        builtinSymbols[402],
+        builtinSymbols[448]
     };
     Object list350 = Pair::arrayToList(array350, 3);
 
@@ -12928,9 +12928,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array352[] = {
         list351,
-        builtinSymbols[364],
-        builtinSymbols[531],
-        builtinSymbols[446]
+        builtinSymbols[367],
+        builtinSymbols[534],
+        builtinSymbols[449]
     };
     Object list352 = Pair::arrayToList(array352, 4);
 
@@ -12942,8 +12942,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array354[] = {
         list353,
-        builtinSymbols[583],
-        builtinSymbols[361]
+        builtinSymbols[586],
+        builtinSymbols[364]
     };
     Object list354 = Pair::arrayToList(array354, 3);
 
@@ -12955,8 +12955,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array356[] = {
         list355,
-        builtinSymbols[591],
-        builtinSymbols[361]
+        builtinSymbols[594],
+        builtinSymbols[364]
     };
     Object list356 = Pair::arrayToList(array356, 3);
 
@@ -12968,8 +12968,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array358[] = {
         list357,
-        builtinSymbols[589],
-        builtinSymbols[361],
+        builtinSymbols[592],
+        builtinSymbols[364],
         builtinSymbols[198]
     };
     Object list358 = Pair::arrayToList(array358, 4);
@@ -12982,9 +12982,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array360[] = {
         list359,
-        builtinSymbols[592],
-        builtinSymbols[378],
-        builtinSymbols[652]
+        builtinSymbols[595],
+        builtinSymbols[381],
+        builtinSymbols[655]
     };
     Object list360 = Pair::arrayToList(array360, 4);
 
@@ -12996,8 +12996,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array362[] = {
         list361,
-        builtinSymbols[584],
-        builtinSymbols[361],
+        builtinSymbols[587],
+        builtinSymbols[364],
         builtinSymbols[198]
     };
     Object list362 = Pair::arrayToList(array362, 4);
@@ -13010,8 +13010,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array364[] = {
         list363,
-        builtinSymbols[570],
-        builtinSymbols[361],
+        builtinSymbols[573],
+        builtinSymbols[364],
         builtinSymbols[198]
     };
     Object list364 = Pair::arrayToList(array364, 4);
@@ -13024,8 +13024,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array366[] = {
         list365,
-        builtinSymbols[571],
-        builtinSymbols[361],
+        builtinSymbols[574],
+        builtinSymbols[364],
         builtinSymbols[198]
     };
     Object list366 = Pair::arrayToList(array366, 4);
@@ -13038,8 +13038,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array368[] = {
         list367,
-        builtinSymbols[572],
-        builtinSymbols[361],
+        builtinSymbols[575],
+        builtinSymbols[364],
         builtinSymbols[198]
     };
     Object list368 = Pair::arrayToList(array368, 4);
@@ -13052,8 +13052,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array370[] = {
         list369,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list370 = Pair::arrayToList(array370, 3);
 
@@ -13065,8 +13065,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array372[] = {
         list371,
-        builtinSymbols[569],
-        builtinSymbols[361],
+        builtinSymbols[572],
+        builtinSymbols[364],
         builtinSymbols[198]
     };
     Object list372 = Pair::arrayToList(array372, 4);
@@ -13079,8 +13079,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array374[] = {
         list373,
-        builtinSymbols[582],
-        builtinSymbols[361]
+        builtinSymbols[585],
+        builtinSymbols[364]
     };
     Object list374 = Pair::arrayToList(array374, 3);
 
@@ -13092,8 +13092,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array376[] = {
         list375,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list376 = Pair::arrayToList(array376, 3);
 
@@ -13105,8 +13105,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array378[] = {
         list377,
-        builtinSymbols[576],
-        builtinSymbols[361],
+        builtinSymbols[579],
+        builtinSymbols[364],
         builtinSymbols[198]
     };
     Object list378 = Pair::arrayToList(array378, 4);
@@ -13119,8 +13119,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array380[] = {
         list379,
-        builtinSymbols[574],
-        builtinSymbols[361],
+        builtinSymbols[577],
+        builtinSymbols[364],
         builtinSymbols[198]
     };
     Object list380 = Pair::arrayToList(array380, 4);
@@ -13133,8 +13133,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array382[] = {
         list381,
-        builtinSymbols[575],
-        builtinSymbols[361],
+        builtinSymbols[578],
+        builtinSymbols[364],
         builtinSymbols[198]
     };
     Object list382 = Pair::arrayToList(array382, 4);
@@ -13147,8 +13147,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array384[] = {
         list383,
-        builtinSymbols[399],
-        builtinSymbols[357]
+        builtinSymbols[402],
+        builtinSymbols[360]
     };
     Object list384 = Pair::arrayToList(array384, 3);
 
@@ -13160,8 +13160,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array386[] = {
         list385,
-        builtinSymbols[573],
-        builtinSymbols[361],
+        builtinSymbols[576],
+        builtinSymbols[364],
         builtinSymbols[198]
     };
     Object list386 = Pair::arrayToList(array386, 4);
@@ -13174,8 +13174,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array388[] = {
         list387,
-        builtinSymbols[399],
-        builtinSymbols[506]
+        builtinSymbols[402],
+        builtinSymbols[509]
     };
     Object list388 = Pair::arrayToList(array388, 3);
 
@@ -13187,8 +13187,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array390[] = {
         list389,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list390 = Pair::arrayToList(array390, 3);
 
@@ -13200,8 +13200,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array392[] = {
         list391,
-        builtinSymbols[399],
-        builtinSymbols[506]
+        builtinSymbols[402],
+        builtinSymbols[509]
     };
     Object list392 = Pair::arrayToList(array392, 3);
 
@@ -13213,8 +13213,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array394[] = {
         list393,
-        builtinSymbols[399],
-        builtinSymbols[533]
+        builtinSymbols[402],
+        builtinSymbols[536]
     };
     Object list394 = Pair::arrayToList(array394, 3);
 
@@ -13226,9 +13226,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array396[] = {
         list395,
-        builtinSymbols[399],
-        builtinSymbols[1211],
-        builtinSymbols[373]
+        builtinSymbols[402],
+        builtinSymbols[1214],
+        builtinSymbols[376]
     };
     Object list396 = Pair::arrayToList(array396, 4);
 
@@ -13240,8 +13240,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array398[] = {
         list397,
-        builtinSymbols[399],
-        builtinSymbols[506]
+        builtinSymbols[402],
+        builtinSymbols[509]
     };
     Object list398 = Pair::arrayToList(array398, 3);
 
@@ -13253,9 +13253,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array400[] = {
         list399,
-        builtinSymbols[399],
-        builtinSymbols[371],
-        builtinSymbols[361]
+        builtinSymbols[402],
+        builtinSymbols[374],
+        builtinSymbols[364]
     };
     Object list400 = Pair::arrayToList(array400, 4);
 
@@ -13267,8 +13267,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array402[] = {
         list401,
-        builtinSymbols[399],
-        builtinSymbols[447]
+        builtinSymbols[402],
+        builtinSymbols[450]
     };
     Object list402 = Pair::arrayToList(array402, 3);
 
@@ -13280,8 +13280,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array404[] = {
         list403,
-        builtinSymbols[399],
-        builtinSymbols[371]
+        builtinSymbols[402],
+        builtinSymbols[374]
     };
     Object list404 = Pair::arrayToList(array404, 3);
 
@@ -13293,7 +13293,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array406[] = {
         list405,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[225]
     };
     Object list406 = Pair::arrayToList(array406, 3);
@@ -13306,8 +13306,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array408[] = {
         list407,
-        builtinSymbols[650],
-        builtinSymbols[361]
+        builtinSymbols[653],
+        builtinSymbols[364]
     };
     Object list408 = Pair::arrayToList(array408, 3);
 
@@ -13319,8 +13319,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array410[] = {
         list409,
-        builtinSymbols[399],
-        builtinSymbols[700]
+        builtinSymbols[402],
+        builtinSymbols[703]
     };
     Object list410 = Pair::arrayToList(array410, 3);
 
@@ -13332,8 +13332,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array412[] = {
         list411,
-        builtinSymbols[399],
-        builtinSymbols[700]
+        builtinSymbols[402],
+        builtinSymbols[703]
     };
     Object list412 = Pair::arrayToList(array412, 3);
 
@@ -13345,11 +13345,11 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array414[] = {
         list413,
-        builtinSymbols[568],
-        builtinSymbols[717],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[571],
+        builtinSymbols[720],
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list414 = Pair::arrayToList(array414, 6);
 
@@ -13361,9 +13361,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array416[] = {
         list415,
-        builtinSymbols[399],
-        builtinSymbols[1233],
-        builtinSymbols[1236]
+        builtinSymbols[402],
+        builtinSymbols[1236],
+        builtinSymbols[1239]
     };
     Object list416 = Pair::arrayToList(array416, 4);
 
@@ -13375,8 +13375,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array418[] = {
         list417,
-        builtinSymbols[399],
-        builtinSymbols[700]
+        builtinSymbols[402],
+        builtinSymbols[703]
     };
     Object list418 = Pair::arrayToList(array418, 3);
 
@@ -13388,13 +13388,13 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array420[] = {
         list419,
-        builtinSymbols[547],
-        builtinSymbols[763],
-        builtinSymbols[527],
+        builtinSymbols[550],
+        builtinSymbols[766],
+        builtinSymbols[530],
         builtinSymbols[77],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list420 = Pair::arrayToList(array420, 8);
 
@@ -13406,13 +13406,13 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array422[] = {
         list421,
-        builtinSymbols[545],
-        builtinSymbols[763],
+        builtinSymbols[548],
+        builtinSymbols[766],
         builtinSymbols[73],
-        builtinSymbols[681],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[684],
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list422 = Pair::arrayToList(array422, 8);
 
@@ -13424,12 +13424,12 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array424[] = {
         list423,
-        builtinSymbols[543],
-        builtinSymbols[763],
+        builtinSymbols[546],
+        builtinSymbols[766],
         builtinSymbols[77],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list424 = Pair::arrayToList(array424, 7);
 
@@ -13441,14 +13441,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array426[] = {
         list425,
-        builtinSymbols[546],
-        builtinSymbols[763],
+        builtinSymbols[549],
+        builtinSymbols[766],
         builtinSymbols[73],
         builtinSymbols[74],
         builtinSymbols[75],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list426 = Pair::arrayToList(array426, 9);
 
@@ -13460,13 +13460,13 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array428[] = {
         list427,
-        builtinSymbols[544],
-        builtinSymbols[763],
+        builtinSymbols[547],
+        builtinSymbols[766],
         builtinSymbols[73],
         builtinSymbols[74],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list428 = Pair::arrayToList(array428, 8);
 
@@ -13478,12 +13478,12 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array430[] = {
         list429,
-        builtinSymbols[542],
-        builtinSymbols[763],
+        builtinSymbols[545],
+        builtinSymbols[766],
         builtinSymbols[73],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list430 = Pair::arrayToList(array430, 7);
 
@@ -13495,13 +13495,13 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array432[] = {
         list431,
-        builtinSymbols[548],
-        builtinSymbols[763],
-        builtinSymbols[527],
+        builtinSymbols[551],
+        builtinSymbols[766],
+        builtinSymbols[530],
         builtinSymbols[77],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list432 = Pair::arrayToList(array432, 8);
 
@@ -13513,11 +13513,11 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array434[] = {
         list433,
-        builtinSymbols[553],
-        builtinSymbols[717],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[556],
+        builtinSymbols[720],
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list434 = Pair::arrayToList(array434, 6);
 
@@ -13529,13 +13529,13 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array436[] = {
         list435,
-        builtinSymbols[556],
-        builtinSymbols[771],
-        builtinSymbols[772],
-        builtinSymbols[496],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[559],
+        builtinSymbols[774],
+        builtinSymbols[775],
+        builtinSymbols[499],
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list436 = Pair::arrayToList(array436, 8);
 
@@ -13547,9 +13547,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array438[] = {
         list437,
-        builtinSymbols[399],
-        builtinSymbols[447],
-        builtinSymbols[373]
+        builtinSymbols[402],
+        builtinSymbols[450],
+        builtinSymbols[376]
     };
     Object list438 = Pair::arrayToList(array438, 4);
 
@@ -13561,8 +13561,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array440[] = {
         list439,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list440 = Pair::arrayToList(array440, 3);
 
@@ -13574,8 +13574,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array442[] = {
         list441,
-        builtinSymbols[399],
-        builtinSymbols[748]
+        builtinSymbols[402],
+        builtinSymbols[751]
     };
     Object list442 = Pair::arrayToList(array442, 3);
 
@@ -13587,14 +13587,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array444[] = {
         list443,
-        builtinSymbols[560],
-        builtinSymbols[1212],
-        builtinSymbols[1208],
+        builtinSymbols[563],
+        builtinSymbols[1215],
+        builtinSymbols[1211],
         builtinSymbols[85],
-        builtinSymbols[724],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[727],
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list444 = Pair::arrayToList(array444, 9);
 
@@ -13606,9 +13606,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array446[] = {
         list445,
-        builtinSymbols[399],
-        builtinSymbols[748],
-        builtinSymbols[373]
+        builtinSymbols[402],
+        builtinSymbols[751],
+        builtinSymbols[376]
     };
     Object list446 = Pair::arrayToList(array446, 4);
 
@@ -13620,8 +13620,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array448[] = {
         list447,
-        builtinSymbols[399],
-        builtinSymbols[700]
+        builtinSymbols[402],
+        builtinSymbols[703]
     };
     Object list448 = Pair::arrayToList(array448, 3);
 
@@ -13633,20 +13633,20 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array450[] = {
         list449,
-        builtinSymbols[559],
-        builtinSymbols[1212],
-        builtinSymbols[1208],
+        builtinSymbols[562],
+        builtinSymbols[1215],
+        builtinSymbols[1211],
         builtinSymbols[85],
-        builtinSymbols[724],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[727],
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list450 = Pair::arrayToList(array450, 9);
 
     static Object array451[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[263]
     };
     Object list451 = Pair::arrayToList(array451, 3);
@@ -13659,16 +13659,16 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array453[] = {
         list452,
-        builtinSymbols[399],
-        builtinSymbols[748]
+        builtinSymbols[402],
+        builtinSymbols[751]
     };
     Object list453 = Pair::arrayToList(array453, 3);
 
     static Object array454[] = {
         Object::False,
-        builtinSymbols[399],
-        builtinSymbols[1212],
-        builtinSymbols[1208],
+        builtinSymbols[402],
+        builtinSymbols[1215],
+        builtinSymbols[1211],
         builtinSymbols[85]
     };
     Object list454 = Pair::arrayToList(array454, 5);
@@ -13681,26 +13681,26 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array456[] = {
         list455,
-        builtinSymbols[566],
-        builtinSymbols[717],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[569],
+        builtinSymbols[720],
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list456 = Pair::arrayToList(array456, 6);
 
     static Object array457[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[263]
     };
     Object list457 = Pair::arrayToList(array457, 3);
 
     static Object array458[] = {
         Object::False,
-        builtinSymbols[399],
-        builtinSymbols[499],
-        builtinSymbols[496]
+        builtinSymbols[402],
+        builtinSymbols[502],
+        builtinSymbols[499]
     };
     Object list458 = Pair::arrayToList(array458, 4);
 
@@ -13712,11 +13712,11 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array460[] = {
         list459,
-        builtinSymbols[552],
-        builtinSymbols[717],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[555],
+        builtinSymbols[720],
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list460 = Pair::arrayToList(array460, 6);
 
@@ -13728,8 +13728,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array462[] = {
         list461,
-        builtinSymbols[399],
-        builtinSymbols[700]
+        builtinSymbols[402],
+        builtinSymbols[703]
     };
     Object list462 = Pair::arrayToList(array462, 3);
 
@@ -13741,8 +13741,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array464[] = {
         list463,
-        builtinSymbols[399],
-        builtinSymbols[700]
+        builtinSymbols[402],
+        builtinSymbols[703]
     };
     Object list464 = Pair::arrayToList(array464, 3);
 
@@ -13754,12 +13754,12 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array466[] = {
         list465,
-        builtinSymbols[551],
-        builtinSymbols[652],
+        builtinSymbols[554],
+        builtinSymbols[655],
         builtinSymbols[77],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list466 = Pair::arrayToList(array466, 7);
 
@@ -13771,8 +13771,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array468[] = {
         list467,
-        builtinSymbols[564],
-        builtinSymbols[717]
+        builtinSymbols[567],
+        builtinSymbols[720]
     };
     Object list468 = Pair::arrayToList(array468, 3);
 
@@ -13784,8 +13784,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array470[] = {
         list469,
-        builtinSymbols[399],
-        builtinSymbols[357]
+        builtinSymbols[402],
+        builtinSymbols[360]
     };
     Object list470 = Pair::arrayToList(array470, 3);
 
@@ -13797,8 +13797,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array472[] = {
         list471,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list472 = Pair::arrayToList(array472, 3);
 
@@ -13810,8 +13810,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array474[] = {
         list473,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list474 = Pair::arrayToList(array474, 3);
 
@@ -13823,8 +13823,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array476[] = {
         list475,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list476 = Pair::arrayToList(array476, 3);
 
@@ -13836,8 +13836,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array478[] = {
         list477,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list478 = Pair::arrayToList(array478, 3);
 
@@ -13849,9 +13849,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array480[] = {
         list479,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[317],
-        builtinSymbols[416]
+        builtinSymbols[419]
     };
     Object list480 = Pair::arrayToList(array480, 4);
 
@@ -13863,7 +13863,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array482[] = {
         list481,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[317]
     };
     Object list482 = Pair::arrayToList(array482, 3);
@@ -13876,7 +13876,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array484[] = {
         list483,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[317]
     };
     Object list484 = Pair::arrayToList(array484, 3);
@@ -13889,9 +13889,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array486[] = {
         list485,
-        builtinSymbols[557],
-        builtinSymbols[717],
-        builtinSymbols[420]
+        builtinSymbols[560],
+        builtinSymbols[720],
+        builtinSymbols[423]
     };
     Object list486 = Pair::arrayToList(array486, 4);
 
@@ -13903,8 +13903,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array488[] = {
         list487,
-        builtinSymbols[399],
-        builtinSymbols[533]
+        builtinSymbols[402],
+        builtinSymbols[536]
     };
     Object list488 = Pair::arrayToList(array488, 3);
 
@@ -13916,9 +13916,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array490[] = {
         list489,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[288],
-        builtinSymbols[683]
+        builtinSymbols[686]
     };
     Object list490 = Pair::arrayToList(array490, 4);
 
@@ -13930,9 +13930,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array492[] = {
         list491,
-        builtinSymbols[399],
-        builtinSymbols[370],
-        builtinSymbols[418],
+        builtinSymbols[402],
+        builtinSymbols[373],
+        builtinSymbols[421],
         builtinSymbols[317]
     };
     Object list492 = Pair::arrayToList(array492, 5);
@@ -13945,10 +13945,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array494[] = {
         list493,
-        builtinSymbols[399],
-        builtinSymbols[679],
-        builtinSymbols[418],
-        builtinSymbols[370]
+        builtinSymbols[402],
+        builtinSymbols[682],
+        builtinSymbols[421],
+        builtinSymbols[373]
     };
     Object list494 = Pair::arrayToList(array494, 5);
 
@@ -13960,10 +13960,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array496[] = {
         list495,
-        builtinSymbols[399],
-        builtinSymbols[749],
-        builtinSymbols[418],
-        builtinSymbols[370]
+        builtinSymbols[402],
+        builtinSymbols[752],
+        builtinSymbols[421],
+        builtinSymbols[373]
     };
     Object list496 = Pair::arrayToList(array496, 5);
 
@@ -13975,38 +13975,38 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array498[] = {
         list497,
-        builtinSymbols[563],
-        builtinSymbols[717],
-        builtinSymbols[420],
-        builtinSymbols[448]
+        builtinSymbols[566],
+        builtinSymbols[720],
+        builtinSymbols[423],
+        builtinSymbols[451]
     };
     Object list498 = Pair::arrayToList(array498, 5);
 
     static Object array499[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[263]
     };
     Object list499 = Pair::arrayToList(array499, 3);
 
     static Object array500[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[257],
-        builtinSymbols[496]
+        builtinSymbols[499]
     };
     Object list500 = Pair::arrayToList(array500, 4);
 
     static Object array501[] = {
         Object::False,
-        builtinSymbols[399],
-        builtinSymbols[700]
+        builtinSymbols[402],
+        builtinSymbols[703]
     };
     Object list501 = Pair::arrayToList(array501, 3);
 
     static Object array502[] = {
         Object::False,
-        builtinSymbols[399]
+        builtinSymbols[402]
     };
     Object list502 = Pair::arrayToList(array502, 2);
 
@@ -14018,8 +14018,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array504[] = {
         list503,
-        builtinSymbols[399],
-        builtinSymbols[700]
+        builtinSymbols[402],
+        builtinSymbols[703]
     };
     Object list504 = Pair::arrayToList(array504, 3);
 
@@ -14031,39 +14031,39 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array506[] = {
         list505,
-        builtinSymbols[565],
-        builtinSymbols[717],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[568],
+        builtinSymbols[720],
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list506 = Pair::arrayToList(array506, 6);
 
     static Object array507[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[263]
     };
     Object list507 = Pair::arrayToList(array507, 3);
 
     static Object array508[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[257],
-        builtinSymbols[496]
+        builtinSymbols[499]
     };
     Object list508 = Pair::arrayToList(array508, 4);
 
     static Object array509[] = {
         Object::False,
-        builtinSymbols[399],
-        builtinSymbols[700]
+        builtinSymbols[402],
+        builtinSymbols[703]
     };
     Object list509 = Pair::arrayToList(array509, 3);
 
     static Object array510[] = {
         Object::False,
-        builtinSymbols[399]
+        builtinSymbols[402]
     };
     Object list510 = Pair::arrayToList(array510, 2);
 
@@ -14075,8 +14075,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array512[] = {
         list511,
-        builtinSymbols[399],
-        builtinSymbols[700]
+        builtinSymbols[402],
+        builtinSymbols[703]
     };
     Object list512 = Pair::arrayToList(array512, 3);
 
@@ -14088,11 +14088,11 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array514[] = {
         list513,
-        builtinSymbols[541],
-        builtinSymbols[717],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[544],
+        builtinSymbols[720],
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list514 = Pair::arrayToList(array514, 6);
 
@@ -14104,7 +14104,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array516[] = {
         list515,
-        builtinSymbols[421],
+        builtinSymbols[424],
         builtinSymbols[317]
     };
     Object list516 = Pair::arrayToList(array516, 3);
@@ -14118,7 +14118,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array518[] = {
         list517,
         builtinSymbols[224],
-        builtinSymbols[357]
+        builtinSymbols[360]
     };
     Object list518 = Pair::arrayToList(array518, 3);
 
@@ -14130,8 +14130,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array520[] = {
         list519,
-        builtinSymbols[399],
-        builtinSymbols[748]
+        builtinSymbols[402],
+        builtinSymbols[751]
     };
     Object list520 = Pair::arrayToList(array520, 3);
 
@@ -14143,11 +14143,11 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array522[] = {
         list521,
-        builtinSymbols[558],
-        builtinSymbols[499],
-        builtinSymbols[717],
-        builtinSymbols[420],
-        builtinSymbols[448]
+        builtinSymbols[561],
+        builtinSymbols[502],
+        builtinSymbols[720],
+        builtinSymbols[423],
+        builtinSymbols[451]
     };
     Object list522 = Pair::arrayToList(array522, 6);
 
@@ -14159,8 +14159,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array524[] = {
         list523,
-        builtinSymbols[399],
-        builtinSymbols[533]
+        builtinSymbols[402],
+        builtinSymbols[536]
     };
     Object list524 = Pair::arrayToList(array524, 3);
 
@@ -14173,7 +14173,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array526[] = {
         list525,
         builtinSymbols[250],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list526 = Pair::arrayToList(array526, 3);
 
@@ -14185,9 +14185,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array528[] = {
         list527,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[82],
-        builtinSymbols[762]
+        builtinSymbols[765]
     };
     Object list528 = Pair::arrayToList(array528, 4);
 
@@ -14199,17 +14199,17 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array530[] = {
         list529,
-        builtinSymbols[550],
+        builtinSymbols[553],
         builtinSymbols[85],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list530 = Pair::arrayToList(array530, 6);
 
     static Object array531[] = {
-        builtinSymbols[777],
-        builtinSymbols[416]
+        builtinSymbols[780],
+        builtinSymbols[419]
     };
     Object list531 = Pair::arrayToList(array531, 2);
 
@@ -14221,18 +14221,18 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array533[] = {
         list532,
-        builtinSymbols[549],
-        builtinSymbols[749],
-        builtinSymbols[1206],
-        builtinSymbols[420],
-        builtinSymbols[448],
-        builtinSymbols[766]
+        builtinSymbols[552],
+        builtinSymbols[752],
+        builtinSymbols[1209],
+        builtinSymbols[423],
+        builtinSymbols[451],
+        builtinSymbols[769]
     };
     Object list533 = Pair::arrayToList(array533, 7);
 
     static Object array534[] = {
-        builtinSymbols[777],
-        builtinSymbols[416]
+        builtinSymbols[780],
+        builtinSymbols[419]
     };
     Object list534 = Pair::arrayToList(array534, 2);
 
@@ -14244,10 +14244,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array536[] = {
         list535,
-        builtinSymbols[567],
-        builtinSymbols[749],
-        builtinSymbols[420],
-        builtinSymbols[448]
+        builtinSymbols[570],
+        builtinSymbols[752],
+        builtinSymbols[423],
+        builtinSymbols[451]
     };
     Object list536 = Pair::arrayToList(array536, 5);
 
@@ -14259,9 +14259,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array538[] = {
         list537,
-        builtinSymbols[555],
-        builtinSymbols[749],
-        builtinSymbols[448]
+        builtinSymbols[558],
+        builtinSymbols[752],
+        builtinSymbols[451]
     };
     Object list538 = Pair::arrayToList(array538, 4);
 
@@ -14273,10 +14273,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array540[] = {
         list539,
-        builtinSymbols[561],
-        builtinSymbols[749],
-        builtinSymbols[420],
-        builtinSymbols[1206]
+        builtinSymbols[564],
+        builtinSymbols[752],
+        builtinSymbols[423],
+        builtinSymbols[1209]
     };
     Object list540 = Pair::arrayToList(array540, 5);
 
@@ -14288,9 +14288,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array542[] = {
         list541,
-        builtinSymbols[562],
-        builtinSymbols[749],
-        builtinSymbols[420]
+        builtinSymbols[565],
+        builtinSymbols[752],
+        builtinSymbols[423]
     };
     Object list542 = Pair::arrayToList(array542, 4);
 
@@ -14303,8 +14303,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array544[] = {
         list543,
         builtinSymbols[301],
-        builtinSymbols[518],
-        builtinSymbols[444]
+        builtinSymbols[521],
+        builtinSymbols[447]
     };
     Object list544 = Pair::arrayToList(array544, 4);
 
@@ -14317,8 +14317,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array546[] = {
         list545,
         builtinSymbols[287],
-        builtinSymbols[1233],
-        builtinSymbols[416]
+        builtinSymbols[1236],
+        builtinSymbols[419]
     };
     Object list546 = Pair::arrayToList(array546, 4);
 
@@ -14330,9 +14330,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array548[] = {
         list547,
-        builtinSymbols[380],
-        builtinSymbols[1233],
-        builtinSymbols[468]
+        builtinSymbols[383],
+        builtinSymbols[1236],
+        builtinSymbols[471]
     };
     Object list548 = Pair::arrayToList(array548, 4);
 
@@ -14344,8 +14344,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array550[] = {
         list549,
-        builtinSymbols[399],
-        builtinSymbols[495],
+        builtinSymbols[402],
+        builtinSymbols[498],
         builtinSymbols[72]
     };
     Object list550 = Pair::arrayToList(array550, 4);
@@ -14359,9 +14359,9 @@ Object scheme::getBuiltinCompiler() {
     static Object array552[] = {
         list551,
         builtinSymbols[243],
-        builtinSymbols[1233],
-        builtinSymbols[416],
-        builtinSymbols[684]
+        builtinSymbols[1236],
+        builtinSymbols[419],
+        builtinSymbols[687]
     };
     Object list552 = Pair::arrayToList(array552, 5);
 
@@ -14373,7 +14373,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array554[] = {
         list553,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[180],
         builtinSymbols[179]
     };
@@ -14387,7 +14387,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array556[] = {
         list555,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[143],
         builtinSymbols[142]
     };
@@ -14402,9 +14402,9 @@ Object scheme::getBuiltinCompiler() {
     static Object array558[] = {
         list557,
         builtinSymbols[242],
-        builtinSymbols[1233],
-        builtinSymbols[416],
-        builtinSymbols[684]
+        builtinSymbols[1236],
+        builtinSymbols[419],
+        builtinSymbols[687]
     };
     Object list558 = Pair::arrayToList(array558, 5);
 
@@ -14417,9 +14417,9 @@ Object scheme::getBuiltinCompiler() {
     static Object array560[] = {
         list559,
         builtinSymbols[241],
-        builtinSymbols[1233],
-        builtinSymbols[416],
-        builtinSymbols[684]
+        builtinSymbols[1236],
+        builtinSymbols[419],
+        builtinSymbols[687]
     };
     Object list560 = Pair::arrayToList(array560, 5);
 
@@ -14432,7 +14432,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array562[] = {
         list561,
         builtinSymbols[298],
-        builtinSymbols[495],
+        builtinSymbols[498],
         builtinSymbols[72]
     };
     Object list562 = Pair::arrayToList(array562, 4);
@@ -14445,8 +14445,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array564[] = {
         list563,
-        builtinSymbols[412],
-        builtinSymbols[717]
+        builtinSymbols[415],
+        builtinSymbols[720]
     };
     Object list564 = Pair::arrayToList(array564, 3);
 
@@ -14459,7 +14459,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array566[] = {
         list565,
         builtinSymbols[60],
-        builtinSymbols[717]
+        builtinSymbols[720]
     };
     Object list566 = Pair::arrayToList(array566, 3);
 
@@ -14471,8 +14471,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array568[] = {
         list567,
-        builtinSymbols[500],
-        builtinSymbols[717]
+        builtinSymbols[503],
+        builtinSymbols[720]
     };
     Object list568 = Pair::arrayToList(array568, 3);
 
@@ -14485,7 +14485,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array570[] = {
         list569,
         builtinSymbols[146],
-        builtinSymbols[717]
+        builtinSymbols[720]
     };
     Object list570 = Pair::arrayToList(array570, 3);
 
@@ -14497,7 +14497,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array572[] = {
         list571,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[193]
     };
     Object list572 = Pair::arrayToList(array572, 3);
@@ -14512,7 +14512,7 @@ Object scheme::getBuiltinCompiler() {
         list573,
         builtinSymbols[285],
         builtinSymbols[193],
-        builtinSymbols[775]
+        builtinSymbols[778]
     };
     Object list574 = Pair::arrayToList(array574, 4);
 
@@ -14524,7 +14524,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array576[] = {
         list575,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[193]
     };
     Object list576 = Pair::arrayToList(array576, 3);
@@ -14537,9 +14537,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array578[] = {
         list577,
-        builtinSymbols[399],
-        builtinSymbols[771],
-        builtinSymbols[772],
+        builtinSymbols[402],
+        builtinSymbols[774],
+        builtinSymbols[775],
         builtinSymbols[263]
     };
     Object list578 = Pair::arrayToList(array578, 5);
@@ -14553,7 +14553,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array580[] = {
         list579,
         builtinSymbols[217],
-        builtinSymbols[717]
+        builtinSymbols[720]
     };
     Object list580 = Pair::arrayToList(array580, 3);
 
@@ -14565,7 +14565,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array582[] = {
         list581,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77]
     };
     Object list582 = Pair::arrayToList(array582, 3);
@@ -14578,8 +14578,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array584[] = {
         list583,
-        builtinSymbols[410],
-        builtinSymbols[717]
+        builtinSymbols[413],
+        builtinSymbols[720]
     };
     Object list584 = Pair::arrayToList(array584, 3);
 
@@ -14591,8 +14591,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array586[] = {
         list585,
-        builtinSymbols[1199],
-        builtinSymbols[717]
+        builtinSymbols[1202],
+        builtinSymbols[720]
     };
     Object list586 = Pair::arrayToList(array586, 3);
 
@@ -14605,7 +14605,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array588[] = {
         list587,
         builtinSymbols[233],
-        builtinSymbols[717]
+        builtinSymbols[720]
     };
     Object list588 = Pair::arrayToList(array588, 3);
 
@@ -14617,7 +14617,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array590[] = {
         list589,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[229]
     };
     Object list590 = Pair::arrayToList(array590, 3);
@@ -14630,8 +14630,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array592[] = {
         list591,
-        builtinSymbols[399],
-        builtinSymbols[700]
+        builtinSymbols[402],
+        builtinSymbols[703]
     };
     Object list592 = Pair::arrayToList(array592, 3);
 
@@ -14643,8 +14643,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array594[] = {
         list593,
-        builtinSymbols[381],
-        builtinSymbols[717]
+        builtinSymbols[384],
+        builtinSymbols[720]
     };
     Object list594 = Pair::arrayToList(array594, 3);
 
@@ -14656,9 +14656,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array596[] = {
         list595,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[320],
-        builtinSymbols[444]
+        builtinSymbols[447]
     };
     Object list596 = Pair::arrayToList(array596, 4);
 
@@ -14671,8 +14671,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array598[] = {
         list597,
         builtinSymbols[300],
-        builtinSymbols[647],
-        builtinSymbols[444]
+        builtinSymbols[650],
+        builtinSymbols[447]
     };
     Object list598 = Pair::arrayToList(array598, 4);
 
@@ -14698,39 +14698,39 @@ Object scheme::getBuiltinCompiler() {
     static Object array602[] = {
         list601,
         builtinSymbols[235],
-        builtinSymbols[717]
+        builtinSymbols[720]
     };
     Object list602 = Pair::arrayToList(array602, 3);
 
     static Object array603[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[263]
     };
     Object list603 = Pair::arrayToList(array603, 3);
 
     static Object array604[] = {
         Object::False,
-        builtinSymbols[399],
-        builtinSymbols[647],
+        builtinSymbols[402],
+        builtinSymbols[650],
         builtinSymbols[85],
-        builtinSymbols[496]
+        builtinSymbols[499]
     };
     Object list604 = Pair::arrayToList(array604, 5);
 
     static Object array605[] = {
         Object::False,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[263]
     };
     Object list605 = Pair::arrayToList(array605, 3);
 
     static Object array606[] = {
         Object::False,
-        builtinSymbols[399],
-        builtinSymbols[647],
+        builtinSymbols[402],
+        builtinSymbols[650],
         builtinSymbols[85],
-        builtinSymbols[496]
+        builtinSymbols[499]
     };
     Object list606 = Pair::arrayToList(array606, 5);
 
@@ -14742,8 +14742,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array608[] = {
         list607,
-        builtinSymbols[399],
-        builtinSymbols[700]
+        builtinSymbols[402],
+        builtinSymbols[703]
     };
     Object list608 = Pair::arrayToList(array608, 3);
 
@@ -14755,8 +14755,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array610[] = {
         list609,
-        builtinSymbols[554],
-        builtinSymbols[717]
+        builtinSymbols[557],
+        builtinSymbols[720]
     };
     Object list610 = Pair::arrayToList(array610, 3);
 
@@ -14768,9 +14768,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array612[] = {
         list611,
-        builtinSymbols[399],
-        builtinSymbols[1233],
-        builtinSymbols[1236]
+        builtinSymbols[402],
+        builtinSymbols[1236],
+        builtinSymbols[1239]
     };
     Object list612 = Pair::arrayToList(array612, 4);
 
@@ -14783,7 +14783,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array614[] = {
         list613,
         builtinSymbols[286],
-        builtinSymbols[1212],
+        builtinSymbols[1215],
         builtinSymbols[85]
     };
     Object list614 = Pair::arrayToList(array614, 4);
@@ -14796,8 +14796,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array616[] = {
         list615,
-        builtinSymbols[414],
-        builtinSymbols[717]
+        builtinSymbols[417],
+        builtinSymbols[720]
     };
     Object list616 = Pair::arrayToList(array616, 3);
 
@@ -14809,8 +14809,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array618[] = {
         list617,
-        builtinSymbols[400],
-        builtinSymbols[717]
+        builtinSymbols[403],
+        builtinSymbols[720]
     };
     Object list618 = Pair::arrayToList(array618, 3);
 
@@ -14822,7 +14822,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array620[] = {
         list619,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[318],
         builtinSymbols[77]
     };
@@ -14836,7 +14836,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array622[] = {
         list621,
-        builtinSymbols[539],
+        builtinSymbols[542],
         builtinSymbols[318]
     };
     Object list622 = Pair::arrayToList(array622, 3);
@@ -14849,9 +14849,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array624[] = {
         list623,
-        builtinSymbols[399],
-        builtinSymbols[533],
-        builtinSymbols[683]
+        builtinSymbols[402],
+        builtinSymbols[536],
+        builtinSymbols[686]
     };
     Object list624 = Pair::arrayToList(array624, 4);
 
@@ -14863,14 +14863,14 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array626[] = {
         list625,
-        builtinSymbols[540],
-        builtinSymbols[1212]
+        builtinSymbols[543],
+        builtinSymbols[1215]
     };
     Object list626 = Pair::arrayToList(array626, 3);
 
     static Object array627[] = {
-        builtinSymbols[777],
-        builtinSymbols[416]
+        builtinSymbols[780],
+        builtinSymbols[419]
     };
     Object list627 = Pair::arrayToList(array627, 2);
 
@@ -14882,8 +14882,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array629[] = {
         list628,
-        builtinSymbols[455],
-        builtinSymbols[499]
+        builtinSymbols[458],
+        builtinSymbols[502]
     };
     Object list629 = Pair::arrayToList(array629, 3);
 
@@ -14896,12 +14896,12 @@ Object scheme::getBuiltinCompiler() {
     static Object array631[] = {
         list630,
         builtinSymbols[28],
-        builtinSymbols[448],
-        builtinSymbols[680],
-        builtinSymbols[528],
-        builtinSymbols[1208],
+        builtinSymbols[451],
+        builtinSymbols[683],
+        builtinSymbols[531],
+        builtinSymbols[1211],
         builtinSymbols[85],
-        builtinSymbols[766]
+        builtinSymbols[769]
     };
     Object list631 = Pair::arrayToList(array631, 8);
 
@@ -14926,8 +14926,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array635[] = {
         list634,
         builtinSymbols[13],
-        builtinSymbols[418],
-        builtinSymbols[416]
+        builtinSymbols[421],
+        builtinSymbols[419]
     };
     Object list635 = Pair::arrayToList(array635, 4);
 
@@ -14940,7 +14940,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array637[] = {
         list636,
         builtinSymbols[12],
-        builtinSymbols[368]
+        builtinSymbols[371]
     };
     Object list637 = Pair::arrayToList(array637, 3);
 
@@ -14953,11 +14953,11 @@ Object scheme::getBuiltinCompiler() {
     static Object array639[] = {
         list638,
         builtinSymbols[18],
-        builtinSymbols[499],
+        builtinSymbols[502],
         builtinSymbols[289],
-        builtinSymbols[369],
-        builtinSymbols[367],
-        builtinSymbols[449],
+        builtinSymbols[372],
+        builtinSymbols[370],
+        builtinSymbols[452],
         builtinSymbols[85],
         builtinSymbols[215]
     };
@@ -14998,10 +14998,10 @@ Object scheme::getBuiltinCompiler() {
     static Object array645[] = {
         list644,
         builtinSymbols[3],
-        builtinSymbols[652],
+        builtinSymbols[655],
         builtinSymbols[77],
-        builtinSymbols[766],
-        builtinSymbols[1188]
+        builtinSymbols[769],
+        builtinSymbols[1191]
     };
     Object list645 = Pair::arrayToList(array645, 6);
 
@@ -15014,8 +15014,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array647[] = {
         list646,
         builtinSymbols[4],
-        builtinSymbols[652],
-        builtinSymbols[766]
+        builtinSymbols[655],
+        builtinSymbols[769]
     };
     Object list647 = Pair::arrayToList(array647, 4);
 
@@ -15028,9 +15028,9 @@ Object scheme::getBuiltinCompiler() {
     static Object array649[] = {
         list648,
         builtinSymbols[6],
-        builtinSymbols[418],
-        builtinSymbols[748],
-        builtinSymbols[1206]
+        builtinSymbols[421],
+        builtinSymbols[751],
+        builtinSymbols[1209]
     };
     Object list649 = Pair::arrayToList(array649, 5);
 
@@ -15043,7 +15043,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array651[] = {
         list650,
         builtinSymbols[2],
-        builtinSymbols[378],
+        builtinSymbols[381],
         builtinSymbols[77]
     };
     Object list651 = Pair::arrayToList(array651, 4);
@@ -15057,8 +15057,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array653[] = {
         list652,
         builtinSymbols[11],
-        builtinSymbols[771],
-        builtinSymbols[772],
+        builtinSymbols[774],
+        builtinSymbols[775],
         builtinSymbols[263]
     };
     Object list653 = Pair::arrayToList(array653, 5);
@@ -15084,9 +15084,9 @@ Object scheme::getBuiltinCompiler() {
     static Object array657[] = {
         list656,
         builtinSymbols[9],
-        builtinSymbols[418],
-        builtinSymbols[748],
-        builtinSymbols[1206]
+        builtinSymbols[421],
+        builtinSymbols[751],
+        builtinSymbols[1209]
     };
     Object list657 = Pair::arrayToList(array657, 5);
 
@@ -15099,8 +15099,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array659[] = {
         list658,
         builtinSymbols[10],
-        builtinSymbols[418],
-        builtinSymbols[748]
+        builtinSymbols[421],
+        builtinSymbols[751]
     };
     Object list659 = Pair::arrayToList(array659, 4);
 
@@ -15113,8 +15113,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array661[] = {
         list660,
         builtinSymbols[22],
-        builtinSymbols[447],
-        builtinSymbols[1206]
+        builtinSymbols[450],
+        builtinSymbols[1209]
     };
     Object list661 = Pair::arrayToList(array661, 4);
 
@@ -15127,7 +15127,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array663[] = {
         list662,
         builtinSymbols[23],
-        builtinSymbols[447]
+        builtinSymbols[450]
     };
     Object list663 = Pair::arrayToList(array663, 3);
 
@@ -15140,11 +15140,11 @@ Object scheme::getBuiltinCompiler() {
     static Object array665[] = {
         list664,
         builtinSymbols[16],
-        builtinSymbols[727],
-        builtinSymbols[499],
-        builtinSymbols[680],
-        builtinSymbols[528],
-        builtinSymbols[448],
+        builtinSymbols[730],
+        builtinSymbols[502],
+        builtinSymbols[683],
+        builtinSymbols[531],
+        builtinSymbols[451],
         builtinSymbols[85],
         builtinSymbols[306],
         builtinSymbols[137]
@@ -15161,7 +15161,7 @@ Object scheme::getBuiltinCompiler() {
         list666,
         builtinSymbols[29],
         builtinSymbols[85],
-        builtinSymbols[766]
+        builtinSymbols[769]
     };
     Object list667 = Pair::arrayToList(array667, 4);
 
@@ -15174,12 +15174,12 @@ Object scheme::getBuiltinCompiler() {
     static Object array669[] = {
         list668,
         builtinSymbols[17],
-        builtinSymbols[1188],
-        builtinSymbols[448],
-        builtinSymbols[377],
+        builtinSymbols[1191],
+        builtinSymbols[451],
+        builtinSymbols[380],
         builtinSymbols[85],
-        builtinSymbols[766],
-        builtinSymbols[727]
+        builtinSymbols[769],
+        builtinSymbols[730]
     };
     Object list669 = Pair::arrayToList(array669, 8);
 
@@ -15191,8 +15191,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array671[] = {
         list670,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list671 = Pair::arrayToList(array671, 3);
 
@@ -15204,8 +15204,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array673[] = {
         list672,
-        builtinSymbols[646],
-        builtinSymbols[448]
+        builtinSymbols[649],
+        builtinSymbols[451]
     };
     Object list673 = Pair::arrayToList(array673, 3);
 
@@ -15218,7 +15218,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array675[] = {
         list674,
         builtinSymbols[25],
-        builtinSymbols[361]
+        builtinSymbols[364]
     };
     Object list675 = Pair::arrayToList(array675, 3);
 
@@ -15231,10 +15231,10 @@ Object scheme::getBuiltinCompiler() {
     static Object array677[] = {
         list676,
         builtinSymbols[24],
-        builtinSymbols[748],
-        builtinSymbols[376],
-        builtinSymbols[670],
-        builtinSymbols[710]
+        builtinSymbols[751],
+        builtinSymbols[379],
+        builtinSymbols[673],
+        builtinSymbols[713]
     };
     Object list677 = Pair::arrayToList(array677, 6);
 
@@ -15247,7 +15247,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array679[] = {
         list678,
         builtinSymbols[5],
-        builtinSymbols[1206]
+        builtinSymbols[1209]
     };
     Object list679 = Pair::arrayToList(array679, 3);
 
@@ -15259,9 +15259,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array681[] = {
         list680,
-        builtinSymbols[399],
-        builtinSymbols[444],
-        builtinSymbols[683]
+        builtinSymbols[402],
+        builtinSymbols[447],
+        builtinSymbols[686]
     };
     Object list681 = Pair::arrayToList(array681, 4);
 
@@ -15273,9 +15273,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array683[] = {
         list682,
-        builtinSymbols[676],
-        builtinSymbols[444],
-        builtinSymbols[647]
+        builtinSymbols[679],
+        builtinSymbols[447],
+        builtinSymbols[650]
     };
     Object list683 = Pair::arrayToList(array683, 4);
 
@@ -15288,8 +15288,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array685[] = {
         list684,
         builtinSymbols[71],
-        builtinSymbols[652],
-        builtinSymbols[444]
+        builtinSymbols[655],
+        builtinSymbols[447]
     };
     Object list685 = Pair::arrayToList(array685, 4);
 
@@ -15301,9 +15301,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array687[] = {
         list686,
-        builtinSymbols[399],
-        builtinSymbols[444],
-        builtinSymbols[683]
+        builtinSymbols[402],
+        builtinSymbols[447],
+        builtinSymbols[686]
     };
     Object list687 = Pair::arrayToList(array687, 4);
 
@@ -15315,8 +15315,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array689[] = {
         list688,
-        builtinSymbols[1197],
-        builtinSymbols[444]
+        builtinSymbols[1200],
+        builtinSymbols[447]
     };
     Object list689 = Pair::arrayToList(array689, 3);
 
@@ -15330,7 +15330,7 @@ Object scheme::getBuiltinCompiler() {
         list690,
         builtinSymbols[27],
         builtinSymbols[290],
-        builtinSymbols[394]
+        builtinSymbols[397]
     };
     Object list691 = Pair::arrayToList(array691, 4);
 
@@ -15344,7 +15344,7 @@ Object scheme::getBuiltinCompiler() {
         list692,
         builtinSymbols[7],
         builtinSymbols[290],
-        builtinSymbols[394]
+        builtinSymbols[397]
     };
     Object list693 = Pair::arrayToList(array693, 4);
 
@@ -15358,7 +15358,7 @@ Object scheme::getBuiltinCompiler() {
         list694,
         builtinSymbols[26],
         builtinSymbols[290],
-        builtinSymbols[394]
+        builtinSymbols[397]
     };
     Object list695 = Pair::arrayToList(array695, 4);
 
@@ -15370,9 +15370,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array697[] = {
         list696,
-        builtinSymbols[399],
-        builtinSymbols[499],
-        builtinSymbols[683]
+        builtinSymbols[402],
+        builtinSymbols[502],
+        builtinSymbols[686]
     };
     Object list697 = Pair::arrayToList(array697, 4);
 
@@ -15384,8 +15384,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array699[] = {
         list698,
-        builtinSymbols[419],
-        builtinSymbols[499]
+        builtinSymbols[422],
+        builtinSymbols[502]
     };
     Object list699 = Pair::arrayToList(array699, 3);
 
@@ -15398,9 +15398,9 @@ Object scheme::getBuiltinCompiler() {
     static Object array701[] = {
         list700,
         builtinSymbols[62],
-        builtinSymbols[515],
-        builtinSymbols[516],
-        builtinSymbols[517]
+        builtinSymbols[518],
+        builtinSymbols[519],
+        builtinSymbols[520]
     };
     Object list701 = Pair::arrayToList(array701, 5);
 
@@ -15412,8 +15412,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array703[] = {
         list702,
-        builtinSymbols[755],
-        builtinSymbols[497]
+        builtinSymbols[758],
+        builtinSymbols[500]
     };
     Object list703 = Pair::arrayToList(array703, 3);
 
@@ -15425,9 +15425,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array705[] = {
         list704,
-        builtinSymbols[399],
-        builtinSymbols[357],
-        builtinSymbols[444]
+        builtinSymbols[402],
+        builtinSymbols[360],
+        builtinSymbols[447]
     };
     Object list705 = Pair::arrayToList(array705, 4);
 
@@ -15440,8 +15440,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array707[] = {
         list706,
         builtinSymbols[8],
-        builtinSymbols[652],
-        builtinSymbols[444]
+        builtinSymbols[655],
+        builtinSymbols[447]
     };
     Object list707 = Pair::arrayToList(array707, 4);
 
@@ -15453,8 +15453,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array709[] = {
         list708,
-        builtinSymbols[399],
-        builtinSymbols[389]
+        builtinSymbols[402],
+        builtinSymbols[392]
     };
     Object list709 = Pair::arrayToList(array709, 3);
 
@@ -15466,9 +15466,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array711[] = {
         list710,
-        builtinSymbols[352],
-        builtinSymbols[356],
-        builtinSymbols[389]
+        builtinSymbols[355],
+        builtinSymbols[359],
+        builtinSymbols[392]
     };
     Object list711 = Pair::arrayToList(array711, 4);
 
@@ -15480,9 +15480,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array713[] = {
         list712,
-        builtinSymbols[399],
-        builtinSymbols[388],
-        builtinSymbols[1209]
+        builtinSymbols[402],
+        builtinSymbols[391],
+        builtinSymbols[1212]
     };
     Object list713 = Pair::arrayToList(array713, 4);
 
@@ -15495,7 +15495,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array715[] = {
         list714,
         builtinSymbols[269],
-        builtinSymbols[356]
+        builtinSymbols[359]
     };
     Object list715 = Pair::arrayToList(array715, 3);
 
@@ -15512,146 +15512,146 @@ Object scheme::getBuiltinCompiler() {
     Object list717 = Pair::arrayToList(array717, 2);
 
     static Object array718[] = {
-        builtinSymbols[513],
+        builtinSymbols[516],
         builtinSymbols[220],
         builtinSymbols[139],
         builtinSymbols[178],
-        builtinSymbols[511],
-        builtinSymbols[708],
-        builtinSymbols[709],
-        builtinSymbols[756],
-        builtinSymbols[694],
-        builtinSymbols[674],
-        builtinSymbols[671],
-        builtinSymbols[698],
+        builtinSymbols[514],
+        builtinSymbols[711],
+        builtinSymbols[712],
+        builtinSymbols[759],
         builtinSymbols[697],
-        builtinSymbols[695],
-        builtinSymbols[696],
+        builtinSymbols[677],
+        builtinSymbols[674],
+        builtinSymbols[701],
+        builtinSymbols[700],
+        builtinSymbols[698],
         builtinSymbols[699],
-        builtinSymbols[460],
-        builtinSymbols[743],
-        builtinSymbols[741],
-        builtinSymbols[737],
-        builtinSymbols[735],
-        builtinSymbols[738],
-        builtinSymbols[744],
-        builtinSymbols[732],
-        builtinSymbols[512],
-        builtinSymbols[687],
-        builtinSymbols[267],
-        builtinSymbols[664],
-        builtinSymbols[186],
+        builtinSymbols[702],
+        builtinSymbols[463],
         builtinSymbols[746],
+        builtinSymbols[744],
+        builtinSymbols[740],
+        builtinSymbols[738],
+        builtinSymbols[741],
+        builtinSymbols[747],
+        builtinSymbols[735],
+        builtinSymbols[515],
+        builtinSymbols[690],
+        builtinSymbols[267],
+        builtinSymbols[667],
+        builtinSymbols[186],
+        builtinSymbols[749],
         builtinSymbols[336],
         builtinSymbols[337],
         builtinSymbols[271],
-        builtinSymbols[525],
-        builtinSymbols[760],
-        builtinSymbols[761],
-        builtinSymbols[524],
+        builtinSymbols[528],
+        builtinSymbols[763],
+        builtinSymbols[764],
+        builtinSymbols[527],
         builtinSymbols[196],
         builtinSymbols[244],
         builtinSymbols[338],
-        builtinSymbols[666],
+        builtinSymbols[669],
         builtinSymbols[294],
-        builtinSymbols[758],
-        builtinSymbols[736],
+        builtinSymbols[761],
+        builtinSymbols[739],
         builtinSymbols[183],
-        builtinSymbols[379],
+        builtinSymbols[382],
         builtinSymbols[319],
         builtinSymbols[227],
         builtinSymbols[228],
-        builtinSymbols[711],
-        builtinSymbols[712],
+        builtinSymbols[714],
+        builtinSymbols[715],
         builtinSymbols[189],
-        builtinSymbols[1231],
+        builtinSymbols[1234],
         builtinSymbols[331],
-        builtinSymbols[745],
-        builtinSymbols[1224],
-        builtinSymbols[435],
-        builtinSymbols[490],
+        builtinSymbols[748],
+        builtinSymbols[1227],
+        builtinSymbols[438],
+        builtinSymbols[493],
         builtinSymbols[270],
-        builtinSymbols[489],
+        builtinSymbols[492],
         builtinSymbols[86],
-        builtinSymbols[750],
-        builtinSymbols[742],
+        builtinSymbols[753],
+        builtinSymbols[745],
         builtinSymbols[274],
         builtinSymbols[339],
-        builtinSymbols[456],
-        builtinSymbols[351],
-        builtinSymbols[350],
-        builtinSymbols[347],
-        builtinSymbols[740],
+        builtinSymbols[459],
+        builtinSymbols[354],
+        builtinSymbols[353],
+        builtinSymbols[349],
+        builtinSymbols[743],
         builtinSymbols[269],
         builtinSymbols[226],
-        builtinSymbols[1210],
-        builtinSymbols[1225],
-        builtinSymbols[538],
-        builtinSymbols[375],
+        builtinSymbols[1213],
+        builtinSymbols[1228],
+        builtinSymbols[541],
+        builtinSymbols[378],
         builtinSymbols[302],
-        builtinSymbols[454],
+        builtinSymbols[457],
         builtinSymbols[340],
         builtinSymbols[91],
-        builtinSymbols[1184],
-        builtinSymbols[1203],
-        builtinSymbols[461],
+        builtinSymbols[1187],
+        builtinSymbols[1206],
+        builtinSymbols[464],
         builtinSymbols[266],
-        builtinSymbols[759],
-        builtinSymbols[757],
+        builtinSymbols[762],
+        builtinSymbols[760],
         builtinSymbols[89],
         builtinSymbols[90],
-        builtinSymbols[729],
+        builtinSymbols[732],
         builtinSymbols[334],
-        builtinSymbols[1204],
-        builtinSymbols[523],
-        builtinSymbols[522],
+        builtinSymbols[1207],
+        builtinSymbols[526],
+        builtinSymbols[525],
         builtinSymbols[195],
-        builtinSymbols[1213],
-        builtinSymbols[672],
-        builtinSymbols[673],
-        builtinSymbols[724],
+        builtinSymbols[1216],
+        builtinSymbols[675],
+        builtinSymbols[676],
+        builtinSymbols[727],
         builtinSymbols[275],
         builtinSymbols[277],
-        builtinSymbols[661],
-        builtinSymbols[662],
-        builtinSymbols[1229],
-        builtinSymbols[464],
+        builtinSymbols[664],
+        builtinSymbols[665],
+        builtinSymbols[1232],
+        builtinSymbols[467],
+        builtinSymbols[1226],
         builtinSymbols[1223],
-        builtinSymbols[1220],
-        builtinSymbols[1221],
-        builtinSymbols[462],
-        builtinSymbols[1191],
-        builtinSymbols[1193],
-        builtinSymbols[1195],
+        builtinSymbols[1224],
+        builtinSymbols[465],
         builtinSymbols[1194],
+        builtinSymbols[1196],
+        builtinSymbols[1198],
+        builtinSymbols[1197],
         builtinSymbols[70],
-        builtinSymbols[494],
+        builtinSymbols[497],
         builtinSymbols[248],
         builtinSymbols[80],
         builtinSymbols[282],
-        builtinSymbols[451],
-        builtinSymbols[491],
-        builtinSymbols[653],
-        builtinSymbols[438],
-        builtinSymbols[753],
+        builtinSymbols[454],
+        builtinSymbols[494],
+        builtinSymbols[656],
+        builtinSymbols[441],
+        builtinSymbols[756],
         builtinSymbols[256],
         builtinSymbols[184],
         builtinSymbols[185],
         builtinSymbols[187],
         builtinSymbols[188],
-        builtinSymbols[663],
-        builtinSymbols[1214],
-        builtinSymbols[713],
+        builtinSymbols[666],
+        builtinSymbols[1217],
+        builtinSymbols[716],
         builtinSymbols[126],
         builtinSymbols[32],
         builtinSymbols[66],
         builtinSymbols[68],
         builtinSymbols[69],
         builtinSymbols[67],
-        builtinSymbols[626],
-        builtinSymbols[627],
-        builtinSymbols[638],
-        builtinSymbols[453],
+        builtinSymbols[629],
+        builtinSymbols[630],
+        builtinSymbols[641],
+        builtinSymbols[456],
         builtinSymbols[203],
         builtinSymbols[204],
         builtinSymbols[205],
@@ -15661,22 +15661,26 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[202],
         builtinSymbols[208],
         builtinSymbols[209],
-        builtinSymbols[406],
-        builtinSymbols[427],
-        builtinSymbols[624],
-        builtinSymbols[555],
+        builtinSymbols[409],
+        builtinSymbols[430],
+        builtinSymbols[627],
+        builtinSymbols[558],
         builtinSymbols[15],
         builtinSymbols[23],
-        builtinSymbols[752],
-        builtinSymbols[714],
+        builtinSymbols[755],
+        builtinSymbols[717],
         builtinSymbols[268],
-        builtinSymbols[457],
-        builtinSymbols[355],
-        builtinSymbols[353],
+        builtinSymbols[460],
+        builtinSymbols[358],
+        builtinSymbols[356],
+        builtinSymbols[347],
         builtinSymbols[345],
-        builtinSymbols[344]
+        builtinSymbols[346],
+        builtinSymbols[352],
+        builtinSymbols[344],
+        builtinSymbols[349]
     };
-    Object list718 = Pair::arrayToList(array718, 163);
+    Object list718 = Pair::arrayToList(array718, 167);
 
     static Object array719[] = {
         Object::makeString(UC("compiler-with-library.scm")),
@@ -15687,7 +15691,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array720[] = {
         list719,
         builtinSymbols[280],
-        builtinSymbols[498]
+        builtinSymbols[501]
     };
     Object list720 = Pair::arrayToList(array720, 3);
 
@@ -15700,7 +15704,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array722[] = {
         list721,
         builtinSymbols[278],
-        builtinSymbols[1233]
+        builtinSymbols[1236]
     };
     Object list722 = Pair::arrayToList(array722, 3);
 
@@ -15712,7 +15716,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array724[] = {
         list723,
-        builtinSymbols[1226]
+        builtinSymbols[1229]
     };
     Object list724 = Pair::arrayToList(array724, 2);
 
@@ -15724,9 +15728,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array726[] = {
         list725,
-        builtinSymbols[399],
-        builtinSymbols[1233],
-        builtinSymbols[1236]
+        builtinSymbols[402],
+        builtinSymbols[1236],
+        builtinSymbols[1239]
     };
     Object list726 = Pair::arrayToList(array726, 4);
 
@@ -15738,9 +15742,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array728[] = {
         list727,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[197],
-        builtinSymbols[701]
+        builtinSymbols[704]
     };
     Object list728 = Pair::arrayToList(array728, 4);
 
@@ -15752,8 +15756,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array730[] = {
         list729,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list730 = Pair::arrayToList(array730, 3);
 
@@ -15765,7 +15769,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array732[] = {
         list731,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[197]
     };
     Object list732 = Pair::arrayToList(array732, 3);
@@ -15778,8 +15782,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array734[] = {
         list733,
-        builtinSymbols[719],
-        builtinSymbols[682]
+        builtinSymbols[722],
+        builtinSymbols[685]
     };
     Object list734 = Pair::arrayToList(array734, 3);
 
@@ -15791,8 +15795,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array736[] = {
         list735,
-        builtinSymbols[399],
-        builtinSymbols[357]
+        builtinSymbols[402],
+        builtinSymbols[360]
     };
     Object list736 = Pair::arrayToList(array736, 3);
 
@@ -15804,10 +15808,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array738[] = {
         list737,
-        builtinSymbols[739],
-        builtinSymbols[700],
-        builtinSymbols[405],
-        builtinSymbols[764]
+        builtinSymbols[742],
+        builtinSymbols[703],
+        builtinSymbols[408],
+        builtinSymbols[767]
     };
     Object list738 = Pair::arrayToList(array738, 5);
 
@@ -15833,7 +15837,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array742[] = {
         list741,
         builtinSymbols[343],
-        builtinSymbols[356]
+        builtinSymbols[359]
     };
     Object list742 = Pair::arrayToList(array742, 3);
 
@@ -15845,8 +15849,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array744[] = {
         list743,
-        builtinSymbols[348],
-        builtinSymbols[356]
+        builtinSymbols[350],
+        builtinSymbols[359]
     };
     Object list744 = Pair::arrayToList(array744, 3);
 
@@ -15858,7 +15862,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array746[] = {
         list745,
-        builtinSymbols[747]
+        builtinSymbols[750]
     };
     Object list746 = Pair::arrayToList(array746, 2);
 
@@ -15870,9 +15874,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array748[] = {
         list747,
-        builtinSymbols[399],
-        builtinSymbols[645],
-        builtinSymbols[394]
+        builtinSymbols[402],
+        builtinSymbols[648],
+        builtinSymbols[397]
     };
     Object list748 = Pair::arrayToList(array748, 4);
 
@@ -15884,8 +15888,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array750[] = {
         list749,
-        builtinSymbols[734],
-        builtinSymbols[731]
+        builtinSymbols[737],
+        builtinSymbols[734]
     };
     Object list750 = Pair::arrayToList(array750, 3);
 
@@ -15897,9 +15901,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array752[] = {
         list751,
-        builtinSymbols[399],
-        builtinSymbols[681],
-        builtinSymbols[683]
+        builtinSymbols[402],
+        builtinSymbols[684],
+        builtinSymbols[686]
     };
     Object list752 = Pair::arrayToList(array752, 4);
 
@@ -15911,10 +15915,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array754[] = {
         list753,
-        builtinSymbols[691],
-        builtinSymbols[731],
-        builtinSymbols[536],
-        builtinSymbols[498]
+        builtinSymbols[694],
+        builtinSymbols[734],
+        builtinSymbols[539],
+        builtinSymbols[501]
     };
     Object list754 = Pair::arrayToList(array754, 5);
 
@@ -15926,9 +15930,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array756[] = {
         list755,
-        builtinSymbols[399],
-        builtinSymbols[681],
-        builtinSymbols[683]
+        builtinSymbols[402],
+        builtinSymbols[684],
+        builtinSymbols[686]
     };
     Object list756 = Pair::arrayToList(array756, 4);
 
@@ -15940,10 +15944,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array758[] = {
         list757,
-        builtinSymbols[442],
-        builtinSymbols[731],
-        builtinSymbols[536],
-        builtinSymbols[498]
+        builtinSymbols[445],
+        builtinSymbols[734],
+        builtinSymbols[539],
+        builtinSymbols[501]
     };
     Object list758 = Pair::arrayToList(array758, 5);
 
@@ -15955,7 +15959,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array760[] = {
         list759,
-        builtinSymbols[399]
+        builtinSymbols[402]
     };
     Object list760 = Pair::arrayToList(array760, 2);
 
@@ -15967,7 +15971,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array762[] = {
         list761,
-        builtinSymbols[399]
+        builtinSymbols[402]
     };
     Object list762 = Pair::arrayToList(array762, 2);
 
@@ -15979,7 +15983,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array764[] = {
         list763,
-        builtinSymbols[399]
+        builtinSymbols[402]
     };
     Object list764 = Pair::arrayToList(array764, 2);
 
@@ -15991,9 +15995,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array766[] = {
         list765,
-        builtinSymbols[399],
-        builtinSymbols[394],
-        builtinSymbols[660]
+        builtinSymbols[402],
+        builtinSymbols[397],
+        builtinSymbols[663]
     };
     Object list766 = Pair::arrayToList(array766, 4);
 
@@ -16005,9 +16009,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array768[] = {
         list767,
-        builtinSymbols[723],
-        builtinSymbols[1205],
-        builtinSymbols[647]
+        builtinSymbols[726],
+        builtinSymbols[1208],
+        builtinSymbols[650]
     };
     Object list768 = Pair::arrayToList(array768, 4);
 
@@ -16019,9 +16023,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array770[] = {
         list769,
-        builtinSymbols[722],
-        builtinSymbols[514],
-        builtinSymbols[647]
+        builtinSymbols[725],
+        builtinSymbols[517],
+        builtinSymbols[650]
     };
     Object list770 = Pair::arrayToList(array770, 4);
 
@@ -16033,8 +16037,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array772[] = {
         list771,
-        builtinSymbols[399],
-        builtinSymbols[388]
+        builtinSymbols[402],
+        builtinSymbols[391]
     };
     Object list772 = Pair::arrayToList(array772, 3);
 
@@ -16046,9 +16050,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array774[] = {
         list773,
-        builtinSymbols[349],
-        builtinSymbols[652],
-        builtinSymbols[356]
+        builtinSymbols[351],
+        builtinSymbols[655],
+        builtinSymbols[359]
     };
     Object list774 = Pair::arrayToList(array774, 4);
 
@@ -16060,8 +16064,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array776[] = {
         list775,
-        builtinSymbols[399],
-        builtinSymbols[388]
+        builtinSymbols[402],
+        builtinSymbols[391]
     };
     Object list776 = Pair::arrayToList(array776, 3);
 
@@ -16073,9 +16077,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array778[] = {
         list777,
-        builtinSymbols[346],
-        builtinSymbols[652],
-        builtinSymbols[356]
+        builtinSymbols[348],
+        builtinSymbols[655],
+        builtinSymbols[359]
     };
     Object list778 = Pair::arrayToList(array778, 4);
 
@@ -16087,9 +16091,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array780[] = {
         list779,
-        builtinSymbols[399],
-        builtinSymbols[1205],
-        builtinSymbols[1206]
+        builtinSymbols[402],
+        builtinSymbols[1208],
+        builtinSymbols[1209]
     };
     Object list780 = Pair::arrayToList(array780, 4);
 
@@ -16101,9 +16105,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array782[] = {
         list781,
-        builtinSymbols[1192],
-        builtinSymbols[1227],
-        builtinSymbols[645]
+        builtinSymbols[1195],
+        builtinSymbols[1230],
+        builtinSymbols[648]
     };
     Object list782 = Pair::arrayToList(array782, 4);
 
@@ -16115,8 +16119,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array784[] = {
         list783,
-        builtinSymbols[399],
-        builtinSymbols[1205]
+        builtinSymbols[402],
+        builtinSymbols[1208]
     };
     Object list784 = Pair::arrayToList(array784, 3);
 
@@ -16128,9 +16132,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array786[] = {
         list785,
-        builtinSymbols[1189],
-        builtinSymbols[1227],
-        builtinSymbols[645]
+        builtinSymbols[1192],
+        builtinSymbols[1230],
+        builtinSymbols[648]
     };
     Object list786 = Pair::arrayToList(array786, 4);
 
@@ -16142,7 +16146,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array788[] = {
         list787,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[77]
     };
     Object list788 = Pair::arrayToList(array788, 3);
@@ -16155,8 +16159,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array790[] = {
         list789,
-        builtinSymbols[1190],
-        builtinSymbols[1227]
+        builtinSymbols[1193],
+        builtinSymbols[1230]
     };
     Object list790 = Pair::arrayToList(array790, 3);
 
@@ -16168,8 +16172,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array792[] = {
         list791,
-        builtinSymbols[399],
-        builtinSymbols[1205]
+        builtinSymbols[402],
+        builtinSymbols[1208]
     };
     Object list792 = Pair::arrayToList(array792, 3);
 
@@ -16181,8 +16185,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array794[] = {
         list793,
-        builtinSymbols[1222],
-        builtinSymbols[1227]
+        builtinSymbols[1225],
+        builtinSymbols[1230]
     };
     Object list794 = Pair::arrayToList(array794, 3);
 
@@ -16194,8 +16198,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array796[] = {
         list795,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list796 = Pair::arrayToList(array796, 3);
 
@@ -16207,8 +16211,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array798[] = {
         list797,
-        builtinSymbols[399],
-        builtinSymbols[423]
+        builtinSymbols[402],
+        builtinSymbols[426]
     };
     Object list798 = Pair::arrayToList(array798, 3);
 
@@ -16220,8 +16224,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array800[] = {
         list799,
-        builtinSymbols[399],
-        builtinSymbols[1233]
+        builtinSymbols[402],
+        builtinSymbols[1236]
     };
     Object list800 = Pair::arrayToList(array800, 3);
 
@@ -16233,8 +16237,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array802[] = {
         list801,
-        builtinSymbols[399],
-        builtinSymbols[436]
+        builtinSymbols[402],
+        builtinSymbols[439]
     };
     Object list802 = Pair::arrayToList(array802, 3);
 
@@ -16248,8 +16252,8 @@ Object scheme::getBuiltinCompiler() {
         list803,
         builtinSymbols[297],
         builtinSymbols[290],
-        builtinSymbols[424],
-        builtinSymbols[436]
+        builtinSymbols[427],
+        builtinSymbols[439]
     };
     Object list804 = Pair::arrayToList(array804, 5);
 
@@ -16261,8 +16265,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array806[] = {
         list805,
-        builtinSymbols[399],
-        builtinSymbols[436]
+        builtinSymbols[402],
+        builtinSymbols[439]
     };
     Object list806 = Pair::arrayToList(array806, 3);
 
@@ -16274,7 +16278,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array808[] = {
         list807,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[54]
     };
     Object list808 = Pair::arrayToList(array808, 3);
@@ -16288,7 +16292,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array810[] = {
         list809,
         builtinSymbols[31],
-        builtinSymbols[436]
+        builtinSymbols[439]
     };
     Object list810 = Pair::arrayToList(array810, 3);
 
@@ -16300,8 +16304,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array812[] = {
         list811,
-        builtinSymbols[399],
-        builtinSymbols[1206]
+        builtinSymbols[402],
+        builtinSymbols[1209]
     };
     Object list812 = Pair::arrayToList(array812, 3);
 
@@ -16314,8 +16318,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array814[] = {
         list813,
         builtinSymbols[190],
-        builtinSymbols[647],
-        builtinSymbols[1206],
+        builtinSymbols[650],
+        builtinSymbols[1209],
         builtinSymbols[136]
     };
     Object list814 = Pair::arrayToList(array814, 5);
@@ -16328,8 +16332,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array816[] = {
         list815,
-        builtinSymbols[510],
-        builtinSymbols[394]
+        builtinSymbols[513],
+        builtinSymbols[397]
     };
     Object list816 = Pair::arrayToList(array816, 3);
 
@@ -16342,7 +16346,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array818[] = {
         list817,
         builtinSymbols[140],
-        builtinSymbols[537]
+        builtinSymbols[540]
     };
     Object list818 = Pair::arrayToList(array818, 3);
 
@@ -16354,9 +16358,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array820[] = {
         list819,
-        builtinSymbols[399],
-        builtinSymbols[1233],
-        builtinSymbols[681]
+        builtinSymbols[402],
+        builtinSymbols[1236],
+        builtinSymbols[684]
     };
     Object list820 = Pair::arrayToList(array820, 4);
 
@@ -16370,7 +16374,7 @@ Object scheme::getBuiltinCompiler() {
         list821,
         builtinSymbols[221],
         builtinSymbols[303],
-        builtinSymbols[681]
+        builtinSymbols[684]
     };
     Object list822 = Pair::arrayToList(array822, 4);
 
@@ -16382,8 +16386,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array824[] = {
         list823,
-        builtinSymbols[770],
-        builtinSymbols[1233]
+        builtinSymbols[773],
+        builtinSymbols[1236]
     };
     Object list824 = Pair::arrayToList(array824, 3);
 
@@ -16395,8 +16399,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array826[] = {
         list825,
-        builtinSymbols[505],
-        builtinSymbols[1233]
+        builtinSymbols[508],
+        builtinSymbols[1236]
     };
     Object list826 = Pair::arrayToList(array826, 3);
 
@@ -16409,7 +16413,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array828[] = {
         list827,
         builtinSymbols[260],
-        builtinSymbols[1233]
+        builtinSymbols[1236]
     };
     Object list828 = Pair::arrayToList(array828, 3);
 
@@ -16421,8 +16425,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array830[] = {
         list829,
-        builtinSymbols[716],
-        builtinSymbols[1233]
+        builtinSymbols[719],
+        builtinSymbols[1236]
     };
     Object list830 = Pair::arrayToList(array830, 3);
 
@@ -16434,8 +16438,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array832[] = {
         list831,
-        builtinSymbols[720],
-        builtinSymbols[1233]
+        builtinSymbols[723],
+        builtinSymbols[1236]
     };
     Object list832 = Pair::arrayToList(array832, 3);
 
@@ -16448,7 +16452,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array834[] = {
         list833,
         builtinSymbols[292],
-        builtinSymbols[1233]
+        builtinSymbols[1236]
     };
     Object list834 = Pair::arrayToList(array834, 3);
 
@@ -16461,7 +16465,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array836[] = {
         list835,
         builtinSymbols[321],
-        builtinSymbols[537]
+        builtinSymbols[540]
     };
     Object list836 = Pair::arrayToList(array836, 3);
 
@@ -16473,8 +16477,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array838[] = {
         list837,
-        builtinSymbols[773],
-        builtinSymbols[537]
+        builtinSymbols[776],
+        builtinSymbols[540]
     };
     Object list838 = Pair::arrayToList(array838, 3);
 
@@ -16486,8 +16490,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array840[] = {
         list839,
-        builtinSymbols[702],
-        builtinSymbols[537]
+        builtinSymbols[705],
+        builtinSymbols[540]
     };
     Object list840 = Pair::arrayToList(array840, 3);
 
@@ -16499,9 +16503,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array842[] = {
         list841,
-        builtinSymbols[399],
-        builtinSymbols[398],
-        builtinSymbols[404]
+        builtinSymbols[402],
+        builtinSymbols[401],
+        builtinSymbols[407]
     };
     Object list842 = Pair::arrayToList(array842, 4);
 
@@ -16514,8 +16518,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array844[] = {
         list843,
         builtinSymbols[254],
-        builtinSymbols[423],
-        builtinSymbols[387]
+        builtinSymbols[426],
+        builtinSymbols[390]
     };
     Object list844 = Pair::arrayToList(array844, 4);
 
@@ -16527,9 +16531,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array846[] = {
         list845,
-        builtinSymbols[399],
-        builtinSymbols[398],
-        builtinSymbols[404]
+        builtinSymbols[402],
+        builtinSymbols[401],
+        builtinSymbols[407]
     };
     Object list846 = Pair::arrayToList(array846, 4);
 
@@ -16542,8 +16546,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array848[] = {
         list847,
         builtinSymbols[253],
-        builtinSymbols[423],
-        builtinSymbols[387]
+        builtinSymbols[426],
+        builtinSymbols[390]
     };
     Object list848 = Pair::arrayToList(array848, 4);
 
@@ -16555,9 +16559,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array850[] = {
         list849,
-        builtinSymbols[399],
-        builtinSymbols[398],
-        builtinSymbols[404]
+        builtinSymbols[402],
+        builtinSymbols[401],
+        builtinSymbols[407]
     };
     Object list850 = Pair::arrayToList(array850, 4);
 
@@ -16569,9 +16573,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array852[] = {
         list851,
-        builtinSymbols[769],
-        builtinSymbols[423],
-        builtinSymbols[387]
+        builtinSymbols[772],
+        builtinSymbols[426],
+        builtinSymbols[390]
     };
     Object list852 = Pair::arrayToList(array852, 4);
 
@@ -16583,9 +16587,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array854[] = {
         list853,
-        builtinSymbols[768],
-        builtinSymbols[423],
-        builtinSymbols[387]
+        builtinSymbols[771],
+        builtinSymbols[426],
+        builtinSymbols[390]
     };
     Object list854 = Pair::arrayToList(array854, 4);
 
@@ -16597,9 +16601,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array856[] = {
         list855,
-        builtinSymbols[399],
-        builtinSymbols[423],
-        builtinSymbols[387]
+        builtinSymbols[402],
+        builtinSymbols[426],
+        builtinSymbols[390]
     };
     Object list856 = Pair::arrayToList(array856, 4);
 
@@ -16612,8 +16616,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array858[] = {
         list857,
         builtinSymbols[252],
-        builtinSymbols[423],
-        builtinSymbols[387]
+        builtinSymbols[426],
+        builtinSymbols[390]
     };
     Object list858 = Pair::arrayToList(array858, 4);
 
@@ -16625,9 +16629,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array860[] = {
         list859,
-        builtinSymbols[399],
-        builtinSymbols[423],
-        builtinSymbols[387]
+        builtinSymbols[402],
+        builtinSymbols[426],
+        builtinSymbols[390]
     };
     Object list860 = Pair::arrayToList(array860, 4);
 
@@ -16639,9 +16643,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array862[] = {
         list861,
-        builtinSymbols[767],
-        builtinSymbols[423],
-        builtinSymbols[387]
+        builtinSymbols[770],
+        builtinSymbols[426],
+        builtinSymbols[390]
     };
     Object list862 = Pair::arrayToList(array862, 4);
 
@@ -16653,9 +16657,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array864[] = {
         list863,
-        builtinSymbols[399],
-        builtinSymbols[1233],
-        builtinSymbols[398]
+        builtinSymbols[402],
+        builtinSymbols[1236],
+        builtinSymbols[401]
     };
     Object list864 = Pair::arrayToList(array864, 4);
 
@@ -16668,7 +16672,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array866[] = {
         list865,
         builtinSymbols[251],
-        builtinSymbols[1233]
+        builtinSymbols[1236]
     };
     Object list866 = Pair::arrayToList(array866, 3);
 
@@ -16680,9 +16684,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array868[] = {
         list867,
-        builtinSymbols[399],
-        builtinSymbols[1233],
-        builtinSymbols[398]
+        builtinSymbols[402],
+        builtinSymbols[1236],
+        builtinSymbols[401]
     };
     Object list868 = Pair::arrayToList(array868, 4);
 
@@ -16695,7 +16699,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array870[] = {
         list869,
         builtinSymbols[192],
-        builtinSymbols[1233]
+        builtinSymbols[1236]
     };
     Object list870 = Pair::arrayToList(array870, 3);
 
@@ -16707,9 +16711,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array872[] = {
         list871,
-        builtinSymbols[399],
-        builtinSymbols[1233],
-        builtinSymbols[398]
+        builtinSymbols[402],
+        builtinSymbols[1236],
+        builtinSymbols[401]
     };
     Object list872 = Pair::arrayToList(array872, 4);
 
@@ -16721,8 +16725,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array874[] = {
         list873,
-        builtinSymbols[655],
-        builtinSymbols[1233]
+        builtinSymbols[658],
+        builtinSymbols[1236]
     };
     Object list874 = Pair::arrayToList(array874, 3);
 
@@ -16735,8 +16739,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array876[] = {
         list875,
         builtinSymbols[191],
-        builtinSymbols[1207],
-        builtinSymbols[1208]
+        builtinSymbols[1210],
+        builtinSymbols[1211]
     };
     Object list876 = Pair::arrayToList(array876, 4);
 
@@ -16748,8 +16752,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array878[] = {
         list877,
-        builtinSymbols[402],
-        builtinSymbols[423]
+        builtinSymbols[405],
+        builtinSymbols[426]
     };
     Object list878 = Pair::arrayToList(array878, 3);
 
@@ -16761,8 +16765,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array880[] = {
         list879,
-        builtinSymbols[399],
-        builtinSymbols[423]
+        builtinSymbols[402],
+        builtinSymbols[426]
     };
     Object list880 = Pair::arrayToList(array880, 3);
 
@@ -16774,8 +16778,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array882[] = {
         list881,
-        builtinSymbols[403],
-        builtinSymbols[423]
+        builtinSymbols[406],
+        builtinSymbols[426]
     };
     Object list882 = Pair::arrayToList(array882, 3);
 
@@ -16787,8 +16791,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array884[] = {
         list883,
-        builtinSymbols[399],
-        builtinSymbols[423]
+        builtinSymbols[402],
+        builtinSymbols[426]
     };
     Object list884 = Pair::arrayToList(array884, 3);
 
@@ -16800,8 +16804,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array886[] = {
         list885,
-        builtinSymbols[430],
-        builtinSymbols[423]
+        builtinSymbols[433],
+        builtinSymbols[426]
     };
     Object list886 = Pair::arrayToList(array886, 3);
 
@@ -16813,8 +16817,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array888[] = {
         list887,
-        builtinSymbols[399],
-        builtinSymbols[357],
+        builtinSymbols[402],
+        builtinSymbols[360],
         builtinSymbols[65]
     };
     Object list888 = Pair::arrayToList(array888, 4);
@@ -16827,8 +16831,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array890[] = {
         list889,
-        builtinSymbols[399],
-        builtinSymbols[498]
+        builtinSymbols[402],
+        builtinSymbols[501]
     };
     Object list890 = Pair::arrayToList(array890, 3);
 
@@ -16840,9 +16844,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array892[] = {
         list891,
-        builtinSymbols[432],
-        builtinSymbols[405],
-        builtinSymbols[652]
+        builtinSymbols[435],
+        builtinSymbols[408],
+        builtinSymbols[655]
     };
     Object list892 = Pair::arrayToList(array892, 4);
 
@@ -16854,8 +16858,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array894[] = {
         list893,
-        builtinSymbols[399],
-        builtinSymbols[357],
+        builtinSymbols[402],
+        builtinSymbols[360],
         builtinSymbols[65]
     };
     Object list894 = Pair::arrayToList(array894, 4);
@@ -16868,8 +16872,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array896[] = {
         list895,
-        builtinSymbols[399],
-        builtinSymbols[498]
+        builtinSymbols[402],
+        builtinSymbols[501]
     };
     Object list896 = Pair::arrayToList(array896, 3);
 
@@ -16881,9 +16885,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array898[] = {
         list897,
-        builtinSymbols[458],
-        builtinSymbols[405],
-        builtinSymbols[488]
+        builtinSymbols[461],
+        builtinSymbols[408],
+        builtinSymbols[491]
     };
     Object list898 = Pair::arrayToList(array898, 4);
 
@@ -16895,7 +16899,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array900[] = {
         list899,
-        builtinSymbols[1235],
+        builtinSymbols[1238],
         builtinSymbols[229],
         builtinSymbols[52]
     };
@@ -16909,9 +16913,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array902[] = {
         list901,
-        builtinSymbols[399],
-        builtinSymbols[428],
-        builtinSymbols[429]
+        builtinSymbols[402],
+        builtinSymbols[431],
+        builtinSymbols[432]
     };
     Object list902 = Pair::arrayToList(array902, 4);
 
@@ -16923,9 +16927,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array904[] = {
         list903,
-        builtinSymbols[399],
-        builtinSymbols[428],
-        builtinSymbols[532]
+        builtinSymbols[402],
+        builtinSymbols[431],
+        builtinSymbols[535]
     };
     Object list904 = Pair::arrayToList(array904, 4);
 
@@ -16937,9 +16941,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array906[] = {
         list905,
-        builtinSymbols[434],
+        builtinSymbols[437],
         builtinSymbols[42],
-        builtinSymbols[436]
+        builtinSymbols[439]
     };
     Object list906 = Pair::arrayToList(array906, 4);
 
@@ -16951,8 +16955,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array908[] = {
         list907,
-        builtinSymbols[508],
-        builtinSymbols[1233]
+        builtinSymbols[511],
+        builtinSymbols[1236]
     };
     Object list908 = Pair::arrayToList(array908, 3);
 
@@ -16964,9 +16968,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array910[] = {
         list909,
-        builtinSymbols[726],
-        builtinSymbols[1233],
-        builtinSymbols[387]
+        builtinSymbols[729],
+        builtinSymbols[1236],
+        builtinSymbols[390]
     };
     Object list910 = Pair::arrayToList(array910, 4);
 
@@ -16978,9 +16982,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array912[] = {
         list911,
-        builtinSymbols[399],
-        builtinSymbols[423],
-        builtinSymbols[387]
+        builtinSymbols[402],
+        builtinSymbols[426],
+        builtinSymbols[390]
     };
     Object list912 = Pair::arrayToList(array912, 4);
 
@@ -16992,9 +16996,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array914[] = {
         list913,
-        builtinSymbols[725],
-        builtinSymbols[1233],
-        builtinSymbols[387]
+        builtinSymbols[728],
+        builtinSymbols[1236],
+        builtinSymbols[390]
     };
     Object list914 = Pair::arrayToList(array914, 4);
 
@@ -17007,8 +17011,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array916[] = {
         list915,
         builtinSymbols[131],
-        builtinSymbols[731],
-        builtinSymbols[652]
+        builtinSymbols[734],
+        builtinSymbols[655]
     };
     Object list916 = Pair::arrayToList(array916, 4);
 
@@ -17021,8 +17025,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array918[] = {
         list917,
         builtinSymbols[132],
-        builtinSymbols[731],
-        builtinSymbols[652]
+        builtinSymbols[734],
+        builtinSymbols[655]
     };
     Object list918 = Pair::arrayToList(array918, 4);
 
@@ -17034,8 +17038,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array920[] = {
         list919,
-        builtinSymbols[399],
-        builtinSymbols[683],
+        builtinSymbols[402],
+        builtinSymbols[686],
         builtinSymbols[92]
     };
     Object list920 = Pair::arrayToList(array920, 4);
@@ -17048,8 +17052,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array922[] = {
         list921,
-        builtinSymbols[399],
-        builtinSymbols[533]
+        builtinSymbols[402],
+        builtinSymbols[536]
     };
     Object list922 = Pair::arrayToList(array922, 3);
 
@@ -17074,8 +17078,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array926[] = {
         list925,
-        builtinSymbols[399],
-        builtinSymbols[644]
+        builtinSymbols[402],
+        builtinSymbols[647]
     };
     Object list926 = Pair::arrayToList(array926, 3);
 
@@ -17087,8 +17091,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array928[] = {
         list927,
-        builtinSymbols[1232],
-        builtinSymbols[640],
+        builtinSymbols[1235],
+        builtinSymbols[643],
         builtinSymbols[223]
     };
     Object list928 = Pair::arrayToList(array928, 4);
@@ -17101,7 +17105,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array930[] = {
         list929,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[182],
         builtinSymbols[194]
     };
@@ -17115,8 +17119,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array932[] = {
         list931,
-        builtinSymbols[665],
-        builtinSymbols[644]
+        builtinSymbols[668],
+        builtinSymbols[647]
     };
     Object list932 = Pair::arrayToList(array932, 3);
 
@@ -17129,8 +17133,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array934[] = {
         list933,
         builtinSymbols[79],
-        builtinSymbols[444],
-        builtinSymbols[388]
+        builtinSymbols[447],
+        builtinSymbols[391]
     };
     Object list934 = Pair::arrayToList(array934, 4);
 
@@ -17142,9 +17146,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array936[] = {
         list935,
-        builtinSymbols[467],
+        builtinSymbols[470],
         builtinSymbols[290],
-        builtinSymbols[394]
+        builtinSymbols[397]
     };
     Object list936 = Pair::arrayToList(array936, 4);
 
@@ -17156,8 +17160,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array938[] = {
         list937,
-        builtinSymbols[651],
-        builtinSymbols[514]
+        builtinSymbols[654],
+        builtinSymbols[517]
     };
     Object list938 = Pair::arrayToList(array938, 3);
 
@@ -17169,8 +17173,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array940[] = {
         list939,
-        builtinSymbols[450],
-        builtinSymbols[717]
+        builtinSymbols[453],
+        builtinSymbols[720]
     };
     Object list940 = Pair::arrayToList(array940, 3);
 
@@ -17182,8 +17186,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array942[] = {
         list941,
-        builtinSymbols[733],
-        builtinSymbols[700]
+        builtinSymbols[736],
+        builtinSymbols[703]
     };
     Object list942 = Pair::arrayToList(array942, 3);
 
@@ -17195,8 +17199,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array944[] = {
         list943,
-        builtinSymbols[399],
-        builtinSymbols[754]
+        builtinSymbols[402],
+        builtinSymbols[757]
     };
     Object list944 = Pair::arrayToList(array944, 3);
 
@@ -17208,7 +17212,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array946[] = {
         list945,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[52],
         builtinSymbols[82]
     };
@@ -17222,8 +17226,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array948[] = {
         list947,
-        builtinSymbols[751],
-        builtinSymbols[754]
+        builtinSymbols[754],
+        builtinSymbols[757]
     };
     Object list948 = Pair::arrayToList(array948, 3);
 
@@ -17235,10 +17239,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array950[] = {
         list949,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[290],
-        builtinSymbols[394],
-        builtinSymbols[357]
+        builtinSymbols[397],
+        builtinSymbols[360]
     };
     Object list950 = Pair::arrayToList(array950, 5);
 
@@ -17250,9 +17254,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array952[] = {
         list951,
-        builtinSymbols[466],
+        builtinSymbols[469],
         builtinSymbols[290],
-        builtinSymbols[394]
+        builtinSymbols[397]
     };
     Object list952 = Pair::arrayToList(array952, 4);
 
@@ -17264,10 +17268,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array954[] = {
         list953,
-        builtinSymbols[354],
+        builtinSymbols[357],
         builtinSymbols[342],
-        builtinSymbols[388],
-        builtinSymbols[652],
+        builtinSymbols[391],
+        builtinSymbols[655],
         builtinSymbols[231]
     };
     Object list954 = Pair::arrayToList(array954, 6);
@@ -17280,7 +17284,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array956[] = {
         list955,
-        builtinSymbols[503]
+        builtinSymbols[506]
     };
     Object list956 = Pair::arrayToList(array956, 2);
 
@@ -17293,8 +17297,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array958[] = {
         list957,
         builtinSymbols[246],
-        builtinSymbols[1233],
-        builtinSymbols[644]
+        builtinSymbols[1236],
+        builtinSymbols[647]
     };
     Object list958 = Pair::arrayToList(array958, 4);
 
@@ -17306,8 +17310,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array960[] = {
         list959,
-        builtinSymbols[399],
-        builtinSymbols[357]
+        builtinSymbols[402],
+        builtinSymbols[360]
     };
     Object list960 = Pair::arrayToList(array960, 3);
 
@@ -17321,7 +17325,7 @@ Object scheme::getBuiltinCompiler() {
         list961,
         builtinSymbols[88],
         builtinSymbols[87],
-        builtinSymbols[652]
+        builtinSymbols[655]
     };
     Object list962 = Pair::arrayToList(array962, 4);
 
@@ -17333,7 +17337,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array964[] = {
         list963,
-        builtinSymbols[399]
+        builtinSymbols[402]
     };
     Object list964 = Pair::arrayToList(array964, 2);
 
@@ -17345,8 +17349,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array966[] = {
         list965,
-        builtinSymbols[521],
-        builtinSymbols[1185]
+        builtinSymbols[524],
+        builtinSymbols[1188]
     };
     Object list966 = Pair::arrayToList(array966, 3);
 
@@ -17359,8 +17363,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array968[] = {
         list967,
         builtinSymbols[127],
-        builtinSymbols[652],
-        builtinSymbols[1185]
+        builtinSymbols[655],
+        builtinSymbols[1188]
     };
     Object list968 = Pair::arrayToList(array968, 4);
 
@@ -17373,7 +17377,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array970[] = {
         list969,
         builtinSymbols[133],
-        builtinSymbols[652]
+        builtinSymbols[655]
     };
     Object list970 = Pair::arrayToList(array970, 3);
 
@@ -17385,7 +17389,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array972[] = {
         list971,
-        builtinSymbols[399]
+        builtinSymbols[402]
     };
     Object list972 = Pair::arrayToList(array972, 2);
 
@@ -17397,7 +17401,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array974[] = {
         list973,
-        builtinSymbols[526]
+        builtinSymbols[529]
     };
     Object list974 = Pair::arrayToList(array974, 2);
 
@@ -17411,7 +17415,7 @@ Object scheme::getBuiltinCompiler() {
         list975,
         builtinSymbols[129],
         builtinSymbols[295],
-        builtinSymbols[652]
+        builtinSymbols[655]
     };
     Object list976 = Pair::arrayToList(array976, 4);
 
@@ -17425,7 +17429,7 @@ Object scheme::getBuiltinCompiler() {
         list977,
         builtinSymbols[130],
         builtinSymbols[295],
-        builtinSymbols[652]
+        builtinSymbols[655]
     };
     Object list978 = Pair::arrayToList(array978, 4);
 
@@ -17437,9 +17441,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array980[] = {
         list979,
-        builtinSymbols[1230],
+        builtinSymbols[1233],
         builtinSymbols[295],
-        builtinSymbols[774]
+        builtinSymbols[777]
     };
     Object list980 = Pair::arrayToList(array980, 4);
 
@@ -17452,9 +17456,9 @@ Object scheme::getBuiltinCompiler() {
     static Object array982[] = {
         list981,
         builtinSymbols[315],
-        builtinSymbols[652],
-        builtinSymbols[394],
-        builtinSymbols[443]
+        builtinSymbols[655],
+        builtinSymbols[397],
+        builtinSymbols[446]
     };
     Object list982 = Pair::arrayToList(array982, 5);
 
@@ -17467,7 +17471,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array984[] = {
         list983,
         builtinSymbols[78],
-        builtinSymbols[514],
+        builtinSymbols[517],
         builtinSymbols[61]
     };
     Object list984 = Pair::arrayToList(array984, 4);
@@ -17481,7 +17485,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array986[] = {
         list985,
         builtinSymbols[81],
-        builtinSymbols[514],
+        builtinSymbols[517],
         builtinSymbols[61]
     };
     Object list986 = Pair::arrayToList(array986, 4);
@@ -17495,7 +17499,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array988[] = {
         list987,
         builtinSymbols[80],
-        builtinSymbols[514],
+        builtinSymbols[517],
         builtinSymbols[61]
     };
     Object list988 = Pair::arrayToList(array988, 4);
@@ -17509,8 +17513,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array990[] = {
         list989,
         builtinSymbols[330],
-        builtinSymbols[675],
-        builtinSymbols[514],
+        builtinSymbols[678],
+        builtinSymbols[517],
         builtinSymbols[61]
     };
     Object list990 = Pair::arrayToList(array990, 5);
@@ -17523,8 +17527,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array992[] = {
         list991,
-        builtinSymbols[399],
-        builtinSymbols[444]
+        builtinSymbols[402],
+        builtinSymbols[447]
     };
     Object list992 = Pair::arrayToList(array992, 3);
 
@@ -17537,8 +17541,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array994[] = {
         list993,
         builtinSymbols[299],
-        builtinSymbols[647],
-        builtinSymbols[444]
+        builtinSymbols[650],
+        builtinSymbols[447]
     };
     Object list994 = Pair::arrayToList(array994, 4);
 
@@ -17551,8 +17555,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array996[] = {
         list995,
         builtinSymbols[296],
-        builtinSymbols[648],
-        builtinSymbols[394]
+        builtinSymbols[651],
+        builtinSymbols[397]
     };
     Object list996 = Pair::arrayToList(array996, 4);
 
@@ -17564,7 +17568,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array998[] = {
         list997,
-        builtinSymbols[399],
+        builtinSymbols[402],
         builtinSymbols[52]
     };
     Object list998 = Pair::arrayToList(array998, 3);
@@ -17577,9 +17581,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1000[] = {
         list999,
-        builtinSymbols[677],
-        builtinSymbols[647],
-        builtinSymbols[394]
+        builtinSymbols[680],
+        builtinSymbols[650],
+        builtinSymbols[397]
     };
     Object list1000 = Pair::arrayToList(array1000, 4);
 
@@ -17591,8 +17595,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1002[] = {
         list1001,
-        builtinSymbols[399],
-        builtinSymbols[423],
+        builtinSymbols[402],
+        builtinSymbols[426],
         builtinSymbols[65]
     };
     Object list1002 = Pair::arrayToList(array1002, 4);
@@ -17606,9 +17610,9 @@ Object scheme::getBuiltinCompiler() {
     static Object array1004[] = {
         list1003,
         builtinSymbols[308],
-        builtinSymbols[392],
-        builtinSymbols[391],
-        builtinSymbols[424]
+        builtinSymbols[395],
+        builtinSymbols[394],
+        builtinSymbols[427]
     };
     Object list1004 = Pair::arrayToList(array1004, 5);
 
@@ -17622,9 +17626,9 @@ Object scheme::getBuiltinCompiler() {
         list1005,
         builtinSymbols[313],
         builtinSymbols[84],
-        builtinSymbols[730],
-        builtinSymbols[395],
-        builtinSymbols[396]
+        builtinSymbols[733],
+        builtinSymbols[398],
+        builtinSymbols[399]
     };
     Object list1006 = Pair::arrayToList(array1006, 6);
 
@@ -17638,7 +17642,7 @@ Object scheme::getBuiltinCompiler() {
         list1007,
         builtinSymbols[312],
         builtinSymbols[84],
-        builtinSymbols[394]
+        builtinSymbols[397]
     };
     Object list1008 = Pair::arrayToList(array1008, 4);
 
@@ -17652,8 +17656,8 @@ Object scheme::getBuiltinCompiler() {
         list1009,
         builtinSymbols[311],
         builtinSymbols[84],
-        builtinSymbols[730],
-        builtinSymbols[394]
+        builtinSymbols[733],
+        builtinSymbols[397]
     };
     Object list1010 = Pair::arrayToList(array1010, 5);
 
@@ -17667,8 +17671,8 @@ Object scheme::getBuiltinCompiler() {
         list1011,
         builtinSymbols[309],
         builtinSymbols[84],
-        builtinSymbols[730],
-        builtinSymbols[394]
+        builtinSymbols[733],
+        builtinSymbols[397]
     };
     Object list1012 = Pair::arrayToList(array1012, 5);
 
@@ -17682,7 +17686,7 @@ Object scheme::getBuiltinCompiler() {
         list1013,
         builtinSymbols[310],
         builtinSymbols[84],
-        builtinSymbols[394]
+        builtinSymbols[397]
     };
     Object list1014 = Pair::arrayToList(array1014, 4);
 
@@ -17694,8 +17698,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1016[] = {
         list1015,
-        builtinSymbols[399],
-        builtinSymbols[357]
+        builtinSymbols[402],
+        builtinSymbols[360]
     };
     Object list1016 = Pair::arrayToList(array1016, 3);
 
@@ -17707,9 +17711,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1018[] = {
         list1017,
-        builtinSymbols[1217],
-        builtinSymbols[652],
-        builtinSymbols[1205]
+        builtinSymbols[1220],
+        builtinSymbols[655],
+        builtinSymbols[1208]
     };
     Object list1018 = Pair::arrayToList(array1018, 4);
 
@@ -17721,8 +17725,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1020[] = {
         list1019,
-        builtinSymbols[399],
-        builtinSymbols[357]
+        builtinSymbols[402],
+        builtinSymbols[360]
     };
     Object list1020 = Pair::arrayToList(array1020, 3);
 
@@ -17734,9 +17738,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1022[] = {
         list1021,
-        builtinSymbols[1215],
-        builtinSymbols[652],
-        builtinSymbols[1205]
+        builtinSymbols[1218],
+        builtinSymbols[655],
+        builtinSymbols[1208]
     };
     Object list1022 = Pair::arrayToList(array1022, 4);
 
@@ -17748,9 +17752,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1024[] = {
         list1023,
-        builtinSymbols[399],
-        builtinSymbols[394],
-        builtinSymbols[645]
+        builtinSymbols[402],
+        builtinSymbols[397],
+        builtinSymbols[648]
     };
     Object list1024 = Pair::arrayToList(array1024, 4);
 
@@ -17762,8 +17766,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1026[] = {
         list1025,
-        builtinSymbols[427],
-        builtinSymbols[394]
+        builtinSymbols[430],
+        builtinSymbols[397]
     };
     Object list1026 = Pair::arrayToList(array1026, 3);
 
@@ -17776,8 +17780,8 @@ Object scheme::getBuiltinCompiler() {
     static Object array1028[] = {
         list1027,
         builtinSymbols[316],
-        builtinSymbols[652],
-        builtinSymbols[437]
+        builtinSymbols[655],
+        builtinSymbols[440]
     };
     Object list1028 = Pair::arrayToList(array1028, 4);
 
@@ -17789,10 +17793,10 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1030[] = {
         list1029,
-        builtinSymbols[399],
-        builtinSymbols[383],
-        builtinSymbols[394],
-        builtinSymbols[776]
+        builtinSymbols[402],
+        builtinSymbols[386],
+        builtinSymbols[397],
+        builtinSymbols[779]
     };
     Object list1030 = Pair::arrayToList(array1030, 5);
 
@@ -17804,8 +17808,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1032[] = {
         list1031,
-        builtinSymbols[426],
-        builtinSymbols[394]
+        builtinSymbols[429],
+        builtinSymbols[397]
     };
     Object list1032 = Pair::arrayToList(array1032, 3);
 
@@ -17817,9 +17821,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1034[] = {
         list1033,
-        builtinSymbols[399],
-        builtinSymbols[394],
-        builtinSymbols[690]
+        builtinSymbols[402],
+        builtinSymbols[397],
+        builtinSymbols[693]
     };
     Object list1034 = Pair::arrayToList(array1034, 4);
 
@@ -17831,8 +17835,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1036[] = {
         list1035,
-        builtinSymbols[687],
-        builtinSymbols[394]
+        builtinSymbols[690],
+        builtinSymbols[397]
     };
     Object list1036 = Pair::arrayToList(array1036, 3);
 
@@ -17844,9 +17848,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1038[] = {
         list1037,
-        builtinSymbols[465],
-        builtinSymbols[652],
-        builtinSymbols[437]
+        builtinSymbols[468],
+        builtinSymbols[655],
+        builtinSymbols[440]
     };
     Object list1038 = Pair::arrayToList(array1038, 4);
 
@@ -17859,7 +17863,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1040[] = {
         list1039,
         builtinSymbols[55],
-        builtinSymbols[498]
+        builtinSymbols[501]
     };
     Object list1040 = Pair::arrayToList(array1040, 3);
 
@@ -17871,7 +17875,7 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1042[] = {
         list1041,
-        builtinSymbols[425],
+        builtinSymbols[428],
         builtinSymbols[52]
     };
     Object list1042 = Pair::arrayToList(array1042, 3);
@@ -17884,8 +17888,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1044[] = {
         list1043,
-        builtinSymbols[1237],
-        builtinSymbols[498]
+        builtinSymbols[1240],
+        builtinSymbols[501]
     };
     Object list1044 = Pair::arrayToList(array1044, 3);
 
@@ -17897,9 +17901,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1046[] = {
         list1045,
-        builtinSymbols[431],
-        builtinSymbols[394],
-        builtinSymbols[387]
+        builtinSymbols[434],
+        builtinSymbols[397],
+        builtinSymbols[390]
     };
     Object list1046 = Pair::arrayToList(array1046, 4);
 
@@ -17911,9 +17915,9 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1048[] = {
         list1047,
-        builtinSymbols[433],
-        builtinSymbols[394],
-        builtinSymbols[387]
+        builtinSymbols[436],
+        builtinSymbols[397],
+        builtinSymbols[390]
     };
     Object list1048 = Pair::arrayToList(array1048, 4);
 
@@ -17926,7 +17930,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1050[] = {
         list1049,
         builtinSymbols[134],
-        builtinSymbols[654],
+        builtinSymbols[657],
         builtinSymbols[222]
     };
     Object list1050 = Pair::arrayToList(array1050, 4);
@@ -17940,7 +17944,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1052[] = {
         list1051,
         builtinSymbols[279],
-        builtinSymbols[1233]
+        builtinSymbols[1236]
     };
     Object list1052 = Pair::arrayToList(array1052, 3);
 
@@ -17953,7 +17957,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1054[] = {
         list1053,
         builtinSymbols[174],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1054 = Pair::arrayToList(array1054, 3);
 
@@ -17966,7 +17970,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1056[] = {
         list1055,
         builtinSymbols[119],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1056 = Pair::arrayToList(array1056, 3);
 
@@ -17979,7 +17983,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1058[] = {
         list1057,
         builtinSymbols[159],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1058 = Pair::arrayToList(array1058, 3);
 
@@ -17992,7 +17996,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1060[] = {
         list1059,
         builtinSymbols[104],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1060 = Pair::arrayToList(array1060, 3);
 
@@ -18005,7 +18009,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1062[] = {
         list1061,
         builtinSymbols[167],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1062 = Pair::arrayToList(array1062, 3);
 
@@ -18018,7 +18022,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1064[] = {
         list1063,
         builtinSymbols[112],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1064 = Pair::arrayToList(array1064, 3);
 
@@ -18031,7 +18035,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1066[] = {
         list1065,
         builtinSymbols[152],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1066 = Pair::arrayToList(array1066, 3);
 
@@ -18044,7 +18048,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1068[] = {
         list1067,
         builtinSymbols[97],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1068 = Pair::arrayToList(array1068, 3);
 
@@ -18057,7 +18061,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1070[] = {
         list1069,
         builtinSymbols[171],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1070 = Pair::arrayToList(array1070, 3);
 
@@ -18070,7 +18074,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1072[] = {
         list1071,
         builtinSymbols[116],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1072 = Pair::arrayToList(array1072, 3);
 
@@ -18083,7 +18087,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1074[] = {
         list1073,
         builtinSymbols[156],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1074 = Pair::arrayToList(array1074, 3);
 
@@ -18096,7 +18100,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1076[] = {
         list1075,
         builtinSymbols[101],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1076 = Pair::arrayToList(array1076, 3);
 
@@ -18109,7 +18113,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1078[] = {
         list1077,
         builtinSymbols[164],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1078 = Pair::arrayToList(array1078, 3);
 
@@ -18122,7 +18126,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1080[] = {
         list1079,
         builtinSymbols[109],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1080 = Pair::arrayToList(array1080, 3);
 
@@ -18135,7 +18139,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1082[] = {
         list1081,
         builtinSymbols[149],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1082 = Pair::arrayToList(array1082, 3);
 
@@ -18148,7 +18152,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1084[] = {
         list1083,
         builtinSymbols[94],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1084 = Pair::arrayToList(array1084, 3);
 
@@ -18161,7 +18165,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1086[] = {
         list1085,
         builtinSymbols[173],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1086 = Pair::arrayToList(array1086, 3);
 
@@ -18174,7 +18178,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1088[] = {
         list1087,
         builtinSymbols[118],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1088 = Pair::arrayToList(array1088, 3);
 
@@ -18187,7 +18191,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1090[] = {
         list1089,
         builtinSymbols[158],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1090 = Pair::arrayToList(array1090, 3);
 
@@ -18200,7 +18204,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1092[] = {
         list1091,
         builtinSymbols[103],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1092 = Pair::arrayToList(array1092, 3);
 
@@ -18213,7 +18217,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1094[] = {
         list1093,
         builtinSymbols[166],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1094 = Pair::arrayToList(array1094, 3);
 
@@ -18226,7 +18230,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1096[] = {
         list1095,
         builtinSymbols[111],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1096 = Pair::arrayToList(array1096, 3);
 
@@ -18239,7 +18243,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1098[] = {
         list1097,
         builtinSymbols[151],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1098 = Pair::arrayToList(array1098, 3);
 
@@ -18252,7 +18256,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1100[] = {
         list1099,
         builtinSymbols[96],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1100 = Pair::arrayToList(array1100, 3);
 
@@ -18265,7 +18269,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1102[] = {
         list1101,
         builtinSymbols[170],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1102 = Pair::arrayToList(array1102, 3);
 
@@ -18278,7 +18282,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1104[] = {
         list1103,
         builtinSymbols[115],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1104 = Pair::arrayToList(array1104, 3);
 
@@ -18291,7 +18295,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1106[] = {
         list1105,
         builtinSymbols[155],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1106 = Pair::arrayToList(array1106, 3);
 
@@ -18304,7 +18308,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1108[] = {
         list1107,
         builtinSymbols[100],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1108 = Pair::arrayToList(array1108, 3);
 
@@ -18317,7 +18321,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1110[] = {
         list1109,
         builtinSymbols[163],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1110 = Pair::arrayToList(array1110, 3);
 
@@ -18330,7 +18334,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1112[] = {
         list1111,
         builtinSymbols[108],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1112 = Pair::arrayToList(array1112, 3);
 
@@ -18343,7 +18347,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1114[] = {
         list1113,
         builtinSymbols[148],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1114 = Pair::arrayToList(array1114, 3);
 
@@ -18356,7 +18360,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1116[] = {
         list1115,
         builtinSymbols[93],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1116 = Pair::arrayToList(array1116, 3);
 
@@ -18369,7 +18373,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1118[] = {
         list1117,
         builtinSymbols[175],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1118 = Pair::arrayToList(array1118, 3);
 
@@ -18382,7 +18386,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1120[] = {
         list1119,
         builtinSymbols[120],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1120 = Pair::arrayToList(array1120, 3);
 
@@ -18395,7 +18399,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1122[] = {
         list1121,
         builtinSymbols[160],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1122 = Pair::arrayToList(array1122, 3);
 
@@ -18408,7 +18412,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1124[] = {
         list1123,
         builtinSymbols[105],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1124 = Pair::arrayToList(array1124, 3);
 
@@ -18421,7 +18425,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1126[] = {
         list1125,
         builtinSymbols[168],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1126 = Pair::arrayToList(array1126, 3);
 
@@ -18434,7 +18438,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1128[] = {
         list1127,
         builtinSymbols[113],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1128 = Pair::arrayToList(array1128, 3);
 
@@ -18447,7 +18451,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1130[] = {
         list1129,
         builtinSymbols[153],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1130 = Pair::arrayToList(array1130, 3);
 
@@ -18460,7 +18464,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1132[] = {
         list1131,
         builtinSymbols[98],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1132 = Pair::arrayToList(array1132, 3);
 
@@ -18473,7 +18477,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1134[] = {
         list1133,
         builtinSymbols[172],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1134 = Pair::arrayToList(array1134, 3);
 
@@ -18486,7 +18490,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1136[] = {
         list1135,
         builtinSymbols[117],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1136 = Pair::arrayToList(array1136, 3);
 
@@ -18499,7 +18503,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1138[] = {
         list1137,
         builtinSymbols[157],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1138 = Pair::arrayToList(array1138, 3);
 
@@ -18512,7 +18516,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1140[] = {
         list1139,
         builtinSymbols[102],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1140 = Pair::arrayToList(array1140, 3);
 
@@ -18525,7 +18529,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1142[] = {
         list1141,
         builtinSymbols[165],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1142 = Pair::arrayToList(array1142, 3);
 
@@ -18538,7 +18542,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1144[] = {
         list1143,
         builtinSymbols[110],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1144 = Pair::arrayToList(array1144, 3);
 
@@ -18551,7 +18555,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1146[] = {
         list1145,
         builtinSymbols[150],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1146 = Pair::arrayToList(array1146, 3);
 
@@ -18564,7 +18568,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1148[] = {
         list1147,
         builtinSymbols[95],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1148 = Pair::arrayToList(array1148, 3);
 
@@ -18577,7 +18581,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1150[] = {
         list1149,
         builtinSymbols[176],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1150 = Pair::arrayToList(array1150, 3);
 
@@ -18590,7 +18594,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1152[] = {
         list1151,
         builtinSymbols[121],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1152 = Pair::arrayToList(array1152, 3);
 
@@ -18603,7 +18607,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1154[] = {
         list1153,
         builtinSymbols[161],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1154 = Pair::arrayToList(array1154, 3);
 
@@ -18616,7 +18620,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1156[] = {
         list1155,
         builtinSymbols[106],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1156 = Pair::arrayToList(array1156, 3);
 
@@ -18629,7 +18633,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1158[] = {
         list1157,
         builtinSymbols[169],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1158 = Pair::arrayToList(array1158, 3);
 
@@ -18642,7 +18646,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1160[] = {
         list1159,
         builtinSymbols[114],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1160 = Pair::arrayToList(array1160, 3);
 
@@ -18655,7 +18659,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1162[] = {
         list1161,
         builtinSymbols[154],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1162 = Pair::arrayToList(array1162, 3);
 
@@ -18668,7 +18672,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1164[] = {
         list1163,
         builtinSymbols[99],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1164 = Pair::arrayToList(array1164, 3);
 
@@ -18681,7 +18685,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1166[] = {
         list1165,
         builtinSymbols[177],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1166 = Pair::arrayToList(array1166, 3);
 
@@ -18694,7 +18698,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1168[] = {
         list1167,
         builtinSymbols[122],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1168 = Pair::arrayToList(array1168, 3);
 
@@ -18707,7 +18711,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1170[] = {
         list1169,
         builtinSymbols[162],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1170 = Pair::arrayToList(array1170, 3);
 
@@ -18720,7 +18724,7 @@ Object scheme::getBuiltinCompiler() {
     static Object array1172[] = {
         list1171,
         builtinSymbols[107],
-        builtinSymbols[533]
+        builtinSymbols[536]
     };
     Object list1172 = Pair::arrayToList(array1172, 3);
 
@@ -18732,8 +18736,8 @@ Object scheme::getBuiltinCompiler() {
 
     static Object array1174[] = {
         list1173,
-        builtinSymbols[507],
-        builtinSymbols[1233]
+        builtinSymbols[510],
+        builtinSymbols[1236]
     };
     Object list1174 = Pair::arrayToList(array1174, 3);
 
@@ -18744,7 +18748,7 @@ Object scheme::getBuiltinCompiler() {
         Object::Nil,
         MIS(69),
         MIS(17),
-        builtinSymbols[981],
+        builtinSymbols[984],
         MIS(16),
         Object::Nil,
         MIS(16),
@@ -18791,7 +18795,7 @@ Object scheme::getBuiltinCompiler() {
         Object::True,
         MIS(84),
         MIS(17),
-        builtinSymbols[1030],
+        builtinSymbols[1033],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -18921,7 +18925,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[857],
+        builtinSymbols[860],
         MIS(33),
         MIS(14),
         MI(10),
@@ -18935,7 +18939,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[896],
+        builtinSymbols[899],
         MIS(33),
         MIS(14),
         MI(10),
@@ -18949,7 +18953,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[872],
+        builtinSymbols[875],
         MIS(33),
         MIS(14),
         MI(10),
@@ -18963,7 +18967,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[911],
+        builtinSymbols[914],
         MIS(33),
         MIS(14),
         MI(11),
@@ -18978,7 +18982,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[849],
+        builtinSymbols[852],
         MIS(33),
         MIS(14),
         MI(11),
@@ -18993,7 +18997,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[888],
+        builtinSymbols[891],
         MIS(33),
         MIS(14),
         MI(11),
@@ -19008,7 +19012,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MIS(33),
         MIS(14),
         MI(11),
@@ -19023,7 +19027,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[903],
+        builtinSymbols[906],
         MIS(33),
         MIS(14),
         MI(11),
@@ -19038,7 +19042,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[856],
+        builtinSymbols[859],
         MIS(33),
         MIS(14),
         MI(11),
@@ -19053,7 +19057,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[895],
+        builtinSymbols[898],
         MIS(33),
         MIS(14),
         MI(11),
@@ -19068,7 +19072,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MIS(33),
         MIS(14),
         MI(11),
@@ -19083,7 +19087,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[910],
+        builtinSymbols[913],
         MIS(33),
         MIS(14),
         MI(12),
@@ -19099,7 +19103,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[845],
+        builtinSymbols[848],
         MIS(33),
         MIS(14),
         MI(12),
@@ -19115,7 +19119,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[884],
+        builtinSymbols[887],
         MIS(33),
         MIS(14),
         MI(12),
@@ -19131,7 +19135,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[860],
+        builtinSymbols[863],
         MIS(33),
         MIS(14),
         MI(12),
@@ -19147,7 +19151,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[899],
+        builtinSymbols[902],
         MIS(33),
         MIS(14),
         MI(12),
@@ -19163,7 +19167,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[852],
+        builtinSymbols[855],
         MIS(33),
         MIS(14),
         MI(12),
@@ -19179,7 +19183,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[891],
+        builtinSymbols[894],
         MIS(33),
         MIS(14),
         MI(12),
@@ -19195,7 +19199,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[867],
+        builtinSymbols[870],
         MIS(33),
         MIS(14),
         MI(12),
@@ -19211,7 +19215,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[906],
+        builtinSymbols[909],
         MIS(33),
         MIS(14),
         MI(12),
@@ -19227,7 +19231,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[848],
+        builtinSymbols[851],
         MIS(33),
         MIS(14),
         MI(12),
@@ -19243,7 +19247,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[887],
+        builtinSymbols[890],
         MIS(33),
         MIS(14),
         MI(12),
@@ -19259,7 +19263,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[863],
+        builtinSymbols[866],
         MIS(33),
         MIS(14),
         MI(12),
@@ -19275,7 +19279,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[902],
+        builtinSymbols[905],
         MIS(33),
         MIS(14),
         MI(12),
@@ -19291,7 +19295,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[855],
+        builtinSymbols[858],
         MIS(33),
         MIS(14),
         MI(12),
@@ -19307,7 +19311,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[894],
+        builtinSymbols[897],
         MIS(33),
         MIS(14),
         MI(12),
@@ -19323,7 +19327,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[870],
+        builtinSymbols[873],
         MIS(33),
         MIS(14),
         MI(12),
@@ -19339,7 +19343,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[909],
+        builtinSymbols[912],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19356,7 +19360,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[843],
+        builtinSymbols[846],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19373,7 +19377,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[882],
+        builtinSymbols[885],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19390,7 +19394,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[858],
+        builtinSymbols[861],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19407,7 +19411,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[897],
+        builtinSymbols[900],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19424,7 +19428,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[850],
+        builtinSymbols[853],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19441,7 +19445,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[889],
+        builtinSymbols[892],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19458,7 +19462,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[865],
+        builtinSymbols[868],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19475,7 +19479,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[904],
+        builtinSymbols[907],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19492,7 +19496,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[846],
+        builtinSymbols[849],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19509,7 +19513,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[885],
+        builtinSymbols[888],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19526,7 +19530,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[861],
+        builtinSymbols[864],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19543,7 +19547,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[900],
+        builtinSymbols[903],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19560,7 +19564,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[853],
+        builtinSymbols[856],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19577,7 +19581,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[892],
+        builtinSymbols[895],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19594,7 +19598,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[868],
+        builtinSymbols[871],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19611,7 +19615,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[907],
+        builtinSymbols[910],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19628,7 +19632,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[844],
+        builtinSymbols[847],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19645,7 +19649,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[883],
+        builtinSymbols[886],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19662,7 +19666,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[859],
+        builtinSymbols[862],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19679,7 +19683,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[898],
+        builtinSymbols[901],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19696,7 +19700,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[851],
+        builtinSymbols[854],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19713,7 +19717,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[890],
+        builtinSymbols[893],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19730,7 +19734,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[866],
+        builtinSymbols[869],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19747,7 +19751,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[905],
+        builtinSymbols[908],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19764,7 +19768,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[847],
+        builtinSymbols[850],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19781,7 +19785,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[886],
+        builtinSymbols[889],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19798,7 +19802,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[862],
+        builtinSymbols[865],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19815,7 +19819,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[901],
+        builtinSymbols[904],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19832,7 +19836,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[854],
+        builtinSymbols[857],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19849,7 +19853,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[893],
+        builtinSymbols[896],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19866,7 +19870,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[869],
+        builtinSymbols[872],
         MIS(33),
         MIS(14),
         MI(13),
@@ -19883,7 +19887,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(13),
         MIS(84),
         MIS(17),
-        builtinSymbols[908],
+        builtinSymbols[911],
         MIS(33),
         MIS(106),
         MI(113),
@@ -19903,14 +19907,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(87),
         MIS(3),
         MIS(50),
-        builtinSymbols[1183],
+        builtinSymbols[1186],
         MIS(99),
         MI(1),
         MI(1),
         MI(1),
         MIS(84),
         MIS(17),
-        builtinSymbols[942],
+        builtinSymbols[945],
         MIS(33),
         MIS(33),
         MIS(106),
@@ -19947,7 +19951,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[879],
+        builtinSymbols[882],
         MIS(33),
         MIS(33),
         MIS(14),
@@ -19971,14 +19975,14 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(77),
         MIS(50),
-        builtinSymbols[999],
+        builtinSymbols[1002],
         MIS(99),
         MI(2),
         MI(2),
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[999],
+        builtinSymbols[1002],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -19994,12 +19998,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(76),
         MIS(102),
-        builtinSymbols[999],
+        builtinSymbols[1002],
         MI(2),
         MIS(10),
         MIS(85),
         MIS(17),
-        builtinSymbols[997],
+        builtinSymbols[1000],
         MIS(33),
         MIS(33),
         MIS(16),
@@ -20017,7 +20021,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(37),
         MIS(84),
         MIS(17),
-        builtinSymbols[1183],
+        builtinSymbols[1186],
         MIS(33),
         MIS(14),
         MI(8),
@@ -20029,7 +20033,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(65),
         MIS(84),
         MIS(17),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(33),
         MIS(14),
         MI(19),
@@ -20052,7 +20056,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(42),
         MIS(84),
         MIS(17),
-        builtinSymbols[832],
+        builtinSymbols[835],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -20089,14 +20093,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(91),
         MIS(76),
         MIS(102),
-        builtinSymbols[1007],
+        builtinSymbols[1010],
         MI(2),
         MIS(90),
         MI(6),
         MIS(92),
         MIS(76),
         MIS(102),
-        builtinSymbols[1007],
+        builtinSymbols[1010],
         MI(2),
         MIS(78),
         MI(2),
@@ -20110,7 +20114,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(90),
         MI(11),
         MIS(50),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MIS(3),
         MIS(106),
         MI(3),
@@ -20124,7 +20128,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -20195,7 +20199,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[1146],
+        builtinSymbols[1149],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -20311,7 +20315,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[994],
+        builtinSymbols[997],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -20354,7 +20358,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(91),
         MIS(76),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(78),
         MI(1),
@@ -20373,7 +20377,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(78),
         MI(1),
@@ -20386,7 +20390,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(71),
         MIS(87),
         MIS(50),
-        builtinSymbols[966],
+        builtinSymbols[969],
         MIS(3),
         MIS(106),
         MI(4),
@@ -20402,7 +20406,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[966],
+        builtinSymbols[969],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -20501,7 +20505,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[995],
+        builtinSymbols[998],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -20589,7 +20593,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1175],
+        builtinSymbols[1178],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -20689,7 +20693,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1176],
+        builtinSymbols[1179],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -20738,14 +20742,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(3),
         MIS(50),
-        builtinSymbols[961],
+        builtinSymbols[964],
         MIS(99),
         MI(2),
         MI(2),
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[961],
+        builtinSymbols[964],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -20776,22 +20780,22 @@ Object scheme::getBuiltinCompiler() {
         MIS(67),
         MIS(95),
         MIS(50),
-        builtinSymbols[960],
+        builtinSymbols[963],
         MIS(99),
         MI(3),
         MI(3),
         MI(3),
         MIS(86),
         MIS(17),
-        builtinSymbols[960],
+        builtinSymbols[963],
         MIS(33),
         MIS(33),
         MIS(33),
         MIS(33),
         MIS(50),
-        builtinSymbols[960],
+        builtinSymbols[963],
         MIS(17),
-        builtinSymbols[958],
+        builtinSymbols[961],
         MIS(14),
         MI(31),
         MI(3),
@@ -20815,7 +20819,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(67),
         MIS(95),
         MIS(102),
-        builtinSymbols[962],
+        builtinSymbols[965],
         MI(3),
         MIS(3),
         MIS(65),
@@ -20825,7 +20829,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(86),
         MIS(17),
-        builtinSymbols[962],
+        builtinSymbols[965],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -20854,7 +20858,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(66),
         MIS(95),
         MIS(102),
-        builtinSymbols[963],
+        builtinSymbols[966],
         MI(2),
         MIS(3),
         MIS(65),
@@ -20864,7 +20868,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[963],
+        builtinSymbols[966],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -20896,7 +20900,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(68),
         MIS(95),
         MIS(102),
-        builtinSymbols[964],
+        builtinSymbols[967],
         MI(4),
         MIS(3),
         MIS(65),
@@ -20907,7 +20911,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[964],
+        builtinSymbols[967],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -20976,16 +20980,16 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(86),
         MIS(17),
-        builtinSymbols[957],
+        builtinSymbols[960],
         MIS(33),
         MIS(33),
         MIS(33),
         MIS(33),
         MIS(33),
         MIS(50),
-        builtinSymbols[962],
+        builtinSymbols[965],
         MIS(17),
-        builtinSymbols[959],
+        builtinSymbols[962],
         MIS(14),
         MI(31),
         MI(2),
@@ -21012,14 +21016,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(76),
         MIS(50),
-        builtinSymbols[950],
+        builtinSymbols[953],
         MIS(99),
         MI(2),
         MI(2),
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[1145],
+        builtinSymbols[1148],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -21055,7 +21059,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(66),
         MIS(95),
         MIS(102),
-        builtinSymbols[950],
+        builtinSymbols[953],
         MI(2),
         MIS(15),
         MIS(30),
@@ -21064,14 +21068,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(66),
         MIS(95),
         MIS(50),
-        builtinSymbols[950],
+        builtinSymbols[953],
         MIS(99),
         MI(2),
         MI(2),
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[950],
+        builtinSymbols[953],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -21149,7 +21153,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[953],
+        builtinSymbols[956],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -21191,14 +21195,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(67),
         MIS(95),
         MIS(50),
-        builtinSymbols[968],
+        builtinSymbols[971],
         MIS(99),
         MI(3),
         MI(3),
         MI(3),
         MIS(86),
         MIS(17),
-        builtinSymbols[968],
+        builtinSymbols[971],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -21218,14 +21222,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(76),
         MIS(50),
-        builtinSymbols[968],
+        builtinSymbols[971],
         MIS(99),
         MI(3),
         MI(2),
         MI(3),
         MIS(85),
         MIS(17),
-        builtinSymbols[840],
+        builtinSymbols[843],
         MIS(33),
         MIS(14),
         MI(18),
@@ -21235,19 +21239,19 @@ Object scheme::getBuiltinCompiler() {
         MI(9),
         list986,
         MIS(50),
-        builtinSymbols[940],
+        builtinSymbols[943],
         MIS(3),
         MIS(73),
         MIS(76),
         MIS(50),
-        builtinSymbols[968],
+        builtinSymbols[971],
         MIS(99),
         MI(3),
         MI(2),
         MI(3),
         MIS(85),
         MIS(17),
-        builtinSymbols[841],
+        builtinSymbols[844],
         MIS(33),
         MIS(106),
         MI(32),
@@ -21262,14 +21266,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(76),
         MIS(50),
-        builtinSymbols[968],
+        builtinSymbols[971],
         MIS(99),
         MI(3),
         MI(2),
         MI(3),
         MIS(85),
         MIS(17),
-        builtinSymbols[838],
+        builtinSymbols[841],
         MIS(33),
         MIS(93),
         MIS(106),
@@ -21299,7 +21303,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(93),
         MIS(98),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(70),
@@ -21307,7 +21311,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(58),
         MI(22),
         MIS(50),
-        builtinSymbols[965],
+        builtinSymbols[968],
         MIS(3),
         MIS(73),
         MIS(66),
@@ -21317,7 +21321,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(91),
         MIS(98),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(70),
@@ -21329,7 +21333,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(86),
         MIS(17),
-        builtinSymbols[965],
+        builtinSymbols[968],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -21409,7 +21413,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[1179],
+        builtinSymbols[1182],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -21526,7 +21530,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[875],
+        builtinSymbols[878],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -21581,7 +21585,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[874],
+        builtinSymbols[877],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -21666,7 +21670,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(0),
         MIS(17),
-        builtinSymbols[1034],
+        builtinSymbols[1037],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -21686,7 +21690,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(4),
         MIS(102),
-        builtinSymbols[1034],
+        builtinSymbols[1037],
         MI(0),
         MIS(109),
         MI(2),
@@ -21708,7 +21712,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(84),
         MIS(17),
-        builtinSymbols[878],
+        builtinSymbols[881],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -21727,7 +21731,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(76),
         MIS(102),
-        builtinSymbols[1033],
+        builtinSymbols[1036],
         MI(1),
         MIS(109),
         MI(2),
@@ -21749,7 +21753,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[873],
+        builtinSymbols[876],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -21810,7 +21814,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[1033],
+        builtinSymbols[1036],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -21913,7 +21917,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[842],
+        builtinSymbols[845],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -21952,7 +21956,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -21966,7 +21970,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("\n")),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(99),
         MI(1),
         MI(0),
@@ -21974,7 +21978,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(0),
         MIS(17),
-        builtinSymbols[1028],
+        builtinSymbols[1031],
         MIS(33),
         MIS(16),
         Object::Nil,
@@ -22022,7 +22026,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[975],
+        builtinSymbols[978],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -22144,7 +22148,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1006],
+        builtinSymbols[1009],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -22281,7 +22285,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[1161],
+        builtinSymbols[1164],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -22312,7 +22316,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(84),
         MIS(17),
-        builtinSymbols[1156],
+        builtinSymbols[1159],
         MIS(33),
         MIS(16),
         Object::Nil,
@@ -22356,7 +22360,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[1002],
+        builtinSymbols[1005],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -22376,19 +22380,19 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MI(1),
         MIS(64),
         Object::makeString(UC("\n")),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(99),
         MI(1),
         MI(1),
         MI(1),
         MIS(84),
         MIS(17),
-        builtinSymbols[1140],
+        builtinSymbols[1143],
         MIS(33),
         MIS(33),
         MIS(14),
@@ -22418,12 +22422,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(66),
         MIS(95),
         MIS(102),
-        builtinSymbols[1007],
+        builtinSymbols[1010],
         MI(2),
         MIS(15),
         MIS(85),
         MIS(17),
-        builtinSymbols[1007],
+        builtinSymbols[1010],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -22442,7 +22446,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(76),
         MIS(73),
         MIS(102),
-        builtinSymbols[838],
+        builtinSymbols[841],
         MI(2),
         MIS(78),
         MI(1),
@@ -22458,7 +22462,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[839],
+        builtinSymbols[842],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -22587,7 +22591,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[994],
+        builtinSymbols[997],
         MIS(99),
         MI(1),
         MI(2),
@@ -22628,7 +22632,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[1143],
+        builtinSymbols[1146],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -22662,7 +22666,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(91),
         MIS(73),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(99),
         MI(2),
         MI(1),
@@ -22670,14 +22674,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(84),
         MIS(3),
         MIS(50),
-        builtinSymbols[875],
+        builtinSymbols[878],
         MIS(99),
         MI(2),
         MI(2),
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[1181],
+        builtinSymbols[1184],
         MIS(33),
         MIS(33),
         MIS(106),
@@ -22751,7 +22755,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[994],
+        builtinSymbols[997],
         MIS(99),
         MI(1),
         MI(2),
@@ -22788,7 +22792,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(84),
         MIS(3),
         MIS(50),
-        builtinSymbols[874],
+        builtinSymbols[877],
         MIS(99),
         MI(2),
         MI(1),
@@ -22799,7 +22803,7 @@ Object scheme::getBuiltinCompiler() {
         Object::makeString(UC("")),
         MIS(84),
         MIS(17),
-        builtinSymbols[949],
+        builtinSymbols[952],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -22828,7 +22832,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(4),
         MIS(102),
-        builtinSymbols[1034],
+        builtinSymbols[1037],
         MI(0),
         MIS(109),
         MI(2),
@@ -22868,7 +22872,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[877],
+        builtinSymbols[880],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -22904,7 +22908,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[876],
+        builtinSymbols[879],
         MIS(33),
         MIS(33),
         MIS(14),
@@ -22917,14 +22921,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(11),
         MIS(50),
-        builtinSymbols[981],
+        builtinSymbols[984],
         MIS(3),
         MIS(76),
         MIS(50),
-        builtinSymbols[1154],
+        builtinSymbols[1157],
         MIS(3),
         MIS(102),
-        builtinSymbols[913],
+        builtinSymbols[916],
         MI(3),
         MIS(27),
         MIS(73),
@@ -22951,7 +22955,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(76),
         MIS(102),
-        builtinSymbols[1183],
+        builtinSymbols[1186],
         MI(1),
         MIS(58),
         MI(8),
@@ -23005,7 +23009,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1154],
+        builtinSymbols[1157],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -23023,20 +23027,20 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(11),
         MIS(50),
-        builtinSymbols[981],
+        builtinSymbols[984],
         MIS(3),
         MIS(76),
         MIS(50),
-        builtinSymbols[1155],
+        builtinSymbols[1158],
         MIS(3),
         MIS(102),
-        builtinSymbols[913],
+        builtinSymbols[916],
         MI(3),
         MIS(23),
         MI(5),
         MIS(76),
         MIS(102),
-        builtinSymbols[1183],
+        builtinSymbols[1186],
         MI(1),
         MIS(58),
         MI(8),
@@ -23058,7 +23062,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(77),
         MIS(102),
-        builtinSymbols[935],
+        builtinSymbols[938],
         MI(2),
         MIS(78),
         MI(1),
@@ -23083,7 +23087,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1155],
+        builtinSymbols[1158],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -23102,7 +23106,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(34),
         MIS(84),
         MIS(17),
-        builtinSymbols[1031],
+        builtinSymbols[1034],
         MIS(33),
         MIS(59),
         MIS(14),
@@ -23200,7 +23204,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1032],
+        builtinSymbols[1035],
         MI(1),
         MIS(58),
         MI(20),
@@ -23208,7 +23212,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(76),
         MIS(102),
-        builtinSymbols[1032],
+        builtinSymbols[1035],
         MI(1),
         MIS(58),
         MI(10),
@@ -23227,7 +23231,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(76),
         MIS(102),
-        builtinSymbols[1032],
+        builtinSymbols[1035],
         MI(1),
         MIS(101),
         MI(21),
@@ -23282,7 +23286,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1000],
+        builtinSymbols[1003],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -23315,7 +23319,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(85),
         MIS(17),
-        builtinSymbols[1182],
+        builtinSymbols[1185],
         MIS(33),
         MIS(106),
         MI(63),
@@ -23339,7 +23343,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[981],
+        builtinSymbols[984],
         MI(1),
         MIS(58),
         MI(6),
@@ -23352,10 +23356,10 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(50),
-        builtinSymbols[1004],
+        builtinSymbols[1007],
         MIS(3),
         MIS(102),
-        builtinSymbols[913],
+        builtinSymbols[916],
         MI(3),
         MIS(27),
         MIS(73),
@@ -23448,7 +23452,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1004],
+        builtinSymbols[1007],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -23485,7 +23489,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[981],
+        builtinSymbols[984],
         MI(1),
         MIS(58),
         MI(6),
@@ -23498,20 +23502,20 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(50),
-        builtinSymbols[998],
+        builtinSymbols[1001],
         MIS(3),
         MIS(102),
-        builtinSymbols[913],
+        builtinSymbols[916],
         MI(3),
         MIS(23),
         MI(9),
         MIS(91),
         MIS(76),
         MIS(50),
-        builtinSymbols[998],
+        builtinSymbols[1001],
         MIS(3),
         MIS(102),
-        builtinSymbols[913],
+        builtinSymbols[916],
         MI(3),
         MIS(27),
         MIS(73),
@@ -23579,7 +23583,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[998],
+        builtinSymbols[1001],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -23648,7 +23652,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[996],
+        builtinSymbols[999],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -23668,10 +23672,10 @@ Object scheme::getBuiltinCompiler() {
         MIS(91),
         MIS(73),
         MIS(50),
-        builtinSymbols[986],
+        builtinSymbols[989],
         MIS(3),
         MIS(102),
-        builtinSymbols[913],
+        builtinSymbols[916],
         MI(3),
         MIS(27),
         MIS(73),
@@ -23729,7 +23733,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[986],
+        builtinSymbols[989],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -23746,12 +23750,12 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[986],
+        builtinSymbols[989],
         MI(1),
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[985],
+        builtinSymbols[988],
         MIS(33),
         MIS(33),
         MIS(14),
@@ -23771,7 +23775,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[986],
+        builtinSymbols[989],
         MI(1),
         MIS(3),
         MIS(65),
@@ -23780,7 +23784,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[914],
+        builtinSymbols[917],
         MIS(33),
         MIS(33),
         MIS(14),
@@ -23878,7 +23882,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[1141],
+        builtinSymbols[1144],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -23978,7 +23982,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[915],
+        builtinSymbols[918],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -24084,7 +24088,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[934],
+        builtinSymbols[937],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -24103,14 +24107,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(11),
         MIS(50),
-        builtinSymbols[981],
+        builtinSymbols[984],
         MIS(3),
         MIS(76),
         MIS(50),
-        builtinSymbols[1163],
+        builtinSymbols[1166],
         MIS(3),
         MIS(102),
-        builtinSymbols[913],
+        builtinSymbols[916],
         MI(3),
         MIS(27),
         MIS(73),
@@ -24139,7 +24143,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(76),
         MIS(102),
-        builtinSymbols[1183],
+        builtinSymbols[1186],
         MI(1),
         MIS(58),
         MI(5),
@@ -24173,7 +24177,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1163],
+        builtinSymbols[1166],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -24191,14 +24195,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(11),
         MIS(50),
-        builtinSymbols[981],
+        builtinSymbols[984],
         MIS(3),
         MIS(76),
         MIS(50),
-        builtinSymbols[935],
+        builtinSymbols[938],
         MIS(3),
         MIS(102),
-        builtinSymbols[913],
+        builtinSymbols[916],
         MI(3),
         MIS(27),
         MIS(73),
@@ -24227,7 +24231,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(76),
         MIS(102),
-        builtinSymbols[1183],
+        builtinSymbols[1186],
         MI(1),
         MIS(58),
         MI(4),
@@ -24258,7 +24262,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[935],
+        builtinSymbols[938],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -24275,20 +24279,20 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(11),
         MIS(50),
-        builtinSymbols[981],
+        builtinSymbols[984],
         MIS(3),
         MIS(76),
         MIS(50),
-        builtinSymbols[1164],
+        builtinSymbols[1167],
         MIS(3),
         MIS(102),
-        builtinSymbols[913],
+        builtinSymbols[916],
         MI(3),
         MIS(23),
         MI(5),
         MIS(76),
         MIS(102),
-        builtinSymbols[1183],
+        builtinSymbols[1186],
         MI(1),
         MIS(58),
         MI(5),
@@ -24303,7 +24307,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(77),
         MIS(102),
-        builtinSymbols[935],
+        builtinSymbols[938],
         MI(2),
         MIS(89),
         Object::Nil,
@@ -24311,7 +24315,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(65),
         MIS(85),
         MIS(17),
-        builtinSymbols[1164],
+        builtinSymbols[1167],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -24328,14 +24332,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(11),
         MIS(50),
-        builtinSymbols[981],
+        builtinSymbols[984],
         MIS(3),
         MIS(76),
         MIS(50),
-        builtinSymbols[1165],
+        builtinSymbols[1168],
         MIS(3),
         MIS(102),
-        builtinSymbols[913],
+        builtinSymbols[916],
         MI(3),
         MIS(27),
         MIS(73),
@@ -24381,7 +24385,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[935],
+        builtinSymbols[938],
         MI(2),
         MIS(3),
         MIS(65),
@@ -24393,7 +24397,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1165],
+        builtinSymbols[1168],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -24410,14 +24414,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(11),
         MIS(50),
-        builtinSymbols[981],
+        builtinSymbols[984],
         MIS(3),
         MIS(76),
         MIS(50),
-        builtinSymbols[936],
+        builtinSymbols[939],
         MIS(3),
         MIS(102),
-        builtinSymbols[913],
+        builtinSymbols[916],
         MI(3),
         MIS(27),
         MIS(73),
@@ -24466,7 +24470,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[935],
+        builtinSymbols[938],
         MI(2),
         MIS(3),
         MIS(65),
@@ -24478,7 +24482,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[936],
+        builtinSymbols[939],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -24496,14 +24500,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(11),
         MIS(50),
-        builtinSymbols[981],
+        builtinSymbols[984],
         MIS(3),
         MIS(76),
         MIS(50),
-        builtinSymbols[937],
+        builtinSymbols[940],
         MIS(3),
         MIS(102),
-        builtinSymbols[913],
+        builtinSymbols[916],
         MI(3),
         MIS(27),
         MIS(73),
@@ -24514,7 +24518,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(76),
         MIS(102),
-        builtinSymbols[935],
+        builtinSymbols[938],
         MI(2),
         MIS(78),
         MI(1),
@@ -24584,7 +24588,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[937],
+        builtinSymbols[940],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -24595,7 +24599,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(33),
         MIS(71),
         MIS(17),
-        builtinSymbols[956],
+        builtinSymbols[959],
         MIS(14),
         MI(9),
         MI(1),
@@ -24607,7 +24611,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(9),
         MIS(84),
         MIS(17),
-        builtinSymbols[1148],
+        builtinSymbols[1151],
         MIS(33),
         MIS(14),
         MI(14),
@@ -24618,14 +24622,14 @@ Object scheme::getBuiltinCompiler() {
         list838,
         MIS(73),
         MIS(50),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MIS(99),
         MI(1),
         MI(1),
         MI(1),
         MIS(84),
         MIS(17),
-        builtinSymbols[1167],
+        builtinSymbols[1170],
         MIS(33),
         MIS(14),
         MI(14),
@@ -24636,14 +24640,14 @@ Object scheme::getBuiltinCompiler() {
         list836,
         MIS(73),
         MIS(50),
-        builtinSymbols[870],
+        builtinSymbols[873],
         MIS(99),
         MI(1),
         MI(1),
         MI(1),
         MIS(84),
         MIS(17),
-        builtinSymbols[967],
+        builtinSymbols[970],
         MIS(33),
         MIS(14),
         MI(14),
@@ -24656,12 +24660,12 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[909],
+        builtinSymbols[912],
         MI(1),
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[948],
+        builtinSymbols[951],
         MIS(33),
         MIS(33),
         MIS(14),
@@ -24675,12 +24679,12 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[909],
+        builtinSymbols[912],
         MI(1),
         MIS(9),
         MIS(84),
         MIS(17),
-        builtinSymbols[1151],
+        builtinSymbols[1154],
         MIS(33),
         MIS(33),
         MIS(14),
@@ -24694,18 +24698,18 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[909],
+        builtinSymbols[912],
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MIS(99),
         MI(1),
         MI(1),
         MI(1),
         MIS(84),
         MIS(17),
-        builtinSymbols[1149],
+        builtinSymbols[1152],
         MIS(33),
         MIS(33),
         MIS(14),
@@ -24719,18 +24723,18 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[909],
+        builtinSymbols[912],
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[870],
+        builtinSymbols[873],
         MIS(99),
         MI(1),
         MI(1),
         MI(1),
         MIS(84),
         MIS(17),
-        builtinSymbols[938],
+        builtinSymbols[941],
         MIS(33),
         MIS(33),
         MIS(14),
@@ -24746,16 +24750,16 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[909],
+        builtinSymbols[912],
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[909],
+        builtinSymbols[912],
         MI(1),
         MIS(10),
         MIS(84),
         MIS(17),
-        builtinSymbols[1029],
+        builtinSymbols[1032],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -24772,16 +24776,16 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[909],
+        builtinSymbols[912],
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[909],
+        builtinSymbols[912],
         MI(1),
         MIS(9),
         MIS(84),
         MIS(17),
-        builtinSymbols[1166],
+        builtinSymbols[1169],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -24844,7 +24848,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[923],
+        builtinSymbols[926],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -24865,7 +24869,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(84),
         MIS(17),
-        builtinSymbols[880],
+        builtinSymbols[883],
         MIS(33),
         MIS(106),
         MI(63),
@@ -24902,7 +24906,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(84),
         MIS(17),
-        builtinSymbols[1032],
+        builtinSymbols[1035],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -24999,7 +25003,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(86),
         MIS(17),
-        builtinSymbols[913],
+        builtinSymbols[916],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -25060,7 +25064,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[880],
+        builtinSymbols[883],
         MI(1),
         MIS(109),
         MI(2),
@@ -25071,7 +25075,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1032],
+        builtinSymbols[1035],
         MI(1),
         MIS(58),
         MI(12),
@@ -25095,7 +25099,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[880],
+        builtinSymbols[883],
         MI(1),
         MIS(109),
         MI(2),
@@ -25162,7 +25166,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(84),
         MIS(17),
-        builtinSymbols[828],
+        builtinSymbols[831],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -25190,10 +25194,10 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(73),
         MIS(50),
-        builtinSymbols[951],
+        builtinSymbols[954],
         MIS(3),
         MIS(102),
-        builtinSymbols[913],
+        builtinSymbols[916],
         MI(3),
         MIS(67),
         MIS(45),
@@ -25234,7 +25238,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[828],
+        builtinSymbols[831],
         MI(1),
         MIS(109),
         MI(2),
@@ -25345,7 +25349,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1032],
+        builtinSymbols[1035],
         MI(1),
         MIS(58),
         MI(4),
@@ -25420,7 +25424,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(86),
         MIS(17),
-        builtinSymbols[951],
+        builtinSymbols[954],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -25475,7 +25479,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(84),
         MIS(84),
         MIS(17),
-        builtinSymbols[1177],
+        builtinSymbols[1180],
         MIS(33),
         MIS(33),
         MIS(106),
@@ -25506,7 +25510,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(84),
         MIS(84),
         MIS(17),
-        builtinSymbols[1171],
+        builtinSymbols[1174],
         MIS(33),
         MIS(33),
         MIS(106),
@@ -25542,7 +25546,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(4),
         MIS(102),
-        builtinSymbols[1177],
+        builtinSymbols[1180],
         MI(1),
         MIS(1),
         MI(1),
@@ -25577,7 +25581,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(84),
         MIS(85),
         MIS(17),
-        builtinSymbols[1170],
+        builtinSymbols[1173],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -25618,7 +25622,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(4),
         MIS(102),
-        builtinSymbols[1177],
+        builtinSymbols[1180],
         MI(1),
         MIS(1),
         MI(1),
@@ -25654,7 +25658,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(85),
         MIS(85),
         MIS(17),
-        builtinSymbols[1172],
+        builtinSymbols[1175],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -25719,7 +25723,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(50),
-        builtinSymbols[1175],
+        builtinSymbols[1178],
         MIS(99),
         MI(2),
         MI(5),
@@ -25727,7 +25731,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[971],
+        builtinSymbols[974],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -25796,7 +25800,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(50),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MIS(99),
         MI(2),
         MI(5),
@@ -25804,7 +25808,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[973],
+        builtinSymbols[976],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -25832,7 +25836,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(76),
         MIS(102),
-        builtinSymbols[1153],
+        builtinSymbols[1156],
         MI(2),
         MIS(3),
         MIS(69),
@@ -25842,7 +25846,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(85),
         MIS(17),
-        builtinSymbols[1152],
+        builtinSymbols[1155],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -26234,7 +26238,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1153],
+        builtinSymbols[1156],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -26374,7 +26378,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(86),
         MIS(17),
-        builtinSymbols[1001],
+        builtinSymbols[1004],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -26496,7 +26500,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(86),
         MIS(17),
-        builtinSymbols[1147],
+        builtinSymbols[1150],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -26592,7 +26596,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[1157],
+        builtinSymbols[1160],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -26612,7 +26616,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(0),
         MIS(17),
-        builtinSymbols[1160],
+        builtinSymbols[1163],
         MIS(33),
         MIS(59),
         MIS(106),
@@ -26640,7 +26644,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(84),
         MIS(17),
-        builtinSymbols[972],
+        builtinSymbols[975],
         MIS(33),
         MIS(33),
         MIS(92),
@@ -26654,14 +26658,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(91),
         MIS(73),
         MIS(50),
-        builtinSymbols[973],
+        builtinSymbols[976],
         MIS(99),
         MI(2),
         MI(1),
         MI(2),
         MIS(84),
         MIS(17),
-        builtinSymbols[970],
+        builtinSymbols[973],
         MIS(33),
         MIS(106),
         MI(131),
@@ -26695,7 +26699,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[969],
+        builtinSymbols[972],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -26856,7 +26860,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(65),
         MIS(86),
         MIS(17),
-        builtinSymbols[1158],
+        builtinSymbols[1161],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -26908,13 +26912,13 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[956],
+        builtinSymbols[959],
         MI(1),
         MIS(90),
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1148],
+        builtinSymbols[1151],
         MI(1),
         MIS(3),
         MIS(65),
@@ -26990,14 +26994,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(98),
         MIS(102),
-        builtinSymbols[966],
+        builtinSymbols[969],
         MI(2),
         MIS(23),
         MI(6),
         MIS(64),
         Object::makeString(UC("time%        msec      calls   name                              location")),
         MIS(102),
-        builtinSymbols[1140],
+        builtinSymbols[1143],
         MI(1),
         MIS(23),
         MI(382),
@@ -27028,7 +27032,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[956],
+        builtinSymbols[959],
         MI(1),
         MIS(78),
         MI(1),
@@ -27084,7 +27088,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(92),
         MIS(102),
-        builtinSymbols[969],
+        builtinSymbols[972],
         MI(1),
         MIS(3),
         MIS(69),
@@ -27095,7 +27099,7 @@ Object scheme::getBuiltinCompiler() {
         Object::makeString(UC("...)")),
         MIS(3),
         MIS(102),
-        builtinSymbols[1158],
+        builtinSymbols[1161],
         MI(3),
         MIS(78),
         MI(1),
@@ -27171,7 +27175,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[1148],
+        builtinSymbols[1151],
         MI(1),
         MIS(30),
         MI(3),
@@ -27233,7 +27237,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(7),
         MIS(102),
-        builtinSymbols[1167],
+        builtinSymbols[1170],
         MI(1),
         MIS(89),
         Object::makeString(UC(" ")),
@@ -27241,7 +27245,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(3),
         MIS(102),
-        builtinSymbols[1001],
+        builtinSymbols[1004],
         MI(3),
         MIS(90),
         MI(19),
@@ -27250,7 +27254,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(7),
         MIS(102),
-        builtinSymbols[1148],
+        builtinSymbols[1151],
         MI(1),
         MIS(89),
         MI(10),
@@ -27261,7 +27265,7 @@ Object scheme::getBuiltinCompiler() {
         MI(10),
         MIS(3),
         MIS(102),
-        builtinSymbols[1001],
+        builtinSymbols[1004],
         MI(3),
         MIS(90),
         MI(9),
@@ -27271,7 +27275,7 @@ Object scheme::getBuiltinCompiler() {
         MI(10),
         MIS(3),
         MIS(102),
-        builtinSymbols[1001],
+        builtinSymbols[1004],
         MI(3),
         MIS(90),
         MI(10),
@@ -27282,7 +27286,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         MI(30),
         MIS(102),
-        builtinSymbols[1147],
+        builtinSymbols[1150],
         MI(3),
         MIS(3),
         MIS(49),
@@ -27340,7 +27344,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(43),
         MIS(3),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(3),
         MI(2),
@@ -27350,7 +27354,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(68),
         MIS(3),
         MIS(102),
-        builtinSymbols[973],
+        builtinSymbols[976],
         MI(2),
         MIS(3),
         MIS(14),
@@ -27364,23 +27368,23 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1148],
+        builtinSymbols[1151],
         MI(1),
         MIS(90),
         MI(5),
         MIS(76),
         MIS(102),
-        builtinSymbols[1148],
+        builtinSymbols[1151],
         MI(1),
         MIS(39),
         MIS(85),
         MIS(3),
         MIS(102),
-        builtinSymbols[1152],
+        builtinSymbols[1155],
         MI(2),
         MIS(3),
         MIS(102),
-        builtinSymbols[966],
+        builtinSymbols[969],
         MI(2),
         MIS(27),
         MIS(73),
@@ -27422,7 +27426,7 @@ Object scheme::getBuiltinCompiler() {
         MI(10),
         MIS(3),
         MIS(102),
-        builtinSymbols[1001],
+        builtinSymbols[1004],
         MI(3),
         MIS(3),
         MIS(71),
@@ -27435,7 +27439,7 @@ Object scheme::getBuiltinCompiler() {
         MI(4),
         MIS(84),
         MIS(17),
-        builtinSymbols[1150],
+        builtinSymbols[1153],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -27502,7 +27506,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(0),
         MIS(17),
-        builtinSymbols[1178],
+        builtinSymbols[1181],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -27525,7 +27529,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(84),
         MIS(17),
-        builtinSymbols[941],
+        builtinSymbols[944],
         MIS(33),
         MIS(14),
         MI(9),
@@ -27538,20 +27542,20 @@ Object scheme::getBuiltinCompiler() {
         Object::True,
         MIS(84),
         MIS(17),
-        builtinSymbols[943],
+        builtinSymbols[946],
         MIS(33),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(17),
-        builtinSymbols[925],
+        builtinSymbols[928],
         MIS(50),
-        builtinSymbols[1140],
+        builtinSymbols[1143],
         MIS(17),
-        builtinSymbols[1137],
+        builtinSymbols[1140],
         MIS(16),
         list718,
         MIS(17),
-        builtinSymbols[830],
+        builtinSymbols[833],
         MIS(59),
         MIS(14),
         MI(10),
@@ -27561,11 +27565,11 @@ Object scheme::getBuiltinCompiler() {
         MI(4),
         list717,
         MIS(50),
-        builtinSymbols[829],
+        builtinSymbols[832],
         MIS(53),
         MI(0),
         MIS(17),
-        builtinSymbols[916],
+        builtinSymbols[919],
         MIS(33),
         MIS(106),
         MI(65),
@@ -27614,13 +27618,13 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(92),
         MIS(102),
-        builtinSymbols[971],
+        builtinSymbols[974],
         MI(2),
         MIS(65),
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[939],
+        builtinSymbols[942],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -27694,7 +27698,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[974],
+        builtinSymbols[977],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -27779,7 +27783,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[807],
+        builtinSymbols[810],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -27820,7 +27824,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(84),
         MIS(17),
-        builtinSymbols[1162],
+        builtinSymbols[1165],
         MIS(33),
         MIS(33),
         MIS(14),
@@ -27838,7 +27842,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(86),
         MIS(17),
-        builtinSymbols[835],
+        builtinSymbols[838],
         MIS(33),
         MIS(106),
         MI(19),
@@ -27931,7 +27935,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[990],
+        builtinSymbols[993],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -27965,12 +27969,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(66),
         MIS(95),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(15),
         MIS(85),
         MIS(17),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -28014,7 +28018,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(69),
         MIS(95),
         MIS(102),
-        builtinSymbols[806],
+        builtinSymbols[809],
         MI(2),
         MIS(15),
         MIS(30),
@@ -28023,7 +28027,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(69),
         MIS(95),
         MIS(50),
-        builtinSymbols[806],
+        builtinSymbols[809],
         MIS(99),
         MI(2),
         MI(5),
@@ -28031,7 +28035,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[806],
+        builtinSymbols[809],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -28069,12 +28073,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(66),
         MIS(95),
         MIS(102),
-        builtinSymbols[824],
+        builtinSymbols[827],
         MI(2),
         MIS(15),
         MIS(85),
         MIS(17),
-        builtinSymbols[824],
+        builtinSymbols[827],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -28165,7 +28169,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[1173],
+        builtinSymbols[1176],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -28198,7 +28202,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(9),
         MIS(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(3),
         MIS(90),
         MI(7),
@@ -28206,12 +28210,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(66),
         MIS(95),
         MIS(102),
-        builtinSymbols[836],
+        builtinSymbols[839],
         MI(2),
         MIS(15),
         MIS(85),
         MIS(17),
-        builtinSymbols[836],
+        builtinSymbols[839],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -28306,7 +28310,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1144],
+        builtinSymbols[1147],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -28317,7 +28321,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(16),
         MI(0),
         MIS(17),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(14),
         MI(31),
         MI(1),
@@ -28340,7 +28344,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(3),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(63),
         MIS(74),
         MI(1),
@@ -28351,14 +28355,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[804],
+        builtinSymbols[807],
         MIS(33),
         MIS(59),
         MIS(59),
         MIS(16),
         MI(1),
         MIS(17),
-        builtinSymbols[797],
+        builtinSymbols[800],
         MIS(14),
         MI(51),
         MI(4),
@@ -28385,7 +28389,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(3),
         MIS(50),
-        builtinSymbols[797],
+        builtinSymbols[800],
         MIS(63),
         MIS(74),
         MI(1),
@@ -28412,7 +28416,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[821],
+        builtinSymbols[824],
         MIS(33),
         MIS(14),
         MI(10),
@@ -28426,7 +28430,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(84),
         MIS(17),
-        builtinSymbols[822],
+        builtinSymbols[825],
         MIS(33),
         MIS(59),
         MIS(59),
@@ -28459,25 +28463,25 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[1140],
+        builtinSymbols[1143],
         MIS(99),
         MI(1),
         MI(1),
         MI(1),
         MIS(84),
         MIS(17),
-        builtinSymbols[1138],
+        builtinSymbols[1141],
         MIS(33),
         MIS(33),
         MIS(33),
         MIS(16),
         MI(2),
         MIS(17),
-        builtinSymbols[792],
+        builtinSymbols[795],
         MIS(14),
         MI(67),
         MI(6),
@@ -28508,7 +28512,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(3),
         MIS(50),
-        builtinSymbols[792],
+        builtinSymbols[795],
         MIS(63),
         MIS(74),
         MI(1),
@@ -28547,7 +28551,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(6),
         MIS(17),
-        builtinSymbols[816],
+        builtinSymbols[819],
         MIS(33),
         MIS(59),
         MIS(59),
@@ -28564,7 +28568,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(16),
         MI(3),
         MIS(17),
-        builtinSymbols[799],
+        builtinSymbols[802],
         MIS(14),
         MI(37),
         MI(2),
@@ -28588,7 +28592,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(3),
         MIS(50),
-        builtinSymbols[799],
+        builtinSymbols[802],
         MIS(63),
         MIS(74),
         MI(1),
@@ -28604,7 +28608,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[826],
+        builtinSymbols[829],
         MIS(33),
         MIS(59),
         MIS(59),
@@ -28613,7 +28617,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(16),
         MI(4),
         MIS(17),
-        builtinSymbols[791],
+        builtinSymbols[794],
         MIS(14),
         MI(83),
         MI(8),
@@ -28648,7 +28652,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(3),
         MIS(50),
-        builtinSymbols[791],
+        builtinSymbols[794],
         MIS(63),
         MIS(74),
         MI(1),
@@ -28699,7 +28703,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(8),
         MIS(17),
-        builtinSymbols[815],
+        builtinSymbols[818],
         MIS(33),
         MIS(59),
         MIS(59),
@@ -28720,7 +28724,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(16),
         MI(5),
         MIS(17),
-        builtinSymbols[796],
+        builtinSymbols[799],
         MIS(14),
         MI(31),
         MI(1),
@@ -28743,7 +28747,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(3),
         MIS(50),
-        builtinSymbols[796],
+        builtinSymbols[799],
         MIS(63),
         MIS(74),
         MI(1),
@@ -28754,14 +28758,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[820],
+        builtinSymbols[823],
         MIS(33),
         MIS(59),
         MIS(59),
         MIS(16),
         MI(6),
         MIS(17),
-        builtinSymbols[795],
+        builtinSymbols[798],
         MIS(14),
         MI(37),
         MI(2),
@@ -28785,7 +28789,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(3),
         MIS(50),
-        builtinSymbols[795],
+        builtinSymbols[798],
         MIS(63),
         MIS(74),
         MI(1),
@@ -28801,7 +28805,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[819],
+        builtinSymbols[822],
         MIS(33),
         MIS(59),
         MIS(59),
@@ -28809,640 +28813,6 @@ Object scheme::getBuiltinCompiler() {
         MIS(59),
         MIS(16),
         MI(7),
-        MIS(17),
-        builtinSymbols[784],
-        MIS(14),
-        MI(37),
-        MI(2),
-        Object::False,
-        MI(0),
-        MI(14),
-        list659,
-        MIS(27),
-        MIS(73),
-        MIS(76),
-        MIS(18),
-        MI(2),
-        MIS(64),
-        MI(3),
-        MIS(16),
-        Object::Nil,
-        MIS(32),
-        MIS(78),
-        MI(1),
-        MIS(74),
-        MI(0),
-        MIS(3),
-        MIS(50),
-        builtinSymbols[784],
-        MIS(63),
-        MIS(74),
-        MI(1),
-        MIS(3),
-        MIS(70),
-        MIS(63),
-        MIS(74),
-        MI(2),
-        MIS(3),
-        MIS(69),
-        MIS(63),
-        MIS(65),
-        MIS(80),
-        MIS(85),
-        MIS(17),
-        builtinSymbols[809],
-        MIS(33),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(16),
-        MI(8),
-        MIS(17),
-        builtinSymbols[783],
-        MIS(14),
-        MI(43),
-        MI(3),
-        Object::False,
-        MI(0),
-        MI(17),
-        list657,
-        MIS(27),
-        MIS(73),
-        MIS(76),
-        MIS(98),
-        MIS(18),
-        MI(3),
-        MIS(64),
-        MI(4),
-        MIS(16),
-        Object::Nil,
-        MIS(32),
-        MIS(78),
-        MI(1),
-        MIS(74),
-        MI(0),
-        MIS(3),
-        MIS(50),
-        builtinSymbols[783],
-        MIS(63),
-        MIS(74),
-        MI(1),
-        MIS(3),
-        MIS(71),
-        MIS(63),
-        MIS(74),
-        MI(2),
-        MIS(3),
-        MIS(70),
-        MIS(63),
-        MIS(74),
-        MI(3),
-        MIS(3),
-        MIS(69),
-        MIS(63),
-        MIS(65),
-        MIS(80),
-        MIS(86),
-        MIS(17),
-        builtinSymbols[808],
-        MIS(33),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(16),
-        MI(9),
-        MIS(17),
-        builtinSymbols[800],
-        MIS(14),
-        MI(13),
-        MI(0),
-        Object::False,
-        MI(0),
-        MI(5),
-        list655,
-        MIS(64),
-        MI(1),
-        MIS(50),
-        builtinSymbols[800],
-        MIS(32),
-        MIS(53),
-        MI(0),
-        MIS(17),
-        builtinSymbols[827],
-        MIS(33),
-        MIS(16),
-        MI(10),
-        MIS(17),
-        builtinSymbols[785],
-        MIS(14),
-        MI(43),
-        MI(3),
-        Object::False,
-        MI(0),
-        MI(17),
-        list653,
-        MIS(27),
-        MIS(73),
-        MIS(76),
-        MIS(98),
-        MIS(18),
-        MI(3),
-        MIS(64),
-        MI(4),
-        MIS(16),
-        Object::Nil,
-        MIS(32),
-        MIS(78),
-        MI(1),
-        MIS(74),
-        MI(0),
-        MIS(3),
-        MIS(50),
-        builtinSymbols[785],
-        MIS(63),
-        MIS(74),
-        MI(1),
-        MIS(3),
-        MIS(71),
-        MIS(63),
-        MIS(74),
-        MI(2),
-        MIS(3),
-        MIS(70),
-        MIS(63),
-        MIS(74),
-        MI(3),
-        MIS(3),
-        MIS(69),
-        MIS(63),
-        MIS(65),
-        MIS(80),
-        MIS(86),
-        MIS(17),
-        builtinSymbols[810],
-        MIS(33),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(16),
-        MI(11),
-        MIS(17),
-        builtinSymbols[778],
-        MIS(14),
-        MI(37),
-        MI(2),
-        Object::False,
-        MI(0),
-        MI(14),
-        list651,
-        MIS(27),
-        MIS(73),
-        MIS(76),
-        MIS(18),
-        MI(2),
-        MIS(64),
-        MI(3),
-        MIS(16),
-        Object::Nil,
-        MIS(32),
-        MIS(78),
-        MI(1),
-        MIS(74),
-        MI(0),
-        MIS(3),
-        MIS(50),
-        builtinSymbols[778],
-        MIS(63),
-        MIS(74),
-        MI(1),
-        MIS(3),
-        MIS(70),
-        MIS(63),
-        MIS(74),
-        MI(2),
-        MIS(3),
-        MIS(69),
-        MIS(63),
-        MIS(65),
-        MIS(80),
-        MIS(85),
-        MIS(17),
-        builtinSymbols[801],
-        MIS(33),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(16),
-        MI(12),
-        MIS(17),
-        builtinSymbols[782],
-        MIS(14),
-        MI(43),
-        MI(3),
-        Object::False,
-        MI(0),
-        MI(17),
-        list649,
-        MIS(27),
-        MIS(73),
-        MIS(76),
-        MIS(98),
-        MIS(18),
-        MI(3),
-        MIS(64),
-        MI(4),
-        MIS(16),
-        Object::Nil,
-        MIS(32),
-        MIS(78),
-        MI(1),
-        MIS(74),
-        MI(0),
-        MIS(3),
-        MIS(50),
-        builtinSymbols[782],
-        MIS(63),
-        MIS(74),
-        MI(1),
-        MIS(3),
-        MIS(71),
-        MIS(63),
-        MIS(74),
-        MI(2),
-        MIS(3),
-        MIS(70),
-        MIS(63),
-        MIS(74),
-        MI(3),
-        MIS(3),
-        MIS(69),
-        MIS(63),
-        MIS(65),
-        MIS(80),
-        MIS(86),
-        MIS(17),
-        builtinSymbols[805],
-        MIS(33),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(16),
-        MI(13),
-        MIS(17),
-        builtinSymbols[780],
-        MIS(14),
-        MI(37),
-        MI(2),
-        Object::False,
-        MI(0),
-        MI(14),
-        list647,
-        MIS(27),
-        MIS(73),
-        MIS(76),
-        MIS(18),
-        MI(2),
-        MIS(64),
-        MI(3),
-        MIS(16),
-        Object::Nil,
-        MIS(32),
-        MIS(78),
-        MI(1),
-        MIS(74),
-        MI(0),
-        MIS(3),
-        MIS(50),
-        builtinSymbols[780],
-        MIS(63),
-        MIS(74),
-        MI(1),
-        MIS(3),
-        MIS(70),
-        MIS(63),
-        MIS(74),
-        MI(2),
-        MIS(3),
-        MIS(69),
-        MIS(63),
-        MIS(65),
-        MIS(80),
-        MIS(85),
-        MIS(17),
-        builtinSymbols[803],
-        MIS(33),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(16),
-        MI(14),
-        MIS(17),
-        builtinSymbols[779],
-        MIS(14),
-        MI(51),
-        MI(4),
-        Object::False,
-        MI(0),
-        MI(20),
-        list645,
-        MIS(27),
-        MIS(73),
-        MIS(76),
-        MIS(98),
-        MIS(68),
-        MIS(3),
-        MIS(18),
-        MI(4),
-        MIS(64),
-        MI(5),
-        MIS(16),
-        Object::Nil,
-        MIS(32),
-        MIS(78),
-        MI(1),
-        MIS(74),
-        MI(0),
-        MIS(3),
-        MIS(50),
-        builtinSymbols[779],
-        MIS(63),
-        MIS(74),
-        MI(1),
-        MIS(3),
-        MIS(72),
-        MIS(63),
-        MIS(74),
-        MI(2),
-        MIS(3),
-        MIS(71),
-        MIS(63),
-        MIS(74),
-        MI(3),
-        MIS(3),
-        MIS(70),
-        MIS(63),
-        MIS(74),
-        MI(4),
-        MIS(3),
-        MIS(69),
-        MIS(63),
-        MIS(65),
-        MIS(80),
-        MIS(53),
-        MI(4),
-        MIS(17),
-        builtinSymbols[802],
-        MIS(33),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(16),
-        MI(15),
-        MIS(17),
-        builtinSymbols[790],
-        MIS(14),
-        MI(31),
-        MI(1),
-        Object::False,
-        MI(0),
-        MI(11),
-        list643,
-        MIS(27),
-        MIS(73),
-        MIS(18),
-        MI(1),
-        MIS(64),
-        MI(2),
-        MIS(16),
-        Object::Nil,
-        MIS(32),
-        MIS(78),
-        MI(1),
-        MIS(74),
-        MI(0),
-        MIS(3),
-        MIS(50),
-        builtinSymbols[790],
-        MIS(63),
-        MIS(74),
-        MI(1),
-        MIS(3),
-        MIS(69),
-        MIS(63),
-        MIS(65),
-        MIS(80),
-        MIS(84),
-        MIS(17),
-        builtinSymbols[814],
-        MIS(33),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(16),
-        MI(16),
-        MIS(17),
-        builtinSymbols[794],
-        MIS(14),
-        MI(31),
-        MI(1),
-        Object::False,
-        MI(0),
-        MI(11),
-        list641,
-        MIS(27),
-        MIS(73),
-        MIS(18),
-        MI(1),
-        MIS(64),
-        MI(2),
-        MIS(16),
-        Object::Nil,
-        MIS(32),
-        MIS(78),
-        MI(1),
-        MIS(74),
-        MI(0),
-        MIS(3),
-        MIS(50),
-        builtinSymbols[794],
-        MIS(63),
-        MIS(74),
-        MI(1),
-        MIS(3),
-        MIS(69),
-        MIS(63),
-        MIS(65),
-        MIS(80),
-        MIS(84),
-        MIS(17),
-        builtinSymbols[818],
-        MIS(33),
-        MIS(59),
-        MIS(59),
-        MIS(16),
-        MI(17),
-        MIS(17),
-        builtinSymbols[793],
-        MIS(14),
-        MI(79),
-        MI(7),
-        Object::False,
-        MI(0),
-        MI(30),
-        list639,
-        MIS(27),
-        MIS(73),
-        MIS(76),
-        MIS(98),
-        MIS(68),
-        MIS(3),
-        MIS(107),
-        MI(4),
-        MIS(107),
-        MI(5),
-        MIS(107),
-        MI(6),
-        MIS(18),
-        MI(7),
-        MIS(64),
-        MI(8),
-        MIS(16),
-        Object::Nil,
-        MIS(32),
-        MIS(78),
-        MI(1),
-        MIS(74),
-        MI(0),
-        MIS(3),
-        MIS(50),
-        builtinSymbols[793],
-        MIS(63),
-        MIS(74),
-        MI(1),
-        MIS(90),
-        MI(6),
-        MIS(106),
-        MI(6),
-        MIS(102),
-        builtinSymbols[990],
-        MI(1),
-        MIS(63),
-        MIS(74),
-        MI(2),
-        MIS(3),
-        MIS(49),
-        MI(5),
-        MIS(63),
-        MIS(74),
-        MI(3),
-        MIS(3),
-        MIS(49),
-        MI(4),
-        MIS(63),
-        MIS(74),
-        MI(4),
-        MIS(3),
-        MIS(72),
-        MIS(63),
-        MIS(74),
-        MI(5),
-        MIS(3),
-        MIS(71),
-        MIS(63),
-        MIS(74),
-        MI(6),
-        MIS(3),
-        MIS(70),
-        MIS(63),
-        MIS(74),
-        MI(7),
-        MIS(3),
-        MIS(69),
-        MIS(63),
-        MIS(65),
-        MIS(80),
-        MIS(53),
-        MI(7),
-        MIS(17),
-        builtinSymbols[817],
-        MIS(33),
-        MIS(33),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(59),
-        MIS(16),
-        MI(18),
-        MIS(17),
-        builtinSymbols[786],
-        MIS(14),
-        MI(31),
-        MI(1),
-        Object::False,
-        MI(0),
-        MI(11),
-        list637,
-        MIS(27),
-        MIS(73),
-        MIS(18),
-        MI(1),
-        MIS(64),
-        MI(2),
-        MIS(16),
-        Object::Nil,
-        MIS(32),
-        MIS(78),
-        MI(1),
-        MIS(74),
-        MI(0),
-        MIS(3),
-        MIS(50),
-        builtinSymbols[786],
-        MIS(63),
-        MIS(74),
-        MI(1),
-        MIS(3),
-        MIS(69),
-        MIS(63),
-        MIS(65),
-        MIS(80),
-        MIS(84),
-        MIS(17),
-        builtinSymbols[811],
-        MIS(33),
-        MIS(59),
-        MIS(59),
-        MIS(16),
-        MI(19),
         MIS(17),
         builtinSymbols[787],
         MIS(14),
@@ -29451,7 +28821,7 @@ Object scheme::getBuiltinCompiler() {
         Object::False,
         MI(0),
         MI(14),
-        list635,
+        list659,
         MIS(27),
         MIS(73),
         MIS(76),
@@ -29491,9 +28861,643 @@ Object scheme::getBuiltinCompiler() {
         MIS(59),
         MIS(59),
         MIS(16),
+        MI(8),
+        MIS(17),
+        builtinSymbols[786],
+        MIS(14),
+        MI(43),
+        MI(3),
+        Object::False,
+        MI(0),
+        MI(17),
+        list657,
+        MIS(27),
+        MIS(73),
+        MIS(76),
+        MIS(98),
+        MIS(18),
+        MI(3),
+        MIS(64),
+        MI(4),
+        MIS(16),
+        Object::Nil,
+        MIS(32),
+        MIS(78),
+        MI(1),
+        MIS(74),
+        MI(0),
+        MIS(3),
+        MIS(50),
+        builtinSymbols[786],
+        MIS(63),
+        MIS(74),
+        MI(1),
+        MIS(3),
+        MIS(71),
+        MIS(63),
+        MIS(74),
+        MI(2),
+        MIS(3),
+        MIS(70),
+        MIS(63),
+        MIS(74),
+        MI(3),
+        MIS(3),
+        MIS(69),
+        MIS(63),
+        MIS(65),
+        MIS(80),
+        MIS(86),
+        MIS(17),
+        builtinSymbols[811],
+        MIS(33),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(16),
+        MI(9),
+        MIS(17),
+        builtinSymbols[803],
+        MIS(14),
+        MI(13),
+        MI(0),
+        Object::False,
+        MI(0),
+        MI(5),
+        list655,
+        MIS(64),
+        MI(1),
+        MIS(50),
+        builtinSymbols[803],
+        MIS(32),
+        MIS(53),
+        MI(0),
+        MIS(17),
+        builtinSymbols[830],
+        MIS(33),
+        MIS(16),
+        MI(10),
+        MIS(17),
+        builtinSymbols[788],
+        MIS(14),
+        MI(43),
+        MI(3),
+        Object::False,
+        MI(0),
+        MI(17),
+        list653,
+        MIS(27),
+        MIS(73),
+        MIS(76),
+        MIS(98),
+        MIS(18),
+        MI(3),
+        MIS(64),
+        MI(4),
+        MIS(16),
+        Object::Nil,
+        MIS(32),
+        MIS(78),
+        MI(1),
+        MIS(74),
+        MI(0),
+        MIS(3),
+        MIS(50),
+        builtinSymbols[788],
+        MIS(63),
+        MIS(74),
+        MI(1),
+        MIS(3),
+        MIS(71),
+        MIS(63),
+        MIS(74),
+        MI(2),
+        MIS(3),
+        MIS(70),
+        MIS(63),
+        MIS(74),
+        MI(3),
+        MIS(3),
+        MIS(69),
+        MIS(63),
+        MIS(65),
+        MIS(80),
+        MIS(86),
+        MIS(17),
+        builtinSymbols[813],
+        MIS(33),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(16),
+        MI(11),
+        MIS(17),
+        builtinSymbols[781],
+        MIS(14),
+        MI(37),
+        MI(2),
+        Object::False,
+        MI(0),
+        MI(14),
+        list651,
+        MIS(27),
+        MIS(73),
+        MIS(76),
+        MIS(18),
+        MI(2),
+        MIS(64),
+        MI(3),
+        MIS(16),
+        Object::Nil,
+        MIS(32),
+        MIS(78),
+        MI(1),
+        MIS(74),
+        MI(0),
+        MIS(3),
+        MIS(50),
+        builtinSymbols[781],
+        MIS(63),
+        MIS(74),
+        MI(1),
+        MIS(3),
+        MIS(70),
+        MIS(63),
+        MIS(74),
+        MI(2),
+        MIS(3),
+        MIS(69),
+        MIS(63),
+        MIS(65),
+        MIS(80),
+        MIS(85),
+        MIS(17),
+        builtinSymbols[804],
+        MIS(33),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(16),
+        MI(12),
+        MIS(17),
+        builtinSymbols[785],
+        MIS(14),
+        MI(43),
+        MI(3),
+        Object::False,
+        MI(0),
+        MI(17),
+        list649,
+        MIS(27),
+        MIS(73),
+        MIS(76),
+        MIS(98),
+        MIS(18),
+        MI(3),
+        MIS(64),
+        MI(4),
+        MIS(16),
+        Object::Nil,
+        MIS(32),
+        MIS(78),
+        MI(1),
+        MIS(74),
+        MI(0),
+        MIS(3),
+        MIS(50),
+        builtinSymbols[785],
+        MIS(63),
+        MIS(74),
+        MI(1),
+        MIS(3),
+        MIS(71),
+        MIS(63),
+        MIS(74),
+        MI(2),
+        MIS(3),
+        MIS(70),
+        MIS(63),
+        MIS(74),
+        MI(3),
+        MIS(3),
+        MIS(69),
+        MIS(63),
+        MIS(65),
+        MIS(80),
+        MIS(86),
+        MIS(17),
+        builtinSymbols[808],
+        MIS(33),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(16),
+        MI(13),
+        MIS(17),
+        builtinSymbols[783],
+        MIS(14),
+        MI(37),
+        MI(2),
+        Object::False,
+        MI(0),
+        MI(14),
+        list647,
+        MIS(27),
+        MIS(73),
+        MIS(76),
+        MIS(18),
+        MI(2),
+        MIS(64),
+        MI(3),
+        MIS(16),
+        Object::Nil,
+        MIS(32),
+        MIS(78),
+        MI(1),
+        MIS(74),
+        MI(0),
+        MIS(3),
+        MIS(50),
+        builtinSymbols[783],
+        MIS(63),
+        MIS(74),
+        MI(1),
+        MIS(3),
+        MIS(70),
+        MIS(63),
+        MIS(74),
+        MI(2),
+        MIS(3),
+        MIS(69),
+        MIS(63),
+        MIS(65),
+        MIS(80),
+        MIS(85),
+        MIS(17),
+        builtinSymbols[806],
+        MIS(33),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(16),
+        MI(14),
+        MIS(17),
+        builtinSymbols[782],
+        MIS(14),
+        MI(51),
+        MI(4),
+        Object::False,
+        MI(0),
         MI(20),
+        list645,
+        MIS(27),
+        MIS(73),
+        MIS(76),
+        MIS(98),
+        MIS(68),
+        MIS(3),
+        MIS(18),
+        MI(4),
+        MIS(64),
+        MI(5),
+        MIS(16),
+        Object::Nil,
+        MIS(32),
+        MIS(78),
+        MI(1),
+        MIS(74),
+        MI(0),
+        MIS(3),
+        MIS(50),
+        builtinSymbols[782],
+        MIS(63),
+        MIS(74),
+        MI(1),
+        MIS(3),
+        MIS(72),
+        MIS(63),
+        MIS(74),
+        MI(2),
+        MIS(3),
+        MIS(71),
+        MIS(63),
+        MIS(74),
+        MI(3),
+        MIS(3),
+        MIS(70),
+        MIS(63),
+        MIS(74),
+        MI(4),
+        MIS(3),
+        MIS(69),
+        MIS(63),
+        MIS(65),
+        MIS(80),
+        MIS(53),
+        MI(4),
+        MIS(17),
+        builtinSymbols[805],
+        MIS(33),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(16),
+        MI(15),
+        MIS(17),
+        builtinSymbols[793],
+        MIS(14),
+        MI(31),
+        MI(1),
+        Object::False,
+        MI(0),
+        MI(11),
+        list643,
+        MIS(27),
+        MIS(73),
+        MIS(18),
+        MI(1),
+        MIS(64),
+        MI(2),
+        MIS(16),
+        Object::Nil,
+        MIS(32),
+        MIS(78),
+        MI(1),
+        MIS(74),
+        MI(0),
+        MIS(3),
+        MIS(50),
+        builtinSymbols[793],
+        MIS(63),
+        MIS(74),
+        MI(1),
+        MIS(3),
+        MIS(69),
+        MIS(63),
+        MIS(65),
+        MIS(80),
+        MIS(84),
+        MIS(17),
+        builtinSymbols[817],
+        MIS(33),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(16),
+        MI(16),
+        MIS(17),
+        builtinSymbols[797],
+        MIS(14),
+        MI(31),
+        MI(1),
+        Object::False,
+        MI(0),
+        MI(11),
+        list641,
+        MIS(27),
+        MIS(73),
+        MIS(18),
+        MI(1),
+        MIS(64),
+        MI(2),
+        MIS(16),
+        Object::Nil,
+        MIS(32),
+        MIS(78),
+        MI(1),
+        MIS(74),
+        MI(0),
+        MIS(3),
+        MIS(50),
+        builtinSymbols[797],
+        MIS(63),
+        MIS(74),
+        MI(1),
+        MIS(3),
+        MIS(69),
+        MIS(63),
+        MIS(65),
+        MIS(80),
+        MIS(84),
+        MIS(17),
+        builtinSymbols[821],
+        MIS(33),
+        MIS(59),
+        MIS(59),
+        MIS(16),
+        MI(17),
+        MIS(17),
+        builtinSymbols[796],
+        MIS(14),
+        MI(79),
+        MI(7),
+        Object::False,
+        MI(0),
+        MI(30),
+        list639,
+        MIS(27),
+        MIS(73),
+        MIS(76),
+        MIS(98),
+        MIS(68),
+        MIS(3),
+        MIS(107),
+        MI(4),
+        MIS(107),
+        MI(5),
+        MIS(107),
+        MI(6),
+        MIS(18),
+        MI(7),
+        MIS(64),
+        MI(8),
+        MIS(16),
+        Object::Nil,
+        MIS(32),
+        MIS(78),
+        MI(1),
+        MIS(74),
+        MI(0),
+        MIS(3),
+        MIS(50),
+        builtinSymbols[796],
+        MIS(63),
+        MIS(74),
+        MI(1),
+        MIS(90),
+        MI(6),
+        MIS(106),
+        MI(6),
+        MIS(102),
+        builtinSymbols[993],
+        MI(1),
+        MIS(63),
+        MIS(74),
+        MI(2),
+        MIS(3),
+        MIS(49),
+        MI(5),
+        MIS(63),
+        MIS(74),
+        MI(3),
+        MIS(3),
+        MIS(49),
+        MI(4),
+        MIS(63),
+        MIS(74),
+        MI(4),
+        MIS(3),
+        MIS(72),
+        MIS(63),
+        MIS(74),
+        MI(5),
+        MIS(3),
+        MIS(71),
+        MIS(63),
+        MIS(74),
+        MI(6),
+        MIS(3),
+        MIS(70),
+        MIS(63),
+        MIS(74),
+        MI(7),
+        MIS(3),
+        MIS(69),
+        MIS(63),
+        MIS(65),
+        MIS(80),
+        MIS(53),
+        MI(7),
+        MIS(17),
+        builtinSymbols[820],
+        MIS(33),
+        MIS(33),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(16),
+        MI(18),
         MIS(17),
         builtinSymbols[789],
+        MIS(14),
+        MI(31),
+        MI(1),
+        Object::False,
+        MI(0),
+        MI(11),
+        list637,
+        MIS(27),
+        MIS(73),
+        MIS(18),
+        MI(1),
+        MIS(64),
+        MI(2),
+        MIS(16),
+        Object::Nil,
+        MIS(32),
+        MIS(78),
+        MI(1),
+        MIS(74),
+        MI(0),
+        MIS(3),
+        MIS(50),
+        builtinSymbols[789],
+        MIS(63),
+        MIS(74),
+        MI(1),
+        MIS(3),
+        MIS(69),
+        MIS(63),
+        MIS(65),
+        MIS(80),
+        MIS(84),
+        MIS(17),
+        builtinSymbols[814],
+        MIS(33),
+        MIS(59),
+        MIS(59),
+        MIS(16),
+        MI(19),
+        MIS(17),
+        builtinSymbols[790],
+        MIS(14),
+        MI(37),
+        MI(2),
+        Object::False,
+        MI(0),
+        MI(14),
+        list635,
+        MIS(27),
+        MIS(73),
+        MIS(76),
+        MIS(18),
+        MI(2),
+        MIS(64),
+        MI(3),
+        MIS(16),
+        Object::Nil,
+        MIS(32),
+        MIS(78),
+        MI(1),
+        MIS(74),
+        MI(0),
+        MIS(3),
+        MIS(50),
+        builtinSymbols[790],
+        MIS(63),
+        MIS(74),
+        MI(1),
+        MIS(3),
+        MIS(70),
+        MIS(63),
+        MIS(74),
+        MI(2),
+        MIS(3),
+        MIS(69),
+        MIS(63),
+        MIS(65),
+        MIS(80),
+        MIS(85),
+        MIS(17),
+        builtinSymbols[815],
+        MIS(33),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(59),
+        MIS(16),
+        MI(20),
+        MIS(17),
+        builtinSymbols[792],
         MIS(14),
         MI(13),
         MI(0),
@@ -29504,17 +29508,17 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         MI(1),
         MIS(50),
-        builtinSymbols[789],
+        builtinSymbols[792],
         MIS(32),
         MIS(53),
         MI(0),
         MIS(17),
-        builtinSymbols[813],
+        builtinSymbols[816],
         MIS(33),
         MIS(16),
         MI(21),
         MIS(17),
-        builtinSymbols[798],
+        builtinSymbols[801],
         MIS(14),
         MI(67),
         MI(6),
@@ -29545,7 +29549,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(3),
         MIS(50),
-        builtinSymbols[798],
+        builtinSymbols[801],
         MIS(63),
         MIS(74),
         MI(1),
@@ -29584,7 +29588,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(6),
         MIS(17),
-        builtinSymbols[825],
+        builtinSymbols[828],
         MIS(33),
         MIS(59),
         MIS(59),
@@ -29599,7 +29603,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(16),
         MI(22),
         MIS(17),
-        builtinSymbols[788],
+        builtinSymbols[791],
         MIS(59),
         MIS(59),
         MIS(59),
@@ -29631,24 +29635,24 @@ Object scheme::getBuiltinCompiler() {
         Object::False,
         MIS(3),
         MIS(50),
-        builtinSymbols[817],
+        builtinSymbols[820],
         MIS(99),
         MI(7),
         MI(1),
         MI(7),
         MIS(84),
         MIS(17),
-        builtinSymbols[1003],
+        builtinSymbols[1006],
         MIS(33),
         MIS(23),
         MI(6),
         MIS(64),
         list627,
         MIS(102),
-        builtinSymbols[1003],
+        builtinSymbols[1006],
         MI(1),
         MIS(17),
-        builtinSymbols[1168],
+        builtinSymbols[1171],
         MIS(33),
         MIS(106),
         MI(25),
@@ -29693,7 +29697,7 @@ Object scheme::getBuiltinCompiler() {
         Object::False,
         MIS(93),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(2),
         MI(2),
@@ -29731,7 +29735,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(2),
         MI(2),
@@ -29760,7 +29764,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::Nil,
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(2),
         MI(1),
@@ -29773,18 +29777,18 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(2),
         MI(1),
         MI(2),
         MIS(84),
         MIS(17),
-        builtinSymbols[1036],
+        builtinSymbols[1039],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -29906,7 +29910,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[1035],
+        builtinSymbols[1038],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -29934,7 +29938,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(45),
         MIS(58),
@@ -29943,7 +29947,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(94),
         MIS(16),
@@ -29955,7 +29959,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(84),
         MIS(17),
-        builtinSymbols[984],
+        builtinSymbols[987],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -29971,14 +29975,14 @@ Object scheme::getBuiltinCompiler() {
         MI(12),
         list616,
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(65),
         MIS(9),
         MIS(90),
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(89),
         Object::Nil,
@@ -29991,13 +29995,13 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[910],
+        builtinSymbols[913],
         MI(1),
         MIS(15),
         MIS(15),
         MIS(84),
         MIS(17),
-        builtinSymbols[989],
+        builtinSymbols[992],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -30031,11 +30035,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(9),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(2),
         MIS(3),
         MIS(66),
@@ -30046,25 +30050,25 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[959],
+        builtinSymbols[962],
         MI(3),
         MIS(78),
         MI(1),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(73),
         MIS(23),
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(15),
         MIS(15),
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[945],
+        builtinSymbols[948],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -30100,7 +30104,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(1),
         MIS(64),
-        builtinSymbols[659],
+        builtinSymbols[662],
         MIS(88),
         MI(4),
         MIS(72),
@@ -30122,7 +30126,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[927],
+        builtinSymbols[930],
         MI(1),
         MIS(58),
         MI(17),
@@ -30131,11 +30135,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[926],
+        builtinSymbols[929],
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MIS(99),
         MI(1),
         MI(4),
@@ -30153,7 +30157,7 @@ Object scheme::getBuiltinCompiler() {
         list608,
         MIS(73),
         MIS(50),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MIS(99),
         MI(1),
         MI(1),
@@ -30163,7 +30167,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(90),
         MI(6),
@@ -30181,7 +30185,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(581),
         MIS(64),
-        builtinSymbols[413],
+        builtinSymbols[416],
         MIS(88),
         MI(29),
         MIS(23),
@@ -30191,11 +30195,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[989],
+        builtinSymbols[992],
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(90),
         MI(6),
@@ -30213,7 +30217,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(549),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(88),
         MI(64),
         MIS(23),
@@ -30221,7 +30225,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[988],
+        builtinSymbols[991],
         MI(1),
         MIS(58),
         MI(29),
@@ -30232,11 +30236,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[1027],
+        builtinSymbols[1030],
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(90),
         MI(6),
@@ -30262,7 +30266,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(12),
         MIS(3),
         MIS(102),
-        builtinSymbols[945],
+        builtinSymbols[948],
         MI(2),
         MIS(90),
         MI(6),
@@ -30280,7 +30284,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(482),
         MIS(64),
-        builtinSymbols[409],
+        builtinSymbols[412],
         MIS(88),
         MI(29),
         MIS(23),
@@ -30290,11 +30294,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[987],
+        builtinSymbols[990],
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(90),
         MI(6),
@@ -30322,11 +30326,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[921],
+        builtinSymbols[924],
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(90),
         MI(6),
@@ -30344,7 +30348,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(418),
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(88),
         MI(88),
         MIS(23),
@@ -30352,7 +30356,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[984],
+        builtinSymbols[987],
         MI(1),
         MIS(58),
         MI(41),
@@ -30365,7 +30369,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[983],
+        builtinSymbols[986],
         MI(1),
         MIS(90),
         MI(6),
@@ -30379,7 +30383,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(87),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(90),
         MI(6),
@@ -30401,12 +30405,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(9),
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(72),
         MIS(9),
         MIS(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(2),
         MIS(90),
         MI(7),
@@ -30414,7 +30418,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(12),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(69),
@@ -30435,7 +30439,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(327),
         MIS(64),
-        builtinSymbols[1228],
+        builtinSymbols[1231],
         MIS(88),
         MI(116),
         MIS(72),
@@ -30445,7 +30449,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(72),
         MIS(94),
         MIS(16),
-        builtinSymbols[1228],
+        builtinSymbols[1231],
         MIS(22),
         MIS(58),
         MI(13),
@@ -30472,14 +30476,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(90),
         MI(6),
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[910],
+        builtinSymbols[913],
         MI(1),
         MIS(3),
         MIS(106),
@@ -30508,7 +30512,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(90),
         MI(5),
@@ -30541,7 +30545,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("malformed when")),
         MIS(50),
-        builtinSymbols[1162],
+        builtinSymbols[1165],
         MIS(99),
         MI(1),
         MI(1),
@@ -30554,7 +30558,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(208),
         MIS(64),
-        builtinSymbols[1198],
+        builtinSymbols[1201],
         MIS(88),
         MI(122),
         MIS(72),
@@ -30564,7 +30568,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(72),
         MIS(94),
         MIS(16),
-        builtinSymbols[1198],
+        builtinSymbols[1201],
         MIS(22),
         MIS(58),
         MI(13),
@@ -30591,14 +30595,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(90),
         MI(6),
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[910],
+        builtinSymbols[913],
         MI(1),
         MIS(3),
         MIS(106),
@@ -30617,7 +30621,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         builtinSymbols[216],
         MIS(64),
-        builtinSymbols[507],
+        builtinSymbols[510],
         MIS(74),
         Object::Nil,
         MIS(15),
@@ -30633,7 +30637,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(90),
         MI(5),
@@ -30666,7 +30670,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("malformed unless")),
         MIS(50),
-        builtinSymbols[1162],
+        builtinSymbols[1165],
         MIS(99),
         MI(1),
         MI(1),
@@ -30689,11 +30693,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[834],
+        builtinSymbols[837],
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(90),
         MI(6),
@@ -30721,11 +30725,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[881],
+        builtinSymbols[884],
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(90),
         MI(6),
@@ -30743,7 +30747,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(19),
         MIS(64),
-        builtinSymbols[658],
+        builtinSymbols[661],
         MIS(88),
         MI(14),
         MIS(72),
@@ -30752,7 +30756,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(3),
         MIS(50),
-        builtinSymbols[946],
+        builtinSymbols[949],
         MIS(99),
         MI(2),
         MI(4),
@@ -30766,7 +30770,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(65),
         MIS(84),
         MIS(17),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -30878,7 +30882,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(45),
         MIS(84),
         MIS(17),
-        builtinSymbols[927],
+        builtinSymbols[930],
         MIS(33),
         MIS(14),
         MI(36),
@@ -30897,7 +30901,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(21),
         MIS(64),
-        builtinSymbols[360],
+        builtinSymbols[363],
         MIS(65),
         MIS(10),
         MIS(90),
@@ -30905,20 +30909,20 @@ Object scheme::getBuiltinCompiler() {
         MIS(65),
         MIS(95),
         MIS(102),
-        builtinSymbols[922],
+        builtinSymbols[925],
         MI(1),
         MIS(89),
         Object::False,
         MIS(3),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(4),
         MI(1),
         MI(4),
         MIS(84),
         MIS(17),
-        builtinSymbols[922],
+        builtinSymbols[925],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -30964,7 +30968,7 @@ Object scheme::getBuiltinCompiler() {
         Object::Nil,
         MIS(76),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(2),
         MI(2),
@@ -30992,7 +30996,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(66),
         MIS(94),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(3),
@@ -31013,7 +31017,7 @@ Object scheme::getBuiltinCompiler() {
         Object::Nil,
         MIS(76),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(2),
         MI(2),
@@ -31023,7 +31027,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(76),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(2),
         MI(2),
@@ -31043,7 +31047,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[954],
+        builtinSymbols[957],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -31122,7 +31126,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(91),
         MIS(102),
-        builtinSymbols[954],
+        builtinSymbols[957],
         MI(2),
         MIS(78),
         MI(1),
@@ -31174,7 +31178,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(55),
         MIS(64),
-        builtinSymbols[415],
+        builtinSymbols[418],
         MIS(23),
         MI(38),
         MIS(14),
@@ -31190,11 +31194,11 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(2),
         MI(1),
@@ -31203,16 +31207,16 @@ Object scheme::getBuiltinCompiler() {
         MIS(90),
         MI(9),
         MIS(50),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MIS(3),
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(65),
@@ -31230,7 +31234,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(1),
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(106),
         MI(7),
         MIS(74),
@@ -31258,7 +31262,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[983],
+        builtinSymbols[986],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -31309,11 +31313,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(8),
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(65),
         MIS(95),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(2),
         MIS(3),
         MIS(76),
@@ -31337,7 +31341,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(84),
         MIS(17),
-        builtinSymbols[926],
+        builtinSymbols[929],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -31353,7 +31357,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         builtinSymbols[216],
         MIS(64),
-        builtinSymbols[507],
+        builtinSymbols[510],
         MIS(65),
         MIS(9),
         MIS(89),
@@ -31370,7 +31374,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(84),
         MIS(17),
-        builtinSymbols[1174],
+        builtinSymbols[1177],
         MIS(33),
         MIS(106),
         MI(97),
@@ -31435,7 +31439,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(33),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(65),
         MIS(94),
         MIS(16),
@@ -31483,7 +31487,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(84),
         MIS(17),
-        builtinSymbols[987],
+        builtinSymbols[990],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -31551,7 +31555,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(1),
         MIS(64),
-        builtinSymbols[360],
+        builtinSymbols[363],
         MIS(93),
         MIS(73),
         MIS(92),
@@ -31633,7 +31637,7 @@ Object scheme::getBuiltinCompiler() {
         MI(8),
         MIS(73),
         MIS(50),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MIS(99),
         MI(1),
         MI(1),
@@ -31658,7 +31662,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[864],
+        builtinSymbols[867],
         MI(1),
         MIS(20),
         MIS(30),
@@ -31679,7 +31683,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(1),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(73),
         MIS(71),
         MIS(8),
@@ -31691,14 +31695,14 @@ Object scheme::getBuiltinCompiler() {
         Object::Nil,
         MIS(15),
         MIS(89),
-        builtinSymbols[360],
+        builtinSymbols[363],
         MIS(3),
         MIS(73),
         MIS(23),
         MI(5),
         MIS(93),
         MIS(102),
-        builtinSymbols[867],
+        builtinSymbols[870],
         MI(1),
         MIS(3),
         MIS(74),
@@ -31752,7 +31756,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(1),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(73),
         MIS(71),
         MIS(8),
@@ -31764,7 +31768,7 @@ Object scheme::getBuiltinCompiler() {
         Object::Nil,
         MIS(15),
         MIS(89),
-        builtinSymbols[360],
+        builtinSymbols[363],
         MIS(3),
         MIS(73),
         MIS(73),
@@ -31822,7 +31826,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[921],
+        builtinSymbols[924],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -31920,12 +31924,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         builtinSymbols[272],
         MIS(64),
-        builtinSymbols[659],
+        builtinSymbols[662],
         MIS(23),
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[849],
+        builtinSymbols[852],
         MI(1),
         MIS(89),
         Object::Nil,
@@ -31953,10 +31957,10 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(29),
         MIS(64),
-        builtinSymbols[491],
+        builtinSymbols[494],
         MIS(92),
         MIS(64),
-        builtinSymbols[659],
+        builtinSymbols[662],
         MIS(65),
         MIS(8),
         MIS(89),
@@ -31993,7 +31997,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[944],
+        builtinSymbols[947],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -32058,12 +32062,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(91),
         MIS(73),
         MIS(102),
-        builtinSymbols[944],
+        builtinSymbols[947],
         MI(2),
         MIS(78),
         MI(1),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(93),
         MIS(92),
         MIS(16),
@@ -32089,7 +32093,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[881],
+        builtinSymbols[884],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -32131,7 +32135,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(78),
         MI(1),
@@ -32151,7 +32155,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(91),
         MIS(73),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(78),
         MI(1),
@@ -32170,11 +32174,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(8),
         MIS(50),
-        builtinSymbols[872],
+        builtinSymbols[875],
         MIS(3),
         MIS(91),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(78),
         MI(1),
@@ -32196,7 +32200,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[910],
+        builtinSymbols[913],
         MI(1),
         MIS(78),
         MI(1),
@@ -32220,7 +32224,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(17),
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(106),
         MI(3),
         MIS(65),
@@ -32238,7 +32242,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(1),
         MIS(64),
-        builtinSymbols[415],
+        builtinSymbols[418],
         MIS(106),
         MI(8),
         MIS(74),
@@ -32279,7 +32283,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[1027],
+        builtinSymbols[1030],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -32296,9 +32300,9 @@ Object scheme::getBuiltinCompiler() {
         MI(17),
         list566,
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(64),
-        builtinSymbols[382],
+        builtinSymbols[385],
         MIS(65),
         MIS(9),
         MIS(89),
@@ -32309,20 +32313,20 @@ Object scheme::getBuiltinCompiler() {
         Object::Nil,
         MIS(15),
         MIS(89),
-        builtinSymbols[360],
+        builtinSymbols[363],
         MIS(89),
-        builtinSymbols[382],
+        builtinSymbols[385],
         MIS(90),
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(90),
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[870],
+        builtinSymbols[873],
         MI(1),
         MIS(89),
         Object::Nil,
@@ -32337,7 +32341,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(84),
         MIS(17),
-        builtinSymbols[834],
+        builtinSymbols[837],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -32353,7 +32357,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(57),
         MIS(84),
         MIS(17),
-        builtinSymbols[988],
+        builtinSymbols[991],
         MIS(33),
         MIS(106),
         MI(63),
@@ -32365,15 +32369,15 @@ Object scheme::getBuiltinCompiler() {
         MI(14),
         list562,
         MIS(74),
-        builtinSymbols[659],
+        builtinSymbols[662],
         MIS(20),
         MIS(58),
         MI(12),
         MIS(64),
-        builtinSymbols[659],
+        builtinSymbols[662],
         MIS(76),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(2),
         MI(2),
@@ -32381,7 +32385,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(27),
         MIS(74),
-        builtinSymbols[1200],
+        builtinSymbols[1203],
         MIS(20),
         MIS(58),
         MI(4),
@@ -32389,7 +32393,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(19),
         MIS(74),
-        builtinSymbols[1201],
+        builtinSymbols[1204],
         MIS(20),
         MIS(58),
         MI(11),
@@ -32408,7 +32412,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(85),
         MIS(17),
-        builtinSymbols[952],
+        builtinSymbols[955],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -32431,7 +32435,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(76),
         MIS(98),
         MIS(50),
-        builtinSymbols[930],
+        builtinSymbols[933],
         MIS(99),
         MI(3),
         MI(3),
@@ -32443,7 +32447,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(101),
         MI(11),
         MIS(64),
-        builtinSymbols[659],
+        builtinSymbols[662],
         MIS(73),
         MIS(67),
         MIS(99),
@@ -32455,10 +32459,10 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(7),
         MIS(74),
-        builtinSymbols[658],
+        builtinSymbols[661],
         MIS(3),
         MIS(102),
-        builtinSymbols[982],
+        builtinSymbols[985],
         MI(2),
         MIS(58),
         MI(14),
@@ -32468,7 +32472,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(83),
         MIS(98),
         MIS(50),
-        builtinSymbols[929],
+        builtinSymbols[932],
         MIS(99),
         MI(3),
         MI(3),
@@ -32478,10 +32482,10 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(7),
         MIS(74),
-        builtinSymbols[1200],
+        builtinSymbols[1203],
         MIS(3),
         MIS(102),
-        builtinSymbols[982],
+        builtinSymbols[985],
         MI(2),
         MIS(58),
         MI(31),
@@ -32491,7 +32495,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(58),
         MI(13),
         MIS(64),
-        builtinSymbols[1200],
+        builtinSymbols[1203],
         MIS(65),
         MIS(9),
         MIS(3),
@@ -32508,7 +32512,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(77),
         MIS(98),
         MIS(50),
-        builtinSymbols[929],
+        builtinSymbols[932],
         MIS(99),
         MI(3),
         MI(3),
@@ -32518,10 +32522,10 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(7),
         MIS(74),
-        builtinSymbols[1201],
+        builtinSymbols[1204],
         MIS(3),
         MIS(102),
-        builtinSymbols[982],
+        builtinSymbols[985],
         MI(2),
         MIS(58),
         MI(31),
@@ -32531,7 +32535,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(58),
         MI(13),
         MIS(64),
-        builtinSymbols[1201],
+        builtinSymbols[1204],
         MIS(65),
         MIS(9),
         MIS(3),
@@ -32548,7 +32552,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(77),
         MIS(98),
         MIS(50),
-        builtinSymbols[929],
+        builtinSymbols[932],
         MIS(99),
         MI(3),
         MI(3),
@@ -32559,14 +32563,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(76),
         MIS(98),
         MIS(50),
-        builtinSymbols[929],
+        builtinSymbols[932],
         MIS(99),
         MI(3),
         MI(3),
         MI(3),
         MIS(86),
         MIS(17),
-        builtinSymbols[928],
+        builtinSymbols[931],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -32622,19 +32626,19 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(16),
-        builtinSymbols[659],
+        builtinSymbols[662],
         MIS(20),
         MIS(58),
         MI(6),
         MIS(74),
-        builtinSymbols[659],
+        builtinSymbols[662],
         MIS(20),
         MIS(30),
         MI(1),
         MIS(58),
         MI(11),
         MIS(64),
-        builtinSymbols[659],
+        builtinSymbols[662],
         MIS(93),
         MIS(70),
         MIS(99),
@@ -32646,12 +32650,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(16),
-        builtinSymbols[1201],
+        builtinSymbols[1204],
         MIS(20),
         MIS(58),
         MI(46),
         MIS(74),
-        builtinSymbols[659],
+        builtinSymbols[662],
         MIS(20),
         MIS(58),
         MI(5),
@@ -32662,7 +32666,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(58),
         MI(11),
         MIS(64),
-        builtinSymbols[1200],
+        builtinSymbols[1203],
         MIS(91),
         MIS(70),
         MIS(99),
@@ -32681,11 +32685,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(76),
         MIS(102),
-        builtinSymbols[952],
+        builtinSymbols[955],
         MI(2),
         MIS(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(2),
         MIS(3),
         MIS(70),
@@ -32705,18 +32709,18 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(91),
         MIS(102),
-        builtinSymbols[952],
+        builtinSymbols[955],
         MI(2),
         MIS(90),
         MI(6),
         MIS(73),
         MIS(76),
         MIS(102),
-        builtinSymbols[952],
+        builtinSymbols[955],
         MI(2),
         MIS(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(2),
         MIS(3),
         MIS(70),
@@ -32727,7 +32731,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(85),
         MIS(3),
         MIS(50),
-        builtinSymbols[928],
+        builtinSymbols[931],
         MIS(99),
         MI(3),
         MI(2),
@@ -32735,14 +32739,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(85),
         MIS(3),
         MIS(50),
-        builtinSymbols[928],
+        builtinSymbols[931],
         MIS(99),
         MI(3),
         MI(3),
         MI(3),
         MIS(86),
         MIS(17),
-        builtinSymbols[929],
+        builtinSymbols[932],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -32788,12 +32792,12 @@ Object scheme::getBuiltinCompiler() {
         MI(14),
         list550,
         MIS(74),
-        builtinSymbols[659],
+        builtinSymbols[662],
         MIS(22),
         MIS(58),
         MI(11),
         MIS(64),
-        builtinSymbols[659],
+        builtinSymbols[662],
         MIS(92),
         MIS(69),
         MIS(99),
@@ -32803,7 +32807,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(22),
         MIS(64),
-        builtinSymbols[427],
+        builtinSymbols[430],
         MIS(23),
         MI(12),
         MIS(23),
@@ -32811,11 +32815,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(76),
         MIS(102),
-        builtinSymbols[952],
+        builtinSymbols[955],
         MI(2),
         MIS(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(3),
         MIS(69),
@@ -32826,14 +32830,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(85),
         MIS(3),
         MIS(50),
-        builtinSymbols[928],
+        builtinSymbols[931],
         MIS(99),
         MI(3),
         MI(3),
         MI(3),
         MIS(86),
         MIS(17),
-        builtinSymbols[930],
+        builtinSymbols[933],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -32860,7 +32864,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(85),
         MIS(17),
-        builtinSymbols[982],
+        builtinSymbols[985],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -32874,17 +32878,17 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(76),
         MIS(50),
-        builtinSymbols[952],
+        builtinSymbols[955],
         MIS(3),
         MIS(50),
-        builtinSymbols[928],
+        builtinSymbols[931],
         MIS(99),
         MI(3),
         MI(2),
         MI(3),
         MIS(85),
         MIS(17),
-        builtinSymbols[946],
+        builtinSymbols[949],
         MIS(33),
         MIS(14),
         MI(34),
@@ -32915,14 +32919,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(66),
         MIS(95),
         MIS(50),
-        builtinSymbols[955],
+        builtinSymbols[958],
         MIS(99),
         MI(2),
         MI(2),
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[955],
+        builtinSymbols[958],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -32956,7 +32960,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(91),
         MIS(73),
         MIS(102),
-        builtinSymbols[955],
+        builtinSymbols[958],
         MI(2),
         MIS(78),
         MI(1),
@@ -32969,11 +32973,11 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[809],
+        builtinSymbols[812],
         MIS(99),
         MI(2),
         MI(8),
@@ -32987,7 +32991,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(91),
         MIS(50),
-        builtinSymbols[809],
+        builtinSymbols[812],
         MIS(99),
         MI(2),
         MI(8),
@@ -32996,7 +33000,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1058],
+        builtinSymbols[1061],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -33032,7 +33036,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(91),
         MIS(73),
         MIS(102),
-        builtinSymbols[955],
+        builtinSymbols[958],
         MI(2),
         MIS(78),
         MI(1),
@@ -33045,13 +33049,13 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(106),
         MI(3),
         MIS(50),
-        builtinSymbols[808],
+        builtinSymbols[811],
         MIS(99),
         MI(3),
         MI(9),
@@ -33067,7 +33071,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(50),
-        builtinSymbols[808],
+        builtinSymbols[811],
         MIS(99),
         MI(3),
         MI(9),
@@ -33076,7 +33080,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(86),
         MIS(17),
-        builtinSymbols[1057],
+        builtinSymbols[1060],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -33122,7 +33126,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[1051],
+        builtinSymbols[1054],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -33195,7 +33199,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1058],
+        builtinSymbols[1061],
         MI(2),
         MIS(78),
         MI(1),
@@ -33232,7 +33236,7 @@ Object scheme::getBuiltinCompiler() {
         list534,
         MIS(91),
         MIS(50),
-        builtinSymbols[809],
+        builtinSymbols[812],
         MIS(99),
         MI(2),
         MI(15),
@@ -33247,7 +33251,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(86),
         MIS(17),
-        builtinSymbols[1063],
+        builtinSymbols[1066],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -33283,7 +33287,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(107),
         MI(4),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(78),
         MI(1),
@@ -33330,7 +33334,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(91),
         MIS(50),
-        builtinSymbols[819],
+        builtinSymbols[822],
         MIS(99),
         MI(2),
         MI(14),
@@ -33355,7 +33359,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1057],
+        builtinSymbols[1060],
         MI(3),
         MIS(78),
         MI(1),
@@ -33395,7 +33399,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(50),
-        builtinSymbols[808],
+        builtinSymbols[811],
         MIS(99),
         MI(3),
         MI(20),
@@ -33412,7 +33416,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(5),
         MIS(17),
-        builtinSymbols[1045],
+        builtinSymbols[1048],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -33459,7 +33463,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(93),
@@ -33472,7 +33476,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(2),
@@ -33481,7 +33485,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[824],
+        builtinSymbols[827],
         MI(2),
         MIS(78),
         MI(1),
@@ -33504,7 +33508,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(91),
         MIS(50),
-        builtinSymbols[826],
+        builtinSymbols[829],
         MIS(99),
         MI(2),
         MI(7),
@@ -33513,7 +33517,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[1046],
+        builtinSymbols[1049],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -33597,7 +33601,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[933],
+        builtinSymbols[936],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -33672,7 +33676,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[1036],
+        builtinSymbols[1039],
         MI(1),
         MIS(78),
         MI(1),
@@ -33755,7 +33759,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(3),
         MIS(50),
-        builtinSymbols[821],
+        builtinSymbols[824],
         MIS(99),
         MI(4),
         MI(1),
@@ -33764,7 +33768,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(78),
         MI(1),
@@ -33813,7 +33817,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(9),
         MIS(3),
         MIS(102),
-        builtinSymbols[933],
+        builtinSymbols[936],
         MI(1),
         MIS(15),
         MIS(15),
@@ -33858,7 +33862,7 @@ Object scheme::getBuiltinCompiler() {
         Object::True,
         MIS(3),
         MIS(102),
-        builtinSymbols[1046],
+        builtinSymbols[1049],
         MI(4),
         MIS(89),
         Object::Nil,
@@ -33866,7 +33870,7 @@ Object scheme::getBuiltinCompiler() {
         Object::Nil,
         MIS(3),
         MIS(50),
-        builtinSymbols[815],
+        builtinSymbols[818],
         MIS(99),
         MI(8),
         MI(25),
@@ -33881,7 +33885,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[1054],
+        builtinSymbols[1057],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -33901,7 +33905,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(1),
         MI(0),
         MIS(17),
-        builtinSymbols[991],
+        builtinSymbols[994],
         MIS(33),
         MIS(59),
         MIS(14),
@@ -33919,18 +33923,18 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(3),
         MI(1),
         MI(3),
         MIS(84),
         MIS(17),
-        builtinSymbols[924],
+        builtinSymbols[927],
         MIS(33),
         MIS(33),
         MIS(106),
@@ -33947,14 +33951,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(91),
         MIS(50),
-        builtinSymbols[1144],
+        builtinSymbols[1147],
         MIS(99),
         MI(2),
         MI(1),
         MI(2),
         MIS(84),
         MIS(17),
-        builtinSymbols[992],
+        builtinSymbols[995],
         MIS(33),
         MIS(106),
         MI(63),
@@ -34010,7 +34014,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::True,
         MIS(50),
-        builtinSymbols[804],
+        builtinSymbols[807],
         MIS(99),
         MI(1),
         MI(0),
@@ -34052,14 +34056,14 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(93),
         MIS(92),
         MIS(91),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(1),
@@ -34095,7 +34099,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -34103,7 +34107,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(93),
         MIS(92),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(90),
         MI(5),
@@ -34114,11 +34118,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(90),
         MI(4),
         MIS(102),
-        builtinSymbols[813],
+        builtinSymbols[816],
         MI(0),
         MIS(3),
         MIS(50),
-        builtinSymbols[810],
+        builtinSymbols[813],
         MIS(99),
         MI(3),
         MI(2),
@@ -34168,7 +34172,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[1037],
+        builtinSymbols[1040],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -34240,7 +34244,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(50),
-        builtinSymbols[804],
+        builtinSymbols[807],
         MIS(99),
         MI(1),
         MI(0),
@@ -34282,14 +34286,14 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(93),
         MIS(92),
         MIS(91),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(1),
@@ -34325,7 +34329,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -34333,12 +34337,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(93),
         MIS(92),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(90),
         MI(4),
         MIS(102),
-        builtinSymbols[813],
+        builtinSymbols[816],
         MI(0),
         MIS(90),
         MI(5),
@@ -34348,7 +34352,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[810],
+        builtinSymbols[813],
         MIS(99),
         MI(3),
         MI(2),
@@ -34398,7 +34402,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[1061],
+        builtinSymbols[1064],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -34461,7 +34465,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(98),
         MIS(102),
-        builtinSymbols[955],
+        builtinSymbols[958],
         MI(2),
         MIS(78),
         MI(1),
@@ -34470,7 +34474,7 @@ Object scheme::getBuiltinCompiler() {
         MI(10),
         MIS(73),
         MIS(50),
-        builtinSymbols[924],
+        builtinSymbols[927],
         MIS(99),
         MI(1),
         MI(6),
@@ -34481,7 +34485,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(91),
         MIS(92),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(3),
         MI(6),
@@ -34508,7 +34512,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(94),
         MIS(98),
         MIS(102),
-        builtinSymbols[955],
+        builtinSymbols[958],
         MI(2),
         MIS(78),
         MI(1),
@@ -34523,7 +34527,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[924],
+        builtinSymbols[927],
         MI(1),
         MIS(78),
         MI(1),
@@ -34542,7 +34546,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(70),
         MIS(94),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(3),
         MI(6),
@@ -34602,7 +34606,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(65),
         MIS(8),
         MIS(89),
-        builtinSymbols[678],
+        builtinSymbols[681],
         MIS(20),
         MIS(30),
         MI(1),
@@ -34639,7 +34643,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(11),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(0),
         MIS(3),
@@ -34702,7 +34706,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[992],
+        builtinSymbols[995],
         MI(1),
         MIS(89),
         Object::Nil,
@@ -34718,7 +34722,7 @@ Object scheme::getBuiltinCompiler() {
         Object::False,
         MIS(3),
         MIS(102),
-        builtinSymbols[817],
+        builtinSymbols[820],
         MI(7),
         MIS(78),
         MI(1),
@@ -34730,12 +34734,12 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[967],
+        builtinSymbols[970],
         MI(1),
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[1053],
+        builtinSymbols[1056],
         MI(2),
         MIS(63),
         MIS(74),
@@ -34753,7 +34757,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(71),
@@ -34766,13 +34770,13 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[909],
+        builtinSymbols[912],
         MI(1),
         MIS(63),
         MIS(23),
         MI(11),
         MIS(50),
-        builtinSymbols[991],
+        builtinSymbols[994],
         MIS(3),
         MIS(74),
         MI(1),
@@ -34787,7 +34791,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(86),
         MIS(17),
-        builtinSymbols[1059],
+        builtinSymbols[1062],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -34887,11 +34891,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(91),
         MIS(102),
-        builtinSymbols[1144],
+        builtinSymbols[1147],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[990],
+        builtinSymbols[993],
         MIS(99),
         MI(1),
         MI(1),
@@ -34928,7 +34932,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(16),
         MIS(64),
-        builtinSymbols[693],
+        builtinSymbols[696],
         MIS(88),
         MI(5),
         MIS(16),
@@ -34963,7 +34967,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(65),
         MIS(94),
         MIS(16),
-        builtinSymbols[493],
+        builtinSymbols[496],
         MIS(20),
         MIS(30),
         MI(1),
@@ -35048,7 +35052,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(11),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(49),
@@ -35067,7 +35071,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(977),
         MIS(64),
-        builtinSymbols[520],
+        builtinSymbols[523],
         MIS(88),
         MI(194),
         MIS(27),
@@ -35114,7 +35118,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(16),
         MIS(50),
-        builtinSymbols[991],
+        builtinSymbols[994],
         MIS(90),
         MI(7),
         MIS(71),
@@ -35178,7 +35182,7 @@ Object scheme::getBuiltinCompiler() {
         MI(10),
         MIS(73),
         MIS(50),
-        builtinSymbols[924],
+        builtinSymbols[927],
         MIS(99),
         MI(1),
         MI(1),
@@ -35194,7 +35198,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[806],
+        builtinSymbols[809],
         MI(2),
         MIS(0),
         MIS(63),
@@ -35204,7 +35208,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(91),
         MIS(50),
-        builtinSymbols[812],
+        builtinSymbols[815],
         MIS(99),
         MI(2),
         MI(14),
@@ -35311,7 +35315,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(16),
         MIS(50),
-        builtinSymbols[991],
+        builtinSymbols[994],
         MIS(90),
         MI(7),
         MIS(71),
@@ -35379,7 +35383,7 @@ Object scheme::getBuiltinCompiler() {
         MI(8),
         MIS(73),
         MIS(50),
-        builtinSymbols[924],
+        builtinSymbols[927],
         MIS(99),
         MI(1),
         MI(1),
@@ -35391,7 +35395,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[806],
+        builtinSymbols[809],
         MI(2),
         MIS(0),
         MIS(63),
@@ -35401,7 +35405,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(91),
         MIS(50),
-        builtinSymbols[812],
+        builtinSymbols[815],
         MIS(99),
         MI(2),
         MI(14),
@@ -35461,7 +35465,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(583),
         MIS(64),
-        builtinSymbols[678],
+        builtinSymbols[681],
         MIS(88),
         MI(212),
         MIS(27),
@@ -35504,7 +35508,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(16),
         MIS(50),
-        builtinSymbols[991],
+        builtinSymbols[994],
         MIS(90),
         MI(7),
         MIS(71),
@@ -35564,7 +35568,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(94),
         MIS(91),
         MIS(102),
-        builtinSymbols[955],
+        builtinSymbols[958],
         MI(2),
         MIS(78),
         MI(1),
@@ -35580,11 +35584,11 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(92),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(3),
         MI(4),
@@ -35593,7 +35597,7 @@ Object scheme::getBuiltinCompiler() {
         MI(8),
         MIS(92),
         MIS(50),
-        builtinSymbols[924],
+        builtinSymbols[927],
         MIS(99),
         MI(1),
         MI(4),
@@ -35606,7 +35610,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[806],
+        builtinSymbols[809],
         MI(2),
         MIS(0),
         MIS(63),
@@ -35616,7 +35620,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(91),
         MIS(50),
-        builtinSymbols[812],
+        builtinSymbols[815],
         MIS(99),
         MI(2),
         MI(14),
@@ -35676,7 +35680,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(368),
         MIS(64),
-        builtinSymbols[649],
+        builtinSymbols[652],
         MIS(88),
         MI(234),
         MIS(27),
@@ -35706,7 +35710,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(92),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(69),
@@ -35739,7 +35743,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(16),
         MIS(50),
-        builtinSymbols[991],
+        builtinSymbols[994],
         MIS(90),
         MI(7),
         MIS(71),
@@ -35827,11 +35831,11 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(3),
         MI(1),
@@ -35843,7 +35847,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[806],
+        builtinSymbols[809],
         MI(2),
         MIS(0),
         MIS(63),
@@ -35853,7 +35857,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(91),
         MIS(50),
-        builtinSymbols[812],
+        builtinSymbols[815],
         MIS(99),
         MI(2),
         MI(14),
@@ -35934,7 +35938,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(14),
         MIS(50),
-        builtinSymbols[991],
+        builtinSymbols[994],
         MIS(90),
         MI(5),
         MIS(93),
@@ -35971,14 +35975,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(90),
         MI(11),
         MIS(50),
-        builtinSymbols[924],
+        builtinSymbols[927],
         MIS(3),
         MIS(74),
         MI(2),
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(0),
         MIS(63),
@@ -35988,7 +35992,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(91),
         MIS(50),
-        builtinSymbols[812],
+        builtinSymbols[815],
         MIS(99),
         MI(2),
         MI(11),
@@ -36070,11 +36074,11 @@ Object scheme::getBuiltinCompiler() {
         MI(10),
         MIS(95),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[811],
+        builtinSymbols[814],
         MIS(99),
         MI(1),
         MI(7),
@@ -36083,7 +36087,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(85),
         MIS(17),
-        builtinSymbols[1053],
+        builtinSymbols[1056],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -36207,13 +36211,13 @@ Object scheme::getBuiltinCompiler() {
         MI(11),
         MIS(73),
         MIS(50),
-        builtinSymbols[1168],
+        builtinSymbols[1171],
         MIS(89),
         MI(5),
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[838],
+        builtinSymbols[841],
         MI(2),
         MIS(30),
         MI(1),
@@ -36240,7 +36244,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(87),
         MIS(3),
         MIS(50),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MIS(99),
         MI(1),
         MI(10),
@@ -36277,7 +36281,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[1060],
+        builtinSymbols[1063],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -36327,7 +36331,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[838],
+        builtinSymbols[841],
         MI(2),
         MIS(30),
         MI(1),
@@ -36363,14 +36367,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(87),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(93),
         MIS(92),
         MIS(91),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(11),
@@ -36408,7 +36412,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[955],
+        builtinSymbols[958],
         MI(2),
         MIS(30),
         MI(1),
@@ -36453,7 +36457,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(11),
         MIS(50),
-        builtinSymbols[991],
+        builtinSymbols[994],
         MIS(3),
         MIS(65),
         MIS(9),
@@ -36485,7 +36489,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(74),
@@ -36493,7 +36497,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[838],
+        builtinSymbols[841],
         MI(2),
         MIS(78),
         MI(1),
@@ -36513,7 +36517,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(87),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -36522,7 +36526,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(20),
@@ -36535,7 +36539,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(92),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -36544,7 +36548,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(90),
         MI(36),
@@ -36564,14 +36568,14 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(93),
         MIS(92),
         MIS(91),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(1),
@@ -36581,14 +36585,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(93),
         MIS(64),
         Object::False,
         MIS(50),
-        builtinSymbols[802],
+        builtinSymbols[805],
         MIS(99),
         MI(4),
         MI(20),
@@ -36636,7 +36640,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(4),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -36644,7 +36648,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(93),
         MIS(92),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(90),
         MI(34),
@@ -36663,14 +36667,14 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(93),
         MIS(92),
         MIS(91),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(1),
@@ -36679,14 +36683,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(91),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(92),
         MIS(64),
         Object::False,
         MIS(50),
-        builtinSymbols[802],
+        builtinSymbols[805],
         MIS(99),
         MI(4),
         MI(17),
@@ -36702,7 +36706,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(5),
         MIS(17),
-        builtinSymbols[1047],
+        builtinSymbols[1050],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -36771,7 +36775,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(45),
         MIS(58),
@@ -36780,10 +36784,10 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[855],
+        builtinSymbols[858],
         MI(1),
         MIS(89),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(22),
         MIS(58),
         MI(10),
@@ -36791,7 +36795,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[910],
+        builtinSymbols[913],
         MI(1),
         MIS(35),
         MIS(30),
@@ -36814,7 +36818,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[894],
+        builtinSymbols[897],
         MI(1),
         MIS(3),
         MIS(73),
@@ -36841,7 +36845,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(18),
         MI(6),
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(66),
         MIS(15),
         MIS(78),
@@ -36856,7 +36860,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(49),
@@ -36879,11 +36883,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(93),
         MIS(91),
         MIS(102),
-        builtinSymbols[1054],
+        builtinSymbols[1057],
         MI(4),
         MIS(3),
         MIS(50),
-        builtinSymbols[805],
+        builtinSymbols[808],
         MIS(99),
         MI(3),
         MI(5),
@@ -36925,11 +36929,11 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(93),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -36937,11 +36941,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(3),
         MIS(50),
-        builtinSymbols[805],
+        builtinSymbols[808],
         MIS(99),
         MI(3),
         MI(1),
@@ -36954,7 +36958,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[1048],
+        builtinSymbols[1051],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -36997,7 +37001,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(65),
         MIS(94),
         MIS(16),
-        builtinSymbols[669],
+        builtinSymbols[672],
         MIS(22),
         MIS(58),
         MI(13),
@@ -37023,13 +37027,13 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(90),
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[910],
+        builtinSymbols[913],
         MI(1),
         MIS(3),
         MIS(76),
@@ -37055,7 +37059,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1035],
+        builtinSymbols[1038],
         MI(1),
         MIS(109),
         MI(3),
@@ -37091,7 +37095,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(3),
         MIS(50),
-        builtinSymbols[821],
+        builtinSymbols[824],
         MIS(99),
         MI(4),
         MI(1),
@@ -37100,7 +37104,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(78),
         MI(1),
@@ -37116,7 +37120,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(4),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -37124,7 +37128,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(93),
         MIS(92),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(90),
         MI(18),
@@ -37132,7 +37136,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -37143,12 +37147,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(92),
         MIS(102),
-        builtinSymbols[1046],
+        builtinSymbols[1049],
         MI(4),
         MIS(3),
         MIS(92),
         MIS(50),
-        builtinSymbols[825],
+        builtinSymbols[828],
         MIS(99),
         MI(6),
         MI(11),
@@ -37174,7 +37178,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("malformed receive")),
         MIS(50),
-        builtinSymbols[1162],
+        builtinSymbols[1165],
         MIS(99),
         MI(1),
         MI(1),
@@ -37187,7 +37191,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[1062],
+        builtinSymbols[1065],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -37255,14 +37259,14 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(93),
         MIS(92),
         MIS(91),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(1),
@@ -37271,7 +37275,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(76),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(78),
         MI(1),
@@ -37304,7 +37308,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(3),
         MIS(50),
-        builtinSymbols[821],
+        builtinSymbols[824],
         MIS(99),
         MI(4),
         MI(2),
@@ -37314,12 +37318,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(91),
         MIS(73),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(3),
         MIS(78),
         MI(1),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(73),
         MIS(106),
         MI(6),
@@ -37330,7 +37334,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -37341,13 +37345,13 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(93),
         MIS(102),
-        builtinSymbols[1046],
+        builtinSymbols[1049],
         MI(4),
         MIS(3),
         MIS(93),
         MIS(92),
         MIS(50),
-        builtinSymbols[816],
+        builtinSymbols[819],
         MIS(99),
         MI(6),
         MI(13),
@@ -37357,7 +37361,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1055],
+        builtinSymbols[1058],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -37401,7 +37405,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(4),
         MIS(102),
-        builtinSymbols[827],
+        builtinSymbols[830],
         MI(0),
         MIS(89),
         MI(0),
@@ -37409,7 +37413,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(3),
         MIS(50),
-        builtinSymbols[821],
+        builtinSymbols[824],
         MIS(99),
         MI(4),
         MI(1),
@@ -37418,7 +37422,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(78),
         MI(1),
@@ -37465,7 +37469,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(91),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(1),
@@ -37474,7 +37478,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(91),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(78),
         MI(1),
@@ -37498,10 +37502,10 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[966],
+        builtinSymbols[969],
         MI(3),
         MIS(64),
-        builtinSymbols[667],
+        builtinSymbols[670],
         MIS(106),
         MI(3),
         MIS(73),
@@ -37512,7 +37516,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(9),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -37524,14 +37528,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(92),
         MIS(102),
-        builtinSymbols[1046],
+        builtinSymbols[1049],
         MI(4),
         MIS(3),
         MIS(92),
         MIS(106),
         MI(5),
         MIS(50),
-        builtinSymbols[816],
+        builtinSymbols[819],
         MIS(99),
         MI(6),
         MI(13),
@@ -37541,7 +37545,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1056],
+        builtinSymbols[1059],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -37565,7 +37569,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(68),
@@ -37575,7 +37579,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(90),
         MI(17),
@@ -37583,7 +37587,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(76),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(68),
@@ -37593,7 +37597,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(107),
         MI(5),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(3),
         MIS(67),
@@ -37603,7 +37607,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(4),
         MIS(102),
-        builtinSymbols[827],
+        builtinSymbols[830],
         MI(0),
         MIS(30),
         MI(20),
@@ -37614,7 +37618,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(67),
         MIS(94),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(68),
@@ -37624,11 +37628,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(107),
         MI(5),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(3),
         MIS(50),
-        builtinSymbols[810],
+        builtinSymbols[813],
         MIS(99),
         MI(3),
         MI(6),
@@ -37636,7 +37640,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(6),
         MIS(17),
-        builtinSymbols[1052],
+        builtinSymbols[1055],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -37667,23 +37671,23 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[856],
+        builtinSymbols[859],
         MI(1),
         MIS(90),
         MI(25),
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(23),
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[895],
+        builtinSymbols[898],
         MI(1),
         MIS(90),
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(89),
         Object::Nil,
@@ -37693,7 +37697,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(76),
         MIS(102),
-        builtinSymbols[920],
+        builtinSymbols[923],
         MI(2),
         MIS(3),
         MIS(75),
@@ -37701,7 +37705,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[835],
+        builtinSymbols[838],
         MI(3),
         MIS(63),
         MIS(30),
@@ -37718,11 +37722,11 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[920],
+        builtinSymbols[923],
         MI(1),
         MIS(3),
         MIS(75),
@@ -37730,11 +37734,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[835],
+        builtinSymbols[838],
         MI(3),
         MIS(63),
         MIS(50),
-        builtinSymbols[827],
+        builtinSymbols[830],
         MIS(99),
         MI(0),
         MI(4),
@@ -37742,7 +37746,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[1049],
+        builtinSymbols[1052],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -37823,7 +37827,7 @@ Object scheme::getBuiltinCompiler() {
         MI(4),
         MIS(94),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -37831,7 +37835,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(93),
         MIS(92),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(90),
         MI(18),
@@ -37842,7 +37846,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(9),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -37850,15 +37854,15 @@ Object scheme::getBuiltinCompiler() {
         MIS(93),
         MIS(92),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[801],
+        builtinSymbols[804],
         MIS(99),
         MI(2),
         MI(9),
@@ -37876,15 +37880,15 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(4),
         MIS(102),
-        builtinSymbols[836],
+        builtinSymbols[839],
         MI(2),
         MIS(3),
         MIS(102),
-        builtinSymbols[922],
+        builtinSymbols[925],
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -37892,7 +37896,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(93),
         MIS(92),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(9),
@@ -37901,7 +37905,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(6),
         MIS(17),
-        builtinSymbols[1044],
+        builtinSymbols[1047],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -37932,7 +37936,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(76),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(98),
@@ -37941,15 +37945,15 @@ Object scheme::getBuiltinCompiler() {
         MIS(107),
         MI(4),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[801],
+        builtinSymbols[804],
         MIS(99),
         MI(2),
         MI(5),
@@ -37957,7 +37961,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(5),
         MIS(17),
-        builtinSymbols[1038],
+        builtinSymbols[1041],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -37978,7 +37982,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(76),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(68),
@@ -37988,7 +37992,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(107),
         MI(5),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(90),
         MI(17),
@@ -37996,7 +38000,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(98),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(68),
@@ -38006,15 +38010,15 @@ Object scheme::getBuiltinCompiler() {
         MIS(107),
         MI(5),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[801],
+        builtinSymbols[804],
         MIS(99),
         MI(2),
         MI(6),
@@ -38022,7 +38026,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(6),
         MIS(17),
-        builtinSymbols[1040],
+        builtinSymbols[1043],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -38045,7 +38049,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(76),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(107),
@@ -38055,7 +38059,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(107),
         MI(6),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(90),
         MI(17),
@@ -38063,7 +38067,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(98),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(107),
@@ -38073,7 +38077,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(107),
         MI(6),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(90),
         MI(18),
@@ -38082,7 +38086,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(68),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(107),
@@ -38092,15 +38096,15 @@ Object scheme::getBuiltinCompiler() {
         MIS(107),
         MI(6),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(3),
         MIS(3),
         MIS(50),
-        builtinSymbols[801],
+        builtinSymbols[804],
         MIS(99),
         MI(2),
         MI(7),
@@ -38108,7 +38112,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1042],
+        builtinSymbols[1045],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -38155,22 +38159,22 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(93),
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[801],
+        builtinSymbols[804],
         MIS(99),
         MI(2),
         MI(8),
@@ -38179,7 +38183,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(5),
         MIS(17),
-        builtinSymbols[1039],
+        builtinSymbols[1042],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -38227,14 +38231,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(93),
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(90),
         MI(14),
@@ -38242,22 +38246,22 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(93),
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[801],
+        builtinSymbols[804],
         MIS(99),
         MI(2),
         MI(9),
@@ -38266,7 +38270,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(6),
         MIS(17),
-        builtinSymbols[1041],
+        builtinSymbols[1044],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -38312,7 +38316,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1183],
+        builtinSymbols[1186],
         MI(1),
         MIS(58),
         MI(82),
@@ -38343,7 +38347,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         MI(0),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -38353,7 +38357,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(12),
@@ -38369,7 +38373,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         MI(1),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -38379,7 +38383,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(12),
@@ -38432,7 +38436,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(42),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -38440,7 +38444,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(93),
         MIS(92),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(12),
@@ -38467,7 +38471,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -38475,7 +38479,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(93),
         MIS(92),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(12),
@@ -38488,7 +38492,7 @@ Object scheme::getBuiltinCompiler() {
         MI(4),
         MIS(94),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -38496,7 +38500,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(93),
         MIS(92),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(12),
@@ -38520,7 +38524,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(71),
         MIS(94),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -38530,7 +38534,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(4),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(90),
         MI(19),
@@ -38540,7 +38544,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(9),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -38550,15 +38554,15 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(4),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[801],
+        builtinSymbols[804],
         MIS(99),
         MI(2),
         MI(9),
@@ -38593,14 +38597,14 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(93),
         MIS(92),
         MIS(91),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(1),
@@ -38609,7 +38613,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(91),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(78),
         MI(1),
@@ -38628,11 +38632,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(76),
         MIS(73),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[801],
+        builtinSymbols[804],
         MIS(99),
         MI(2),
         MI(2),
@@ -38644,7 +38648,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(65),
         MIS(95),
         MIS(50),
-        builtinSymbols[957],
+        builtinSymbols[960],
         MIS(99),
         MI(3),
         MI(12),
@@ -38654,7 +38658,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(6),
         MIS(17),
-        builtinSymbols[1043],
+        builtinSymbols[1046],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -38716,11 +38720,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(19),
         MI(1),
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(88),
         MI(17),
         MIS(64),
-        builtinSymbols[399],
+        builtinSymbols[402],
         MIS(106),
         MI(5),
         MIS(106),
@@ -38728,7 +38732,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(50),
-        builtinSymbols[1054],
+        builtinSymbols[1057],
         MIS(99),
         MI(4),
         MI(7),
@@ -38759,14 +38763,14 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(93),
         MIS(92),
         MIS(91),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(1),
@@ -38777,11 +38781,11 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(95),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[801],
+        builtinSymbols[804],
         MIS(99),
         MI(2),
         MI(7),
@@ -38800,7 +38804,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1037],
+        builtinSymbols[1040],
         MIS(99),
         MI(4),
         MI(7),
@@ -38808,7 +38812,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(1266),
         MIS(64),
-        builtinSymbols[530],
+        builtinSymbols[533],
         MIS(88),
         MI(16),
         MIS(106),
@@ -38819,7 +38823,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1061],
+        builtinSymbols[1064],
         MIS(99),
         MI(4),
         MI(7),
@@ -38836,7 +38840,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(95),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -38845,7 +38849,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1046],
+        builtinSymbols[1049],
         MIS(99),
         MI(4),
         MI(7),
@@ -38853,7 +38857,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(1221),
         MIS(64),
-        builtinSymbols[1210],
+        builtinSymbols[1213],
         MIS(88),
         MI(50),
         MIS(64),
@@ -38876,14 +38880,14 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(93),
         MIS(92),
         MIS(91),
         MIS(50),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(99),
         MI(4),
         MI(1),
@@ -38894,11 +38898,11 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(95),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[801],
+        builtinSymbols[804],
         MIS(99),
         MI(2),
         MI(7),
@@ -38917,7 +38921,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1048],
+        builtinSymbols[1051],
         MIS(99),
         MI(4),
         MI(7),
@@ -38936,7 +38940,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1049],
+        builtinSymbols[1052],
         MIS(99),
         MI(4),
         MI(7),
@@ -38944,7 +38948,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(1130),
         MIS(64),
-        builtinSymbols[669],
+        builtinSymbols[672],
         MIS(88),
         MI(16),
         MIS(106),
@@ -38955,7 +38959,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1062],
+        builtinSymbols[1065],
         MIS(99),
         MI(4),
         MI(7),
@@ -38963,7 +38967,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(1111),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(88),
         MI(48),
         MIS(23),
@@ -38974,19 +38978,19 @@ Object scheme::getBuiltinCompiler() {
         MIS(9),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(90),
         MI(11),
         MIS(50),
-        builtinSymbols[872],
+        builtinSymbols[875],
         MIS(3),
         MIS(49),
         MI(5),
         MIS(9),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(49),
@@ -39006,7 +39010,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1055],
+        builtinSymbols[1058],
         MIS(99),
         MI(7),
         MI(7),
@@ -39014,7 +39018,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(1060),
         MIS(64),
-        builtinSymbols[415],
+        builtinSymbols[418],
         MIS(88),
         MI(48),
         MIS(23),
@@ -39025,19 +39029,19 @@ Object scheme::getBuiltinCompiler() {
         MIS(9),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(90),
         MI(11),
         MIS(50),
-        builtinSymbols[872],
+        builtinSymbols[875],
         MIS(3),
         MIS(49),
         MI(5),
         MIS(9),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(49),
@@ -39057,7 +39061,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1056],
+        builtinSymbols[1059],
         MIS(99),
         MI(7),
         MI(7),
@@ -39065,7 +39069,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(1009),
         MIS(64),
-        builtinSymbols[420],
+        builtinSymbols[423],
         MIS(88),
         MI(15),
         MIS(106),
@@ -39075,7 +39079,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(50),
-        builtinSymbols[1059],
+        builtinSymbols[1062],
         MIS(99),
         MI(3),
         MI(7),
@@ -39083,7 +39087,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(991),
         MIS(64),
-        builtinSymbols[367],
+        builtinSymbols[370],
         MIS(88),
         MI(13),
         MIS(106),
@@ -39091,7 +39095,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(4),
         MIS(50),
-        builtinSymbols[1053],
+        builtinSymbols[1056],
         MIS(99),
         MI(2),
         MI(7),
@@ -39099,7 +39103,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(975),
         MIS(64),
-        builtinSymbols[705],
+        builtinSymbols[708],
         MIS(88),
         MI(31),
         MIS(49),
@@ -39112,11 +39116,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -39125,7 +39129,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1045],
+        builtinSymbols[1048],
         MIS(99),
         MI(5),
         MI(7),
@@ -39133,7 +39137,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(941),
         MIS(64),
-        builtinSymbols[360],
+        builtinSymbols[363],
         MIS(88),
         MI(32),
         MIS(49),
@@ -39144,14 +39148,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(90),
         MI(6),
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[910],
+        builtinSymbols[913],
         MI(1),
         MIS(3),
         MIS(106),
@@ -39160,7 +39164,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1052],
+        builtinSymbols[1055],
         MIS(99),
         MI(6),
         MI(7),
@@ -39180,7 +39184,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(9),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -39189,12 +39193,12 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[803],
+        builtinSymbols[806],
         MIS(99),
         MI(2),
         MI(7),
@@ -39214,7 +39218,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(9),
         MIS(3),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(106),
@@ -39223,12 +39227,12 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[803],
+        builtinSymbols[806],
         MIS(99),
         MI(2),
         MI(7),
@@ -39236,7 +39240,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(838),
         MIS(64),
-        builtinSymbols[659],
+        builtinSymbols[662],
         MIS(88),
         MI(13),
         MIS(49),
@@ -39244,7 +39248,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(9),
         MIS(3),
         MIS(50),
-        builtinSymbols[804],
+        builtinSymbols[807],
         MIS(99),
         MI(1),
         MI(7),
@@ -39268,7 +39272,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1043],
+        builtinSymbols[1046],
         MIS(99),
         MI(6),
         MI(7),
@@ -39292,7 +39296,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1043],
+        builtinSymbols[1046],
         MIS(99),
         MI(6),
         MI(7),
@@ -39316,7 +39320,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1043],
+        builtinSymbols[1046],
         MIS(99),
         MI(6),
         MI(7),
@@ -39340,7 +39344,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1043],
+        builtinSymbols[1046],
         MIS(99),
         MI(6),
         MI(7),
@@ -39364,7 +39368,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1043],
+        builtinSymbols[1046],
         MIS(99),
         MI(6),
         MI(7),
@@ -39388,7 +39392,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1044],
+        builtinSymbols[1047],
         MIS(99),
         MI(6),
         MI(7),
@@ -39412,7 +39416,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1044],
+        builtinSymbols[1047],
         MIS(99),
         MI(6),
         MI(7),
@@ -39436,7 +39440,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1044],
+        builtinSymbols[1047],
         MIS(99),
         MI(6),
         MI(7),
@@ -39460,7 +39464,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1044],
+        builtinSymbols[1047],
         MIS(99),
         MI(6),
         MI(7),
@@ -39484,7 +39488,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1044],
+        builtinSymbols[1047],
         MIS(99),
         MI(6),
         MI(7),
@@ -39492,7 +39496,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(582),
         MIS(64),
-        builtinSymbols[1224],
+        builtinSymbols[1227],
         MIS(88),
         MI(20),
         MIS(64),
@@ -39507,7 +39511,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1038],
+        builtinSymbols[1041],
         MIS(99),
         MI(5),
         MI(7),
@@ -39515,7 +39519,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(559),
         MIS(64),
-        builtinSymbols[1216],
+        builtinSymbols[1219],
         MIS(88),
         MI(20),
         MIS(64),
@@ -39530,7 +39534,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1038],
+        builtinSymbols[1041],
         MIS(99),
         MI(5),
         MI(7),
@@ -39538,7 +39542,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(536),
         MIS(64),
-        builtinSymbols[1219],
+        builtinSymbols[1222],
         MIS(88),
         MI(34),
         MIS(64),
@@ -39551,14 +39555,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(90),
         MI(6),
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[967],
+        builtinSymbols[970],
         MI(1),
         MIS(3),
         MIS(106),
@@ -39567,7 +39571,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1042],
+        builtinSymbols[1045],
         MIS(99),
         MI(7),
         MI(7),
@@ -39575,7 +39579,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(499),
         MIS(64),
-        builtinSymbols[1218],
+        builtinSymbols[1221],
         MIS(88),
         MI(27),
         MIS(64),
@@ -39588,7 +39592,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(106),
@@ -39597,7 +39601,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1040],
+        builtinSymbols[1043],
         MIS(99),
         MI(6),
         MI(7),
@@ -39605,7 +39609,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(469),
         MIS(64),
-        builtinSymbols[463],
+        builtinSymbols[466],
         MIS(88),
         MI(24),
         MIS(64),
@@ -39624,7 +39628,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1041],
+        builtinSymbols[1044],
         MIS(99),
         MI(6),
         MI(7),
@@ -39647,7 +39651,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1038],
+        builtinSymbols[1041],
         MIS(99),
         MI(5),
         MI(7),
@@ -39670,7 +39674,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1038],
+        builtinSymbols[1041],
         MIS(99),
         MI(5),
         MI(7),
@@ -39693,7 +39697,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1038],
+        builtinSymbols[1041],
         MIS(99),
         MI(5),
         MI(7),
@@ -39716,7 +39720,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1038],
+        builtinSymbols[1041],
         MIS(99),
         MI(5),
         MI(7),
@@ -39739,7 +39743,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1038],
+        builtinSymbols[1041],
         MIS(99),
         MI(5),
         MI(7),
@@ -39762,7 +39766,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1038],
+        builtinSymbols[1041],
         MIS(99),
         MI(5),
         MI(7),
@@ -39770,7 +39774,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(304),
         MIS(64),
-        builtinSymbols[708],
+        builtinSymbols[711],
         MIS(88),
         MI(27),
         MIS(64),
@@ -39783,7 +39787,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(106),
@@ -39792,7 +39796,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1040],
+        builtinSymbols[1043],
         MIS(99),
         MI(6),
         MI(7),
@@ -39800,7 +39804,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(274),
         MIS(64),
-        builtinSymbols[709],
+        builtinSymbols[712],
         MIS(88),
         MI(27),
         MIS(64),
@@ -39813,7 +39817,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(106),
@@ -39822,7 +39826,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1040],
+        builtinSymbols[1043],
         MIS(99),
         MI(6),
         MI(7),
@@ -39843,7 +39847,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(106),
@@ -39852,7 +39856,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1040],
+        builtinSymbols[1043],
         MIS(99),
         MI(6),
         MI(7),
@@ -39873,7 +39877,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(106),
@@ -39882,7 +39886,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1040],
+        builtinSymbols[1043],
         MIS(99),
         MI(6),
         MI(7),
@@ -39903,7 +39907,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(106),
@@ -39912,7 +39916,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1040],
+        builtinSymbols[1043],
         MIS(99),
         MI(6),
         MI(7),
@@ -39920,7 +39924,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(154),
         MIS(64),
-        builtinSymbols[507],
+        builtinSymbols[510],
         MIS(88),
         MI(20),
         MIS(64),
@@ -39935,7 +39939,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1038],
+        builtinSymbols[1041],
         MIS(99),
         MI(5),
         MI(7),
@@ -39943,7 +39947,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(131),
         MIS(64),
-        builtinSymbols[511],
+        builtinSymbols[514],
         MIS(88),
         MI(20),
         MIS(64),
@@ -39958,7 +39962,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1038],
+        builtinSymbols[1041],
         MIS(99),
         MI(5),
         MI(7),
@@ -39966,7 +39970,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(108),
         MIS(64),
-        builtinSymbols[538],
+        builtinSymbols[541],
         MIS(88),
         MI(20),
         MIS(64),
@@ -39981,7 +39985,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1038],
+        builtinSymbols[1041],
         MIS(99),
         MI(5),
         MI(7),
@@ -39989,7 +39993,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(85),
         MIS(64),
-        builtinSymbols[753],
+        builtinSymbols[756],
         MIS(88),
         MI(20),
         MIS(64),
@@ -40004,7 +40008,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1038],
+        builtinSymbols[1041],
         MIS(99),
         MI(5),
         MI(7),
@@ -40012,7 +40016,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(62),
         MIS(64),
-        builtinSymbols[663],
+        builtinSymbols[666],
         MIS(88),
         MI(19),
         MIS(64),
@@ -40026,7 +40030,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1039],
+        builtinSymbols[1042],
         MIS(99),
         MI(5),
         MI(7),
@@ -40034,7 +40038,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(40),
         MIS(64),
-        builtinSymbols[664],
+        builtinSymbols[667],
         MIS(88),
         MI(19),
         MIS(64),
@@ -40048,7 +40052,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1039],
+        builtinSymbols[1042],
         MIS(99),
         MI(5),
         MI(7),
@@ -40067,7 +40071,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(93),
         MIS(50),
-        builtinSymbols[1047],
+        builtinSymbols[1050],
         MIS(99),
         MI(5),
         MI(7),
@@ -40083,7 +40087,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(76),
         MIS(98),
         MIS(50),
-        builtinSymbols[1063],
+        builtinSymbols[1066],
         MIS(99),
         MI(3),
         MI(4),
@@ -40092,7 +40096,7 @@ Object scheme::getBuiltinCompiler() {
         MI(8),
         MIS(73),
         MIS(50),
-        builtinSymbols[804],
+        builtinSymbols[807],
         MIS(99),
         MI(1),
         MI(4),
@@ -40100,7 +40104,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -40303,18 +40307,18 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[976],
+        builtinSymbols[979],
         MI(1),
         MIS(90),
         MI(6),
         MIS(64),
             Object::makeChar(' '),
         MIS(102),
-        builtinSymbols[1180],
+        builtinSymbols[1183],
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[932],
+        builtinSymbols[935],
         MIS(99),
         MI(2),
         MI(1),
@@ -40333,7 +40337,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(4),
         MIS(102),
-        builtinSymbols[1028],
+        builtinSymbols[1031],
         MI(0),
         MIS(73),
         MIS(96),
@@ -40397,7 +40401,7 @@ Object scheme::getBuiltinCompiler() {
         MI(218),
         list400,
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(3),
         MIS(75),
         MI(0),
@@ -40422,7 +40426,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(1202),
         MIS(50),
-        builtinSymbols[800],
+        builtinSymbols[803],
         MIS(3),
         MIS(75),
         MI(0),
@@ -40433,7 +40437,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("($UNDEF)")),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(99),
         MI(1),
         MI(2),
@@ -40441,7 +40445,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(1183),
         MIS(50),
-        builtinSymbols[791],
+        builtinSymbols[794],
         MIS(3),
         MIS(75),
         MI(0),
@@ -40469,7 +40473,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[1005],
+        builtinSymbols[1008],
         MI(2),
         MIS(3),
         MIS(75),
@@ -40506,7 +40510,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC(")")),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(99),
         MI(1),
         MI(2),
@@ -40514,7 +40518,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(1110),
         MIS(50),
-        builtinSymbols[799],
+        builtinSymbols[802],
         MIS(3),
         MIS(75),
         MI(0),
@@ -40571,12 +40575,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[966],
+        builtinSymbols[969],
         MI(2),
         MIS(64),
         Object::makeString(UC(")")),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(99),
         MI(1),
         MI(2),
@@ -40584,7 +40588,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(1040),
         MIS(50),
-        builtinSymbols[793],
+        builtinSymbols[796],
         MIS(3),
         MIS(75),
         MI(0),
@@ -40627,7 +40631,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC(")")),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(99),
         MI(1),
         MI(2),
@@ -40635,7 +40639,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(989),
         MIS(50),
-        builtinSymbols[796],
+        builtinSymbols[799],
         MIS(3),
         MIS(75),
         MI(0),
@@ -40668,7 +40672,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(956),
         MIS(50),
-        builtinSymbols[784],
+        builtinSymbols[787],
         MIS(3),
         MIS(75),
         MI(0),
@@ -40697,7 +40701,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(927),
         MIS(50),
-        builtinSymbols[795],
+        builtinSymbols[798],
         MIS(3),
         MIS(75),
         MI(0),
@@ -40752,7 +40756,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC(")")),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(99),
         MI(1),
         MI(2),
@@ -40760,7 +40764,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(864),
         MIS(50),
-        builtinSymbols[783],
+        builtinSymbols[786],
         MIS(3),
         MIS(75),
         MI(0),
@@ -40789,7 +40793,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(835),
         MIS(50),
-        builtinSymbols[792],
+        builtinSymbols[795],
         MIS(3),
         MIS(75),
         MI(0),
@@ -40857,7 +40861,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(9),
         MIS(102),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MI(1),
         MIS(23),
         MI(102),
@@ -40910,7 +40914,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MI(1),
         MIS(23),
         MI(16),
@@ -40934,7 +40938,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC(")")),
         MIS(102),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MI(1),
         MIS(106),
         MI(6),
@@ -40960,14 +40964,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[966],
+        builtinSymbols[969],
         MI(3),
         MIS(23),
         MI(6),
         MIS(64),
         Object::makeString(UC(")")),
         MIS(102),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MI(1),
         MIS(23),
         MI(10),
@@ -40999,7 +41003,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC(")")),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(99),
         MI(1),
         MI(8),
@@ -41009,7 +41013,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(615),
         MIS(50),
-        builtinSymbols[785],
+        builtinSymbols[788],
         MIS(3),
         MIS(75),
         MI(0),
@@ -41022,7 +41026,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("($IF ")),
         MIS(102),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MI(1),
         MIS(23),
         MI(12),
@@ -41086,7 +41090,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC(")")),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(99),
         MI(1),
         MI(2),
@@ -41094,7 +41098,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(530),
         MIS(50),
-        builtinSymbols[790],
+        builtinSymbols[793],
         MIS(3),
         MIS(75),
         MI(0),
@@ -41194,7 +41198,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(3),
         MIS(102),
-        builtinSymbols[1142],
+        builtinSymbols[1145],
         MI(2),
         MIS(23),
         MI(9),
@@ -41236,7 +41240,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC(")")),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(99),
         MI(1),
         MI(8),
@@ -41246,7 +41250,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(378),
         MIS(50),
-        builtinSymbols[778],
+        builtinSymbols[781],
         MIS(3),
         MIS(75),
         MI(0),
@@ -41314,12 +41318,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[966],
+        builtinSymbols[969],
         MI(2),
         MIS(64),
         Object::makeString(UC(")")),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(99),
         MI(1),
         MI(2),
@@ -41327,7 +41331,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(297),
         MIS(50),
-        builtinSymbols[782],
+        builtinSymbols[785],
         MIS(3),
         MIS(75),
         MI(0),
@@ -41379,7 +41383,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC(")")),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(99),
         MI(1),
         MI(2),
@@ -41387,7 +41391,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(237),
         MIS(50),
-        builtinSymbols[780],
+        builtinSymbols[783],
         MIS(3),
         MIS(75),
         MI(0),
@@ -41400,7 +41404,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("($CALL-CC ")),
         MIS(102),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MI(1),
         MIS(23),
         MI(11),
@@ -41417,7 +41421,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC(")")),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(99),
         MI(1),
         MI(2),
@@ -41425,7 +41429,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(199),
         MIS(50),
-        builtinSymbols[790],
+        builtinSymbols[793],
         MIS(3),
         MIS(75),
         MI(0),
@@ -41438,7 +41442,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("($LABEL ")),
         MIS(102),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MI(1),
         MIS(23),
         MI(11),
@@ -41455,7 +41459,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC(")")),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(99),
         MI(1),
         MI(2),
@@ -41463,7 +41467,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(161),
         MIS(50),
-        builtinSymbols[779],
+        builtinSymbols[782],
         MIS(3),
         MIS(75),
         MI(0),
@@ -41598,12 +41602,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[966],
+        builtinSymbols[969],
         MI(2),
         MIS(64),
         Object::makeString(UC(")")),
         MIS(50),
-        builtinSymbols[931],
+        builtinSymbols[934],
         MIS(99),
         MI(1),
         MI(5),
@@ -41636,7 +41640,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(25),
         MIS(87),
         MIS(50),
-        builtinSymbols[1028],
+        builtinSymbols[1031],
         MIS(99),
         MI(0),
         MI(8),
@@ -41645,7 +41649,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(84),
         MIS(17),
-        builtinSymbols[1139],
+        builtinSymbols[1142],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -41758,14 +41762,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(16),
         MI(12),
         MIS(17),
-        builtinSymbols[831],
+        builtinSymbols[834],
         MIS(50),
-        builtinSymbols[788],
+        builtinSymbols[791],
         MIS(89),
         Object::Nil,
         MIS(32),
         MIS(17),
-        builtinSymbols[1079],
+        builtinSymbols[1082],
         MIS(14),
         MI(80),
         MI(2),
@@ -41783,7 +41787,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(76),
         MIS(102),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MI(2),
         MIS(63),
         MIS(74),
@@ -41801,7 +41805,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(91),
         MIS(50),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MIS(99),
         MI(2),
         MI(1),
@@ -41813,7 +41817,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(63),
         MIS(27),
@@ -41825,7 +41829,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1080],
+        builtinSymbols[1083],
         MI(1),
         MIS(78),
         MI(1),
@@ -41840,7 +41844,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(91),
         MIS(50),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MIS(99),
         MI(2),
         MI(5),
@@ -41848,7 +41852,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1069],
+        builtinSymbols[1072],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -41873,7 +41877,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(76),
         MIS(102),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MI(2),
         MIS(63),
         MIS(74),
@@ -41886,13 +41890,13 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(76),
         MIS(102),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MI(2),
         MIS(63),
         MIS(65),
         MIS(85),
         MIS(17),
-        builtinSymbols[1071],
+        builtinSymbols[1074],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -41907,12 +41911,12 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1088],
+        builtinSymbols[1091],
         MI(1),
         MIS(65),
         MIS(85),
         MIS(17),
-        builtinSymbols[1070],
+        builtinSymbols[1073],
         MIS(33),
         MIS(33),
         MIS(14),
@@ -41937,7 +41941,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(91),
         MIS(50),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MIS(99),
         MI(2),
         MI(1),
@@ -41949,13 +41953,13 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(63),
         MIS(65),
         MIS(85),
         MIS(17),
-        builtinSymbols[1072],
+        builtinSymbols[1075],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -41992,7 +41996,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(88),
         MI(53),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(3),
         MIS(70),
         MIS(94),
@@ -42003,7 +42007,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(58),
         MI(12),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(3),
         MIS(70),
         MIS(9),
@@ -42019,7 +42023,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         MI(0),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(63),
         MIS(91),
         MIS(64),
@@ -42048,7 +42052,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(88),
         MI(53),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(3),
         MIS(70),
         MIS(94),
@@ -42059,7 +42063,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(58),
         MI(12),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(3),
         MIS(70),
         MIS(9),
@@ -42075,7 +42079,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         MI(0),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(63),
         MIS(91),
         MIS(64),
@@ -42104,7 +42108,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(88),
         MI(53),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(3),
         MIS(70),
         MIS(94),
@@ -42115,7 +42119,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(58),
         MI(12),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(3),
         MIS(70),
         MIS(9),
@@ -42131,7 +42135,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         MI(0),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(63),
         MIS(91),
         MIS(64),
@@ -42162,7 +42166,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(84),
         MIS(17),
-        builtinSymbols[1078],
+        builtinSymbols[1081],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -42204,7 +42208,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(91),
         MIS(50),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MIS(99),
         MI(2),
         MI(1),
@@ -42216,19 +42220,19 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(63),
         MIS(23),
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1078],
+        builtinSymbols[1081],
         MI(1),
         MIS(65),
         MIS(85),
         MIS(17),
-        builtinSymbols[1065],
+        builtinSymbols[1068],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -42253,13 +42257,13 @@ Object scheme::getBuiltinCompiler() {
         MIS(15),
         MIS(3),
         MIS(102),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MI(2),
         MIS(63),
         MIS(65),
         MIS(85),
         MIS(17),
-        builtinSymbols[1068],
+        builtinSymbols[1071],
         MIS(33),
         MIS(33),
         MIS(14),
@@ -42278,7 +42282,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(76),
         MIS(102),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MI(2),
         MIS(90),
         MI(9),
@@ -42288,7 +42292,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(76),
         MIS(102),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MI(2),
         MIS(90),
         MI(9),
@@ -42298,7 +42302,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(76),
         MIS(102),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MI(2),
         MIS(78),
         MI(3),
@@ -42306,7 +42310,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(76),
         MIS(98),
         MIS(50),
-        builtinSymbols[810],
+        builtinSymbols[813],
         MIS(99),
         MI(3),
         MI(7),
@@ -42315,7 +42319,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(85),
         MIS(17),
-        builtinSymbols[1067],
+        builtinSymbols[1070],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -42330,14 +42334,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(76),
         MIS(50),
-        builtinSymbols[1077],
+        builtinSymbols[1080],
         MIS(99),
         MI(2),
         MI(2),
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[1066],
+        builtinSymbols[1069],
         MIS(33),
         MIS(14),
         MI(8),
@@ -42349,7 +42353,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(65),
         MIS(85),
         MIS(17),
-        builtinSymbols[1081],
+        builtinSymbols[1084],
         MIS(33),
         MIS(14),
         MI(13),
@@ -42359,74 +42363,14 @@ Object scheme::getBuiltinCompiler() {
         MI(8),
         list360,
         MIS(50),
-        builtinSymbols[1079],
+        builtinSymbols[1082],
         MIS(3),
         MIS(73),
         MIS(66),
         MIS(63),
         MIS(85),
         MIS(17),
-        builtinSymbols[1089],
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[781],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1081],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1089],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[791],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1068],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1089],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[796],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1070],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1089],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[795],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1081],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1089],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[783],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1081],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1089],
-        MI(2),
+        builtinSymbols[1092],
         MIS(33),
         MIS(23),
         MI(10),
@@ -42434,106 +42378,10 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[784],
         MIS(3),
         MIS(50),
-        builtinSymbols[1081],
+        builtinSymbols[1084],
         MIS(3),
         MIS(102),
-        builtinSymbols[1089],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[799],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1072],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1089],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[800],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1081],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1089],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[785],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1067],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1089],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[778],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1065],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1089],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[782],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1081],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1089],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[779],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1066],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1089],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[780],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1081],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1089],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[792],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1069],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1089],
+        builtinSymbols[1092],
         MI(2),
         MIS(33),
         MIS(23),
@@ -42542,46 +42390,22 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[794],
         MIS(3),
         MIS(50),
-        builtinSymbols[1081],
+        builtinSymbols[1071],
         MIS(3),
         MIS(102),
-        builtinSymbols[1089],
+        builtinSymbols[1092],
         MI(2),
         MIS(33),
         MIS(23),
         MI(10),
         MIS(50),
-        builtinSymbols[793],
+        builtinSymbols[799],
         MIS(3),
         MIS(50),
-        builtinSymbols[1081],
+        builtinSymbols[1073],
         MIS(3),
         MIS(102),
-        builtinSymbols[1089],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[786],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1081],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1089],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[789],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1081],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1089],
+        builtinSymbols[1092],
         MI(2),
         MIS(33),
         MIS(23),
@@ -42590,10 +42414,190 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[798],
         MIS(3),
         MIS(50),
-        builtinSymbols[1071],
+        builtinSymbols[1084],
         MIS(3),
         MIS(102),
-        builtinSymbols[1089],
+        builtinSymbols[1092],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[786],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1084],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1092],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[787],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1084],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1092],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[802],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1075],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1092],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[803],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1084],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1092],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[788],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1070],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1092],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[781],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1068],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1092],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[785],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1084],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1092],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[782],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1069],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1092],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[783],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1084],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1092],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[795],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1072],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1092],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[797],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1084],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1092],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[796],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1084],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1092],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[789],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1084],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1092],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[792],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1084],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1092],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[801],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1074],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1092],
         MI(2),
         MIS(33),
         MIS(14),
@@ -42606,7 +42610,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(76),
         MIS(50),
-        builtinSymbols[1079],
+        builtinSymbols[1082],
         MIS(3),
         MIS(74),
         MI(0),
@@ -42618,7 +42622,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MIS(33),
         MIS(14),
         MI(156),
@@ -42657,12 +42661,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[1183],
+        builtinSymbols[1186],
         MI(1),
         MIS(58),
         MI(10),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(3),
         MIS(74),
         MI(0),
@@ -42678,7 +42682,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         MI(0),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(63),
         MIS(92),
         MIS(64),
@@ -42704,7 +42708,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(58),
         MI(26),
         MIS(50),
-        builtinSymbols[796],
+        builtinSymbols[799],
         MIS(3),
         MIS(74),
         MI(0),
@@ -42722,7 +42726,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[1183],
+        builtinSymbols[1186],
         MI(1),
         MIS(30),
         MI(1),
@@ -42766,7 +42770,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(63),
         MIS(91),
         MIS(50),
-        builtinSymbols[1088],
+        builtinSymbols[1091],
         MIS(99),
         MI(1),
         MI(7),
@@ -42778,7 +42782,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[1088],
+        builtinSymbols[1091],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -42821,12 +42825,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(9),
         MIS(50),
-        builtinSymbols[1087],
+        builtinSymbols[1090],
         MIS(3),
         MIS(73),
         MIS(76),
         MIS(102),
-        builtinSymbols[966],
+        builtinSymbols[969],
         MI(3),
         MIS(27),
         MIS(98),
@@ -42838,7 +42842,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(76),
         MIS(102),
-        builtinSymbols[1090],
+        builtinSymbols[1093],
         MI(2),
         MIS(78),
         MI(1),
@@ -42900,7 +42904,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(3),
@@ -42910,7 +42914,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(50),
-        builtinSymbols[826],
+        builtinSymbols[829],
         MIS(99),
         MI(2),
         MI(18),
@@ -42938,7 +42942,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(101),
         MI(52),
         MIS(50),
-        builtinSymbols[799],
+        builtinSymbols[802],
         MIS(3),
         MIS(106),
         MI(3),
@@ -42973,7 +42977,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(3),
@@ -42983,7 +42987,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[826],
+        builtinSymbols[829],
         MI(2),
         MIS(63),
         MIS(30),
@@ -42999,7 +43003,7 @@ Object scheme::getBuiltinCompiler() {
         MI(3),
         MIS(84),
         MIS(17),
-        builtinSymbols[1080],
+        builtinSymbols[1083],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -43046,7 +43050,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(3),
         MIS(50),
-        builtinSymbols[821],
+        builtinSymbols[824],
         MIS(99),
         MI(4),
         MI(1),
@@ -43055,7 +43059,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(78),
         MI(1),
@@ -43063,19 +43067,19 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(10),
         MIS(50),
-        builtinSymbols[835],
+        builtinSymbols[838],
         MIS(3),
         MIS(92),
         MIS(91),
         MIS(73),
         MIS(102),
-        builtinSymbols[964],
+        builtinSymbols[967],
         MI(4),
         MIS(15),
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[979],
+        builtinSymbols[982],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -43126,7 +43130,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[978],
+        builtinSymbols[981],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -43153,7 +43157,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(1),
         MIS(50),
-        builtinSymbols[782],
+        builtinSymbols[785],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -43177,11 +43181,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(92),
         MIS(102),
-        builtinSymbols[977],
+        builtinSymbols[980],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[805],
+        builtinSymbols[808],
         MIS(99),
         MI(3),
         MI(5),
@@ -43189,7 +43193,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(614),
         MIS(50),
-        builtinSymbols[796],
+        builtinSymbols[799],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -43204,7 +43208,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(92),
         MIS(102),
-        builtinSymbols[978],
+        builtinSymbols[981],
         MI(2),
         MIS(3),
         MIS(69),
@@ -43215,7 +43219,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(588),
         MIS(50),
-        builtinSymbols[795],
+        builtinSymbols[798],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -43230,7 +43234,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(92),
         MIS(102),
-        builtinSymbols[978],
+        builtinSymbols[981],
         MI(2),
         MIS(90),
         MI(10),
@@ -43241,11 +43245,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(92),
         MIS(102),
-        builtinSymbols[977],
+        builtinSymbols[980],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[819],
+        builtinSymbols[822],
         MIS(99),
         MI(2),
         MI(5),
@@ -43253,7 +43257,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(550),
         MIS(50),
-        builtinSymbols[784],
+        builtinSymbols[787],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -43270,7 +43274,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(50),
-        builtinSymbols[809],
+        builtinSymbols[812],
         MIS(99),
         MI(2),
         MI(5),
@@ -43278,7 +43282,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(525),
         MIS(50),
-        builtinSymbols[783],
+        builtinSymbols[786],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -43302,11 +43306,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(92),
         MIS(102),
-        builtinSymbols[977],
+        builtinSymbols[980],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[808],
+        builtinSymbols[811],
         MIS(99),
         MI(3),
         MI(5),
@@ -43314,7 +43318,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(489),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -43326,7 +43330,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(50),
-        builtinSymbols[804],
+        builtinSymbols[807],
         MIS(99),
         MI(1),
         MI(5),
@@ -43334,7 +43338,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(469),
         MIS(50),
-        builtinSymbols[785],
+        builtinSymbols[788],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -43349,7 +43353,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(92),
         MIS(102),
-        builtinSymbols[977],
+        builtinSymbols[980],
         MI(2),
         MIS(90),
         MI(10),
@@ -43360,7 +43364,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(92),
         MIS(102),
-        builtinSymbols[977],
+        builtinSymbols[980],
         MI(2),
         MIS(90),
         MI(10),
@@ -43371,11 +43375,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(92),
         MIS(102),
-        builtinSymbols[977],
+        builtinSymbols[980],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[810],
+        builtinSymbols[813],
         MIS(99),
         MI(3),
         MI(5),
@@ -43383,7 +43387,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(420),
         MIS(50),
-        builtinSymbols[792],
+        builtinSymbols[795],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -43405,7 +43409,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(91),
         MIS(102),
-        builtinSymbols[979],
+        builtinSymbols[982],
         MI(2),
         MIS(78),
         MI(1),
@@ -43459,14 +43463,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(1),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(88),
         MI(4),
         MIS(71),
         MIS(30),
         MI(10),
         MIS(64),
-        builtinSymbols[667],
+        builtinSymbols[670],
         MIS(88),
         MI(4),
         MIS(70),
@@ -43490,7 +43494,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(91),
         MIS(50),
-        builtinSymbols[977],
+        builtinSymbols[980],
         MIS(99),
         MI(2),
         MI(1),
@@ -43503,7 +43507,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(80),
         MIS(90),
@@ -43516,7 +43520,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[977],
+        builtinSymbols[980],
         MI(2),
         MIS(3),
         MIS(106),
@@ -43532,7 +43536,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(50),
-        builtinSymbols[816],
+        builtinSymbols[819],
         MIS(99),
         MI(6),
         MI(14),
@@ -43543,7 +43547,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(260),
         MIS(50),
-        builtinSymbols[791],
+        builtinSymbols[794],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -43564,7 +43568,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(91),
         MIS(102),
-        builtinSymbols[979],
+        builtinSymbols[982],
         MI(2),
         MIS(78),
         MI(1),
@@ -43617,7 +43621,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[977],
+        builtinSymbols[980],
         MI(2),
         MIS(3),
         MIS(93),
@@ -43631,7 +43635,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(50),
-        builtinSymbols[815],
+        builtinSymbols[818],
         MIS(99),
         MI(8),
         MI(14),
@@ -43642,7 +43646,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(161),
         MIS(50),
-        builtinSymbols[799],
+        builtinSymbols[802],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -43661,7 +43665,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(91),
         MIS(50),
-        builtinSymbols[977],
+        builtinSymbols[980],
         MIS(99),
         MI(2),
         MI(1),
@@ -43674,7 +43678,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(93),
@@ -43683,7 +43687,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(50),
-        builtinSymbols[826],
+        builtinSymbols[829],
         MIS(99),
         MI(2),
         MI(5),
@@ -43691,7 +43695,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(112),
         MIS(50),
-        builtinSymbols[779],
+        builtinSymbols[782],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -43706,7 +43710,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(92),
         MIS(102),
-        builtinSymbols[977],
+        builtinSymbols[980],
         MI(2),
         MIS(90),
         MI(27),
@@ -43721,7 +43725,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(91),
         MIS(50),
-        builtinSymbols[977],
+        builtinSymbols[980],
         MIS(99),
         MI(2),
         MI(1),
@@ -43734,7 +43738,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(89),
         Object::False,
@@ -43745,7 +43749,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(50),
-        builtinSymbols[802],
+        builtinSymbols[805],
         MIS(99),
         MI(4),
         MI(5),
@@ -43753,7 +43757,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(50),
         MIS(50),
-        builtinSymbols[778],
+        builtinSymbols[781],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -43776,7 +43780,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(91),
         MIS(50),
-        builtinSymbols[977],
+        builtinSymbols[980],
         MIS(99),
         MI(2),
         MI(1),
@@ -43789,11 +43793,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[801],
+        builtinSymbols[804],
         MIS(99),
         MI(2),
         MI(5),
@@ -43804,7 +43808,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[977],
+        builtinSymbols[980],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -43871,7 +43875,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[1183],
+        builtinSymbols[1186],
         MI(1),
         MIS(58),
         MI(20),
@@ -43884,7 +43888,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(58),
         MI(10),
         MIS(50),
-        builtinSymbols[791],
+        builtinSymbols[794],
         MIS(3),
         MIS(75),
         MI(0),
@@ -43924,7 +43928,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(76),
         MIS(102),
-        builtinSymbols[1075],
+        builtinSymbols[1078],
         MI(2),
         MIS(78),
         MI(1),
@@ -43963,7 +43967,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(78),
         MI(1),
@@ -43989,7 +43993,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(94),
         MIS(73),
         MIS(102),
-        builtinSymbols[1083],
+        builtinSymbols[1086],
         MI(4),
         MIS(30),
         MI(1),
@@ -44005,14 +44009,14 @@ Object scheme::getBuiltinCompiler() {
         MI(8),
         MIS(92),
         MIS(50),
-        builtinSymbols[831],
+        builtinSymbols[834],
         MIS(3),
         MIS(102),
-        builtinSymbols[980],
+        builtinSymbols[983],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[831],
+        builtinSymbols[834],
         MIS(41),
         MIS(58),
         MI(12),
@@ -44023,7 +44027,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[1084],
+        builtinSymbols[1087],
         MI(3),
         MIS(30),
         MI(1),
@@ -44046,7 +44050,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(76),
         MIS(50),
-        builtinSymbols[1085],
+        builtinSymbols[1088],
         MIS(99),
         MI(2),
         MI(2),
@@ -44057,7 +44061,7 @@ Object scheme::getBuiltinCompiler() {
         Object::False,
         MIS(85),
         MIS(17),
-        builtinSymbols[1087],
+        builtinSymbols[1090],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -44144,7 +44148,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(1),
         MIS(50),
-        builtinSymbols[782],
+        builtinSymbols[785],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -44188,7 +44192,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(579),
         MIS(50),
-        builtinSymbols[796],
+        builtinSymbols[799],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -44202,7 +44206,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(565),
         MIS(50),
-        builtinSymbols[784],
+        builtinSymbols[787],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -44216,7 +44220,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(551),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -44230,7 +44234,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(537),
         MIS(50),
-        builtinSymbols[795],
+        builtinSymbols[798],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -44274,7 +44278,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(493),
         MIS(50),
-        builtinSymbols[783],
+        builtinSymbols[786],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -44318,7 +44322,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(449),
         MIS(50),
-        builtinSymbols[785],
+        builtinSymbols[788],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -44429,7 +44433,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(338),
         MIS(50),
-        builtinSymbols[792],
+        builtinSymbols[795],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -44507,7 +44511,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(260),
         MIS(50),
-        builtinSymbols[791],
+        builtinSymbols[794],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -44551,7 +44555,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(216),
         MIS(50),
-        builtinSymbols[790],
+        builtinSymbols[793],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -44592,7 +44596,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(175),
         MIS(50),
-        builtinSymbols[799],
+        builtinSymbols[802],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -44632,7 +44636,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(135),
         MIS(50),
-        builtinSymbols[779],
+        builtinSymbols[782],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -44710,7 +44714,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(57),
         MIS(50),
-        builtinSymbols[778],
+        builtinSymbols[781],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -44825,7 +44829,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[980],
+        builtinSymbols[983],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -44924,7 +44928,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(39),
         MIS(3),
         MIS(102),
-        builtinSymbols[837],
+        builtinSymbols[840],
         MI(3),
         MIS(101),
         MI(26),
@@ -44959,7 +44963,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(76),
         MIS(102),
-        builtinSymbols[1183],
+        builtinSymbols[1186],
         MI(1),
         MIS(58),
         MI(4),
@@ -44972,7 +44976,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(98),
         MIS(73),
         MIS(102),
-        builtinSymbols[1154],
+        builtinSymbols[1157],
         MI(2),
         MIS(109),
         MI(2),
@@ -44986,11 +44990,11 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(76),
         MIS(102),
-        builtinSymbols[818],
+        builtinSymbols[821],
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(26),
@@ -44998,7 +45002,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[833],
+        builtinSymbols[836],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -45058,7 +45062,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(86),
         MIS(17),
-        builtinSymbols[837],
+        builtinSymbols[840],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -45107,7 +45111,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[1082],
+        builtinSymbols[1085],
         MI(2),
         MIS(78),
         MI(1),
@@ -45115,10 +45119,10 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         MI(0),
         MIS(50),
-        builtinSymbols[799],
+        builtinSymbols[802],
         MIS(63),
         MIS(50),
-        builtinSymbols[799],
+        builtinSymbols[802],
         MIS(3),
         MIS(74),
         MI(0),
@@ -45142,7 +45146,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(63),
         MIS(80),
@@ -45211,7 +45215,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::Nil,
         MIS(102),
-        builtinSymbols[977],
+        builtinSymbols[980],
         MI(2),
         MIS(3),
         MIS(97),
@@ -45237,7 +45241,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(86),
         MIS(17),
-        builtinSymbols[1084],
+        builtinSymbols[1087],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -45296,7 +45300,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(98),
         MIS(102),
-        builtinSymbols[833],
+        builtinSymbols[836],
         MI(4),
         MIS(63),
         MIS(106),
@@ -45410,7 +45414,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(92),
         MIS(102),
-        builtinSymbols[833],
+        builtinSymbols[836],
         MI(4),
         MIS(63),
         MIS(74),
@@ -45421,13 +45425,13 @@ Object scheme::getBuiltinCompiler() {
         MIS(74),
         MI(4),
         MIS(89),
-        builtinSymbols[386],
+        builtinSymbols[389],
         MIS(63),
         MIS(84),
         MIS(3),
         MIS(93),
         MIS(102),
-        builtinSymbols[966],
+        builtinSymbols[969],
         MI(2),
         MIS(16),
         Object::Nil,
@@ -45441,7 +45445,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[1083],
+        builtinSymbols[1086],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -45506,7 +45510,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(91),
         MIS(102),
-        builtinSymbols[833],
+        builtinSymbols[836],
         MI(4),
         MIS(63),
         MIS(65),
@@ -45514,14 +45518,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         MI(4),
         MIS(16),
-        builtinSymbols[439],
+        builtinSymbols[442],
         MIS(63),
         MIS(84),
         MIS(3),
         MIS(68),
         MIS(3),
         MIS(102),
-        builtinSymbols[966],
+        builtinSymbols[969],
         MI(2),
         MIS(16),
         Object::Nil,
@@ -45535,7 +45539,7 @@ Object scheme::getBuiltinCompiler() {
         MI(4),
         MIS(85),
         MIS(17),
-        builtinSymbols[1085],
+        builtinSymbols[1088],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -45682,7 +45686,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(3),
         MI(0),
@@ -45746,7 +45750,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(1),
         MIS(64),
-        builtinSymbols[765],
+        builtinSymbols[768],
         MIS(88),
         MI(45),
         MIS(23),
@@ -45794,7 +45798,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(36),
         MIS(64),
-        builtinSymbols[667],
+        builtinSymbols[670],
         MIS(88),
         MI(17),
         MIS(106),
@@ -45838,7 +45842,7 @@ Object scheme::getBuiltinCompiler() {
         MI(8),
         MIS(73),
         MIS(50),
-        builtinSymbols[1011],
+        builtinSymbols[1014],
         MIS(99),
         MI(1),
         MI(4),
@@ -45864,7 +45868,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1075],
+        builtinSymbols[1078],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -45993,14 +45997,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[1183],
+        builtinSymbols[1186],
         MI(1),
         MIS(30),
         MI(1),
         MIS(58),
         MI(85),
         MIS(50),
-        builtinSymbols[796],
+        builtinSymbols[799],
         MIS(3),
         MIS(66),
         MIS(94),
@@ -46049,13 +46053,13 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(3),
         MIS(50),
-        builtinSymbols[796],
+        builtinSymbols[799],
         MIS(3),
         MIS(50),
-        builtinSymbols[791],
+        builtinSymbols[794],
         MIS(89),
         Object::Nil,
         MIS(15),
@@ -46126,7 +46130,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1090],
+        builtinSymbols[1093],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -46162,7 +46166,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[1091],
+        builtinSymbols[1094],
         MIS(33),
         MIS(14),
         MI(112),
@@ -46190,7 +46194,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(58),
         MI(5),
         MIS(16),
-        builtinSymbols[439],
+        builtinSymbols[442],
         MIS(30),
         MI(2),
         MIS(59),
@@ -46209,7 +46213,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(58),
         MI(10),
         MIS(50),
-        builtinSymbols[791],
+        builtinSymbols[794],
         MIS(3),
         MIS(74),
         MI(0),
@@ -46224,7 +46228,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(93),
         MIS(102),
-        builtinSymbols[1091],
+        builtinSymbols[1094],
         MI(2),
         MIS(58),
         MI(12),
@@ -46232,11 +46236,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(58),
         MI(5),
         MIS(16),
-        builtinSymbols[765],
+        builtinSymbols[768],
         MIS(30),
         MI(3),
         MIS(16),
-        builtinSymbols[667],
+        builtinSymbols[670],
         MIS(30),
         MI(32),
         MIS(91),
@@ -46269,7 +46273,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(3),
         MIS(16),
-        builtinSymbols[439],
+        builtinSymbols[442],
         MIS(30),
         MI(3),
         MIS(16),
@@ -46278,7 +46282,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(86),
         MIS(17),
-        builtinSymbols[1076],
+        builtinSymbols[1079],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -46323,7 +46327,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[1073],
+        builtinSymbols[1076],
         MI(4),
         MIS(78),
         MI(2),
@@ -46346,10 +46350,10 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(76),
         MIS(102),
-        builtinSymbols[966],
+        builtinSymbols[969],
         MI(3),
         MIS(64),
-        builtinSymbols[408],
+        builtinSymbols[411],
         MIS(73),
         MIS(76),
         MIS(91),
@@ -46362,7 +46366,7 @@ Object scheme::getBuiltinCompiler() {
         Object::False,
         MIS(3),
         MIS(50),
-        builtinSymbols[816],
+        builtinSymbols[819],
         MIS(99),
         MI(6),
         MI(6),
@@ -46371,7 +46375,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[1082],
+        builtinSymbols[1085],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -46422,7 +46426,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(86),
         MIS(17),
-        builtinSymbols[1074],
+        builtinSymbols[1077],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -46453,7 +46457,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(39),
         MIS(3),
         MIS(102),
-        builtinSymbols[1074],
+        builtinSymbols[1077],
         MI(3),
         MIS(101),
         MI(26),
@@ -46488,7 +46492,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(76),
         MIS(102),
-        builtinSymbols[1183],
+        builtinSymbols[1186],
         MI(1),
         MIS(58),
         MI(4),
@@ -46501,7 +46505,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(98),
         MIS(73),
         MIS(102),
-        builtinSymbols[1092],
+        builtinSymbols[1095],
         MI(2),
         MIS(78),
         MI(1),
@@ -46529,11 +46533,11 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[818],
+        builtinSymbols[821],
         MI(1),
         MIS(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(80),
@@ -46542,7 +46546,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[1073],
+        builtinSymbols[1076],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -46654,7 +46658,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1092],
+        builtinSymbols[1095],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -46692,7 +46696,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(2),
         MIS(50),
-        builtinSymbols[791],
+        builtinSymbols[794],
         MIS(3),
         MIS(74),
         MI(0),
@@ -46705,12 +46709,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(76),
         MIS(102),
-        builtinSymbols[1082],
+        builtinSymbols[1085],
         MI(2),
         MIS(3),
         MIS(92),
         MIS(50),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MIS(99),
         MI(2),
         MI(6),
@@ -46727,7 +46731,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(18),
         MI(6),
         MIS(50),
-        builtinSymbols[796],
+        builtinSymbols[799],
         MIS(3),
         MIS(74),
         MI(0),
@@ -46745,7 +46749,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[1076],
+        builtinSymbols[1079],
         MI(3),
         MIS(30),
         MI(1),
@@ -46786,7 +46790,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(91),
         MIS(102),
-        builtinSymbols[1082],
+        builtinSymbols[1085],
         MI(2),
         MIS(78),
         MI(1),
@@ -46795,7 +46799,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(92),
         MIS(102),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MI(2),
         MIS(65),
         MIS(80),
@@ -46861,7 +46865,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(91),
         MIS(50),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MIS(99),
         MI(2),
         MI(1),
@@ -46870,7 +46874,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(92),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(63),
         MIS(49),
@@ -46899,7 +46903,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(91),
         MIS(50),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MIS(99),
         MI(2),
         MI(1),
@@ -46909,7 +46913,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(4),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(63),
         MIS(69),
@@ -46918,7 +46922,7 @@ Object scheme::getBuiltinCompiler() {
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[1077],
+        builtinSymbols[1080],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -46975,14 +46979,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(66),
         MIS(95),
         MIS(50),
-        builtinSymbols[1123],
+        builtinSymbols[1126],
         MIS(99),
         MI(2),
         MI(2),
         MI(2),
         MIS(85),
         MIS(17),
-        builtinSymbols[1123],
+        builtinSymbols[1126],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -47057,7 +47061,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(1),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47068,7 +47072,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(790),
         MIS(50),
-        builtinSymbols[792],
+        builtinSymbols[795],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47110,7 +47114,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(72),
@@ -47139,7 +47143,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(719),
         MIS(50),
-        builtinSymbols[798],
+        builtinSymbols[801],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47185,7 +47189,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(673),
         MIS(50),
-        builtinSymbols[799],
+        builtinSymbols[802],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47225,7 +47229,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(72),
@@ -47236,7 +47240,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(622),
         MIS(50),
-        builtinSymbols[791],
+        builtinSymbols[794],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47266,7 +47270,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(592),
         MIS(50),
-        builtinSymbols[795],
+        builtinSymbols[798],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47301,7 +47305,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[1123],
+        builtinSymbols[1126],
         MI(2),
         MIS(58),
         MI(17),
@@ -47338,7 +47342,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(520),
         MIS(50),
-        builtinSymbols[796],
+        builtinSymbols[799],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47380,13 +47384,13 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(92),
         MIS(102),
-        builtinSymbols[1123],
+        builtinSymbols[1126],
         MI(2),
         MIS(58),
         MI(10),
         MIS(73),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(1),
         MI(9),
@@ -47399,7 +47403,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(459),
         MIS(50),
-        builtinSymbols[784],
+        builtinSymbols[787],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47427,7 +47431,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(73),
         MIS(91),
         MIS(102),
-        builtinSymbols[1123],
+        builtinSymbols[1126],
         MI(2),
         MIS(78),
         MI(1),
@@ -47436,7 +47440,7 @@ Object scheme::getBuiltinCompiler() {
         MI(10),
         MIS(92),
         MIS(50),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MIS(99),
         MI(1),
         MI(12),
@@ -47450,7 +47454,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(408),
         MIS(50),
-        builtinSymbols[800],
+        builtinSymbols[803],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47461,7 +47465,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(397),
         MIS(50),
-        builtinSymbols[785],
+        builtinSymbols[788],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47520,7 +47524,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(338),
         MIS(50),
-        builtinSymbols[778],
+        builtinSymbols[781],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47560,7 +47564,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(72),
@@ -47571,7 +47575,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(287),
         MIS(50),
-        builtinSymbols[782],
+        builtinSymbols[785],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47597,7 +47601,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(261),
         MIS(50),
-        builtinSymbols[779],
+        builtinSymbols[782],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47639,7 +47643,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(72),
@@ -47664,7 +47668,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(194),
         MIS(50),
-        builtinSymbols[780],
+        builtinSymbols[783],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47690,7 +47694,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(168),
         MIS(50),
-        builtinSymbols[783],
+        builtinSymbols[786],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47716,7 +47720,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(142),
         MIS(50),
-        builtinSymbols[794],
+        builtinSymbols[797],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47756,7 +47760,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(72),
@@ -47767,7 +47771,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(91),
         MIS(50),
-        builtinSymbols[790],
+        builtinSymbols[793],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47811,7 +47815,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(47),
         MIS(50),
-        builtinSymbols[786],
+        builtinSymbols[789],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47822,7 +47826,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(36),
         MIS(50),
-        builtinSymbols[793],
+        builtinSymbols[796],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47833,7 +47837,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(25),
         MIS(50),
-        builtinSymbols[789],
+        builtinSymbols[792],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -47873,7 +47877,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(100),
         MIS(3),
         MIS(50),
-        builtinSymbols[1173],
+        builtinSymbols[1176],
         MIS(99),
         MI(1),
         MI(6),
@@ -47881,7 +47885,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(86),
         MIS(17),
-        builtinSymbols[1124],
+        builtinSymbols[1127],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -48025,7 +48029,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(1),
         MIS(50),
-        builtinSymbols[781],
+        builtinSymbols[784],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48036,7 +48040,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(504),
         MIS(50),
-        builtinSymbols[792],
+        builtinSymbols[795],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48059,7 +48063,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(72),
@@ -48081,7 +48085,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(459),
         MIS(50),
-        builtinSymbols[798],
+        builtinSymbols[801],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48117,7 +48121,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(423),
         MIS(50),
-        builtinSymbols[799],
+        builtinSymbols[802],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48138,7 +48142,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(72),
@@ -48149,7 +48153,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(391),
         MIS(50),
-        builtinSymbols[791],
+        builtinSymbols[794],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48171,7 +48175,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(369),
         MIS(50),
-        builtinSymbols[795],
+        builtinSymbols[798],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48207,7 +48211,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(30),
         MI(3),
@@ -48228,7 +48232,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(312),
         MIS(50),
-        builtinSymbols[796],
+        builtinSymbols[799],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48239,7 +48243,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(301),
         MIS(50),
-        builtinSymbols[784],
+        builtinSymbols[787],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48250,7 +48254,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(290),
         MIS(50),
-        builtinSymbols[800],
+        builtinSymbols[803],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48261,7 +48265,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(279),
         MIS(50),
-        builtinSymbols[785],
+        builtinSymbols[788],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48311,7 +48315,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(229),
         MIS(50),
-        builtinSymbols[778],
+        builtinSymbols[781],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48332,7 +48336,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(72),
@@ -48343,7 +48347,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(197),
         MIS(50),
-        builtinSymbols[782],
+        builtinSymbols[785],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48365,7 +48369,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(175),
         MIS(50),
-        builtinSymbols[779],
+        builtinSymbols[782],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48388,7 +48392,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(72),
@@ -48410,7 +48414,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(130),
         MIS(50),
-        builtinSymbols[780],
+        builtinSymbols[783],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48432,7 +48436,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(108),
         MIS(50),
-        builtinSymbols[783],
+        builtinSymbols[786],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48454,7 +48458,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(86),
         MIS(50),
-        builtinSymbols[794],
+        builtinSymbols[797],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48475,7 +48479,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(72),
@@ -48486,7 +48490,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(54),
         MIS(50),
-        builtinSymbols[790],
+        builtinSymbols[793],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48497,7 +48501,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(43),
         MIS(50),
-        builtinSymbols[786],
+        builtinSymbols[789],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48508,7 +48512,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(32),
         MIS(50),
-        builtinSymbols[793],
+        builtinSymbols[796],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48519,7 +48523,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(30),
         MI(21),
         MIS(50),
-        builtinSymbols[789],
+        builtinSymbols[792],
         MIS(3),
         MIS(65),
         MIS(37),
@@ -48552,7 +48556,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[1173],
+        builtinSymbols[1176],
         MIS(99),
         MI(1),
         MI(5),
@@ -48560,7 +48564,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[1125],
+        builtinSymbols[1128],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -48754,7 +48758,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[1117],
+        builtinSymbols[1120],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -48951,7 +48955,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(6),
         MIS(17),
-        builtinSymbols[1134],
+        builtinSymbols[1137],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -48984,7 +48988,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(85),
         MIS(17),
-        builtinSymbols[1133],
+        builtinSymbols[1136],
         MIS(33),
         MIS(33),
         MIS(106),
@@ -49008,7 +49012,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(85),
         MIS(17),
-        builtinSymbols[1132],
+        builtinSymbols[1135],
         MIS(33),
         MIS(33),
         MIS(14),
@@ -49024,13 +49028,13 @@ Object scheme::getBuiltinCompiler() {
         MIS(68),
         MIS(3),
         MIS(50),
-        builtinSymbols[1133],
+        builtinSymbols[1136],
         MIS(3),
         MIS(50),
-        builtinSymbols[1132],
+        builtinSymbols[1135],
         MIS(3),
         MIS(50),
-        builtinSymbols[1134],
+        builtinSymbols[1137],
         MIS(99),
         MI(6),
         MI(4),
@@ -49038,7 +49042,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[1121],
+        builtinSymbols[1124],
         MIS(33),
         MIS(106),
         MI(148),
@@ -49061,7 +49065,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(85),
         MIS(17),
-        builtinSymbols[1131],
+        builtinSymbols[1134],
         MIS(33),
         MIS(33),
         MIS(106),
@@ -49085,7 +49089,7 @@ Object scheme::getBuiltinCompiler() {
         MI(0),
         MIS(85),
         MIS(17),
-        builtinSymbols[1130],
+        builtinSymbols[1133],
         MIS(33),
         MIS(33),
         MIS(14),
@@ -49101,13 +49105,13 @@ Object scheme::getBuiltinCompiler() {
         MIS(68),
         MIS(3),
         MIS(50),
-        builtinSymbols[1131],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1130],
-        MIS(3),
-        MIS(50),
         builtinSymbols[1134],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1133],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1137],
         MIS(99),
         MI(6),
         MI(4),
@@ -49115,7 +49119,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(4),
         MIS(17),
-        builtinSymbols[1120],
+        builtinSymbols[1123],
         MIS(33),
         MIS(106),
         MI(57),
@@ -49164,26 +49168,26 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(98),
         MIS(50),
-        builtinSymbols[807],
+        builtinSymbols[810],
         MIS(99),
         MI(2),
         MI(3),
         MI(2),
         MIS(86),
         MIS(17),
-        builtinSymbols[1127],
+        builtinSymbols[1130],
         MIS(33),
         MIS(33),
         MIS(33),
         MIS(33),
         MIS(33),
         MIS(50),
-        builtinSymbols[788],
+        builtinSymbols[791],
         MIS(89),
         Object::Nil,
         MIS(32),
         MIS(17),
-        builtinSymbols[1122],
+        builtinSymbols[1125],
         MIS(14),
         MI(13),
         MI(2),
@@ -49192,14 +49196,14 @@ Object scheme::getBuiltinCompiler() {
         MI(8),
         list226,
         MIS(50),
-        builtinSymbols[1122],
+        builtinSymbols[1125],
         MIS(3),
         MIS(73),
         MIS(66),
         MIS(63),
         MIS(85),
         MIS(17),
-        builtinSymbols[1129],
+        builtinSymbols[1132],
         MIS(33),
         MIS(106),
         MI(148),
@@ -49226,7 +49230,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1101],
+        builtinSymbols[1104],
         MIS(33),
         MIS(33),
         MIS(14),
@@ -49241,7 +49245,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1107],
+        builtinSymbols[1110],
         MIS(33),
         MIS(106),
         MI(147),
@@ -49348,7 +49352,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -49372,7 +49376,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[957],
+        builtinSymbols[960],
         MI(3),
         MIS(78),
         MI(1),
@@ -49400,7 +49404,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1111],
+        builtinSymbols[1114],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -49467,7 +49471,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1113],
+        builtinSymbols[1116],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -49499,7 +49503,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(90),
         MI(15),
@@ -49515,7 +49519,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(68),
         MIS(3),
         MIS(102),
-        builtinSymbols[1120],
+        builtinSymbols[1123],
         MI(4),
         MIS(78),
         MI(2),
@@ -49527,7 +49531,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1112],
+        builtinSymbols[1115],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -49540,7 +49544,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(1),
         MI(1),
         MIS(17),
-        builtinSymbols[1169],
+        builtinSymbols[1172],
         MIS(33),
         MIS(106),
         MI(61),
@@ -49582,7 +49586,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(85),
         MIS(17),
-        builtinSymbols[1026],
+        builtinSymbols[1029],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -49657,7 +49661,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(93),
         MIS(102),
-        builtinSymbols[1026],
+        builtinSymbols[1029],
         MI(2),
         MIS(3),
         MIS(70),
@@ -49713,7 +49717,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1104],
+        builtinSymbols[1107],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -49837,7 +49841,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -49858,7 +49862,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(7),
         MIS(102),
-        builtinSymbols[1026],
+        builtinSymbols[1029],
         MI(2),
         MIS(3),
         MIS(49),
@@ -49911,7 +49915,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -49958,7 +49962,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1103],
+        builtinSymbols[1106],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -50070,7 +50074,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(93),
         MIS(73),
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(83),
         MIS(97),
@@ -50100,7 +50104,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1115],
+        builtinSymbols[1118],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -50129,7 +50133,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1116],
+        builtinSymbols[1119],
         MIS(33),
         MIS(33),
         MIS(106),
@@ -50162,7 +50166,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -50177,7 +50181,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1095],
+        builtinSymbols[1098],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -50211,7 +50215,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1118],
+        builtinSymbols[1121],
         MI(7),
         MIS(90),
         MI(17),
@@ -50229,7 +50233,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(2),
@@ -50247,7 +50251,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(8),
         MIS(17),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -50282,7 +50286,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1118],
+        builtinSymbols[1121],
         MI(7),
         MIS(90),
         MI(17),
@@ -50300,7 +50304,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1118],
+        builtinSymbols[1121],
         MI(7),
         MIS(90),
         MI(17),
@@ -50318,7 +50322,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(3),
@@ -50338,7 +50342,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(9),
         MIS(17),
-        builtinSymbols[1097],
+        builtinSymbols[1100],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -50415,7 +50419,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(36),
         MIS(30),
@@ -50438,7 +50442,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1118],
+        builtinSymbols[1121],
         MI(7),
         MIS(83),
         MIS(96),
@@ -50463,7 +50467,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(6),
         MIS(17),
-        builtinSymbols[1098],
+        builtinSymbols[1101],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -50566,7 +50570,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -50597,7 +50601,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -50628,7 +50632,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -50659,7 +50663,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -50690,7 +50694,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -50721,7 +50725,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -50752,7 +50756,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -50783,7 +50787,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -50814,7 +50818,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -50845,7 +50849,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -50876,7 +50880,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -50903,7 +50907,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1095],
+        builtinSymbols[1098],
         MIS(99),
         MI(7),
         MI(13),
@@ -50930,7 +50934,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1095],
+        builtinSymbols[1098],
         MIS(99),
         MI(7),
         MI(13),
@@ -50957,7 +50961,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1095],
+        builtinSymbols[1098],
         MIS(99),
         MI(7),
         MI(13),
@@ -50984,7 +50988,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1095],
+        builtinSymbols[1098],
         MIS(99),
         MI(7),
         MI(13),
@@ -51011,7 +51015,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1095],
+        builtinSymbols[1098],
         MIS(99),
         MI(7),
         MI(13),
@@ -51038,7 +51042,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1095],
+        builtinSymbols[1098],
         MIS(99),
         MI(7),
         MI(13),
@@ -51069,7 +51073,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -51100,7 +51104,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -51131,7 +51135,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -51158,7 +51162,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1095],
+        builtinSymbols[1098],
         MIS(99),
         MI(7),
         MI(13),
@@ -51184,7 +51188,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(10),
         MIS(102),
-        builtinSymbols[871],
+        builtinSymbols[874],
         MI(1),
         MIS(3),
         MIS(106),
@@ -51196,7 +51200,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1097],
+        builtinSymbols[1100],
         MIS(99),
         MI(9),
         MI(13),
@@ -51227,7 +51231,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -51258,7 +51262,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -51289,7 +51293,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -51320,7 +51324,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1096],
+        builtinSymbols[1099],
         MIS(99),
         MI(8),
         MI(13),
@@ -51347,7 +51351,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1095],
+        builtinSymbols[1098],
         MIS(99),
         MI(7),
         MI(13),
@@ -51374,7 +51378,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1095],
+        builtinSymbols[1098],
         MIS(99),
         MI(7),
         MI(13),
@@ -51401,7 +51405,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1095],
+        builtinSymbols[1098],
         MIS(99),
         MI(7),
         MI(13),
@@ -51428,7 +51432,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1095],
+        builtinSymbols[1098],
         MIS(99),
         MI(7),
         MI(13),
@@ -51455,7 +51459,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1095],
+        builtinSymbols[1098],
         MIS(99),
         MI(7),
         MI(13),
@@ -51482,7 +51486,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1095],
+        builtinSymbols[1098],
         MIS(99),
         MI(7),
         MI(13),
@@ -51509,7 +51513,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1095],
+        builtinSymbols[1098],
         MIS(99),
         MI(7),
         MI(13),
@@ -51536,7 +51540,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(50),
-        builtinSymbols[1095],
+        builtinSymbols[1098],
         MIS(99),
         MI(7),
         MI(13),
@@ -51582,7 +51586,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1098],
+        builtinSymbols[1101],
         MI(6),
         MIS(78),
         MI(1),
@@ -51698,7 +51702,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -51745,7 +51749,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -51774,7 +51778,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::makeString(UC("unknown insn on pass3/$asm")),
         MIS(50),
-        builtinSymbols[1140],
+        builtinSymbols[1143],
         MIS(99),
         MI(1),
         MI(13),
@@ -51784,7 +51788,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1094],
+        builtinSymbols[1097],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -51974,7 +51978,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -52041,7 +52045,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -52102,7 +52106,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -52132,7 +52136,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1105],
+        builtinSymbols[1108],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -52174,7 +52178,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -52196,7 +52200,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[1026],
+        builtinSymbols[1029],
         MI(2),
         MIS(3),
         MIS(69),
@@ -52208,7 +52212,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1102],
+        builtinSymbols[1105],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -52241,7 +52245,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -52259,7 +52263,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1118],
+        builtinSymbols[1121],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -52330,7 +52334,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(93),
         MIS(92),
         MIS(102),
-        builtinSymbols[1118],
+        builtinSymbols[1121],
         MI(7),
         MIS(83),
         MIS(66),
@@ -52357,7 +52361,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1119],
+        builtinSymbols[1122],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -52429,7 +52433,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(78),
         MI(1),
         MIS(64),
-        builtinSymbols[386],
+        builtinSymbols[389],
         MIS(88),
         MI(128),
         MIS(27),
@@ -52529,7 +52533,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1119],
+        builtinSymbols[1122],
         MI(7),
         MIS(78),
         MI(1),
@@ -52716,11 +52720,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(8),
         MIS(50),
-        builtinSymbols[822],
+        builtinSymbols[825],
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(78),
         MI(1),
@@ -52778,14 +52782,14 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(93),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(90),
         MI(5),
         MIS(92),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(3),
@@ -52955,7 +52959,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1117],
+        builtinSymbols[1120],
         MI(4),
         MIS(30),
         MI(3),
@@ -53050,7 +53054,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1119],
+        builtinSymbols[1122],
         MI(7),
         MIS(90),
         MI(11),
@@ -53075,7 +53079,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(20),
         MIS(102),
-        builtinSymbols[1127],
+        builtinSymbols[1130],
         MI(3),
         MIS(23),
         MI(9),
@@ -53145,7 +53149,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(8),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(3),
@@ -53171,7 +53175,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[974],
+        builtinSymbols[977],
         MI(2),
         MIS(3),
         MIS(71),
@@ -53194,7 +53198,7 @@ Object scheme::getBuiltinCompiler() {
         Object::False,
         MIS(3),
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -53334,7 +53338,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1119],
+        builtinSymbols[1122],
         MI(7),
         MIS(78),
         MI(1),
@@ -53385,7 +53389,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -53487,7 +53491,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1099],
+        builtinSymbols[1102],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -53681,7 +53685,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -53745,7 +53749,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1100],
+        builtinSymbols[1103],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -53866,11 +53870,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(8),
         MIS(50),
-        builtinSymbols[822],
+        builtinSymbols[825],
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(78),
         MI(1),
@@ -53977,14 +53981,14 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(93),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(90),
         MI(5),
         MIS(92),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(3),
@@ -54249,7 +54253,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1117],
+        builtinSymbols[1120],
         MI(4),
         MIS(30),
         MI(3),
@@ -54391,7 +54395,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(3),
@@ -54413,12 +54417,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(93),
         MIS(102),
-        builtinSymbols[974],
+        builtinSymbols[977],
         MI(2),
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -54455,7 +54459,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(13),
         MIS(102),
-        builtinSymbols[1127],
+        builtinSymbols[1130],
         MI(3),
         MIS(23),
         MI(8),
@@ -54504,7 +54508,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1108],
+        builtinSymbols[1111],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -54619,11 +54623,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(8),
         MIS(50),
-        builtinSymbols[822],
+        builtinSymbols[825],
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(78),
         MI(1),
@@ -54729,14 +54733,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(4),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(90),
         MI(5),
         MIS(93),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(3),
@@ -54753,14 +54757,14 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(4),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(90),
         MI(5),
         MIS(93),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(3),
@@ -54927,7 +54931,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1117],
+        builtinSymbols[1120],
         MI(4),
         MIS(30),
         MI(3),
@@ -55020,7 +55024,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(90),
         MI(7),
@@ -55065,7 +55069,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(7),
         MIS(102),
-        builtinSymbols[1127],
+        builtinSymbols[1130],
         MI(3),
         MIS(23),
         MI(9),
@@ -55120,7 +55124,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(3),
@@ -55143,7 +55147,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[974],
+        builtinSymbols[977],
         MI(2),
         MIS(3),
         MIS(69),
@@ -55161,7 +55165,7 @@ Object scheme::getBuiltinCompiler() {
         Object::False,
         MIS(3),
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -55196,7 +55200,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1114],
+        builtinSymbols[1117],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -55257,7 +55261,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(62),
         MIS(89),
-        builtinSymbols[667],
+        builtinSymbols[670],
         MIS(20),
         MIS(58),
         MI(20),
@@ -55273,7 +55277,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(107),
         MI(6),
         MIS(50),
-        builtinSymbols[1126],
+        builtinSymbols[1129],
         MIS(99),
         MI(7),
         MI(7),
@@ -55350,11 +55354,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(8),
         MIS(50),
-        builtinSymbols[822],
+        builtinSymbols[825],
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(78),
         MI(1),
@@ -55476,7 +55480,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(92),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(90),
@@ -55484,7 +55488,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(3),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(3),
@@ -55501,7 +55505,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(70),
@@ -55517,7 +55521,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(4),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(90),
@@ -55525,7 +55529,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(6),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(3),
@@ -55739,7 +55743,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1117],
+        builtinSymbols[1120],
         MI(4),
         MIS(30),
         MI(3),
@@ -55828,7 +55832,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1119],
+        builtinSymbols[1122],
         MI(7),
         MIS(78),
         MI(1),
@@ -55841,7 +55845,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(17),
         MIS(102),
-        builtinSymbols[1127],
+        builtinSymbols[1130],
         MI(3),
         MIS(23),
         MI(10),
@@ -55900,7 +55904,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(7),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(3),
@@ -55925,7 +55929,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(4),
         MIS(102),
-        builtinSymbols[974],
+        builtinSymbols[977],
         MI(2),
         MIS(3),
         MIS(70),
@@ -55943,7 +55947,7 @@ Object scheme::getBuiltinCompiler() {
         Object::False,
         MIS(3),
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -55977,7 +55981,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1109],
+        builtinSymbols[1112],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -56113,11 +56117,11 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(8),
         MIS(50),
-        builtinSymbols[822],
+        builtinSymbols[825],
         MIS(3),
         MIS(73),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(78),
         MI(1),
@@ -56252,14 +56256,14 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(93),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(90),
         MI(5),
         MIS(92),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(3),
@@ -56276,7 +56280,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(70),
@@ -56292,7 +56296,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(5),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(90),
@@ -56300,7 +56304,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(4),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(3),
@@ -56395,7 +56399,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(69),
@@ -56611,7 +56615,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(92),
         MIS(91),
         MIS(102),
-        builtinSymbols[1117],
+        builtinSymbols[1120],
         MI(4),
         MIS(30),
         MI(3),
@@ -56729,7 +56733,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(14),
         MIS(102),
-        builtinSymbols[1127],
+        builtinSymbols[1130],
         MI(3),
         MIS(23),
         MI(10),
@@ -56776,7 +56780,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(91),
         MIS(102),
-        builtinSymbols[993],
+        builtinSymbols[996],
         MI(1),
         MIS(0),
         MIS(78),
@@ -56929,13 +56933,13 @@ Object scheme::getBuiltinCompiler() {
         MIS(3),
         MIS(93),
         MIS(102),
-        builtinSymbols[974],
+        builtinSymbols[977],
         MI(2),
         MIS(89),
         Object::False,
         MIS(3),
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -57049,7 +57053,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(106),
         MI(4),
         MIS(102),
-        builtinSymbols[974],
+        builtinSymbols[977],
         MI(2),
         MIS(3),
         MIS(70),
@@ -57067,7 +57071,7 @@ Object scheme::getBuiltinCompiler() {
         Object::False,
         MIS(3),
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(78),
         MI(1),
@@ -57103,7 +57107,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1126],
+        builtinSymbols[1129],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -57251,7 +57255,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(7),
         MIS(50),
-        builtinSymbols[991],
+        builtinSymbols[994],
         MIS(3),
         MIS(73),
         MIS(69),
@@ -57326,7 +57330,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[966],
+        builtinSymbols[969],
         MI(2),
         MIS(16),
         MI(0),
@@ -57345,7 +57349,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1106],
+        builtinSymbols[1109],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -57384,68 +57388,8 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1110],
-        MIS(33),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[781],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1101],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1129],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[791],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1108],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1129],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[796],
-        MIS(3),
-        MIS(50),
         builtinSymbols[1113],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1129],
-        MI(2),
         MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[795],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1112],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1129],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[783],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1103],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1129],
-        MI(2),
         MIS(33),
         MIS(23),
         MI(10),
@@ -57456,103 +57400,7 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[1104],
         MIS(3),
         MIS(102),
-        builtinSymbols[1129],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[799],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1115],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1129],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[800],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1116],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1129],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[785],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1105],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1129],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[778],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1094],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1129],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[782],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1102],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1129],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[779],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1099],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1129],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[780],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1100],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1129],
-        MI(2),
-        MIS(33),
-        MIS(23),
-        MI(10),
-        MIS(50),
-        builtinSymbols[792],
-        MIS(3),
-        MIS(50),
-        builtinSymbols[1109],
-        MIS(3),
-        MIS(102),
-        builtinSymbols[1129],
+        builtinSymbols[1132],
         MI(2),
         MIS(33),
         MIS(23),
@@ -57564,19 +57412,31 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[1111],
         MIS(3),
         MIS(102),
-        builtinSymbols[1129],
+        builtinSymbols[1132],
         MI(2),
         MIS(33),
         MIS(23),
         MI(10),
         MIS(50),
-        builtinSymbols[793],
+        builtinSymbols[799],
         MIS(3),
         MIS(50),
-        builtinSymbols[1110],
+        builtinSymbols[1116],
         MIS(3),
         MIS(102),
-        builtinSymbols[1129],
+        builtinSymbols[1132],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[798],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1115],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1132],
         MI(2),
         MIS(33),
         MIS(23),
@@ -57588,7 +57448,139 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[1106],
         MIS(3),
         MIS(102),
-        builtinSymbols[1129],
+        builtinSymbols[1132],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[787],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1107],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1132],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[802],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1118],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1132],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[803],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1119],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1132],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[788],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1108],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1132],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[781],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1097],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1132],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[785],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1105],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1132],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[782],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1102],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1132],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[783],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1103],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1132],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[795],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1112],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1132],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[797],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1114],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1132],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[796],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1113],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1132],
         MI(2),
         MIS(33),
         MIS(23),
@@ -57597,22 +57589,34 @@ Object scheme::getBuiltinCompiler() {
         builtinSymbols[789],
         MIS(3),
         MIS(50),
-        builtinSymbols[1107],
+        builtinSymbols[1109],
         MIS(3),
         MIS(102),
-        builtinSymbols[1129],
+        builtinSymbols[1132],
         MI(2),
         MIS(33),
         MIS(23),
         MI(10),
         MIS(50),
-        builtinSymbols[798],
+        builtinSymbols[792],
         MIS(3),
         MIS(50),
-        builtinSymbols[1114],
+        builtinSymbols[1110],
         MIS(3),
         MIS(102),
-        builtinSymbols[1129],
+        builtinSymbols[1132],
+        MI(2),
+        MIS(33),
+        MIS(23),
+        MI(10),
+        MIS(50),
+        builtinSymbols[801],
+        MIS(3),
+        MIS(50),
+        builtinSymbols[1117],
+        MIS(3),
+        MIS(102),
+        builtinSymbols[1132],
         MI(2),
         MIS(33),
         MIS(14),
@@ -57634,7 +57638,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(107),
         MI(6),
         MIS(50),
-        builtinSymbols[1122],
+        builtinSymbols[1125],
         MIS(3),
         MIS(75),
         MI(0),
@@ -57647,7 +57651,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(53),
         MI(7),
         MIS(17),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MIS(33),
         MIS(106),
         MI(139),
@@ -57684,7 +57688,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::Nil,
         MIS(50),
-        builtinSymbols[830],
+        builtinSymbols[833],
         MIS(89),
         Object::Nil,
         MIS(90),
@@ -57696,7 +57700,7 @@ Object scheme::getBuiltinCompiler() {
         Object::False,
         MIS(3),
         MIS(102),
-        builtinSymbols[1128],
+        builtinSymbols[1131],
         MI(7),
         MIS(73),
         MIS(70),
@@ -57707,7 +57711,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[1093],
+        builtinSymbols[1096],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -57740,7 +57744,7 @@ Object scheme::getBuiltinCompiler() {
         MI(1),
         MIS(84),
         MIS(17),
-        builtinSymbols[1135],
+        builtinSymbols[1138],
         MIS(33),
         MIS(33),
         MIS(106),
@@ -57782,7 +57786,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(91),
@@ -57791,17 +57795,17 @@ Object scheme::getBuiltinCompiler() {
         MIS(64),
         Object::False,
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(89),
         Object::Nil,
         MIS(3),
         MIS(102),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MI(2),
         MIS(3),
         MIS(50),
-        builtinSymbols[1093],
+        builtinSymbols[1096],
         MIS(99),
         MI(1),
         MI(1),
@@ -57813,7 +57817,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(62),
         MIS(3),
         MIS(102),
-        builtinSymbols[823],
+        builtinSymbols[826],
         MI(2),
         MIS(3),
         MIS(69),
@@ -57830,13 +57834,13 @@ Object scheme::getBuiltinCompiler() {
         MIS(0),
         MIS(3),
         MIS(102),
-        builtinSymbols[1135],
+        builtinSymbols[1138],
         MI(1),
         MIS(63),
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[918],
+        builtinSymbols[921],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -57870,7 +57874,7 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(78),
         MI(1),
@@ -57890,7 +57894,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(58),
         MI(5),
         MIS(50),
-        builtinSymbols[1168],
+        builtinSymbols[1171],
         MIS(30),
         MI(3),
         MIS(72),
@@ -57901,17 +57905,17 @@ Object scheme::getBuiltinCompiler() {
         Object::False,
         MIS(3),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(89),
         Object::Nil,
         MIS(3),
         MIS(102),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MI(2),
         MIS(3),
         MIS(102),
-        builtinSymbols[1093],
+        builtinSymbols[1096],
         MI(1),
         MIS(3),
         MIS(71),
@@ -57930,7 +57934,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(85),
         MIS(17),
-        builtinSymbols[920],
+        builtinSymbols[923],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -58451,7 +58455,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(58),
         MI(10),
         MIS(50),
-        builtinSymbols[790],
+        builtinSymbols[793],
         MIS(3),
         MIS(74),
         MI(0),
@@ -59290,7 +59294,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(84),
         MIS(17),
-        builtinSymbols[1136],
+        builtinSymbols[1139],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -59382,24 +59386,24 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[1168],
+        builtinSymbols[1171],
         MIS(89),
         Object::Nil,
         MIS(89),
         Object::False,
         MIS(3),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(89),
         Object::Nil,
         MIS(3),
         MIS(102),
-        builtinSymbols[1086],
+        builtinSymbols[1089],
         MI(2),
         MIS(78),
         MI(1),
@@ -59407,18 +59411,18 @@ Object scheme::getBuiltinCompiler() {
         MIS(80),
         MIS(3),
         MIS(102),
-        builtinSymbols[1093],
+        builtinSymbols[1096],
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[1135],
+        builtinSymbols[1138],
         MIS(99),
         MI(1),
         MI(1),
         MI(1),
         MIS(84),
         MIS(17),
-        builtinSymbols[917],
+        builtinSymbols[920],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -59439,33 +59443,33 @@ Object scheme::getBuiltinCompiler() {
         MI(5),
         MIS(73),
         MIS(102),
-        builtinSymbols[1050],
+        builtinSymbols[1053],
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[1168],
+        builtinSymbols[1171],
         MIS(89),
         Object::Nil,
         MIS(89),
         Object::False,
         MIS(3),
         MIS(102),
-        builtinSymbols[1064],
+        builtinSymbols[1067],
         MI(4),
         MIS(3),
         MIS(102),
-        builtinSymbols[1093],
+        builtinSymbols[1096],
         MI(1),
         MIS(3),
         MIS(50),
-        builtinSymbols[1135],
+        builtinSymbols[1138],
         MIS(99),
         MI(1),
         MI(1),
         MI(1),
         MIS(84),
         MIS(17),
-        builtinSymbols[919],
+        builtinSymbols[922],
         MIS(33),
         MIS(33),
         MIS(33),
@@ -59473,12 +59477,12 @@ Object scheme::getBuiltinCompiler() {
         MIS(16),
         Object::False,
         MIS(50),
-        builtinSymbols[1168],
+        builtinSymbols[1171],
         MIS(89),
         MI(5),
         MIS(3),
         MIS(50),
-        builtinSymbols[1168],
+        builtinSymbols[1171],
         MIS(89),
         MI(5),
         MIS(62),
