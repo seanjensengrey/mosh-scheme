@@ -66,6 +66,9 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) \
 	mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
 	mosh-freeproc.$(OBJEXT) mosh-GenericHashTable.$(OBJEXT) \
 	mosh-TypedVector.$(OBJEXT) mosh-CodeBuilder.$(OBJEXT) \
+	mosh-RecordTypeDescriptor.$(OBJEXT) \
+	mosh-RecordConstructorDescriptor.$(OBJEXT) \
+	mosh-Record.$(OBJEXT) mosh-RecordProcedures.$(OBJEXT) \
 	mosh-CompilerProcedures.$(OBJEXT) \
 	mosh-HashTableProceduures.$(OBJEXT) mosh-SString.$(OBJEXT) \
 	mosh-BuiltinSymbols.$(OBJEXT)
@@ -262,6 +265,14 @@ TypedVector.h        \
 TypedVector.cpp      \
 CodeBuilder.h        \
 CodeBuilder.cpp        \
+RecordTypeDescriptor.h \
+RecordTypeDescriptor.cpp \
+RecordConstructorDescriptor.h\
+RecordConstructorDescriptor.cpp\
+Record.h \
+Record.cpp \
+RecordProcedures.cpp \
+RecordProcedures.h \
 CompilerProcedures.cpp \
 CompilerProcedures.h   \
 HashTableProceduures.cpp \
@@ -423,6 +434,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-GenericHashTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-HashTableProceduures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Port.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Record.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-RecordConstructorDescriptor.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-RecordProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-RecordTypeDescriptor.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Regexp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-SString.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Symbol.Po@am__quote@
@@ -628,6 +643,62 @@ mosh-CodeBuilder.obj: CodeBuilder.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CodeBuilder.cpp' object='mosh-CodeBuilder.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-CodeBuilder.obj `if test -f 'CodeBuilder.cpp'; then $(CYGPATH_W) 'CodeBuilder.cpp'; else $(CYGPATH_W) '$(srcdir)/CodeBuilder.cpp'; fi`
+
+mosh-RecordTypeDescriptor.o: RecordTypeDescriptor.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-RecordTypeDescriptor.o -MD -MP -MF $(DEPDIR)/mosh-RecordTypeDescriptor.Tpo -c -o mosh-RecordTypeDescriptor.o `test -f 'RecordTypeDescriptor.cpp' || echo '$(srcdir)/'`RecordTypeDescriptor.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-RecordTypeDescriptor.Tpo $(DEPDIR)/mosh-RecordTypeDescriptor.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RecordTypeDescriptor.cpp' object='mosh-RecordTypeDescriptor.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-RecordTypeDescriptor.o `test -f 'RecordTypeDescriptor.cpp' || echo '$(srcdir)/'`RecordTypeDescriptor.cpp
+
+mosh-RecordTypeDescriptor.obj: RecordTypeDescriptor.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-RecordTypeDescriptor.obj -MD -MP -MF $(DEPDIR)/mosh-RecordTypeDescriptor.Tpo -c -o mosh-RecordTypeDescriptor.obj `if test -f 'RecordTypeDescriptor.cpp'; then $(CYGPATH_W) 'RecordTypeDescriptor.cpp'; else $(CYGPATH_W) '$(srcdir)/RecordTypeDescriptor.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-RecordTypeDescriptor.Tpo $(DEPDIR)/mosh-RecordTypeDescriptor.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RecordTypeDescriptor.cpp' object='mosh-RecordTypeDescriptor.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-RecordTypeDescriptor.obj `if test -f 'RecordTypeDescriptor.cpp'; then $(CYGPATH_W) 'RecordTypeDescriptor.cpp'; else $(CYGPATH_W) '$(srcdir)/RecordTypeDescriptor.cpp'; fi`
+
+mosh-RecordConstructorDescriptor.o: RecordConstructorDescriptor.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-RecordConstructorDescriptor.o -MD -MP -MF $(DEPDIR)/mosh-RecordConstructorDescriptor.Tpo -c -o mosh-RecordConstructorDescriptor.o `test -f 'RecordConstructorDescriptor.cpp' || echo '$(srcdir)/'`RecordConstructorDescriptor.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-RecordConstructorDescriptor.Tpo $(DEPDIR)/mosh-RecordConstructorDescriptor.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RecordConstructorDescriptor.cpp' object='mosh-RecordConstructorDescriptor.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-RecordConstructorDescriptor.o `test -f 'RecordConstructorDescriptor.cpp' || echo '$(srcdir)/'`RecordConstructorDescriptor.cpp
+
+mosh-RecordConstructorDescriptor.obj: RecordConstructorDescriptor.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-RecordConstructorDescriptor.obj -MD -MP -MF $(DEPDIR)/mosh-RecordConstructorDescriptor.Tpo -c -o mosh-RecordConstructorDescriptor.obj `if test -f 'RecordConstructorDescriptor.cpp'; then $(CYGPATH_W) 'RecordConstructorDescriptor.cpp'; else $(CYGPATH_W) '$(srcdir)/RecordConstructorDescriptor.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-RecordConstructorDescriptor.Tpo $(DEPDIR)/mosh-RecordConstructorDescriptor.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RecordConstructorDescriptor.cpp' object='mosh-RecordConstructorDescriptor.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-RecordConstructorDescriptor.obj `if test -f 'RecordConstructorDescriptor.cpp'; then $(CYGPATH_W) 'RecordConstructorDescriptor.cpp'; else $(CYGPATH_W) '$(srcdir)/RecordConstructorDescriptor.cpp'; fi`
+
+mosh-Record.o: Record.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Record.o -MD -MP -MF $(DEPDIR)/mosh-Record.Tpo -c -o mosh-Record.o `test -f 'Record.cpp' || echo '$(srcdir)/'`Record.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Record.Tpo $(DEPDIR)/mosh-Record.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Record.cpp' object='mosh-Record.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Record.o `test -f 'Record.cpp' || echo '$(srcdir)/'`Record.cpp
+
+mosh-Record.obj: Record.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Record.obj -MD -MP -MF $(DEPDIR)/mosh-Record.Tpo -c -o mosh-Record.obj `if test -f 'Record.cpp'; then $(CYGPATH_W) 'Record.cpp'; else $(CYGPATH_W) '$(srcdir)/Record.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Record.Tpo $(DEPDIR)/mosh-Record.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Record.cpp' object='mosh-Record.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Record.obj `if test -f 'Record.cpp'; then $(CYGPATH_W) 'Record.cpp'; else $(CYGPATH_W) '$(srcdir)/Record.cpp'; fi`
+
+mosh-RecordProcedures.o: RecordProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-RecordProcedures.o -MD -MP -MF $(DEPDIR)/mosh-RecordProcedures.Tpo -c -o mosh-RecordProcedures.o `test -f 'RecordProcedures.cpp' || echo '$(srcdir)/'`RecordProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-RecordProcedures.Tpo $(DEPDIR)/mosh-RecordProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RecordProcedures.cpp' object='mosh-RecordProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-RecordProcedures.o `test -f 'RecordProcedures.cpp' || echo '$(srcdir)/'`RecordProcedures.cpp
+
+mosh-RecordProcedures.obj: RecordProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-RecordProcedures.obj -MD -MP -MF $(DEPDIR)/mosh-RecordProcedures.Tpo -c -o mosh-RecordProcedures.obj `if test -f 'RecordProcedures.cpp'; then $(CYGPATH_W) 'RecordProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/RecordProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-RecordProcedures.Tpo $(DEPDIR)/mosh-RecordProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RecordProcedures.cpp' object='mosh-RecordProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-RecordProcedures.obj `if test -f 'RecordProcedures.cpp'; then $(CYGPATH_W) 'RecordProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/RecordProcedures.cpp'; fi`
 
 mosh-CompilerProcedures.o: CompilerProcedures.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-CompilerProcedures.o -MD -MP -MF $(DEPDIR)/mosh-CompilerProcedures.Tpo -c -o mosh-CompilerProcedures.o `test -f 'CompilerProcedures.cpp' || echo '$(srcdir)/'`CompilerProcedures.cpp
