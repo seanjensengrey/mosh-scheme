@@ -69,9 +69,10 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) \
 	mosh-RecordTypeDescriptor.$(OBJEXT) \
 	mosh-RecordConstructorDescriptor.$(OBJEXT) \
 	mosh-Record.$(OBJEXT) mosh-RecordProcedures.$(OBJEXT) \
+	mosh-ConditionProcedures.$(OBJEXT) \
 	mosh-CompilerProcedures.$(OBJEXT) \
 	mosh-HashTableProceduures.$(OBJEXT) mosh-SString.$(OBJEXT) \
-	mosh-BuiltinSymbols.$(OBJEXT)
+	mosh-BuiltinSymbols.$(OBJEXT) mosh-CompoundCondition.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
 mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB) libcompiler.a libmatch.a
 mosh_LINK = $(CXXLD) $(mosh_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
@@ -273,12 +274,16 @@ Record.h \
 Record.cpp \
 RecordProcedures.cpp \
 RecordProcedures.h \
+ConditionProcedures.cpp \
+ConditionProcedures.h \
 CompilerProcedures.cpp \
 CompilerProcedures.h   \
 HashTableProceduures.cpp \
 HashTableProceduures.h   \
 SString.cpp          \
 BuiltinSymbols.cpp\
+CompoundCondition.h\
+CompoundCondition.cpp\
 Builtin.h\
 ucs4string.h
 
@@ -431,6 +436,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-BuiltinSymbols.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CodeBuilder.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompilerProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompoundCondition.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ConditionProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-GenericHashTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-HashTableProceduures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Port.Po@am__quote@
@@ -700,6 +707,20 @@ mosh-RecordProcedures.obj: RecordProcedures.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-RecordProcedures.obj `if test -f 'RecordProcedures.cpp'; then $(CYGPATH_W) 'RecordProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/RecordProcedures.cpp'; fi`
 
+mosh-ConditionProcedures.o: ConditionProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ConditionProcedures.o -MD -MP -MF $(DEPDIR)/mosh-ConditionProcedures.Tpo -c -o mosh-ConditionProcedures.o `test -f 'ConditionProcedures.cpp' || echo '$(srcdir)/'`ConditionProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ConditionProcedures.Tpo $(DEPDIR)/mosh-ConditionProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ConditionProcedures.cpp' object='mosh-ConditionProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ConditionProcedures.o `test -f 'ConditionProcedures.cpp' || echo '$(srcdir)/'`ConditionProcedures.cpp
+
+mosh-ConditionProcedures.obj: ConditionProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ConditionProcedures.obj -MD -MP -MF $(DEPDIR)/mosh-ConditionProcedures.Tpo -c -o mosh-ConditionProcedures.obj `if test -f 'ConditionProcedures.cpp'; then $(CYGPATH_W) 'ConditionProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ConditionProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ConditionProcedures.Tpo $(DEPDIR)/mosh-ConditionProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ConditionProcedures.cpp' object='mosh-ConditionProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ConditionProcedures.obj `if test -f 'ConditionProcedures.cpp'; then $(CYGPATH_W) 'ConditionProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ConditionProcedures.cpp'; fi`
+
 mosh-CompilerProcedures.o: CompilerProcedures.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-CompilerProcedures.o -MD -MP -MF $(DEPDIR)/mosh-CompilerProcedures.Tpo -c -o mosh-CompilerProcedures.o `test -f 'CompilerProcedures.cpp' || echo '$(srcdir)/'`CompilerProcedures.cpp
 @am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-CompilerProcedures.Tpo $(DEPDIR)/mosh-CompilerProcedures.Po
@@ -755,6 +776,20 @@ mosh-BuiltinSymbols.obj: BuiltinSymbols.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='BuiltinSymbols.cpp' object='mosh-BuiltinSymbols.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-BuiltinSymbols.obj `if test -f 'BuiltinSymbols.cpp'; then $(CYGPATH_W) 'BuiltinSymbols.cpp'; else $(CYGPATH_W) '$(srcdir)/BuiltinSymbols.cpp'; fi`
+
+mosh-CompoundCondition.o: CompoundCondition.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-CompoundCondition.o -MD -MP -MF $(DEPDIR)/mosh-CompoundCondition.Tpo -c -o mosh-CompoundCondition.o `test -f 'CompoundCondition.cpp' || echo '$(srcdir)/'`CompoundCondition.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-CompoundCondition.Tpo $(DEPDIR)/mosh-CompoundCondition.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CompoundCondition.cpp' object='mosh-CompoundCondition.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-CompoundCondition.o `test -f 'CompoundCondition.cpp' || echo '$(srcdir)/'`CompoundCondition.cpp
+
+mosh-CompoundCondition.obj: CompoundCondition.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-CompoundCondition.obj -MD -MP -MF $(DEPDIR)/mosh-CompoundCondition.Tpo -c -o mosh-CompoundCondition.obj `if test -f 'CompoundCondition.cpp'; then $(CYGPATH_W) 'CompoundCondition.cpp'; else $(CYGPATH_W) '$(srcdir)/CompoundCondition.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-CompoundCondition.Tpo $(DEPDIR)/mosh-CompoundCondition.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CompoundCondition.cpp' object='mosh-CompoundCondition.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-CompoundCondition.obj `if test -f 'CompoundCondition.cpp'; then $(CYGPATH_W) 'CompoundCondition.cpp'; else $(CYGPATH_W) '$(srcdir)/CompoundCondition.cpp'; fi`
 install-dataDATA: $(data_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(datadir)" || $(MKDIR_P) "$(DESTDIR)$(datadir)"
