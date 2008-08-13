@@ -118,7 +118,8 @@ public:
         VALUES = 109,
         RECEIVE = 110,
         UNFIXED_JUMP = 111,
-        COUNT = 112,
+        STOP = 112,
+        COUNT = 113,
         OPERAND_MAX = 5
     };
     static const char* toString(int v) {
@@ -235,6 +236,7 @@ public:
             case VALUES: { return "VALUES";}
             case RECEIVE: { return "RECEIVE";}
             case UNFIXED_JUMP: { return "UNFIXED_JUMP";}
+            case STOP: { return "STOP";}
     }};
 };
 #endif // __SCHEME_DEBUG_INSTRUCTION_H__
