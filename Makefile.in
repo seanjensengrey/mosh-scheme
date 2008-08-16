@@ -72,6 +72,8 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) \
 	mosh-ConditionProcedures.$(OBJEXT) \
 	mosh-CompilerProcedures.$(OBJEXT) \
 	mosh-HashTableProceduures.$(OBJEXT) \
+	mosh-RegexpProcedures.$(OBJEXT) \
+	mosh-StringProcedures.$(OBJEXT) mosh-PortProcedures.$(OBJEXT) \
 	mosh-ViolationProcedures.$(OBJEXT) mosh-SString.$(OBJEXT) \
 	mosh-BuiltinSymbols.$(OBJEXT) mosh-CompoundCondition.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
@@ -282,6 +284,12 @@ CompilerProcedures.cpp \
 CompilerProcedures.h   \
 HashTableProceduures.cpp \
 HashTableProceduures.h   \
+RegexpProcedures.cpp \
+RegexpProcedures.h   \
+StringProcedures.cpp \
+StringProcedures.h   \
+PortProcedures.cpp \
+PortProcedures.h   \
 ViolationProcedures.cpp \
 ViolationProcedures.h \
 SString.cpp          \
@@ -445,12 +453,15 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-GenericHashTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-HashTableProceduures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Port.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-PortProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Record.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-RecordConstructorDescriptor.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-RecordProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-RecordTypeDescriptor.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Regexp.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-RegexpProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-SString.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-StringProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Symbol.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-TypedVector.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-VM.Po@am__quote@
@@ -753,6 +764,48 @@ mosh-HashTableProceduures.obj: HashTableProceduures.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='HashTableProceduures.cpp' object='mosh-HashTableProceduures.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-HashTableProceduures.obj `if test -f 'HashTableProceduures.cpp'; then $(CYGPATH_W) 'HashTableProceduures.cpp'; else $(CYGPATH_W) '$(srcdir)/HashTableProceduures.cpp'; fi`
+
+mosh-RegexpProcedures.o: RegexpProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-RegexpProcedures.o -MD -MP -MF $(DEPDIR)/mosh-RegexpProcedures.Tpo -c -o mosh-RegexpProcedures.o `test -f 'RegexpProcedures.cpp' || echo '$(srcdir)/'`RegexpProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-RegexpProcedures.Tpo $(DEPDIR)/mosh-RegexpProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RegexpProcedures.cpp' object='mosh-RegexpProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-RegexpProcedures.o `test -f 'RegexpProcedures.cpp' || echo '$(srcdir)/'`RegexpProcedures.cpp
+
+mosh-RegexpProcedures.obj: RegexpProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-RegexpProcedures.obj -MD -MP -MF $(DEPDIR)/mosh-RegexpProcedures.Tpo -c -o mosh-RegexpProcedures.obj `if test -f 'RegexpProcedures.cpp'; then $(CYGPATH_W) 'RegexpProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/RegexpProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-RegexpProcedures.Tpo $(DEPDIR)/mosh-RegexpProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RegexpProcedures.cpp' object='mosh-RegexpProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-RegexpProcedures.obj `if test -f 'RegexpProcedures.cpp'; then $(CYGPATH_W) 'RegexpProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/RegexpProcedures.cpp'; fi`
+
+mosh-StringProcedures.o: StringProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-StringProcedures.o -MD -MP -MF $(DEPDIR)/mosh-StringProcedures.Tpo -c -o mosh-StringProcedures.o `test -f 'StringProcedures.cpp' || echo '$(srcdir)/'`StringProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-StringProcedures.Tpo $(DEPDIR)/mosh-StringProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='StringProcedures.cpp' object='mosh-StringProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-StringProcedures.o `test -f 'StringProcedures.cpp' || echo '$(srcdir)/'`StringProcedures.cpp
+
+mosh-StringProcedures.obj: StringProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-StringProcedures.obj -MD -MP -MF $(DEPDIR)/mosh-StringProcedures.Tpo -c -o mosh-StringProcedures.obj `if test -f 'StringProcedures.cpp'; then $(CYGPATH_W) 'StringProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/StringProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-StringProcedures.Tpo $(DEPDIR)/mosh-StringProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='StringProcedures.cpp' object='mosh-StringProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-StringProcedures.obj `if test -f 'StringProcedures.cpp'; then $(CYGPATH_W) 'StringProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/StringProcedures.cpp'; fi`
+
+mosh-PortProcedures.o: PortProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-PortProcedures.o -MD -MP -MF $(DEPDIR)/mosh-PortProcedures.Tpo -c -o mosh-PortProcedures.o `test -f 'PortProcedures.cpp' || echo '$(srcdir)/'`PortProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-PortProcedures.Tpo $(DEPDIR)/mosh-PortProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='PortProcedures.cpp' object='mosh-PortProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-PortProcedures.o `test -f 'PortProcedures.cpp' || echo '$(srcdir)/'`PortProcedures.cpp
+
+mosh-PortProcedures.obj: PortProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-PortProcedures.obj -MD -MP -MF $(DEPDIR)/mosh-PortProcedures.Tpo -c -o mosh-PortProcedures.obj `if test -f 'PortProcedures.cpp'; then $(CYGPATH_W) 'PortProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/PortProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-PortProcedures.Tpo $(DEPDIR)/mosh-PortProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='PortProcedures.cpp' object='mosh-PortProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-PortProcedures.obj `if test -f 'PortProcedures.cpp'; then $(CYGPATH_W) 'PortProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/PortProcedures.cpp'; fi`
 
 mosh-ViolationProcedures.o: ViolationProcedures.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ViolationProcedures.o -MD -MP -MF $(DEPDIR)/mosh-ViolationProcedures.Tpo -c -o mosh-ViolationProcedures.o `test -f 'ViolationProcedures.cpp' || echo '$(srcdir)/'`ViolationProcedures.cpp
