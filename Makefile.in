@@ -74,6 +74,7 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) \
 	mosh-HashTableProceduures.$(OBJEXT) \
 	mosh-RegexpProcedures.$(OBJEXT) \
 	mosh-StringProcedures.$(OBJEXT) mosh-PortProcedures.$(OBJEXT) \
+	mosh-ListProcedures.$(OBJEXT) \
 	mosh-ViolationProcedures.$(OBJEXT) mosh-SString.$(OBJEXT) \
 	mosh-BuiltinSymbols.$(OBJEXT) mosh-CompoundCondition.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
@@ -290,6 +291,8 @@ StringProcedures.cpp \
 StringProcedures.h   \
 PortProcedures.cpp \
 PortProcedures.h   \
+ListProcedures.cpp \
+ListProcedures.h   \
 ViolationProcedures.cpp \
 ViolationProcedures.h \
 SString.cpp          \
@@ -452,6 +455,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ConditionProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-GenericHashTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-HashTableProceduures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ListProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Port.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-PortProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Record.Po@am__quote@
@@ -806,6 +810,20 @@ mosh-PortProcedures.obj: PortProcedures.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='PortProcedures.cpp' object='mosh-PortProcedures.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-PortProcedures.obj `if test -f 'PortProcedures.cpp'; then $(CYGPATH_W) 'PortProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/PortProcedures.cpp'; fi`
+
+mosh-ListProcedures.o: ListProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ListProcedures.o -MD -MP -MF $(DEPDIR)/mosh-ListProcedures.Tpo -c -o mosh-ListProcedures.o `test -f 'ListProcedures.cpp' || echo '$(srcdir)/'`ListProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ListProcedures.Tpo $(DEPDIR)/mosh-ListProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ListProcedures.cpp' object='mosh-ListProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ListProcedures.o `test -f 'ListProcedures.cpp' || echo '$(srcdir)/'`ListProcedures.cpp
+
+mosh-ListProcedures.obj: ListProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ListProcedures.obj -MD -MP -MF $(DEPDIR)/mosh-ListProcedures.Tpo -c -o mosh-ListProcedures.obj `if test -f 'ListProcedures.cpp'; then $(CYGPATH_W) 'ListProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ListProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ListProcedures.Tpo $(DEPDIR)/mosh-ListProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ListProcedures.cpp' object='mosh-ListProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ListProcedures.obj `if test -f 'ListProcedures.cpp'; then $(CYGPATH_W) 'ListProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ListProcedures.cpp'; fi`
 
 mosh-ViolationProcedures.o: ViolationProcedures.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ViolationProcedures.o -MD -MP -MF $(DEPDIR)/mosh-ViolationProcedures.Tpo -c -o mosh-ViolationProcedures.o `test -f 'ViolationProcedures.cpp' || echo '$(srcdir)/'`ViolationProcedures.cpp
