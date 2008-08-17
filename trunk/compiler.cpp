@@ -29559,7 +29559,7 @@ Object scheme::getBuiltinCompiler() {
         MIS(23),
         MI(6),
         MIS(64),
-        Object::makeString(UC("    Unhandled exception\n~a")),
+        Object::makeString(UC("    Unhandled exception\n\n~a")),
         MIS(73),
         MIS(69),
         MIS(87),

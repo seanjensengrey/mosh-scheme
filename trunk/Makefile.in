@@ -65,8 +65,7 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) \
 	mosh-read.$(OBJEXT) mosh-Port.$(OBJEXT) mosh-Regexp.$(OBJEXT) \
 	mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
 	mosh-freeproc.$(OBJEXT) mosh-GenericHashTable.$(OBJEXT) \
-	mosh-TypedVector.$(OBJEXT) mosh-CodeBuilder.$(OBJEXT) \
-	mosh-RecordTypeDescriptor.$(OBJEXT) \
+	mosh-CodeBuilder.$(OBJEXT) mosh-RecordTypeDescriptor.$(OBJEXT) \
 	mosh-RecordConstructorDescriptor.$(OBJEXT) \
 	mosh-Record.$(OBJEXT) mosh-RecordProcedures.$(OBJEXT) \
 	mosh-ConditionProcedures.$(OBJEXT) \
@@ -266,8 +265,6 @@ VM.h                 \
 Vector.h             \
 freeproc.h           \
 Box.h                \
-TypedVector.h        \
-TypedVector.cpp      \
 CodeBuilder.h        \
 CodeBuilder.cpp        \
 ProcedureMacro.h \
@@ -467,7 +464,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-SString.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-StringProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Symbol.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-TypedVector.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-VM.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ViolationProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-freeproc.Po@am__quote@
@@ -642,20 +638,6 @@ mosh-GenericHashTable.obj: GenericHashTable.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='GenericHashTable.cpp' object='mosh-GenericHashTable.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-GenericHashTable.obj `if test -f 'GenericHashTable.cpp'; then $(CYGPATH_W) 'GenericHashTable.cpp'; else $(CYGPATH_W) '$(srcdir)/GenericHashTable.cpp'; fi`
-
-mosh-TypedVector.o: TypedVector.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-TypedVector.o -MD -MP -MF $(DEPDIR)/mosh-TypedVector.Tpo -c -o mosh-TypedVector.o `test -f 'TypedVector.cpp' || echo '$(srcdir)/'`TypedVector.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-TypedVector.Tpo $(DEPDIR)/mosh-TypedVector.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TypedVector.cpp' object='mosh-TypedVector.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-TypedVector.o `test -f 'TypedVector.cpp' || echo '$(srcdir)/'`TypedVector.cpp
-
-mosh-TypedVector.obj: TypedVector.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-TypedVector.obj -MD -MP -MF $(DEPDIR)/mosh-TypedVector.Tpo -c -o mosh-TypedVector.obj `if test -f 'TypedVector.cpp'; then $(CYGPATH_W) 'TypedVector.cpp'; else $(CYGPATH_W) '$(srcdir)/TypedVector.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-TypedVector.Tpo $(DEPDIR)/mosh-TypedVector.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TypedVector.cpp' object='mosh-TypedVector.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-TypedVector.obj `if test -f 'TypedVector.cpp'; then $(CYGPATH_W) 'TypedVector.cpp'; else $(CYGPATH_W) '$(srcdir)/TypedVector.cpp'; fi`
 
 mosh-CodeBuilder.o: CodeBuilder.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-CodeBuilder.o -MD -MP -MF $(DEPDIR)/mosh-CodeBuilder.Tpo -c -o mosh-CodeBuilder.o `test -f 'CodeBuilder.cpp' || echo '$(srcdir)/'`CodeBuilder.cpp
