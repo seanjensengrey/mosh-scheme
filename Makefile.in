@@ -73,9 +73,9 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) \
 	mosh-HashTableProceduures.$(OBJEXT) \
 	mosh-RegexpProcedures.$(OBJEXT) \
 	mosh-StringProcedures.$(OBJEXT) mosh-PortProcedures.$(OBJEXT) \
-	mosh-ListProcedures.$(OBJEXT) \
-	mosh-ViolationProcedures.$(OBJEXT) mosh-SString.$(OBJEXT) \
-	mosh-BuiltinSymbols.$(OBJEXT) mosh-CompoundCondition.$(OBJEXT)
+	mosh-ListProcedures.$(OBJEXT) mosh-ErrorProcedures.$(OBJEXT) \
+	mosh-SString.$(OBJEXT) mosh-BuiltinSymbols.$(OBJEXT) \
+	mosh-CompoundCondition.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
 mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB) libcompiler.a libmatch.a
 mosh_LINK = $(CXXLD) $(mosh_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
@@ -290,8 +290,8 @@ PortProcedures.cpp \
 PortProcedures.h   \
 ListProcedures.cpp \
 ListProcedures.h   \
-ViolationProcedures.cpp \
-ViolationProcedures.h \
+ErrorProcedures.cpp \
+ErrorProcedures.h \
 SString.cpp          \
 BuiltinSymbols.cpp\
 CompoundCondition.h\
@@ -300,7 +300,7 @@ Builtin.h\
 ucs4string.h
 
 mosh_OPTS = -D MONA_SCHEME -D USE_BOEHM_GC -Wall -D MOSH_LIB_PATH="\"@MOSH_LIB_PATH@\""
-mosh_CFLAGS = -O2  $(mosh_OPTS) -g -fomit-frame-pointer -D_FILE_OFFSET_BITS=64 -Wall -DDEBUG_VERSION
+mosh_CFLAGS = -O2  $(mosh_OPTS) -g -fomit-frame-pointer -D_FILE_OFFSET_BITS=64 -Wall #-DDEBUG_VERSION
 #mosh_CFLAGS   = -O1  $(mosh_OPTS) -pg  -D_FILE_OFFSET_BITS=64
 mosh_CXXFLAGS = $(mosh_CFLAGS)
 mosh_LDADD = $(GC_LIB) $(REGEXP_LIB) libcompiler.a libmatch.a
@@ -450,6 +450,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompilerProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompoundCondition.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ConditionProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ErrorProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-GenericHashTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-HashTableProceduures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ListProcedures.Po@am__quote@
@@ -465,7 +466,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-StringProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Symbol.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-VM.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ViolationProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-freeproc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-read.Po@am__quote@
@@ -807,19 +807,19 @@ mosh-ListProcedures.obj: ListProcedures.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ListProcedures.obj `if test -f 'ListProcedures.cpp'; then $(CYGPATH_W) 'ListProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ListProcedures.cpp'; fi`
 
-mosh-ViolationProcedures.o: ViolationProcedures.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ViolationProcedures.o -MD -MP -MF $(DEPDIR)/mosh-ViolationProcedures.Tpo -c -o mosh-ViolationProcedures.o `test -f 'ViolationProcedures.cpp' || echo '$(srcdir)/'`ViolationProcedures.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ViolationProcedures.Tpo $(DEPDIR)/mosh-ViolationProcedures.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ViolationProcedures.cpp' object='mosh-ViolationProcedures.o' libtool=no @AMDEPBACKSLASH@
+mosh-ErrorProcedures.o: ErrorProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ErrorProcedures.o -MD -MP -MF $(DEPDIR)/mosh-ErrorProcedures.Tpo -c -o mosh-ErrorProcedures.o `test -f 'ErrorProcedures.cpp' || echo '$(srcdir)/'`ErrorProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ErrorProcedures.Tpo $(DEPDIR)/mosh-ErrorProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ErrorProcedures.cpp' object='mosh-ErrorProcedures.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ViolationProcedures.o `test -f 'ViolationProcedures.cpp' || echo '$(srcdir)/'`ViolationProcedures.cpp
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ErrorProcedures.o `test -f 'ErrorProcedures.cpp' || echo '$(srcdir)/'`ErrorProcedures.cpp
 
-mosh-ViolationProcedures.obj: ViolationProcedures.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ViolationProcedures.obj -MD -MP -MF $(DEPDIR)/mosh-ViolationProcedures.Tpo -c -o mosh-ViolationProcedures.obj `if test -f 'ViolationProcedures.cpp'; then $(CYGPATH_W) 'ViolationProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ViolationProcedures.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ViolationProcedures.Tpo $(DEPDIR)/mosh-ViolationProcedures.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ViolationProcedures.cpp' object='mosh-ViolationProcedures.obj' libtool=no @AMDEPBACKSLASH@
+mosh-ErrorProcedures.obj: ErrorProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ErrorProcedures.obj -MD -MP -MF $(DEPDIR)/mosh-ErrorProcedures.Tpo -c -o mosh-ErrorProcedures.obj `if test -f 'ErrorProcedures.cpp'; then $(CYGPATH_W) 'ErrorProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ErrorProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ErrorProcedures.Tpo $(DEPDIR)/mosh-ErrorProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ErrorProcedures.cpp' object='mosh-ErrorProcedures.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ViolationProcedures.obj `if test -f 'ViolationProcedures.cpp'; then $(CYGPATH_W) 'ViolationProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ViolationProcedures.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ErrorProcedures.obj `if test -f 'ErrorProcedures.cpp'; then $(CYGPATH_W) 'ErrorProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ErrorProcedures.cpp'; fi`
 
 mosh-SString.o: SString.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-SString.o -MD -MP -MF $(DEPDIR)/mosh-SString.Tpo -c -o mosh-SString.o `test -f 'SString.cpp' || echo '$(srcdir)/'`SString.cpp
