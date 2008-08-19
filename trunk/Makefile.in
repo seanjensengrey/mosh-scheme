@@ -75,7 +75,7 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) \
 	mosh-StringProcedures.$(OBJEXT) mosh-PortProcedures.$(OBJEXT) \
 	mosh-ListProcedures.$(OBJEXT) mosh-ErrorProcedures.$(OBJEXT) \
 	mosh-SString.$(OBJEXT) mosh-BuiltinSymbols.$(OBJEXT) \
-	mosh-CompoundCondition.$(OBJEXT)
+	mosh-CompoundCondition.$(OBJEXT) mosh-Equivalent.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
 mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB) libcompiler.a libmatch.a
 mosh_LINK = $(CXXLD) $(mosh_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
@@ -296,6 +296,8 @@ SString.cpp          \
 BuiltinSymbols.cpp\
 CompoundCondition.h\
 CompoundCondition.cpp\
+Equivalent.h\
+Equivalent.cpp\
 Builtin.h\
 ucs4string.h
 
@@ -450,6 +452,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompilerProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompoundCondition.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ConditionProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Equivalent.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ErrorProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-GenericHashTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-HashTableProceduures.Po@am__quote@
@@ -862,6 +865,20 @@ mosh-CompoundCondition.obj: CompoundCondition.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CompoundCondition.cpp' object='mosh-CompoundCondition.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-CompoundCondition.obj `if test -f 'CompoundCondition.cpp'; then $(CYGPATH_W) 'CompoundCondition.cpp'; else $(CYGPATH_W) '$(srcdir)/CompoundCondition.cpp'; fi`
+
+mosh-Equivalent.o: Equivalent.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Equivalent.o -MD -MP -MF $(DEPDIR)/mosh-Equivalent.Tpo -c -o mosh-Equivalent.o `test -f 'Equivalent.cpp' || echo '$(srcdir)/'`Equivalent.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Equivalent.Tpo $(DEPDIR)/mosh-Equivalent.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Equivalent.cpp' object='mosh-Equivalent.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Equivalent.o `test -f 'Equivalent.cpp' || echo '$(srcdir)/'`Equivalent.cpp
+
+mosh-Equivalent.obj: Equivalent.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Equivalent.obj -MD -MP -MF $(DEPDIR)/mosh-Equivalent.Tpo -c -o mosh-Equivalent.obj `if test -f 'Equivalent.cpp'; then $(CYGPATH_W) 'Equivalent.cpp'; else $(CYGPATH_W) '$(srcdir)/Equivalent.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Equivalent.Tpo $(DEPDIR)/mosh-Equivalent.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Equivalent.cpp' object='mosh-Equivalent.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Equivalent.obj `if test -f 'Equivalent.cpp'; then $(CYGPATH_W) 'Equivalent.cpp'; else $(CYGPATH_W) '$(srcdir)/Equivalent.cpp'; fi`
 install-dataDATA: $(data_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(datadir)" || $(MKDIR_P) "$(DESTDIR)$(datadir)"
