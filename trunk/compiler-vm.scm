@@ -1032,7 +1032,7 @@
 (define-macro
   (tag? iform t)
   (quasiquote
-    (= (unquote t) (tag (unquote iform)))))
+    (equal? (unquote t) (tag (unquote iform)))))
 
 (define-macro
   (set-tag! iform t)
@@ -5084,13 +5084,13 @@
           (pass4/fixup-labels
             (list->vector
               (merge-insn
-                (pass3 (pass2/optimize
-                         (pass1/sexp->iform
-                           ss
-                           (if (null? lib) top-level-library (car lib))
-                           (quote ())
-                           #f)
-                         (quote ())))))))))
+                (pass3 (and (pass2/optimize
+                              (pass1/sexp->iform
+                                ss
+                                (if (null? lib) top-level-library (car lib))
+                                (quote ())
+                                #f)
+                              (quote ()))))))))))
 
 (define-macro
   (pass4/fixup-labels-clollect insn)

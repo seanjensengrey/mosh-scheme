@@ -54,14 +54,14 @@ libcompiler_a_AR = $(AR) $(ARFLAGS)
 libcompiler_a_LIBADD =
 am_libcompiler_a_OBJECTS = libcompiler_a-compiler.$(OBJEXT)
 libcompiler_a_OBJECTS = $(am_libcompiler_a_OBJECTS)
-libhoge_a_AR = $(AR) $(ARFLAGS)
-libhoge_a_LIBADD =
-am_libhoge_a_OBJECTS = libhoge_a-hoge.$(OBJEXT)
-libhoge_a_OBJECTS = $(am_libhoge_a_OBJECTS)
 libmatch_a_AR = $(AR) $(ARFLAGS)
 libmatch_a_LIBADD =
 am_libmatch_a_OBJECTS = libmatch_a-match.$(OBJEXT)
 libmatch_a_OBJECTS = $(am_libmatch_a_OBJECTS)
+libpsyntax_a_AR = $(AR) $(ARFLAGS)
+libpsyntax_a_LIBADD =
+am_libpsyntax_a_OBJECTS = libpsyntax_a-psyntax.$(OBJEXT)
+libpsyntax_a_OBJECTS = $(am_libpsyntax_a_OBJECTS)
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
@@ -82,7 +82,7 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) \
 	mosh-CompoundCondition.$(OBJEXT) mosh-Equivalent.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
 mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB) libcompiler.a libmatch.a \
-	libhoge.a
+	libpsyntax.a
 mosh_LINK = $(CXXLD) $(mosh_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@
@@ -97,10 +97,10 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libcompiler_a_SOURCES) $(libhoge_a_SOURCES) \
-	$(libmatch_a_SOURCES) $(mosh_SOURCES)
-DIST_SOURCES = $(libcompiler_a_SOURCES) $(libhoge_a_SOURCES) \
-	$(libmatch_a_SOURCES) $(mosh_SOURCES)
+SOURCES = $(libcompiler_a_SOURCES) $(libmatch_a_SOURCES) \
+	$(libpsyntax_a_SOURCES) $(mosh_SOURCES)
+DIST_SOURCES = $(libcompiler_a_SOURCES) $(libmatch_a_SOURCES) \
+	$(libpsyntax_a_SOURCES) $(mosh_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
 	html-recursive info-recursive install-data-recursive \
 	install-dvi-recursive install-exec-recursive \
@@ -310,19 +310,19 @@ mosh_OPTS = -D MONA_SCHEME -D USE_BOEHM_GC -Wall -D MOSH_LIB_PATH="\"@MOSH_LIB_P
 mosh_CFLAGS = -O2  $(mosh_OPTS) -g -fomit-frame-pointer -D_FILE_OFFSET_BITS=64 -Wall -DDEBUG_VERSION
 #mosh_CFLAGS   = -O1  $(mosh_OPTS) -pg  -D_FILE_OFFSET_BITS=64
 mosh_CXXFLAGS = $(mosh_CFLAGS)
-mosh_LDADD = $(GC_LIB) $(REGEXP_LIB) libcompiler.a libmatch.a libhoge.a
+mosh_LDADD = $(GC_LIB) $(REGEXP_LIB) libcompiler.a libmatch.a libpsyntax.a
 data_DATA = all-tests.scm repl.scm r6rs-examples/psyntax.scm
 
 # build compiler.cpp with -O0, because -O2 is much slower.
-noinst_LIBRARIES = libcompiler.a libmatch.a libhoge.a
+noinst_LIBRARIES = libcompiler.a libmatch.a libpsyntax.a
 libcompiler_a_CXXFLAGS = -fomit-frame-pointer $(mosh_OPTS)
 libcompiler_a_SOURCES = compiler.cpp
 
 # noinst_LIBRARIES = libmatch.a
 libmatch_a_CXXFLAGS = -fomit-frame-pointer $(mosh_OPTS)
 libmatch_a_SOURCES = match.cpp
-libhoge_a_CXXFLAGS = -fomit-frame-pointer $(mosh_OPTS)
-libhoge_a_SOURCES = hoge.cpp
+libpsyntax_a_CXXFLAGS = -fomit-frame-pointer $(mosh_OPTS)
+libpsyntax_a_SOURCES = psyntax.cpp
 
 # generated files should be listed here.
 BUILT_SOURCES = Instruction.h compiler.cpp match.cpp BuiltinSymbols.cpp labels.cpp DebugInstruction.h ./compiler-vm.scm cprocedures.cpp ./compiler-gauche.scm
@@ -331,7 +331,7 @@ EXTRA_DIST = instruction.scm vm.scm library.scm compiler.scm free-vars.scm scrip
 GENERATED = \
 Instruction.h \
 compiler.cpp \
-hoge.cpp \
+psyntax.cpp \
 match.scmc \
 compiler-with-library.scmc \
 compiler-vm-cpp.scm \
@@ -416,14 +416,14 @@ libcompiler.a: $(libcompiler_a_OBJECTS) $(libcompiler_a_DEPENDENCIES)
 	-rm -f libcompiler.a
 	$(libcompiler_a_AR) libcompiler.a $(libcompiler_a_OBJECTS) $(libcompiler_a_LIBADD)
 	$(RANLIB) libcompiler.a
-libhoge.a: $(libhoge_a_OBJECTS) $(libhoge_a_DEPENDENCIES) 
-	-rm -f libhoge.a
-	$(libhoge_a_AR) libhoge.a $(libhoge_a_OBJECTS) $(libhoge_a_LIBADD)
-	$(RANLIB) libhoge.a
 libmatch.a: $(libmatch_a_OBJECTS) $(libmatch_a_DEPENDENCIES) 
 	-rm -f libmatch.a
 	$(libmatch_a_AR) libmatch.a $(libmatch_a_OBJECTS) $(libmatch_a_LIBADD)
 	$(RANLIB) libmatch.a
+libpsyntax.a: $(libpsyntax_a_OBJECTS) $(libpsyntax_a_DEPENDENCIES) 
+	-rm -f libpsyntax.a
+	$(libpsyntax_a_AR) libpsyntax.a $(libpsyntax_a_OBJECTS) $(libpsyntax_a_LIBADD)
+	$(RANLIB) libpsyntax.a
 install-binPROGRAMS: $(bin_PROGRAMS)
 	@$(NORMAL_INSTALL)
 	test -z "$(bindir)" || $(MKDIR_P) "$(DESTDIR)$(bindir)"
@@ -458,8 +458,8 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcompiler_a-compiler.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libhoge_a-hoge.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmatch_a-match.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsyntax_a-psyntax.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-BuiltinSymbols.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CodeBuilder.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompilerProcedures.Po@am__quote@
@@ -515,20 +515,6 @@ libcompiler_a-compiler.obj: compiler.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcompiler_a_CXXFLAGS) $(CXXFLAGS) -c -o libcompiler_a-compiler.obj `if test -f 'compiler.cpp'; then $(CYGPATH_W) 'compiler.cpp'; else $(CYGPATH_W) '$(srcdir)/compiler.cpp'; fi`
 
-libhoge_a-hoge.o: hoge.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libhoge_a_CXXFLAGS) $(CXXFLAGS) -MT libhoge_a-hoge.o -MD -MP -MF $(DEPDIR)/libhoge_a-hoge.Tpo -c -o libhoge_a-hoge.o `test -f 'hoge.cpp' || echo '$(srcdir)/'`hoge.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libhoge_a-hoge.Tpo $(DEPDIR)/libhoge_a-hoge.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='hoge.cpp' object='libhoge_a-hoge.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libhoge_a_CXXFLAGS) $(CXXFLAGS) -c -o libhoge_a-hoge.o `test -f 'hoge.cpp' || echo '$(srcdir)/'`hoge.cpp
-
-libhoge_a-hoge.obj: hoge.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libhoge_a_CXXFLAGS) $(CXXFLAGS) -MT libhoge_a-hoge.obj -MD -MP -MF $(DEPDIR)/libhoge_a-hoge.Tpo -c -o libhoge_a-hoge.obj `if test -f 'hoge.cpp'; then $(CYGPATH_W) 'hoge.cpp'; else $(CYGPATH_W) '$(srcdir)/hoge.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libhoge_a-hoge.Tpo $(DEPDIR)/libhoge_a-hoge.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='hoge.cpp' object='libhoge_a-hoge.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libhoge_a_CXXFLAGS) $(CXXFLAGS) -c -o libhoge_a-hoge.obj `if test -f 'hoge.cpp'; then $(CYGPATH_W) 'hoge.cpp'; else $(CYGPATH_W) '$(srcdir)/hoge.cpp'; fi`
-
 libmatch_a-match.o: match.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmatch_a_CXXFLAGS) $(CXXFLAGS) -MT libmatch_a-match.o -MD -MP -MF $(DEPDIR)/libmatch_a-match.Tpo -c -o libmatch_a-match.o `test -f 'match.cpp' || echo '$(srcdir)/'`match.cpp
 @am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmatch_a-match.Tpo $(DEPDIR)/libmatch_a-match.Po
@@ -542,6 +528,20 @@ libmatch_a-match.obj: match.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='match.cpp' object='libmatch_a-match.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmatch_a_CXXFLAGS) $(CXXFLAGS) -c -o libmatch_a-match.obj `if test -f 'match.cpp'; then $(CYGPATH_W) 'match.cpp'; else $(CYGPATH_W) '$(srcdir)/match.cpp'; fi`
+
+libpsyntax_a-psyntax.o: psyntax.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsyntax_a_CXXFLAGS) $(CXXFLAGS) -MT libpsyntax_a-psyntax.o -MD -MP -MF $(DEPDIR)/libpsyntax_a-psyntax.Tpo -c -o libpsyntax_a-psyntax.o `test -f 'psyntax.cpp' || echo '$(srcdir)/'`psyntax.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libpsyntax_a-psyntax.Tpo $(DEPDIR)/libpsyntax_a-psyntax.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='psyntax.cpp' object='libpsyntax_a-psyntax.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsyntax_a_CXXFLAGS) $(CXXFLAGS) -c -o libpsyntax_a-psyntax.o `test -f 'psyntax.cpp' || echo '$(srcdir)/'`psyntax.cpp
+
+libpsyntax_a-psyntax.obj: psyntax.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsyntax_a_CXXFLAGS) $(CXXFLAGS) -MT libpsyntax_a-psyntax.obj -MD -MP -MF $(DEPDIR)/libpsyntax_a-psyntax.Tpo -c -o libpsyntax_a-psyntax.obj `if test -f 'psyntax.cpp'; then $(CYGPATH_W) 'psyntax.cpp'; else $(CYGPATH_W) '$(srcdir)/psyntax.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libpsyntax_a-psyntax.Tpo $(DEPDIR)/libpsyntax_a-psyntax.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='psyntax.cpp' object='libpsyntax_a-psyntax.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsyntax_a_CXXFLAGS) $(CXXFLAGS) -c -o libpsyntax_a-psyntax.obj `if test -f 'psyntax.cpp'; then $(CYGPATH_W) 'psyntax.cpp'; else $(CYGPATH_W) '$(srcdir)/psyntax.cpp'; fi`
 
 mosh-main.o: main.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-main.o -MD -MP -MF $(DEPDIR)/mosh-main.Tpo -c -o mosh-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp
@@ -1351,17 +1351,17 @@ Instruction.h: ./instruction.scm
 	@GOSH@ ./scripts/gen-insn.scm $(PWD)/$< > $(PWD)/$@
 
 ##### compiler generation
-BuiltinSymbols.cpp: compiler-with-library.scmc match.scmc
+BuiltinSymbols.cpp: compiler-with-library.scmc match.scmc psyntax.scmc
 	@GOSH@ ./scripts/gen-pre-compiled-cpp.scm -g > $(PWD)/$@
 
-compiler.cpp: compiler-with-library.scmc match.scmc # match.scmc is also required for collecting symbols
+compiler.cpp: compiler-with-library.scmc match.scmc  psyntax.scmc # match.scmc is also required for collecting symbols
 	@GOSH@ ./scripts/gen-pre-compiled-faster-cpp.scm "getBuiltinCompiler" $(PWD)/$< > $(PWD)/$@
 
 # あとで svn remove すること
-hoge.cpp: hoge.scmc match.scmc compiler-with-library.scmc ./scripts/gen-pre-compiled-faster-cpp.scm # match.scmc is also required for collecting symbols
-	@GOSH@ ./scripts/gen-pre-compiled-faster-cpp.scm "getBuiltinHoge" $(PWD)/$< > $(PWD)/$@
+psyntax.cpp: psyntax.scmc match.scmc compiler-with-library.scmc ./scripts/gen-pre-compiled-faster-cpp.scm # match.scmc is also required for collecting symbols
+	@GOSH@ ./scripts/gen-pre-compiled-faster-cpp.scm "getBuiltinPsyntax" $(PWD)/$< > $(PWD)/$@
 
-match.cpp: match.scmc compiler-with-library.scmc
+match.cpp: match.scmc compiler-with-library.scmc psyntax.scmc
 	@GOSH@ ./scripts/gen-pre-compiled-faster-cpp.scm "getBuiltinMatch" $(PWD)/$< > $(PWD)/$@
 
 ./compiler-vm-cpp.scm: ./compiler.scm free-vars-decl.scm
@@ -1373,7 +1373,7 @@ compiler-with-library.scmc: ./compiler-with-library.scm ./compiler-vm.scm
 match.scmc: ./match.scm ./compiler-vm.scm
 	@GOSH@ ./vm.scm compile-file-without-macro $(PWD)/$< > $(PWD)/$@
 
-hoge.scmc: ./hoge.scm ./compiler-vm.scm
+psyntax.scmc: ./psyntax.scm ./compiler-vm.scm
 	@GOSH@ ./vm.scm compile-file-without-macro $(PWD)/$< > $(PWD)/$@
 
 ./compiler-with-library.scm: ./compiler-vm-cpp.scm ./library.scm
