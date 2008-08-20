@@ -13,8 +13,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array1[] = {
         list0.val,
-        builtinSymbols[513].val /* match:set-runtime-structures */,
-        builtinSymbols[1287].val /* v */
+        builtinSymbols[6770].val ,
+        builtinSymbols[8106].val 
     };
     Object list1 = Pair::wordArrayToList(array1, 3);
 
@@ -26,8 +26,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array3[] = {
         list2.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[420].val /* l */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6596].val 
     };
     Object list3 = Pair::wordArrayToList(array3, 3);
 
@@ -39,8 +39,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array5[] = {
         list4.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[420].val /* l */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6596].val 
     };
     Object list5 = Pair::wordArrayToList(array5, 3);
 
@@ -52,8 +52,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array7[] = {
         list6.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val 
     };
     Object list7 = Pair::wordArrayToList(array7, 3);
 
@@ -65,62 +65,62 @@ Object scheme::getBuiltinMatch() {
 
     static word array9[] = {
         list8.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[420].val /* l */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6596].val 
     };
     Object list9 = Pair::wordArrayToList(array9, 3);
 
     static word array10[] = {
-    Object::cons(Object::makeRaw(        builtinSymbols[111].val /* caar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[143].val /* car */), Object::makeRaw(        builtinSymbols[143].val /* car */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[126].val /* cadr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[182].val /* cdr */), Object::makeRaw(        builtinSymbols[143].val /* car */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[166].val /* cdar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[143].val /* car */), Object::makeRaw(        builtinSymbols[182].val /* cdr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[181].val /* cddr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[182].val /* cdr */), Object::makeRaw(        builtinSymbols[182].val /* cdr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[103].val /* caaar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[111].val /* caar */), Object::makeRaw(        builtinSymbols[143].val /* car */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[110].val /* caadr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[126].val /* cadr */), Object::makeRaw(        builtinSymbols[143].val /* car */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[118].val /* cadar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[166].val /* cdar */), Object::makeRaw(        builtinSymbols[143].val /* car */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[125].val /* caddr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[181].val /* cddr */), Object::makeRaw(        builtinSymbols[143].val /* car */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[158].val /* cdaar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[111].val /* caar */), Object::makeRaw(        builtinSymbols[182].val /* cdr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[165].val /* cdadr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[126].val /* cadr */), Object::makeRaw(        builtinSymbols[182].val /* cdr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[173].val /* cddar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[166].val /* cdar */), Object::makeRaw(        builtinSymbols[182].val /* cdr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[180].val /* cdddr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[181].val /* cddr */), Object::makeRaw(        builtinSymbols[182].val /* cdr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[99].val /* caaaar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[103].val /* caaar */), Object::makeRaw(        builtinSymbols[143].val /* car */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[102].val /* caaadr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[110].val /* caadr */), Object::makeRaw(        builtinSymbols[143].val /* car */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[106].val /* caadar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[118].val /* cadar */), Object::makeRaw(        builtinSymbols[143].val /* car */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[109].val /* caaddr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[125].val /* caddr */), Object::makeRaw(        builtinSymbols[143].val /* car */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[114].val /* cadaar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[158].val /* cdaar */), Object::makeRaw(        builtinSymbols[143].val /* car */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[117].val /* cadadr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[165].val /* cdadr */), Object::makeRaw(        builtinSymbols[143].val /* car */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[121].val /* caddar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[173].val /* cddar */), Object::makeRaw(        builtinSymbols[143].val /* car */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[124].val /* cadddr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[180].val /* cdddr */), Object::makeRaw(        builtinSymbols[143].val /* car */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[154].val /* cdaaar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[103].val /* caaar */), Object::makeRaw(        builtinSymbols[182].val /* cdr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[157].val /* cdaadr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[110].val /* caadr */), Object::makeRaw(        builtinSymbols[182].val /* cdr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[161].val /* cdadar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[118].val /* cadar */), Object::makeRaw(        builtinSymbols[182].val /* cdr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[164].val /* cdaddr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[125].val /* caddr */), Object::makeRaw(        builtinSymbols[182].val /* cdr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[169].val /* cddaar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[158].val /* cdaar */), Object::makeRaw(        builtinSymbols[182].val /* cdr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[172].val /* cddadr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[165].val /* cdadr */), Object::makeRaw(        builtinSymbols[182].val /* cdr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[176].val /* cdddar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[173].val /* cddar */), Object::makeRaw(        builtinSymbols[182].val /* cdr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[179].val /* cddddr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[180].val /* cdddr */), Object::makeRaw(        builtinSymbols[182].val /* cdr */)).val)).val
+    Object::cons(Object::makeRaw(        builtinSymbols[289].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[322].val ), Object::makeRaw(        builtinSymbols[322].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[304].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[362].val ), Object::makeRaw(        builtinSymbols[322].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[346].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[322].val ), Object::makeRaw(        builtinSymbols[362].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[361].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[362].val ), Object::makeRaw(        builtinSymbols[362].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[281].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[289].val ), Object::makeRaw(        builtinSymbols[322].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[288].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[304].val ), Object::makeRaw(        builtinSymbols[322].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[296].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[346].val ), Object::makeRaw(        builtinSymbols[322].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[303].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[361].val ), Object::makeRaw(        builtinSymbols[322].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[338].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[289].val ), Object::makeRaw(        builtinSymbols[362].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[345].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[304].val ), Object::makeRaw(        builtinSymbols[362].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[353].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[346].val ), Object::makeRaw(        builtinSymbols[362].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[360].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[361].val ), Object::makeRaw(        builtinSymbols[362].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[277].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[281].val ), Object::makeRaw(        builtinSymbols[322].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[280].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[288].val ), Object::makeRaw(        builtinSymbols[322].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[284].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[296].val ), Object::makeRaw(        builtinSymbols[322].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[287].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[303].val ), Object::makeRaw(        builtinSymbols[322].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[292].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[338].val ), Object::makeRaw(        builtinSymbols[322].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[295].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[345].val ), Object::makeRaw(        builtinSymbols[322].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[299].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[353].val ), Object::makeRaw(        builtinSymbols[322].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[302].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[360].val ), Object::makeRaw(        builtinSymbols[322].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[334].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[281].val ), Object::makeRaw(        builtinSymbols[362].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[337].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[288].val ), Object::makeRaw(        builtinSymbols[362].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[341].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[296].val ), Object::makeRaw(        builtinSymbols[362].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[344].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[303].val ), Object::makeRaw(        builtinSymbols[362].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[349].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[338].val ), Object::makeRaw(        builtinSymbols[362].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[352].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[345].val ), Object::makeRaw(        builtinSymbols[362].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[356].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[353].val ), Object::makeRaw(        builtinSymbols[362].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[359].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[360].val ), Object::makeRaw(        builtinSymbols[362].val )).val)).val
     };
     Object list10 = Pair::wordArrayToList(array10, 28);
 
     static word array11[] = {
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[8150].val 
     };
     Object list11 = Pair::wordArrayToList(array11, 1);
 
     static word array12[] = {
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[8150].val 
     };
     Object list12 = Pair::wordArrayToList(array12, 1);
 
     static word array13[] = {
-        builtinSymbols[182].val /* cdr */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[362].val ,
+        builtinSymbols[8150].val 
     };
     Object list13 = Pair::wordArrayToList(array13, 2);
 
     static word array14[] = {
-        builtinSymbols[425].val /* lambda */,
-        0x00000006,
+        builtinSymbols[6602].val ,
+        6,
         list13.val
     };
     Object list14 = Pair::wordArrayToList(array14, 3);
@@ -131,14 +131,14 @@ Object scheme::getBuiltinMatch() {
     Object list15 = Pair::wordArrayToList(array15, 1);
 
     static word array16[] = {
-        builtinSymbols[143].val /* car */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[322].val ,
+        builtinSymbols[8150].val 
     };
     Object list16 = Pair::wordArrayToList(array16, 2);
 
     static word array17[] = {
-        builtinSymbols[425].val /* lambda */,
-        0x00000006,
+        builtinSymbols[6602].val ,
+        6,
         list16.val
     };
     Object list17 = Pair::wordArrayToList(array17, 3);
@@ -149,14 +149,14 @@ Object scheme::getBuiltinMatch() {
     Object list18 = Pair::wordArrayToList(array18, 1);
 
     static word array19[] = {
-        builtinSymbols[1278].val /* unbox */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[8090].val ,
+        builtinSymbols[8150].val 
     };
     Object list19 = Pair::wordArrayToList(array19, 2);
 
     static word array20[] = {
-        builtinSymbols[425].val /* lambda */,
-        0x00000006,
+        builtinSymbols[6602].val ,
+        6,
         list19.val
     };
     Object list20 = Pair::wordArrayToList(array20, 3);
@@ -174,48 +174,48 @@ Object scheme::getBuiltinMatch() {
 
     static word array23[] = {
         list22.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[274].val /* e */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[508].val ,
+        builtinSymbols[6866].val 
     };
     Object list23 = Pair::wordArrayToList(array23, 4);
 
     static word array24[] = {
-        builtinSymbols[1313].val /* x */,
-        builtinSymbols[1316].val /* y */
+        builtinSymbols[8150].val ,
+        builtinSymbols[8157].val 
     };
     Object list24 = Pair::wordArrayToList(array24, 2);
 
     static word array25[] = {
-        builtinSymbols[1316].val /* y */
+        builtinSymbols[8157].val 
     };
     Object list25 = Pair::wordArrayToList(array25, 1);
 
     static word array26[] = {
-        builtinSymbols[1313].val /* x */,
-        builtinSymbols[1316].val /* y */
+        builtinSymbols[8150].val ,
+        builtinSymbols[8157].val 
     };
     Object list26 = Pair::wordArrayToList(array26, 2);
 
     static word array27[] = {
-        builtinSymbols[1316].val /* y */
+        builtinSymbols[8157].val 
     };
     Object list27 = Pair::wordArrayToList(array27, 1);
 
     static word array28[] = {
-        builtinSymbols[762].val /* set-cdr! */,
-        builtinSymbols[1313].val /* x */,
-        builtinSymbols[1316].val /* y */
+        builtinSymbols[7121].val ,
+        builtinSymbols[8150].val ,
+        builtinSymbols[8157].val 
     };
     Object list28 = Pair::wordArrayToList(array28, 3);
 
     static word array29[] = {
-        builtinSymbols[1316].val /* y */
+        builtinSymbols[8157].val 
     };
     Object list29 = Pair::wordArrayToList(array29, 1);
 
     static word array30[] = {
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         list29.val,
         list28.val
     };
@@ -227,19 +227,19 @@ Object scheme::getBuiltinMatch() {
     Object list31 = Pair::wordArrayToList(array31, 1);
 
     static word array32[] = {
-        builtinSymbols[761].val /* set-car! */,
-        builtinSymbols[1313].val /* x */,
-        builtinSymbols[1316].val /* y */
+        builtinSymbols[7120].val ,
+        builtinSymbols[8150].val ,
+        builtinSymbols[8157].val 
     };
     Object list32 = Pair::wordArrayToList(array32, 3);
 
     static word array33[] = {
-        builtinSymbols[1316].val /* y */
+        builtinSymbols[8157].val 
     };
     Object list33 = Pair::wordArrayToList(array33, 1);
 
     static word array34[] = {
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         list33.val,
         list32.val
     };
@@ -251,19 +251,19 @@ Object scheme::getBuiltinMatch() {
     Object list35 = Pair::wordArrayToList(array35, 1);
 
     static word array36[] = {
-        builtinSymbols[760].val /* set-box! */,
-        builtinSymbols[1313].val /* x */,
-        builtinSymbols[1316].val /* y */
+        builtinSymbols[7119].val ,
+        builtinSymbols[8150].val ,
+        builtinSymbols[8157].val 
     };
     Object list36 = Pair::wordArrayToList(array36, 3);
 
     static word array37[] = {
-        builtinSymbols[1316].val /* y */
+        builtinSymbols[8157].val 
     };
     Object list37 = Pair::wordArrayToList(array37, 1);
 
     static word array38[] = {
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         list37.val,
         list36.val
     };
@@ -275,12 +275,12 @@ Object scheme::getBuiltinMatch() {
     Object list39 = Pair::wordArrayToList(array39, 1);
 
     static word array40[] = {
-        builtinSymbols[1316].val /* y */
+        builtinSymbols[8157].val 
     };
     Object list40 = Pair::wordArrayToList(array40, 1);
 
     static word array41[] = {
-        builtinSymbols[1316].val /* y */
+        builtinSymbols[8157].val 
     };
     Object list41 = Pair::wordArrayToList(array41, 1);
 
@@ -292,8 +292,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array43[] = {
         list42.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val 
     };
     Object list43 = Pair::wordArrayToList(array43, 3);
 
@@ -305,8 +305,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array45[] = {
         list44.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[753].val /* s */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7106].val 
     };
     Object list45 = Pair::wordArrayToList(array45, 3);
 
@@ -318,27 +318,27 @@ Object scheme::getBuiltinMatch() {
 
     static word array47[] = {
         list46.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[274].val /* e */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[508].val ,
+        builtinSymbols[6866].val 
     };
     Object list47 = Pair::wordArrayToList(array47, 4);
 
     static word array48[] = {
-    Object::cons(Object::makeRaw(        builtinSymbols[143].val /* car */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[111].val /* caar */), Object::makeRaw(        builtinSymbols[166].val /* cdar */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[182].val /* cdr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[126].val /* cadr */), Object::makeRaw(        builtinSymbols[181].val /* cddr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[111].val /* caar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[103].val /* caaar */), Object::makeRaw(        builtinSymbols[158].val /* cdaar */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[126].val /* cadr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[110].val /* caadr */), Object::makeRaw(        builtinSymbols[165].val /* cdadr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[166].val /* cdar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[118].val /* cadar */), Object::makeRaw(        builtinSymbols[173].val /* cddar */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[181].val /* cddr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[125].val /* caddr */), Object::makeRaw(        builtinSymbols[180].val /* cdddr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[103].val /* caaar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[99].val /* caaaar */), Object::makeRaw(        builtinSymbols[154].val /* cdaaar */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[110].val /* caadr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[102].val /* caaadr */), Object::makeRaw(        builtinSymbols[157].val /* cdaadr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[118].val /* cadar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[106].val /* caadar */), Object::makeRaw(        builtinSymbols[161].val /* cdadar */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[125].val /* caddr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[109].val /* caaddr */), Object::makeRaw(        builtinSymbols[164].val /* cdaddr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[158].val /* cdaar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[114].val /* cadaar */), Object::makeRaw(        builtinSymbols[169].val /* cddaar */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[165].val /* cdadr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[117].val /* cadadr */), Object::makeRaw(        builtinSymbols[172].val /* cddadr */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[173].val /* cddar */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[121].val /* caddar */), Object::makeRaw(        builtinSymbols[176].val /* cdddar */)).val)).val,
-    Object::cons(Object::makeRaw(        builtinSymbols[180].val /* cdddr */), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[124].val /* cadddr */), Object::makeRaw(        builtinSymbols[179].val /* cddddr */)).val)).val
+    Object::cons(Object::makeRaw(        builtinSymbols[322].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[289].val ), Object::makeRaw(        builtinSymbols[346].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[362].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[304].val ), Object::makeRaw(        builtinSymbols[361].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[289].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[281].val ), Object::makeRaw(        builtinSymbols[338].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[304].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[288].val ), Object::makeRaw(        builtinSymbols[345].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[346].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[296].val ), Object::makeRaw(        builtinSymbols[353].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[361].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[303].val ), Object::makeRaw(        builtinSymbols[360].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[281].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[277].val ), Object::makeRaw(        builtinSymbols[334].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[288].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[280].val ), Object::makeRaw(        builtinSymbols[337].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[296].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[284].val ), Object::makeRaw(        builtinSymbols[341].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[303].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[287].val ), Object::makeRaw(        builtinSymbols[344].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[338].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[292].val ), Object::makeRaw(        builtinSymbols[349].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[345].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[295].val ), Object::makeRaw(        builtinSymbols[352].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[353].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[299].val ), Object::makeRaw(        builtinSymbols[356].val )).val)).val,
+    Object::cons(Object::makeRaw(        builtinSymbols[360].val ), Object::makeRaw(    Object::cons(Object::makeRaw(        builtinSymbols[302].val ), Object::makeRaw(        builtinSymbols[359].val )).val)).val
     };
     Object list48 = Pair::wordArrayToList(array48, 14);
 
@@ -350,8 +350,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array50[] = {
         list49.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[54].val /* a */
+        builtinSymbols[6602].val ,
+        builtinSymbols[144].val 
     };
     Object list50 = Pair::wordArrayToList(array50, 3);
 
@@ -363,8 +363,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array52[] = {
         list51.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[54].val /* a */
+        builtinSymbols[6602].val ,
+        builtinSymbols[144].val 
     };
     Object list52 = Pair::wordArrayToList(array52, 3);
 
@@ -376,8 +376,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array54[] = {
         list53.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1273].val /* tst */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8082].val 
     };
     Object list54 = Pair::wordArrayToList(array54, 3);
 
@@ -389,8 +389,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array56[] = {
         list55.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1273].val /* tst */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8082].val 
     };
     Object list56 = Pair::wordArrayToList(array56, 3);
 
@@ -402,8 +402,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array58[] = {
         list57.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1273].val /* tst */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8082].val 
     };
     Object list58 = Pair::wordArrayToList(array58, 3);
 
@@ -415,15 +415,15 @@ Object scheme::getBuiltinMatch() {
 
     static word array60[] = {
         list59.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[420].val /* l */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6596].val 
     };
     Object list60 = Pair::wordArrayToList(array60, 3);
 
     static word array61[] = {
-        builtinSymbols[461].val /* list? */,
-        builtinSymbols[571].val /* pair? */,
-        builtinSymbols[543].val /* null? */
+        builtinSymbols[6667].val ,
+        builtinSymbols[6871].val ,
+        builtinSymbols[6828].val 
     };
     Object list61 = Pair::wordArrayToList(array61, 3);
 
@@ -435,8 +435,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array63[] = {
         list62.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[420].val /* l */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6596].val 
     };
     Object list63 = Pair::wordArrayToList(array63, 3);
 
@@ -448,8 +448,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array65[] = {
         list64.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[420].val /* l */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6596].val 
     };
     Object list65 = Pair::wordArrayToList(array65, 3);
 
@@ -461,8 +461,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array67[] = {
         list66.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[420].val /* l */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6596].val 
     };
     Object list67 = Pair::wordArrayToList(array67, 3);
 
@@ -474,15 +474,15 @@ Object scheme::getBuiltinMatch() {
 
     static word array69[] = {
         list68.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[274].val /* e */,
-        builtinSymbols[420].val /* l */
+        builtinSymbols[6602].val ,
+        builtinSymbols[508].val ,
+        builtinSymbols[6596].val 
     };
     Object list69 = Pair::wordArrayToList(array69, 4);
 
     static word array70[] = {
-        builtinSymbols[221].val /* cond */,
-        builtinSymbols[508].val /* match:error */
+        builtinSymbols[428].val ,
+        builtinSymbols[6765].val 
     };
     Object list70 = Pair::wordArrayToList(array70, 2);
 
@@ -494,8 +494,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array72[] = {
         list71.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[204].val /* code */
+        builtinSymbols[6602].val ,
+        builtinSymbols[409].val 
     };
     Object list72 = Pair::wordArrayToList(array72, 3);
 
@@ -507,21 +507,21 @@ Object scheme::getBuiltinMatch() {
 
     static word array74[] = {
         list73.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[204].val /* code */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[6602].val ,
+        builtinSymbols[409].val ,
+        builtinSymbols[8150].val 
     };
     Object list74 = Pair::wordArrayToList(array74, 4);
 
     static word array75[] = {
-        builtinSymbols[221].val /* cond */,
-        builtinSymbols[508].val /* match:error */
+        builtinSymbols[428].val ,
+        builtinSymbols[6765].val 
     };
     Object list75 = Pair::wordArrayToList(array75, 2);
 
     static word array76[] = {
-        builtinSymbols[1284].val /* unspecified */,
-        builtinSymbols[309].val /* fail */
+        builtinSymbols[8098].val ,
+        builtinSymbols[578].val 
     };
     Object list76 = Pair::wordArrayToList(array76, 2);
 
@@ -533,10 +533,10 @@ Object scheme::getBuiltinMatch() {
 
     static word array78[] = {
         list77.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1273].val /* tst */,
-        builtinSymbols[308].val /* f */,
-        builtinSymbols[753].val /* s */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8082].val ,
+        builtinSymbols[576].val ,
+        builtinSymbols[7106].val 
     };
     Object list78 = Pair::wordArrayToList(array78, 5);
 
@@ -548,11 +548,11 @@ Object scheme::getBuiltinMatch() {
 
     static word array80[] = {
         list79.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1273].val /* tst */,
-        builtinSymbols[771].val /* sf */,
-        builtinSymbols[416].val /* kf */,
-        builtinSymbols[419].val /* ks */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8082].val ,
+        builtinSymbols[7151].val ,
+        builtinSymbols[6592].val ,
+        builtinSymbols[6595].val 
     };
     Object list80 = Pair::wordArrayToList(array80, 6);
 
@@ -564,8 +564,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array82[] = {
         list81.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list82 = Pair::wordArrayToList(array82, 3);
 
@@ -577,8 +577,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array84[] = {
         list83.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[527].val /* n */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6797].val 
     };
     Object list84 = Pair::wordArrayToList(array84, 3);
 
@@ -590,14 +590,14 @@ Object scheme::getBuiltinMatch() {
 
     static word array86[] = {
         list85.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list86 = Pair::wordArrayToList(array86, 3);
 
     static word array87[] = {
-        builtinSymbols[695].val /* quote */,
-        0x00000006
+        builtinSymbols[7020].val ,
+        6
     };
     Object list87 = Pair::wordArrayToList(array87, 2);
 
@@ -614,8 +614,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array90[] = {
         list89.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val 
     };
     Object list90 = Pair::wordArrayToList(array90, 3);
 
@@ -632,9 +632,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array93[] = {
         list92.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[85].val /* b */,
-        builtinSymbols[308].val /* f */
+        builtinSymbols[6602].val ,
+        builtinSymbols[187].val ,
+        builtinSymbols[576].val 
     };
     Object list93 = Pair::wordArrayToList(array93, 4);
 
@@ -651,8 +651,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array96[] = {
         list95.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list96 = Pair::wordArrayToList(array96, 3);
 
@@ -664,8 +664,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array98[] = {
         list97.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list98 = Pair::wordArrayToList(array98, 3);
 
@@ -677,8 +677,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array100[] = {
         list99.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[527].val /* n */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6797].val 
     };
     Object list100 = Pair::wordArrayToList(array100, 3);
 
@@ -690,8 +690,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array102[] = {
         list101.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list102 = Pair::wordArrayToList(array102, 3);
 
@@ -703,8 +703,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array104[] = {
         list103.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list104 = Pair::wordArrayToList(array104, 3);
 
@@ -716,14 +716,14 @@ Object scheme::getBuiltinMatch() {
 
     static word array106[] = {
         list105.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list106 = Pair::wordArrayToList(array106, 3);
 
     static word array107[] = {
-        builtinSymbols[695].val /* quote */,
-        0x00000006
+        builtinSymbols[7020].val ,
+        6
     };
     Object list107 = Pair::wordArrayToList(array107, 2);
 
@@ -740,8 +740,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array110[] = {
         list109.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val 
     };
     Object list110 = Pair::wordArrayToList(array110, 3);
 
@@ -753,8 +753,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array112[] = {
         list111.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val 
     };
     Object list112 = Pair::wordArrayToList(array112, 3);
 
@@ -766,9 +766,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array114[] = {
         list113.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[85].val /* b */,
-        builtinSymbols[308].val /* f */
+        builtinSymbols[6602].val ,
+        builtinSymbols[187].val ,
+        builtinSymbols[576].val 
     };
     Object list114 = Pair::wordArrayToList(array114, 4);
 
@@ -780,8 +780,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array116[] = {
         list115.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list116 = Pair::wordArrayToList(array116, 3);
 
@@ -793,8 +793,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array118[] = {
         list117.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list118 = Pair::wordArrayToList(array118, 3);
 
@@ -806,8 +806,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array120[] = {
         list119.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list120 = Pair::wordArrayToList(array120, 3);
 
@@ -819,8 +819,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array122[] = {
         list121.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list122 = Pair::wordArrayToList(array122, 3);
 
@@ -832,8 +832,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array124[] = {
         list123.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list124 = Pair::wordArrayToList(array124, 3);
 
@@ -845,8 +845,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array126[] = {
         list125.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val 
     };
     Object list126 = Pair::wordArrayToList(array126, 3);
 
@@ -858,8 +858,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array128[] = {
         list127.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list128 = Pair::wordArrayToList(array128, 3);
 
@@ -871,8 +871,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array130[] = {
         list129.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[527].val /* n */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6797].val 
     };
     Object list130 = Pair::wordArrayToList(array130, 3);
 
@@ -884,8 +884,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array132[] = {
         list131.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val 
     };
     Object list132 = Pair::wordArrayToList(array132, 3);
 
@@ -897,8 +897,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array134[] = {
         list133.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list134 = Pair::wordArrayToList(array134, 3);
 
@@ -910,9 +910,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array136[] = {
         list135.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val ,
+        builtinSymbols[7151].val 
     };
     Object list136 = Pair::wordArrayToList(array136, 4);
 
@@ -924,8 +924,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array138[] = {
         list137.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list138 = Pair::wordArrayToList(array138, 3);
 
@@ -937,15 +937,15 @@ Object scheme::getBuiltinMatch() {
 
     static word array140[] = {
         list139.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val ,
+        builtinSymbols[7151].val 
     };
     Object list140 = Pair::wordArrayToList(array140, 4);
 
     static word array141[] = {
-        builtinSymbols[695].val /* quote */,
-        0x00000006
+        builtinSymbols[7020].val ,
+        6
     };
     Object list141 = Pair::wordArrayToList(array141, 2);
 
@@ -957,12 +957,12 @@ Object scheme::getBuiltinMatch() {
 
     static word array143[] = {
         list142.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */,
-        builtinSymbols[274].val /* e */,
-        builtinSymbols[771].val /* sf */,
-        builtinSymbols[416].val /* kf */,
-        builtinSymbols[419].val /* ks */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val ,
+        builtinSymbols[508].val ,
+        builtinSymbols[7151].val ,
+        builtinSymbols[6592].val ,
+        builtinSymbols[6595].val 
     };
     Object list143 = Pair::wordArrayToList(array143, 7);
 
@@ -974,8 +974,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array145[] = {
         list144.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list145 = Pair::wordArrayToList(array145, 3);
 
@@ -987,8 +987,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array147[] = {
         list146.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[771].val /* sf */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7151].val 
     };
     Object list147 = Pair::wordArrayToList(array147, 3);
 
@@ -1000,8 +1000,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array149[] = {
         list148.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val 
     };
     Object list149 = Pair::wordArrayToList(array149, 3);
 
@@ -1013,13 +1013,13 @@ Object scheme::getBuiltinMatch() {
 
     static word array151[] = {
         list150.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */,
-        builtinSymbols[771].val /* sf */,
-        builtinSymbols[679].val /* plist */,
-        builtinSymbols[290].val /* erract */,
-        builtinSymbols[433].val /* length>= */,
-        builtinSymbols[292].val /* eta */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val ,
+        builtinSymbols[7151].val ,
+        builtinSymbols[6984].val ,
+        builtinSymbols[546].val ,
+        builtinSymbols[6613].val ,
+        builtinSymbols[550].val 
     };
     Object list151 = Pair::wordArrayToList(array151, 8);
 
@@ -1031,10 +1031,10 @@ Object scheme::getBuiltinMatch() {
 
     static word array153[] = {
         list152.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[85].val /* b */,
-        builtinSymbols[532].val /* new-b */,
-        builtinSymbols[274].val /* e */
+        builtinSymbols[6602].val ,
+        builtinSymbols[187].val ,
+        builtinSymbols[6810].val ,
+        builtinSymbols[508].val 
     };
     Object list153 = Pair::wordArrayToList(array153, 5);
 
@@ -1046,16 +1046,16 @@ Object scheme::getBuiltinMatch() {
 
     static word array155[] = {
         list154.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[770].val /* sexp */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7150].val 
     };
     Object list155 = Pair::wordArrayToList(array155, 3);
 
     static word array156[] = {
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[695].val /* quote */,
-        builtinSymbols[501].val /* match-lambda */,
-        builtinSymbols[502].val /* match-lambda* */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7020].val ,
+        builtinSymbols[6758].val ,
+        builtinSymbols[6759].val 
     };
     Object list156 = Pair::wordArrayToList(array156, 4);
 
@@ -1067,8 +1067,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array158[] = {
         list157.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[770].val /* sexp */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7150].val 
     };
     Object list158 = Pair::wordArrayToList(array158, 3);
 
@@ -1080,8 +1080,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array160[] = {
         list159.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[770].val /* sexp */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7150].val 
     };
     Object list160 = Pair::wordArrayToList(array160, 3);
 
@@ -1093,8 +1093,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array162[] = {
         list161.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[274].val /* e */
+        builtinSymbols[6602].val ,
+        builtinSymbols[508].val 
     };
     Object list162 = Pair::wordArrayToList(array162, 3);
 
@@ -1106,10 +1106,10 @@ Object scheme::getBuiltinMatch() {
 
     static word array164[] = {
         list163.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[274].val /* e */,
-        builtinSymbols[551].val /* old */,
-        builtinSymbols[531].val /* new */
+        builtinSymbols[6602].val ,
+        builtinSymbols[508].val ,
+        builtinSymbols[6839].val ,
+        builtinSymbols[6808].val 
     };
     Object list164 = Pair::wordArrayToList(array164, 5);
 
@@ -1121,8 +1121,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array166[] = {
         list165.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[274].val /* e */
+        builtinSymbols[6602].val ,
+        builtinSymbols[508].val 
     };
     Object list166 = Pair::wordArrayToList(array166, 3);
 
@@ -1134,9 +1134,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array168[] = {
         list167.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */,
-        builtinSymbols[274].val /* e */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val ,
+        builtinSymbols[508].val 
     };
     Object list168 = Pair::wordArrayToList(array168, 4);
 
@@ -1148,8 +1148,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array170[] = {
         list169.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[437].val /* let-exp */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6618].val 
     };
     Object list170 = Pair::wordArrayToList(array170, 3);
 
@@ -1161,9 +1161,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array172[] = {
         list171.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */,
-        builtinSymbols[54].val /* a */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val ,
+        builtinSymbols[144].val 
     };
     Object list172 = Pair::wordArrayToList(array172, 4);
 
@@ -1175,8 +1175,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array174[] = {
         list173.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1314].val /* x1 */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8152].val 
     };
     Object list174 = Pair::wordArrayToList(array174, 3);
 
@@ -1188,9 +1188,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array176[] = {
         list175.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[567].val /* p1 */,
-        builtinSymbols[568].val /* p2 */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6867].val ,
+        builtinSymbols[6868].val 
     };
     Object list176 = Pair::wordArrayToList(array176, 4);
 
@@ -1202,9 +1202,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array178[] = {
         list177.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[85].val /* b */,
-        builtinSymbols[54].val /* a */
+        builtinSymbols[6602].val ,
+        builtinSymbols[187].val ,
+        builtinSymbols[144].val 
     };
     Object list178 = Pair::wordArrayToList(array178, 4);
 
@@ -1216,9 +1216,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array180[] = {
         list179.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[185].val /* cdr-p */,
-        builtinSymbols[54].val /* a */
+        builtinSymbols[6602].val ,
+        builtinSymbols[365].val ,
+        builtinSymbols[144].val 
     };
     Object list180 = Pair::wordArrayToList(array180, 4);
 
@@ -1230,9 +1230,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array182[] = {
         list181.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[148].val /* car-p */,
-        builtinSymbols[54].val /* a */
+        builtinSymbols[6602].val ,
+        builtinSymbols[327].val ,
+        builtinSymbols[144].val 
     };
     Object list182 = Pair::wordArrayToList(array182, 4);
 
@@ -1244,10 +1244,10 @@ Object scheme::getBuiltinMatch() {
 
     static word array184[] = {
         list183.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[679].val /* plist */,
-        builtinSymbols[54].val /* a */,
-        builtinSymbols[413].val /* k */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6984].val ,
+        builtinSymbols[144].val ,
+        builtinSymbols[6589].val 
     };
     Object list184 = Pair::wordArrayToList(array184, 5);
 
@@ -1259,9 +1259,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array186[] = {
         list185.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[185].val /* cdr-p */,
-        builtinSymbols[54].val /* a */
+        builtinSymbols[6602].val ,
+        builtinSymbols[365].val ,
+        builtinSymbols[144].val 
     };
     Object list186 = Pair::wordArrayToList(array186, 4);
 
@@ -1273,9 +1273,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array188[] = {
         list187.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[148].val /* car-p */,
-        builtinSymbols[54].val /* a */
+        builtinSymbols[6602].val ,
+        builtinSymbols[327].val ,
+        builtinSymbols[144].val 
     };
     Object list188 = Pair::wordArrayToList(array188, 4);
 
@@ -1287,9 +1287,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array190[] = {
         list189.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */,
-        builtinSymbols[1316].val /* y */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val ,
+        builtinSymbols[8157].val 
     };
     Object list190 = Pair::wordArrayToList(array190, 4);
 
@@ -1301,7 +1301,7 @@ Object scheme::getBuiltinMatch() {
 
     static word array192[] = {
         list191.val,
-        builtinSymbols[425].val /* lambda */
+        builtinSymbols[6602].val 
     };
     Object list192 = Pair::wordArrayToList(array192, 2);
 
@@ -1313,7 +1313,7 @@ Object scheme::getBuiltinMatch() {
 
     static word array194[] = {
         list193.val,
-        builtinSymbols[425].val /* lambda */
+        builtinSymbols[6602].val 
     };
     Object list194 = Pair::wordArrayToList(array194, 2);
 
@@ -1325,10 +1325,10 @@ Object scheme::getBuiltinMatch() {
 
     static word array196[] = {
         list195.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[679].val /* plist */,
-        builtinSymbols[54].val /* a */,
-        builtinSymbols[413].val /* k */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6984].val ,
+        builtinSymbols[144].val ,
+        builtinSymbols[6589].val 
     };
     Object list196 = Pair::wordArrayToList(array196, 5);
 
@@ -1340,9 +1340,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array198[] = {
         list197.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[678].val /* pl */,
-        builtinSymbols[54].val /* a */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6983].val ,
+        builtinSymbols[144].val 
     };
     Object list198 = Pair::wordArrayToList(array198, 4);
 
@@ -1354,9 +1354,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array200[] = {
         list199.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[185].val /* cdr-p */,
-        builtinSymbols[54].val /* a */
+        builtinSymbols[6602].val ,
+        builtinSymbols[365].val ,
+        builtinSymbols[144].val 
     };
     Object list200 = Pair::wordArrayToList(array200, 4);
 
@@ -1368,9 +1368,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array202[] = {
         list201.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[148].val /* car-p */,
-        builtinSymbols[54].val /* a */
+        builtinSymbols[6602].val ,
+        builtinSymbols[327].val ,
+        builtinSymbols[144].val 
     };
     Object list202 = Pair::wordArrayToList(array202, 4);
 
@@ -1382,9 +1382,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array204[] = {
         list203.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[567].val /* p1 */,
-        builtinSymbols[54].val /* a */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6867].val ,
+        builtinSymbols[144].val 
     };
     Object list204 = Pair::wordArrayToList(array204, 4);
 
@@ -1396,8 +1396,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array206[] = {
         list205.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[52].val /* _ */
+        builtinSymbols[6602].val ,
+        builtinSymbols[142].val 
     };
     Object list206 = Pair::wordArrayToList(array206, 3);
 
@@ -1409,9 +1409,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array208[] = {
         list207.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[693].val /* q */,
-        builtinSymbols[85].val /* b */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7017].val ,
+        builtinSymbols[187].val 
     };
     Object list208 = Pair::wordArrayToList(array208, 4);
 
@@ -1423,9 +1423,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array210[] = {
         list209.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[568].val /* p2 */,
-        builtinSymbols[55].val /* a2 */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6868].val ,
+        builtinSymbols[145].val 
     };
     Object list210 = Pair::wordArrayToList(array210, 4);
 
@@ -1437,8 +1437,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array212[] = {
         list211.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[679].val /* plist */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6984].val 
     };
     Object list212 = Pair::wordArrayToList(array212, 3);
 
@@ -1450,8 +1450,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array214[] = {
         list213.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[185].val /* cdr-p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[365].val 
     };
     Object list214 = Pair::wordArrayToList(array214, 3);
 
@@ -1463,9 +1463,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array216[] = {
         list215.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[148].val /* car-p */,
-        builtinSymbols[145].val /* car-a */
+        builtinSymbols[6602].val ,
+        builtinSymbols[327].val ,
+        builtinSymbols[324].val 
     };
     Object list216 = Pair::wordArrayToList(array216, 4);
 
@@ -1477,9 +1477,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array218[] = {
         list217.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[679].val /* plist */,
-        builtinSymbols[413].val /* k */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6984].val ,
+        builtinSymbols[6589].val 
     };
     Object list218 = Pair::wordArrayToList(array218, 4);
 
@@ -1491,9 +1491,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array220[] = {
         list219.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[322].val /* first-p */,
-        builtinSymbols[321].val /* first-a */
+        builtinSymbols[6602].val ,
+        builtinSymbols[602].val ,
+        builtinSymbols[601].val 
     };
     Object list220 = Pair::wordArrayToList(array220, 4);
 
@@ -1505,9 +1505,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array222[] = {
         list221.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */,
-        builtinSymbols[54].val /* a */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val ,
+        builtinSymbols[144].val 
     };
     Object list222 = Pair::wordArrayToList(array222, 4);
 
@@ -1519,9 +1519,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array224[] = {
         list223.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[568].val /* p2 */,
-        builtinSymbols[54].val /* a */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6868].val ,
+        builtinSymbols[144].val 
     };
     Object list224 = Pair::wordArrayToList(array224, 4);
 
@@ -1533,10 +1533,10 @@ Object scheme::getBuiltinMatch() {
 
     static word array226[] = {
         list225.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */,
-        builtinSymbols[54].val /* a */,
-        builtinSymbols[413].val /* k */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val ,
+        builtinSymbols[144].val ,
+        builtinSymbols[6589].val 
     };
     Object list226 = Pair::wordArrayToList(array226, 5);
 
@@ -1548,8 +1548,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array228[] = {
         list227.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[677].val /* pattern */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6981].val 
     };
     Object list228 = Pair::wordArrayToList(array228, 3);
 
@@ -1561,8 +1561,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array230[] = {
         list229.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val 
     };
     Object list230 = Pair::wordArrayToList(array230, 3);
 
@@ -1574,7 +1574,7 @@ Object scheme::getBuiltinMatch() {
 
     static word array232[] = {
         list231.val,
-        builtinSymbols[425].val /* lambda */
+        builtinSymbols[6602].val 
     };
     Object list232 = Pair::wordArrayToList(array232, 2);
 
@@ -1586,8 +1586,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array234[] = {
         list233.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val 
     };
     Object list234 = Pair::wordArrayToList(array234, 3);
 
@@ -1599,9 +1599,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array236[] = {
         list235.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */,
-        builtinSymbols[241].val /* ddk */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val ,
+        builtinSymbols[463].val 
     };
     Object list236 = Pair::wordArrayToList(array236, 4);
 
@@ -1613,9 +1613,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array238[] = {
         list237.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */,
-        builtinSymbols[1316].val /* y */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val ,
+        builtinSymbols[8157].val 
     };
     Object list238 = Pair::wordArrayToList(array238, 4);
 
@@ -1627,8 +1627,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array240[] = {
         list239.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val 
     };
     Object list240 = Pair::wordArrayToList(array240, 3);
 
@@ -1640,8 +1640,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array242[] = {
         list241.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val 
     };
     Object list242 = Pair::wordArrayToList(array242, 3);
 
@@ -1653,8 +1653,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array244[] = {
         list243.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val 
     };
     Object list244 = Pair::wordArrayToList(array244, 3);
 
@@ -1666,8 +1666,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array246[] = {
         list245.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val 
     };
     Object list246 = Pair::wordArrayToList(array246, 3);
 
@@ -1679,9 +1679,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array248[] = {
         list247.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */,
-        builtinSymbols[1316].val /* y */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val ,
+        builtinSymbols[8157].val 
     };
     Object list248 = Pair::wordArrayToList(array248, 4);
 
@@ -1693,8 +1693,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array250[] = {
         list249.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val 
     };
     Object list250 = Pair::wordArrayToList(array250, 3);
 
@@ -1706,7 +1706,7 @@ Object scheme::getBuiltinMatch() {
 
     static word array252[] = {
         list251.val,
-        builtinSymbols[425].val /* lambda */
+        builtinSymbols[6602].val 
     };
     Object list252 = Pair::wordArrayToList(array252, 2);
 
@@ -1718,8 +1718,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array254[] = {
         list253.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val 
     };
     Object list254 = Pair::wordArrayToList(array254, 3);
 
@@ -1731,9 +1731,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array256[] = {
         list255.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */,
-        builtinSymbols[241].val /* ddk */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val ,
+        builtinSymbols[463].val 
     };
     Object list256 = Pair::wordArrayToList(array256, 4);
 
@@ -1745,8 +1745,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array258[] = {
         list257.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val 
     };
     Object list258 = Pair::wordArrayToList(array258, 3);
 
@@ -1758,8 +1758,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array260[] = {
         list259.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val 
     };
     Object list260 = Pair::wordArrayToList(array260, 3);
 
@@ -1771,9 +1771,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array262[] = {
         list261.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[696].val /* r */,
-        builtinSymbols[692].val /* ps */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7022].val ,
+        builtinSymbols[7010].val 
     };
     Object list262 = Pair::wordArrayToList(array262, 4);
 
@@ -1785,8 +1785,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array264[] = {
         list263.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[692].val /* ps */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7010].val 
     };
     Object list264 = Pair::wordArrayToList(array264, 3);
 
@@ -1798,8 +1798,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array266[] = {
         list265.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[692].val /* ps */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7010].val 
     };
     Object list266 = Pair::wordArrayToList(array266, 3);
 
@@ -1811,8 +1811,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array268[] = {
         list267.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[692].val /* ps */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7010].val 
     };
     Object list268 = Pair::wordArrayToList(array268, 3);
 
@@ -1824,9 +1824,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array270[] = {
         list269.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[756].val /* sel */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7114].val ,
+        builtinSymbols[6866].val 
     };
     Object list270 = Pair::wordArrayToList(array270, 4);
 
@@ -1838,9 +1838,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array272[] = {
         list271.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[683].val /* pred */,
-        builtinSymbols[692].val /* ps */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6996].val ,
+        builtinSymbols[7010].val 
     };
     Object list272 = Pair::wordArrayToList(array272, 4);
 
@@ -1852,8 +1852,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array274[] = {
         list273.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val 
     };
     Object list274 = Pair::wordArrayToList(array274, 3);
 
@@ -1865,8 +1865,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array276[] = {
         list275.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val 
     };
     Object list276 = Pair::wordArrayToList(array276, 3);
 
@@ -1878,8 +1878,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array278[] = {
         list277.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val 
     };
     Object list278 = Pair::wordArrayToList(array278, 3);
 
@@ -1891,7 +1891,7 @@ Object scheme::getBuiltinMatch() {
 
     static word array280[] = {
         list279.val,
-        builtinSymbols[425].val /* lambda */
+        builtinSymbols[6602].val 
     };
     Object list280 = Pair::wordArrayToList(array280, 2);
 
@@ -1903,8 +1903,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array282[] = {
         list281.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val 
     };
     Object list282 = Pair::wordArrayToList(array282, 3);
 
@@ -1916,9 +1916,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array284[] = {
         list283.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */,
-        builtinSymbols[1316].val /* y */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val ,
+        builtinSymbols[8157].val 
     };
     Object list284 = Pair::wordArrayToList(array284, 4);
 
@@ -1930,8 +1930,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array286[] = {
         list285.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[566].val /* p */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6866].val 
     };
     Object list286 = Pair::wordArrayToList(array286, 3);
 
@@ -1943,8 +1943,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array288[] = {
         list287.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val 
     };
     Object list288 = Pair::wordArrayToList(array288, 3);
 
@@ -1956,8 +1956,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array290[] = {
         list289.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[677].val /* pattern */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6981].val 
     };
     Object list290 = Pair::wordArrayToList(array290, 3);
 
@@ -1969,8 +1969,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array292[] = {
         list291.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val 
     };
     Object list292 = Pair::wordArrayToList(array292, 3);
 
@@ -1982,17 +1982,17 @@ Object scheme::getBuiltinMatch() {
 
     static word array294[] = {
         list293.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[679].val /* plist */,
-        builtinSymbols[500].val /* match-expr */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6984].val ,
+        builtinSymbols[6757].val 
     };
     Object list294 = Pair::wordArrayToList(array294, 4);
 
     static word array295[] = {
-        builtinSymbols[1284].val /* unspecified */,
-        builtinSymbols[291].val /* error */,
-        builtinSymbols[309].val /* fail */,
-        builtinSymbols[498].val /* match */
+        builtinSymbols[8098].val ,
+        builtinSymbols[547].val ,
+        builtinSymbols[578].val ,
+        builtinSymbols[6755].val 
     };
     Object list295 = Pair::wordArrayToList(array295, 4);
 
@@ -2004,8 +2004,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array297[] = {
         list296.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val 
     };
     Object list297 = Pair::wordArrayToList(array297, 3);
 
@@ -2017,14 +2017,14 @@ Object scheme::getBuiltinMatch() {
 
     static word array299[] = {
         list298.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val 
     };
     Object list299 = Pair::wordArrayToList(array299, 3);
 
     static word array300[] = {
-        builtinSymbols[291].val /* error */,
-        builtinSymbols[309].val /* fail */
+        builtinSymbols[547].val ,
+        builtinSymbols[578].val 
     };
     Object list300 = Pair::wordArrayToList(array300, 2);
 
@@ -2035,7 +2035,7 @@ Object scheme::getBuiltinMatch() {
     Object list301 = Pair::wordArrayToList(array301, 2);
 
     static word array302[] = {
-        builtinSymbols[221].val /* cond */,
+        builtinSymbols[428].val ,
         list301.val
     };
     Object list302 = Pair::wordArrayToList(array302, 2);
@@ -2048,8 +2048,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array304[] = {
         list303.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val 
     };
     Object list304 = Pair::wordArrayToList(array304, 3);
 
@@ -2061,8 +2061,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array306[] = {
         list305.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[500].val /* match-expr */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6757].val 
     };
     Object list306 = Pair::wordArrayToList(array306, 3);
 
@@ -2079,8 +2079,8 @@ Object scheme::getBuiltinMatch() {
     Object list308 = Pair::wordArrayToList(array308, 2);
 
     static word array309[] = {
-        builtinSymbols[40].val /* ... */,
-        builtinSymbols[53].val /* ___ */
+        builtinSymbols[130].val ,
+        builtinSymbols[143].val 
     };
     Object list309 = Pair::wordArrayToList(array309, 2);
 
@@ -2092,27 +2092,27 @@ Object scheme::getBuiltinMatch() {
 
     static word array311[] = {
         list310.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[753].val /* s */
+        builtinSymbols[6602].val ,
+        builtinSymbols[7106].val 
     };
     Object list311 = Pair::wordArrayToList(array311, 3);
 
     static word array312[] = {
-        builtinSymbols[694].val /* quasiquote */,
-        builtinSymbols[695].val /* quote */,
-        builtinSymbols[1282].val /* unquote */,
-        builtinSymbols[1283].val /* unquote-splicing */,
-        builtinSymbols[48].val /* ? */,
-        builtinSymbols[52].val /* _ */,
-        builtinSymbols[1].val /* $ */,
-        builtinSymbols[44].val /* = */,
-        builtinSymbols[66].val /* and */,
-        builtinSymbols[562].val /* or */,
-        builtinSymbols[539].val /* not */,
-        builtinSymbols[758].val /* set! */,
-        builtinSymbols[350].val /* get! */,
-        builtinSymbols[40].val /* ... */,
-        builtinSymbols[53].val /* ___ */
+        builtinSymbols[7018].val ,
+        builtinSymbols[7020].val ,
+        builtinSymbols[8096].val ,
+        builtinSymbols[8097].val ,
+        builtinSymbols[138].val ,
+        builtinSymbols[142].val ,
+        builtinSymbols[1].val ,
+        builtinSymbols[134].val ,
+        builtinSymbols[158].val ,
+        builtinSymbols[6858].val ,
+        builtinSymbols[6822].val ,
+        builtinSymbols[7117].val ,
+        builtinSymbols[6467].val ,
+        builtinSymbols[130].val ,
+        builtinSymbols[143].val 
     };
     Object list312 = Pair::wordArrayToList(array312, 15);
 
@@ -2124,8 +2124,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array314[] = {
         list313.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val 
     };
     Object list314 = Pair::wordArrayToList(array314, 3);
 
@@ -2136,7 +2136,7 @@ Object scheme::getBuiltinMatch() {
     Object list315 = Pair::wordArrayToList(array315, 2);
 
     static word array316[] = {
-        builtinSymbols[221].val /* cond */,
+        builtinSymbols[428].val ,
         list315.val
     };
     Object list316 = Pair::wordArrayToList(array316, 2);
@@ -2154,44 +2154,44 @@ Object scheme::getBuiltinMatch() {
 
     static word array319[] = {
         list318.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1287].val /* v */,
-        builtinSymbols[342].val /* g */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8106].val ,
+        builtinSymbols[724].val 
     };
     Object list319 = Pair::wordArrayToList(array319, 4);
 
     static word array320[] = {
-        builtinSymbols[432].val /* length */,
-        builtinSymbols[420].val /* l */
+        builtinSymbols[6612].val ,
+        builtinSymbols[6596].val 
     };
     Object list320 = Pair::wordArrayToList(array320, 2);
 
     static word array321[] = {
-        builtinSymbols[47].val /* >= */,
+        builtinSymbols[137].val ,
         list320.val,
-        builtinSymbols[527].val /* n */
+        builtinSymbols[6797].val 
     };
     Object list321 = Pair::wordArrayToList(array321, 3);
 
     static word array322[] = {
-        builtinSymbols[420].val /* l */
+        builtinSymbols[6596].val 
     };
     Object list322 = Pair::wordArrayToList(array322, 1);
 
     static word array323[] = {
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         list322.val,
         list321.val
     };
     Object list323 = Pair::wordArrayToList(array323, 3);
 
     static word array324[] = {
-        builtinSymbols[527].val /* n */
+        builtinSymbols[6797].val 
     };
     Object list324 = Pair::wordArrayToList(array324, 1);
 
     static word array325[] = {
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         list324.val,
         list323.val
     };
@@ -2215,8 +2215,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array329[] = {
         list328.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1287].val /* v */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8106].val 
     };
     Object list329 = Pair::wordArrayToList(array329, 3);
 
@@ -2228,8 +2228,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array331[] = {
         list330.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[52].val /* _ */
+        builtinSymbols[6602].val ,
+        builtinSymbols[142].val 
     };
     Object list331 = Pair::wordArrayToList(array331, 3);
 
@@ -2241,10 +2241,10 @@ Object scheme::getBuiltinMatch() {
 
     static word array333[] = {
         list332.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[675].val /* pat */,
-        builtinSymbols[300].val /* exp */,
-        builtinSymbols[500].val /* match-expr */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6978].val ,
+        builtinSymbols[562].val ,
+        builtinSymbols[6757].val 
     };
     Object list333 = Pair::wordArrayToList(array333, 5);
 
@@ -2256,9 +2256,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array335[] = {
         list334.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1287].val /* v */,
-        builtinSymbols[342].val /* g */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8106].val ,
+        builtinSymbols[724].val 
     };
     Object list335 = Pair::wordArrayToList(array335, 4);
 
@@ -2275,43 +2275,43 @@ Object scheme::getBuiltinMatch() {
 
     static word array338[] = {
         list337.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1287].val /* v */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8106].val 
     };
     Object list338 = Pair::wordArrayToList(array338, 3);
 
     static word array339[] = {
-        builtinSymbols[432].val /* length */,
-        builtinSymbols[420].val /* l */
+        builtinSymbols[6612].val ,
+        builtinSymbols[6596].val 
     };
     Object list339 = Pair::wordArrayToList(array339, 2);
 
     static word array340[] = {
-        builtinSymbols[47].val /* >= */,
+        builtinSymbols[137].val ,
         list339.val,
-        builtinSymbols[527].val /* n */
+        builtinSymbols[6797].val 
     };
     Object list340 = Pair::wordArrayToList(array340, 3);
 
     static word array341[] = {
-        builtinSymbols[420].val /* l */
+        builtinSymbols[6596].val 
     };
     Object list341 = Pair::wordArrayToList(array341, 1);
 
     static word array342[] = {
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         list341.val,
         list340.val
     };
     Object list342 = Pair::wordArrayToList(array342, 3);
 
     static word array343[] = {
-        builtinSymbols[527].val /* n */
+        builtinSymbols[6797].val 
     };
     Object list343 = Pair::wordArrayToList(array343, 1);
 
     static word array344[] = {
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         list343.val,
         list342.val
     };
@@ -2330,8 +2330,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array347[] = {
         list346.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[52].val /* _ */
+        builtinSymbols[6602].val ,
+        builtinSymbols[142].val 
     };
     Object list347 = Pair::wordArrayToList(array347, 3);
 
@@ -2343,46 +2343,46 @@ Object scheme::getBuiltinMatch() {
 
     static word array349[] = {
         list348.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[675].val /* pat */,
-        builtinSymbols[300].val /* exp */,
-        builtinSymbols[89].val /* body */,
-        builtinSymbols[500].val /* match-expr */
+        builtinSymbols[6602].val ,
+        builtinSymbols[6978].val ,
+        builtinSymbols[562].val ,
+        builtinSymbols[216].val ,
+        builtinSymbols[6757].val 
     };
     Object list349 = Pair::wordArrayToList(array349, 6);
 
     static word array350[] = {
-        builtinSymbols[432].val /* length */,
-        builtinSymbols[420].val /* l */
+        builtinSymbols[6612].val ,
+        builtinSymbols[6596].val 
     };
     Object list350 = Pair::wordArrayToList(array350, 2);
 
     static word array351[] = {
-        builtinSymbols[47].val /* >= */,
+        builtinSymbols[137].val ,
         list350.val,
-        builtinSymbols[527].val /* n */
+        builtinSymbols[6797].val 
     };
     Object list351 = Pair::wordArrayToList(array351, 3);
 
     static word array352[] = {
-        builtinSymbols[420].val /* l */
+        builtinSymbols[6596].val 
     };
     Object list352 = Pair::wordArrayToList(array352, 1);
 
     static word array353[] = {
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         list352.val,
         list351.val
     };
     Object list353 = Pair::wordArrayToList(array353, 3);
 
     static word array354[] = {
-        builtinSymbols[527].val /* n */
+        builtinSymbols[6797].val 
     };
     Object list354 = Pair::wordArrayToList(array354, 1);
 
     static word array355[] = {
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         list354.val,
         list353.val
     };
@@ -2401,8 +2401,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array358[] = {
         list357.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[96].val /* c */
+        builtinSymbols[6602].val ,
+        builtinSymbols[274].val 
     };
     Object list358 = Pair::wordArrayToList(array358, 3);
 
@@ -2414,22 +2414,22 @@ Object scheme::getBuiltinMatch() {
 
     static word array360[] = {
         list359.val,
-        builtinSymbols[425].val /* lambda */,
-        builtinSymbols[1313].val /* x */,
-        builtinSymbols[197].val /* clauses */,
-        builtinSymbols[500].val /* match-expr */
+        builtinSymbols[6602].val ,
+        builtinSymbols[8150].val ,
+        builtinSymbols[400].val ,
+        builtinSymbols[6757].val 
     };
     Object list360 = Pair::wordArrayToList(array360, 5);
 
     static word array361[] = {
-        builtinSymbols[571].val /* pair? */,
-        builtinSymbols[809].val /* symbol? */,
-        builtinSymbols[90].val /* boolean? */,
-        builtinSymbols[545].val /* number? */,
-        builtinSymbols[801].val /* string? */,
-        builtinSymbols[193].val /* char? */,
-        builtinSymbols[689].val /* procedure? */,
-        builtinSymbols[1303].val /* vector? */
+        builtinSymbols[6871].val ,
+        builtinSymbols[7237].val ,
+        builtinSymbols[218].val ,
+        builtinSymbols[6831].val ,
+        builtinSymbols[7216].val ,
+        builtinSymbols[391].val ,
+        builtinSymbols[7005].val ,
+        builtinSymbols[8126].val 
     };
     Object list361 = Pair::wordArrayToList(array361, 8);
 
@@ -2441,8 +2441,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array363[] = {
         list362.val,
-        builtinSymbols[512].val /* match:set-error-control */,
-        builtinSymbols[1287].val /* v */
+        builtinSymbols[6769].val ,
+        builtinSymbols[8106].val 
     };
     Object list363 = Pair::wordArrayToList(array363, 3);
 
@@ -2454,8 +2454,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array365[] = {
         list364.val,
-        builtinSymbols[511].val /* match:set-error */,
-        builtinSymbols[1287].val /* v */
+        builtinSymbols[6768].val ,
+        builtinSymbols[8106].val 
     };
     Object list365 = Pair::wordArrayToList(array365, 3);
 
@@ -2467,8 +2467,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array367[] = {
         list366.val,
-        builtinSymbols[514].val /* match:set-structure-control */,
-        builtinSymbols[1287].val /* v */
+        builtinSymbols[6771].val ,
+        builtinSymbols[8106].val 
     };
     Object list367 = Pair::wordArrayToList(array367, 3);
 
@@ -2480,8 +2480,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array369[] = {
         list368.val,
-        builtinSymbols[515].val /* match:structure? */,
-        builtinSymbols[819].val /* tag */
+        builtinSymbols[6772].val ,
+        builtinSymbols[7263].val 
     };
     Object list369 = Pair::wordArrayToList(array369, 3);
 
@@ -2493,8 +2493,8 @@ Object scheme::getBuiltinMatch() {
 
     static word array371[] = {
         list370.val,
-        builtinSymbols[509].val /* match:make-structure-tag */,
-        builtinSymbols[528].val /* name */
+        builtinSymbols[6766].val ,
+        builtinSymbols[6799].val 
     };
     Object list371 = Pair::wordArrayToList(array371, 3);
 
@@ -2506,9 +2506,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array373[] = {
         list372.val,
-        builtinSymbols[516].val /* match:syntax-err */,
-        builtinSymbols[546].val /* obj */,
-        builtinSymbols[526].val /* msg */
+        builtinSymbols[6773].val ,
+        builtinSymbols[6833].val ,
+        builtinSymbols[6793].val 
     };
     Object list373 = Pair::wordArrayToList(array373, 4);
 
@@ -2520,9 +2520,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array375[] = {
         list374.val,
-        builtinSymbols[507].val /* match:andmap */,
-        builtinSymbols[308].val /* f */,
-        builtinSymbols[420].val /* l */
+        builtinSymbols[6764].val ,
+        builtinSymbols[576].val ,
+        builtinSymbols[6596].val 
     };
     Object list375 = Pair::wordArrayToList(array375, 4);
 
@@ -2534,9 +2534,9 @@ Object scheme::getBuiltinMatch() {
 
     static word array377[] = {
         list376.val,
-        builtinSymbols[508].val /* match:error */,
-        builtinSymbols[1288].val /* val */,
-        builtinSymbols[79].val /* args */
+        builtinSymbols[6765].val ,
+        builtinSymbols[8108].val ,
+        builtinSymbols[174].val 
     };
     Object list377 = Pair::wordArrayToList(array377, 4);
 
@@ -2548,7 +2548,7 @@ Object scheme::getBuiltinMatch() {
         526,
         Object::makeString(UC("Version 1.18, July 17, 1995")).val,
         558,
-        builtinSymbols[1099].val /* top level :$:match:version */,
+        builtinSymbols[7899].val ,
         3406,
         261,
         462,
@@ -2562,7 +2562,7 @@ Object scheme::getBuiltinMatch() {
         21,
         2446,
         3278,
-        builtinSymbols[1216].val /* top level :$:print */,
+        builtinSymbols[8017].val ,
         5,
         2062,
         Object::makeString(UC("no matching clause for ")).val,
@@ -2574,7 +2574,7 @@ Object scheme::getBuiltinMatch() {
         9,
         2734,
         558,
-        builtinSymbols[1085].val /* top level :$:match:error */,
+        builtinSymbols[7885].val ,
         1070,
         1070,
         462,
@@ -2605,7 +2605,7 @@ Object scheme::getBuiltinMatch() {
         2126,
         3054,
         1614,
-        builtinSymbols[1082].val /* top level :$:match:andmap */,
+        builtinSymbols[7882].val ,
         3182,
         9,
         9,
@@ -2614,7 +2614,7 @@ Object scheme::getBuiltinMatch() {
         5,
         2734,
         558,
-        builtinSymbols[1082].val /* top level :$:match:andmap */,
+        builtinSymbols[7882].val ,
         1070,
         1070,
         1070,
@@ -2639,12 +2639,12 @@ Object scheme::getBuiltinMatch() {
         9,
         2734,
         558,
-        builtinSymbols[1097].val /* top level :$:match:syntax-err */,
+        builtinSymbols[7897].val ,
         1070,
         526,
-        0x00000006,
+        6,
         558,
-        builtinSymbols[1084].val /* top level :$:match:disjoint-structure-tags */,
+        builtinSymbols[7884].val ,
         3406,
         217,
         3406,
@@ -2661,16 +2661,16 @@ Object scheme::getBuiltinMatch() {
         53,
         list371.val,
         1614,
-        builtinSymbols[1095].val /* top level :$:match:structure-control */,
+        builtinSymbols[7895].val ,
         2862,
-        builtinSymbols[257].val /* disjoint */,
+        builtinSymbols[487].val ,
         654,
         1870,
         13,
         974,
         13,
         1614,
-        builtinSymbols[1090].val /* top level :$:match:runtime-structures */,
+        builtinSymbols[7890].val ,
         1870,
         93,
         878,
@@ -2687,10 +2687,10 @@ Object scheme::getBuiltinMatch() {
         5,
         2350,
         1614,
-        builtinSymbols[1084].val /* top level :$:match:disjoint-structure-tags */,
+        builtinSymbols[7884].val ,
         494,
         174,
-        builtinSymbols[1084].val /* top level :$:match:disjoint-structure-tags */,
+        builtinSymbols[7884].val ,
         2094,
         2574,
         974,
@@ -2718,7 +2718,7 @@ Object scheme::getBuiltinMatch() {
         5,
         2702,
         558,
-        builtinSymbols[1088].val /* top level :$:match:make-structure-tag */,
+        builtinSymbols[7888].val ,
         1070,
         1070,
         1070,
@@ -2738,7 +2738,7 @@ Object scheme::getBuiltinMatch() {
         list369.val,
         2350,
         1614,
-        builtinSymbols[1084].val /* top level :$:match:disjoint-structure-tags */,
+        builtinSymbols[7884].val ,
         110,
         2222,
         3182,
@@ -2747,12 +2747,12 @@ Object scheme::getBuiltinMatch() {
         9,
         2702,
         558,
-        builtinSymbols[1096].val /* top level :$:match:structure? */,
+        builtinSymbols[7896].val ,
         1070,
         526,
-        builtinSymbols[1295].val /* vector */,
+        builtinSymbols[8115].val ,
         558,
-        builtinSymbols[1095].val /* top level :$:match:structure-control */,
+        builtinSymbols[7895].val ,
         462,
         41,
         5,
@@ -2762,10 +2762,10 @@ Object scheme::getBuiltinMatch() {
         list367.val,
         2094,
         174,
-        builtinSymbols[1095].val /* top level :$:match:structure-control */,
+        builtinSymbols[7895].val ,
         2702,
         558,
-        builtinSymbols[1094].val /* top level :$:match:set-structure-control */,
+        builtinSymbols[7894].val ,
         1070,
         462,
         41,
@@ -2776,15 +2776,15 @@ Object scheme::getBuiltinMatch() {
         list365.val,
         2094,
         174,
-        builtinSymbols[1085].val /* top level :$:match:error */,
+        builtinSymbols[7885].val ,
         2702,
         558,
-        builtinSymbols[1091].val /* top level :$:match:set-error */,
+        builtinSymbols[7891].val ,
         1070,
         526,
-        builtinSymbols[291].val /* error */,
+        builtinSymbols[547].val ,
         558,
-        builtinSymbols[1086].val /* top level :$:match:error-control */,
+        builtinSymbols[7886].val ,
         462,
         41,
         5,
@@ -2794,22 +2794,22 @@ Object scheme::getBuiltinMatch() {
         list363.val,
         2094,
         174,
-        builtinSymbols[1086].val /* top level :$:match:error-control */,
+        builtinSymbols[7886].val ,
         2702,
         558,
-        builtinSymbols[1092].val /* top level :$:match:set-error-control */,
+        builtinSymbols[7892].val ,
         1070,
         2062,
-        builtinSymbols[541].val /* null */,
+        builtinSymbols[6824].val ,
         526,
         list361.val,
         494,
         558,
-        builtinSymbols[1083].val /* top level :$:match:disjoint-predicates */,
+        builtinSymbols[7883].val ,
         526,
-        0x00000006,
+        6,
         558,
-        builtinSymbols[1098].val /* top level :$:match:vector-structures */,
+        builtinSymbols[7898].val ,
         878,
         3406,
         85,
@@ -3284,7 +3284,7 @@ Object scheme::getBuiltinMatch() {
         21,
         2926,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         2510,
         5,
@@ -3339,10 +3339,10 @@ Object scheme::getBuiltinMatch() {
         21,
         2926,
         3278,
-        builtinSymbols[913].val /* top level :$:caadr */,
+        builtinSymbols[7363].val ,
         5,
         2862,
-        builtinSymbols[45].val /* => */,
+        builtinSymbols[135].val ,
         654,
         1870,
         197,
@@ -3350,7 +3350,7 @@ Object scheme::getBuiltinMatch() {
         21,
         2926,
         3278,
-        builtinSymbols[920].val /* top level :$:cadadr */,
+        builtinSymbols[7370].val ,
         5,
         1838,
         1870,
@@ -3359,7 +3359,7 @@ Object scheme::getBuiltinMatch() {
         21,
         2926,
         3278,
-        builtinSymbols[954].val /* top level :$:cdadr */,
+        builtinSymbols[7404].val ,
         5,
         1454,
         1870,
@@ -3368,7 +3368,7 @@ Object scheme::getBuiltinMatch() {
         21,
         2926,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         1134,
         1870,
@@ -3382,7 +3382,7 @@ Object scheme::getBuiltinMatch() {
         21,
         2926,
         3278,
-        builtinSymbols[920].val /* top level :$:cadadr */,
+        builtinSymbols[7370].val ,
         5,
         974,
         5,
@@ -3462,14 +3462,14 @@ Object scheme::getBuiltinMatch() {
         3406,
         33,
         2062,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         3406,
         29,
         2094,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -3502,7 +3502,7 @@ Object scheme::getBuiltinMatch() {
         86,
         110,
         1614,
-        builtinSymbols[1065].val /* top level :$:list */,
+        builtinSymbols[7865].val ,
         3182,
         21,
         101,
@@ -3519,7 +3519,7 @@ Object scheme::getBuiltinMatch() {
         110,
         2926,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         2510,
         5,
@@ -3550,7 +3550,7 @@ Object scheme::getBuiltinMatch() {
         3406,
         17,
         2062,
-        0x00000006,
+        6,
         2350,
         2318,
         3054,
@@ -3577,7 +3577,7 @@ Object scheme::getBuiltinMatch() {
         814,
         2798,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         2990,
         526,
         list356.val,
@@ -3589,7 +3589,7 @@ Object scheme::getBuiltinMatch() {
         494,
         110,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -3795,7 +3795,7 @@ Object scheme::getBuiltinMatch() {
         21,
         2926,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         2510,
         5,
@@ -3870,11 +3870,11 @@ Object scheme::getBuiltinMatch() {
         2062,
         86,
         3278,
-        builtinSymbols[1065].val /* top level :$:list */,
+        builtinSymbols[7865].val ,
         21,
         110,
         3278,
-        builtinSymbols[1065].val /* top level :$:list */,
+        builtinSymbols[7865].val ,
         5,
         2510,
         5,
@@ -3948,7 +3948,7 @@ Object scheme::getBuiltinMatch() {
         750,
         73,
         2382,
-        0x00000006,
+        6,
         110,
         3406,
         17,
@@ -4013,7 +4013,7 @@ Object scheme::getBuiltinMatch() {
         110,
         2926,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         2510,
         5,
@@ -4028,7 +4028,7 @@ Object scheme::getBuiltinMatch() {
         814,
         2798,
         2062,
-        builtinSymbols[441].val /* letrec */,
+        builtinSymbols[6624].val ,
         3406,
         41,
         526,
@@ -4050,7 +4050,7 @@ Object scheme::getBuiltinMatch() {
         110,
         2926,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         110,
         3406,
@@ -4058,14 +4058,14 @@ Object scheme::getBuiltinMatch() {
         3406,
         29,
         526,
-        0x00000006,
+        6,
         494,
         494,
         110,
         3406,
         25,
         2062,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         2350,
         750,
         93,
@@ -4077,10 +4077,10 @@ Object scheme::getBuiltinMatch() {
         37,
         list335.val,
         2062,
-        builtinSymbols[758].val /* set! */,
+        builtinSymbols[7117].val ,
         2350,
         2414,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -4089,7 +4089,7 @@ Object scheme::getBuiltinMatch() {
         2926,
         2350,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         13,
         110,
         1582,
@@ -4098,7 +4098,7 @@ Object scheme::getBuiltinMatch() {
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -4114,7 +4114,7 @@ Object scheme::getBuiltinMatch() {
         110,
         2990,
         526,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -4321,7 +4321,7 @@ Object scheme::getBuiltinMatch() {
         21,
         2926,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         2510,
         5,
@@ -4396,11 +4396,11 @@ Object scheme::getBuiltinMatch() {
         2062,
         86,
         3278,
-        builtinSymbols[1065].val /* top level :$:list */,
+        builtinSymbols[7865].val ,
         21,
         110,
         3278,
-        builtinSymbols[1065].val /* top level :$:list */,
+        builtinSymbols[7865].val ,
         5,
         2510,
         5,
@@ -4474,7 +4474,7 @@ Object scheme::getBuiltinMatch() {
         750,
         73,
         2382,
-        0x00000006,
+        6,
         110,
         3406,
         17,
@@ -4539,7 +4539,7 @@ Object scheme::getBuiltinMatch() {
         110,
         2926,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         2510,
         5,
@@ -4554,7 +4554,7 @@ Object scheme::getBuiltinMatch() {
         814,
         2798,
         2062,
-        builtinSymbols[87].val /* begin */,
+        builtinSymbols[192].val ,
         750,
         81,
         462,
@@ -4565,7 +4565,7 @@ Object scheme::getBuiltinMatch() {
         29,
         list329.val,
         2062,
-        builtinSymbols[243].val /* define */,
+        builtinSymbols[465].val ,
         2382,
         list327.val,
         494,
@@ -4574,12 +4574,12 @@ Object scheme::getBuiltinMatch() {
         110,
         2926,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         2894,
         317,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         3406,
         37,
         526,
@@ -4591,14 +4591,14 @@ Object scheme::getBuiltinMatch() {
         3406,
         29,
         526,
-        0x00000006,
+        6,
         494,
         494,
         110,
         3406,
         25,
         2062,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         2350,
         750,
         93,
@@ -4610,10 +4610,10 @@ Object scheme::getBuiltinMatch() {
         37,
         list319.val,
         2062,
-        builtinSymbols[758].val /* set! */,
+        builtinSymbols[7117].val ,
         2350,
         2414,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -4622,7 +4622,7 @@ Object scheme::getBuiltinMatch() {
         2926,
         2350,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         13,
         2862,
         list317.val,
@@ -4630,7 +4630,7 @@ Object scheme::getBuiltinMatch() {
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -4647,7 +4647,7 @@ Object scheme::getBuiltinMatch() {
         3406,
         13,
         526,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -4657,7 +4657,7 @@ Object scheme::getBuiltinMatch() {
         46,
         5,
         2862,
-        0x00000006,
+        6,
         494,
         14,
         494,
@@ -4827,7 +4827,7 @@ Object scheme::getBuiltinMatch() {
         750,
         93,
         1614,
-        builtinSymbols[971].val /* top level :$:char-numeric? */,
+        builtinSymbols[7421].val ,
         2894,
         61,
         750,
@@ -4838,15 +4838,15 @@ Object scheme::getBuiltinMatch() {
         9,
         2350,
         3278,
-        builtinSymbols[1239].val /* top level :$:substring */,
+        builtinSymbols[8041].val ,
         13,
         110,
         3278,
-        builtinSymbols[1237].val /* top level :$:string->list */,
+        builtinSymbols[8039].val ,
         5,
         110,
         3278,
-        builtinSymbols[1082].val /* top level :$:match:andmap */,
+        builtinSymbols[7882].val ,
         9,
         1870,
         77,
@@ -4858,7 +4858,7 @@ Object scheme::getBuiltinMatch() {
         9,
         2350,
         3278,
-        builtinSymbols[1239].val /* top level :$:substring */,
+        builtinSymbols[8041].val ,
         13,
         110,
         2254,
@@ -4892,14 +4892,14 @@ Object scheme::getBuiltinMatch() {
         113,
         list306.val,
         1614,
-        builtinSymbols[1086].val /* top level :$:match:error-control */,
+        builtinSymbols[7886].val ,
         2862,
-        builtinSymbols[1284].val /* unspecified */,
+        builtinSymbols[8098].val ,
         654,
         1870,
         65,
         2062,
-        0x00000006,
+        6,
         462,
         37,
         5,
@@ -4916,7 +4916,7 @@ Object scheme::getBuiltinMatch() {
         750,
         33,
         1614,
-        builtinSymbols[1086].val /* top level :$:match:error-control */,
+        builtinSymbols[7886].val ,
         2862,
         list300.val,
         110,
@@ -4925,7 +4925,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         81,
         2062,
-        0x00000006,
+        6,
         462,
         53,
         5,
@@ -4934,9 +4934,9 @@ Object scheme::getBuiltinMatch() {
         29,
         list299.val,
         2062,
-        builtinSymbols[508].val /* match:error */,
+        builtinSymbols[6765].val ,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         2702,
@@ -4944,9 +4944,9 @@ Object scheme::getBuiltinMatch() {
         974,
         361,
         1614,
-        builtinSymbols[1086].val /* top level :$:match:error-control */,
+        builtinSymbols[7886].val ,
         2862,
-        builtinSymbols[498].val /* match */,
+        builtinSymbols[6755].val ,
         654,
         1870,
         293,
@@ -4969,38 +4969,38 @@ Object scheme::getBuiltinMatch() {
         2510,
         9,
         2382,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         110,
         2414,
-        0x00000006,
+        6,
         494,
         2862,
-        builtinSymbols[508].val /* match:error */,
+        builtinSymbols[6765].val ,
         110,
         2414,
-        builtinSymbols[695].val /* quote */,
+        builtinSymbols[7020].val ,
         110,
         2990,
         526,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
-        494,
-        494,
-        494,
-        2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
+        494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
+        494,
+        494,
+        2862,
+        6,
         494,
         110,
         2350,
@@ -5013,7 +5013,7 @@ Object scheme::getBuiltinMatch() {
         list297.val,
         2926,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         2702,
@@ -5027,7 +5027,7 @@ Object scheme::getBuiltinMatch() {
         2062,
         Object::makeString(UC("invalid value for match:error-control, legal values are")).val,
         1614,
-        builtinSymbols[1097].val /* top level :$:match:syntax-err */,
+        builtinSymbols[7897].val ,
         3182,
         9,
         5,
@@ -5054,7 +5054,7 @@ Object scheme::getBuiltinMatch() {
         21,
         2350,
         3278,
-        builtinSymbols[968].val /* top level :$:cddddr */,
+        builtinSymbols[7418].val ,
         5,
         334,
         3246,
@@ -5064,30 +5064,30 @@ Object scheme::getBuiltinMatch() {
         2062,
         Object::makeString(UC("Warning: unreachable pattern ")).val,
         3278,
-        builtinSymbols[992].val /* top level :$:display */,
+        builtinSymbols[7442].val ,
         5,
         750,
         25,
         2094,
         3022,
         3278,
-        builtinSymbols[992].val /* top level :$:display */,
+        builtinSymbols[7442].val ,
         5,
         750,
         25,
         2062,
         Object::makeString(UC(" in ")).val,
         3278,
-        builtinSymbols[992].val /* top level :$:display */,
+        builtinSymbols[7442].val ,
         5,
         750,
         21,
         2926,
         3278,
-        builtinSymbols[992].val /* top level :$:display */,
+        builtinSymbols[7442].val ,
         5,
         1614,
-        builtinSymbols[1103].val /* top level :$:newline */,
+        builtinSymbols[7903].val ,
         3182,
         1,
         5,
@@ -5099,7 +5099,7 @@ Object scheme::getBuiltinMatch() {
         110,
         2350,
         1614,
-        builtinSymbols[1036].val /* top level :$:for-each */,
+        builtinSymbols[7486].val ,
         3182,
         9,
         9,
@@ -5352,7 +5352,7 @@ Object scheme::getBuiltinMatch() {
         3406,
         49,
         526,
-        builtinSymbols[52].val /* _ */,
+        builtinSymbols[142].val ,
         718,
         1870,
         73,
@@ -5364,7 +5364,7 @@ Object scheme::getBuiltinMatch() {
         17,
         list280.val,
         526,
-        builtinSymbols[52].val /* _ */,
+        builtinSymbols[142].val ,
         1710,
         1,
         3182,
@@ -5412,7 +5412,7 @@ Object scheme::getBuiltinMatch() {
         49,
         3022,
         526,
-        builtinSymbols[694].val /* quasiquote */,
+        builtinSymbols[7018].val ,
         718,
         1870,
         225,
@@ -5475,7 +5475,7 @@ Object scheme::getBuiltinMatch() {
         49,
         3022,
         526,
-        builtinSymbols[695].val /* quote */,
+        builtinSymbols[7020].val ,
         718,
         1870,
         189,
@@ -5529,7 +5529,7 @@ Object scheme::getBuiltinMatch() {
         49,
         3022,
         526,
-        builtinSymbols[48].val /* ? */,
+        builtinSymbols[138].val ,
         718,
         1870,
         281,
@@ -5570,7 +5570,7 @@ Object scheme::getBuiltinMatch() {
         41,
         list272.val,
         2062,
-        builtinSymbols[48].val /* ? */,
+        builtinSymbols[138].val ,
         2350,
         750,
         29,
@@ -5578,7 +5578,7 @@ Object scheme::getBuiltinMatch() {
         110,
         2446,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         494,
         494,
@@ -5606,7 +5606,7 @@ Object scheme::getBuiltinMatch() {
         49,
         3022,
         526,
-        builtinSymbols[44].val /* = */,
+        builtinSymbols[134].val ,
         718,
         1870,
         329,
@@ -5627,7 +5627,7 @@ Object scheme::getBuiltinMatch() {
         3406,
         49,
         3278,
-        builtinSymbols[969].val /* top level :$:cdddr */,
+        builtinSymbols[7419].val ,
         5,
         1134,
         974,
@@ -5644,7 +5644,7 @@ Object scheme::getBuiltinMatch() {
         3406,
         49,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         110,
         3406,
@@ -5658,7 +5658,7 @@ Object scheme::getBuiltinMatch() {
         41,
         list270.val,
         2062,
-        builtinSymbols[44].val /* = */,
+        builtinSymbols[134].val ,
         2350,
         750,
         21,
@@ -5667,7 +5667,7 @@ Object scheme::getBuiltinMatch() {
         46,
         5,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -5695,7 +5695,7 @@ Object scheme::getBuiltinMatch() {
         49,
         3022,
         526,
-        builtinSymbols[66].val /* and */,
+        builtinSymbols[158].val ,
         718,
         1870,
         249,
@@ -5730,14 +5730,14 @@ Object scheme::getBuiltinMatch() {
         33,
         list268.val,
         2062,
-        builtinSymbols[66].val /* and */,
+        builtinSymbols[158].val ,
         750,
         29,
         3086,
         110,
         2350,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         494,
         2702,
@@ -5764,7 +5764,7 @@ Object scheme::getBuiltinMatch() {
         49,
         3022,
         526,
-        builtinSymbols[562].val /* or */,
+        builtinSymbols[6858].val ,
         718,
         1870,
         249,
@@ -5799,14 +5799,14 @@ Object scheme::getBuiltinMatch() {
         33,
         list266.val,
         2062,
-        builtinSymbols[562].val /* or */,
+        builtinSymbols[6858].val ,
         750,
         29,
         3086,
         110,
         2350,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         494,
         2702,
@@ -5833,7 +5833,7 @@ Object scheme::getBuiltinMatch() {
         49,
         3022,
         526,
-        builtinSymbols[539].val /* not */,
+        builtinSymbols[6822].val ,
         718,
         1870,
         249,
@@ -5868,14 +5868,14 @@ Object scheme::getBuiltinMatch() {
         33,
         list264.val,
         2062,
-        builtinSymbols[539].val /* not */,
+        builtinSymbols[6822].val ,
         750,
         29,
         3086,
         110,
         2350,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         494,
         2702,
@@ -5902,7 +5902,7 @@ Object scheme::getBuiltinMatch() {
         49,
         3022,
         526,
-        builtinSymbols[1].val /* $ */,
+        builtinSymbols[1].val ,
         718,
         1870,
         313,
@@ -5951,7 +5951,7 @@ Object scheme::getBuiltinMatch() {
         41,
         list262.val,
         2062,
-        builtinSymbols[1].val /* $ */,
+        builtinSymbols[1].val ,
         2350,
         750,
         29,
@@ -5959,7 +5959,7 @@ Object scheme::getBuiltinMatch() {
         110,
         2446,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         494,
         494,
@@ -5987,7 +5987,7 @@ Object scheme::getBuiltinMatch() {
         49,
         3022,
         526,
-        builtinSymbols[758].val /* set! */,
+        builtinSymbols[7117].val ,
         718,
         1870,
         249,
@@ -6056,7 +6056,7 @@ Object scheme::getBuiltinMatch() {
         49,
         3022,
         526,
-        builtinSymbols[350].val /* get! */,
+        builtinSymbols[6467].val ,
         718,
         1870,
         249,
@@ -6125,7 +6125,7 @@ Object scheme::getBuiltinMatch() {
         49,
         3022,
         526,
-        builtinSymbols[1282].val /* unquote */,
+        builtinSymbols[8096].val ,
         718,
         1870,
         57,
@@ -6146,7 +6146,7 @@ Object scheme::getBuiltinMatch() {
         49,
         3022,
         526,
-        builtinSymbols[1283].val /* unquote-splicing */,
+        builtinSymbols[8097].val ,
         718,
         1870,
         57,
@@ -6217,7 +6217,7 @@ Object scheme::getBuiltinMatch() {
         5,
         110,
         2414,
-        0x00000006,
+        6,
         494,
         494,
         2734,
@@ -6340,7 +6340,7 @@ Object scheme::getBuiltinMatch() {
         2094,
         3054,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         494,
         110,
@@ -6357,7 +6357,7 @@ Object scheme::getBuiltinMatch() {
         110,
         2990,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         110,
         2254,
@@ -6386,7 +6386,7 @@ Object scheme::getBuiltinMatch() {
         2062,
         Object::makeString(UC("syntax error in pattern")).val,
         1614,
-        builtinSymbols[1097].val /* top level :$:match:syntax-err */,
+        builtinSymbols[7897].val ,
         3182,
         9,
         1,
@@ -6519,9 +6519,9 @@ Object scheme::getBuiltinMatch() {
         29,
         list244.val,
         2062,
-        builtinSymbols[695].val /* quote */,
+        builtinSymbols[7020].val ,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         2702,
@@ -6540,7 +6540,7 @@ Object scheme::getBuiltinMatch() {
         45,
         3022,
         526,
-        builtinSymbols[1282].val /* unquote */,
+        builtinSymbols[8096].val ,
         718,
         1870,
         225,
@@ -6609,7 +6609,7 @@ Object scheme::getBuiltinMatch() {
         45,
         270,
         2862,
-        builtinSymbols[1283].val /* unquote-splicing */,
+        builtinSymbols[8097].val ,
         718,
         1870,
         77,
@@ -6624,7 +6624,7 @@ Object scheme::getBuiltinMatch() {
         3406,
         45,
         3278,
-        builtinSymbols[962].val /* top level :$:cddar */,
+        builtinSymbols[7412].val ,
         5,
         1134,
         974,
@@ -6646,7 +6646,7 @@ Object scheme::getBuiltinMatch() {
         3406,
         45,
         3278,
-        builtinSymbols[921].val /* top level :$:cadar */,
+        builtinSymbols[7371].val ,
         5,
         110,
         3406,
@@ -6678,7 +6678,7 @@ Object scheme::getBuiltinMatch() {
         3406,
         45,
         3278,
-        builtinSymbols[921].val /* top level :$:cadar */,
+        builtinSymbols[7371].val ,
         5,
         110,
         1582,
@@ -6770,7 +6770,7 @@ Object scheme::getBuiltinMatch() {
         5,
         110,
         2414,
-        0x00000006,
+        6,
         494,
         494,
         2734,
@@ -6893,7 +6893,7 @@ Object scheme::getBuiltinMatch() {
         2094,
         3054,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         494,
         110,
@@ -6909,7 +6909,7 @@ Object scheme::getBuiltinMatch() {
         110,
         2990,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         110,
         2254,
@@ -6938,7 +6938,7 @@ Object scheme::getBuiltinMatch() {
         2062,
         Object::makeString(UC("syntax error in pattern")).val,
         1614,
-        builtinSymbols[1097].val /* top level :$:match:syntax-err */,
+        builtinSymbols[7897].val ,
         3182,
         9,
         1,
@@ -6970,7 +6970,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         21,
         526,
-        0x00000006,
+        6,
         974,
         129,
         2094,
@@ -6999,7 +6999,7 @@ Object scheme::getBuiltinMatch() {
         2062,
         Object::makeString(UC("invalid use of unquote-splicing in pattern")).val,
         1614,
-        builtinSymbols[1097].val /* top level :$:match:syntax-err */,
+        builtinSymbols[7897].val ,
         3182,
         9,
         5,
@@ -7095,7 +7095,7 @@ Object scheme::getBuiltinMatch() {
         622,
         25,
         526,
-        0x00000006,
+        6,
         206,
         1,
         3406,
@@ -7124,7 +7124,7 @@ Object scheme::getBuiltinMatch() {
         437,
         list226.val,
         2062,
-        builtinSymbols[52].val /* _ */,
+        builtinSymbols[142].val ,
         2094,
         654,
         1870,
@@ -7158,7 +7158,7 @@ Object scheme::getBuiltinMatch() {
         2062,
         Object::makeString(UC("duplicate variable in pattern")).val,
         3278,
-        builtinSymbols[1097].val /* top level :$:match:syntax-err */,
+        builtinSymbols[7897].val ,
         9,
         974,
         9,
@@ -7180,7 +7180,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[695].val /* quote */,
+        builtinSymbols[7020].val ,
         2094,
         334,
         654,
@@ -7202,7 +7202,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[48].val /* ? */,
+        builtinSymbols[138].val ,
         2094,
         334,
         654,
@@ -7216,13 +7216,13 @@ Object scheme::getBuiltinMatch() {
         3246,
         113,
         2062,
-        builtinSymbols[66].val /* and */,
+        builtinSymbols[158].val ,
         2062,
-        builtinSymbols[48].val /* ? */,
+        builtinSymbols[138].val ,
         2094,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -7281,7 +7281,7 @@ Object scheme::getBuiltinMatch() {
         2318,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -7292,9 +7292,9 @@ Object scheme::getBuiltinMatch() {
         142,
         17,
         2062,
-        builtinSymbols[48].val /* ? */,
+        builtinSymbols[138].val ,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -7321,7 +7321,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[44].val /* = */,
+        builtinSymbols[134].val ,
         2094,
         334,
         654,
@@ -7371,7 +7371,7 @@ Object scheme::getBuiltinMatch() {
         17,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -7382,17 +7382,17 @@ Object scheme::getBuiltinMatch() {
         142,
         21,
         2062,
-        builtinSymbols[44].val /* = */,
+        builtinSymbols[134].val ,
         2350,
         750,
         25,
         3406,
         17,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -7412,7 +7412,7 @@ Object scheme::getBuiltinMatch() {
         21,
         2350,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         110,
         2446,
@@ -7427,12 +7427,12 @@ Object scheme::getBuiltinMatch() {
         45,
         list224.val,
         2062,
-        builtinSymbols[44].val /* = */,
+        builtinSymbols[134].val ,
         2286,
         302,
         110,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -7459,7 +7459,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[66].val /* and */,
+        builtinSymbols[158].val ,
         2094,
         334,
         654,
@@ -7481,7 +7481,7 @@ Object scheme::getBuiltinMatch() {
         37,
         list222.val,
         2062,
-        builtinSymbols[66].val /* and */,
+        builtinSymbols[158].val ,
         2094,
         494,
         110,
@@ -7507,7 +7507,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[562].val /* or */,
+        builtinSymbols[6858].val ,
         2094,
         334,
         654,
@@ -7624,7 +7624,7 @@ Object scheme::getBuiltinMatch() {
         2062,
         Object::makeString(UC("variables of or-pattern differ in")).val,
         3278,
-        builtinSymbols[1097].val /* top level :$:match:syntax-err */,
+        builtinSymbols[7897].val ,
         9,
         974,
         9,
@@ -7684,7 +7684,7 @@ Object scheme::getBuiltinMatch() {
         37,
         list212.val,
         2062,
-        builtinSymbols[562].val /* or */,
+        builtinSymbols[6858].val ,
         2990,
         2094,
         494,
@@ -7721,7 +7721,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[539].val /* not */,
+        builtinSymbols[6822].val ,
         2094,
         334,
         654,
@@ -7735,14 +7735,14 @@ Object scheme::getBuiltinMatch() {
         3246,
         97,
         2062,
-        builtinSymbols[539].val /* not */,
+        builtinSymbols[6822].val ,
         2062,
-        builtinSymbols[562].val /* or */,
+        builtinSymbols[6858].val ,
         2094,
         430,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -7789,15 +7789,15 @@ Object scheme::getBuiltinMatch() {
         2062,
         Object::makeString(UC("no variables allowed in")).val,
         3278,
-        builtinSymbols[1097].val /* top level :$:match:syntax-err */,
+        builtinSymbols[7897].val ,
         9,
         974,
         9,
         1902,
         2062,
-        builtinSymbols[539].val /* not */,
+        builtinSymbols[6822].val ,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -7920,10 +7920,10 @@ Object scheme::getBuiltinMatch() {
         110,
         2350,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -7955,7 +7955,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[1].val /* $ */,
+        builtinSymbols[1].val ,
         2094,
         334,
         654,
@@ -7978,7 +7978,7 @@ Object scheme::getBuiltinMatch() {
         41,
         list204.val,
         2062,
-        builtinSymbols[1].val /* $ */,
+        builtinSymbols[1].val ,
         2286,
         302,
         110,
@@ -8008,7 +8008,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[758].val /* set! */,
+        builtinSymbols[7117].val ,
         2094,
         334,
         654,
@@ -8055,7 +8055,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[350].val /* get! */,
+        builtinSymbols[6467].val ,
         2094,
         334,
         654,
@@ -8413,7 +8413,7 @@ Object scheme::getBuiltinMatch() {
         33,
         2990,
         1614,
-        builtinSymbols[1085].val /* top level :$:match:error */,
+        builtinSymbols[7885].val ,
         3182,
         5,
         25,
@@ -8514,7 +8514,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         21,
         526,
-        0x00000006,
+        6,
         974,
         45,
         2094,
@@ -8576,7 +8576,7 @@ Object scheme::getBuiltinMatch() {
         110,
         2350,
         1614,
-        builtinSymbols[1082].val /* top level :$:match:andmap */,
+        builtinSymbols[7882].val ,
         3182,
         9,
         9,
@@ -8589,7 +8589,7 @@ Object scheme::getBuiltinMatch() {
         3406,
         21,
         2062,
-        0x00000006,
+        6,
         3406,
         49,
         2350,
@@ -8611,7 +8611,7 @@ Object scheme::getBuiltinMatch() {
         3086,
         110,
         1614,
-        builtinSymbols[1065].val /* top level :$:list */,
+        builtinSymbols[7865].val ,
         3182,
         13,
         9,
@@ -8906,7 +8906,7 @@ Object scheme::getBuiltinMatch() {
         2094,
         3022,
         526,
-        builtinSymbols[695].val /* quote */,
+        builtinSymbols[7020].val ,
         654,
         1870,
         81,
@@ -8997,7 +8997,7 @@ Object scheme::getBuiltinMatch() {
         2094,
         3022,
         526,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         654,
         1870,
         161,
@@ -9017,7 +9017,7 @@ Object scheme::getBuiltinMatch() {
         21,
         2350,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         110,
         3086,
@@ -9029,7 +9029,7 @@ Object scheme::getBuiltinMatch() {
         21,
         2350,
         3278,
-        builtinSymbols[969].val /* top level :$:cdddr */,
+        builtinSymbols[7419].val ,
         5,
         1134,
         974,
@@ -9091,7 +9091,7 @@ Object scheme::getBuiltinMatch() {
         974,
         69,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         750,
         25,
         2446,
@@ -9102,7 +9102,7 @@ Object scheme::getBuiltinMatch() {
         110,
         3150,
         526,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -9275,13 +9275,13 @@ Object scheme::getBuiltinMatch() {
         21,
         302,
         2862,
-        0x00000006,
+        6,
         2894,
         25,
         3406,
         21,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         110,
         2094,
@@ -9413,7 +9413,7 @@ Object scheme::getBuiltinMatch() {
         590,
         113,
         2062,
-        0x00000006,
+        6,
         238,
         1,
         622,
@@ -9682,7 +9682,7 @@ Object scheme::getBuiltinMatch() {
         2318,
         3022,
         3278,
-        builtinSymbols[968].val /* top level :$:cddddr */,
+        builtinSymbols[7418].val ,
         5,
         2862,
         70,
@@ -9717,7 +9717,7 @@ Object scheme::getBuiltinMatch() {
         2222,
         3022,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         2510,
         5,
@@ -9737,7 +9737,7 @@ Object scheme::getBuiltinMatch() {
         2222,
         3022,
         3278,
-        builtinSymbols[927].val /* top level :$:cadddr */,
+        builtinSymbols[7377].val ,
         5,
         2510,
         5,
@@ -9763,30 +9763,30 @@ Object scheme::getBuiltinMatch() {
         2958,
         2926,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         494,
         494,
         2510,
         5,
         2062,
-        builtinSymbols[132].val /* call-with-current-continuation */,
+        builtinSymbols[310].val ,
         2062,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         3406,
         21,
         526,
-        0x00000006,
+        6,
         494,
         2862,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         110,
         3406,
         21,
         2062,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         2062,
-        0x00000006,
+        6,
         3406,
         21,
         750,
@@ -9797,34 +9797,34 @@ Object scheme::getBuiltinMatch() {
         46,
         5,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         110,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2574,
@@ -9839,7 +9839,7 @@ Object scheme::getBuiltinMatch() {
         3406,
         13,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         494,
         2574,
@@ -9972,7 +9972,7 @@ Object scheme::getBuiltinMatch() {
         689,
         list143.val,
         2062,
-        builtinSymbols[52].val /* _ */,
+        builtinSymbols[142].val ,
         2094,
         654,
         1870,
@@ -10014,9 +10014,9 @@ Object scheme::getBuiltinMatch() {
         1870,
         89,
         2062,
-        builtinSymbols[543].val /* null? */,
+        builtinSymbols[6828].val ,
         2414,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -10040,9 +10040,9 @@ Object scheme::getBuiltinMatch() {
         1870,
         89,
         2062,
-        builtinSymbols[543].val /* null? */,
+        builtinSymbols[6828].val ,
         2414,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -10070,10 +10070,10 @@ Object scheme::getBuiltinMatch() {
         1870,
         97,
         2062,
-        builtinSymbols[288].val /* equal? */,
+        builtinSymbols[544].val ,
         2446,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -10102,10 +10102,10 @@ Object scheme::getBuiltinMatch() {
         1870,
         97,
         2062,
-        builtinSymbols[288].val /* equal? */,
+        builtinSymbols[544].val ,
         2446,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -10134,10 +10134,10 @@ Object scheme::getBuiltinMatch() {
         1870,
         97,
         2062,
-        builtinSymbols[288].val /* equal? */,
+        builtinSymbols[544].val ,
         2446,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -10166,10 +10166,10 @@ Object scheme::getBuiltinMatch() {
         1870,
         97,
         2062,
-        builtinSymbols[288].val /* equal? */,
+        builtinSymbols[544].val ,
         2446,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -10193,7 +10193,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[695].val /* quote */,
+        builtinSymbols[7020].val ,
         2094,
         334,
         654,
@@ -10202,10 +10202,10 @@ Object scheme::getBuiltinMatch() {
         1870,
         97,
         2062,
-        builtinSymbols[288].val /* equal? */,
+        builtinSymbols[544].val ,
         2446,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -10229,7 +10229,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[48].val /* ? */,
+        builtinSymbols[138].val ,
         2094,
         334,
         654,
@@ -10251,7 +10251,7 @@ Object scheme::getBuiltinMatch() {
         302,
         110,
         2414,
-        0x00000006,
+        6,
         494,
         494,
         2510,
@@ -10274,7 +10274,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[44].val /* = */,
+        builtinSymbols[134].val ,
         2094,
         334,
         654,
@@ -10286,14 +10286,14 @@ Object scheme::getBuiltinMatch() {
         21,
         2350,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         110,
         2094,
         302,
         110,
         2414,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -10316,7 +10316,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[66].val /* and */,
+        builtinSymbols[158].val ,
         2094,
         334,
         654,
@@ -10427,7 +10427,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[562].val /* or */,
+        builtinSymbols[6858].val ,
         2094,
         334,
         654,
@@ -10571,7 +10571,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[539].val /* not */,
+        builtinSymbols[6822].val ,
         2094,
         334,
         654,
@@ -10602,7 +10602,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[1].val /* $ */,
+        builtinSymbols[1].val ,
         2094,
         334,
         654,
@@ -10825,13 +10825,13 @@ Object scheme::getBuiltinMatch() {
         2894,
         25,
         2062,
-        builtinSymbols[48].val /* ? */,
+        builtinSymbols[138].val ,
         2318,
         46,
         5,
         110,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         110,
         2286,
@@ -10843,7 +10843,7 @@ Object scheme::getBuiltinMatch() {
         110,
         2926,
         526,
-        0x00000006,
+        6,
         494,
         494,
         2510,
@@ -10984,7 +10984,7 @@ Object scheme::getBuiltinMatch() {
         3406,
         65,
         3278,
-        builtinSymbols[1069].val /* top level :$:list-ref */,
+        builtinSymbols[7869].val ,
         9,
         2894,
         297,
@@ -11042,7 +11042,7 @@ Object scheme::getBuiltinMatch() {
         2894,
         33,
         2062,
-        builtinSymbols[39].val /* - */,
+        builtinSymbols[129].val ,
         3406,
         65,
         1582,
@@ -11050,7 +11050,7 @@ Object scheme::getBuiltinMatch() {
         2798,
         110,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         110,
         1582,
@@ -11065,7 +11065,7 @@ Object scheme::getBuiltinMatch() {
         3406,
         13,
         526,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -11119,7 +11119,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[758].val /* set! */,
+        builtinSymbols[7117].val ,
         2094,
         334,
         654,
@@ -11159,7 +11159,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[350].val /* get! */,
+        builtinSymbols[6467].val ,
         2094,
         334,
         654,
@@ -11220,9 +11220,9 @@ Object scheme::getBuiltinMatch() {
         1870,
         3377,
         2062,
-        builtinSymbols[461].val /* list? */,
+        builtinSymbols[6667].val ,
         2414,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -11411,14 +11411,14 @@ Object scheme::getBuiltinMatch() {
         2062,
         9,
         3278,
-        builtinSymbols[1069].val /* top level :$:list-ref */,
+        builtinSymbols[7869].val ,
         9,
         2510,
         5,
         2222,
         3022,
         526,
-        builtinSymbols[52].val /* _ */,
+        builtinSymbols[142].val ,
         654,
         1870,
         45,
@@ -11542,26 +11542,26 @@ Object scheme::getBuiltinMatch() {
         974,
         53,
         2062,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         2926,
         526,
-        0x00000006,
+        6,
         494,
         110,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         494,
         2510,
         5,
         2062,
-        builtinSymbols[507].val /* match:andmap */,
+        builtinSymbols[6764].val ,
         2350,
         3406,
         21,
         526,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -11599,7 +11599,7 @@ Object scheme::getBuiltinMatch() {
         2222,
         3022,
         3278,
-        builtinSymbols[1065].val /* top level :$:list */,
+        builtinSymbols[7865].val ,
         5,
         110,
         2094,
@@ -11655,7 +11655,7 @@ Object scheme::getBuiltinMatch() {
         2062,
         13,
         3278,
-        builtinSymbols[1069].val /* top level :$:list-ref */,
+        builtinSymbols[7869].val ,
         9,
         2510,
         5,
@@ -11689,7 +11689,7 @@ Object scheme::getBuiltinMatch() {
         2062,
         17,
         3278,
-        builtinSymbols[1069].val /* top level :$:list-ref */,
+        builtinSymbols[7869].val ,
         9,
         2510,
         5,
@@ -11725,7 +11725,7 @@ Object scheme::getBuiltinMatch() {
         2062,
         21,
         3278,
-        builtinSymbols[1069].val /* top level :$:list-ref */,
+        builtinSymbols[7869].val ,
         9,
         2510,
         5,
@@ -11771,11 +11771,11 @@ Object scheme::getBuiltinMatch() {
         33,
         3022,
         2062,
-        builtinSymbols[143].val /* car */,
+        builtinSymbols[322].val ,
         3406,
         29,
         526,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -11801,11 +11801,11 @@ Object scheme::getBuiltinMatch() {
         3406,
         17,
         2062,
-        builtinSymbols[182].val /* cdr */,
+        builtinSymbols[362].val ,
         3406,
         13,
         526,
-        0x00000006,
+        6,
         494,
         494,
         2894,
@@ -11819,7 +11819,7 @@ Object scheme::getBuiltinMatch() {
         41,
         list114.val,
         2062,
-        builtinSymbols[229].val /* cons */,
+        builtinSymbols[439].val ,
         750,
         21,
         2350,
@@ -11828,7 +11828,7 @@ Object scheme::getBuiltinMatch() {
         5,
         110,
         2414,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -11837,7 +11837,7 @@ Object scheme::getBuiltinMatch() {
         2958,
         2926,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         13,
         494,
         494,
@@ -11865,20 +11865,20 @@ Object scheme::getBuiltinMatch() {
         29,
         list112.val,
         2062,
-        builtinSymbols[740].val /* reverse */,
+        builtinSymbols[7083].val ,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         2702,
         110,
         2958,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         110,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         13,
         110,
         1582,
@@ -11888,7 +11888,7 @@ Object scheme::getBuiltinMatch() {
         142,
         73,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         3406,
         17,
         3406,
@@ -11896,7 +11896,7 @@ Object scheme::getBuiltinMatch() {
         3406,
         45,
         526,
-        0x00000006,
+        6,
         494,
         494,
         2894,
@@ -11917,18 +11917,18 @@ Object scheme::getBuiltinMatch() {
         110,
         2958,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         494,
         2862,
-        builtinSymbols[385].val /* if */,
+        builtinSymbols[6535].val ,
         2862,
-        builtinSymbols[543].val /* null? */,
+        builtinSymbols[6828].val ,
         110,
         3406,
         29,
         526,
-        0x00000006,
+        6,
         494,
         494,
         2894,
@@ -11941,13 +11941,13 @@ Object scheme::getBuiltinMatch() {
         5,
         110,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -12000,11 +12000,11 @@ Object scheme::getBuiltinMatch() {
         2830,
         97,
         2062,
-        builtinSymbols[571].val /* pair? */,
+        builtinSymbols[6871].val ,
         3406,
         21,
         526,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -12025,14 +12025,14 @@ Object scheme::getBuiltinMatch() {
         2990,
         2926,
         526,
-        0x00000006,
+        6,
         494,
         494,
         110,
         3406,
         21,
         526,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -12067,9 +12067,9 @@ Object scheme::getBuiltinMatch() {
         1870,
         405,
         2062,
-        builtinSymbols[571].val /* pair? */,
+        builtinSymbols[6871].val ,
         2414,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -12354,11 +12354,11 @@ Object scheme::getBuiltinMatch() {
         2510,
         5,
         2062,
-        builtinSymbols[1303].val /* vector? */,
+        builtinSymbols[8126].val ,
         3406,
         65,
         526,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -12399,20 +12399,20 @@ Object scheme::getBuiltinMatch() {
         65,
         list102.val,
         2062,
-        builtinSymbols[47].val /* >= */,
+        builtinSymbols[137].val ,
         2062,
-        builtinSymbols[1298].val /* vector-length */,
+        builtinSymbols[8119].val ,
         3406,
         53,
         526,
-        0x00000006,
+        6,
         494,
         494,
         110,
         3406,
         49,
         526,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -12535,14 +12535,14 @@ Object scheme::getBuiltinMatch() {
         57,
         1998,
         2862,
-        builtinSymbols[1300].val /* vector-ref */,
+        builtinSymbols[8121].val ,
         110,
         3406,
         45,
         3406,
         57,
         526,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -12578,7 +12578,7 @@ Object scheme::getBuiltinMatch() {
         53,
         1998,
         2862,
-        builtinSymbols[52].val /* _ */,
+        builtinSymbols[142].val ,
         654,
         1870,
         41,
@@ -12754,14 +12754,14 @@ Object scheme::getBuiltinMatch() {
         37,
         1998,
         2862,
-        builtinSymbols[1300].val /* vector-ref */,
+        builtinSymbols[8121].val ,
         110,
         3406,
         33,
         3406,
         29,
         526,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -12788,7 +12788,7 @@ Object scheme::getBuiltinMatch() {
         3406,
         17,
         2062,
-        builtinSymbols[39].val /* - */,
+        builtinSymbols[129].val ,
         3406,
         13,
         526,
@@ -12806,7 +12806,7 @@ Object scheme::getBuiltinMatch() {
         41,
         list93.val,
         2062,
-        builtinSymbols[229].val /* cons */,
+        builtinSymbols[439].val ,
         750,
         21,
         2350,
@@ -12815,7 +12815,7 @@ Object scheme::getBuiltinMatch() {
         5,
         110,
         2414,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -12824,7 +12824,7 @@ Object scheme::getBuiltinMatch() {
         2958,
         2926,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         13,
         494,
         494,
@@ -12842,7 +12842,7 @@ Object scheme::getBuiltinMatch() {
         2990,
         2958,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         13,
         110,
         1582,
@@ -12852,19 +12852,19 @@ Object scheme::getBuiltinMatch() {
         142,
         85,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         3406,
         17,
         3406,
         29,
         2062,
-        builtinSymbols[39].val /* - */,
+        builtinSymbols[129].val ,
         2062,
-        builtinSymbols[1298].val /* vector-length */,
+        builtinSymbols[8119].val ,
         3406,
         33,
         526,
-        0x00000006,
+        6,
         494,
         494,
         2862,
@@ -12872,7 +12872,7 @@ Object scheme::getBuiltinMatch() {
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2894,
@@ -12893,20 +12893,20 @@ Object scheme::getBuiltinMatch() {
         110,
         2958,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         494,
         2862,
-        builtinSymbols[385].val /* if */,
+        builtinSymbols[6535].val ,
         2862,
-        builtinSymbols[46].val /* > */,
+        builtinSymbols[136].val ,
         110,
         3406,
         53,
         3406,
         29,
         526,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -12920,13 +12920,13 @@ Object scheme::getBuiltinMatch() {
         5,
         110,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -12993,11 +12993,11 @@ Object scheme::getBuiltinMatch() {
         2510,
         5,
         2062,
-        builtinSymbols[1303].val /* vector? */,
+        builtinSymbols[8126].val ,
         3406,
         25,
         526,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -13025,20 +13025,20 @@ Object scheme::getBuiltinMatch() {
         61,
         list86.val,
         2062,
-        builtinSymbols[288].val /* equal? */,
+        builtinSymbols[544].val ,
         2062,
-        builtinSymbols[1298].val /* vector-length */,
+        builtinSymbols[8119].val ,
         3406,
         29,
         526,
-        0x00000006,
+        6,
         494,
         494,
         110,
         3406,
         25,
         526,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -13128,14 +13128,14 @@ Object scheme::getBuiltinMatch() {
         33,
         1998,
         2862,
-        builtinSymbols[1300].val /* vector-ref */,
+        builtinSymbols[8121].val ,
         110,
         3406,
         13,
         3406,
         33,
         526,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -13192,12 +13192,12 @@ Object scheme::getBuiltinMatch() {
         2062,
         Object::makeString(UC("FATAL ERROR IN PATTERN MATCHER")).val,
         3278,
-        builtinSymbols[992].val /* top level :$:display */,
+        builtinSymbols[7442].val ,
         5,
         750,
         17,
         3278,
-        builtinSymbols[1103].val /* top level :$:newline */,
+        builtinSymbols[7903].val ,
         1,
         2062,
         86,
@@ -13281,9 +13281,9 @@ Object scheme::getBuiltinMatch() {
         750,
         53,
         2062,
-        builtinSymbols[539].val /* not */,
+        builtinSymbols[6822].val ,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -13351,7 +13351,7 @@ Object scheme::getBuiltinMatch() {
         25,
         3022,
         526,
-        builtinSymbols[288].val /* equal? */,
+        builtinSymbols[544].val ,
         654,
         1870,
         549,
@@ -13371,7 +13371,7 @@ Object scheme::getBuiltinMatch() {
         21,
         2926,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         2510,
         5,
@@ -13385,15 +13385,15 @@ Object scheme::getBuiltinMatch() {
         1870,
         57,
         2062,
-        builtinSymbols[801].val /* string? */,
+        builtinSymbols[7216].val ,
         3406,
         17,
         526,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         974,
         369,
@@ -13406,15 +13406,15 @@ Object scheme::getBuiltinMatch() {
         1870,
         57,
         2062,
-        builtinSymbols[90].val /* boolean? */,
+        builtinSymbols[218].val ,
         3406,
         17,
         526,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         974,
         285,
@@ -13427,15 +13427,15 @@ Object scheme::getBuiltinMatch() {
         1870,
         57,
         2062,
-        builtinSymbols[193].val /* char? */,
+        builtinSymbols[391].val ,
         3406,
         17,
         526,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         974,
         201,
@@ -13448,15 +13448,15 @@ Object scheme::getBuiltinMatch() {
         1870,
         57,
         2062,
-        builtinSymbols[545].val /* number? */,
+        builtinSymbols[6831].val ,
         3406,
         17,
         526,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         974,
         117,
@@ -13465,7 +13465,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         33,
         2062,
-        builtinSymbols[695].val /* quote */,
+        builtinSymbols[7020].val ,
         2094,
         334,
         654,
@@ -13474,20 +13474,20 @@ Object scheme::getBuiltinMatch() {
         1870,
         57,
         2062,
-        builtinSymbols[809].val /* symbol? */,
+        builtinSymbols[7237].val ,
         3406,
         17,
         526,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         974,
         13,
         526,
-        0x00000006,
+        6,
         2574,
         974,
         169,
@@ -13495,18 +13495,18 @@ Object scheme::getBuiltinMatch() {
         25,
         3022,
         526,
-        builtinSymbols[543].val /* null? */,
+        builtinSymbols[6828].val ,
         654,
         1870,
         49,
         2062,
-        builtinSymbols[461].val /* list? */,
+        builtinSymbols[6667].val ,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         974,
         93,
@@ -13520,18 +13520,18 @@ Object scheme::getBuiltinMatch() {
         1870,
         49,
         2062,
-        builtinSymbols[1303].val /* vector? */,
+        builtinSymbols[8126].val ,
         2382,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         974,
         13,
         526,
-        0x00000006,
+        6,
         2510,
         5,
         878,
@@ -13562,29 +13562,29 @@ Object scheme::getBuiltinMatch() {
         622,
         5,
         2062,
-        builtinSymbols[461].val /* list? */,
+        builtinSymbols[6667].val ,
         2830,
         77,
         2062,
-        builtinSymbols[539].val /* not */,
+        builtinSymbols[6822].val ,
         2062,
-        builtinSymbols[543].val /* null? */,
+        builtinSymbols[6828].val ,
         2958,
         526,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         974,
         13,
         526,
-        0x00000006,
+        6,
         2574,
         2510,
         5,
@@ -13637,11 +13637,11 @@ Object scheme::getBuiltinMatch() {
         750,
         73,
         2062,
-        builtinSymbols[539].val /* not */,
+        builtinSymbols[6822].val ,
         3406,
         13,
         526,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -13716,14 +13716,14 @@ Object scheme::getBuiltinMatch() {
         2094,
         3022,
         526,
-        builtinSymbols[571].val /* pair? */,
+        builtinSymbols[6871].val ,
         654,
         1870,
         145,
         750,
         33,
         1614,
-        builtinSymbols[1086].val /* top level :$:match:error-control */,
+        builtinSymbols[7886].val ,
         2862,
         list76.val,
         110,
@@ -13767,7 +13767,7 @@ Object scheme::getBuiltinMatch() {
         2158,
         3022,
         526,
-        builtinSymbols[385].val /* if */,
+        builtinSymbols[6535].val ,
         654,
         1870,
         49,
@@ -13775,7 +13775,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[927].val /* top level :$:cadddr */,
+        builtinSymbols[7377].val ,
         5,
         110,
         2126,
@@ -13790,14 +13790,14 @@ Object scheme::getBuiltinMatch() {
         302,
         3022,
         526,
-        builtinSymbols[66].val /* and */,
+        builtinSymbols[158].val ,
         654,
         1870,
         105,
         2062,
-        builtinSymbols[385].val /* if */,
+        builtinSymbols[6535].val ,
         2062,
-        builtinSymbols[66].val /* and */,
+        builtinSymbols[158].val ,
         2350,
         2158,
         302,
@@ -13808,11 +13808,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         110,
         2414,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -13820,14 +13820,14 @@ Object scheme::getBuiltinMatch() {
         974,
         105,
         2062,
-        builtinSymbols[385].val /* if */,
+        builtinSymbols[6535].val ,
         2062,
-        builtinSymbols[66].val /* and */,
+        builtinSymbols[158].val ,
         2350,
         2158,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -13835,11 +13835,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         110,
         2414,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -13853,7 +13853,7 @@ Object scheme::getBuiltinMatch() {
         2158,
         3022,
         526,
-        builtinSymbols[132].val /* call-with-current-continuation */,
+        builtinSymbols[310].val ,
         718,
         1870,
         2909,
@@ -13871,10 +13871,10 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[913].val /* top level :$:caadr */,
+        builtinSymbols[7363].val ,
         5,
         2862,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         718,
         1870,
         2801,
@@ -13882,7 +13882,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[954].val /* top level :$:cdadr */,
+        builtinSymbols[7404].val ,
         5,
         1454,
         1870,
@@ -13891,7 +13891,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[920].val /* top level :$:cadadr */,
+        builtinSymbols[7370].val ,
         5,
         1454,
         1870,
@@ -13900,7 +13900,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[920].val /* top level :$:cadadr */,
+        builtinSymbols[7370].val ,
         5,
         430,
         1134,
@@ -13910,7 +13910,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         1454,
         1870,
@@ -13919,7 +13919,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         334,
         1454,
@@ -13929,11 +13929,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         270,
         2862,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         718,
         1870,
         2517,
@@ -13941,7 +13941,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         366,
         1454,
@@ -13953,11 +13953,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[921].val /* top level :$:cadar */,
+        builtinSymbols[7371].val ,
         5,
         1454,
         1870,
@@ -13968,11 +13968,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         1454,
         1870,
@@ -13983,11 +13983,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         430,
         1454,
@@ -13999,11 +13999,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         302,
         1454,
@@ -14017,18 +14017,18 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[913].val /* top level :$:caadr */,
+        builtinSymbols[7363].val ,
         5,
         2862,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         718,
         1870,
         2089,
@@ -14040,15 +14040,15 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[954].val /* top level :$:cdadr */,
+        builtinSymbols[7404].val ,
         5,
         1454,
         1870,
@@ -14061,15 +14061,15 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[920].val /* top level :$:cadadr */,
+        builtinSymbols[7370].val ,
         5,
         1134,
         1870,
@@ -14082,15 +14082,15 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         1454,
         1870,
@@ -14103,15 +14103,15 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         334,
         1454,
@@ -14125,19 +14125,19 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         270,
         2862,
-        builtinSymbols[138].val /* call-with-values */,
+        builtinSymbols[317].val ,
         718,
         1870,
         1613,
@@ -14149,15 +14149,15 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         366,
         1454,
@@ -14173,19 +14173,19 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[921].val /* top level :$:cadar */,
+        builtinSymbols[7371].val ,
         5,
         1454,
         1870,
@@ -14200,22 +14200,22 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         2862,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         718,
         1870,
         1277,
@@ -14229,19 +14229,19 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[950].val /* top level :$:cdadar */,
+        builtinSymbols[7400].val ,
         5,
         1454,
         1870,
@@ -14256,19 +14256,19 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[950].val /* top level :$:cdadar */,
+        builtinSymbols[7400].val ,
         5,
         334,
         1134,
@@ -14284,19 +14284,19 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[950].val /* top level :$:cdadar */,
+        builtinSymbols[7400].val ,
         5,
         430,
         1454,
@@ -14312,19 +14312,19 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[950].val /* top level :$:cdadar */,
+        builtinSymbols[7400].val ,
         5,
         398,
         1134,
@@ -14340,19 +14340,19 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[962].val /* top level :$:cddar */,
+        builtinSymbols[7412].val ,
         5,
         1454,
         1870,
@@ -14367,19 +14367,19 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[965].val /* top level :$:cdddar */,
+        builtinSymbols[7415].val ,
         5,
         1134,
         1870,
@@ -14392,15 +14392,15 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         430,
         1134,
@@ -14412,11 +14412,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         398,
         1134,
@@ -14428,11 +14428,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[950].val /* top level :$:cdadar */,
+        builtinSymbols[7400].val ,
         5,
         1134,
         1870,
@@ -14443,11 +14443,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[962].val /* top level :$:cddar */,
+        builtinSymbols[7412].val ,
         5,
         1454,
         1870,
@@ -14458,11 +14458,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[965].val /* top level :$:cdddar */,
+        builtinSymbols[7415].val ,
         5,
         1134,
         1870,
@@ -14471,7 +14471,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         430,
         1134,
@@ -14493,19 +14493,19 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         110,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[950].val /* top level :$:cdadar */,
+        builtinSymbols[7400].val ,
         5,
         302,
         718,
@@ -14597,7 +14597,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[920].val /* top level :$:cadadr */,
+        builtinSymbols[7370].val ,
         5,
         334,
         2894,
@@ -14606,11 +14606,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[909].val /* top level :$:caadar */,
+        builtinSymbols[7359].val ,
         5,
         334,
         2894,
@@ -14619,69 +14619,69 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[961].val /* top level :$:cddadr */,
+        builtinSymbols[7411].val ,
         5,
         110,
         3278,
-        builtinSymbols[924].val /* top level :$:caddar */,
+        builtinSymbols[7374].val ,
         5,
         2510,
         13,
         2062,
-        builtinSymbols[132].val /* call-with-current-continuation */,
+        builtinSymbols[310].val ,
         2062,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         2382,
-        0x00000006,
+        6,
         494,
         2862,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         110,
         2414,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         2862,
-        0x00000006,
+        6,
         110,
         2350,
         2990,
         526,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         2894,
         37,
         2958,
         2414,
-        0x00000006,
+        6,
         494,
         110,
         3150,
         3086,
         3214,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         846,
@@ -14699,7 +14699,7 @@ Object scheme::getBuiltinMatch() {
         2158,
         3022,
         526,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         718,
         1870,
         737,
@@ -14717,7 +14717,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[913].val /* top level :$:caadr */,
+        builtinSymbols[7363].val ,
         5,
         1454,
         1870,
@@ -14726,7 +14726,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[946].val /* top level :$:cdaadr */,
+        builtinSymbols[7396].val ,
         5,
         1454,
         1870,
@@ -14735,7 +14735,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[946].val /* top level :$:cdaadr */,
+        builtinSymbols[7396].val ,
         5,
         334,
         1454,
@@ -14745,11 +14745,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[946].val /* top level :$:cdaadr */,
+        builtinSymbols[7396].val ,
         5,
         270,
         2862,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         718,
         1870,
         489,
@@ -14757,7 +14757,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[946].val /* top level :$:cdaadr */,
+        builtinSymbols[7396].val ,
         5,
         366,
         1454,
@@ -14769,11 +14769,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[946].val /* top level :$:cdaadr */,
+        builtinSymbols[7396].val ,
         5,
         110,
         3278,
-        builtinSymbols[921].val /* top level :$:cadar */,
+        builtinSymbols[7371].val ,
         5,
         1134,
         1870,
@@ -14784,11 +14784,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[946].val /* top level :$:cdaadr */,
+        builtinSymbols[7396].val ,
         5,
         110,
         3278,
-        builtinSymbols[962].val /* top level :$:cddar */,
+        builtinSymbols[7412].val ,
         5,
         1454,
         1870,
@@ -14799,11 +14799,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[946].val /* top level :$:cdaadr */,
+        builtinSymbols[7396].val ,
         5,
         110,
         3278,
-        builtinSymbols[965].val /* top level :$:cdddar */,
+        builtinSymbols[7415].val ,
         5,
         1134,
         1870,
@@ -14812,7 +14812,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[946].val /* top level :$:cdaadr */,
+        builtinSymbols[7396].val ,
         5,
         430,
         1134,
@@ -14822,7 +14822,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[954].val /* top level :$:cdadr */,
+        builtinSymbols[7404].val ,
         5,
         1134,
         1870,
@@ -14836,7 +14836,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[969].val /* top level :$:cdddr */,
+        builtinSymbols[7419].val ,
         5,
         1134,
         1870,
@@ -14847,11 +14847,11 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[946].val /* top level :$:cdaadr */,
+        builtinSymbols[7396].val ,
         5,
         110,
         3278,
-        builtinSymbols[924].val /* top level :$:caddar */,
+        builtinSymbols[7374].val ,
         5,
         110,
         2126,
@@ -14902,48 +14902,48 @@ Object scheme::getBuiltinMatch() {
         21,
         3150,
         3278,
-        builtinSymbols[905].val /* top level :$:caaadr */,
+        builtinSymbols[7355].val ,
         5,
         2894,
         21,
         3150,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         2510,
         9,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         2382,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         2862,
-        0x00000006,
+        6,
         110,
         2990,
         526,
-        0x00000006,
+        6,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         2894,
         37,
         2958,
         2382,
-        0x00000006,
+        6,
         494,
         110,
         2446,
         3086,
         3214,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -14952,11 +14952,11 @@ Object scheme::getBuiltinMatch() {
         974,
         45,
         2062,
-        builtinSymbols[385].val /* if */,
+        builtinSymbols[6535].val ,
         2350,
         3150,
         2414,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -15068,7 +15068,7 @@ Object scheme::getBuiltinMatch() {
         2094,
         3022,
         526,
-        builtinSymbols[385].val /* if */,
+        builtinSymbols[6535].val ,
         654,
         1870,
         173,
@@ -15090,7 +15090,7 @@ Object scheme::getBuiltinMatch() {
         21,
         2350,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         110,
         3086,
@@ -15102,7 +15102,7 @@ Object scheme::getBuiltinMatch() {
         21,
         2350,
         3278,
-        builtinSymbols[927].val /* top level :$:cadddr */,
+        builtinSymbols[7377].val ,
         5,
         110,
         3086,
@@ -15117,7 +15117,7 @@ Object scheme::getBuiltinMatch() {
         2094,
         3022,
         526,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         654,
         1870,
         21,
@@ -15128,7 +15128,7 @@ Object scheme::getBuiltinMatch() {
         2094,
         3022,
         526,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         654,
         1870,
         25,
@@ -15209,18 +15209,18 @@ Object scheme::getBuiltinMatch() {
         2094,
         3022,
         526,
-        builtinSymbols[461].val /* list? */,
+        builtinSymbols[6667].val ,
         654,
         1870,
         149,
         750,
         57,
         2062,
-        builtinSymbols[543].val /* null? */,
+        builtinSymbols[6828].val ,
         2094,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -15235,11 +15235,11 @@ Object scheme::getBuiltinMatch() {
         750,
         57,
         2062,
-        builtinSymbols[571].val /* pair? */,
+        builtinSymbols[6871].val ,
         2094,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         110,
@@ -15256,7 +15256,7 @@ Object scheme::getBuiltinMatch() {
         2094,
         3022,
         526,
-        builtinSymbols[539].val /* not */,
+        builtinSymbols[6822].val ,
         654,
         1870,
         2409,
@@ -15388,7 +15388,7 @@ Object scheme::getBuiltinMatch() {
         974,
         281,
         2382,
-        builtinSymbols[539].val /* not */,
+        builtinSymbols[6822].val ,
         110,
         3406,
         13,
@@ -15396,11 +15396,11 @@ Object scheme::getBuiltinMatch() {
         21,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         718,
@@ -15431,13 +15431,13 @@ Object scheme::getBuiltinMatch() {
         3406,
         21,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         2894,
         21,
         2350,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         718,
         1102,
@@ -15585,7 +15585,7 @@ Object scheme::getBuiltinMatch() {
         21,
         3022,
         526,
-        builtinSymbols[461].val /* list? */,
+        builtinSymbols[6667].val ,
         654,
         1870,
         441,
@@ -15791,7 +15791,7 @@ Object scheme::getBuiltinMatch() {
         2094,
         3022,
         526,
-        builtinSymbols[1303].val /* vector? */,
+        builtinSymbols[8126].val ,
         718,
         3246,
         41,
@@ -15813,19 +15813,19 @@ Object scheme::getBuiltinMatch() {
         974,
         117,
         2382,
-        builtinSymbols[539].val /* not */,
+        builtinSymbols[6822].val ,
         2862,
-        builtinSymbols[1303].val /* vector? */,
+        builtinSymbols[8126].val ,
         110,
         1582,
         17,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         718,
@@ -15882,7 +15882,7 @@ Object scheme::getBuiltinMatch() {
         2094,
         3022,
         526,
-        builtinSymbols[288].val /* equal? */,
+        builtinSymbols[544].val ,
         654,
         1870,
         433,
@@ -15898,7 +15898,7 @@ Object scheme::getBuiltinMatch() {
         21,
         2350,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         2510,
         5,
@@ -15911,7 +15911,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         21,
         526,
-        builtinSymbols[801].val /* string? */,
+        builtinSymbols[7216].val ,
         974,
         309,
         750,
@@ -15923,7 +15923,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         21,
         526,
-        builtinSymbols[90].val /* boolean? */,
+        builtinSymbols[218].val ,
         974,
         261,
         750,
@@ -15935,7 +15935,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         21,
         526,
-        builtinSymbols[193].val /* char? */,
+        builtinSymbols[391].val ,
         974,
         213,
         750,
@@ -15947,7 +15947,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         21,
         526,
-        builtinSymbols[545].val /* number? */,
+        builtinSymbols[6831].val ,
         974,
         165,
         2094,
@@ -15965,7 +15965,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         61,
         2062,
-        builtinSymbols[695].val /* quote */,
+        builtinSymbols[7020].val ,
         2094,
         334,
         654,
@@ -15985,7 +15985,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         21,
         526,
-        builtinSymbols[809].val /* symbol? */,
+        builtinSymbols[7237].val ,
         974,
         13,
         526,
@@ -16008,7 +16008,7 @@ Object scheme::getBuiltinMatch() {
         2094,
         3022,
         1614,
-        builtinSymbols[1083].val /* top level :$:match:disjoint-predicates */,
+        builtinSymbols[7883].val ,
         110,
         2222,
         3182,
@@ -16030,7 +16030,7 @@ Object scheme::getBuiltinMatch() {
         2094,
         3022,
         1614,
-        builtinSymbols[1098].val /* top level :$:match:vector-structures */,
+        builtinSymbols[7898].val ,
         110,
         2222,
         3182,
@@ -16085,10 +16085,10 @@ Object scheme::getBuiltinMatch() {
         974,
         33,
         2062,
-        builtinSymbols[143].val /* car */,
+        builtinSymbols[322].val ,
         2990,
         526,
-        0x00000006,
+        6,
         494,
         494,
         2574,
@@ -16140,10 +16140,10 @@ Object scheme::getBuiltinMatch() {
         974,
         33,
         2062,
-        builtinSymbols[182].val /* cdr */,
+        builtinSymbols[362].val ,
         2990,
         526,
-        0x00000006,
+        6,
         494,
         494,
         2574,
@@ -16262,13 +16262,13 @@ Object scheme::getBuiltinMatch() {
         2894,
         25,
         2382,
-        builtinSymbols[0].val /* ! */,
+        builtinSymbols[0].val ,
         2862,
-        builtinSymbols[759].val /* set- */,
+        builtinSymbols[7118].val ,
         2798,
         110,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         110,
         2254,
@@ -16292,7 +16292,7 @@ Object scheme::getBuiltinMatch() {
         2062,
         Object::makeString(UC("unnested set! pattern")).val,
         1614,
-        builtinSymbols[1097].val /* top level :$:match:syntax-err */,
+        builtinSymbols[7897].val ,
         3182,
         9,
         21,
@@ -16303,38 +16303,38 @@ Object scheme::getBuiltinMatch() {
         37,
         3022,
         526,
-        builtinSymbols[1300].val /* vector-ref */,
+        builtinSymbols[8121].val ,
         654,
         1870,
         189,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         2062,
-        builtinSymbols[1313].val /* x */,
+        builtinSymbols[8150].val ,
         1582,
         37,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         2862,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         2862,
         list41.val,
         2862,
-        builtinSymbols[1301].val /* vector-set! */,
+        builtinSymbols[8122].val ,
         2862,
-        builtinSymbols[1313].val /* x */,
+        builtinSymbols[8150].val ,
         2894,
         25,
         3406,
         37,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         2862,
         list40.val,
@@ -16342,12 +16342,12 @@ Object scheme::getBuiltinMatch() {
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -16357,23 +16357,23 @@ Object scheme::getBuiltinMatch() {
         37,
         3022,
         526,
-        builtinSymbols[1278].val /* unbox */,
+        builtinSymbols[8090].val ,
         654,
         1870,
         85,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         2062,
-        builtinSymbols[1313].val /* x */,
+        builtinSymbols[8150].val ,
         1582,
         37,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         2862,
         list39.val,
@@ -16385,23 +16385,23 @@ Object scheme::getBuiltinMatch() {
         37,
         3022,
         526,
-        builtinSymbols[143].val /* car */,
+        builtinSymbols[322].val ,
         654,
         1870,
         85,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         2062,
-        builtinSymbols[1313].val /* x */,
+        builtinSymbols[8150].val ,
         1582,
         37,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         2862,
         list35.val,
@@ -16413,23 +16413,23 @@ Object scheme::getBuiltinMatch() {
         37,
         3022,
         526,
-        builtinSymbols[182].val /* cdr */,
+        builtinSymbols[362].val ,
         654,
         1870,
         85,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         2062,
-        builtinSymbols[1313].val /* x */,
+        builtinSymbols[8150].val ,
         1582,
         37,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         2862,
         list31.val,
@@ -16474,27 +16474,27 @@ Object scheme::getBuiltinMatch() {
         1870,
         193,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         2062,
-        builtinSymbols[1313].val /* x */,
+        builtinSymbols[8150].val ,
         2094,
         302,
         110,
         2286,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         2862,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         2862,
         list27.val,
         2894,
@@ -16509,12 +16509,12 @@ Object scheme::getBuiltinMatch() {
         list26.val,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -16530,20 +16530,20 @@ Object scheme::getBuiltinMatch() {
         974,
         153,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         2062,
-        builtinSymbols[1313].val /* x */,
+        builtinSymbols[8150].val ,
         2318,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         2862,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         2862,
         list25.val,
         2894,
@@ -16557,12 +16557,12 @@ Object scheme::getBuiltinMatch() {
         list24.val,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -16590,7 +16590,7 @@ Object scheme::getBuiltinMatch() {
         Object::makeString(UC("unnested get! pattern")).val,
         110,
         1614,
-        builtinSymbols[1097].val /* top level :$:match:syntax-err */,
+        builtinSymbols[7897].val ,
         3182,
         9,
         9,
@@ -16600,49 +16600,49 @@ Object scheme::getBuiltinMatch() {
         2094,
         3022,
         526,
-        builtinSymbols[1300].val /* vector-ref */,
+        builtinSymbols[8121].val ,
         654,
         1870,
         181,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         2062,
-        builtinSymbols[1313].val /* x */,
+        builtinSymbols[8150].val ,
         2094,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         2862,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         2862,
-        0x00000006,
+        6,
         2862,
-        builtinSymbols[1300].val /* vector-ref */,
+        builtinSymbols[8121].val ,
         2862,
-        builtinSymbols[1313].val /* x */,
+        builtinSymbols[8150].val ,
         2894,
         21,
         2350,
         3278,
-        builtinSymbols[928].val /* top level :$:caddr */,
+        builtinSymbols[7378].val ,
         5,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -16651,22 +16651,22 @@ Object scheme::getBuiltinMatch() {
         2094,
         3022,
         526,
-        builtinSymbols[1278].val /* unbox */,
+        builtinSymbols[8090].val ,
         654,
         1870,
         81,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         2062,
-        builtinSymbols[1313].val /* x */,
+        builtinSymbols[8150].val ,
         2094,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         2862,
         list21.val,
@@ -16677,22 +16677,22 @@ Object scheme::getBuiltinMatch() {
         2094,
         3022,
         526,
-        builtinSymbols[143].val /* car */,
+        builtinSymbols[322].val ,
         654,
         1870,
         81,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         2062,
-        builtinSymbols[1313].val /* x */,
+        builtinSymbols[8150].val ,
         2094,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         2862,
         list18.val,
@@ -16703,22 +16703,22 @@ Object scheme::getBuiltinMatch() {
         2094,
         3022,
         526,
-        builtinSymbols[182].val /* cdr */,
+        builtinSymbols[362].val ,
         654,
         1870,
         81,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         2062,
-        builtinSymbols[1313].val /* x */,
+        builtinSymbols[8150].val ,
         2094,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         2862,
         list15.val,
@@ -16753,29 +16753,29 @@ Object scheme::getBuiltinMatch() {
         1870,
         173,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         2062,
-        builtinSymbols[1313].val /* x */,
+        builtinSymbols[8150].val ,
         2094,
         302,
         110,
         2286,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         2862,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         2862,
-        0x00000006,
+        6,
         110,
         2094,
         398,
@@ -16783,12 +16783,12 @@ Object scheme::getBuiltinMatch() {
         list12.val,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -16804,22 +16804,22 @@ Object scheme::getBuiltinMatch() {
         974,
         137,
         2062,
-        builtinSymbols[434].val /* let */,
+        builtinSymbols[6614].val ,
         2062,
-        builtinSymbols[1313].val /* x */,
+        builtinSymbols[8150].val ,
         2222,
         302,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         2862,
-        builtinSymbols[425].val /* lambda */,
+        builtinSymbols[6602].val ,
         2862,
-        0x00000006,
+        6,
         110,
         2222,
         3022,
@@ -16827,12 +16827,12 @@ Object scheme::getBuiltinMatch() {
         list11.val,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
         2862,
-        0x00000006,
+        6,
         494,
         494,
         494,
@@ -16914,7 +16914,7 @@ Object scheme::getBuiltinMatch() {
         110,
         2350,
         3278,
-        builtinSymbols[1079].val /* top level :$:map */,
+        builtinSymbols[7879].val ,
         9,
         110,
         2254,
@@ -16971,7 +16971,7 @@ Object scheme::getBuiltinMatch() {
         1870,
         21,
         526,
-        0x00000006,
+        6,
         974,
         45,
         2094,
@@ -17002,12 +17002,12 @@ Object scheme::getBuiltinMatch() {
         814,
         110,
         3278,
-        builtinSymbols[1065].val /* top level :$:list */,
+        builtinSymbols[7865].val ,
         17,
         846,
         109,
         558,
-        builtinSymbols[1087].val /* top level :$:match:expanders */,
+        builtinSymbols[7887].val ,
         1070,
         1070,
         1070,
@@ -18311,7 +18311,7 @@ Object scheme::getBuiltinMatch() {
         526,
         86,
         558,
-        builtinSymbols[1090].val /* top level :$:match:runtime-structures */,
+        builtinSymbols[7890].val ,
         462,
         41,
         5,
@@ -18321,15 +18321,15 @@ Object scheme::getBuiltinMatch() {
         list1.val,
         2094,
         174,
-        builtinSymbols[1090].val /* top level :$:match:runtime-structures */,
+        builtinSymbols[7890].val ,
         2702,
         558,
-        builtinSymbols[1093].val /* top level :$:match:set-runtime-structures */,
+        builtinSymbols[7893].val ,
         1070,
         1582,
         225,
         558,
-        builtinSymbols[1089].val /* top level :$:match:primitive-vector? */,
+        builtinSymbols[7889].val ,
         1902,
         1902,
         1902,
@@ -18339,17 +18339,17 @@ Object scheme::getBuiltinMatch() {
         1902,
         1902,
         1614,
-        builtinSymbols[1248].val /* top level :$:top-level-library */,
+        builtinSymbols[8050].val ,
         2862,
         21,
         110,
         1614,
-        builtinSymbols[1248].val /* top level :$:top-level-library */,
+        builtinSymbols[8050].val ,
         2862,
         21,
         1998,
         2862,
-        0x00000006,
+        6,
         14,
         2030,
         2542
