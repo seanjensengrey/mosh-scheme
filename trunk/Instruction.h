@@ -122,6 +122,7 @@ public:
         RECEIVE = 3502,
         UNFIXED_JUMP = 3534,
         STOP = 3566,
+        CONTINUATION_VALUES = 3598,
     };
 };
 }; // namespace scheme
