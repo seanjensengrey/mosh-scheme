@@ -78,8 +78,9 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) \
 	mosh-RegexpProcedures.$(OBJEXT) \
 	mosh-StringProcedures.$(OBJEXT) mosh-PortProcedures.$(OBJEXT) \
 	mosh-ListProcedures.$(OBJEXT) mosh-ErrorProcedures.$(OBJEXT) \
-	mosh-SString.$(OBJEXT) mosh-BuiltinSymbols.$(OBJEXT) \
-	mosh-CompoundCondition.$(OBJEXT) mosh-Equivalent.$(OBJEXT)
+	mosh-ArithmeticProcedures.$(OBJEXT) mosh-SString.$(OBJEXT) \
+	mosh-BuiltinSymbols.$(OBJEXT) mosh-CompoundCondition.$(OBJEXT) \
+	mosh-Equivalent.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
 mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB) libcompiler.a libmatch.a \
 	libpsyntax.a
@@ -279,24 +280,16 @@ RecordConstructorDescriptor.h\
 RecordConstructorDescriptor.cpp\
 Record.h \
 Record.cpp \
-RecordProcedures.cpp \
-RecordProcedures.h \
-ConditionProcedures.cpp \
-ConditionProcedures.h \
-CompilerProcedures.cpp \
-CompilerProcedures.h   \
-HashTableProceduures.cpp \
-HashTableProceduures.h   \
-RegexpProcedures.cpp \
-RegexpProcedures.h   \
-StringProcedures.cpp \
-StringProcedures.h   \
-PortProcedures.cpp \
-PortProcedures.h   \
-ListProcedures.cpp \
-ListProcedures.h   \
-ErrorProcedures.cpp \
-ErrorProcedures.h \
+RecordProcedures.cpp     RecordProcedures.h \
+ConditionProcedures.cpp  ConditionProcedures.h \
+CompilerProcedures.cpp   CompilerProcedures.h   \
+HashTableProceduures.cpp HashTableProceduures.h   \
+RegexpProcedures.cpp     RegexpProcedures.h   \
+StringProcedures.cpp     StringProcedures.h   \
+PortProcedures.cpp       PortProcedures.h   \
+ListProcedures.cpp       ListProcedures.h   \
+ErrorProcedures.cpp      ErrorProcedures.h \
+ArithmeticProcedures.cpp ArithmeticProcedures.h \
 SString.cpp          \
 BuiltinSymbols.cpp\
 CompoundCondition.h\
@@ -460,6 +453,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcompiler_a-compiler.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmatch_a-match.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsyntax_a-psyntax.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ArithmeticProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-BuiltinSymbols.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CodeBuilder.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompilerProcedures.Po@am__quote@
@@ -850,6 +844,20 @@ mosh-ErrorProcedures.obj: ErrorProcedures.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ErrorProcedures.cpp' object='mosh-ErrorProcedures.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ErrorProcedures.obj `if test -f 'ErrorProcedures.cpp'; then $(CYGPATH_W) 'ErrorProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ErrorProcedures.cpp'; fi`
+
+mosh-ArithmeticProcedures.o: ArithmeticProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ArithmeticProcedures.o -MD -MP -MF $(DEPDIR)/mosh-ArithmeticProcedures.Tpo -c -o mosh-ArithmeticProcedures.o `test -f 'ArithmeticProcedures.cpp' || echo '$(srcdir)/'`ArithmeticProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ArithmeticProcedures.Tpo $(DEPDIR)/mosh-ArithmeticProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ArithmeticProcedures.cpp' object='mosh-ArithmeticProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ArithmeticProcedures.o `test -f 'ArithmeticProcedures.cpp' || echo '$(srcdir)/'`ArithmeticProcedures.cpp
+
+mosh-ArithmeticProcedures.obj: ArithmeticProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ArithmeticProcedures.obj -MD -MP -MF $(DEPDIR)/mosh-ArithmeticProcedures.Tpo -c -o mosh-ArithmeticProcedures.obj `if test -f 'ArithmeticProcedures.cpp'; then $(CYGPATH_W) 'ArithmeticProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ArithmeticProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ArithmeticProcedures.Tpo $(DEPDIR)/mosh-ArithmeticProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ArithmeticProcedures.cpp' object='mosh-ArithmeticProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ArithmeticProcedures.obj `if test -f 'ArithmeticProcedures.cpp'; then $(CYGPATH_W) 'ArithmeticProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ArithmeticProcedures.cpp'; fi`
 
 mosh-SString.o: SString.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-SString.o -MD -MP -MF $(DEPDIR)/mosh-SString.Tpo -c -o mosh-SString.o `test -f 'SString.cpp' || echo '$(srcdir)/'`SString.cpp
@@ -1397,7 +1405,7 @@ labels.cpp: ./instruction.scm
 DebugInstruction.h: instruction.scm
 	@GOSH@ ./scripts/gen-short-insn.scm $(PWD)/$< > $(PWD)/$@
 
-./cprocedures.cpp: ./free-vars.scm
+./cprocedures.cpp: ./free-vars.scm ./scripts/gen-cproc.scm
 	@GOSH@ ./scripts/gen-cproc.scm > $@
 
 #### benchmark
