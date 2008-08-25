@@ -1403,9 +1403,7 @@
          (list (quote quote) arg))
         ((eq? mode (quote unquote)) arg)
         ((eq? mode (quote unquote-splicing))
-         (error (quote quasiquote)
-                ",@ in invalid context"
-                arg))
+         (error ",@ in invalid context" arg))
         (else (cons mode arg))))
 
 (define
@@ -1618,9 +1616,7 @@
                    tail?)
                  (rec more)
                  ($it)))
-           (else (error (quote compiler)
-                        "syntax-error: malformed and:"
-                        sexp))))
+           (else (error "syntax-error: malformed and:" sexp))))
   (rec (cdr sexp)))
 
 (define
@@ -1643,9 +1639,7 @@
                    tail?)
                  ($it)
                  (rec more)))
-           (else (error (quote compiler)
-                        "syntax-error: malformed or:"
-                        sexp))))
+           (else (error "syntax-error: malformed or:" sexp))))
   (rec (cdr sexp)))
 
 (define
@@ -1722,12 +1716,12 @@
            (case form
                  ((expand) 1)
                  ((run) 0)
-                 (else (error (quote compiler) "unknown for"))))
+                 (else (error "unknown for"))))
           ((and (pair? form)
                 (= (length form) 2)
                 (eq? (first form) (quote meta)))
            (second form))
-          (else (error (quote compiler) "unknown level on meta"))))
+          (else (error "unknown level on meta"))))
   (define
     (import-iter form level)
     (case (first form)
