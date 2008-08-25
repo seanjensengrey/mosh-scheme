@@ -58,10 +58,6 @@ libmatch_a_AR = $(AR) $(ARFLAGS)
 libmatch_a_LIBADD =
 am_libmatch_a_OBJECTS = libmatch_a-match.$(OBJEXT)
 libmatch_a_OBJECTS = $(am_libmatch_a_OBJECTS)
-libpsyntax_a_AR = $(AR) $(ARFLAGS)
-libpsyntax_a_LIBADD =
-am_libpsyntax_a_OBJECTS = libpsyntax_a-psyntax.$(OBJEXT)
-libpsyntax_a_OBJECTS = $(am_libpsyntax_a_OBJECTS)
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
@@ -98,9 +94,9 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 SOURCES = $(libcompiler_a_SOURCES) $(libmatch_a_SOURCES) \
-	$(libpsyntax_a_SOURCES) $(mosh_SOURCES)
+	$(mosh_SOURCES)
 DIST_SOURCES = $(libcompiler_a_SOURCES) $(libmatch_a_SOURCES) \
-	$(libpsyntax_a_SOURCES) $(mosh_SOURCES)
+	$(mosh_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
 	html-recursive info-recursive install-data-recursive \
 	install-dvi-recursive install-exec-recursive \
@@ -304,8 +300,8 @@ mosh_CFLAGS = -O2  $(mosh_OPTS) -g -fomit-frame-pointer -D_FILE_OFFSET_BITS=64 -
 mosh_CXXFLAGS = $(mosh_CFLAGS)
 MOSHLIB_CXXFLAGS = -fomit-frame-pointer $(mosh_OPTS) # compile libraries with -O0
 data_DATA = all-tests.scm repl.scm r6rs-examples/psyntax.scm
-noinst_LIBRARIES = libcompiler.a libmatch.a libpsyntax.a
-PRECOMPILE_SRC = compiler-with-library.scmc match.scmc psyntax.scmc
+noinst_LIBRARIES = libcompiler.a libmatch.a # libpsyntax.a
+PRECOMPILE_SRC = compiler-with-library.scmc match.scmc # psyntax.scmc
 libcompiler_a_CXXFLAGS = $(MOSHLIB_CXXFLAGS)
 libmatch_a_CXXFLAGS = $(MOSHLIB_CXXFLAGS)
 libpsyntax_a_CXXFLAGS = $(MOSHLIB_CXXFLAGS)
@@ -410,10 +406,6 @@ libmatch.a: $(libmatch_a_OBJECTS) $(libmatch_a_DEPENDENCIES)
 	-rm -f libmatch.a
 	$(libmatch_a_AR) libmatch.a $(libmatch_a_OBJECTS) $(libmatch_a_LIBADD)
 	$(RANLIB) libmatch.a
-libpsyntax.a: $(libpsyntax_a_OBJECTS) $(libpsyntax_a_DEPENDENCIES) 
-	-rm -f libpsyntax.a
-	$(libpsyntax_a_AR) libpsyntax.a $(libpsyntax_a_OBJECTS) $(libpsyntax_a_LIBADD)
-	$(RANLIB) libpsyntax.a
 install-binPROGRAMS: $(bin_PROGRAMS)
 	@$(NORMAL_INSTALL)
 	test -z "$(bindir)" || $(MKDIR_P) "$(DESTDIR)$(bindir)"
@@ -449,7 +441,6 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcompiler_a-compiler.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmatch_a-match.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsyntax_a-psyntax.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ArithmeticProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-BuiltinSymbols.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CodeBuilder.Po@am__quote@
@@ -519,20 +510,6 @@ libmatch_a-match.obj: match.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='match.cpp' object='libmatch_a-match.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmatch_a_CXXFLAGS) $(CXXFLAGS) -c -o libmatch_a-match.obj `if test -f 'match.cpp'; then $(CYGPATH_W) 'match.cpp'; else $(CYGPATH_W) '$(srcdir)/match.cpp'; fi`
-
-libpsyntax_a-psyntax.o: psyntax.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsyntax_a_CXXFLAGS) $(CXXFLAGS) -MT libpsyntax_a-psyntax.o -MD -MP -MF $(DEPDIR)/libpsyntax_a-psyntax.Tpo -c -o libpsyntax_a-psyntax.o `test -f 'psyntax.cpp' || echo '$(srcdir)/'`psyntax.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libpsyntax_a-psyntax.Tpo $(DEPDIR)/libpsyntax_a-psyntax.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='psyntax.cpp' object='libpsyntax_a-psyntax.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsyntax_a_CXXFLAGS) $(CXXFLAGS) -c -o libpsyntax_a-psyntax.o `test -f 'psyntax.cpp' || echo '$(srcdir)/'`psyntax.cpp
-
-libpsyntax_a-psyntax.obj: psyntax.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsyntax_a_CXXFLAGS) $(CXXFLAGS) -MT libpsyntax_a-psyntax.obj -MD -MP -MF $(DEPDIR)/libpsyntax_a-psyntax.Tpo -c -o libpsyntax_a-psyntax.obj `if test -f 'psyntax.cpp'; then $(CYGPATH_W) 'psyntax.cpp'; else $(CYGPATH_W) '$(srcdir)/psyntax.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libpsyntax_a-psyntax.Tpo $(DEPDIR)/libpsyntax_a-psyntax.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='psyntax.cpp' object='libpsyntax_a-psyntax.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsyntax_a_CXXFLAGS) $(CXXFLAGS) -c -o libpsyntax_a-psyntax.obj `if test -f 'psyntax.cpp'; then $(CYGPATH_W) 'psyntax.cpp'; else $(CYGPATH_W) '$(srcdir)/psyntax.cpp'; fi`
 
 mosh-main.o: main.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-main.o -MD -MP -MF $(DEPDIR)/mosh-main.Tpo -c -o mosh-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp
