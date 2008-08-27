@@ -27,7 +27,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         37 /* 9 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[8009].val \* top level :$:first *\ */,
+        0xcc /* builtinSymbols[7577].val \* top level :$:first *\ */,
         110 /* *insn* */,
         2094 /* *insn* */,
         3022 /* *insn* */,
@@ -50,7 +50,7 @@ Object scheme::getBuiltinCompiler() {
         622 /* *insn* */,
         13 /* 3 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6297].val \* dynamic-bind *\ */,
+        0xcc /* builtinSymbols[509].val \* dynamic-bind *\ */,
         2062 /* *insn* */,
         0xcc /* builtinSymbols[6723].val \* list *\ */,
         2094 /* *insn* */,
@@ -83,11 +83,11 @@ Object scheme::getBuiltinCompiler() {
     };
     array1[0] = builtinSymbols[6948].val /* parameterize */;
     array1[7] = list0.val;
-    array1[12] = builtinSymbols[8009].val /* top level :$:first */;
+    array1[12] = builtinSymbols[7577].val /* top level :$:first */;
     array1[17] = builtinSymbols[8066].val /* top level :$:map */;
     array1[22] = builtinSymbols[8224].val /* top level :$:second */;
     array1[27] = builtinSymbols[8066].val /* top level :$:map */;
-    array1[35] = builtinSymbols[6297].val /* dynamic-bind */;
+    array1[35] = builtinSymbols[509].val /* dynamic-bind */;
     array1[37] = builtinSymbols[6723].val /* list */;
     array1[41] = builtinSymbols[6723].val /* list */;
     array1[46] = builtinSymbols[6669].val /* lambda */;
@@ -126,11 +126,11 @@ Object scheme::getBuiltinCompiler() {
     static word array6[]= {
         0xcc /* list5.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6376].val \* field *\ */
+        0xcc /* builtinSymbols[588].val \* field *\ */
     };
     array6[0] = list5.val;
     array6[1] = builtinSymbols[6669].val /* lambda */;
-    array6[2] = builtinSymbols[6376].val /* field */;
+    array6[2] = builtinSymbols[588].val /* field */;
     Object list6 = Pair::wordArrayToList(array6, 3);
 
     static word array7[]= {
@@ -160,11 +160,11 @@ Object scheme::getBuiltinCompiler() {
     static word array10[]= {
         0xcc /* list9.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6376].val \* field *\ */
+        0xcc /* builtinSymbols[588].val \* field *\ */
     };
     array10[0] = list9.val;
     array10[1] = builtinSymbols[6669].val /* lambda */;
-    array10[2] = builtinSymbols[6376].val /* field */;
+    array10[2] = builtinSymbols[588].val /* field */;
     Object list10 = Pair::wordArrayToList(array10, 3);
 
     static word array11[]= {
@@ -205,15 +205,15 @@ Object scheme::getBuiltinCompiler() {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[6872].val \* name *\ */,
-        0xcc /* builtinSymbols[6379].val \* fields *\ */
+        0xcc /* builtinSymbols[591].val \* fields *\ */
     };
     array15[1] = builtinSymbols[6669].val /* lambda */;
     array15[2] = builtinSymbols[6872].val /* name */;
-    array15[3] = builtinSymbols[6379].val /* fields */;
+    array15[3] = builtinSymbols[591].val /* fields */;
     Object list15 = Pair::wordArrayToList(array15, 4);
 
     static word array16[]= {
-        0xcc /* builtinSymbols[6267].val \* define-simple-struct *\ */,
+        0xcc /* builtinSymbols[479].val \* define-simple-struct *\ */,
         3406 /* *insn* */,
         85 /* 21 */,
         3406 /* *insn* */,
@@ -611,9 +611,9 @@ Object scheme::getBuiltinCompiler() {
         2510 /* *insn* */,
         21 /* 5 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5983].val \* begin *\ */,
+        0xcc /* builtinSymbols[195].val \* begin *\ */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         2382 /* *insn* */,
         0xcc /* builtinSymbols[6808].val \* make-record-type-descriptor *\ */,
         2862 /* *insn* */,
@@ -656,7 +656,7 @@ Object scheme::getBuiltinCompiler() {
         494 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         110 /* *insn* */,
         2414 /* *insn* */,
         0xcc /* builtinSymbols[6807].val \* make-record-constructor-descriptor *\ */,
@@ -671,7 +671,7 @@ Object scheme::getBuiltinCompiler() {
         494 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         110 /* *insn* */,
         3438 /* *insn* */,
         17 /* 4 */,
@@ -716,7 +716,7 @@ Object scheme::getBuiltinCompiler() {
         2894 /* *insn* */,
         73 /* 18 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         2126 /* *insn* */,
         334 /* *insn* */,
         2894 /* *insn* */,
@@ -801,7 +801,7 @@ Object scheme::getBuiltinCompiler() {
         1070 /* *insn* */,
         1070 /* *insn* */
     };
-    array16[0] = builtinSymbols[6267].val /* define-simple-struct */;
+    array16[0] = builtinSymbols[479].val /* define-simple-struct */;
     array16[20] = list15.val;
     array16[86] = list14.val;
     array16[120] = builtinSymbols[132].val /* -rtd */;
@@ -821,17 +821,17 @@ Object scheme::getBuiltinCompiler() {
     array16[347] = list4.val;
     array16[381] = builtinSymbols[6766].val /* make- */;
     array16[386] = builtinSymbols[8066].val /* top level :$:map */;
-    array16[398] = builtinSymbols[5983].val /* begin */;
-    array16[400] = builtinSymbols[6259].val /* define */;
+    array16[398] = builtinSymbols[195].val /* begin */;
+    array16[400] = builtinSymbols[471].val /* define */;
     array16[402] = builtinSymbols[6808].val /* make-record-type-descriptor */;
     array16[404] = builtinSymbols[7096].val /* quote */;
     array16[421] = builtinSymbols[7096].val /* quote */;
-    array16[443] = builtinSymbols[6259].val /* define */;
+    array16[443] = builtinSymbols[471].val /* define */;
     array16[446] = builtinSymbols[6807].val /* make-record-constructor-descriptor */;
     array16[449] = list2.val;
-    array16[458] = builtinSymbols[6259].val /* define */;
+    array16[458] = builtinSymbols[471].val /* define */;
     array16[463] = builtinSymbols[7118].val /* record-constructor */;
-    array16[503] = builtinSymbols[6259].val /* define */;
+    array16[503] = builtinSymbols[471].val /* define */;
     array16[509] = builtinSymbols[7117].val /* record-accessor */;
     array16[513] = builtinSymbols[8048].val /* top level :$:list */;
     array16[517] = builtinSymbols[8048].val /* top level :$:list */;
@@ -1032,14 +1032,14 @@ Object scheme::getBuiltinCompiler() {
     static word array40[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array40[1] = builtinSymbols[6669].val /* lambda */;
-    array40[2] = builtinSymbols[5965].val /* args */;
+    array40[2] = builtinSymbols[177].val /* args */;
     Object list40 = Pair::wordArrayToList(array40, 3);
 
     static word array41[]= {
-        0xcc /* builtinSymbols[6262].val \* define-const-structure *\ */,
+        0xcc /* builtinSymbols[474].val \* define-const-structure *\ */,
         3406 /* *insn* */,
         229 /* 57 */,
         3406 /* *insn* */,
@@ -1102,7 +1102,7 @@ Object scheme::getBuiltinCompiler() {
         2510 /* *insn* */,
         9 /* 2 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6262].val \* define-const-structure *\ */,
+        0xcc /* builtinSymbols[474].val \* define-const-structure *\ */,
         2350 /* *insn* */,
         2126 /* *insn* */,
         494 /* *insn* */,
@@ -1604,9 +1604,9 @@ Object scheme::getBuiltinCompiler() {
         2510 /* *insn* */,
         5 /* 1 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5983].val \* begin *\ */,
+        0xcc /* builtinSymbols[195].val \* begin *\ */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6272].val \* defstruct *\ */,
+        0xcc /* builtinSymbols[484].val \* defstruct *\ */,
         2990 /* *insn* */,
         3406 /* *insn* */,
         77 /* 19 */,
@@ -1985,7 +1985,7 @@ Object scheme::getBuiltinCompiler() {
         25 /* 6 */,
         0xcc /* list26.val */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5933].val \* _ *\ */,
+        0xcc /* builtinSymbols[145].val \* _ *\ */,
         2094 /* *insn* */,
         654 /* *insn* */,
         1870 /* *insn* */,
@@ -2019,7 +2019,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         33 /* 8 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[8000].val \* top level :$:field-name *\ */,
+        0xcc /* builtinSymbols[7568].val \* top level :$:field-name *\ */,
         110 /* *insn* */,
         2926 /* *insn* */,
         3278 /* *insn* */,
@@ -2049,7 +2049,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         33 /* 8 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[8000].val \* top level :$:field-name *\ */,
+        0xcc /* builtinSymbols[7568].val \* top level :$:field-name *\ */,
         110 /* *insn* */,
         2926 /* *insn* */,
         3278 /* *insn* */,
@@ -2062,7 +2062,7 @@ Object scheme::getBuiltinCompiler() {
         2510 /* *insn* */,
         5 /* 1 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         3406 /* *insn* */,
         21 /* 5 */,
         2062 /* *insn* */,
@@ -2198,7 +2198,7 @@ Object scheme::getBuiltinCompiler() {
         2094 /* *insn* */,
         302 /* *insn* */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[5933].val \* _ *\ */,
+        0xcc /* builtinSymbols[145].val \* _ *\ */,
         654 /* *insn* */,
         1870 /* *insn* */,
         21 /* 5 */,
@@ -2207,7 +2207,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         621 /* 155 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         750 /* *insn* */,
         309 /* 77 */,
         750 /* *insn* */,
@@ -2492,7 +2492,7 @@ Object scheme::getBuiltinCompiler() {
         2094 /* *insn* */,
         302 /* *insn* */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[5933].val \* _ *\ */,
+        0xcc /* builtinSymbols[145].val \* _ *\ */,
         654 /* *insn* */,
         1870 /* *insn* */,
         13 /* 3 */,
@@ -2509,7 +2509,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         665 /* 166 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         750 /* *insn* */,
         329 /* 82 */,
         750 /* *insn* */,
@@ -2734,7 +2734,7 @@ Object scheme::getBuiltinCompiler() {
         622 /* *insn* */,
         1 /* 0 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6262].val \* define-const-structure *\ */,
+        0xcc /* builtinSymbols[474].val \* define-const-structure *\ */,
         2222 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
@@ -2820,7 +2820,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -2839,7 +2839,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -2866,7 +2866,7 @@ Object scheme::getBuiltinCompiler() {
         622 /* *insn* */,
         1 /* 0 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6262].val \* define-const-structure *\ */,
+        0xcc /* builtinSymbols[474].val \* define-const-structure *\ */,
         2222 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
@@ -2892,7 +2892,7 @@ Object scheme::getBuiltinCompiler() {
         622 /* *insn* */,
         1 /* 0 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6262].val \* define-const-structure *\ */,
+        0xcc /* builtinSymbols[474].val \* define-const-structure *\ */,
         2222 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
@@ -2988,7 +2988,7 @@ Object scheme::getBuiltinCompiler() {
         622 /* *insn* */,
         1 /* 0 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6262].val \* define-const-structure *\ */,
+        0xcc /* builtinSymbols[474].val \* define-const-structure *\ */,
         2222 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
@@ -3007,7 +3007,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         57 /* 14 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6262].val \* define-const-structure *\ */,
+        0xcc /* builtinSymbols[474].val \* define-const-structure *\ */,
         2094 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
@@ -3022,7 +3022,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         57 /* 14 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6262].val \* define-const-structure *\ */,
+        0xcc /* builtinSymbols[474].val \* define-const-structure *\ */,
         2094 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
@@ -3239,9 +3239,9 @@ Object scheme::getBuiltinCompiler() {
         1070 /* *insn* */,
         1070 /* *insn* */
     };
-    array41[0] = builtinSymbols[6262].val /* define-const-structure */;
+    array41[0] = builtinSymbols[474].val /* define-const-structure */;
     array41[24] = list40.val;
-    array41[63] = builtinSymbols[6262].val /* define-const-structure */;
+    array41[63] = builtinSymbols[474].val /* define-const-structure */;
     array41[68] = list39.val;
     array41[297] = list38.val;
     array41[332] = builtinSymbols[6806].val /* make-raw- */;
@@ -3252,8 +3252,8 @@ Object scheme::getBuiltinCompiler() {
     array41[513] = list34.val;
     array41[547] = builtinSymbols[141].val /* ? */;
     array41[553] = builtinSymbols[8066].val /* top level :$:map */;
-    array41[565] = builtinSymbols[5983].val /* begin */;
-    array41[567] = builtinSymbols[6272].val /* defstruct */;
+    array41[565] = builtinSymbols[195].val /* begin */;
+    array41[567] = builtinSymbols[484].val /* defstruct */;
     array41[675] = list32.val;
     array41[709] = builtinSymbols[130].val /* - */;
     array41[716] = builtinSymbols[8066].val /* top level :$:map */;
@@ -3266,28 +3266,28 @@ Object scheme::getBuiltinCompiler() {
     array41[860] = builtinSymbols[130].val /* - */;
     array41[867] = builtinSymbols[8066].val /* top level :$:map */;
     array41[944] = list26.val;
-    array41[946] = builtinSymbols[5933].val /* _ */;
-    array41[980] = builtinSymbols[8000].val /* top level :$:field-name */;
+    array41[946] = builtinSymbols[145].val /* _ */;
+    array41[980] = builtinSymbols[7568].val /* top level :$:field-name */;
     array41[984] = builtinSymbols[8066].val /* top level :$:map */;
     array41[988] = builtinSymbols[8066].val /* top level :$:map */;
-    array41[1010] = builtinSymbols[8000].val /* top level :$:field-name */;
+    array41[1010] = builtinSymbols[7568].val /* top level :$:field-name */;
     array41[1014] = builtinSymbols[8066].val /* top level :$:map */;
     array41[1018] = builtinSymbols[8066].val /* top level :$:map */;
-    array41[1023] = builtinSymbols[6259].val /* define */;
+    array41[1023] = builtinSymbols[471].val /* define */;
     array41[1027] = builtinSymbols[6669].val /* lambda */;
     array41[1031] = builtinSymbols[6682].val /* let* */;
     array41[1035] = builtinSymbols[8048].val /* top level :$:list */;
     array41[1041] = builtinSymbols[8066].val /* top level :$:map */;
-    array41[1159] = builtinSymbols[5933].val /* _ */;
-    array41[1168] = builtinSymbols[6259].val /* define */;
+    array41[1159] = builtinSymbols[145].val /* _ */;
+    array41[1168] = builtinSymbols[471].val /* define */;
     array41[1189] = list24.val;
     array41[1223] = builtinSymbols[130].val /* - */;
     array41[1238] = builtinSymbols[8066].val /* top level :$:map */;
     array41[1267] = list22.val;
     array41[1301] = builtinSymbols[130].val /* - */;
     array41[1307] = builtinSymbols[8066].val /* top level :$:map */;
-    array41[1453] = builtinSymbols[5933].val /* _ */;
-    array41[1470] = builtinSymbols[6259].val /* define */;
+    array41[1453] = builtinSymbols[145].val /* _ */;
+    array41[1470] = builtinSymbols[471].val /* define */;
     array41[1491] = list20.val;
     array41[1527] = builtinSymbols[130].val /* - */;
     array41[1538] = builtinSymbols[0].val /* ! */;
@@ -3298,26 +3298,26 @@ Object scheme::getBuiltinCompiler() {
     array41[1613] = builtinSymbols[0].val /* ! */;
     array41[1615] = builtinSymbols[7193].val /* set- */;
     array41[1620] = builtinSymbols[8066].val /* top level :$:map */;
-    array41[1695] = builtinSymbols[6262].val /* define-const-structure */;
+    array41[1695] = builtinSymbols[474].val /* define-const-structure */;
     array41[1699] = Object::makeString(UC("syntax error in")).val;
     array41[1702] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
     array41[1734] = builtinSymbols[0].val /* ! */;
-    array41[1781] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array41[1800] = builtinSymbols[7884].val /* top level :$:cadar */;
-    array41[1827] = builtinSymbols[6262].val /* define-const-structure */;
+    array41[1781] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array41[1800] = builtinSymbols[7452].val /* top level :$:cadar */;
+    array41[1827] = builtinSymbols[474].val /* define-const-structure */;
     array41[1831] = Object::makeString(UC("syntax error in")).val;
     array41[1834] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array41[1853] = builtinSymbols[6262].val /* define-const-structure */;
+    array41[1853] = builtinSymbols[474].val /* define-const-structure */;
     array41[1857] = Object::makeString(UC("syntax error in")).val;
     array41[1860] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
     array41[1887] = builtinSymbols[0].val /* ! */;
-    array41[1949] = builtinSymbols[6262].val /* define-const-structure */;
+    array41[1949] = builtinSymbols[474].val /* define-const-structure */;
     array41[1953] = Object::makeString(UC("syntax error in")).val;
     array41[1956] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array41[1968] = builtinSymbols[6262].val /* define-const-structure */;
+    array41[1968] = builtinSymbols[474].val /* define-const-structure */;
     array41[1972] = Object::makeString(UC("syntax error in")).val;
     array41[1975] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array41[1983] = builtinSymbols[6262].val /* define-const-structure */;
+    array41[1983] = builtinSymbols[474].val /* define-const-structure */;
     array41[1987] = Object::makeString(UC("syntax error in")).val;
     array41[1990] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
     Object list41 = Pair::wordArrayToList(array41, 2199);
@@ -3366,14 +3366,14 @@ Object scheme::getBuiltinCompiler() {
     static word array47[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array47[1] = builtinSymbols[6669].val /* lambda */;
-    array47[2] = builtinSymbols[5965].val /* args */;
+    array47[2] = builtinSymbols[177].val /* args */;
     Object list47 = Pair::wordArrayToList(array47, 3);
 
     static word array48[]= {
-        0xcc /* builtinSymbols[6269].val \* define-structure *\ */,
+        0xcc /* builtinSymbols[481].val \* define-structure *\ */,
         3406 /* *insn* */,
         229 /* 57 */,
         3406 /* *insn* */,
@@ -3422,7 +3422,7 @@ Object scheme::getBuiltinCompiler() {
         2510 /* *insn* */,
         9 /* 2 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6269].val \* define-structure *\ */,
+        0xcc /* builtinSymbols[481].val \* define-structure *\ */,
         2350 /* *insn* */,
         2126 /* *insn* */,
         494 /* *insn* */,
@@ -3567,7 +3567,7 @@ Object scheme::getBuiltinCompiler() {
         2510 /* *insn* */,
         5 /* 1 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6262].val \* define-const-structure *\ */,
+        0xcc /* builtinSymbols[474].val \* define-const-structure *\ */,
         3406 /* *insn* */,
         13 /* 3 */,
         750 /* *insn* */,
@@ -3623,7 +3623,7 @@ Object scheme::getBuiltinCompiler() {
         622 /* *insn* */,
         1 /* 0 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6269].val \* define-structure *\ */,
+        0xcc /* builtinSymbols[481].val \* define-structure *\ */,
         2222 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
@@ -3653,7 +3653,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -3670,7 +3670,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -3696,7 +3696,7 @@ Object scheme::getBuiltinCompiler() {
         622 /* *insn* */,
         1 /* 0 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6269].val \* define-structure *\ */,
+        0xcc /* builtinSymbols[481].val \* define-structure *\ */,
         2222 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
@@ -3715,7 +3715,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         57 /* 14 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6269].val \* define-structure *\ */,
+        0xcc /* builtinSymbols[481].val \* define-structure *\ */,
         2094 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
@@ -3730,7 +3730,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         57 /* 14 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6269].val \* define-structure *\ */,
+        0xcc /* builtinSymbols[481].val \* define-structure *\ */,
         2094 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
@@ -3789,29 +3789,29 @@ Object scheme::getBuiltinCompiler() {
         1070 /* *insn* */,
         1070 /* *insn* */
     };
-    array48[0] = builtinSymbols[6269].val /* define-structure */;
+    array48[0] = builtinSymbols[481].val /* define-structure */;
     array48[11] = list47.val;
-    array48[49] = builtinSymbols[6269].val /* define-structure */;
+    array48[49] = builtinSymbols[481].val /* define-structure */;
     array48[54] = list46.val;
     array48[140] = list45.val;
     array48[148] = builtinSymbols[142].val /* @ */;
     array48[185] = builtinSymbols[0].val /* ! */;
-    array48[194] = builtinSymbols[6262].val /* define-const-structure */;
+    array48[194] = builtinSymbols[474].val /* define-const-structure */;
     array48[202] = builtinSymbols[8066].val /* top level :$:map */;
     array48[214] = list43.val;
     array48[231] = builtinSymbols[8066].val /* top level :$:map */;
-    array48[250] = builtinSymbols[6269].val /* define-structure */;
+    array48[250] = builtinSymbols[481].val /* define-structure */;
     array48[254] = Object::makeString(UC("syntax error in")).val;
     array48[257] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array48[280] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array48[297] = builtinSymbols[7884].val /* top level :$:cadar */;
-    array48[323] = builtinSymbols[6269].val /* define-structure */;
+    array48[280] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array48[297] = builtinSymbols[7452].val /* top level :$:cadar */;
+    array48[323] = builtinSymbols[481].val /* define-structure */;
     array48[327] = Object::makeString(UC("syntax error in")).val;
     array48[330] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array48[342] = builtinSymbols[6269].val /* define-structure */;
+    array48[342] = builtinSymbols[481].val /* define-structure */;
     array48[346] = Object::makeString(UC("syntax error in")).val;
     array48[349] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array48[357] = builtinSymbols[6269].val /* define-structure */;
+    array48[357] = builtinSymbols[481].val /* define-structure */;
     array48[361] = Object::makeString(UC("syntax error in")).val;
     array48[364] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
     Object list48 = Pair::wordArrayToList(array48, 415);
@@ -3905,10 +3905,10 @@ Object scheme::getBuiltinCompiler() {
 
     static word array60[]= {
         0xcc /* builtinSymbols[8311].val \* vector *\ */,
-        0xcc /* builtinSymbols[6281].val \* disjoint *\ */
+        0xcc /* builtinSymbols[493].val \* disjoint *\ */
     };
     array60[0] = builtinSymbols[8311].val /* vector */;
-    array60[1] = builtinSymbols[6281].val /* disjoint */;
+    array60[1] = builtinSymbols[493].val /* disjoint */;
     Object list60 = Pair::wordArrayToList(array60, 2);
 
     static word array61[]= {
@@ -3938,12 +3938,12 @@ Object scheme::getBuiltinCompiler() {
     static word array64[]= {
         0xcc /* list63.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6372].val \* f *\ */,
+        0xcc /* builtinSymbols[584].val \* f *\ */,
         0xcc /* builtinSymbols[6663].val \* l *\ */
     };
     array64[0] = list63.val;
     array64[1] = builtinSymbols[6669].val /* lambda */;
-    array64[2] = builtinSymbols[6372].val /* f */;
+    array64[2] = builtinSymbols[584].val /* f */;
     array64[3] = builtinSymbols[6663].val /* l */;
     Object list64 = Pair::wordArrayToList(array64, 4);
 
@@ -3984,14 +3984,14 @@ Object scheme::getBuiltinCompiler() {
     static word array69[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array69[1] = builtinSymbols[6669].val /* lambda */;
-    array69[2] = builtinSymbols[5965].val /* args */;
+    array69[2] = builtinSymbols[177].val /* args */;
     Object list69 = Pair::wordArrayToList(array69, 3);
 
     static word array70[]= {
-        0xcc /* builtinSymbols[6272].val \* defstruct *\ */,
+        0xcc /* builtinSymbols[484].val \* defstruct *\ */,
         3406 /* *insn* */,
         229 /* 57 */,
         3406 /* *insn* */,
@@ -4252,7 +4252,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         25 /* 6 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         1838 /* *insn* */,
         1870 /* *insn* */,
@@ -4264,7 +4264,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         25 /* 6 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7932].val \* top level :$:cdddr *\ */,
+        0xcc /* builtinSymbols[7500].val \* top level :$:cdddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         1582 /* *insn* */,
@@ -4305,7 +4305,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         33 /* 8 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7932].val \* top level :$:cdddr *\ */,
+        0xcc /* builtinSymbols[7500].val \* top level :$:cdddr *\ */,
         5 /* 1 */,
         2862 /* *insn* */,
         6 /* () */,
@@ -4345,7 +4345,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
@@ -4489,7 +4489,7 @@ Object scheme::getBuiltinCompiler() {
         1614 /* *insn* */,
         0xcc /* builtinSymbols[8082].val \* top level :$:match:structure-control *\ */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[6281].val \* disjoint *\ */,
+        0xcc /* builtinSymbols[493].val \* disjoint *\ */,
         654 /* *insn* */,
         1870 /* *insn* */,
         21 /* 5 */,
@@ -4515,7 +4515,7 @@ Object scheme::getBuiltinCompiler() {
         1614 /* *insn* */,
         0xcc /* builtinSymbols[8082].val \* top level :$:match:structure-control *\ */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[6281].val \* disjoint *\ */,
+        0xcc /* builtinSymbols[493].val \* disjoint *\ */,
         654 /* *insn* */,
         1870 /* *insn* */,
         341 /* 85 */,
@@ -4644,13 +4644,13 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8084].val \* top level :$:match:syntax-err *\ */,
         9 /* 2 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5983].val \* begin *\ */,
+        0xcc /* builtinSymbols[195].val \* begin *\ */,
         1614 /* *insn* */,
         0xcc /* builtinSymbols[8077].val \* top level :$:match:runtime-structures *\ */,
         1870 /* *insn* */,
         117 /* 29 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         3406 /* *insn* */,
         25 /* 6 */,
         2062 /* *insn* */,
@@ -4680,7 +4680,7 @@ Object scheme::getBuiltinCompiler() {
         526 /* *insn* */,
         6 /* () */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         110 /* *insn* */,
         3406 /* *insn* */,
         17 /* 4 */,
@@ -4706,7 +4706,7 @@ Object scheme::getBuiltinCompiler() {
         494 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         110 /* *insn* */,
         3406 /* *insn* */,
         33 /* 8 */,
@@ -4715,7 +4715,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         0xcc /* list59.val */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5949].val \* and *\ */,
+        0xcc /* builtinSymbols[161].val \* and *\ */,
         2382 /* *insn* */,
         0xcc /* list58.val */,
         494 /* *insn* */,
@@ -4739,7 +4739,7 @@ Object scheme::getBuiltinCompiler() {
         494 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[6338].val \* eq? *\ */,
+        0xcc /* builtinSymbols[550].val \* eq? *\ */,
         2862 /* *insn* */,
         0xcc /* list56.val */,
         110 /* *insn* */,
@@ -4776,7 +4776,7 @@ Object scheme::getBuiltinCompiler() {
         61 /* 15 */,
         0xcc /* list55.val */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         2382 /* *insn* */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         2862 /* *insn* */,
@@ -4820,7 +4820,7 @@ Object scheme::getBuiltinCompiler() {
         1870 /* *insn* */,
         117 /* 29 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         2382 /* *insn* */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         2862 /* *insn* */,
@@ -4943,7 +4943,7 @@ Object scheme::getBuiltinCompiler() {
         622 /* *insn* */,
         1 /* 0 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6272].val \* defstruct *\ */,
+        0xcc /* builtinSymbols[484].val \* defstruct *\ */,
         2222 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
@@ -4962,7 +4962,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         61 /* 15 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6272].val \* defstruct *\ */,
+        0xcc /* builtinSymbols[484].val \* defstruct *\ */,
         1582 /* *insn* */,
         25 /* 6 */,
         494 /* *insn* */,
@@ -5088,30 +5088,30 @@ Object scheme::getBuiltinCompiler() {
         1070 /* *insn* */,
         1070 /* *insn* */
     };
-    array70[0] = builtinSymbols[6272].val /* defstruct */;
+    array70[0] = builtinSymbols[484].val /* defstruct */;
     array70[19] = list69.val;
     array70[39] = list68.val;
     array70[83] = builtinSymbols[8072].val /* top level :$:match:error */;
     array70[96] = list66.val;
     array70[141] = builtinSymbols[8072].val /* top level :$:match:error */;
     array70[154] = list64.val;
-    array70[261] = builtinSymbols[7891].val /* top level :$:caddr */;
-    array70[273] = builtinSymbols[7932].val /* top level :$:cdddr */;
-    array70[314] = builtinSymbols[7932].val /* top level :$:cdddr */;
-    array70[354] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array70[261] = builtinSymbols[7459].val /* top level :$:caddr */;
+    array70[273] = builtinSymbols[7500].val /* top level :$:cdddr */;
+    array70[314] = builtinSymbols[7500].val /* top level :$:cdddr */;
+    array70[354] = builtinSymbols[7459].val /* top level :$:caddr */;
     array70[392] = builtinSymbols[8066].val /* top level :$:map */;
     array70[423] = builtinSymbols[8066].val /* top level :$:map */;
     array70[451] = builtinSymbols[8077].val /* top level :$:match:runtime-structures */;
     array70[462] = builtinSymbols[7096].val /* quote */;
     array70[467] = builtinSymbols[8075].val /* top level :$:match:make-structure-tag */;
     array70[496] = builtinSymbols[8082].val /* top level :$:match:structure-control */;
-    array70[498] = builtinSymbols[6281].val /* disjoint */;
+    array70[498] = builtinSymbols[493].val /* disjoint */;
     array70[503] = builtinSymbols[6839].val /* match:primitive-vector? */;
     array70[507] = builtinSymbols[8082].val /* top level :$:match:structure-control */;
     array70[509] = builtinSymbols[8311].val /* vector */;
     array70[514] = builtinSymbols[8322].val /* vector? */;
     array70[522] = builtinSymbols[8082].val /* top level :$:match:structure-control */;
-    array70[524] = builtinSymbols[6281].val /* disjoint */;
+    array70[524] = builtinSymbols[493].val /* disjoint */;
     array70[531] = builtinSymbols[8076].val /* top level :$:match:primitive-vector? */;
     array70[541] = list62.val;
     array70[546] = builtinSymbols[8076].val /* top level :$:match:primitive-vector? */;
@@ -5128,40 +5128,40 @@ Object scheme::getBuiltinCompiler() {
     array70[646] = list60.val;
     array70[648] = Object::makeString(UC("invalid value for match:structure-control, legal values are")).val;
     array70[650] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array70[653] = builtinSymbols[5983].val /* begin */;
+    array70[653] = builtinSymbols[195].val /* begin */;
     array70[655] = builtinSymbols[8077].val /* top level :$:match:runtime-structures */;
-    array70[659] = builtinSymbols[6259].val /* define */;
+    array70[659] = builtinSymbols[471].val /* define */;
     array70[663] = builtinSymbols[6838].val /* match:make-structure-tag */;
     array70[665] = builtinSymbols[7096].val /* quote */;
-    array70[689] = builtinSymbols[6259].val /* define */;
+    array70[689] = builtinSymbols[471].val /* define */;
     array70[694] = builtinSymbols[6669].val /* lambda */;
     array70[698] = builtinSymbols[8311].val /* vector */;
-    array70[715] = builtinSymbols[6259].val /* define */;
+    array70[715] = builtinSymbols[471].val /* define */;
     array70[720] = builtinSymbols[6669].val /* lambda */;
     array70[722] = list59.val;
-    array70[724] = builtinSymbols[5949].val /* and */;
+    array70[724] = builtinSymbols[161].val /* and */;
     array70[726] = list58.val;
     array70[729] = builtinSymbols[137].val /* = */;
     array70[731] = list57.val;
-    array70[748] = builtinSymbols[6338].val /* eq? */;
+    array70[748] = builtinSymbols[550].val /* eq? */;
     array70[750] = list56.val;
     array70[783] = list55.val;
-    array70[785] = builtinSymbols[6259].val /* define */;
+    array70[785] = builtinSymbols[471].val /* define */;
     array70[787] = builtinSymbols[6669].val /* lambda */;
     array70[789] = list53.val;
     array70[791] = builtinSymbols[8317].val /* vector-ref */;
     array70[793] = builtinSymbols[6908].val /* obj */;
     array70[824] = list52.val;
-    array70[829] = builtinSymbols[6259].val /* define */;
+    array70[829] = builtinSymbols[471].val /* define */;
     array70[831] = builtinSymbols[6669].val /* lambda */;
     array70[833] = list50.val;
     array70[835] = builtinSymbols[8318].val /* vector-set! */;
     array70[837] = builtinSymbols[6908].val /* obj */;
     array70[840] = list49.val;
-    array70[952] = builtinSymbols[6272].val /* defstruct */;
+    array70[952] = builtinSymbols[484].val /* defstruct */;
     array70[956] = Object::makeString(UC("syntax error in")).val;
     array70[959] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array70[971] = builtinSymbols[6272].val /* defstruct */;
+    array70[971] = builtinSymbols[484].val /* defstruct */;
     array70[976] = Object::makeString(UC("syntax error in")).val;
     array70[979] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
     Object list70 = Pair::wordArrayToList(array70, 1096);
@@ -5169,10 +5169,10 @@ Object scheme::getBuiltinCompiler() {
     static word array71[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array71[1] = builtinSymbols[6669].val /* lambda */;
-    array71[2] = builtinSymbols[5965].val /* args */;
+    array71[2] = builtinSymbols[177].val /* args */;
     Object list71 = Pair::wordArrayToList(array71, 3);
 
     static word array72[]= {
@@ -5194,7 +5194,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8074].val \* top level :$:match:expanders *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7890].val \* top level :$:cadddr *\ */,
+        0xcc /* builtinSymbols[7458].val \* top level :$:cadddr *\ */,
         5 /* 1 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -5224,9 +5224,9 @@ Object scheme::getBuiltinCompiler() {
         1870 /* *insn* */,
         53 /* 13 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5983].val \* begin *\ */,
+        0xcc /* builtinSymbols[195].val \* begin *\ */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         2222 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
@@ -5294,7 +5294,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8074].val \* top level :$:match:expanders *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         3182 /* *insn* */,
         13 /* 3 */,
@@ -5370,15 +5370,15 @@ Object scheme::getBuiltinCompiler() {
     array72[0] = builtinSymbols[6828].val /* match-define */;
     array72[7] = list71.val;
     array72[15] = builtinSymbols[8074].val /* top level :$:match:expanders */;
-    array72[18] = builtinSymbols[7890].val /* top level :$:cadddr */;
-    array72[48] = builtinSymbols[5983].val /* begin */;
-    array72[50] = builtinSymbols[6259].val /* define */;
+    array72[18] = builtinSymbols[7458].val /* top level :$:cadddr */;
+    array72[48] = builtinSymbols[195].val /* begin */;
+    array72[50] = builtinSymbols[471].val /* define */;
     array72[66] = builtinSymbols[6828].val /* match-define */;
     array72[70] = Object::makeString(UC("syntax error in")).val;
     array72[73] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
     array72[108] = builtinSymbols[6828].val /* match-define */;
     array72[115] = builtinSymbols[8074].val /* top level :$:match:expanders */;
-    array72[118] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array72[118] = builtinSymbols[7459].val /* top level :$:caddr */;
     array72[135] = builtinSymbols[6828].val /* match-define */;
     array72[139] = Object::makeString(UC("syntax error in")).val;
     array72[142] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
@@ -5415,14 +5415,14 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list75.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[7053].val \* pat *\ */,
-        0xcc /* builtinSymbols[6358].val \* exp *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */
+        0xcc /* builtinSymbols[570].val \* exp *\ */,
+        0xcc /* builtinSymbols[219].val \* body *\ */
     };
     array76[0] = list75.val;
     array76[1] = builtinSymbols[6669].val /* lambda */;
     array76[2] = builtinSymbols[7053].val /* pat */;
-    array76[3] = builtinSymbols[6358].val /* exp */;
-    array76[4] = builtinSymbols[6007].val /* body */;
+    array76[3] = builtinSymbols[570].val /* exp */;
+    array76[4] = builtinSymbols[219].val /* body */;
     Object list76 = Pair::wordArrayToList(array76, 5);
 
     static word array77[]= {
@@ -5436,14 +5436,14 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list77.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[7053].val \* pat *\ */,
-        0xcc /* builtinSymbols[6358].val \* exp *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */
+        0xcc /* builtinSymbols[570].val \* exp *\ */,
+        0xcc /* builtinSymbols[219].val \* body *\ */
     };
     array78[0] = list77.val;
     array78[1] = builtinSymbols[6669].val /* lambda */;
     array78[2] = builtinSymbols[7053].val /* pat */;
-    array78[3] = builtinSymbols[6358].val /* exp */;
-    array78[4] = builtinSymbols[6007].val /* body */;
+    array78[3] = builtinSymbols[570].val /* exp */;
+    array78[4] = builtinSymbols[219].val /* body */;
     Object list78 = Pair::wordArrayToList(array78, 5);
 
     static word array79[]= {
@@ -5457,27 +5457,27 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list79.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[6942].val \* p1 *\ */,
-        0xcc /* builtinSymbols[6304].val \* e1 *\ */,
+        0xcc /* builtinSymbols[516].val \* e1 *\ */,
         0xcc /* builtinSymbols[6943].val \* p2 *\ */,
-        0xcc /* builtinSymbols[6305].val \* e2 *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */
+        0xcc /* builtinSymbols[517].val \* e2 *\ */,
+        0xcc /* builtinSymbols[219].val \* body *\ */
     };
     array80[0] = list79.val;
     array80[1] = builtinSymbols[6669].val /* lambda */;
     array80[2] = builtinSymbols[6942].val /* p1 */;
-    array80[3] = builtinSymbols[6304].val /* e1 */;
+    array80[3] = builtinSymbols[516].val /* e1 */;
     array80[4] = builtinSymbols[6943].val /* p2 */;
-    array80[5] = builtinSymbols[6305].val /* e2 */;
-    array80[6] = builtinSymbols[6007].val /* body */;
+    array80[5] = builtinSymbols[517].val /* e2 */;
+    array80[6] = builtinSymbols[219].val /* body */;
     Object list80 = Pair::wordArrayToList(array80, 7);
 
     static word array81[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array81[1] = builtinSymbols[6669].val /* lambda */;
-    array81[2] = builtinSymbols[5965].val /* args */;
+    array81[2] = builtinSymbols[177].val /* args */;
     Object list81 = Pair::wordArrayToList(array81, 3);
 
     static word array82[]= {
@@ -5508,7 +5508,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8074].val \* top level :$:match:expanders *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7890].val \* top level :$:cadddr *\ */,
+        0xcc /* builtinSymbols[7458].val \* top level :$:cadddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         462 /* *insn* */,
@@ -5524,7 +5524,7 @@ Object scheme::getBuiltinCompiler() {
         2158 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[6233].val \* cons *\ */,
+        0xcc /* builtinSymbols[445].val \* cons *\ */,
         110 /* *insn* */,
         2446 /* *insn* */,
         2190 /* *insn* */,
@@ -5754,7 +5754,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -5771,7 +5771,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -5830,7 +5830,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7910].val \* top level :$:cdaar *\ */,
+        0xcc /* builtinSymbols[7478].val \* top level :$:cdaar *\ */,
         5 /* 1 */,
         1454 /* *insn* */,
         1870 /* *insn* */,
@@ -5840,7 +5840,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7921].val \* top level :$:cddaar *\ */,
+        0xcc /* builtinSymbols[7489].val \* top level :$:cddaar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -5877,14 +5877,14 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7869].val \* top level :$:caaar *\ */,
+        0xcc /* builtinSymbols[7437].val \* top level :$:caaar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7880].val \* top level :$:cadaar *\ */,
+        0xcc /* builtinSymbols[7448].val \* top level :$:cadaar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2318 /* *insn* */,
@@ -5950,7 +5950,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -5967,7 +5967,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -6021,7 +6021,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         1454 /* *insn* */,
         1870 /* *insn* */,
@@ -6031,7 +6031,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7913].val \* top level :$:cdadar *\ */,
+        0xcc /* builtinSymbols[7481].val \* top level :$:cdadar *\ */,
         5 /* 1 */,
         1454 /* *insn* */,
         1870 /* *insn* */,
@@ -6041,7 +6041,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7913].val \* top level :$:cdadar *\ */,
+        0xcc /* builtinSymbols[7481].val \* top level :$:cdadar *\ */,
         5 /* 1 */,
         430 /* *insn* */,
         1134 /* *insn* */,
@@ -6052,7 +6052,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -6086,28 +6086,28 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7869].val \* top level :$:caaar *\ */,
+        0xcc /* builtinSymbols[7437].val \* top level :$:caaar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7880].val \* top level :$:cadaar *\ */,
+        0xcc /* builtinSymbols[7448].val \* top level :$:cadaar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7872].val \* top level :$:caadar *\ */,
+        0xcc /* builtinSymbols[7440].val \* top level :$:caadar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7913].val \* top level :$:cdadar *\ */,
+        0xcc /* builtinSymbols[7481].val \* top level :$:cdadar *\ */,
         5 /* 1 */,
         3022 /* *insn* */,
         2318 /* *insn* */,
@@ -6173,7 +6173,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -6190,7 +6190,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -6330,7 +6330,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -6347,7 +6347,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -6488,7 +6488,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -6505,7 +6505,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -6565,7 +6565,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7910].val \* top level :$:cdaar *\ */,
+        0xcc /* builtinSymbols[7478].val \* top level :$:cdaar *\ */,
         5 /* 1 */,
         1454 /* *insn* */,
         1870 /* *insn* */,
@@ -6575,7 +6575,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7921].val \* top level :$:cddaar *\ */,
+        0xcc /* builtinSymbols[7489].val \* top level :$:cddaar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -6610,14 +6610,14 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7869].val \* top level :$:caaar *\ */,
+        0xcc /* builtinSymbols[7437].val \* top level :$:caaar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7880].val \* top level :$:cadaar *\ */,
+        0xcc /* builtinSymbols[7448].val \* top level :$:cadaar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2318 /* *insn* */,
@@ -6683,7 +6683,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -6700,7 +6700,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -6754,7 +6754,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         1454 /* *insn* */,
         1870 /* *insn* */,
@@ -6764,7 +6764,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7913].val \* top level :$:cdadar *\ */,
+        0xcc /* builtinSymbols[7481].val \* top level :$:cdadar *\ */,
         5 /* 1 */,
         1454 /* *insn* */,
         1870 /* *insn* */,
@@ -6774,7 +6774,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7913].val \* top level :$:cdadar *\ */,
+        0xcc /* builtinSymbols[7481].val \* top level :$:cdadar *\ */,
         5 /* 1 */,
         430 /* *insn* */,
         1134 /* *insn* */,
@@ -6785,7 +6785,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -6819,28 +6819,28 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7869].val \* top level :$:caaar *\ */,
+        0xcc /* builtinSymbols[7437].val \* top level :$:caaar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7880].val \* top level :$:cadaar *\ */,
+        0xcc /* builtinSymbols[7448].val \* top level :$:cadaar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7872].val \* top level :$:caadar *\ */,
+        0xcc /* builtinSymbols[7440].val \* top level :$:caadar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7913].val \* top level :$:cdadar *\ */,
+        0xcc /* builtinSymbols[7481].val \* top level :$:cdadar *\ */,
         5 /* 1 */,
         3022 /* *insn* */,
         2318 /* *insn* */,
@@ -6906,7 +6906,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -6923,7 +6923,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -7063,7 +7063,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -7080,7 +7080,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -7221,7 +7221,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -7238,7 +7238,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -7574,10 +7574,10 @@ Object scheme::getBuiltinCompiler() {
     array82[0] = builtinSymbols[6835].val /* match-letrec */;
     array82[13] = list81.val;
     array82[24] = builtinSymbols[8074].val /* top level :$:match:expanders */;
-    array82[27] = builtinSymbols[7890].val /* top level :$:cadddr */;
+    array82[27] = builtinSymbols[7458].val /* top level :$:cadddr */;
     array82[36] = list80.val;
     array82[38] = builtinSymbols[6835].val /* match-letrec */;
-    array82[43] = builtinSymbols[6233].val /* cons */;
+    array82[43] = builtinSymbols[445].val /* cons */;
     array82[74] = list78.val;
     array82[76] = builtinSymbols[6835].val /* match-letrec */;
     array82[84] = builtinSymbols[8311].val /* vector */;
@@ -7590,96 +7590,96 @@ Object scheme::getBuiltinCompiler() {
     array82[243] = builtinSymbols[6835].val /* match-letrec */;
     array82[247] = Object::makeString(UC("syntax error in")).val;
     array82[250] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array82[273] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array82[290] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array82[273] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array82[290] = builtinSymbols[7452].val /* top level :$:cadar */;
     array82[316] = builtinSymbols[6835].val /* match-letrec */;
     array82[320] = Object::makeString(UC("syntax error in")).val;
     array82[323] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array82[349] = builtinSymbols[7910].val /* top level :$:cdaar */;
-    array82[359] = builtinSymbols[7921].val /* top level :$:cddaar */;
-    array82[396] = builtinSymbols[7869].val /* top level :$:caaar */;
-    array82[403] = builtinSymbols[7880].val /* top level :$:cadaar */;
+    array82[349] = builtinSymbols[7478].val /* top level :$:cdaar */;
+    array82[359] = builtinSymbols[7489].val /* top level :$:cddaar */;
+    array82[396] = builtinSymbols[7437].val /* top level :$:caaar */;
+    array82[403] = builtinSymbols[7448].val /* top level :$:cadaar */;
     array82[439] = builtinSymbols[6835].val /* match-letrec */;
     array82[443] = Object::makeString(UC("syntax error in")).val;
     array82[446] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array82[469] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array82[486] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array82[469] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array82[486] = builtinSymbols[7452].val /* top level :$:cadar */;
     array82[512] = builtinSymbols[6835].val /* match-letrec */;
     array82[516] = Object::makeString(UC("syntax error in")).val;
     array82[519] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array82[540] = builtinSymbols[7884].val /* top level :$:cadar */;
-    array82[550] = builtinSymbols[7913].val /* top level :$:cdadar */;
-    array82[560] = builtinSymbols[7913].val /* top level :$:cdadar */;
-    array82[571] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array82[605] = builtinSymbols[7869].val /* top level :$:caaar */;
-    array82[612] = builtinSymbols[7880].val /* top level :$:cadaar */;
-    array82[619] = builtinSymbols[7872].val /* top level :$:caadar */;
-    array82[626] = builtinSymbols[7913].val /* top level :$:cdadar */;
+    array82[540] = builtinSymbols[7452].val /* top level :$:cadar */;
+    array82[550] = builtinSymbols[7481].val /* top level :$:cdadar */;
+    array82[560] = builtinSymbols[7481].val /* top level :$:cdadar */;
+    array82[571] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array82[605] = builtinSymbols[7437].val /* top level :$:caaar */;
+    array82[612] = builtinSymbols[7448].val /* top level :$:cadaar */;
+    array82[619] = builtinSymbols[7440].val /* top level :$:caadar */;
+    array82[626] = builtinSymbols[7481].val /* top level :$:cdadar */;
     array82[662] = builtinSymbols[6835].val /* match-letrec */;
     array82[666] = Object::makeString(UC("syntax error in")).val;
     array82[669] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array82[692] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array82[709] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array82[692] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array82[709] = builtinSymbols[7452].val /* top level :$:cadar */;
     array82[735] = builtinSymbols[6835].val /* match-letrec */;
     array82[739] = Object::makeString(UC("syntax error in")).val;
     array82[742] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
     array82[819] = builtinSymbols[6835].val /* match-letrec */;
     array82[823] = Object::makeString(UC("syntax error in")).val;
     array82[826] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array82[849] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array82[866] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array82[849] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array82[866] = builtinSymbols[7452].val /* top level :$:cadar */;
     array82[893] = builtinSymbols[6835].val /* match-letrec */;
     array82[897] = Object::makeString(UC("syntax error in")).val;
     array82[900] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
     array82[977] = builtinSymbols[6835].val /* match-letrec */;
     array82[981] = Object::makeString(UC("syntax error in")).val;
     array82[984] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array82[1007] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array82[1024] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array82[1007] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array82[1024] = builtinSymbols[7452].val /* top level :$:cadar */;
     array82[1051] = builtinSymbols[6835].val /* match-letrec */;
     array82[1055] = Object::makeString(UC("syntax error in")).val;
     array82[1058] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array82[1084] = builtinSymbols[7910].val /* top level :$:cdaar */;
-    array82[1094] = builtinSymbols[7921].val /* top level :$:cddaar */;
-    array82[1129] = builtinSymbols[7869].val /* top level :$:caaar */;
-    array82[1136] = builtinSymbols[7880].val /* top level :$:cadaar */;
+    array82[1084] = builtinSymbols[7478].val /* top level :$:cdaar */;
+    array82[1094] = builtinSymbols[7489].val /* top level :$:cddaar */;
+    array82[1129] = builtinSymbols[7437].val /* top level :$:caaar */;
+    array82[1136] = builtinSymbols[7448].val /* top level :$:cadaar */;
     array82[1172] = builtinSymbols[6835].val /* match-letrec */;
     array82[1176] = Object::makeString(UC("syntax error in")).val;
     array82[1179] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array82[1202] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array82[1219] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array82[1202] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array82[1219] = builtinSymbols[7452].val /* top level :$:cadar */;
     array82[1245] = builtinSymbols[6835].val /* match-letrec */;
     array82[1249] = Object::makeString(UC("syntax error in")).val;
     array82[1252] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array82[1273] = builtinSymbols[7884].val /* top level :$:cadar */;
-    array82[1283] = builtinSymbols[7913].val /* top level :$:cdadar */;
-    array82[1293] = builtinSymbols[7913].val /* top level :$:cdadar */;
-    array82[1304] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array82[1338] = builtinSymbols[7869].val /* top level :$:caaar */;
-    array82[1345] = builtinSymbols[7880].val /* top level :$:cadaar */;
-    array82[1352] = builtinSymbols[7872].val /* top level :$:caadar */;
-    array82[1359] = builtinSymbols[7913].val /* top level :$:cdadar */;
+    array82[1273] = builtinSymbols[7452].val /* top level :$:cadar */;
+    array82[1283] = builtinSymbols[7481].val /* top level :$:cdadar */;
+    array82[1293] = builtinSymbols[7481].val /* top level :$:cdadar */;
+    array82[1304] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array82[1338] = builtinSymbols[7437].val /* top level :$:caaar */;
+    array82[1345] = builtinSymbols[7448].val /* top level :$:cadaar */;
+    array82[1352] = builtinSymbols[7440].val /* top level :$:caadar */;
+    array82[1359] = builtinSymbols[7481].val /* top level :$:cdadar */;
     array82[1395] = builtinSymbols[6835].val /* match-letrec */;
     array82[1399] = Object::makeString(UC("syntax error in")).val;
     array82[1402] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array82[1425] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array82[1442] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array82[1425] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array82[1442] = builtinSymbols[7452].val /* top level :$:cadar */;
     array82[1468] = builtinSymbols[6835].val /* match-letrec */;
     array82[1472] = Object::makeString(UC("syntax error in")).val;
     array82[1475] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
     array82[1552] = builtinSymbols[6835].val /* match-letrec */;
     array82[1556] = Object::makeString(UC("syntax error in")).val;
     array82[1559] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array82[1582] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array82[1599] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array82[1582] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array82[1599] = builtinSymbols[7452].val /* top level :$:cadar */;
     array82[1626] = builtinSymbols[6835].val /* match-letrec */;
     array82[1630] = Object::makeString(UC("syntax error in")).val;
     array82[1633] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
     array82[1710] = builtinSymbols[6835].val /* match-letrec */;
     array82[1714] = Object::makeString(UC("syntax error in")).val;
     array82[1717] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array82[1740] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array82[1757] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array82[1740] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array82[1757] = builtinSymbols[7452].val /* top level :$:cadar */;
     array82[1784] = builtinSymbols[6835].val /* match-letrec */;
     array82[1788] = Object::makeString(UC("syntax error in")).val;
     array82[1791] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
@@ -7694,10 +7694,10 @@ Object scheme::getBuiltinCompiler() {
     static word array83[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array83[1] = builtinSymbols[6669].val /* lambda */;
-    array83[2] = builtinSymbols[5965].val /* args */;
+    array83[2] = builtinSymbols[177].val /* args */;
     Object list83 = Pair::wordArrayToList(array83, 3);
 
     static word array84[]= {
@@ -7773,7 +7773,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7910].val \* top level :$:cdaar *\ */,
+        0xcc /* builtinSymbols[7478].val \* top level :$:cdaar *\ */,
         5 /* 1 */,
         1454 /* *insn* */,
         1870 /* *insn* */,
@@ -7782,7 +7782,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7921].val \* top level :$:cddaar *\ */,
+        0xcc /* builtinSymbols[7489].val \* top level :$:cddaar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         1870 /* *insn* */,
@@ -7828,13 +7828,13 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7869].val \* top level :$:caaar *\ */,
+        0xcc /* builtinSymbols[7437].val \* top level :$:caaar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7880].val \* top level :$:cadaar *\ */,
+        0xcc /* builtinSymbols[7448].val \* top level :$:cadaar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2094 /* *insn* */,
@@ -7853,7 +7853,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8074].val \* top level :$:match:expanders *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7890].val \* top level :$:cadddr *\ */,
+        0xcc /* builtinSymbols[7458].val \* top level :$:cadddr *\ */,
         5 /* 1 */,
         46 /* *insn* */,
         5 /* 1 */,
@@ -7976,12 +7976,12 @@ Object scheme::getBuiltinCompiler() {
     array84[44] = builtinSymbols[6833].val /* match-let* */;
     array84[48] = Object::makeString(UC("syntax error in")).val;
     array84[51] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array84[72] = builtinSymbols[7910].val /* top level :$:cdaar */;
-    array84[81] = builtinSymbols[7921].val /* top level :$:cddaar */;
-    array84[127] = builtinSymbols[7869].val /* top level :$:caaar */;
-    array84[133] = builtinSymbols[7880].val /* top level :$:cadaar */;
+    array84[72] = builtinSymbols[7478].val /* top level :$:cdaar */;
+    array84[81] = builtinSymbols[7489].val /* top level :$:cddaar */;
+    array84[127] = builtinSymbols[7437].val /* top level :$:caaar */;
+    array84[133] = builtinSymbols[7448].val /* top level :$:cadaar */;
     array84[149] = builtinSymbols[8074].val /* top level :$:match:expanders */;
-    array84[152] = builtinSymbols[7890].val /* top level :$:cadddr */;
+    array84[152] = builtinSymbols[7458].val /* top level :$:cadddr */;
     array84[159] = builtinSymbols[6681].val /* let */;
     array84[169] = builtinSymbols[6833].val /* match-let* */;
     array84[183] = builtinSymbols[6827].val /* match */;
@@ -8022,18 +8022,18 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list87.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[6942].val \* p1 *\ */,
-        0xcc /* builtinSymbols[6304].val \* e1 *\ */,
+        0xcc /* builtinSymbols[516].val \* e1 *\ */,
         0xcc /* builtinSymbols[6943].val \* p2 *\ */,
-        0xcc /* builtinSymbols[6305].val \* e2 *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */
+        0xcc /* builtinSymbols[517].val \* e2 *\ */,
+        0xcc /* builtinSymbols[219].val \* body *\ */
     };
     array88[0] = list87.val;
     array88[1] = builtinSymbols[6669].val /* lambda */;
     array88[2] = builtinSymbols[6942].val /* p1 */;
-    array88[3] = builtinSymbols[6304].val /* e1 */;
+    array88[3] = builtinSymbols[516].val /* e1 */;
     array88[4] = builtinSymbols[6943].val /* p2 */;
-    array88[5] = builtinSymbols[6305].val /* e2 */;
-    array88[6] = builtinSymbols[6007].val /* body */;
+    array88[5] = builtinSymbols[517].val /* e2 */;
+    array88[6] = builtinSymbols[219].val /* body */;
     Object list88 = Pair::wordArrayToList(array88, 7);
 
     static word array89[]= {
@@ -8064,23 +8064,23 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list91.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[7053].val \* pat *\ */,
-        0xcc /* builtinSymbols[6358].val \* exp *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */
+        0xcc /* builtinSymbols[570].val \* exp *\ */,
+        0xcc /* builtinSymbols[219].val \* body *\ */
     };
     array92[0] = list91.val;
     array92[1] = builtinSymbols[6669].val /* lambda */;
     array92[2] = builtinSymbols[7053].val /* pat */;
-    array92[3] = builtinSymbols[6358].val /* exp */;
-    array92[4] = builtinSymbols[6007].val /* body */;
+    array92[3] = builtinSymbols[570].val /* exp */;
+    array92[4] = builtinSymbols[219].val /* body */;
     Object list92 = Pair::wordArrayToList(array92, 5);
 
     static word array93[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array93[1] = builtinSymbols[6669].val /* lambda */;
-    array93[2] = builtinSymbols[5965].val /* args */;
+    array93[2] = builtinSymbols[177].val /* args */;
     Object list93 = Pair::wordArrayToList(array93, 3);
 
     static word array94[]= {
@@ -8250,7 +8250,7 @@ Object scheme::getBuiltinCompiler() {
         2862 /* *insn* */,
         0xcc /* builtinSymbols[6827].val \* match *\ */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[6233].val \* cons *\ */,
+        0xcc /* builtinSymbols[445].val \* cons *\ */,
         110 /* *insn* */,
         2350 /* *insn* */,
         2414 /* *insn* */,
@@ -8286,7 +8286,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8074].val \* top level :$:match:expanders *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7890].val \* top level :$:cadddr *\ */,
+        0xcc /* builtinSymbols[7458].val \* top level :$:cadddr *\ */,
         5 /* 1 */,
         2510 /* *insn* */,
         13 /* 3 */,
@@ -8394,7 +8394,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8074].val \* top level :$:match:expanders *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7890].val \* top level :$:cadddr *\ */,
+        0xcc /* builtinSymbols[7458].val \* top level :$:cadddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2446 /* *insn* */,
@@ -8478,7 +8478,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -8495,7 +8495,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -8703,7 +8703,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -8720,7 +8720,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -8781,7 +8781,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7910].val \* top level :$:cdaar *\ */,
+        0xcc /* builtinSymbols[7478].val \* top level :$:cdaar *\ */,
         5 /* 1 */,
         1454 /* *insn* */,
         1870 /* *insn* */,
@@ -8791,7 +8791,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7921].val \* top level :$:cddaar *\ */,
+        0xcc /* builtinSymbols[7489].val \* top level :$:cddaar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -8840,13 +8840,13 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7869].val \* top level :$:caaar *\ */,
+        0xcc /* builtinSymbols[7437].val \* top level :$:caaar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7880].val \* top level :$:cadaar *\ */,
+        0xcc /* builtinSymbols[7448].val \* top level :$:cadaar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2222 /* *insn* */,
@@ -8922,7 +8922,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -8939,7 +8939,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -8994,7 +8994,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         1454 /* *insn* */,
         1870 /* *insn* */,
@@ -9004,7 +9004,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7913].val \* top level :$:cdadar *\ */,
+        0xcc /* builtinSymbols[7481].val \* top level :$:cdadar *\ */,
         5 /* 1 */,
         1454 /* *insn* */,
         1870 /* *insn* */,
@@ -9014,7 +9014,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7913].val \* top level :$:cdadar *\ */,
+        0xcc /* builtinSymbols[7481].val \* top level :$:cdadar *\ */,
         5 /* 1 */,
         430 /* *insn* */,
         1134 /* *insn* */,
@@ -9025,7 +9025,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -9062,28 +9062,28 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7869].val \* top level :$:caaar *\ */,
+        0xcc /* builtinSymbols[7437].val \* top level :$:caaar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7880].val \* top level :$:cadaar *\ */,
+        0xcc /* builtinSymbols[7448].val \* top level :$:cadaar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7872].val \* top level :$:caadar *\ */,
+        0xcc /* builtinSymbols[7440].val \* top level :$:caadar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7913].val \* top level :$:cdadar *\ */,
+        0xcc /* builtinSymbols[7481].val \* top level :$:cdadar *\ */,
         5 /* 1 */,
         3022 /* *insn* */,
         1582 /* *insn* */,
@@ -9150,7 +9150,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -9167,7 +9167,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -9309,7 +9309,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -9326,7 +9326,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -9469,7 +9469,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -9486,7 +9486,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -9548,7 +9548,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7910].val \* top level :$:cdaar *\ */,
+        0xcc /* builtinSymbols[7478].val \* top level :$:cdaar *\ */,
         5 /* 1 */,
         1454 /* *insn* */,
         1870 /* *insn* */,
@@ -9558,7 +9558,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7921].val \* top level :$:cddaar *\ */,
+        0xcc /* builtinSymbols[7489].val \* top level :$:cddaar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -9605,13 +9605,13 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7869].val \* top level :$:caaar *\ */,
+        0xcc /* builtinSymbols[7437].val \* top level :$:caaar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7880].val \* top level :$:cadaar *\ */,
+        0xcc /* builtinSymbols[7448].val \* top level :$:cadaar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2222 /* *insn* */,
@@ -9687,7 +9687,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -9704,7 +9704,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -9759,7 +9759,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         1454 /* *insn* */,
         1870 /* *insn* */,
@@ -9769,7 +9769,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7913].val \* top level :$:cdadar *\ */,
+        0xcc /* builtinSymbols[7481].val \* top level :$:cdadar *\ */,
         5 /* 1 */,
         1454 /* *insn* */,
         1870 /* *insn* */,
@@ -9779,7 +9779,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7913].val \* top level :$:cdadar *\ */,
+        0xcc /* builtinSymbols[7481].val \* top level :$:cdadar *\ */,
         5 /* 1 */,
         430 /* *insn* */,
         1134 /* *insn* */,
@@ -9790,7 +9790,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -9827,28 +9827,28 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7869].val \* top level :$:caaar *\ */,
+        0xcc /* builtinSymbols[7437].val \* top level :$:caaar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7880].val \* top level :$:cadaar *\ */,
+        0xcc /* builtinSymbols[7448].val \* top level :$:cadaar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7872].val \* top level :$:caadar *\ */,
+        0xcc /* builtinSymbols[7440].val \* top level :$:caadar *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7913].val \* top level :$:cdadar *\ */,
+        0xcc /* builtinSymbols[7481].val \* top level :$:cdadar *\ */,
         5 /* 1 */,
         3022 /* *insn* */,
         1582 /* *insn* */,
@@ -9915,7 +9915,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -9932,7 +9932,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -10074,7 +10074,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -10091,7 +10091,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -10234,7 +10234,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -10251,7 +10251,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -10630,11 +10630,11 @@ Object scheme::getBuiltinCompiler() {
     array94[117] = list88.val;
     array94[143] = builtinSymbols[6681].val /* let */;
     array94[164] = builtinSymbols[6827].val /* match */;
-    array94[166] = builtinSymbols[6233].val /* cons */;
+    array94[166] = builtinSymbols[445].val /* cons */;
     array94[199] = builtinSymbols[8074].val /* top level :$:match:expanders */;
-    array94[202] = builtinSymbols[7890].val /* top level :$:cadddr */;
+    array94[202] = builtinSymbols[7458].val /* top level :$:cadddr */;
     array94[307] = builtinSymbols[8074].val /* top level :$:match:expanders */;
-    array94[310] = builtinSymbols[7890].val /* top level :$:cadddr */;
+    array94[310] = builtinSymbols[7458].val /* top level :$:cadddr */;
     array94[315] = builtinSymbols[8069].val /* top level :$:match:andmap */;
     array94[320] = builtinSymbols[6681].val /* let */;
     array94[326] = builtinSymbols[6691].val /* letrec */;
@@ -10642,8 +10642,8 @@ Object scheme::getBuiltinCompiler() {
     array94[364] = builtinSymbols[6832].val /* match-let */;
     array94[368] = Object::makeString(UC("syntax error in")).val;
     array94[371] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array94[394] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array94[411] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array94[394] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array94[411] = builtinSymbols[7452].val /* top level :$:cadar */;
     array94[437] = builtinSymbols[6832].val /* match-let */;
     array94[441] = Object::makeString(UC("syntax error in")).val;
     array94[444] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
@@ -10656,98 +10656,98 @@ Object scheme::getBuiltinCompiler() {
     array94[589] = builtinSymbols[6832].val /* match-let */;
     array94[593] = Object::makeString(UC("syntax error in")).val;
     array94[596] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array94[619] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array94[636] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array94[619] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array94[636] = builtinSymbols[7452].val /* top level :$:cadar */;
     array94[662] = builtinSymbols[6832].val /* match-let */;
     array94[666] = Object::makeString(UC("syntax error in")).val;
     array94[669] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array94[697] = builtinSymbols[7910].val /* top level :$:cdaar */;
-    array94[707] = builtinSymbols[7921].val /* top level :$:cddaar */;
-    array94[756] = builtinSymbols[7869].val /* top level :$:caaar */;
-    array94[762] = builtinSymbols[7880].val /* top level :$:cadaar */;
+    array94[697] = builtinSymbols[7478].val /* top level :$:cdaar */;
+    array94[707] = builtinSymbols[7489].val /* top level :$:cddaar */;
+    array94[756] = builtinSymbols[7437].val /* top level :$:caaar */;
+    array94[762] = builtinSymbols[7448].val /* top level :$:cadaar */;
     array94[770] = builtinSymbols[6827].val /* match */;
     array94[808] = builtinSymbols[6832].val /* match-let */;
     array94[812] = Object::makeString(UC("syntax error in")).val;
     array94[815] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array94[838] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array94[855] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array94[838] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array94[855] = builtinSymbols[7452].val /* top level :$:cadar */;
     array94[881] = builtinSymbols[6832].val /* match-let */;
     array94[885] = Object::makeString(UC("syntax error in")).val;
     array94[888] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array94[910] = builtinSymbols[7884].val /* top level :$:cadar */;
-    array94[920] = builtinSymbols[7913].val /* top level :$:cdadar */;
-    array94[930] = builtinSymbols[7913].val /* top level :$:cdadar */;
-    array94[941] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array94[978] = builtinSymbols[7869].val /* top level :$:caaar */;
-    array94[985] = builtinSymbols[7880].val /* top level :$:cadaar */;
-    array94[992] = builtinSymbols[7872].val /* top level :$:caadar */;
-    array94[999] = builtinSymbols[7913].val /* top level :$:cdadar */;
+    array94[910] = builtinSymbols[7452].val /* top level :$:cadar */;
+    array94[920] = builtinSymbols[7481].val /* top level :$:cdadar */;
+    array94[930] = builtinSymbols[7481].val /* top level :$:cdadar */;
+    array94[941] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array94[978] = builtinSymbols[7437].val /* top level :$:caaar */;
+    array94[985] = builtinSymbols[7448].val /* top level :$:cadaar */;
+    array94[992] = builtinSymbols[7440].val /* top level :$:caadar */;
+    array94[999] = builtinSymbols[7481].val /* top level :$:cdadar */;
     array94[1036] = builtinSymbols[6832].val /* match-let */;
     array94[1040] = Object::makeString(UC("syntax error in")).val;
     array94[1043] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array94[1066] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array94[1083] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array94[1066] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array94[1083] = builtinSymbols[7452].val /* top level :$:cadar */;
     array94[1109] = builtinSymbols[6832].val /* match-let */;
     array94[1113] = Object::makeString(UC("syntax error in")).val;
     array94[1116] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
     array94[1195] = builtinSymbols[6832].val /* match-let */;
     array94[1199] = Object::makeString(UC("syntax error in")).val;
     array94[1202] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array94[1225] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array94[1242] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array94[1225] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array94[1242] = builtinSymbols[7452].val /* top level :$:cadar */;
     array94[1269] = builtinSymbols[6832].val /* match-let */;
     array94[1273] = Object::makeString(UC("syntax error in")).val;
     array94[1276] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
     array94[1355] = builtinSymbols[6832].val /* match-let */;
     array94[1359] = Object::makeString(UC("syntax error in")).val;
     array94[1362] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array94[1385] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array94[1402] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array94[1385] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array94[1402] = builtinSymbols[7452].val /* top level :$:cadar */;
     array94[1429] = builtinSymbols[6832].val /* match-let */;
     array94[1433] = Object::makeString(UC("syntax error in")).val;
     array94[1436] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array94[1464] = builtinSymbols[7910].val /* top level :$:cdaar */;
-    array94[1474] = builtinSymbols[7921].val /* top level :$:cddaar */;
-    array94[1521] = builtinSymbols[7869].val /* top level :$:caaar */;
-    array94[1527] = builtinSymbols[7880].val /* top level :$:cadaar */;
+    array94[1464] = builtinSymbols[7478].val /* top level :$:cdaar */;
+    array94[1474] = builtinSymbols[7489].val /* top level :$:cddaar */;
+    array94[1521] = builtinSymbols[7437].val /* top level :$:caaar */;
+    array94[1527] = builtinSymbols[7448].val /* top level :$:cadaar */;
     array94[1535] = builtinSymbols[6827].val /* match */;
     array94[1573] = builtinSymbols[6832].val /* match-let */;
     array94[1577] = Object::makeString(UC("syntax error in")).val;
     array94[1580] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array94[1603] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array94[1620] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array94[1603] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array94[1620] = builtinSymbols[7452].val /* top level :$:cadar */;
     array94[1646] = builtinSymbols[6832].val /* match-let */;
     array94[1650] = Object::makeString(UC("syntax error in")).val;
     array94[1653] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array94[1675] = builtinSymbols[7884].val /* top level :$:cadar */;
-    array94[1685] = builtinSymbols[7913].val /* top level :$:cdadar */;
-    array94[1695] = builtinSymbols[7913].val /* top level :$:cdadar */;
-    array94[1706] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array94[1743] = builtinSymbols[7869].val /* top level :$:caaar */;
-    array94[1750] = builtinSymbols[7880].val /* top level :$:cadaar */;
-    array94[1757] = builtinSymbols[7872].val /* top level :$:caadar */;
-    array94[1764] = builtinSymbols[7913].val /* top level :$:cdadar */;
+    array94[1675] = builtinSymbols[7452].val /* top level :$:cadar */;
+    array94[1685] = builtinSymbols[7481].val /* top level :$:cdadar */;
+    array94[1695] = builtinSymbols[7481].val /* top level :$:cdadar */;
+    array94[1706] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array94[1743] = builtinSymbols[7437].val /* top level :$:caaar */;
+    array94[1750] = builtinSymbols[7448].val /* top level :$:cadaar */;
+    array94[1757] = builtinSymbols[7440].val /* top level :$:caadar */;
+    array94[1764] = builtinSymbols[7481].val /* top level :$:cdadar */;
     array94[1801] = builtinSymbols[6832].val /* match-let */;
     array94[1805] = Object::makeString(UC("syntax error in")).val;
     array94[1808] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array94[1831] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array94[1848] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array94[1831] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array94[1848] = builtinSymbols[7452].val /* top level :$:cadar */;
     array94[1874] = builtinSymbols[6832].val /* match-let */;
     array94[1878] = Object::makeString(UC("syntax error in")).val;
     array94[1881] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
     array94[1960] = builtinSymbols[6832].val /* match-let */;
     array94[1964] = Object::makeString(UC("syntax error in")).val;
     array94[1967] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array94[1990] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array94[2007] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array94[1990] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array94[2007] = builtinSymbols[7452].val /* top level :$:cadar */;
     array94[2034] = builtinSymbols[6832].val /* match-let */;
     array94[2038] = Object::makeString(UC("syntax error in")).val;
     array94[2041] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
     array94[2120] = builtinSymbols[6832].val /* match-let */;
     array94[2124] = Object::makeString(UC("syntax error in")).val;
     array94[2127] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
-    array94[2150] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array94[2167] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array94[2150] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array94[2167] = builtinSymbols[7452].val /* top level :$:cadar */;
     array94[2194] = builtinSymbols[6832].val /* match-let */;
     array94[2198] = Object::makeString(UC("syntax error in")).val;
     array94[2201] = builtinSymbols[8084].val /* top level :$:match:syntax-err */;
@@ -10779,10 +10779,10 @@ Object scheme::getBuiltinCompiler() {
     static word array97[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array97[1] = builtinSymbols[6669].val /* lambda */;
-    array97[2] = builtinSymbols[5965].val /* args */;
+    array97[2] = builtinSymbols[177].val /* args */;
     Object list97 = Pair::wordArrayToList(array97, 3);
 
     static word array98[]= {
@@ -10937,10 +10937,10 @@ Object scheme::getBuiltinCompiler() {
     static word array101[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array101[1] = builtinSymbols[6669].val /* lambda */;
-    array101[2] = builtinSymbols[5965].val /* args */;
+    array101[2] = builtinSymbols[177].val /* args */;
     Object list101 = Pair::wordArrayToList(array101, 3);
 
     static word array102[]= {
@@ -11098,10 +11098,10 @@ Object scheme::getBuiltinCompiler() {
     static word array105[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array105[1] = builtinSymbols[6669].val /* lambda */;
-    array105[2] = builtinSymbols[5965].val /* args */;
+    array105[2] = builtinSymbols[177].val /* args */;
     Object list105 = Pair::wordArrayToList(array105, 3);
 
     static word array106[]= {
@@ -11367,13 +11367,13 @@ Object scheme::getBuiltinCompiler() {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[7053].val \* pat *\ */,
-        0xcc /* builtinSymbols[6358].val \* exp *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */
+        0xcc /* builtinSymbols[570].val \* exp *\ */,
+        0xcc /* builtinSymbols[219].val \* body *\ */
     };
     array110[1] = builtinSymbols[6669].val /* lambda */;
     array110[2] = builtinSymbols[7053].val /* pat */;
-    array110[3] = builtinSymbols[6358].val /* exp */;
-    array110[4] = builtinSymbols[6007].val /* body */;
+    array110[3] = builtinSymbols[570].val /* exp */;
+    array110[4] = builtinSymbols[219].val /* body */;
     Object list110 = Pair::wordArrayToList(array110, 5);
 
     static word array111[]= {
@@ -11407,14 +11407,14 @@ Object scheme::getBuiltinCompiler() {
     static word array112[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array112[1] = builtinSymbols[6669].val /* lambda */;
-    array112[2] = builtinSymbols[5965].val /* args */;
+    array112[2] = builtinSymbols[177].val /* args */;
     Object list112 = Pair::wordArrayToList(array112, 3);
 
     static word array113[]= {
-        0xcc /* builtinSymbols[6271].val \* defmacro *\ */,
+        0xcc /* builtinSymbols[483].val \* defmacro *\ */,
         462 /* *insn* */,
         109 /* 27 */,
         5 /* 1 */,
@@ -11423,12 +11423,12 @@ Object scheme::getBuiltinCompiler() {
         41 /* 10 */,
         0xcc /* list112.val */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6265].val \* define-macro *\ */,
+        0xcc /* builtinSymbols[477].val \* define-macro *\ */,
         750 /* *insn* */,
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8009].val \* top level :$:first *\ */,
+        0xcc /* builtinSymbols[7577].val \* top level :$:first *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
@@ -11447,20 +11447,20 @@ Object scheme::getBuiltinCompiler() {
         1070 /* *insn* */,
         1070 /* *insn* */
     };
-    array113[0] = builtinSymbols[6271].val /* defmacro */;
+    array113[0] = builtinSymbols[483].val /* defmacro */;
     array113[7] = list112.val;
-    array113[9] = builtinSymbols[6265].val /* define-macro */;
-    array113[14] = builtinSymbols[8009].val /* top level :$:first */;
+    array113[9] = builtinSymbols[477].val /* define-macro */;
+    array113[14] = builtinSymbols[7577].val /* top level :$:first */;
     array113[20] = builtinSymbols[8224].val /* top level :$:second */;
     Object list113 = Pair::wordArrayToList(array113, 32);
 
     static word array114[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array114[1] = builtinSymbols[6669].val /* lambda */;
-    array114[2] = builtinSymbols[5965].val /* args */;
+    array114[2] = builtinSymbols[177].val /* args */;
     Object list114 = Pair::wordArrayToList(array114, 3);
 
     static word array115[]= {
@@ -11473,7 +11473,7 @@ Object scheme::getBuiltinCompiler() {
         53 /* 13 */,
         0xcc /* list114.val */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6108].val \* call-with-values *\ */,
+        0xcc /* builtinSymbols[320].val \* call-with-values *\ */,
         2062 /* *insn* */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         2062 /* *insn* */,
@@ -11504,26 +11504,26 @@ Object scheme::getBuiltinCompiler() {
     };
     array115[0] = builtinSymbols[7116].val /* receive */;
     array115[7] = list114.val;
-    array115[9] = builtinSymbols[6108].val /* call-with-values */;
+    array115[9] = builtinSymbols[320].val /* call-with-values */;
     array115[11] = builtinSymbols[6669].val /* lambda */;
     array115[22] = builtinSymbols[6669].val /* lambda */;
     Object list115 = Pair::wordArrayToList(array115, 37);
 
     static word array116[]= {
-        0xcc /* builtinSymbols[6237].val \* cont *\ */
+        0xcc /* builtinSymbols[449].val \* cont *\ */
     };
-    array116[0] = builtinSymbols[6237].val /* cont */;
+    array116[0] = builtinSymbols[449].val /* cont */;
     Object list116 = Pair::wordArrayToList(array116, 1);
 
     static word array117[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[8346].val \* x *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */
+        0xcc /* builtinSymbols[219].val \* body *\ */
     };
     array117[1] = builtinSymbols[6669].val /* lambda */;
     array117[2] = builtinSymbols[8346].val /* x */;
-    array117[3] = builtinSymbols[6007].val /* body */;
+    array117[3] = builtinSymbols[219].val /* body */;
     Object list117 = Pair::wordArrayToList(array117, 4);
 
     static word array118[]= {
@@ -11536,7 +11536,7 @@ Object scheme::getBuiltinCompiler() {
         93 /* 23 */,
         0xcc /* list117.val */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6109].val \* call\cc *\ */,
+        0xcc /* builtinSymbols[321].val \* call\cc *\ */,
         2062 /* *insn* */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         2062 /* *insn* */,
@@ -11551,9 +11551,9 @@ Object scheme::getBuiltinCompiler() {
         6 /* () */,
         494 /* *insn* */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[6237].val \* cont *\ */,
+        0xcc /* builtinSymbols[449].val \* cont *\ */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[6222].val \* cond *\ */,
+        0xcc /* builtinSymbols[434].val \* cond *\ */,
         110 /* *insn* */,
         2094 /* *insn* */,
         430 /* *insn* */,
@@ -11594,27 +11594,27 @@ Object scheme::getBuiltinCompiler() {
     };
     array118[0] = builtinSymbols[6554].val /* guard */;
     array118[7] = list117.val;
-    array118[9] = builtinSymbols[6109].val /* call\cc */;
+    array118[9] = builtinSymbols[321].val /* call\cc */;
     array118[11] = builtinSymbols[6669].val /* lambda */;
     array118[13] = list116.val;
     array118[15] = builtinSymbols[8339].val /* with-exception-handler */;
     array118[17] = builtinSymbols[6669].val /* lambda */;
-    array118[24] = builtinSymbols[6237].val /* cont */;
-    array118[26] = builtinSymbols[6222].val /* cond */;
+    array118[24] = builtinSymbols[449].val /* cont */;
+    array118[26] = builtinSymbols[434].val /* cond */;
     array118[41] = builtinSymbols[6669].val /* lambda */;
     Object list118 = Pair::wordArrayToList(array118, 64);
 
     static word array119[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6192].val \* clauses *\ */
+        0xcc /* builtinSymbols[404].val \* clauses *\ */
     };
     array119[1] = builtinSymbols[6669].val /* lambda */;
-    array119[2] = builtinSymbols[6192].val /* clauses */;
+    array119[2] = builtinSymbols[404].val /* clauses */;
     Object list119 = Pair::wordArrayToList(array119, 3);
 
     static word array120[]= {
-        0xcc /* builtinSymbols[5941].val \* acond *\ */,
+        0xcc /* builtinSymbols[153].val \* acond *\ */,
         3406 /* *insn* */,
         217 /* 54 */,
         462 /* *insn* */,
@@ -11679,7 +11679,7 @@ Object scheme::getBuiltinCompiler() {
         494 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[5941].val \* acond *\ */,
+        0xcc /* builtinSymbols[153].val \* acond *\ */,
         110 /* *insn* */,
         2254 /* *insn* */,
         430 /* *insn* */,
@@ -11703,13 +11703,13 @@ Object scheme::getBuiltinCompiler() {
         1070 /* *insn* */,
         1070 /* *insn* */
     };
-    array120[0] = builtinSymbols[5941].val /* acond */;
+    array120[0] = builtinSymbols[153].val /* acond */;
     array120[9] = list119.val;
     array120[33] = builtinSymbols[6681].val /* let */;
     array120[45] = builtinSymbols[6601].val /* if */;
     array120[48] = builtinSymbols[6681].val /* let */;
     array120[50] = builtinSymbols[6651].val /* it */;
-    array120[65] = builtinSymbols[5941].val /* acond */;
+    array120[65] = builtinSymbols[153].val /* acond */;
     Object list120 = Pair::wordArrayToList(array120, 88);
 
     static word array121[]= {
@@ -11741,7 +11741,7 @@ Object scheme::getBuiltinCompiler() {
     Object list123 = Pair::wordArrayToList(array123, 3);
 
     static word array124[]= {
-        0xcc /* builtinSymbols[6289].val \* do *\ */,
+        0xcc /* builtinSymbols[501].val \* do *\ */,
         3406 /* *insn* */,
         229 /* 57 */,
         3406 /* *insn* */,
@@ -11802,7 +11802,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2990 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7917].val \* top level :$:cdadr *\ */,
+        0xcc /* builtinSymbols[7485].val \* top level :$:cdadr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2254 /* *insn* */,
@@ -11855,14 +11855,14 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7876].val \* top level :$:caadr *\ */,
+        0xcc /* builtinSymbols[7444].val \* top level :$:caadr *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7917].val \* top level :$:cdadr *\ */,
+        0xcc /* builtinSymbols[7485].val \* top level :$:cdadr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2318 /* *insn* */,
@@ -11880,7 +11880,7 @@ Object scheme::getBuiltinCompiler() {
         110 /* *insn* */,
         2190 /* *insn* */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[5983].val \* begin *\ */,
+        0xcc /* builtinSymbols[195].val \* begin *\ */,
         2862 /* *insn* */,
         86 /* #f */,
         110 /* *insn* */,
@@ -11889,7 +11889,7 @@ Object scheme::getBuiltinCompiler() {
         494 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[5983].val \* begin *\ */,
+        0xcc /* builtinSymbols[195].val \* begin *\ */,
         110 /* *insn* */,
         3438 /* *insn* */,
         21 /* 5 */,
@@ -11905,7 +11905,7 @@ Object scheme::getBuiltinCompiler() {
         37 /* 9 */,
         0xcc /* list122.val */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6289].val \* do *\ */,
+        0xcc /* builtinSymbols[501].val \* do *\ */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("step")).val */,
         2350 /* *insn* */,
@@ -11974,7 +11974,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2990 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7932].val \* top level :$:cdddr *\ */,
+        0xcc /* builtinSymbols[7500].val \* top level :$:cdddr *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -11992,7 +11992,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -12053,7 +12053,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2990 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7932].val \* top level :$:cdddr *\ */,
+        0xcc /* builtinSymbols[7500].val \* top level :$:cdddr *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -12069,7 +12069,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -12149,7 +12149,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2254 /* *insn* */,
@@ -12169,7 +12169,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2126 /* *insn* */,
@@ -12178,7 +12178,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2158 /* *insn* */,
@@ -12237,7 +12237,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2990 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7932].val \* top level :$:cdddr *\ */,
+        0xcc /* builtinSymbols[7500].val \* top level :$:cdddr *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -12253,7 +12253,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -12338,7 +12338,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7932].val \* top level :$:cdddr *\ */,
+        0xcc /* builtinSymbols[7500].val \* top level :$:cdddr *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -12353,7 +12353,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -12472,50 +12472,50 @@ Object scheme::getBuiltinCompiler() {
         1070 /* *insn* */,
         1070 /* *insn* */
     };
-    array124[0] = builtinSymbols[6289].val /* do */;
+    array124[0] = builtinSymbols[501].val /* do */;
     array124[11] = list123.val;
-    array124[61] = builtinSymbols[7917].val /* top level :$:cdadr */;
-    array124[114] = builtinSymbols[7876].val /* top level :$:caadr */;
-    array124[121] = builtinSymbols[7917].val /* top level :$:cdadr */;
+    array124[61] = builtinSymbols[7485].val /* top level :$:cdadr */;
+    array124[114] = builtinSymbols[7444].val /* top level :$:caadr */;
+    array124[121] = builtinSymbols[7485].val /* top level :$:cdadr */;
     array124[129] = builtinSymbols[6691].val /* letrec */;
     array124[131] = builtinSymbols[6749].val /* loop */;
     array124[133] = builtinSymbols[6669].val /* lambda */;
     array124[135] = builtinSymbols[6601].val /* if */;
-    array124[139] = builtinSymbols[5983].val /* begin */;
-    array124[148] = builtinSymbols[5983].val /* begin */;
+    array124[139] = builtinSymbols[195].val /* begin */;
+    array124[148] = builtinSymbols[195].val /* begin */;
     array124[153] = builtinSymbols[6749].val /* loop */;
     array124[162] = list122.val;
-    array124[164] = builtinSymbols[6289].val /* do */;
+    array124[164] = builtinSymbols[501].val /* do */;
     array124[166] = Object::makeString(UC("step")).val;
     array124[177] = builtinSymbols[8066].val /* top level :$:map */;
     array124[204] = builtinSymbols[6749].val /* loop */;
     array124[220] = Object::makeString(UC("step")).val;
-    array124[233] = builtinSymbols[7932].val /* top level :$:cdddr */;
-    array124[251] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array124[233] = builtinSymbols[7500].val /* top level :$:cdddr */;
+    array124[251] = builtinSymbols[7459].val /* top level :$:caddr */;
     array124[269] = Object::makeString(UC("malformed do")).val;
     array124[271] = builtinSymbols[8239].val /* top level :$:syntax-error */;
     array124[282] = Object::makeString(UC("step")).val;
-    array124[312] = builtinSymbols[7932].val /* top level :$:cdddr */;
-    array124[328] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array124[312] = builtinSymbols[7500].val /* top level :$:cdddr */;
+    array124[328] = builtinSymbols[7459].val /* top level :$:caddr */;
     array124[346] = Object::makeString(UC("malformed do")).val;
     array124[348] = builtinSymbols[8239].val /* top level :$:syntax-error */;
     array124[364] = Object::makeString(UC("malformed do")).val;
     array124[366] = builtinSymbols[8239].val /* top level :$:syntax-error */;
     array124[382] = Object::makeString(UC("malformed do")).val;
     array124[384] = builtinSymbols[8239].val /* top level :$:syntax-error */;
-    array124[408] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array124[428] = builtinSymbols[7925].val /* top level :$:cddar */;
-    array124[437] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array124[408] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array124[428] = builtinSymbols[7493].val /* top level :$:cddar */;
+    array124[437] = builtinSymbols[7452].val /* top level :$:cadar */;
     array124[459] = Object::makeString(UC("step")).val;
-    array124[496] = builtinSymbols[7932].val /* top level :$:cdddr */;
-    array124[512] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array124[496] = builtinSymbols[7500].val /* top level :$:cdddr */;
+    array124[512] = builtinSymbols[7459].val /* top level :$:caddr */;
     array124[530] = Object::makeString(UC("malformed do")).val;
     array124[532] = builtinSymbols[8239].val /* top level :$:syntax-error */;
     array124[548] = Object::makeString(UC("malformed do")).val;
     array124[550] = builtinSymbols[8239].val /* top level :$:syntax-error */;
     array124[563] = Object::makeString(UC("step")).val;
-    array124[597] = builtinSymbols[7932].val /* top level :$:cdddr */;
-    array124[612] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array124[597] = builtinSymbols[7500].val /* top level :$:cdddr */;
+    array124[612] = builtinSymbols[7459].val /* top level :$:caddr */;
     array124[623] = Object::makeString(UC("malformed do")).val;
     array124[625] = builtinSymbols[8239].val /* top level :$:syntax-error */;
     array124[633] = Object::makeString(UC("malformed do")).val;
@@ -12557,11 +12557,11 @@ Object scheme::getBuiltinCompiler() {
     static word array129[]= {
         0xcc /* list128.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6376].val \* field *\ */
+        0xcc /* builtinSymbols[588].val \* field *\ */
     };
     array129[0] = list128.val;
     array129[1] = builtinSymbols[6669].val /* lambda */;
-    array129[2] = builtinSymbols[6376].val /* field */;
+    array129[2] = builtinSymbols[588].val /* field */;
     Object list129 = Pair::wordArrayToList(array129, 3);
 
     static word array130[]= {
@@ -12591,11 +12591,11 @@ Object scheme::getBuiltinCompiler() {
     static word array133[]= {
         0xcc /* list132.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6376].val \* field *\ */
+        0xcc /* builtinSymbols[588].val \* field *\ */
     };
     array133[0] = list132.val;
     array133[1] = builtinSymbols[6669].val /* lambda */;
-    array133[2] = builtinSymbols[6376].val /* field */;
+    array133[2] = builtinSymbols[588].val /* field */;
     Object list133 = Pair::wordArrayToList(array133, 3);
 
     static word array134[]= {
@@ -12636,15 +12636,15 @@ Object scheme::getBuiltinCompiler() {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[6872].val \* name *\ */,
-        0xcc /* builtinSymbols[6379].val \* fields *\ */
+        0xcc /* builtinSymbols[591].val \* fields *\ */
     };
     array138[1] = builtinSymbols[6669].val /* lambda */;
     array138[2] = builtinSymbols[6872].val /* name */;
-    array138[3] = builtinSymbols[6379].val /* fields */;
+    array138[3] = builtinSymbols[591].val /* fields */;
     Object list138 = Pair::wordArrayToList(array138, 4);
 
     static word array139[]= {
-        0xcc /* builtinSymbols[6267].val \* define-simple-struct *\ */,
+        0xcc /* builtinSymbols[479].val \* define-simple-struct *\ */,
         3406 /* *insn* */,
         85 /* 21 */,
         3406 /* *insn* */,
@@ -13042,9 +13042,9 @@ Object scheme::getBuiltinCompiler() {
         2510 /* *insn* */,
         21 /* 5 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5983].val \* begin *\ */,
+        0xcc /* builtinSymbols[195].val \* begin *\ */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         2382 /* *insn* */,
         0xcc /* builtinSymbols[6808].val \* make-record-type-descriptor *\ */,
         2862 /* *insn* */,
@@ -13087,7 +13087,7 @@ Object scheme::getBuiltinCompiler() {
         494 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         110 /* *insn* */,
         2414 /* *insn* */,
         0xcc /* builtinSymbols[6807].val \* make-record-constructor-descriptor *\ */,
@@ -13102,7 +13102,7 @@ Object scheme::getBuiltinCompiler() {
         494 /* *insn* */,
         494 /* *insn* */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         110 /* *insn* */,
         3438 /* *insn* */,
         17 /* 4 */,
@@ -13147,7 +13147,7 @@ Object scheme::getBuiltinCompiler() {
         2894 /* *insn* */,
         73 /* 18 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         2126 /* *insn* */,
         334 /* *insn* */,
         2894 /* *insn* */,
@@ -13232,7 +13232,7 @@ Object scheme::getBuiltinCompiler() {
         1070 /* *insn* */,
         1070 /* *insn* */
     };
-    array139[0] = builtinSymbols[6267].val /* define-simple-struct */;
+    array139[0] = builtinSymbols[479].val /* define-simple-struct */;
     array139[20] = list138.val;
     array139[86] = list137.val;
     array139[120] = builtinSymbols[132].val /* -rtd */;
@@ -13252,17 +13252,17 @@ Object scheme::getBuiltinCompiler() {
     array139[347] = list127.val;
     array139[381] = builtinSymbols[6766].val /* make- */;
     array139[386] = builtinSymbols[8066].val /* top level :$:map */;
-    array139[398] = builtinSymbols[5983].val /* begin */;
-    array139[400] = builtinSymbols[6259].val /* define */;
+    array139[398] = builtinSymbols[195].val /* begin */;
+    array139[400] = builtinSymbols[471].val /* define */;
     array139[402] = builtinSymbols[6808].val /* make-record-type-descriptor */;
     array139[404] = builtinSymbols[7096].val /* quote */;
     array139[421] = builtinSymbols[7096].val /* quote */;
-    array139[443] = builtinSymbols[6259].val /* define */;
+    array139[443] = builtinSymbols[471].val /* define */;
     array139[446] = builtinSymbols[6807].val /* make-record-constructor-descriptor */;
     array139[449] = list125.val;
-    array139[458] = builtinSymbols[6259].val /* define */;
+    array139[458] = builtinSymbols[471].val /* define */;
     array139[463] = builtinSymbols[7118].val /* record-constructor */;
-    array139[503] = builtinSymbols[6259].val /* define */;
+    array139[503] = builtinSymbols[471].val /* define */;
     array139[509] = builtinSymbols[7117].val /* record-accessor */;
     array139[513] = builtinSymbols[8048].val /* top level :$:list */;
     array139[517] = builtinSymbols[8048].val /* top level :$:list */;
@@ -13293,7 +13293,7 @@ Object scheme::getBuiltinCompiler() {
         2382 /* *insn* */,
         21 /* 5 */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[5954].val \* append *\ */,
+        0xcc /* builtinSymbols[166].val \* append *\ */,
         2862 /* *insn* */,
         0xcc /* builtinSymbols[23].val \* $library.macro *\ */,
         110 /* *insn* */,
@@ -13319,7 +13319,7 @@ Object scheme::getBuiltinCompiler() {
     array141[0] = builtinSymbols[22].val /* $library.append-macro! */;
     array141[7] = list140.val;
     array141[9] = builtinSymbols[8318].val /* vector-set! */;
-    array141[13] = builtinSymbols[5954].val /* append */;
+    array141[13] = builtinSymbols[166].val /* append */;
     array141[15] = builtinSymbols[23].val /* $library.macro */;
     Object list141 = Pair::wordArrayToList(array141, 35);
 
@@ -13378,11 +13378,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array144[]= {
         0xcc /* list143.val */,
-        0xcc /* builtinSymbols[6217].val \* compile-no-optimize *\ */,
+        0xcc /* builtinSymbols[429].val \* compile-no-optimize *\ */,
         0xcc /* builtinSymbols[7225].val \* sexp *\ */
     };
     array144[0] = list143.val;
-    array144[1] = builtinSymbols[6217].val /* compile-no-optimize */;
+    array144[1] = builtinSymbols[429].val /* compile-no-optimize */;
     array144[2] = builtinSymbols[7225].val /* sexp */;
     Object list144 = Pair::wordArrayToList(array144, 3);
 
@@ -13395,11 +13395,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array146[]= {
         0xcc /* list145.val */,
-        0xcc /* builtinSymbols[6215].val \* compile *\ */,
+        0xcc /* builtinSymbols[427].val \* compile *\ */,
         0xcc /* builtinSymbols[7225].val \* sexp *\ */
     };
     array146[0] = list145.val;
-    array146[1] = builtinSymbols[6215].val /* compile */;
+    array146[1] = builtinSymbols[427].val /* compile */;
     array146[2] = builtinSymbols[7225].val /* sexp */;
     Object list146 = Pair::wordArrayToList(array146, 3);
 
@@ -13480,12 +13480,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array156[]= {
         0xcc /* list155.val */,
-        0xcc /* builtinSymbols[6218].val \* compile-partial *\ */,
+        0xcc /* builtinSymbols[430].val \* compile-partial *\ */,
         0xcc /* builtinSymbols[7225].val \* sexp *\ */,
         0xcc /* builtinSymbols[6700].val \* lib *\ */
     };
     array156[0] = list155.val;
-    array156[1] = builtinSymbols[6218].val /* compile-partial */;
+    array156[1] = builtinSymbols[430].val /* compile-partial */;
     array156[2] = builtinSymbols[7225].val /* sexp */;
     array156[3] = builtinSymbols[6700].val /* lib */;
     Object list156 = Pair::wordArrayToList(array156, 4);
@@ -13522,11 +13522,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array161[]= {
         0xcc /* list160.val */,
-        0xcc /* builtinSymbols[6216].val \* compile-library-body! *\ */,
+        0xcc /* builtinSymbols[428].val \* compile-library-body! *\ */,
         0xcc /* builtinSymbols[6700].val \* lib *\ */
     };
     array161[0] = list160.val;
-    array161[1] = builtinSymbols[6216].val /* compile-library-body! */;
+    array161[1] = builtinSymbols[428].val /* compile-library-body! */;
     array161[2] = builtinSymbols[6700].val /* lib */;
     Object list161 = Pair::wordArrayToList(array161, 3);
 
@@ -13579,21 +13579,21 @@ Object scheme::getBuiltinCompiler() {
     static word array168[]= {
         0xcc /* list167.val */,
         0xcc /* builtinSymbols[7044].val \* pass3\rec *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array168[0] = list167.val;
     array168[1] = builtinSymbols[7044].val /* pass3\rec */;
-    array168[2] = builtinSymbols[6123].val /* cb */;
+    array168[2] = builtinSymbols[335].val /* cb */;
     array168[3] = builtinSymbols[6602].val /* iform */;
     array168[4] = builtinSymbols[6745].val /* locals */;
-    array168[5] = builtinSymbols[6478].val /* frees */;
-    array168[6] = builtinSymbols[6112].val /* can-frees */;
+    array168[5] = builtinSymbols[690].val /* frees */;
+    array168[6] = builtinSymbols[324].val /* can-frees */;
     array168[7] = builtinSymbols[7223].val /* sets */;
     array168[8] = builtinSymbols[7341].val /* tail */;
     Object list168 = Pair::wordArrayToList(array168, 9);
@@ -13608,21 +13608,21 @@ Object scheme::getBuiltinCompiler() {
     static word array170[]= {
         0xcc /* list169.val */,
         0xcc /* builtinSymbols[7027].val \* pass3\$library *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array170[0] = list169.val;
     array170[1] = builtinSymbols[7027].val /* pass3\$library */;
-    array170[2] = builtinSymbols[6123].val /* cb */;
+    array170[2] = builtinSymbols[335].val /* cb */;
     array170[3] = builtinSymbols[6602].val /* iform */;
     array170[4] = builtinSymbols[6745].val /* locals */;
-    array170[5] = builtinSymbols[6478].val /* frees */;
-    array170[6] = builtinSymbols[6112].val /* can-frees */;
+    array170[5] = builtinSymbols[690].val /* frees */;
+    array170[6] = builtinSymbols[324].val /* can-frees */;
     array170[7] = builtinSymbols[7223].val /* sets */;
     array170[8] = builtinSymbols[7341].val /* tail */;
     Object list170 = Pair::wordArrayToList(array170, 9);
@@ -13654,11 +13654,11 @@ Object scheme::getBuiltinCompiler() {
     static word array174[]= {
         0xcc /* list173.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6470].val \* form *\ */
+        0xcc /* builtinSymbols[682].val \* form *\ */
     };
     array174[0] = list173.val;
     array174[1] = builtinSymbols[6669].val /* lambda */;
-    array174[2] = builtinSymbols[6470].val /* form */;
+    array174[2] = builtinSymbols[682].val /* form */;
     Object list174 = Pair::wordArrayToList(array174, 3);
 
     static word array175[]= {
@@ -13671,21 +13671,21 @@ Object scheme::getBuiltinCompiler() {
     static word array176[]= {
         0xcc /* list175.val */,
         0xcc /* builtinSymbols[7023].val \* pass3\$import *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array176[0] = list175.val;
     array176[1] = builtinSymbols[7023].val /* pass3\$import */;
-    array176[2] = builtinSymbols[6123].val /* cb */;
+    array176[2] = builtinSymbols[335].val /* cb */;
     array176[3] = builtinSymbols[6602].val /* iform */;
     array176[4] = builtinSymbols[6745].val /* locals */;
-    array176[5] = builtinSymbols[6478].val /* frees */;
-    array176[6] = builtinSymbols[6112].val /* can-frees */;
+    array176[5] = builtinSymbols[690].val /* frees */;
+    array176[6] = builtinSymbols[324].val /* can-frees */;
     array176[7] = builtinSymbols[7223].val /* sets */;
     array176[8] = builtinSymbols[7341].val /* tail */;
     Object list176 = Pair::wordArrayToList(array176, 9);
@@ -13700,13 +13700,13 @@ Object scheme::getBuiltinCompiler() {
     static word array178[]= {
         0xcc /* list177.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */,
+        0xcc /* builtinSymbols[177].val \* args *\ */,
         0xcc /* builtinSymbols[7234].val \* size *\ */,
         0xcc /* builtinSymbols[6621].val \* index *\ */
     };
     array178[0] = list177.val;
     array178[1] = builtinSymbols[6669].val /* lambda */;
-    array178[2] = builtinSymbols[5965].val /* args */;
+    array178[2] = builtinSymbols[177].val /* args */;
     array178[3] = builtinSymbols[7234].val /* size */;
     array178[4] = builtinSymbols[6621].val /* index */;
     Object list178 = Pair::wordArrayToList(array178, 5);
@@ -13721,11 +13721,11 @@ Object scheme::getBuiltinCompiler() {
     static word array180[]= {
         0xcc /* list179.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array180[0] = list179.val;
     array180[1] = builtinSymbols[6669].val /* lambda */;
-    array180[2] = builtinSymbols[5965].val /* args */;
+    array180[2] = builtinSymbols[177].val /* args */;
     Object list180 = Pair::wordArrayToList(array180, 3);
 
     static word array181[]= {
@@ -13772,21 +13772,21 @@ Object scheme::getBuiltinCompiler() {
     static word array186[]= {
         0xcc /* list185.val */,
         0xcc /* builtinSymbols[7042].val \* pass3\letrec *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array186[0] = list185.val;
     array186[1] = builtinSymbols[7042].val /* pass3\letrec */;
-    array186[2] = builtinSymbols[6123].val /* cb */;
+    array186[2] = builtinSymbols[335].val /* cb */;
     array186[3] = builtinSymbols[6602].val /* iform */;
     array186[4] = builtinSymbols[6745].val /* locals */;
-    array186[5] = builtinSymbols[6478].val /* frees */;
-    array186[6] = builtinSymbols[6112].val /* can-frees */;
+    array186[5] = builtinSymbols[690].val /* frees */;
+    array186[6] = builtinSymbols[324].val /* can-frees */;
     array186[7] = builtinSymbols[7223].val /* sets */;
     array186[8] = builtinSymbols[7341].val /* tail */;
     Object list186 = Pair::wordArrayToList(array186, 9);
@@ -13818,21 +13818,21 @@ Object scheme::getBuiltinCompiler() {
     static word array190[]= {
         0xcc /* list189.val */,
         0xcc /* builtinSymbols[7026].val \* pass3\$let *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array190[0] = list189.val;
     array190[1] = builtinSymbols[7026].val /* pass3\$let */;
-    array190[2] = builtinSymbols[6123].val /* cb */;
+    array190[2] = builtinSymbols[335].val /* cb */;
     array190[3] = builtinSymbols[6602].val /* iform */;
     array190[4] = builtinSymbols[6745].val /* locals */;
-    array190[5] = builtinSymbols[6478].val /* frees */;
-    array190[6] = builtinSymbols[6112].val /* can-frees */;
+    array190[5] = builtinSymbols[690].val /* frees */;
+    array190[6] = builtinSymbols[324].val /* can-frees */;
     array190[7] = builtinSymbols[7223].val /* sets */;
     array190[8] = builtinSymbols[7341].val /* tail */;
     Object list190 = Pair::wordArrayToList(array190, 9);
@@ -13847,21 +13847,21 @@ Object scheme::getBuiltinCompiler() {
     static word array192[]= {
         0xcc /* list191.val */,
         0xcc /* builtinSymbols[7031].val \* pass3\$receive *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array192[0] = list191.val;
     array192[1] = builtinSymbols[7031].val /* pass3\$receive */;
-    array192[2] = builtinSymbols[6123].val /* cb */;
+    array192[2] = builtinSymbols[335].val /* cb */;
     array192[3] = builtinSymbols[6602].val /* iform */;
     array192[4] = builtinSymbols[6745].val /* locals */;
-    array192[5] = builtinSymbols[6478].val /* frees */;
-    array192[6] = builtinSymbols[6112].val /* can-frees */;
+    array192[5] = builtinSymbols[690].val /* frees */;
+    array192[6] = builtinSymbols[324].val /* can-frees */;
     array192[7] = builtinSymbols[7223].val /* sets */;
     array192[8] = builtinSymbols[7341].val /* tail */;
     Object list192 = Pair::wordArrayToList(array192, 9);
@@ -13876,21 +13876,21 @@ Object scheme::getBuiltinCompiler() {
     static word array194[]= {
         0xcc /* list193.val */,
         0xcc /* builtinSymbols[7025].val \* pass3\$lambda *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array194[0] = list193.val;
     array194[1] = builtinSymbols[7025].val /* pass3\$lambda */;
-    array194[2] = builtinSymbols[6123].val /* cb */;
+    array194[2] = builtinSymbols[335].val /* cb */;
     array194[3] = builtinSymbols[6602].val /* iform */;
     array194[4] = builtinSymbols[6745].val /* locals */;
-    array194[5] = builtinSymbols[6478].val /* frees */;
-    array194[6] = builtinSymbols[6112].val /* can-frees */;
+    array194[5] = builtinSymbols[690].val /* frees */;
+    array194[6] = builtinSymbols[324].val /* can-frees */;
     array194[7] = builtinSymbols[7223].val /* sets */;
     array194[8] = builtinSymbols[7341].val /* tail */;
     Object list194 = Pair::wordArrayToList(array194, 9);
@@ -13905,21 +13905,21 @@ Object scheme::getBuiltinCompiler() {
     static word array196[]= {
         0xcc /* list195.val */,
         0xcc /* builtinSymbols[7017].val \* pass3\$call-cc *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array196[0] = list195.val;
     array196[1] = builtinSymbols[7017].val /* pass3\$call-cc */;
-    array196[2] = builtinSymbols[6123].val /* cb */;
+    array196[2] = builtinSymbols[335].val /* cb */;
     array196[3] = builtinSymbols[6602].val /* iform */;
     array196[4] = builtinSymbols[6745].val /* locals */;
-    array196[5] = builtinSymbols[6478].val /* frees */;
-    array196[6] = builtinSymbols[6112].val /* can-frees */;
+    array196[5] = builtinSymbols[690].val /* frees */;
+    array196[6] = builtinSymbols[324].val /* can-frees */;
     array196[7] = builtinSymbols[7223].val /* sets */;
     array196[8] = builtinSymbols[7341].val /* tail */;
     Object list196 = Pair::wordArrayToList(array196, 9);
@@ -13934,21 +13934,21 @@ Object scheme::getBuiltinCompiler() {
     static word array198[]= {
         0xcc /* list197.val */,
         0xcc /* builtinSymbols[7016].val \* pass3\$call *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array198[0] = list197.val;
     array198[1] = builtinSymbols[7016].val /* pass3\$call */;
-    array198[2] = builtinSymbols[6123].val /* cb */;
+    array198[2] = builtinSymbols[335].val /* cb */;
     array198[3] = builtinSymbols[6602].val /* iform */;
     array198[4] = builtinSymbols[6745].val /* locals */;
-    array198[5] = builtinSymbols[6478].val /* frees */;
-    array198[6] = builtinSymbols[6112].val /* can-frees */;
+    array198[5] = builtinSymbols[690].val /* frees */;
+    array198[6] = builtinSymbols[324].val /* can-frees */;
     array198[7] = builtinSymbols[7223].val /* sets */;
     array198[8] = builtinSymbols[7341].val /* tail */;
     Object list198 = Pair::wordArrayToList(array198, 9);
@@ -13982,21 +13982,21 @@ Object scheme::getBuiltinCompiler() {
     static word array202[]= {
         0xcc /* list201.val */,
         0xcc /* builtinSymbols[7036].val \* pass3\compile-args *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
+        0xcc /* builtinSymbols[177].val \* args *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array202[0] = list201.val;
     array202[1] = builtinSymbols[7036].val /* pass3\compile-args */;
-    array202[2] = builtinSymbols[6123].val /* cb */;
-    array202[3] = builtinSymbols[5965].val /* args */;
+    array202[2] = builtinSymbols[335].val /* cb */;
+    array202[3] = builtinSymbols[177].val /* args */;
     array202[4] = builtinSymbols[6745].val /* locals */;
-    array202[5] = builtinSymbols[6478].val /* frees */;
-    array202[6] = builtinSymbols[6112].val /* can-frees */;
+    array202[5] = builtinSymbols[690].val /* frees */;
+    array202[6] = builtinSymbols[324].val /* can-frees */;
     array202[7] = builtinSymbols[7223].val /* sets */;
     array202[8] = builtinSymbols[7341].val /* tail */;
     Object list202 = Pair::wordArrayToList(array202, 9);
@@ -14011,21 +14011,21 @@ Object scheme::getBuiltinCompiler() {
     static word array204[]= {
         0xcc /* list203.val */,
         0xcc /* builtinSymbols[7035].val \* pass3\compile-arg *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
-        0xcc /* builtinSymbols[5959].val \* arg *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
+        0xcc /* builtinSymbols[171].val \* arg *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array204[0] = list203.val;
     array204[1] = builtinSymbols[7035].val /* pass3\compile-arg */;
-    array204[2] = builtinSymbols[6123].val /* cb */;
-    array204[3] = builtinSymbols[5959].val /* arg */;
+    array204[2] = builtinSymbols[335].val /* cb */;
+    array204[3] = builtinSymbols[171].val /* arg */;
     array204[4] = builtinSymbols[6745].val /* locals */;
-    array204[5] = builtinSymbols[6478].val /* frees */;
-    array204[6] = builtinSymbols[6112].val /* can-frees */;
+    array204[5] = builtinSymbols[690].val /* frees */;
+    array204[6] = builtinSymbols[324].val /* can-frees */;
     array204[7] = builtinSymbols[7223].val /* sets */;
     array204[8] = builtinSymbols[7341].val /* tail */;
     Object list204 = Pair::wordArrayToList(array204, 9);
@@ -14040,21 +14040,21 @@ Object scheme::getBuiltinCompiler() {
     static word array206[]= {
         0xcc /* list205.val */,
         0xcc /* builtinSymbols[7019].val \* pass3\$define *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array206[0] = list205.val;
     array206[1] = builtinSymbols[7019].val /* pass3\$define */;
-    array206[2] = builtinSymbols[6123].val /* cb */;
+    array206[2] = builtinSymbols[335].val /* cb */;
     array206[3] = builtinSymbols[6602].val /* iform */;
     array206[4] = builtinSymbols[6745].val /* locals */;
-    array206[5] = builtinSymbols[6478].val /* frees */;
-    array206[6] = builtinSymbols[6112].val /* can-frees */;
+    array206[5] = builtinSymbols[690].val /* frees */;
+    array206[6] = builtinSymbols[324].val /* can-frees */;
     array206[7] = builtinSymbols[7223].val /* sets */;
     array206[8] = builtinSymbols[7341].val /* tail */;
     Object list206 = Pair::wordArrayToList(array206, 9);
@@ -14069,21 +14069,21 @@ Object scheme::getBuiltinCompiler() {
     static word array208[]= {
         0xcc /* list207.val */,
         0xcc /* builtinSymbols[7022].val \* pass3\$if *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array208[0] = list207.val;
     array208[1] = builtinSymbols[7022].val /* pass3\$if */;
-    array208[2] = builtinSymbols[6123].val /* cb */;
+    array208[2] = builtinSymbols[335].val /* cb */;
     array208[3] = builtinSymbols[6602].val /* iform */;
     array208[4] = builtinSymbols[6745].val /* locals */;
-    array208[5] = builtinSymbols[6478].val /* frees */;
-    array208[6] = builtinSymbols[6112].val /* can-frees */;
+    array208[5] = builtinSymbols[690].val /* frees */;
+    array208[6] = builtinSymbols[324].val /* can-frees */;
     array208[7] = builtinSymbols[7223].val /* sets */;
     array208[8] = builtinSymbols[7341].val /* tail */;
     Object list208 = Pair::wordArrayToList(array208, 9);
@@ -14098,21 +14098,21 @@ Object scheme::getBuiltinCompiler() {
     static word array210[]= {
         0xcc /* list209.val */,
         0xcc /* builtinSymbols[7011].val \* pass3\$asm *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array210[0] = list209.val;
     array210[1] = builtinSymbols[7011].val /* pass3\$asm */;
-    array210[2] = builtinSymbols[6123].val /* cb */;
+    array210[2] = builtinSymbols[335].val /* cb */;
     array210[3] = builtinSymbols[6602].val /* iform */;
     array210[4] = builtinSymbols[6745].val /* locals */;
-    array210[5] = builtinSymbols[6478].val /* frees */;
-    array210[6] = builtinSymbols[6112].val /* can-frees */;
+    array210[5] = builtinSymbols[690].val /* frees */;
+    array210[6] = builtinSymbols[324].val /* can-frees */;
     array210[7] = builtinSymbols[7223].val /* sets */;
     array210[8] = builtinSymbols[7341].val /* tail */;
     Object list210 = Pair::wordArrayToList(array210, 9);
@@ -14127,12 +14127,12 @@ Object scheme::getBuiltinCompiler() {
     static word array212[]= {
         0xcc /* list211.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */,
+        0xcc /* builtinSymbols[177].val \* args *\ */,
         0xcc /* builtinSymbols[7245].val \* stack-size *\ */
     };
     array212[0] = list211.val;
     array212[1] = builtinSymbols[6669].val /* lambda */;
-    array212[2] = builtinSymbols[5965].val /* args */;
+    array212[2] = builtinSymbols[177].val /* args */;
     array212[3] = builtinSymbols[7245].val /* stack-size */;
     Object list212 = Pair::wordArrayToList(array212, 4);
 
@@ -14146,20 +14146,20 @@ Object scheme::getBuiltinCompiler() {
     static word array214[]= {
         0xcc /* list213.val */,
         0xcc /* builtinSymbols[7015].val \* pass3\$asm-n-args *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
+        0xcc /* builtinSymbols[177].val \* args *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */
     };
     array214[0] = list213.val;
     array214[1] = builtinSymbols[7015].val /* pass3\$asm-n-args */;
-    array214[2] = builtinSymbols[6123].val /* cb */;
-    array214[3] = builtinSymbols[5965].val /* args */;
+    array214[2] = builtinSymbols[335].val /* cb */;
+    array214[3] = builtinSymbols[177].val /* args */;
     array214[4] = builtinSymbols[6745].val /* locals */;
-    array214[5] = builtinSymbols[6478].val /* frees */;
-    array214[6] = builtinSymbols[6112].val /* can-frees */;
+    array214[5] = builtinSymbols[690].val /* frees */;
+    array214[6] = builtinSymbols[324].val /* can-frees */;
     array214[7] = builtinSymbols[7223].val /* sets */;
     Object list214 = Pair::wordArrayToList(array214, 8);
 
@@ -14173,26 +14173,26 @@ Object scheme::getBuiltinCompiler() {
     static word array216[]= {
         0xcc /* list215.val */,
         0xcc /* builtinSymbols[7014].val \* pass3\$asm-3-arg *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6634].val \* insn *\ */,
-        0xcc /* builtinSymbols[5961].val \* arg1 *\ */,
-        0xcc /* builtinSymbols[5962].val \* arg2 *\ */,
-        0xcc /* builtinSymbols[5963].val \* arg3 *\ */,
+        0xcc /* builtinSymbols[173].val \* arg1 *\ */,
+        0xcc /* builtinSymbols[174].val \* arg2 *\ */,
+        0xcc /* builtinSymbols[175].val \* arg3 *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */
     };
     array216[0] = list215.val;
     array216[1] = builtinSymbols[7014].val /* pass3\$asm-3-arg */;
-    array216[2] = builtinSymbols[6123].val /* cb */;
+    array216[2] = builtinSymbols[335].val /* cb */;
     array216[3] = builtinSymbols[6634].val /* insn */;
-    array216[4] = builtinSymbols[5961].val /* arg1 */;
-    array216[5] = builtinSymbols[5962].val /* arg2 */;
-    array216[6] = builtinSymbols[5963].val /* arg3 */;
+    array216[4] = builtinSymbols[173].val /* arg1 */;
+    array216[5] = builtinSymbols[174].val /* arg2 */;
+    array216[6] = builtinSymbols[175].val /* arg3 */;
     array216[7] = builtinSymbols[6745].val /* locals */;
-    array216[8] = builtinSymbols[6478].val /* frees */;
-    array216[9] = builtinSymbols[6112].val /* can-frees */;
+    array216[8] = builtinSymbols[690].val /* frees */;
+    array216[9] = builtinSymbols[324].val /* can-frees */;
     array216[10] = builtinSymbols[7223].val /* sets */;
     Object list216 = Pair::wordArrayToList(array216, 11);
 
@@ -14206,24 +14206,24 @@ Object scheme::getBuiltinCompiler() {
     static word array218[]= {
         0xcc /* list217.val */,
         0xcc /* builtinSymbols[7013].val \* pass3\$asm-2-arg *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6634].val \* insn *\ */,
-        0xcc /* builtinSymbols[5961].val \* arg1 *\ */,
-        0xcc /* builtinSymbols[5962].val \* arg2 *\ */,
+        0xcc /* builtinSymbols[173].val \* arg1 *\ */,
+        0xcc /* builtinSymbols[174].val \* arg2 *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */
     };
     array218[0] = list217.val;
     array218[1] = builtinSymbols[7013].val /* pass3\$asm-2-arg */;
-    array218[2] = builtinSymbols[6123].val /* cb */;
+    array218[2] = builtinSymbols[335].val /* cb */;
     array218[3] = builtinSymbols[6634].val /* insn */;
-    array218[4] = builtinSymbols[5961].val /* arg1 */;
-    array218[5] = builtinSymbols[5962].val /* arg2 */;
+    array218[4] = builtinSymbols[173].val /* arg1 */;
+    array218[5] = builtinSymbols[174].val /* arg2 */;
     array218[6] = builtinSymbols[6745].val /* locals */;
-    array218[7] = builtinSymbols[6478].val /* frees */;
-    array218[8] = builtinSymbols[6112].val /* can-frees */;
+    array218[7] = builtinSymbols[690].val /* frees */;
+    array218[8] = builtinSymbols[324].val /* can-frees */;
     array218[9] = builtinSymbols[7223].val /* sets */;
     Object list218 = Pair::wordArrayToList(array218, 10);
 
@@ -14237,22 +14237,22 @@ Object scheme::getBuiltinCompiler() {
     static word array220[]= {
         0xcc /* list219.val */,
         0xcc /* builtinSymbols[7012].val \* pass3\$asm-1-arg *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6634].val \* insn *\ */,
-        0xcc /* builtinSymbols[5961].val \* arg1 *\ */,
+        0xcc /* builtinSymbols[173].val \* arg1 *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */
     };
     array220[0] = list219.val;
     array220[1] = builtinSymbols[7012].val /* pass3\$asm-1-arg */;
-    array220[2] = builtinSymbols[6123].val /* cb */;
+    array220[2] = builtinSymbols[335].val /* cb */;
     array220[3] = builtinSymbols[6634].val /* insn */;
-    array220[4] = builtinSymbols[5961].val /* arg1 */;
+    array220[4] = builtinSymbols[173].val /* arg1 */;
     array220[5] = builtinSymbols[6745].val /* locals */;
-    array220[6] = builtinSymbols[6478].val /* frees */;
-    array220[7] = builtinSymbols[6112].val /* can-frees */;
+    array220[6] = builtinSymbols[690].val /* frees */;
+    array220[7] = builtinSymbols[324].val /* can-frees */;
     array220[8] = builtinSymbols[7223].val /* sets */;
     Object list220 = Pair::wordArrayToList(array220, 9);
 
@@ -14266,21 +14266,21 @@ Object scheme::getBuiltinCompiler() {
     static word array222[]= {
         0xcc /* list221.val */,
         0xcc /* builtinSymbols[7033].val \* pass3\$undef *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array222[0] = list221.val;
     array222[1] = builtinSymbols[7033].val /* pass3\$undef */;
-    array222[2] = builtinSymbols[6123].val /* cb */;
+    array222[2] = builtinSymbols[335].val /* cb */;
     array222[3] = builtinSymbols[6602].val /* iform */;
     array222[4] = builtinSymbols[6745].val /* locals */;
-    array222[5] = builtinSymbols[6478].val /* frees */;
-    array222[6] = builtinSymbols[6112].val /* can-frees */;
+    array222[5] = builtinSymbols[690].val /* frees */;
+    array222[6] = builtinSymbols[324].val /* can-frees */;
     array222[7] = builtinSymbols[7223].val /* sets */;
     array222[8] = builtinSymbols[7341].val /* tail */;
     Object list222 = Pair::wordArrayToList(array222, 9);
@@ -14295,12 +14295,12 @@ Object scheme::getBuiltinCompiler() {
     static word array224[]= {
         0xcc /* list223.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6470].val \* form *\ */,
+        0xcc /* builtinSymbols[682].val \* form *\ */,
         0xcc /* builtinSymbols[7234].val \* size *\ */
     };
     array224[0] = list223.val;
     array224[1] = builtinSymbols[6669].val /* lambda */;
-    array224[2] = builtinSymbols[6470].val /* form */;
+    array224[2] = builtinSymbols[682].val /* form */;
     array224[3] = builtinSymbols[7234].val /* size */;
     Object list224 = Pair::wordArrayToList(array224, 4);
 
@@ -14314,21 +14314,21 @@ Object scheme::getBuiltinCompiler() {
     static word array226[]= {
         0xcc /* list225.val */,
         0xcc /* builtinSymbols[7032].val \* pass3\$seq *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array226[0] = list225.val;
     array226[1] = builtinSymbols[7032].val /* pass3\$seq */;
-    array226[2] = builtinSymbols[6123].val /* cb */;
+    array226[2] = builtinSymbols[335].val /* cb */;
     array226[3] = builtinSymbols[6602].val /* iform */;
     array226[4] = builtinSymbols[6745].val /* locals */;
-    array226[5] = builtinSymbols[6478].val /* frees */;
-    array226[6] = builtinSymbols[6112].val /* can-frees */;
+    array226[5] = builtinSymbols[690].val /* frees */;
+    array226[6] = builtinSymbols[324].val /* can-frees */;
     array226[7] = builtinSymbols[7223].val /* sets */;
     array226[8] = builtinSymbols[7341].val /* tail */;
     Object list226 = Pair::wordArrayToList(array226, 9);
@@ -14343,12 +14343,12 @@ Object scheme::getBuiltinCompiler() {
     static word array228[]= {
         0xcc /* list227.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6475].val \* free *\ */,
+        0xcc /* builtinSymbols[687].val \* free *\ */,
         0xcc /* builtinSymbols[6870].val \* n *\ */
     };
     array228[0] = list227.val;
     array228[1] = builtinSymbols[6669].val /* lambda */;
-    array228[2] = builtinSymbols[6475].val /* free */;
+    array228[2] = builtinSymbols[687].val /* free */;
     array228[3] = builtinSymbols[6870].val /* n */;
     Object list228 = Pair::wordArrayToList(array228, 4);
 
@@ -14362,21 +14362,21 @@ Object scheme::getBuiltinCompiler() {
     static word array230[]= {
         0xcc /* list229.val */,
         0xcc /* builtinSymbols[7020].val \* pass3\$global-assign *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array230[0] = list229.val;
     array230[1] = builtinSymbols[7020].val /* pass3\$global-assign */;
-    array230[2] = builtinSymbols[6123].val /* cb */;
+    array230[2] = builtinSymbols[335].val /* cb */;
     array230[3] = builtinSymbols[6602].val /* iform */;
     array230[4] = builtinSymbols[6745].val /* locals */;
-    array230[5] = builtinSymbols[6478].val /* frees */;
-    array230[6] = builtinSymbols[6112].val /* can-frees */;
+    array230[5] = builtinSymbols[690].val /* frees */;
+    array230[6] = builtinSymbols[324].val /* can-frees */;
     array230[7] = builtinSymbols[7223].val /* sets */;
     array230[8] = builtinSymbols[7341].val /* tail */;
     Object list230 = Pair::wordArrayToList(array230, 9);
@@ -14391,12 +14391,12 @@ Object scheme::getBuiltinCompiler() {
     static word array232[]= {
         0xcc /* list231.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6475].val \* free *\ */,
+        0xcc /* builtinSymbols[687].val \* free *\ */,
         0xcc /* builtinSymbols[6870].val \* n *\ */
     };
     array232[0] = list231.val;
     array232[1] = builtinSymbols[6669].val /* lambda */;
-    array232[2] = builtinSymbols[6475].val /* free */;
+    array232[2] = builtinSymbols[687].val /* free */;
     array232[3] = builtinSymbols[6870].val /* n */;
     Object list232 = Pair::wordArrayToList(array232, 4);
 
@@ -14410,21 +14410,21 @@ Object scheme::getBuiltinCompiler() {
     static word array234[]= {
         0xcc /* list233.val */,
         0xcc /* builtinSymbols[7021].val \* pass3\$global-ref *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array234[0] = list233.val;
     array234[1] = builtinSymbols[7021].val /* pass3\$global-ref */;
-    array234[2] = builtinSymbols[6123].val /* cb */;
+    array234[2] = builtinSymbols[335].val /* cb */;
     array234[3] = builtinSymbols[6602].val /* iform */;
     array234[4] = builtinSymbols[6745].val /* locals */;
-    array234[5] = builtinSymbols[6478].val /* frees */;
-    array234[6] = builtinSymbols[6112].val /* can-frees */;
+    array234[5] = builtinSymbols[690].val /* frees */;
+    array234[6] = builtinSymbols[324].val /* can-frees */;
     array234[7] = builtinSymbols[7223].val /* sets */;
     array234[8] = builtinSymbols[7341].val /* tail */;
     Object list234 = Pair::wordArrayToList(array234, 9);
@@ -14458,21 +14458,21 @@ Object scheme::getBuiltinCompiler() {
     static word array238[]= {
         0xcc /* list237.val */,
         0xcc /* builtinSymbols[7029].val \* pass3\$local-assign *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array238[0] = list237.val;
     array238[1] = builtinSymbols[7029].val /* pass3\$local-assign */;
-    array238[2] = builtinSymbols[6123].val /* cb */;
+    array238[2] = builtinSymbols[335].val /* cb */;
     array238[3] = builtinSymbols[6602].val /* iform */;
     array238[4] = builtinSymbols[6745].val /* locals */;
-    array238[5] = builtinSymbols[6478].val /* frees */;
-    array238[6] = builtinSymbols[6112].val /* can-frees */;
+    array238[5] = builtinSymbols[690].val /* frees */;
+    array238[6] = builtinSymbols[324].val /* can-frees */;
     array238[7] = builtinSymbols[7223].val /* sets */;
     array238[8] = builtinSymbols[7341].val /* tail */;
     Object list238 = Pair::wordArrayToList(array238, 9);
@@ -14487,21 +14487,21 @@ Object scheme::getBuiltinCompiler() {
     static word array240[]= {
         0xcc /* list239.val */,
         0xcc /* builtinSymbols[7030].val \* pass3\$local-ref *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array240[0] = list239.val;
     array240[1] = builtinSymbols[7030].val /* pass3\$local-ref */;
-    array240[2] = builtinSymbols[6123].val /* cb */;
+    array240[2] = builtinSymbols[335].val /* cb */;
     array240[3] = builtinSymbols[6602].val /* iform */;
     array240[4] = builtinSymbols[6745].val /* locals */;
-    array240[5] = builtinSymbols[6478].val /* frees */;
-    array240[6] = builtinSymbols[6112].val /* can-frees */;
+    array240[5] = builtinSymbols[690].val /* frees */;
+    array240[6] = builtinSymbols[324].val /* can-frees */;
     array240[7] = builtinSymbols[7223].val /* sets */;
     array240[8] = builtinSymbols[7341].val /* tail */;
     Object list240 = Pair::wordArrayToList(array240, 9);
@@ -14517,12 +14517,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list241.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[6578].val \* i *\ */,
-        0xcc /* builtinSymbols[5940].val \* accum *\ */
+        0xcc /* builtinSymbols[152].val \* accum *\ */
     };
     array242[0] = list241.val;
     array242[1] = builtinSymbols[6669].val /* lambda */;
     array242[2] = builtinSymbols[6578].val /* i */;
-    array242[3] = builtinSymbols[5940].val /* accum */;
+    array242[3] = builtinSymbols[152].val /* accum */;
     Object list242 = Pair::wordArrayToList(array242, 4);
 
     static word array243[]= {
@@ -14535,21 +14535,21 @@ Object scheme::getBuiltinCompiler() {
     static word array244[]= {
         0xcc /* list243.val */,
         0xcc /* builtinSymbols[7028].val \* pass3\$list *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array244[0] = list243.val;
     array244[1] = builtinSymbols[7028].val /* pass3\$list */;
-    array244[2] = builtinSymbols[6123].val /* cb */;
+    array244[2] = builtinSymbols[335].val /* cb */;
     array244[3] = builtinSymbols[6602].val /* iform */;
     array244[4] = builtinSymbols[6745].val /* locals */;
-    array244[5] = builtinSymbols[6478].val /* frees */;
-    array244[6] = builtinSymbols[6112].val /* can-frees */;
+    array244[5] = builtinSymbols[690].val /* frees */;
+    array244[6] = builtinSymbols[324].val /* can-frees */;
     array244[7] = builtinSymbols[7223].val /* sets */;
     array244[8] = builtinSymbols[7341].val /* tail */;
     Object list244 = Pair::wordArrayToList(array244, 9);
@@ -14564,21 +14564,21 @@ Object scheme::getBuiltinCompiler() {
     static word array246[]= {
         0xcc /* list245.val */,
         0xcc /* builtinSymbols[7024].val \* pass3\$it *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array246[0] = list245.val;
     array246[1] = builtinSymbols[7024].val /* pass3\$it */;
-    array246[2] = builtinSymbols[6123].val /* cb */;
+    array246[2] = builtinSymbols[335].val /* cb */;
     array246[3] = builtinSymbols[6602].val /* iform */;
     array246[4] = builtinSymbols[6745].val /* locals */;
-    array246[5] = builtinSymbols[6478].val /* frees */;
-    array246[6] = builtinSymbols[6112].val /* can-frees */;
+    array246[5] = builtinSymbols[690].val /* frees */;
+    array246[6] = builtinSymbols[324].val /* can-frees */;
     array246[7] = builtinSymbols[7223].val /* sets */;
     array246[8] = builtinSymbols[7341].val /* tail */;
     Object list246 = Pair::wordArrayToList(array246, 9);
@@ -14593,21 +14593,21 @@ Object scheme::getBuiltinCompiler() {
     static word array248[]= {
         0xcc /* list247.val */,
         0xcc /* builtinSymbols[7018].val \* pass3\$const *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[7341].val \* tail *\ */
     };
     array248[0] = list247.val;
     array248[1] = builtinSymbols[7018].val /* pass3\$const */;
-    array248[2] = builtinSymbols[6123].val /* cb */;
+    array248[2] = builtinSymbols[335].val /* cb */;
     array248[3] = builtinSymbols[6602].val /* iform */;
     array248[4] = builtinSymbols[6745].val /* locals */;
-    array248[5] = builtinSymbols[6478].val /* frees */;
-    array248[6] = builtinSymbols[6112].val /* can-frees */;
+    array248[5] = builtinSymbols[690].val /* frees */;
+    array248[6] = builtinSymbols[324].val /* can-frees */;
     array248[7] = builtinSymbols[7223].val /* sets */;
     array248[8] = builtinSymbols[7341].val /* tail */;
     Object list248 = Pair::wordArrayToList(array248, 9);
@@ -14660,13 +14660,13 @@ Object scheme::getBuiltinCompiler() {
     static word array254[]= {
         0xcc /* list253.val */,
         0xcc /* builtinSymbols[7043].val \* pass3\make-boxes *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[7223].val \* sets *\ */,
         0xcc /* builtinSymbols[8310].val \* vars *\ */
     };
     array254[0] = list253.val;
     array254[1] = builtinSymbols[7043].val /* pass3\make-boxes */;
-    array254[2] = builtinSymbols[6123].val /* cb */;
+    array254[2] = builtinSymbols[335].val /* cb */;
     array254[3] = builtinSymbols[7223].val /* sets */;
     array254[4] = builtinSymbols[8310].val /* vars */;
     Object list254 = Pair::wordArrayToList(array254, 5);
@@ -14681,17 +14681,17 @@ Object scheme::getBuiltinCompiler() {
     static word array256[]= {
         0xcc /* list255.val */,
         0xcc /* builtinSymbols[7037].val \* pass3\compile-assign *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6757].val \* lvar *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */
+        0xcc /* builtinSymbols[690].val \* frees *\ */
     };
     array256[0] = list255.val;
     array256[1] = builtinSymbols[7037].val /* pass3\compile-assign */;
-    array256[2] = builtinSymbols[6123].val /* cb */;
+    array256[2] = builtinSymbols[335].val /* cb */;
     array256[3] = builtinSymbols[6757].val /* lvar */;
     array256[4] = builtinSymbols[6745].val /* locals */;
-    array256[5] = builtinSymbols[6478].val /* frees */;
+    array256[5] = builtinSymbols[690].val /* frees */;
     Object list256 = Pair::wordArrayToList(array256, 6);
 
     static word array257[]= {
@@ -14704,12 +14704,12 @@ Object scheme::getBuiltinCompiler() {
     static word array258[]= {
         0xcc /* list257.val */,
         0xcc /* builtinSymbols[7046].val \* pass3\return-assign-free *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6870].val \* n *\ */
     };
     array258[0] = list257.val;
     array258[1] = builtinSymbols[7046].val /* pass3\return-assign-free */;
-    array258[2] = builtinSymbols[6123].val /* cb */;
+    array258[2] = builtinSymbols[335].val /* cb */;
     array258[3] = builtinSymbols[6870].val /* n */;
     Object list258 = Pair::wordArrayToList(array258, 4);
 
@@ -14723,12 +14723,12 @@ Object scheme::getBuiltinCompiler() {
     static word array260[]= {
         0xcc /* list259.val */,
         0xcc /* builtinSymbols[7047].val \* pass3\return-assign-local *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6870].val \* n *\ */
     };
     array260[0] = list259.val;
     array260[1] = builtinSymbols[7047].val /* pass3\return-assign-local */;
-    array260[2] = builtinSymbols[6123].val /* cb */;
+    array260[2] = builtinSymbols[335].val /* cb */;
     array260[3] = builtinSymbols[6870].val /* n */;
     Object list260 = Pair::wordArrayToList(array260, 4);
 
@@ -14742,17 +14742,17 @@ Object scheme::getBuiltinCompiler() {
     static word array262[]= {
         0xcc /* list261.val */,
         0xcc /* builtinSymbols[7038].val \* pass3\compile-refer *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6757].val \* lvar *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */
+        0xcc /* builtinSymbols[690].val \* frees *\ */
     };
     array262[0] = list261.val;
     array262[1] = builtinSymbols[7038].val /* pass3\compile-refer */;
-    array262[2] = builtinSymbols[6123].val /* cb */;
+    array262[2] = builtinSymbols[335].val /* cb */;
     array262[3] = builtinSymbols[6757].val /* lvar */;
     array262[4] = builtinSymbols[6745].val /* locals */;
-    array262[5] = builtinSymbols[6478].val /* frees */;
+    array262[5] = builtinSymbols[690].val /* frees */;
     Object list262 = Pair::wordArrayToList(array262, 6);
 
     static word array263[]= {
@@ -14765,12 +14765,12 @@ Object scheme::getBuiltinCompiler() {
     static word array264[]= {
         0xcc /* list263.val */,
         0xcc /* builtinSymbols[7048].val \* pass3\return-refer-free *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6870].val \* n *\ */
     };
     array264[0] = list263.val;
     array264[1] = builtinSymbols[7048].val /* pass3\return-refer-free */;
-    array264[2] = builtinSymbols[6123].val /* cb */;
+    array264[2] = builtinSymbols[335].val /* cb */;
     array264[3] = builtinSymbols[6870].val /* n */;
     Object list264 = Pair::wordArrayToList(array264, 4);
 
@@ -14784,12 +14784,12 @@ Object scheme::getBuiltinCompiler() {
     static word array266[]= {
         0xcc /* list265.val */,
         0xcc /* builtinSymbols[7049].val \* pass3\return-refer-local *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6870].val \* n *\ */
     };
     array266[0] = list265.val;
     array266[1] = builtinSymbols[7049].val /* pass3\return-refer-local */;
-    array266[2] = builtinSymbols[6123].val /* cb */;
+    array266[2] = builtinSymbols[335].val /* cb */;
     array266[3] = builtinSymbols[6870].val /* n */;
     Object list266 = Pair::wordArrayToList(array266, 4);
 
@@ -14803,12 +14803,12 @@ Object scheme::getBuiltinCompiler() {
     static word array268[]= {
         0xcc /* list267.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6475].val \* free *\ */,
+        0xcc /* builtinSymbols[687].val \* free *\ */,
         0xcc /* builtinSymbols[6870].val \* n *\ */
     };
     array268[0] = list267.val;
     array268[1] = builtinSymbols[6669].val /* lambda */;
-    array268[2] = builtinSymbols[6475].val /* free */;
+    array268[2] = builtinSymbols[687].val /* free */;
     array268[3] = builtinSymbols[6870].val /* n */;
     Object list268 = Pair::wordArrayToList(array268, 4);
 
@@ -14841,19 +14841,19 @@ Object scheme::getBuiltinCompiler() {
     static word array272[]= {
         0xcc /* list271.val */,
         0xcc /* builtinSymbols[7050].val \* pass3\symbol-lookup *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
         0xcc /* builtinSymbols[6757].val \* lvar *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */,
+        0xcc /* builtinSymbols[690].val \* frees *\ */,
         0xcc /* builtinSymbols[7158].val \* return-local *\ */,
         0xcc /* builtinSymbols[7157].val \* return-free *\ */
     };
     array272[0] = list271.val;
     array272[1] = builtinSymbols[7050].val /* pass3\symbol-lookup */;
-    array272[2] = builtinSymbols[6123].val /* cb */;
+    array272[2] = builtinSymbols[335].val /* cb */;
     array272[3] = builtinSymbols[6757].val /* lvar */;
     array272[4] = builtinSymbols[6745].val /* locals */;
-    array272[5] = builtinSymbols[6478].val /* frees */;
+    array272[5] = builtinSymbols[690].val /* frees */;
     array272[6] = builtinSymbols[7158].val /* return-local */;
     array272[7] = builtinSymbols[7157].val /* return-free */;
     Object list272 = Pair::wordArrayToList(array272, 8);
@@ -14887,17 +14887,17 @@ Object scheme::getBuiltinCompiler() {
     static word array276[]= {
         0xcc /* list275.val */,
         0xcc /* builtinSymbols[7034].val \* pass3\collect-free *\ */,
-        0xcc /* builtinSymbols[6123].val \* cb *\ */,
-        0xcc /* builtinSymbols[6479].val \* frees-here *\ */,
+        0xcc /* builtinSymbols[335].val \* cb *\ */,
+        0xcc /* builtinSymbols[691].val \* frees-here *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6478].val \* frees *\ */
+        0xcc /* builtinSymbols[690].val \* frees *\ */
     };
     array276[0] = list275.val;
     array276[1] = builtinSymbols[7034].val /* pass3\collect-free */;
-    array276[2] = builtinSymbols[6123].val /* cb */;
-    array276[3] = builtinSymbols[6479].val /* frees-here */;
+    array276[2] = builtinSymbols[335].val /* cb */;
+    array276[3] = builtinSymbols[691].val /* frees-here */;
     array276[4] = builtinSymbols[6745].val /* locals */;
-    array276[5] = builtinSymbols[6478].val /* frees */;
+    array276[5] = builtinSymbols[690].val /* frees */;
     Object list276 = Pair::wordArrayToList(array276, 6);
 
     static word array277[]= {
@@ -14946,11 +14946,11 @@ Object scheme::getBuiltinCompiler() {
     static word array282[]= {
         0xcc /* list281.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6452].val \* fm *\ */
+        0xcc /* builtinSymbols[664].val \* fm *\ */
     };
     array282[0] = list281.val;
     array282[1] = builtinSymbols[6669].val /* lambda */;
-    array282[2] = builtinSymbols[6452].val /* fm */;
+    array282[2] = builtinSymbols[664].val /* fm */;
     Object list282 = Pair::wordArrayToList(array282, 3);
 
     static word array283[]= {
@@ -14963,11 +14963,11 @@ Object scheme::getBuiltinCompiler() {
     static word array284[]= {
         0xcc /* list283.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6452].val \* fm *\ */
+        0xcc /* builtinSymbols[664].val \* fm *\ */
     };
     array284[0] = list283.val;
     array284[1] = builtinSymbols[6669].val /* lambda */;
-    array284[2] = builtinSymbols[6452].val /* fm */;
+    array284[2] = builtinSymbols[664].val /* fm */;
     Object list284 = Pair::wordArrayToList(array284, 3);
 
     static word array285[]= {
@@ -14980,11 +14980,11 @@ Object scheme::getBuiltinCompiler() {
     static word array286[]= {
         0xcc /* list285.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6452].val \* fm *\ */
+        0xcc /* builtinSymbols[664].val \* fm *\ */
     };
     array286[0] = list285.val;
     array286[1] = builtinSymbols[6669].val /* lambda */;
-    array286[2] = builtinSymbols[6452].val /* fm */;
+    array286[2] = builtinSymbols[664].val /* fm */;
     Object list286 = Pair::wordArrayToList(array286, 3);
 
     static word array287[]= {
@@ -14997,11 +14997,11 @@ Object scheme::getBuiltinCompiler() {
     static word array288[]= {
         0xcc /* list287.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6452].val \* fm *\ */
+        0xcc /* builtinSymbols[664].val \* fm *\ */
     };
     array288[0] = list287.val;
     array288[1] = builtinSymbols[6669].val /* lambda */;
-    array288[2] = builtinSymbols[6452].val /* fm */;
+    array288[2] = builtinSymbols[664].val /* fm */;
     Object list288 = Pair::wordArrayToList(array288, 3);
 
     static word array289[]= {
@@ -15014,11 +15014,11 @@ Object scheme::getBuiltinCompiler() {
     static word array290[]= {
         0xcc /* list289.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6452].val \* fm *\ */
+        0xcc /* builtinSymbols[664].val \* fm *\ */
     };
     array290[0] = list289.val;
     array290[1] = builtinSymbols[6669].val /* lambda */;
-    array290[2] = builtinSymbols[6452].val /* fm */;
+    array290[2] = builtinSymbols[664].val /* fm */;
     Object list290 = Pair::wordArrayToList(array290, 3);
 
     static word array291[]= {
@@ -15054,13 +15054,13 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[7040].val \* pass3\find-free *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
         0xcc /* builtinSymbols[6745].val \* locals *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */
     };
     array294[0] = list293.val;
     array294[1] = builtinSymbols[7040].val /* pass3\find-free */;
     array294[2] = builtinSymbols[6602].val /* iform */;
     array294[3] = builtinSymbols[6745].val /* locals */;
-    array294[4] = builtinSymbols[6112].val /* can-frees */;
+    array294[4] = builtinSymbols[324].val /* can-frees */;
     Object list294 = Pair::wordArrayToList(array294, 5);
 
     static word array295[]= {
@@ -15074,12 +15074,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list295.val */,
         0xcc /* builtinSymbols[7039].val \* pass3\exists-in-can-frees? *\ */,
         0xcc /* builtinSymbols[7304].val \* sym *\ */,
-        0xcc /* builtinSymbols[6112].val \* can-frees *\ */
+        0xcc /* builtinSymbols[324].val \* can-frees *\ */
     };
     array296[0] = list295.val;
     array296[1] = builtinSymbols[7039].val /* pass3\exists-in-can-frees? */;
     array296[2] = builtinSymbols[7304].val /* sym */;
-    array296[3] = builtinSymbols[6112].val /* can-frees */;
+    array296[3] = builtinSymbols[324].val /* can-frees */;
     Object list296 = Pair::wordArrayToList(array296, 4);
 
     static word array297[]= {
@@ -15144,12 +15144,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list303.val */,
         0xcc /* builtinSymbols[6995].val \* pass2\collect-call *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
-        0xcc /* builtinSymbols[6198].val \* closures *\ */
+        0xcc /* builtinSymbols[410].val \* closures *\ */
     };
     array304[0] = list303.val;
     array304[1] = builtinSymbols[6995].val /* pass2\collect-call */;
     array304[2] = builtinSymbols[6602].val /* iform */;
-    array304[3] = builtinSymbols[6198].val /* closures */;
+    array304[3] = builtinSymbols[410].val /* closures */;
     Object list304 = Pair::wordArrayToList(array304, 4);
 
     static word array305[]= {
@@ -15183,12 +15183,12 @@ Object scheme::getBuiltinCompiler() {
     static word array308[]= {
         0xcc /* list307.val */,
         0xcc /* builtinSymbols[7009].val \* pass2\split-args *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */,
+        0xcc /* builtinSymbols[177].val \* args *\ */,
         0xcc /* builtinSymbols[7152].val \* reqargs *\ */
     };
     array308[0] = list307.val;
     array308[1] = builtinSymbols[7009].val /* pass2\split-args */;
-    array308[2] = builtinSymbols[5965].val /* args */;
+    array308[2] = builtinSymbols[177].val /* args */;
     array308[3] = builtinSymbols[7152].val /* reqargs */;
     Object list308 = Pair::wordArrayToList(array308, 4);
 
@@ -15225,13 +15225,13 @@ Object scheme::getBuiltinCompiler() {
     static word array312[]= {
         0xcc /* list311.val */,
         0xcc /* builtinSymbols[6992].val \* pass2\argcount-ok? *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */,
+        0xcc /* builtinSymbols[177].val \* args *\ */,
         0xcc /* builtinSymbols[7152].val \* reqargs *\ */,
         0xcc /* builtinSymbols[6932].val \* optarg? *\ */
     };
     array312[0] = list311.val;
     array312[1] = builtinSymbols[6992].val /* pass2\argcount-ok? */;
-    array312[2] = builtinSymbols[5965].val /* args */;
+    array312[2] = builtinSymbols[177].val /* args */;
     array312[3] = builtinSymbols[7152].val /* reqargs */;
     array312[4] = builtinSymbols[6932].val /* optarg? */;
     Object list312 = Pair::wordArrayToList(array312, 5);
@@ -15247,12 +15247,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list313.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[6755].val \* lv *\ */,
-        0xcc /* builtinSymbols[5935].val \* a *\ */
+        0xcc /* builtinSymbols[147].val \* a *\ */
     };
     array314[0] = list313.val;
     array314[1] = builtinSymbols[6669].val /* lambda */;
     array314[2] = builtinSymbols[6755].val /* lv */;
-    array314[3] = builtinSymbols[5935].val /* a */;
+    array314[3] = builtinSymbols[147].val /* a */;
     Object list314 = Pair::wordArrayToList(array314, 4);
 
     static word array315[]= {
@@ -15285,13 +15285,13 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list317.val */,
         0xcc /* builtinSymbols[6994].val \* pass2\classify-local-ref-call *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
-        0xcc /* builtinSymbols[6198].val \* closures *\ */,
+        0xcc /* builtinSymbols[410].val \* closures *\ */,
         0xcc /* builtinSymbols[7343].val \* tail? *\ */
     };
     array318[0] = list317.val;
     array318[1] = builtinSymbols[6994].val /* pass2\classify-local-ref-call */;
     array318[2] = builtinSymbols[6602].val /* iform */;
-    array318[3] = builtinSymbols[6198].val /* closures */;
+    array318[3] = builtinSymbols[410].val /* closures */;
     array318[4] = builtinSymbols[7343].val /* tail? */;
     Object list318 = Pair::wordArrayToList(array318, 5);
 
@@ -15305,13 +15305,13 @@ Object scheme::getBuiltinCompiler() {
     static word array320[]= {
         0xcc /* list319.val */,
         0xcc /* builtinSymbols[7008].val \* pass2\self-recursing? *\ */,
-        0xcc /* builtinSymbols[6197].val \* closure *\ */,
-        0xcc /* builtinSymbols[6198].val \* closures *\ */
+        0xcc /* builtinSymbols[409].val \* closure *\ */,
+        0xcc /* builtinSymbols[410].val \* closures *\ */
     };
     array320[0] = list319.val;
     array320[1] = builtinSymbols[7008].val /* pass2\self-recursing? */;
-    array320[2] = builtinSymbols[6197].val /* closure */;
-    array320[3] = builtinSymbols[6198].val /* closures */;
+    array320[2] = builtinSymbols[409].val /* closure */;
+    array320[3] = builtinSymbols[410].val /* closures */;
     Object list320 = Pair::wordArrayToList(array320, 4);
 
     static word array321[]= {
@@ -15361,13 +15361,13 @@ Object scheme::getBuiltinCompiler() {
     static word array325[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6096].val \* call *\ */,
-        0xcc /* builtinSymbols[6330].val \* env *\ */,
+        0xcc /* builtinSymbols[308].val \* call *\ */,
+        0xcc /* builtinSymbols[542].val \* env *\ */,
         0xcc /* builtinSymbols[6864].val \* more *\ */
     };
     array325[1] = builtinSymbols[6669].val /* lambda */;
-    array325[2] = builtinSymbols[6096].val /* call */;
-    array325[3] = builtinSymbols[6330].val /* env */;
+    array325[2] = builtinSymbols[308].val /* call */;
+    array325[3] = builtinSymbols[542].val /* env */;
     array325[4] = builtinSymbols[6864].val /* more */;
     Object list325 = Pair::wordArrayToList(array325, 5);
 
@@ -15388,14 +15388,14 @@ Object scheme::getBuiltinCompiler() {
     static word array328[]= {
         0xcc /* list327.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6097].val \* call&envs *\ */,
+        0xcc /* builtinSymbols[309].val \* call&envs *\ */,
         0xcc /* builtinSymbols[6742].val \* local *\ */,
         0xcc /* builtinSymbols[7114].val \* rec *\ */,
         0xcc /* builtinSymbols[8275].val \* trec *\ */
     };
     array328[0] = list327.val;
     array328[1] = builtinSymbols[6669].val /* lambda */;
-    array328[2] = builtinSymbols[6097].val /* call&envs */;
+    array328[2] = builtinSymbols[309].val /* call&envs */;
     array328[3] = builtinSymbols[6742].val /* local */;
     array328[4] = builtinSymbols[7114].val /* rec */;
     array328[5] = builtinSymbols[8275].val /* trec */;
@@ -15411,11 +15411,11 @@ Object scheme::getBuiltinCompiler() {
     static word array330[]= {
         0xcc /* list329.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6330].val \* env *\ */
+        0xcc /* builtinSymbols[542].val \* env *\ */
     };
     array330[0] = list329.val;
     array330[1] = builtinSymbols[6669].val /* lambda */;
-    array330[2] = builtinSymbols[6330].val /* env */;
+    array330[2] = builtinSymbols[542].val /* env */;
     Object list330 = Pair::wordArrayToList(array330, 3);
 
     static word array331[]= {
@@ -15428,11 +15428,11 @@ Object scheme::getBuiltinCompiler() {
     static word array332[]= {
         0xcc /* list331.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6330].val \* env *\ */
+        0xcc /* builtinSymbols[542].val \* env *\ */
     };
     array332[0] = list331.val;
     array332[1] = builtinSymbols[6669].val /* lambda */;
-    array332[2] = builtinSymbols[6330].val /* env */;
+    array332[2] = builtinSymbols[542].val /* env */;
     Object list332 = Pair::wordArrayToList(array332, 3);
 
     static word array333[]= {
@@ -15445,22 +15445,22 @@ Object scheme::getBuiltinCompiler() {
     static word array334[]= {
         0xcc /* list333.val */,
         0xcc /* builtinSymbols[6993].val \* pass2\classify-calls *\ */,
-        0xcc /* builtinSymbols[6097].val \* call&envs *\ */,
+        0xcc /* builtinSymbols[309].val \* call&envs *\ */,
         0xcc /* builtinSymbols[6671].val \* lambda-node *\ */
     };
     array334[0] = list333.val;
     array334[1] = builtinSymbols[6993].val /* pass2\classify-calls */;
-    array334[2] = builtinSymbols[6097].val /* call&envs */;
+    array334[2] = builtinSymbols[309].val /* call&envs */;
     array334[3] = builtinSymbols[6671].val /* lambda-node */;
     Object list334 = Pair::wordArrayToList(array334, 4);
 
     static word array335[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6096].val \* call *\ */
+        0xcc /* builtinSymbols[308].val \* call *\ */
     };
     array335[1] = builtinSymbols[6669].val /* lambda */;
-    array335[2] = builtinSymbols[6096].val /* call */;
+    array335[2] = builtinSymbols[308].val /* call */;
     Object list335 = Pair::wordArrayToList(array335, 3);
 
     static word array336[]= {
@@ -15503,14 +15503,14 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[7000].val \* pass2\local-call-embedder *\ */,
         0xcc /* builtinSymbols[6757].val \* lvar *\ */,
         0xcc /* builtinSymbols[6671].val \* lambda-node *\ */,
-        0xcc /* builtinSymbols[6096].val \* call *\ */,
+        0xcc /* builtinSymbols[308].val \* call *\ */,
         0xcc /* builtinSymbols[7115].val \* rec-calls *\ */
     };
     array340[0] = list339.val;
     array340[1] = builtinSymbols[7000].val /* pass2\local-call-embedder */;
     array340[2] = builtinSymbols[6757].val /* lvar */;
     array340[3] = builtinSymbols[6671].val /* lambda-node */;
-    array340[4] = builtinSymbols[6096].val /* call */;
+    array340[4] = builtinSymbols[308].val /* call */;
     array340[5] = builtinSymbols[7115].val /* rec-calls */;
     Object list340 = Pair::wordArrayToList(array340, 6);
 
@@ -15524,11 +15524,11 @@ Object scheme::getBuiltinCompiler() {
     static word array342[]= {
         0xcc /* list341.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6111].val \* calls *\ */
+        0xcc /* builtinSymbols[323].val \* calls *\ */
     };
     array342[0] = list341.val;
     array342[1] = builtinSymbols[6669].val /* lambda */;
-    array342[2] = builtinSymbols[6111].val /* calls */;
+    array342[2] = builtinSymbols[323].val /* calls */;
     Object list342 = Pair::wordArrayToList(array342, 3);
 
     static word array343[]= {
@@ -15541,12 +15541,12 @@ Object scheme::getBuiltinCompiler() {
     static word array344[]= {
         0xcc /* list343.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6098].val \* call-node *\ */,
+        0xcc /* builtinSymbols[310].val \* call-node *\ */,
         0xcc /* builtinSymbols[6671].val \* lambda-node *\ */
     };
     array344[0] = list343.val;
     array344[1] = builtinSymbols[6669].val /* lambda */;
-    array344[2] = builtinSymbols[6098].val /* call-node */;
+    array344[2] = builtinSymbols[310].val /* call-node */;
     array344[3] = builtinSymbols[6671].val /* lambda-node */;
     Object list344 = Pair::wordArrayToList(array344, 4);
 
@@ -15562,13 +15562,13 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[7001].val \* pass2\local-call-inliner *\ */,
         0xcc /* builtinSymbols[6757].val \* lvar *\ */,
         0xcc /* builtinSymbols[6671].val \* lambda-node *\ */,
-        0xcc /* builtinSymbols[6111].val \* calls *\ */
+        0xcc /* builtinSymbols[323].val \* calls *\ */
     };
     array346[0] = list345.val;
     array346[1] = builtinSymbols[7001].val /* pass2\local-call-inliner */;
     array346[2] = builtinSymbols[6757].val /* lvar */;
     array346[3] = builtinSymbols[6671].val /* lambda-node */;
-    array346[4] = builtinSymbols[6111].val /* calls */;
+    array346[4] = builtinSymbols[323].val /* calls */;
     Object list346 = Pair::wordArrayToList(array346, 5);
 
     static word array347[]= {
@@ -15580,14 +15580,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array348[]= {
         0xcc /* list347.val */,
-        0xcc /* builtinSymbols[5964].val \* argcount-ok? *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */,
+        0xcc /* builtinSymbols[176].val \* argcount-ok? *\ */,
+        0xcc /* builtinSymbols[177].val \* args *\ */,
         0xcc /* builtinSymbols[7152].val \* reqargs *\ */,
         0xcc /* builtinSymbols[6932].val \* optarg? *\ */
     };
     array348[0] = list347.val;
-    array348[1] = builtinSymbols[5964].val /* argcount-ok? */;
-    array348[2] = builtinSymbols[5965].val /* args */;
+    array348[1] = builtinSymbols[176].val /* argcount-ok? */;
+    array348[2] = builtinSymbols[177].val /* args */;
     array348[3] = builtinSymbols[7152].val /* reqargs */;
     array348[4] = builtinSymbols[6932].val /* optarg? */;
     Object list348 = Pair::wordArrayToList(array348, 5);
@@ -15601,14 +15601,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array350[]= {
         0xcc /* list349.val */,
-        0xcc /* builtinSymbols[5943].val \* adjust-arglist *\ */,
+        0xcc /* builtinSymbols[155].val \* adjust-arglist *\ */,
         0xcc /* builtinSymbols[7152].val \* reqargs *\ */,
         0xcc /* builtinSymbols[6931].val \* optarg *\ */,
         0xcc /* builtinSymbols[6595].val \* iargs *\ */,
         0xcc /* builtinSymbols[6872].val \* name *\ */
     };
     array350[0] = list349.val;
-    array350[1] = builtinSymbols[5943].val /* adjust-arglist */;
+    array350[1] = builtinSymbols[155].val /* adjust-arglist */;
     array350[2] = builtinSymbols[7152].val /* reqargs */;
     array350[3] = builtinSymbols[6931].val /* optarg */;
     array350[4] = builtinSymbols[6595].val /* iargs */;
@@ -15626,12 +15626,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list351.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[6607].val \* iform-list *\ */,
-        0xcc /* builtinSymbols[6200].val \* cnt *\ */
+        0xcc /* builtinSymbols[412].val \* cnt *\ */
     };
     array352[0] = list351.val;
     array352[1] = builtinSymbols[6669].val /* lambda */;
     array352[2] = builtinSymbols[6607].val /* iform-list */;
-    array352[3] = builtinSymbols[6200].val /* cnt */;
+    array352[3] = builtinSymbols[412].val /* cnt */;
     Object list352 = Pair::wordArrayToList(array352, 4);
 
     static word array353[]= {
@@ -15645,12 +15645,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list353.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
-        0xcc /* builtinSymbols[6200].val \* cnt *\ */
+        0xcc /* builtinSymbols[412].val \* cnt *\ */
     };
     array354[0] = list353.val;
     array354[1] = builtinSymbols[6669].val /* lambda */;
     array354[2] = builtinSymbols[6602].val /* iform */;
-    array354[3] = builtinSymbols[6200].val /* cnt */;
+    array354[3] = builtinSymbols[412].val /* cnt */;
     Object list354 = Pair::wordArrayToList(array354, 4);
 
     static word array355[]= {
@@ -15895,12 +15895,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list381.val */,
         0xcc /* builtinSymbols[7003].val \* pass2\optimize *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
-        0xcc /* builtinSymbols[6198].val \* closures *\ */
+        0xcc /* builtinSymbols[410].val \* closures *\ */
     };
     array382[0] = list381.val;
     array382[1] = builtinSymbols[7003].val /* pass2\optimize */;
     array382[2] = builtinSymbols[6602].val /* iform */;
-    array382[3] = builtinSymbols[6198].val /* closures */;
+    array382[3] = builtinSymbols[410].val /* closures */;
     Object list382 = Pair::wordArrayToList(array382, 4);
 
     static word array383[]= {
@@ -15933,12 +15933,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list385.val */,
         0xcc /* builtinSymbols[6998].val \* pass2\empty *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
-        0xcc /* builtinSymbols[6198].val \* closures *\ */
+        0xcc /* builtinSymbols[410].val \* closures *\ */
     };
     array386[0] = list385.val;
     array386[1] = builtinSymbols[6998].val /* pass2\empty */;
     array386[2] = builtinSymbols[6602].val /* iform */;
-    array386[3] = builtinSymbols[6198].val /* closures */;
+    array386[3] = builtinSymbols[410].val /* closures */;
     Object list386 = Pair::wordArrayToList(array386, 4);
 
     static word array387[]= {
@@ -15952,12 +15952,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list387.val */,
         0xcc /* builtinSymbols[6984].val \* pass2\$call *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
-        0xcc /* builtinSymbols[6198].val \* closures *\ */
+        0xcc /* builtinSymbols[410].val \* closures *\ */
     };
     array388[0] = list387.val;
     array388[1] = builtinSymbols[6984].val /* pass2\$call */;
     array388[2] = builtinSymbols[6602].val /* iform */;
-    array388[3] = builtinSymbols[6198].val /* closures */;
+    array388[3] = builtinSymbols[410].val /* closures */;
     Object list388 = Pair::wordArrayToList(array388, 4);
 
     static word array389[]= {
@@ -15971,12 +15971,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list389.val */,
         0xcc /* builtinSymbols[6985].val \* pass2\$if *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
-        0xcc /* builtinSymbols[6198].val \* closures *\ */
+        0xcc /* builtinSymbols[410].val \* closures *\ */
     };
     array390[0] = list389.val;
     array390[1] = builtinSymbols[6985].val /* pass2\$if */;
     array390[2] = builtinSymbols[6602].val /* iform */;
-    array390[3] = builtinSymbols[6198].val /* closures */;
+    array390[3] = builtinSymbols[410].val /* closures */;
     Object list390 = Pair::wordArrayToList(array390, 4);
 
     static word array391[]= {
@@ -15990,12 +15990,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list391.val */,
         0xcc /* builtinSymbols[6986].val \* pass2\$lambda *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
-        0xcc /* builtinSymbols[6198].val \* closures *\ */
+        0xcc /* builtinSymbols[410].val \* closures *\ */
     };
     array392[0] = list391.val;
     array392[1] = builtinSymbols[6986].val /* pass2\$lambda */;
     array392[2] = builtinSymbols[6602].val /* iform */;
-    array392[3] = builtinSymbols[6198].val /* closures */;
+    array392[3] = builtinSymbols[410].val /* closures */;
     Object list392 = Pair::wordArrayToList(array392, 4);
 
     static word array393[]= {
@@ -16026,12 +16026,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list395.val */,
         0xcc /* builtinSymbols[6983].val \* pass2\$asm *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
-        0xcc /* builtinSymbols[6198].val \* closures *\ */
+        0xcc /* builtinSymbols[410].val \* closures *\ */
     };
     array396[0] = list395.val;
     array396[1] = builtinSymbols[6983].val /* pass2\$asm */;
     array396[2] = builtinSymbols[6602].val /* iform */;
-    array396[3] = builtinSymbols[6198].val /* closures */;
+    array396[3] = builtinSymbols[410].val /* closures */;
     Object list396 = Pair::wordArrayToList(array396, 4);
 
     static word array397[]= {
@@ -16079,12 +16079,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list401.val */,
         0xcc /* builtinSymbols[6990].val \* pass2\$seq *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
-        0xcc /* builtinSymbols[6198].val \* closures *\ */
+        0xcc /* builtinSymbols[410].val \* closures *\ */
     };
     array402[0] = list401.val;
     array402[1] = builtinSymbols[6990].val /* pass2\$seq */;
     array402[2] = builtinSymbols[6602].val /* iform */;
-    array402[3] = builtinSymbols[6198].val /* closures */;
+    array402[3] = builtinSymbols[410].val /* closures */;
     Object list402 = Pair::wordArrayToList(array402, 4);
 
     static word array403[]= {
@@ -16098,12 +16098,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list403.val */,
         0xcc /* builtinSymbols[6988].val \* pass2\$local-ref *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
-        0xcc /* builtinSymbols[6198].val \* closures *\ */
+        0xcc /* builtinSymbols[410].val \* closures *\ */
     };
     array404[0] = list403.val;
     array404[1] = builtinSymbols[6988].val /* pass2\$local-ref */;
     array404[2] = builtinSymbols[6602].val /* iform */;
-    array404[3] = builtinSymbols[6198].val /* closures */;
+    array404[3] = builtinSymbols[410].val /* closures */;
     Object list404 = Pair::wordArrayToList(array404, 4);
 
     static word array405[]= {
@@ -16117,12 +16117,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list405.val */,
         0xcc /* builtinSymbols[6989].val \* pass2\$receive *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
-        0xcc /* builtinSymbols[6198].val \* closures *\ */
+        0xcc /* builtinSymbols[410].val \* closures *\ */
     };
     array406[0] = list405.val;
     array406[1] = builtinSymbols[6989].val /* pass2\$receive */;
     array406[2] = builtinSymbols[6602].val /* iform */;
-    array406[3] = builtinSymbols[6198].val /* closures */;
+    array406[3] = builtinSymbols[410].val /* closures */;
     Object list406 = Pair::wordArrayToList(array406, 4);
 
     static word array407[]= {
@@ -16153,12 +16153,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list409.val */,
         0xcc /* builtinSymbols[6987].val \* pass2\$let *\ */,
         0xcc /* builtinSymbols[6602].val \* iform *\ */,
-        0xcc /* builtinSymbols[6198].val \* closures *\ */
+        0xcc /* builtinSymbols[410].val \* closures *\ */
     };
     array410[0] = list409.val;
     array410[1] = builtinSymbols[6987].val /* pass2\$let */;
     array410[2] = builtinSymbols[6602].val /* iform */;
-    array410[3] = builtinSymbols[6198].val /* closures */;
+    array410[3] = builtinSymbols[410].val /* closures */;
     Object list410 = Pair::wordArrayToList(array410, 4);
 
     static word array411[]= {
@@ -16328,11 +16328,11 @@ Object scheme::getBuiltinCompiler() {
     static word array430[]= {
         0xcc /* list429.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6246].val \* count *\ */
+        0xcc /* builtinSymbols[458].val \* count *\ */
     };
     array430[0] = list429.val;
     array430[1] = builtinSymbols[6669].val /* lambda */;
-    array430[2] = builtinSymbols[6246].val /* count */;
+    array430[2] = builtinSymbols[458].val /* count */;
     Object list430 = Pair::wordArrayToList(array430, 3);
 
     static word array431[]= {
@@ -16457,7 +16457,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[6961].val \* pass1\asm-n-args *\ */,
         0xcc /* builtinSymbols[7340].val \* tag *\ */,
         0xcc /* builtinSymbols[6929].val \* operator *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */,
+        0xcc /* builtinSymbols[177].val \* args *\ */,
         0xcc /* builtinSymbols[6703].val \* library *\ */,
         0xcc /* builtinSymbols[6758].val \* lvars *\ */,
         0xcc /* builtinSymbols[7343].val \* tail? *\ */
@@ -16466,7 +16466,7 @@ Object scheme::getBuiltinCompiler() {
     array444[1] = builtinSymbols[6961].val /* pass1\asm-n-args */;
     array444[2] = builtinSymbols[7340].val /* tag */;
     array444[3] = builtinSymbols[6929].val /* operator */;
-    array444[4] = builtinSymbols[5965].val /* args */;
+    array444[4] = builtinSymbols[177].val /* args */;
     array444[5] = builtinSymbols[6703].val /* library */;
     array444[6] = builtinSymbols[6758].val /* lvars */;
     array444[7] = builtinSymbols[7343].val /* tail? */;
@@ -16483,7 +16483,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list445.val */,
         0xcc /* builtinSymbols[6959].val \* pass1\asm-2-arg-optional *\ */,
         0xcc /* builtinSymbols[7340].val \* tag *\ */,
-        0xcc /* builtinSymbols[5961].val \* arg1 *\ */,
+        0xcc /* builtinSymbols[173].val \* arg1 *\ */,
         0xcc /* builtinSymbols[7153].val \* rest *\ */,
         0xcc /* builtinSymbols[6703].val \* library *\ */,
         0xcc /* builtinSymbols[6758].val \* lvars *\ */,
@@ -16492,7 +16492,7 @@ Object scheme::getBuiltinCompiler() {
     array446[0] = list445.val;
     array446[1] = builtinSymbols[6959].val /* pass1\asm-2-arg-optional */;
     array446[2] = builtinSymbols[7340].val /* tag */;
-    array446[3] = builtinSymbols[5961].val /* arg1 */;
+    array446[3] = builtinSymbols[173].val /* arg1 */;
     array446[4] = builtinSymbols[7153].val /* rest */;
     array446[5] = builtinSymbols[6703].val /* library */;
     array446[6] = builtinSymbols[6758].val /* lvars */;
@@ -16510,7 +16510,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list447.val */,
         0xcc /* builtinSymbols[6957].val \* pass1\asm-1-arg-optional *\ */,
         0xcc /* builtinSymbols[7340].val \* tag *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */,
+        0xcc /* builtinSymbols[177].val \* args *\ */,
         0xcc /* builtinSymbols[6703].val \* library *\ */,
         0xcc /* builtinSymbols[6758].val \* lvars *\ */,
         0xcc /* builtinSymbols[7343].val \* tail? *\ */
@@ -16518,7 +16518,7 @@ Object scheme::getBuiltinCompiler() {
     array448[0] = list447.val;
     array448[1] = builtinSymbols[6957].val /* pass1\asm-1-arg-optional */;
     array448[2] = builtinSymbols[7340].val /* tag */;
-    array448[3] = builtinSymbols[5965].val /* args */;
+    array448[3] = builtinSymbols[177].val /* args */;
     array448[4] = builtinSymbols[6703].val /* library */;
     array448[5] = builtinSymbols[6758].val /* lvars */;
     array448[6] = builtinSymbols[7343].val /* tail? */;
@@ -16535,9 +16535,9 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list449.val */,
         0xcc /* builtinSymbols[6960].val \* pass1\asm-3-arg *\ */,
         0xcc /* builtinSymbols[7340].val \* tag *\ */,
-        0xcc /* builtinSymbols[5961].val \* arg1 *\ */,
-        0xcc /* builtinSymbols[5962].val \* arg2 *\ */,
-        0xcc /* builtinSymbols[5963].val \* arg3 *\ */,
+        0xcc /* builtinSymbols[173].val \* arg1 *\ */,
+        0xcc /* builtinSymbols[174].val \* arg2 *\ */,
+        0xcc /* builtinSymbols[175].val \* arg3 *\ */,
         0xcc /* builtinSymbols[6703].val \* library *\ */,
         0xcc /* builtinSymbols[6758].val \* lvars *\ */,
         0xcc /* builtinSymbols[7343].val \* tail? *\ */
@@ -16545,9 +16545,9 @@ Object scheme::getBuiltinCompiler() {
     array450[0] = list449.val;
     array450[1] = builtinSymbols[6960].val /* pass1\asm-3-arg */;
     array450[2] = builtinSymbols[7340].val /* tag */;
-    array450[3] = builtinSymbols[5961].val /* arg1 */;
-    array450[4] = builtinSymbols[5962].val /* arg2 */;
-    array450[5] = builtinSymbols[5963].val /* arg3 */;
+    array450[3] = builtinSymbols[173].val /* arg1 */;
+    array450[4] = builtinSymbols[174].val /* arg2 */;
+    array450[5] = builtinSymbols[175].val /* arg3 */;
     array450[6] = builtinSymbols[6703].val /* library */;
     array450[7] = builtinSymbols[6758].val /* lvars */;
     array450[8] = builtinSymbols[7343].val /* tail? */;
@@ -16564,8 +16564,8 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list451.val */,
         0xcc /* builtinSymbols[6958].val \* pass1\asm-2-arg *\ */,
         0xcc /* builtinSymbols[7340].val \* tag *\ */,
-        0xcc /* builtinSymbols[5961].val \* arg1 *\ */,
-        0xcc /* builtinSymbols[5962].val \* arg2 *\ */,
+        0xcc /* builtinSymbols[173].val \* arg1 *\ */,
+        0xcc /* builtinSymbols[174].val \* arg2 *\ */,
         0xcc /* builtinSymbols[6703].val \* library *\ */,
         0xcc /* builtinSymbols[6758].val \* lvars *\ */,
         0xcc /* builtinSymbols[7343].val \* tail? *\ */
@@ -16573,8 +16573,8 @@ Object scheme::getBuiltinCompiler() {
     array452[0] = list451.val;
     array452[1] = builtinSymbols[6958].val /* pass1\asm-2-arg */;
     array452[2] = builtinSymbols[7340].val /* tag */;
-    array452[3] = builtinSymbols[5961].val /* arg1 */;
-    array452[4] = builtinSymbols[5962].val /* arg2 */;
+    array452[3] = builtinSymbols[173].val /* arg1 */;
+    array452[4] = builtinSymbols[174].val /* arg2 */;
     array452[5] = builtinSymbols[6703].val /* library */;
     array452[6] = builtinSymbols[6758].val /* lvars */;
     array452[7] = builtinSymbols[7343].val /* tail? */;
@@ -16591,7 +16591,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list453.val */,
         0xcc /* builtinSymbols[6956].val \* pass1\asm-1-arg *\ */,
         0xcc /* builtinSymbols[7340].val \* tag *\ */,
-        0xcc /* builtinSymbols[5961].val \* arg1 *\ */,
+        0xcc /* builtinSymbols[173].val \* arg1 *\ */,
         0xcc /* builtinSymbols[6703].val \* library *\ */,
         0xcc /* builtinSymbols[6758].val \* lvars *\ */,
         0xcc /* builtinSymbols[7343].val \* tail? *\ */
@@ -16599,7 +16599,7 @@ Object scheme::getBuiltinCompiler() {
     array454[0] = list453.val;
     array454[1] = builtinSymbols[6956].val /* pass1\asm-1-arg */;
     array454[2] = builtinSymbols[7340].val /* tag */;
-    array454[3] = builtinSymbols[5961].val /* arg1 */;
+    array454[3] = builtinSymbols[173].val /* arg1 */;
     array454[4] = builtinSymbols[6703].val /* library */;
     array454[5] = builtinSymbols[6758].val /* lvars */;
     array454[6] = builtinSymbols[7343].val /* tail? */;
@@ -16617,7 +16617,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[6962].val \* pass1\asm-numcmp *\ */,
         0xcc /* builtinSymbols[7340].val \* tag *\ */,
         0xcc /* builtinSymbols[6929].val \* operator *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */,
+        0xcc /* builtinSymbols[177].val \* args *\ */,
         0xcc /* builtinSymbols[6703].val \* library *\ */,
         0xcc /* builtinSymbols[6758].val \* lvars *\ */,
         0xcc /* builtinSymbols[7343].val \* tail? *\ */
@@ -16626,7 +16626,7 @@ Object scheme::getBuiltinCompiler() {
     array456[1] = builtinSymbols[6962].val /* pass1\asm-numcmp */;
     array456[2] = builtinSymbols[7340].val /* tag */;
     array456[3] = builtinSymbols[6929].val /* operator */;
-    array456[4] = builtinSymbols[5965].val /* args */;
+    array456[4] = builtinSymbols[177].val /* args */;
     array456[5] = builtinSymbols[6703].val /* library */;
     array456[6] = builtinSymbols[6758].val /* lvars */;
     array456[7] = builtinSymbols[7343].val /* tail? */;
@@ -16747,7 +16747,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[6974].val \* pass1\letrec *\ */,
         0xcc /* builtinSymbols[8310].val \* vars *\ */,
         0xcc /* builtinSymbols[8306].val \* vals *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */,
+        0xcc /* builtinSymbols[219].val \* body *\ */,
         0xcc /* builtinSymbols[7238].val \* source-info *\ */,
         0xcc /* builtinSymbols[6703].val \* library *\ */,
         0xcc /* builtinSymbols[6758].val \* lvars *\ */,
@@ -16757,7 +16757,7 @@ Object scheme::getBuiltinCompiler() {
     array468[1] = builtinSymbols[6974].val /* pass1\letrec */;
     array468[2] = builtinSymbols[8310].val /* vars */;
     array468[3] = builtinSymbols[8306].val /* vals */;
-    array468[4] = builtinSymbols[6007].val /* body */;
+    array468[4] = builtinSymbols[219].val /* body */;
     array468[5] = builtinSymbols[7238].val /* source-info */;
     array468[6] = builtinSymbols[6703].val /* library */;
     array468[7] = builtinSymbols[6758].val /* lvars */;
@@ -16812,7 +16812,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[6973].val \* pass1\let *\ */,
         0xcc /* builtinSymbols[8310].val \* vars *\ */,
         0xcc /* builtinSymbols[8306].val \* vals *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */,
+        0xcc /* builtinSymbols[219].val \* body *\ */,
         0xcc /* builtinSymbols[7238].val \* source-info *\ */,
         0xcc /* builtinSymbols[6703].val \* library *\ */,
         0xcc /* builtinSymbols[6758].val \* lvars *\ */,
@@ -16822,7 +16822,7 @@ Object scheme::getBuiltinCompiler() {
     array474[1] = builtinSymbols[6973].val /* pass1\let */;
     array474[2] = builtinSymbols[8310].val /* vars */;
     array474[3] = builtinSymbols[8306].val /* vals */;
-    array474[4] = builtinSymbols[6007].val /* body */;
+    array474[4] = builtinSymbols[219].val /* body */;
     array474[5] = builtinSymbols[7238].val /* source-info */;
     array474[6] = builtinSymbols[6703].val /* library */;
     array474[7] = builtinSymbols[6758].val /* lvars */;
@@ -16832,10 +16832,10 @@ Object scheme::getBuiltinCompiler() {
     static word array475[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6310].val \* else *\ */
+        0xcc /* builtinSymbols[522].val \* else *\ */
     };
     array475[1] = builtinSymbols[6669].val /* lambda */;
-    array475[2] = builtinSymbols[6310].val /* else */;
+    array475[2] = builtinSymbols[522].val /* else */;
     Object list475 = Pair::wordArrayToList(array475, 3);
 
     static word array476[]= {
@@ -16860,12 +16860,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[8310].val \* vars *\ */,
         0xcc /* builtinSymbols[8306].val \* vals *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */
+        0xcc /* builtinSymbols[219].val \* body *\ */
     };
     array478[1] = builtinSymbols[6669].val /* lambda */;
     array478[2] = builtinSymbols[8310].val /* vars */;
     array478[3] = builtinSymbols[8306].val /* vals */;
-    array478[4] = builtinSymbols[6007].val /* body */;
+    array478[4] = builtinSymbols[219].val /* body */;
     Object list478 = Pair::wordArrayToList(array478, 5);
 
     static word array479[]= {
@@ -16894,10 +16894,10 @@ Object scheme::getBuiltinCompiler() {
     static word array481[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6310].val \* else *\ */
+        0xcc /* builtinSymbols[522].val \* else *\ */
     };
     array481[1] = builtinSymbols[6669].val /* lambda */;
-    array481[2] = builtinSymbols[6310].val /* else */;
+    array481[2] = builtinSymbols[522].val /* else */;
     Object list481 = Pair::wordArrayToList(array481, 3);
 
     static word array482[]= {
@@ -16979,7 +16979,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list489.val */,
         0xcc /* builtinSymbols[6965].val \* pass1\call *\ */,
         0xcc /* builtinSymbols[7079].val \* proc *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */,
+        0xcc /* builtinSymbols[177].val \* args *\ */,
         0xcc /* builtinSymbols[6703].val \* library *\ */,
         0xcc /* builtinSymbols[6758].val \* lvars *\ */,
         0xcc /* builtinSymbols[7343].val \* tail? *\ */
@@ -16987,7 +16987,7 @@ Object scheme::getBuiltinCompiler() {
     array490[0] = list489.val;
     array490[1] = builtinSymbols[6965].val /* pass1\call */;
     array490[2] = builtinSymbols[7079].val /* proc */;
-    array490[3] = builtinSymbols[5965].val /* args */;
+    array490[3] = builtinSymbols[177].val /* args */;
     array490[4] = builtinSymbols[6703].val /* library */;
     array490[5] = builtinSymbols[6758].val /* lvars */;
     array490[6] = builtinSymbols[7343].val /* tail? */;
@@ -17105,12 +17105,12 @@ Object scheme::getBuiltinCompiler() {
     static word array504[]= {
         0xcc /* list503.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6470].val \* form *\ */,
+        0xcc /* builtinSymbols[682].val \* form *\ */,
         0xcc /* builtinSymbols[6694].val \* level *\ */
     };
     array504[0] = list503.val;
     array504[1] = builtinSymbols[6669].val /* lambda */;
-    array504[2] = builtinSymbols[6470].val /* form */;
+    array504[2] = builtinSymbols[682].val /* form */;
     array504[3] = builtinSymbols[6694].val /* level */;
     Object list504 = Pair::wordArrayToList(array504, 4);
 
@@ -17124,11 +17124,11 @@ Object scheme::getBuiltinCompiler() {
     static word array506[]= {
         0xcc /* list505.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6470].val \* form *\ */
+        0xcc /* builtinSymbols[682].val \* form *\ */
     };
     array506[0] = list505.val;
     array506[1] = builtinSymbols[6669].val /* lambda */;
-    array506[2] = builtinSymbols[6470].val /* form */;
+    array506[2] = builtinSymbols[682].val /* form */;
     Object list506 = Pair::wordArrayToList(array506, 3);
 
     static word array507[]= {
@@ -17141,11 +17141,11 @@ Object scheme::getBuiltinCompiler() {
     static word array508[]= {
         0xcc /* list507.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6470].val \* form *\ */
+        0xcc /* builtinSymbols[682].val \* form *\ */
     };
     array508[0] = list507.val;
     array508[1] = builtinSymbols[6669].val /* lambda */;
-    array508[2] = builtinSymbols[6470].val /* form */;
+    array508[2] = builtinSymbols[682].val /* form */;
     Object list508 = Pair::wordArrayToList(array508, 3);
 
     static word array509[]= {
@@ -17194,12 +17194,12 @@ Object scheme::getBuiltinCompiler() {
     static word array514[]= {
         0xcc /* list513.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6365].val \* export *\ */,
+        0xcc /* builtinSymbols[577].val \* export *\ */,
         0xcc /* builtinSymbols[7155].val \* ret *\ */
     };
     array514[0] = list513.val;
     array514[1] = builtinSymbols[6669].val /* lambda */;
-    array514[2] = builtinSymbols[6365].val /* export */;
+    array514[2] = builtinSymbols[577].val /* export */;
     array514[3] = builtinSymbols[7155].val /* ret */;
     Object list514 = Pair::wordArrayToList(array514, 4);
 
@@ -17215,13 +17215,13 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[6617].val \* imports *\ */,
         0xcc /* builtinSymbols[6701].val \* libname *\ */,
-        0xcc /* builtinSymbols[6470].val \* form *\ */
+        0xcc /* builtinSymbols[682].val \* form *\ */
     };
     array516[0] = list515.val;
     array516[1] = builtinSymbols[6669].val /* lambda */;
     array516[2] = builtinSymbols[6617].val /* imports */;
     array516[3] = builtinSymbols[6701].val /* libname */;
-    array516[4] = builtinSymbols[6470].val /* form */;
+    array516[4] = builtinSymbols[682].val /* form */;
     Object list516 = Pair::wordArrayToList(array516, 5);
 
     static word array517[]= {
@@ -17290,20 +17290,20 @@ Object scheme::getBuiltinCompiler() {
     static word array523[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6310].val \* else *\ */
+        0xcc /* builtinSymbols[522].val \* else *\ */
     };
     array523[1] = builtinSymbols[6669].val /* lambda */;
-    array523[2] = builtinSymbols[6310].val /* else */;
+    array523[2] = builtinSymbols[522].val /* else */;
     Object list523 = Pair::wordArrayToList(array523, 3);
 
     static word array524[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6302].val \* e *\ */,
+        0xcc /* builtinSymbols[514].val \* e *\ */,
         0xcc /* builtinSymbols[6864].val \* more *\ */
     };
     array524[1] = builtinSymbols[6669].val /* lambda */;
-    array524[2] = builtinSymbols[6302].val /* e */;
+    array524[2] = builtinSymbols[514].val /* e */;
     array524[3] = builtinSymbols[6864].val /* more */;
     Object list524 = Pair::wordArrayToList(array524, 4);
 
@@ -17366,20 +17366,20 @@ Object scheme::getBuiltinCompiler() {
     static word array531[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6310].val \* else *\ */
+        0xcc /* builtinSymbols[522].val \* else *\ */
     };
     array531[1] = builtinSymbols[6669].val /* lambda */;
-    array531[2] = builtinSymbols[6310].val /* else */;
+    array531[2] = builtinSymbols[522].val /* else */;
     Object list531 = Pair::wordArrayToList(array531, 3);
 
     static word array532[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6302].val \* e *\ */,
+        0xcc /* builtinSymbols[514].val \* e *\ */,
         0xcc /* builtinSymbols[6864].val \* more *\ */
     };
     array532[1] = builtinSymbols[6669].val /* lambda */;
-    array532[2] = builtinSymbols[6302].val /* e */;
+    array532[2] = builtinSymbols[514].val /* e */;
     array532[3] = builtinSymbols[6864].val /* more */;
     Object list532 = Pair::wordArrayToList(array532, 4);
 
@@ -17449,11 +17449,11 @@ Object scheme::getBuiltinCompiler() {
     static word array540[]= {
         0xcc /* list539.val */,
         0xcc /* builtinSymbols[6711].val \* library-name *\ */,
-        0xcc /* builtinSymbols[6470].val \* form *\ */
+        0xcc /* builtinSymbols[682].val \* form *\ */
     };
     array540[0] = list539.val;
     array540[1] = builtinSymbols[6711].val /* library-name */;
-    array540[2] = builtinSymbols[6470].val /* form */;
+    array540[2] = builtinSymbols[682].val /* form */;
     Object list540 = Pair::wordArrayToList(array540, 3);
 
     static word array541[]= {
@@ -17465,11 +17465,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array542[]= {
         0xcc /* list541.val */,
-        0xcc /* builtinSymbols[6241].val \* copy-identifier *\ */,
+        0xcc /* builtinSymbols[453].val \* copy-identifier *\ */,
         0xcc /* builtinSymbols[6578].val \* i *\ */
     };
     array542[0] = list541.val;
-    array542[1] = builtinSymbols[6241].val /* copy-identifier */;
+    array542[1] = builtinSymbols[453].val /* copy-identifier */;
     array542[2] = builtinSymbols[6578].val /* i */;
     Object list542 = Pair::wordArrayToList(array542, 3);
 
@@ -17539,11 +17539,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array550[]= {
         0xcc /* list549.val */,
-        0xcc /* builtinSymbols[6291].val \* dotpair->list *\ */,
+        0xcc /* builtinSymbols[503].val \* dotpair->list *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array550[0] = list549.val;
-    array550[1] = builtinSymbols[6291].val /* dotpair->list */;
+    array550[1] = builtinSymbols[503].val /* dotpair->list */;
     array550[2] = builtinSymbols[6941].val /* p */;
     Object list550 = Pair::wordArrayToList(array550, 3);
 
@@ -17557,12 +17557,12 @@ Object scheme::getBuiltinCompiler() {
     static word array552[]= {
         0xcc /* list551.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5978].val \* b *\ */,
+        0xcc /* builtinSymbols[190].val \* b *\ */,
         0xcc /* builtinSymbols[7339].val \* t? *\ */
     };
     array552[0] = list551.val;
     array552[1] = builtinSymbols[6669].val /* lambda */;
-    array552[2] = builtinSymbols[5978].val /* b */;
+    array552[2] = builtinSymbols[190].val /* b */;
     array552[3] = builtinSymbols[7339].val /* t? */;
     Object list552 = Pair::wordArrayToList(array552, 4);
 
@@ -17576,14 +17576,14 @@ Object scheme::getBuiltinCompiler() {
     static word array554[]= {
         0xcc /* list553.val */,
         0xcc /* builtinSymbols[6964].val \* pass1\body->iform *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */,
+        0xcc /* builtinSymbols[219].val \* body *\ */,
         0xcc /* builtinSymbols[6703].val \* library *\ */,
         0xcc /* builtinSymbols[6758].val \* lvars *\ */,
         0xcc /* builtinSymbols[7343].val \* tail? *\ */
     };
     array554[0] = list553.val;
     array554[1] = builtinSymbols[6964].val /* pass1\body->iform */;
-    array554[2] = builtinSymbols[6007].val /* body */;
+    array554[2] = builtinSymbols[219].val /* body */;
     array554[3] = builtinSymbols[6703].val /* library */;
     array554[4] = builtinSymbols[6758].val /* lvars */;
     array554[5] = builtinSymbols[7343].val /* tail? */;
@@ -17719,12 +17719,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array568[]= {
         0xcc /* list567.val */,
-        0xcc /* builtinSymbols[6395].val \* find-with-car *\ */,
+        0xcc /* builtinSymbols[607].val \* find-with-car *\ */,
         0xcc /* builtinSymbols[6912].val \* object *\ */,
         0xcc /* builtinSymbols[6752].val \* lst *\ */
     };
     array568[0] = list567.val;
-    array568[1] = builtinSymbols[6395].val /* find-with-car */;
+    array568[1] = builtinSymbols[607].val /* find-with-car */;
     array568[2] = builtinSymbols[6912].val /* object */;
     array568[3] = builtinSymbols[6752].val /* lst */;
     Object list568 = Pair::wordArrayToList(array568, 4);
@@ -17738,12 +17738,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array570[]= {
         0xcc /* list569.val */,
-        0xcc /* builtinSymbols[6363].val \* expand-quasiquote *\ */,
+        0xcc /* builtinSymbols[575].val \* expand-quasiquote *\ */,
         0xcc /* builtinSymbols[8346].val \* x *\ */,
         0xcc /* builtinSymbols[6694].val \* level *\ */
     };
     array570[0] = list569.val;
-    array570[1] = builtinSymbols[6363].val /* expand-quasiquote */;
+    array570[1] = builtinSymbols[575].val /* expand-quasiquote */;
     array570[2] = builtinSymbols[8346].val /* x */;
     array570[3] = builtinSymbols[6694].val /* level */;
     Object list570 = Pair::wordArrayToList(array570, 4);
@@ -17778,12 +17778,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list573.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[6860].val \* mode *\ */,
-        0xcc /* builtinSymbols[5959].val \* arg *\ */
+        0xcc /* builtinSymbols[171].val \* arg *\ */
     };
     array574[0] = list573.val;
     array574[1] = builtinSymbols[6669].val /* lambda */;
     array574[2] = builtinSymbols[6860].val /* mode */;
-    array574[3] = builtinSymbols[5959].val /* arg */;
+    array574[3] = builtinSymbols[171].val /* arg */;
     Object list574 = Pair::wordArrayToList(array574, 4);
 
     static word array575[]= {
@@ -17795,13 +17795,13 @@ Object scheme::getBuiltinCompiler() {
 
     static word array576[]= {
         0xcc /* list575.val */,
-        0xcc /* builtinSymbols[6279].val \* descend-quasiquote-vector *\ */,
+        0xcc /* builtinSymbols[491].val \* descend-quasiquote-vector *\ */,
         0xcc /* builtinSymbols[8346].val \* x *\ */,
         0xcc /* builtinSymbols[6694].val \* level *\ */,
         0xcc /* builtinSymbols[7156].val \* return *\ */
     };
     array576[0] = list575.val;
-    array576[1] = builtinSymbols[6279].val /* descend-quasiquote-vector */;
+    array576[1] = builtinSymbols[491].val /* descend-quasiquote-vector */;
     array576[2] = builtinSymbols[8346].val /* x */;
     array576[3] = builtinSymbols[6694].val /* level */;
     array576[4] = builtinSymbols[7156].val /* return */;
@@ -17817,13 +17817,13 @@ Object scheme::getBuiltinCompiler() {
     static word array578[]= {
         0xcc /* list577.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6156].val \* cdr-mode *\ */,
-        0xcc /* builtinSymbols[6155].val \* cdr-arg *\ */
+        0xcc /* builtinSymbols[368].val \* cdr-mode *\ */,
+        0xcc /* builtinSymbols[367].val \* cdr-arg *\ */
     };
     array578[0] = list577.val;
     array578[1] = builtinSymbols[6669].val /* lambda */;
-    array578[2] = builtinSymbols[6156].val /* cdr-mode */;
-    array578[3] = builtinSymbols[6155].val /* cdr-arg */;
+    array578[2] = builtinSymbols[368].val /* cdr-mode */;
+    array578[3] = builtinSymbols[367].val /* cdr-arg */;
     Object list578 = Pair::wordArrayToList(array578, 4);
 
     static word array579[]= {
@@ -17836,13 +17836,13 @@ Object scheme::getBuiltinCompiler() {
     static word array580[]= {
         0xcc /* list579.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6117].val \* car-mode *\ */,
-        0xcc /* builtinSymbols[6116].val \* car-arg *\ */
+        0xcc /* builtinSymbols[329].val \* car-mode *\ */,
+        0xcc /* builtinSymbols[328].val \* car-arg *\ */
     };
     array580[0] = list579.val;
     array580[1] = builtinSymbols[6669].val /* lambda */;
-    array580[2] = builtinSymbols[6117].val /* car-mode */;
-    array580[3] = builtinSymbols[6116].val /* car-arg */;
+    array580[2] = builtinSymbols[329].val /* car-mode */;
+    array580[3] = builtinSymbols[328].val /* car-arg */;
     Object list580 = Pair::wordArrayToList(array580, 4);
 
     static word array581[]= {
@@ -17854,13 +17854,13 @@ Object scheme::getBuiltinCompiler() {
 
     static word array582[]= {
         0xcc /* list581.val */,
-        0xcc /* builtinSymbols[6278].val \* descend-quasiquote-pair *\ */,
+        0xcc /* builtinSymbols[490].val \* descend-quasiquote-pair *\ */,
         0xcc /* builtinSymbols[8346].val \* x *\ */,
         0xcc /* builtinSymbols[6694].val \* level *\ */,
         0xcc /* builtinSymbols[7156].val \* return *\ */
     };
     array582[0] = list581.val;
-    array582[1] = builtinSymbols[6278].val /* descend-quasiquote-pair */;
+    array582[1] = builtinSymbols[490].val /* descend-quasiquote-pair */;
     array582[2] = builtinSymbols[8346].val /* x */;
     array582[3] = builtinSymbols[6694].val /* level */;
     array582[4] = builtinSymbols[7156].val /* return */;
@@ -17875,13 +17875,13 @@ Object scheme::getBuiltinCompiler() {
 
     static word array584[]= {
         0xcc /* list583.val */,
-        0xcc /* builtinSymbols[6277].val \* descend-quasiquote *\ */,
+        0xcc /* builtinSymbols[489].val \* descend-quasiquote *\ */,
         0xcc /* builtinSymbols[8346].val \* x *\ */,
         0xcc /* builtinSymbols[6694].val \* level *\ */,
         0xcc /* builtinSymbols[7156].val \* return *\ */
     };
     array584[0] = list583.val;
-    array584[1] = builtinSymbols[6277].val /* descend-quasiquote */;
+    array584[1] = builtinSymbols[489].val /* descend-quasiquote */;
     array584[2] = builtinSymbols[8346].val /* x */;
     array584[3] = builtinSymbols[6694].val /* level */;
     array584[4] = builtinSymbols[7156].val /* return */;
@@ -17896,14 +17896,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array586[]= {
         0xcc /* list585.val */,
-        0xcc /* builtinSymbols[6391].val \* finalize-quasiquote *\ */,
+        0xcc /* builtinSymbols[603].val \* finalize-quasiquote *\ */,
         0xcc /* builtinSymbols[6860].val \* mode *\ */,
-        0xcc /* builtinSymbols[5959].val \* arg *\ */
+        0xcc /* builtinSymbols[171].val \* arg *\ */
     };
     array586[0] = list585.val;
-    array586[1] = builtinSymbols[6391].val /* finalize-quasiquote */;
+    array586[1] = builtinSymbols[603].val /* finalize-quasiquote */;
     array586[2] = builtinSymbols[6860].val /* mode */;
-    array586[3] = builtinSymbols[5959].val /* arg */;
+    array586[3] = builtinSymbols[171].val /* arg */;
     Object list586 = Pair::wordArrayToList(array586, 4);
 
     static word array587[]= {
@@ -17932,11 +17932,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array590[]= {
         0xcc /* list589.val */,
-        0xcc /* builtinSymbols[5946].val \* aif->let *\ */,
+        0xcc /* builtinSymbols[158].val \* aif->let *\ */,
         0xcc /* builtinSymbols[7225].val \* sexp *\ */
     };
     array590[0] = list589.val;
-    array590[1] = builtinSymbols[5946].val /* aif->let */;
+    array590[1] = builtinSymbols[158].val /* aif->let */;
     array590[2] = builtinSymbols[7225].val /* sexp */;
     Object list590 = Pair::wordArrayToList(array590, 3);
 
@@ -17966,11 +17966,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array594[]= {
         0xcc /* list593.val */,
-        0xcc /* builtinSymbols[6121].val \* case->cond *\ */,
+        0xcc /* builtinSymbols[333].val \* case->cond *\ */,
         0xcc /* builtinSymbols[7225].val \* sexp *\ */
     };
     array594[0] = list593.val;
-    array594[1] = builtinSymbols[6121].val /* case->cond */;
+    array594[1] = builtinSymbols[333].val /* case->cond */;
     array594[2] = builtinSymbols[7225].val /* sexp */;
     Object list594 = Pair::wordArrayToList(array594, 3);
 
@@ -17984,11 +17984,11 @@ Object scheme::getBuiltinCompiler() {
     static word array596[]= {
         0xcc /* list595.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6192].val \* clauses *\ */
+        0xcc /* builtinSymbols[404].val \* clauses *\ */
     };
     array596[0] = list595.val;
     array596[1] = builtinSymbols[6669].val /* lambda */;
-    array596[2] = builtinSymbols[6192].val /* clauses */;
+    array596[2] = builtinSymbols[404].val /* clauses */;
     Object list596 = Pair::wordArrayToList(array596, 3);
 
     static word array597[]= {
@@ -18000,13 +18000,13 @@ Object scheme::getBuiltinCompiler() {
 
     static word array598[]= {
         0xcc /* list597.val */,
-        0xcc /* builtinSymbols[6361].val \* expand-clauses *\ */,
-        0xcc /* builtinSymbols[6192].val \* clauses *\ */,
+        0xcc /* builtinSymbols[573].val \* expand-clauses *\ */,
+        0xcc /* builtinSymbols[404].val \* clauses *\ */,
         0xcc /* builtinSymbols[7359].val \* tmpname *\ */
     };
     array598[0] = list597.val;
-    array598[1] = builtinSymbols[6361].val /* expand-clauses */;
-    array598[2] = builtinSymbols[6192].val /* clauses */;
+    array598[1] = builtinSymbols[573].val /* expand-clauses */;
+    array598[2] = builtinSymbols[404].val /* clauses */;
     array598[3] = builtinSymbols[7359].val /* tmpname */;
     Object list598 = Pair::wordArrayToList(array598, 4);
 
@@ -18020,11 +18020,11 @@ Object scheme::getBuiltinCompiler() {
     static word array600[]= {
         0xcc /* list599.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6192].val \* clauses *\ */
+        0xcc /* builtinSymbols[404].val \* clauses *\ */
     };
     array600[0] = list599.val;
     array600[1] = builtinSymbols[6669].val /* lambda */;
-    array600[2] = builtinSymbols[6192].val /* clauses */;
+    array600[2] = builtinSymbols[404].val /* clauses */;
     Object list600 = Pair::wordArrayToList(array600, 3);
 
     static word array601[]= {
@@ -18039,13 +18039,13 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[7349].val \* test *\ */,
         0xcc /* builtinSymbols[7351].val \* then *\ */,
-        0xcc /* builtinSymbols[6310].val \* else *\ */
+        0xcc /* builtinSymbols[522].val \* else *\ */
     };
     array602[0] = list601.val;
     array602[1] = builtinSymbols[6669].val /* lambda */;
     array602[2] = builtinSymbols[7349].val /* test */;
     array602[3] = builtinSymbols[7351].val /* then */;
-    array602[4] = builtinSymbols[6310].val /* else */;
+    array602[4] = builtinSymbols[522].val /* else */;
     Object list602 = Pair::wordArrayToList(array602, 5);
 
     static word array603[]= {
@@ -18057,11 +18057,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array604[]= {
         0xcc /* list603.val */,
-        0xcc /* builtinSymbols[6223].val \* cond->if *\ */,
+        0xcc /* builtinSymbols[435].val \* cond->if *\ */,
         0xcc /* builtinSymbols[7225].val \* sexp *\ */
     };
     array604[0] = list603.val;
-    array604[1] = builtinSymbols[6223].val /* cond->if */;
+    array604[1] = builtinSymbols[435].val /* cond->if */;
     array604[2] = builtinSymbols[7225].val /* sexp */;
     Object list604 = Pair::wordArrayToList(array604, 3);
 
@@ -18075,11 +18075,11 @@ Object scheme::getBuiltinCompiler() {
     static word array606[]= {
         0xcc /* list605.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array606[0] = list605.val;
     array606[1] = builtinSymbols[6669].val /* lambda */;
-    array606[2] = builtinSymbols[5965].val /* args */;
+    array606[2] = builtinSymbols[177].val /* args */;
     Object list606 = Pair::wordArrayToList(array606, 3);
 
     static word array607[]= {
@@ -18125,11 +18125,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array612[]= {
         0xcc /* list611.val */,
-        0xcc /* builtinSymbols[6260].val \* define->lambda *\ */,
+        0xcc /* builtinSymbols[472].val \* define->lambda *\ */,
         0xcc /* builtinSymbols[7225].val \* sexp *\ */
     };
     array612[0] = list611.val;
-    array612[1] = builtinSymbols[6260].val /* define->lambda */;
+    array612[1] = builtinSymbols[472].val /* define->lambda */;
     array612[2] = builtinSymbols[7225].val /* sexp */;
     Object list612 = Pair::wordArrayToList(array612, 3);
 
@@ -18143,11 +18143,11 @@ Object scheme::getBuiltinCompiler() {
     static word array614[]= {
         0xcc /* list613.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6254].val \* d *\ */
+        0xcc /* builtinSymbols[466].val \* d *\ */
     };
     array614[0] = list613.val;
     array614[1] = builtinSymbols[6669].val /* lambda */;
-    array614[2] = builtinSymbols[6254].val /* d */;
+    array614[2] = builtinSymbols[466].val /* d */;
     Object list614 = Pair::wordArrayToList(array614, 3);
 
     static word array615[]= {
@@ -18194,12 +18194,12 @@ Object scheme::getBuiltinCompiler() {
     static word array620[]= {
         0xcc /* list619.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6473].val \* found *\ */,
+        0xcc /* builtinSymbols[685].val \* found *\ */,
         0xcc /* builtinSymbols[6752].val \* lst *\ */
     };
     array620[0] = list619.val;
     array620[1] = builtinSymbols[6669].val /* lambda */;
-    array620[2] = builtinSymbols[6473].val /* found */;
+    array620[2] = builtinSymbols[685].val /* found */;
     array620[3] = builtinSymbols[6752].val /* lst */;
     Object list620 = Pair::wordArrayToList(array620, 4);
 
@@ -18212,12 +18212,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array622[]= {
         0xcc /* list621.val */,
-        0xcc /* builtinSymbols[6394].val \* find-serial-from-head *\ */,
+        0xcc /* builtinSymbols[606].val \* find-serial-from-head *\ */,
         0xcc /* builtinSymbols[7072].val \* pred *\ */,
         0xcc /* builtinSymbols[6752].val \* lst *\ */
     };
     array622[0] = list621.val;
-    array622[1] = builtinSymbols[6394].val /* find-serial-from-head */;
+    array622[1] = builtinSymbols[606].val /* find-serial-from-head */;
     array622[2] = builtinSymbols[7072].val /* pred */;
     array622[3] = builtinSymbols[6752].val /* lst */;
     Object list622 = Pair::wordArrayToList(array622, 4);
@@ -18231,12 +18231,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array624[]= {
         0xcc /* list623.val */,
-        0xcc /* builtinSymbols[6232].val \* conditions->if *\ */,
-        0xcc /* builtinSymbols[6231].val \* conditions *\ */
+        0xcc /* builtinSymbols[444].val \* conditions->if *\ */,
+        0xcc /* builtinSymbols[443].val \* conditions *\ */
     };
     array624[0] = list623.val;
-    array624[1] = builtinSymbols[6232].val /* conditions->if */;
-    array624[2] = builtinSymbols[6231].val /* conditions */;
+    array624[1] = builtinSymbols[444].val /* conditions->if */;
+    array624[2] = builtinSymbols[443].val /* conditions */;
     Object list624 = Pair::wordArrayToList(array624, 3);
 
     static word array625[]= {
@@ -18248,55 +18248,55 @@ Object scheme::getBuiltinCompiler() {
 
     static word array626[]= {
         0xcc /* list625.val */,
-        0xcc /* builtinSymbols[6264].val \* define-is-lambda? *\ */,
+        0xcc /* builtinSymbols[476].val \* define-is-lambda? *\ */,
         0xcc /* builtinSymbols[7225].val \* sexp *\ */
     };
     array626[0] = list625.val;
-    array626[1] = builtinSymbols[6264].val /* define-is-lambda? */;
+    array626[1] = builtinSymbols[476].val /* define-is-lambda? */;
     array626[2] = builtinSymbols[7225].val /* sexp */;
     Object list626 = Pair::wordArrayToList(array626, 3);
 
     static word array627[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6310].val \* else *\ */
+        0xcc /* builtinSymbols[522].val \* else *\ */
     };
     array627[1] = builtinSymbols[6669].val /* lambda */;
-    array627[2] = builtinSymbols[6310].val /* else */;
+    array627[2] = builtinSymbols[522].val /* else */;
     Object list627 = Pair::wordArrayToList(array627, 3);
 
     static word array628[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[7072].val \* pred *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */,
+        0xcc /* builtinSymbols[219].val \* body *\ */,
         0xcc /* builtinSymbols[6864].val \* more *\ */
     };
     array628[1] = builtinSymbols[6669].val /* lambda */;
     array628[2] = builtinSymbols[7072].val /* pred */;
-    array628[3] = builtinSymbols[6007].val /* body */;
+    array628[3] = builtinSymbols[219].val /* body */;
     array628[4] = builtinSymbols[6864].val /* more */;
     Object list628 = Pair::wordArrayToList(array628, 5);
 
     static word array629[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6310].val \* else *\ */
+        0xcc /* builtinSymbols[522].val \* else *\ */
     };
     array629[1] = builtinSymbols[6669].val /* lambda */;
-    array629[2] = builtinSymbols[6310].val /* else */;
+    array629[2] = builtinSymbols[522].val /* else */;
     Object list629 = Pair::wordArrayToList(array629, 3);
 
     static word array630[]= {
         86 /* #f */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[7072].val \* pred *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */,
+        0xcc /* builtinSymbols[219].val \* body *\ */,
         0xcc /* builtinSymbols[6864].val \* more *\ */
     };
     array630[1] = builtinSymbols[6669].val /* lambda */;
     array630[2] = builtinSymbols[7072].val /* pred */;
-    array630[3] = builtinSymbols[6007].val /* body */;
+    array630[3] = builtinSymbols[219].val /* body */;
     array630[4] = builtinSymbols[6864].val /* more */;
     Object list630 = Pair::wordArrayToList(array630, 5);
 
@@ -18362,14 +18362,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array638[]= {
         0xcc /* list637.val */,
-        0xcc /* builtinSymbols[6362].val \* expand-let *\ */,
+        0xcc /* builtinSymbols[574].val \* expand-let *\ */,
         0xcc /* builtinSymbols[8310].val \* vars *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */
+        0xcc /* builtinSymbols[219].val \* body *\ */
     };
     array638[0] = list637.val;
-    array638[1] = builtinSymbols[6362].val /* expand-let */;
+    array638[1] = builtinSymbols[574].val /* expand-let */;
     array638[2] = builtinSymbols[8310].val /* vars */;
-    array638[3] = builtinSymbols[6007].val /* body */;
+    array638[3] = builtinSymbols[219].val /* body */;
     Object list638 = Pair::wordArrayToList(array638, 4);
 
     static word array639[]= {
@@ -18416,13 +18416,13 @@ Object scheme::getBuiltinCompiler() {
     static word array644[]= {
         0xcc /* list643.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6471].val \* formals *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[683].val \* formals *\ */,
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array644[0] = list643.val;
     array644[1] = builtinSymbols[6669].val /* lambda */;
-    array644[2] = builtinSymbols[6471].val /* formals */;
-    array644[3] = builtinSymbols[5965].val /* args */;
+    array644[2] = builtinSymbols[683].val /* formals */;
+    array644[3] = builtinSymbols[177].val /* args */;
     Object list644 = Pair::wordArrayToList(array644, 4);
 
     static word array645[]= {
@@ -18435,11 +18435,11 @@ Object scheme::getBuiltinCompiler() {
     static word array646[]= {
         0xcc /* list645.val */,
         0xcc /* builtinSymbols[6952].val \* parse-lambda-args *\ */,
-        0xcc /* builtinSymbols[6471].val \* formals *\ */
+        0xcc /* builtinSymbols[683].val \* formals *\ */
     };
     array646[0] = list645.val;
     array646[1] = builtinSymbols[6952].val /* parse-lambda-args */;
-    array646[2] = builtinSymbols[6471].val /* formals */;
+    array646[2] = builtinSymbols[683].val /* formals */;
     Object list646 = Pair::wordArrayToList(array646, 3);
 
     static word array647[]= {
@@ -18517,7 +18517,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[7152].val \* reqargs *\ */,
         0xcc /* builtinSymbols[6931].val \* optarg *\ */,
         0xcc /* builtinSymbols[8306].val \* vals *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */,
+        0xcc /* builtinSymbols[219].val \* body *\ */,
         0xcc /* builtinSymbols[7343].val \* tail? *\ */
     };
     array655[0] = list654.val;
@@ -18526,7 +18526,7 @@ Object scheme::getBuiltinCompiler() {
     array655[3] = builtinSymbols[7152].val /* reqargs */;
     array655[4] = builtinSymbols[6931].val /* optarg */;
     array655[5] = builtinSymbols[8306].val /* vals */;
-    array655[6] = builtinSymbols[6007].val /* body */;
+    array655[6] = builtinSymbols[219].val /* body */;
     array655[7] = builtinSymbols[7343].val /* tail? */;
     Object list655 = Pair::wordArrayToList(array655, 8);
 
@@ -18592,22 +18592,22 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list662.val */,
         0xcc /* builtinSymbols[21].val \* $library *\ */,
         0xcc /* builtinSymbols[6872].val \* name *\ */,
-        0xcc /* builtinSymbols[6367].val \* export-syms *\ */,
+        0xcc /* builtinSymbols[579].val \* export-syms *\ */,
         0xcc /* builtinSymbols[6616].val \* import-syms *\ */,
         0xcc /* builtinSymbols[6614].val \* import *\ */,
         0xcc /* builtinSymbols[6760].val \* macro *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */,
-        0xcc /* builtinSymbols[6219].val \* compiled-body *\ */
+        0xcc /* builtinSymbols[219].val \* body *\ */,
+        0xcc /* builtinSymbols[431].val \* compiled-body *\ */
     };
     array663[0] = list662.val;
     array663[1] = builtinSymbols[21].val /* $library */;
     array663[2] = builtinSymbols[6872].val /* name */;
-    array663[3] = builtinSymbols[6367].val /* export-syms */;
+    array663[3] = builtinSymbols[579].val /* export-syms */;
     array663[4] = builtinSymbols[6616].val /* import-syms */;
     array663[5] = builtinSymbols[6614].val /* import */;
     array663[6] = builtinSymbols[6760].val /* macro */;
-    array663[7] = builtinSymbols[6007].val /* body */;
-    array663[8] = builtinSymbols[6219].val /* compiled-body */;
+    array663[7] = builtinSymbols[219].val /* body */;
+    array663[8] = builtinSymbols[431].val /* compiled-body */;
     Object list663 = Pair::wordArrayToList(array663, 9);
 
     static word array664[]= {
@@ -18620,11 +18620,11 @@ Object scheme::getBuiltinCompiler() {
     static word array665[]= {
         0xcc /* list664.val */,
         0xcc /* builtinSymbols[24].val \* $list *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array665[0] = list664.val;
     array665[1] = builtinSymbols[24].val /* $list */;
-    array665[2] = builtinSymbols[5965].val /* args */;
+    array665[2] = builtinSymbols[177].val /* args */;
     Object list665 = Pair::wordArrayToList(array665, 3);
 
     static word array666[]= {
@@ -18637,11 +18637,11 @@ Object scheme::getBuiltinCompiler() {
     static word array667[]= {
         0xcc /* list666.val */,
         0xcc /* builtinSymbols[18].val \* $label *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */
+        0xcc /* builtinSymbols[219].val \* body *\ */
     };
     array667[0] = list666.val;
     array667[1] = builtinSymbols[18].val /* $label */;
-    array667[2] = builtinSymbols[6007].val /* body */;
+    array667[2] = builtinSymbols[219].val /* body */;
     Object list667 = Pair::wordArrayToList(array667, 3);
 
     static word array668[]= {
@@ -18655,14 +18655,14 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list668.val */,
         0xcc /* builtinSymbols[5].val \* $call *\ */,
         0xcc /* builtinSymbols[7079].val \* proc *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */,
+        0xcc /* builtinSymbols[177].val \* args *\ */,
         0xcc /* builtinSymbols[7343].val \* tail? *\ */,
         0xcc /* builtinSymbols[8278].val \* type *\ */
     };
     array669[0] = list668.val;
     array669[1] = builtinSymbols[5].val /* $call */;
     array669[2] = builtinSymbols[7079].val /* proc */;
-    array669[3] = builtinSymbols[5965].val /* args */;
+    array669[3] = builtinSymbols[177].val /* args */;
     array669[4] = builtinSymbols[7343].val /* tail? */;
     array669[5] = builtinSymbols[8278].val /* type */;
     Object list669 = Pair::wordArrayToList(array669, 6);
@@ -18718,12 +18718,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list674.val */,
         0xcc /* builtinSymbols[3].val \* $asm *\ */,
         0xcc /* builtinSymbols[6634].val \* insn *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array675[0] = list674.val;
     array675[1] = builtinSymbols[3].val /* $asm */;
     array675[2] = builtinSymbols[6634].val /* insn */;
-    array675[3] = builtinSymbols[5965].val /* args */;
+    array675[3] = builtinSymbols[177].val /* args */;
     Object list675 = Pair::wordArrayToList(array675, 4);
 
     static word array676[]= {
@@ -18738,13 +18738,13 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[14].val \* $if *\ */,
         0xcc /* builtinSymbols[7349].val \* test *\ */,
         0xcc /* builtinSymbols[7351].val \* then *\ */,
-        0xcc /* builtinSymbols[6310].val \* else *\ */
+        0xcc /* builtinSymbols[522].val \* else *\ */
     };
     array677[0] = list676.val;
     array677[1] = builtinSymbols[14].val /* $if */;
     array677[2] = builtinSymbols[7349].val /* test */;
     array677[3] = builtinSymbols[7351].val /* then */;
-    array677[4] = builtinSymbols[6310].val /* else */;
+    array677[4] = builtinSymbols[522].val /* else */;
     Object list677 = Pair::wordArrayToList(array677, 5);
 
     static word array678[]= {
@@ -18853,9 +18853,9 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[7152].val \* reqargs *\ */,
         0xcc /* builtinSymbols[6931].val \* optarg *\ */,
         0xcc /* builtinSymbols[6758].val \* lvars *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */,
-        0xcc /* builtinSymbols[6415].val \* flag *\ */,
-        0xcc /* builtinSymbols[6111].val \* calls *\ */
+        0xcc /* builtinSymbols[219].val \* body *\ */,
+        0xcc /* builtinSymbols[627].val \* flag *\ */,
+        0xcc /* builtinSymbols[323].val \* calls *\ */
     };
     array689[0] = list688.val;
     array689[1] = builtinSymbols[19].val /* $lambda */;
@@ -18864,9 +18864,9 @@ Object scheme::getBuiltinCompiler() {
     array689[4] = builtinSymbols[7152].val /* reqargs */;
     array689[5] = builtinSymbols[6931].val /* optarg */;
     array689[6] = builtinSymbols[6758].val /* lvars */;
-    array689[7] = builtinSymbols[6007].val /* body */;
-    array689[8] = builtinSymbols[6415].val /* flag */;
-    array689[9] = builtinSymbols[6111].val /* calls */;
+    array689[7] = builtinSymbols[219].val /* body */;
+    array689[8] = builtinSymbols[627].val /* flag */;
+    array689[9] = builtinSymbols[323].val /* calls */;
     Object list689 = Pair::wordArrayToList(array689, 10);
 
     static word array690[]= {
@@ -18879,12 +18879,12 @@ Object scheme::getBuiltinCompiler() {
     static word array691[]= {
         0xcc /* list690.val */,
         0xcc /* builtinSymbols[34].val \* $seq *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */,
+        0xcc /* builtinSymbols[219].val \* body *\ */,
         0xcc /* builtinSymbols[7343].val \* tail? *\ */
     };
     array691[0] = list690.val;
     array691[1] = builtinSymbols[34].val /* $seq */;
-    array691[2] = builtinSymbols[6007].val /* body */;
+    array691[2] = builtinSymbols[219].val /* body */;
     array691[3] = builtinSymbols[7343].val /* tail? */;
     Object list691 = Pair::wordArrayToList(array691, 4);
 
@@ -18901,7 +18901,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8278].val \* type *\ */,
         0xcc /* builtinSymbols[6758].val \* lvars *\ */,
         0xcc /* builtinSymbols[6632].val \* inits *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */,
+        0xcc /* builtinSymbols[219].val \* body *\ */,
         0xcc /* builtinSymbols[7343].val \* tail? *\ */,
         0xcc /* builtinSymbols[7243].val \* src *\ */
     };
@@ -18910,7 +18910,7 @@ Object scheme::getBuiltinCompiler() {
     array693[2] = builtinSymbols[8278].val /* type */;
     array693[3] = builtinSymbols[6758].val /* lvars */;
     array693[4] = builtinSymbols[6632].val /* inits */;
-    array693[5] = builtinSymbols[6007].val /* body */;
+    array693[5] = builtinSymbols[219].val /* body */;
     array693[6] = builtinSymbols[7343].val /* tail? */;
     array693[7] = builtinSymbols[7243].val /* src */;
     Object list693 = Pair::wordArrayToList(array693, 8);
@@ -19053,12 +19053,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array709[]= {
         0xcc /* list708.val */,
-        0xcc /* builtinSymbols[5958].val \* apply-each-pair *\ */,
+        0xcc /* builtinSymbols[170].val \* apply-each-pair *\ */,
         0xcc /* builtinSymbols[7079].val \* proc *\ */,
         0xcc /* builtinSymbols[6752].val \* lst *\ */
     };
     array709[0] = list708.val;
-    array709[1] = builtinSymbols[5958].val /* apply-each-pair */;
+    array709[1] = builtinSymbols[170].val /* apply-each-pair */;
     array709[2] = builtinSymbols[7079].val /* proc */;
     array709[3] = builtinSymbols[6752].val /* lst */;
     Object list709 = Pair::wordArrayToList(array709, 4);
@@ -19109,12 +19109,12 @@ Object scheme::getBuiltinCompiler() {
     static word array715[]= {
         0xcc /* list714.val */,
         0xcc /* builtinSymbols[30].val \* $map1-with-tail *\ */,
-        0xcc /* builtinSymbols[6372].val \* f *\ */,
+        0xcc /* builtinSymbols[584].val \* f *\ */,
         0xcc /* builtinSymbols[6663].val \* l *\ */
     };
     array715[0] = list714.val;
     array715[1] = builtinSymbols[30].val /* $map1-with-tail */;
-    array715[2] = builtinSymbols[6372].val /* f */;
+    array715[2] = builtinSymbols[584].val /* f */;
     array715[3] = builtinSymbols[6663].val /* l */;
     Object list715 = Pair::wordArrayToList(array715, 4);
 
@@ -19128,12 +19128,12 @@ Object scheme::getBuiltinCompiler() {
     static word array717[]= {
         0xcc /* list716.val */,
         0xcc /* builtinSymbols[10].val \* $filter-map1 *\ */,
-        0xcc /* builtinSymbols[6372].val \* f *\ */,
+        0xcc /* builtinSymbols[584].val \* f *\ */,
         0xcc /* builtinSymbols[6663].val \* l *\ */
     };
     array717[0] = list716.val;
     array717[1] = builtinSymbols[10].val /* $filter-map1 */;
-    array717[2] = builtinSymbols[6372].val /* f */;
+    array717[2] = builtinSymbols[584].val /* f */;
     array717[3] = builtinSymbols[6663].val /* l */;
     Object list717 = Pair::wordArrayToList(array717, 4);
 
@@ -19147,12 +19147,12 @@ Object scheme::getBuiltinCompiler() {
     static word array719[]= {
         0xcc /* list718.val */,
         0xcc /* builtinSymbols[29].val \* $map1 *\ */,
-        0xcc /* builtinSymbols[6372].val \* f *\ */,
+        0xcc /* builtinSymbols[584].val \* f *\ */,
         0xcc /* builtinSymbols[6663].val \* l *\ */
     };
     array719[0] = list718.val;
     array719[1] = builtinSymbols[29].val /* $map1 */;
-    array719[2] = builtinSymbols[6372].val /* f */;
+    array719[2] = builtinSymbols[584].val /* f */;
     array719[3] = builtinSymbols[6663].val /* l */;
     Object list719 = Pair::wordArrayToList(array719, 4);
 
@@ -19201,13 +19201,13 @@ Object scheme::getBuiltinCompiler() {
 
     static word array725[]= {
         0xcc /* list724.val */,
-        0xcc /* builtinSymbols[5948].val \* alist-cons *\ */,
+        0xcc /* builtinSymbols[160].val \* alist-cons *\ */,
         0xcc /* builtinSymbols[6909].val \* obj1 *\ */,
         0xcc /* builtinSymbols[6910].val \* obj2 *\ */,
         0xcc /* builtinSymbols[6911].val \* obj3 *\ */
     };
     array725[0] = list724.val;
-    array725[1] = builtinSymbols[5948].val /* alist-cons */;
+    array725[1] = builtinSymbols[160].val /* alist-cons */;
     array725[2] = builtinSymbols[6909].val /* obj1 */;
     array725[3] = builtinSymbols[6910].val /* obj2 */;
     array725[4] = builtinSymbols[6911].val /* obj3 */;
@@ -19332,11 +19332,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array739[]= {
         0xcc /* list738.val */,
-        0xcc /* builtinSymbols[6337].val \* eq-hashtable-copy *\ */,
+        0xcc /* builtinSymbols[549].val \* eq-hashtable-copy *\ */,
         0xcc /* builtinSymbols[6577].val \* ht *\ */
     };
     array739[0] = list738.val;
-    array739[1] = builtinSymbols[6337].val /* eq-hashtable-copy */;
+    array739[1] = builtinSymbols[549].val /* eq-hashtable-copy */;
     array739[2] = builtinSymbols[6577].val /* ht */;
     Object list739 = Pair::wordArrayToList(array739, 3);
 
@@ -19349,17 +19349,17 @@ Object scheme::getBuiltinCompiler() {
 
     static word array741[]= {
         0xcc /* list740.val */,
-        0xcc /* builtinSymbols[6213].val \* command-line *\ */
+        0xcc /* builtinSymbols[425].val \* command-line *\ */
     };
     array741[0] = list740.val;
-    array741[1] = builtinSymbols[6213].val /* command-line */;
+    array741[1] = builtinSymbols[425].val /* command-line */;
     Object list741 = Pair::wordArrayToList(array741, 2);
 
     static word array742[]= {
         0xcc /* builtinSymbols[6906].val \* number? *\ */,
-        0xcc /* builtinSymbols[6233].val \* cons *\ */,
-        0xcc /* builtinSymbols[6113].val \* car *\ */,
-        0xcc /* builtinSymbols[6154].val \* cdr *\ */,
+        0xcc /* builtinSymbols[445].val \* cons *\ */,
+        0xcc /* builtinSymbols[325].val \* car *\ */,
+        0xcc /* builtinSymbols[366].val \* cdr *\ */,
         0xcc /* builtinSymbols[6903].val \* null? *\ */,
         0xcc /* builtinSymbols[7195].val \* set-car! *\ */,
         0xcc /* builtinSymbols[7196].val \* set-cdr! *\ */,
@@ -19382,47 +19382,47 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[7252].val \* string *\ */,
         0xcc /* builtinSymbols[6905].val \* number->string *\ */,
         0xcc /* builtinSymbols[7159].val \* reverse *\ */,
-        0xcc /* builtinSymbols[6335].val \* eof-object? *\ */,
+        0xcc /* builtinSymbols[547].val \* eof-object? *\ */,
         0xcc /* builtinSymbols[7107].val \* read-char *\ */,
-        0xcc /* builtinSymbols[6180].val \* char=? *\ */,
+        0xcc /* builtinSymbols[392].val \* char=? *\ */,
         0xcc /* builtinSymbols[7291].val \* string? *\ */,
         0xcc /* builtinSymbols[6540].val \* get-environment-variable *\ */,
         0xcc /* builtinSymbols[6541].val \* get-environment-variables *\ */,
-        0xcc /* builtinSymbols[6340].val \* equal? *\ */,
+        0xcc /* builtinSymbols[552].val \* equal? *\ */,
         0xcc /* builtinSymbols[6927].val \* open-string-input-port *\ */,
         0xcc /* builtinSymbols[7335].val \* sys-open-output-string *\ */,
         0xcc /* builtinSymbols[7336].val \* sys-port-seek *\ */,
         0xcc /* builtinSymbols[6926].val \* open-output-file *\ */,
-        0xcc /* builtinSymbols[6195].val \* close-output-port *\ */,
-        0xcc /* builtinSymbols[6280].val \* digit->integer *\ */,
+        0xcc /* builtinSymbols[407].val \* close-output-port *\ */,
+        0xcc /* builtinSymbols[492].val \* digit->integer *\ */,
         0xcc /* builtinSymbols[6543].val \* get-remaining-input-string *\ */,
         0xcc /* builtinSymbols[7109].val \* readdir *\ */,
-        0xcc /* builtinSymbols[6383].val \* file-exists? *\ */,
-        0xcc /* builtinSymbols[6275].val \* delete-file *\ */,
+        0xcc /* builtinSymbols[595].val \* file-exists? *\ */,
+        0xcc /* builtinSymbols[487].val \* delete-file *\ */,
         0xcc /* builtinSymbols[7333].val \* sys-get-output-string *\ */,
         0xcc /* builtinSymbols[7257].val \* string->regexp *\ */,
-        0xcc /* builtinSymbols[6160].val \* char->integer *\ */,
+        0xcc /* builtinSymbols[372].val \* char->integer *\ */,
         0xcc /* builtinSymbols[6637].val \* integer->char *\ */,
-        0xcc /* builtinSymbols[6472].val \* format *\ */,
-        0xcc /* builtinSymbols[6251].val \* current-input-port *\ */,
-        0xcc /* builtinSymbols[6253].val \* current-output-port *\ */,
+        0xcc /* builtinSymbols[684].val \* format *\ */,
+        0xcc /* builtinSymbols[463].val \* current-input-port *\ */,
+        0xcc /* builtinSymbols[465].val \* current-output-port *\ */,
         0xcc /* builtinSymbols[7198].val \* set-current-input-port! *\ */,
         0xcc /* builtinSymbols[7199].val \* set-current-output-port! *\ */,
-        0xcc /* builtinSymbols[6183].val \* char? *\ */,
+        0xcc /* builtinSymbols[395].val \* char? *\ */,
         0xcc /* builtinSymbols[8343].val \* write *\ */,
         0xcc /* builtinSymbols[6530].val \* gensym *\ */,
         0xcc /* builtinSymbols[7288].val \* string=? *\ */,
         0xcc /* builtinSymbols[8322].val \* vector? *\ */,
         0xcc /* builtinSymbols[6736].val \* list? *\ */,
         0xcc /* builtinSymbols[6851].val \* memq *\ */,
-        0xcc /* builtinSymbols[6338].val \* eq? *\ */,
-        0xcc /* builtinSymbols[6341].val \* eqv? *\ */,
+        0xcc /* builtinSymbols[550].val \* eq? *\ */,
+        0xcc /* builtinSymbols[553].val \* eqv? *\ */,
         0xcc /* builtinSymbols[6848].val \* member *\ */,
-        0xcc /* builtinSymbols[6009].val \* boolean? *\ */,
+        0xcc /* builtinSymbols[221].val \* boolean? *\ */,
         0xcc /* builtinSymbols[7307].val \* symbol->string *\ */,
         0xcc /* builtinSymbols[7281].val \* string-ref *\ */,
-        0xcc /* builtinSymbols[6343].val \* error *\ */,
-        0xcc /* builtinSymbols[5969].val \* assertion-violation *\ */,
+        0xcc /* builtinSymbols[555].val \* error *\ */,
+        0xcc /* builtinSymbols[181].val \* assertion-violation *\ */,
         0xcc /* builtinSymbols[6547].val \* get-timeofday *\ */,
         0xcc /* builtinSymbols[6779].val \* make-eq-hashtable *\ */,
         0xcc /* builtinSymbols[6780].val \* make-eqv-hashtable *\ */,
@@ -19432,70 +19432,70 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[7275].val \* string-hash *\ */,
         0xcc /* builtinSymbols[7264].val \* string-ci-hash *\ */,
         0xcc /* builtinSymbols[7310].val \* symbol-hash *\ */,
-        0xcc /* builtinSymbols[6339].val \* equal-hash *\ */,
-        0xcc /* builtinSymbols[6337].val \* eq-hashtable-copy *\ */,
-        0xcc /* builtinSymbols[6250].val \* current-error-port *\ */,
+        0xcc /* builtinSymbols[551].val \* equal-hash *\ */,
+        0xcc /* builtinSymbols[549].val \* eq-hashtable-copy *\ */,
+        0xcc /* builtinSymbols[462].val \* current-error-port *\ */,
         0xcc /* builtinSymbols[8308].val \* values *\ */,
         0xcc /* builtinSymbols[8332].val \* vm\apply *\ */,
         0xcc /* builtinSymbols[6946].val \* pair? *\ */,
         0xcc /* builtinSymbols[6630].val \* init-library-table *\ */,
         0xcc /* builtinSymbols[6770].val \* make-custom-binary-input-port *\ */,
         0xcc /* builtinSymbols[6548].val \* get-u8 *\ */,
-        0xcc /* builtinSymbols[6059].val \* bytevector-u8-set! *\ */,
+        0xcc /* builtinSymbols[271].val \* bytevector-u8-set! *\ */,
         0xcc /* builtinSymbols[8270].val \* transcoded-port *\ */,
         0xcc /* builtinSymbols[8298].val \* utf-8-codec *\ */,
         0xcc /* builtinSymbols[6814].val \* make-transcoder *\ */,
-        0xcc /* builtinSymbols[6334].val \* eof-object *\ */,
+        0xcc /* builtinSymbols[546].val \* eof-object *\ */,
         0xcc /* builtinSymbols[7334].val \* sys-open-bytevector-output-port *\ */,
         0xcc /* builtinSymbols[7332].val \* sys-get-bytevector *\ */,
-        0xcc /* builtinSymbols[6029].val \* bytevector-length *\ */,
-        0xcc /* builtinSymbols[6058].val \* bytevector-u8-ref *\ */,
+        0xcc /* builtinSymbols[241].val \* bytevector-length *\ */,
+        0xcc /* builtinSymbols[270].val \* bytevector-u8-ref *\ */,
         0xcc /* builtinSymbols[7247].val \* standard-input-port *\ */,
         0xcc /* builtinSymbols[6534].val \* get-bytevector-n *\ */,
         0xcc /* builtinSymbols[8301].val \* utf8->string *\ */,
         0xcc /* builtinSymbols[6924].val \* open-file-output-port *\ */,
         0xcc /* builtinSymbols[6922].val \* open-file-input-port *\ */,
-        0xcc /* builtinSymbols[6194].val \* close-input-port *\ */,
+        0xcc /* builtinSymbols[406].val \* close-input-port *\ */,
         0xcc /* builtinSymbols[8311].val \* vector *\ */,
         0xcc /* builtinSymbols[7139].val \* regexp-replace *\ */,
         0xcc /* builtinSymbols[7140].val \* regexp-replace-all *\ */,
         0xcc /* builtinSymbols[7238].val \* source-info *\ */,
-        0xcc /* builtinSymbols[6347].val \* eval *\ */,
-        0xcc /* builtinSymbols[5957].val \* apply *\ */,
+        0xcc /* builtinSymbols[559].val \* eval *\ */,
+        0xcc /* builtinSymbols[169].val \* apply *\ */,
         0xcc /* builtinSymbols[6858].val \* mod *\ */,
-        0xcc /* builtinSymbols[6285].val \* div *\ */,
-        0xcc /* builtinSymbols[5974].val \* assq *\ */,
-        0xcc /* builtinSymbols[6357].val \* exit *\ */,
+        0xcc /* builtinSymbols[497].val \* div *\ */,
+        0xcc /* builtinSymbols[186].val \* assq *\ */,
+        0xcc /* builtinSymbols[569].val \* exit *\ */,
         0xcc /* builtinSymbols[6764].val \* macroexpand-1 *\ */,
         0xcc /* builtinSymbols[6852].val \* memv *\ */,
         0xcc /* builtinSymbols[7081].val \* procedure? *\ */,
         0xcc /* builtinSymbols[6741].val \* load *\ */,
         0xcc /* builtinSymbols[7314].val \* symbol? *\ */,
-        0xcc /* builtinSymbols[6178].val \* char<=? *\ */,
-        0xcc /* builtinSymbols[6179].val \* char<? *\ */,
-        0xcc /* builtinSymbols[6181].val \* char>=? *\ */,
-        0xcc /* builtinSymbols[6182].val \* char>? *\ */,
+        0xcc /* builtinSymbols[390].val \* char<=? *\ */,
+        0xcc /* builtinSymbols[391].val \* char<? *\ */,
+        0xcc /* builtinSymbols[393].val \* char>=? *\ */,
+        0xcc /* builtinSymbols[394].val \* char>? *\ */,
         0xcc /* builtinSymbols[7106].val \* read *\ */,
         0xcc /* builtinSymbols[8312].val \* vector->list *\ */,
         0xcc /* builtinSymbols[7218].val \* set-source-info! *\ */,
-        0xcc /* builtinSymbols[6099].val \* call-process *\ */,
+        0xcc /* builtinSymbols[311].val \* call-process *\ */,
         0xcc /* builtinSymbols[40].val \* %get-closure-name *\ */,
-        0xcc /* builtinSymbols[5954].val \* append *\ */,
-        0xcc /* builtinSymbols[5956].val \* append2 *\ */,
-        0xcc /* builtinSymbols[5955].val \* append! *\ */,
+        0xcc /* builtinSymbols[166].val \* append *\ */,
+        0xcc /* builtinSymbols[168].val \* append2 *\ */,
+        0xcc /* builtinSymbols[167].val \* append! *\ */,
         0xcc /* builtinSymbols[7040].val \* pass3\find-free *\ */,
         0xcc /* builtinSymbols[7041].val \* pass3\find-sets *\ */,
         0xcc /* builtinSymbols[7052].val \* pass4\fixup-labels *\ */,
         0xcc /* builtinSymbols[6769].val \* make-code-builder *\ */,
-        0xcc /* builtinSymbols[6204].val \* code-builder-put-extra1! *\ */,
-        0xcc /* builtinSymbols[6205].val \* code-builder-put-extra2! *\ */,
-        0xcc /* builtinSymbols[6206].val \* code-builder-put-extra3! *\ */,
-        0xcc /* builtinSymbols[6207].val \* code-builder-put-extra4! *\ */,
-        0xcc /* builtinSymbols[6208].val \* code-builder-put-extra5! *\ */,
-        0xcc /* builtinSymbols[6202].val \* code-builder-append! *\ */,
-        0xcc /* builtinSymbols[6203].val \* code-builder-emit *\ */,
-        0xcc /* builtinSymbols[6209].val \* code-builder-put-insn-arg0! *\ */,
-        0xcc /* builtinSymbols[6210].val \* code-builder-put-insn-arg1! *\ */,
+        0xcc /* builtinSymbols[416].val \* code-builder-put-extra1! *\ */,
+        0xcc /* builtinSymbols[417].val \* code-builder-put-extra2! *\ */,
+        0xcc /* builtinSymbols[418].val \* code-builder-put-extra3! *\ */,
+        0xcc /* builtinSymbols[419].val \* code-builder-put-extra4! *\ */,
+        0xcc /* builtinSymbols[420].val \* code-builder-put-extra5! *\ */,
+        0xcc /* builtinSymbols[414].val \* code-builder-append! *\ */,
+        0xcc /* builtinSymbols[415].val \* code-builder-emit *\ */,
+        0xcc /* builtinSymbols[421].val \* code-builder-put-insn-arg0! *\ */,
+        0xcc /* builtinSymbols[422].val \* code-builder-put-insn-arg1! *\ */,
         0xcc /* builtinSymbols[6679].val \* length *\ */,
         0xcc /* builtinSymbols[6725].val \* list->vector *\ */,
         0xcc /* builtinSymbols[7038].val \* pass3\compile-refer *\ */,
@@ -19532,11 +19532,11 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[7126].val \* record-type-field-names *\ */,
         0xcc /* builtinSymbols[7120].val \* record-field-mutable? *\ */,
         0xcc /* builtinSymbols[7125].val \* record-type-descriptor? *\ */,
-        0xcc /* builtinSymbols[6224].val \* condition *\ */,
+        0xcc /* builtinSymbols[436].val \* condition *\ */,
         0xcc /* builtinSymbols[7230].val \* simple-conditions *\ */,
-        0xcc /* builtinSymbols[6230].val \* condition? *\ */,
-        0xcc /* builtinSymbols[6225].val \* condition-accessor *\ */,
-        0xcc /* builtinSymbols[6228].val \* condition-predicate *\ */,
+        0xcc /* builtinSymbols[442].val \* condition? *\ */,
+        0xcc /* builtinSymbols[437].val \* condition-accessor *\ */,
+        0xcc /* builtinSymbols[440].val \* condition-predicate *\ */,
         0xcc /* builtinSymbols[7353].val \* throw *\ */,
         0xcc /* builtinSymbols[135].val \* < *\ */,
         0xcc /* builtinSymbols[136].val \* <= *\ */,
@@ -19551,9 +19551,9 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[6857].val \* min *\ */
     };
     array742[0] = builtinSymbols[6906].val /* number? */;
-    array742[1] = builtinSymbols[6233].val /* cons */;
-    array742[2] = builtinSymbols[6113].val /* car */;
-    array742[3] = builtinSymbols[6154].val /* cdr */;
+    array742[1] = builtinSymbols[445].val /* cons */;
+    array742[2] = builtinSymbols[325].val /* car */;
+    array742[3] = builtinSymbols[366].val /* cdr */;
     array742[4] = builtinSymbols[6903].val /* null? */;
     array742[5] = builtinSymbols[7195].val /* set-car! */;
     array742[6] = builtinSymbols[7196].val /* set-cdr! */;
@@ -19576,47 +19576,47 @@ Object scheme::getBuiltinCompiler() {
     array742[23] = builtinSymbols[7252].val /* string */;
     array742[24] = builtinSymbols[6905].val /* number->string */;
     array742[25] = builtinSymbols[7159].val /* reverse */;
-    array742[26] = builtinSymbols[6335].val /* eof-object? */;
+    array742[26] = builtinSymbols[547].val /* eof-object? */;
     array742[27] = builtinSymbols[7107].val /* read-char */;
-    array742[28] = builtinSymbols[6180].val /* char=? */;
+    array742[28] = builtinSymbols[392].val /* char=? */;
     array742[29] = builtinSymbols[7291].val /* string? */;
     array742[30] = builtinSymbols[6540].val /* get-environment-variable */;
     array742[31] = builtinSymbols[6541].val /* get-environment-variables */;
-    array742[32] = builtinSymbols[6340].val /* equal? */;
+    array742[32] = builtinSymbols[552].val /* equal? */;
     array742[33] = builtinSymbols[6927].val /* open-string-input-port */;
     array742[34] = builtinSymbols[7335].val /* sys-open-output-string */;
     array742[35] = builtinSymbols[7336].val /* sys-port-seek */;
     array742[36] = builtinSymbols[6926].val /* open-output-file */;
-    array742[37] = builtinSymbols[6195].val /* close-output-port */;
-    array742[38] = builtinSymbols[6280].val /* digit->integer */;
+    array742[37] = builtinSymbols[407].val /* close-output-port */;
+    array742[38] = builtinSymbols[492].val /* digit->integer */;
     array742[39] = builtinSymbols[6543].val /* get-remaining-input-string */;
     array742[40] = builtinSymbols[7109].val /* readdir */;
-    array742[41] = builtinSymbols[6383].val /* file-exists? */;
-    array742[42] = builtinSymbols[6275].val /* delete-file */;
+    array742[41] = builtinSymbols[595].val /* file-exists? */;
+    array742[42] = builtinSymbols[487].val /* delete-file */;
     array742[43] = builtinSymbols[7333].val /* sys-get-output-string */;
     array742[44] = builtinSymbols[7257].val /* string->regexp */;
-    array742[45] = builtinSymbols[6160].val /* char->integer */;
+    array742[45] = builtinSymbols[372].val /* char->integer */;
     array742[46] = builtinSymbols[6637].val /* integer->char */;
-    array742[47] = builtinSymbols[6472].val /* format */;
-    array742[48] = builtinSymbols[6251].val /* current-input-port */;
-    array742[49] = builtinSymbols[6253].val /* current-output-port */;
+    array742[47] = builtinSymbols[684].val /* format */;
+    array742[48] = builtinSymbols[463].val /* current-input-port */;
+    array742[49] = builtinSymbols[465].val /* current-output-port */;
     array742[50] = builtinSymbols[7198].val /* set-current-input-port! */;
     array742[51] = builtinSymbols[7199].val /* set-current-output-port! */;
-    array742[52] = builtinSymbols[6183].val /* char? */;
+    array742[52] = builtinSymbols[395].val /* char? */;
     array742[53] = builtinSymbols[8343].val /* write */;
     array742[54] = builtinSymbols[6530].val /* gensym */;
     array742[55] = builtinSymbols[7288].val /* string=? */;
     array742[56] = builtinSymbols[8322].val /* vector? */;
     array742[57] = builtinSymbols[6736].val /* list? */;
     array742[58] = builtinSymbols[6851].val /* memq */;
-    array742[59] = builtinSymbols[6338].val /* eq? */;
-    array742[60] = builtinSymbols[6341].val /* eqv? */;
+    array742[59] = builtinSymbols[550].val /* eq? */;
+    array742[60] = builtinSymbols[553].val /* eqv? */;
     array742[61] = builtinSymbols[6848].val /* member */;
-    array742[62] = builtinSymbols[6009].val /* boolean? */;
+    array742[62] = builtinSymbols[221].val /* boolean? */;
     array742[63] = builtinSymbols[7307].val /* symbol->string */;
     array742[64] = builtinSymbols[7281].val /* string-ref */;
-    array742[65] = builtinSymbols[6343].val /* error */;
-    array742[66] = builtinSymbols[5969].val /* assertion-violation */;
+    array742[65] = builtinSymbols[555].val /* error */;
+    array742[66] = builtinSymbols[181].val /* assertion-violation */;
     array742[67] = builtinSymbols[6547].val /* get-timeofday */;
     array742[68] = builtinSymbols[6779].val /* make-eq-hashtable */;
     array742[69] = builtinSymbols[6780].val /* make-eqv-hashtable */;
@@ -19626,70 +19626,70 @@ Object scheme::getBuiltinCompiler() {
     array742[73] = builtinSymbols[7275].val /* string-hash */;
     array742[74] = builtinSymbols[7264].val /* string-ci-hash */;
     array742[75] = builtinSymbols[7310].val /* symbol-hash */;
-    array742[76] = builtinSymbols[6339].val /* equal-hash */;
-    array742[77] = builtinSymbols[6337].val /* eq-hashtable-copy */;
-    array742[78] = builtinSymbols[6250].val /* current-error-port */;
+    array742[76] = builtinSymbols[551].val /* equal-hash */;
+    array742[77] = builtinSymbols[549].val /* eq-hashtable-copy */;
+    array742[78] = builtinSymbols[462].val /* current-error-port */;
     array742[79] = builtinSymbols[8308].val /* values */;
     array742[80] = builtinSymbols[8332].val /* vm\apply */;
     array742[81] = builtinSymbols[6946].val /* pair? */;
     array742[82] = builtinSymbols[6630].val /* init-library-table */;
     array742[83] = builtinSymbols[6770].val /* make-custom-binary-input-port */;
     array742[84] = builtinSymbols[6548].val /* get-u8 */;
-    array742[85] = builtinSymbols[6059].val /* bytevector-u8-set! */;
+    array742[85] = builtinSymbols[271].val /* bytevector-u8-set! */;
     array742[86] = builtinSymbols[8270].val /* transcoded-port */;
     array742[87] = builtinSymbols[8298].val /* utf-8-codec */;
     array742[88] = builtinSymbols[6814].val /* make-transcoder */;
-    array742[89] = builtinSymbols[6334].val /* eof-object */;
+    array742[89] = builtinSymbols[546].val /* eof-object */;
     array742[90] = builtinSymbols[7334].val /* sys-open-bytevector-output-port */;
     array742[91] = builtinSymbols[7332].val /* sys-get-bytevector */;
-    array742[92] = builtinSymbols[6029].val /* bytevector-length */;
-    array742[93] = builtinSymbols[6058].val /* bytevector-u8-ref */;
+    array742[92] = builtinSymbols[241].val /* bytevector-length */;
+    array742[93] = builtinSymbols[270].val /* bytevector-u8-ref */;
     array742[94] = builtinSymbols[7247].val /* standard-input-port */;
     array742[95] = builtinSymbols[6534].val /* get-bytevector-n */;
     array742[96] = builtinSymbols[8301].val /* utf8->string */;
     array742[97] = builtinSymbols[6924].val /* open-file-output-port */;
     array742[98] = builtinSymbols[6922].val /* open-file-input-port */;
-    array742[99] = builtinSymbols[6194].val /* close-input-port */;
+    array742[99] = builtinSymbols[406].val /* close-input-port */;
     array742[100] = builtinSymbols[8311].val /* vector */;
     array742[101] = builtinSymbols[7139].val /* regexp-replace */;
     array742[102] = builtinSymbols[7140].val /* regexp-replace-all */;
     array742[103] = builtinSymbols[7238].val /* source-info */;
-    array742[104] = builtinSymbols[6347].val /* eval */;
-    array742[105] = builtinSymbols[5957].val /* apply */;
+    array742[104] = builtinSymbols[559].val /* eval */;
+    array742[105] = builtinSymbols[169].val /* apply */;
     array742[106] = builtinSymbols[6858].val /* mod */;
-    array742[107] = builtinSymbols[6285].val /* div */;
-    array742[108] = builtinSymbols[5974].val /* assq */;
-    array742[109] = builtinSymbols[6357].val /* exit */;
+    array742[107] = builtinSymbols[497].val /* div */;
+    array742[108] = builtinSymbols[186].val /* assq */;
+    array742[109] = builtinSymbols[569].val /* exit */;
     array742[110] = builtinSymbols[6764].val /* macroexpand-1 */;
     array742[111] = builtinSymbols[6852].val /* memv */;
     array742[112] = builtinSymbols[7081].val /* procedure? */;
     array742[113] = builtinSymbols[6741].val /* load */;
     array742[114] = builtinSymbols[7314].val /* symbol? */;
-    array742[115] = builtinSymbols[6178].val /* char<=? */;
-    array742[116] = builtinSymbols[6179].val /* char<? */;
-    array742[117] = builtinSymbols[6181].val /* char>=? */;
-    array742[118] = builtinSymbols[6182].val /* char>? */;
+    array742[115] = builtinSymbols[390].val /* char<=? */;
+    array742[116] = builtinSymbols[391].val /* char<? */;
+    array742[117] = builtinSymbols[393].val /* char>=? */;
+    array742[118] = builtinSymbols[394].val /* char>? */;
     array742[119] = builtinSymbols[7106].val /* read */;
     array742[120] = builtinSymbols[8312].val /* vector->list */;
     array742[121] = builtinSymbols[7218].val /* set-source-info! */;
-    array742[122] = builtinSymbols[6099].val /* call-process */;
+    array742[122] = builtinSymbols[311].val /* call-process */;
     array742[123] = builtinSymbols[40].val /* %get-closure-name */;
-    array742[124] = builtinSymbols[5954].val /* append */;
-    array742[125] = builtinSymbols[5956].val /* append2 */;
-    array742[126] = builtinSymbols[5955].val /* append! */;
+    array742[124] = builtinSymbols[166].val /* append */;
+    array742[125] = builtinSymbols[168].val /* append2 */;
+    array742[126] = builtinSymbols[167].val /* append! */;
     array742[127] = builtinSymbols[7040].val /* pass3\find-free */;
     array742[128] = builtinSymbols[7041].val /* pass3\find-sets */;
     array742[129] = builtinSymbols[7052].val /* pass4\fixup-labels */;
     array742[130] = builtinSymbols[6769].val /* make-code-builder */;
-    array742[131] = builtinSymbols[6204].val /* code-builder-put-extra1! */;
-    array742[132] = builtinSymbols[6205].val /* code-builder-put-extra2! */;
-    array742[133] = builtinSymbols[6206].val /* code-builder-put-extra3! */;
-    array742[134] = builtinSymbols[6207].val /* code-builder-put-extra4! */;
-    array742[135] = builtinSymbols[6208].val /* code-builder-put-extra5! */;
-    array742[136] = builtinSymbols[6202].val /* code-builder-append! */;
-    array742[137] = builtinSymbols[6203].val /* code-builder-emit */;
-    array742[138] = builtinSymbols[6209].val /* code-builder-put-insn-arg0! */;
-    array742[139] = builtinSymbols[6210].val /* code-builder-put-insn-arg1! */;
+    array742[131] = builtinSymbols[416].val /* code-builder-put-extra1! */;
+    array742[132] = builtinSymbols[417].val /* code-builder-put-extra2! */;
+    array742[133] = builtinSymbols[418].val /* code-builder-put-extra3! */;
+    array742[134] = builtinSymbols[419].val /* code-builder-put-extra4! */;
+    array742[135] = builtinSymbols[420].val /* code-builder-put-extra5! */;
+    array742[136] = builtinSymbols[414].val /* code-builder-append! */;
+    array742[137] = builtinSymbols[415].val /* code-builder-emit */;
+    array742[138] = builtinSymbols[421].val /* code-builder-put-insn-arg0! */;
+    array742[139] = builtinSymbols[422].val /* code-builder-put-insn-arg1! */;
     array742[140] = builtinSymbols[6679].val /* length */;
     array742[141] = builtinSymbols[6725].val /* list->vector */;
     array742[142] = builtinSymbols[7038].val /* pass3\compile-refer */;
@@ -19726,11 +19726,11 @@ Object scheme::getBuiltinCompiler() {
     array742[173] = builtinSymbols[7126].val /* record-type-field-names */;
     array742[174] = builtinSymbols[7120].val /* record-field-mutable? */;
     array742[175] = builtinSymbols[7125].val /* record-type-descriptor? */;
-    array742[176] = builtinSymbols[6224].val /* condition */;
+    array742[176] = builtinSymbols[436].val /* condition */;
     array742[177] = builtinSymbols[7230].val /* simple-conditions */;
-    array742[178] = builtinSymbols[6230].val /* condition? */;
-    array742[179] = builtinSymbols[6225].val /* condition-accessor */;
-    array742[180] = builtinSymbols[6228].val /* condition-predicate */;
+    array742[178] = builtinSymbols[442].val /* condition? */;
+    array742[179] = builtinSymbols[437].val /* condition-accessor */;
+    array742[180] = builtinSymbols[440].val /* condition-predicate */;
     array742[181] = builtinSymbols[7353].val /* throw */;
     array742[182] = builtinSymbols[135].val /* < */;
     array742[183] = builtinSymbols[136].val /* <= */;
@@ -19790,14 +19790,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array748[]= {
         0xcc /* list747.val */,
-        0xcc /* builtinSymbols[6321].val \* enum-set-projection *\ */,
-        0xcc /* builtinSymbols[6325].val \* enum-set1 *\ */,
-        0xcc /* builtinSymbols[6326].val \* enum-set2 *\ */
+        0xcc /* builtinSymbols[533].val \* enum-set-projection *\ */,
+        0xcc /* builtinSymbols[537].val \* enum-set1 *\ */,
+        0xcc /* builtinSymbols[538].val \* enum-set2 *\ */
     };
     array748[0] = list747.val;
-    array748[1] = builtinSymbols[6321].val /* enum-set-projection */;
-    array748[2] = builtinSymbols[6325].val /* enum-set1 */;
-    array748[3] = builtinSymbols[6326].val /* enum-set2 */;
+    array748[1] = builtinSymbols[533].val /* enum-set-projection */;
+    array748[2] = builtinSymbols[537].val /* enum-set1 */;
+    array748[3] = builtinSymbols[538].val /* enum-set2 */;
     Object list748 = Pair::wordArrayToList(array748, 4);
 
     static word array749[]= {
@@ -19826,12 +19826,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array752[]= {
         0xcc /* list751.val */,
-        0xcc /* builtinSymbols[6315].val \* enum-set-complement *\ */,
-        0xcc /* builtinSymbols[6313].val \* enum-set *\ */
+        0xcc /* builtinSymbols[527].val \* enum-set-complement *\ */,
+        0xcc /* builtinSymbols[525].val \* enum-set *\ */
     };
     array752[0] = list751.val;
-    array752[1] = builtinSymbols[6315].val /* enum-set-complement */;
-    array752[2] = builtinSymbols[6313].val /* enum-set */;
+    array752[1] = builtinSymbols[527].val /* enum-set-complement */;
+    array752[2] = builtinSymbols[525].val /* enum-set */;
     Object list752 = Pair::wordArrayToList(array752, 3);
 
     static word array753[]= {
@@ -19881,14 +19881,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array758[]= {
         0xcc /* list757.val */,
-        0xcc /* builtinSymbols[6317].val \* enum-set-difference *\ */,
-        0xcc /* builtinSymbols[6325].val \* enum-set1 *\ */,
-        0xcc /* builtinSymbols[6326].val \* enum-set2 *\ */
+        0xcc /* builtinSymbols[529].val \* enum-set-difference *\ */,
+        0xcc /* builtinSymbols[537].val \* enum-set1 *\ */,
+        0xcc /* builtinSymbols[538].val \* enum-set2 *\ */
     };
     array758[0] = list757.val;
-    array758[1] = builtinSymbols[6317].val /* enum-set-difference */;
-    array758[2] = builtinSymbols[6325].val /* enum-set1 */;
-    array758[3] = builtinSymbols[6326].val /* enum-set2 */;
+    array758[1] = builtinSymbols[529].val /* enum-set-difference */;
+    array758[2] = builtinSymbols[537].val /* enum-set1 */;
+    array758[3] = builtinSymbols[538].val /* enum-set2 */;
     Object list758 = Pair::wordArrayToList(array758, 4);
 
     static word array759[]= {
@@ -19938,14 +19938,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array764[]= {
         0xcc /* list763.val */,
-        0xcc /* builtinSymbols[6319].val \* enum-set-intersection *\ */,
-        0xcc /* builtinSymbols[6325].val \* enum-set1 *\ */,
-        0xcc /* builtinSymbols[6326].val \* enum-set2 *\ */
+        0xcc /* builtinSymbols[531].val \* enum-set-intersection *\ */,
+        0xcc /* builtinSymbols[537].val \* enum-set1 *\ */,
+        0xcc /* builtinSymbols[538].val \* enum-set2 *\ */
     };
     array764[0] = list763.val;
-    array764[1] = builtinSymbols[6319].val /* enum-set-intersection */;
-    array764[2] = builtinSymbols[6325].val /* enum-set1 */;
-    array764[3] = builtinSymbols[6326].val /* enum-set2 */;
+    array764[1] = builtinSymbols[531].val /* enum-set-intersection */;
+    array764[2] = builtinSymbols[537].val /* enum-set1 */;
+    array764[3] = builtinSymbols[538].val /* enum-set2 */;
     Object list764 = Pair::wordArrayToList(array764, 4);
 
     static word array765[]= {
@@ -19995,14 +19995,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array770[]= {
         0xcc /* list769.val */,
-        0xcc /* builtinSymbols[6323].val \* enum-set-union *\ */,
-        0xcc /* builtinSymbols[6325].val \* enum-set1 *\ */,
-        0xcc /* builtinSymbols[6326].val \* enum-set2 *\ */
+        0xcc /* builtinSymbols[535].val \* enum-set-union *\ */,
+        0xcc /* builtinSymbols[537].val \* enum-set1 *\ */,
+        0xcc /* builtinSymbols[538].val \* enum-set2 *\ */
     };
     array770[0] = list769.val;
-    array770[1] = builtinSymbols[6323].val /* enum-set-union */;
-    array770[2] = builtinSymbols[6325].val /* enum-set1 */;
-    array770[3] = builtinSymbols[6326].val /* enum-set2 */;
+    array770[1] = builtinSymbols[535].val /* enum-set-union */;
+    array770[2] = builtinSymbols[537].val /* enum-set1 */;
+    array770[3] = builtinSymbols[538].val /* enum-set2 */;
     Object list770 = Pair::wordArrayToList(array770, 4);
 
     static word array771[]= {
@@ -20014,14 +20014,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array772[]= {
         0xcc /* list771.val */,
-        0xcc /* builtinSymbols[6327].val \* enum-set=? *\ */,
-        0xcc /* builtinSymbols[6325].val \* enum-set1 *\ */,
-        0xcc /* builtinSymbols[6326].val \* enum-set2 *\ */
+        0xcc /* builtinSymbols[539].val \* enum-set=? *\ */,
+        0xcc /* builtinSymbols[537].val \* enum-set1 *\ */,
+        0xcc /* builtinSymbols[538].val \* enum-set2 *\ */
     };
     array772[0] = list771.val;
-    array772[1] = builtinSymbols[6327].val /* enum-set=? */;
-    array772[2] = builtinSymbols[6325].val /* enum-set1 */;
-    array772[3] = builtinSymbols[6326].val /* enum-set2 */;
+    array772[1] = builtinSymbols[539].val /* enum-set=? */;
+    array772[2] = builtinSymbols[537].val /* enum-set1 */;
+    array772[3] = builtinSymbols[538].val /* enum-set2 */;
     Object list772 = Pair::wordArrayToList(array772, 4);
 
     static word array773[]= {
@@ -20067,14 +20067,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array778[]= {
         0xcc /* list777.val */,
-        0xcc /* builtinSymbols[6322].val \* enum-set-subset? *\ */,
-        0xcc /* builtinSymbols[6325].val \* enum-set1 *\ */,
-        0xcc /* builtinSymbols[6326].val \* enum-set2 *\ */
+        0xcc /* builtinSymbols[534].val \* enum-set-subset? *\ */,
+        0xcc /* builtinSymbols[537].val \* enum-set1 *\ */,
+        0xcc /* builtinSymbols[538].val \* enum-set2 *\ */
     };
     array778[0] = list777.val;
-    array778[1] = builtinSymbols[6322].val /* enum-set-subset? */;
-    array778[2] = builtinSymbols[6325].val /* enum-set1 */;
-    array778[3] = builtinSymbols[6326].val /* enum-set2 */;
+    array778[1] = builtinSymbols[534].val /* enum-set-subset? */;
+    array778[2] = builtinSymbols[537].val /* enum-set1 */;
+    array778[3] = builtinSymbols[538].val /* enum-set2 */;
     Object list778 = Pair::wordArrayToList(array778, 4);
 
     static word array779[]= {
@@ -20086,14 +20086,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array780[]= {
         0xcc /* list779.val */,
-        0xcc /* builtinSymbols[6320].val \* enum-set-member? *\ */,
+        0xcc /* builtinSymbols[532].val \* enum-set-member? *\ */,
         0xcc /* builtinSymbols[7306].val \* symbol *\ */,
-        0xcc /* builtinSymbols[6313].val \* enum-set *\ */
+        0xcc /* builtinSymbols[525].val \* enum-set *\ */
     };
     array780[0] = list779.val;
-    array780[1] = builtinSymbols[6320].val /* enum-set-member? */;
+    array780[1] = builtinSymbols[532].val /* enum-set-member? */;
     array780[2] = builtinSymbols[7306].val /* symbol */;
-    array780[3] = builtinSymbols[6313].val /* enum-set */;
+    array780[3] = builtinSymbols[525].val /* enum-set */;
     Object list780 = Pair::wordArrayToList(array780, 4);
 
     static word array781[]= {
@@ -20122,12 +20122,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array784[]= {
         0xcc /* list783.val */,
-        0xcc /* builtinSymbols[6314].val \* enum-set->list *\ */,
-        0xcc /* builtinSymbols[6313].val \* enum-set *\ */
+        0xcc /* builtinSymbols[526].val \* enum-set->list *\ */,
+        0xcc /* builtinSymbols[525].val \* enum-set *\ */
     };
     array784[0] = list783.val;
-    array784[1] = builtinSymbols[6314].val /* enum-set->list */;
-    array784[2] = builtinSymbols[6313].val /* enum-set */;
+    array784[1] = builtinSymbols[526].val /* enum-set->list */;
+    array784[2] = builtinSymbols[525].val /* enum-set */;
     Object list784 = Pair::wordArrayToList(array784, 3);
 
     static word array785[]= {
@@ -20173,12 +20173,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array790[]= {
         0xcc /* list789.val */,
-        0xcc /* builtinSymbols[6316].val \* enum-set-constructor *\ */,
-        0xcc /* builtinSymbols[6313].val \* enum-set *\ */
+        0xcc /* builtinSymbols[528].val \* enum-set-constructor *\ */,
+        0xcc /* builtinSymbols[525].val \* enum-set *\ */
     };
     array790[0] = list789.val;
-    array790[1] = builtinSymbols[6316].val /* enum-set-constructor */;
-    array790[2] = builtinSymbols[6313].val /* enum-set */;
+    array790[1] = builtinSymbols[528].val /* enum-set-constructor */;
+    array790[2] = builtinSymbols[525].val /* enum-set */;
     Object list790 = Pair::wordArrayToList(array790, 3);
 
     static word array791[]= {
@@ -20190,12 +20190,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array792[]= {
         0xcc /* list791.val */,
-        0xcc /* builtinSymbols[6318].val \* enum-set-indexer *\ */,
-        0xcc /* builtinSymbols[6313].val \* enum-set *\ */
+        0xcc /* builtinSymbols[530].val \* enum-set-indexer *\ */,
+        0xcc /* builtinSymbols[525].val \* enum-set *\ */
     };
     array792[0] = list791.val;
-    array792[1] = builtinSymbols[6318].val /* enum-set-indexer */;
-    array792[2] = builtinSymbols[6313].val /* enum-set */;
+    array792[1] = builtinSymbols[530].val /* enum-set-indexer */;
+    array792[2] = builtinSymbols[525].val /* enum-set */;
     Object list792 = Pair::wordArrayToList(array792, 3);
 
     static word array793[]= {
@@ -20207,12 +20207,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array794[]= {
         0xcc /* list793.val */,
-        0xcc /* builtinSymbols[6324].val \* enum-set-universe *\ */,
-        0xcc /* builtinSymbols[6313].val \* enum-set *\ */
+        0xcc /* builtinSymbols[536].val \* enum-set-universe *\ */,
+        0xcc /* builtinSymbols[525].val \* enum-set *\ */
     };
     array794[0] = list793.val;
-    array794[1] = builtinSymbols[6324].val /* enum-set-universe */;
-    array794[2] = builtinSymbols[6313].val /* enum-set */;
+    array794[1] = builtinSymbols[536].val /* enum-set-universe */;
+    array794[2] = builtinSymbols[525].val /* enum-set */;
     Object list794 = Pair::wordArrayToList(array794, 3);
 
     static word array795[]= {
@@ -20361,12 +20361,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list811.val */,
         0xcc /* builtinSymbols[6545].val \* get-string-n *\ */,
         0xcc /* builtinSymbols[7060].val \* port *\ */,
-        0xcc /* builtinSymbols[6246].val \* count *\ */
+        0xcc /* builtinSymbols[458].val \* count *\ */
     };
     array812[0] = list811.val;
     array812[1] = builtinSymbols[6545].val /* get-string-n */;
     array812[2] = builtinSymbols[7060].val /* port */;
-    array812[3] = builtinSymbols[6246].val /* count */;
+    array812[3] = builtinSymbols[458].val /* count */;
     Object list812 = Pair::wordArrayToList(array812, 4);
 
     static word array813[]= {
@@ -20396,11 +20396,11 @@ Object scheme::getBuiltinCompiler() {
     static word array816[]= {
         0xcc /* list815.val */,
         0xcc /* builtinSymbols[7101].val \* raise-continuable *\ */,
-        0xcc /* builtinSymbols[6065].val \* c *\ */
+        0xcc /* builtinSymbols[277].val \* c *\ */
     };
     array816[0] = list815.val;
     array816[1] = builtinSymbols[7101].val /* raise-continuable */;
-    array816[2] = builtinSymbols[6065].val /* c */;
+    array816[2] = builtinSymbols[277].val /* c */;
     Object list816 = Pair::wordArrayToList(array816, 3);
 
     static word array817[]= {
@@ -20447,11 +20447,11 @@ Object scheme::getBuiltinCompiler() {
     static word array822[]= {
         0xcc /* list821.val */,
         0xcc /* builtinSymbols[7100].val \* raise *\ */,
-        0xcc /* builtinSymbols[6065].val \* c *\ */
+        0xcc /* builtinSymbols[277].val \* c *\ */
     };
     array822[0] = list821.val;
     array822[1] = builtinSymbols[7100].val /* raise */;
-    array822[2] = builtinSymbols[6065].val /* c */;
+    array822[2] = builtinSymbols[277].val /* c */;
     Object list822 = Pair::wordArrayToList(array822, 3);
 
     static word array823[]= {
@@ -20478,11 +20478,11 @@ Object scheme::getBuiltinCompiler() {
     static word array826[]= {
         0xcc /* list825.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6224].val \* condition *\ */
+        0xcc /* builtinSymbols[436].val \* condition *\ */
     };
     array826[0] = list825.val;
     array826[1] = builtinSymbols[6669].val /* lambda */;
-    array826[2] = builtinSymbols[6224].val /* condition */;
+    array826[2] = builtinSymbols[436].val /* condition */;
     Object list826 = Pair::wordArrayToList(array826, 3);
 
     static word array827[]= {
@@ -20513,11 +20513,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array830[]= {
         0xcc /* list829.val */,
-        0xcc /* builtinSymbols[6299].val \* dynamic-env-local-set! *\ */,
+        0xcc /* builtinSymbols[511].val \* dynamic-env-local-set! *\ */,
         0xcc /* builtinSymbols[6884].val \* new-env *\ */
     };
     array830[0] = list829.val;
-    array830[1] = builtinSymbols[6299].val /* dynamic-env-local-set! */;
+    array830[1] = builtinSymbols[511].val /* dynamic-env-local-set! */;
     array830[2] = builtinSymbols[6884].val /* new-env */;
     Object list830 = Pair::wordArrayToList(array830, 3);
 
@@ -20530,10 +20530,10 @@ Object scheme::getBuiltinCompiler() {
 
     static word array832[]= {
         0xcc /* list831.val */,
-        0xcc /* builtinSymbols[6298].val \* dynamic-env-local-get *\ */
+        0xcc /* builtinSymbols[510].val \* dynamic-env-local-get *\ */
     };
     array832[0] = list831.val;
-    array832[1] = builtinSymbols[6298].val /* dynamic-env-local-get */;
+    array832[1] = builtinSymbols[510].val /* dynamic-env-local-get */;
     Object list832 = Pair::wordArrayToList(array832, 2);
 
     static word array833[]= {
@@ -20545,12 +20545,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array834[]= {
         0xcc /* list833.val */,
-        0xcc /* builtinSymbols[6300].val \* dynamic-lookup *\ */,
+        0xcc /* builtinSymbols[512].val \* dynamic-lookup *\ */,
         0xcc /* builtinSymbols[6947].val \* parameter *\ */,
         0xcc /* builtinSymbols[6550].val \* global-cell *\ */
     };
     array834[0] = list833.val;
-    array834[1] = builtinSymbols[6300].val /* dynamic-lookup */;
+    array834[1] = builtinSymbols[512].val /* dynamic-lookup */;
     array834[2] = builtinSymbols[6947].val /* parameter */;
     array834[3] = builtinSymbols[6550].val /* global-cell */;
     Object list834 = Pair::wordArrayToList(array834, 4);
@@ -20613,16 +20613,16 @@ Object scheme::getBuiltinCompiler() {
 
     static word array842[]= {
         0xcc /* list841.val */,
-        0xcc /* builtinSymbols[6297].val \* dynamic-bind *\ */,
+        0xcc /* builtinSymbols[509].val \* dynamic-bind *\ */,
         0xcc /* builtinSymbols[6949].val \* parameters *\ */,
         0xcc /* builtinSymbols[8308].val \* values *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */
+        0xcc /* builtinSymbols[219].val \* body *\ */
     };
     array842[0] = list841.val;
-    array842[1] = builtinSymbols[6297].val /* dynamic-bind */;
+    array842[1] = builtinSymbols[509].val /* dynamic-bind */;
     array842[2] = builtinSymbols[6949].val /* parameters */;
     array842[3] = builtinSymbols[8308].val /* values */;
-    array842[4] = builtinSymbols[6007].val /* body */;
+    array842[4] = builtinSymbols[219].val /* body */;
     Object list842 = Pair::wordArrayToList(array842, 5);
 
     static word array843[]= {
@@ -20670,12 +20670,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list847.val */,
         0xcc /* builtinSymbols[6803].val \* make-parameter *\ */,
         0xcc /* builtinSymbols[6627].val \* init *\ */,
-        0xcc /* builtinSymbols[6240].val \* conv *\ */
+        0xcc /* builtinSymbols[452].val \* conv *\ */
     };
     array848[0] = list847.val;
     array848[1] = builtinSymbols[6803].val /* make-parameter */;
     array848[2] = builtinSymbols[6627].val /* init */;
-    array848[3] = builtinSymbols[6240].val /* conv */;
+    array848[3] = builtinSymbols[452].val /* conv */;
     Object list848 = Pair::wordArrayToList(array848, 4);
 
     static word array849[]= {
@@ -20689,13 +20689,13 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list849.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[6618].val \* in *\ */,
-        0xcc /* builtinSymbols[6007].val \* body *\ */,
+        0xcc /* builtinSymbols[219].val \* body *\ */,
         0xcc /* builtinSymbols[6938].val \* out *\ */
     };
     array850[0] = list849.val;
     array850[1] = builtinSymbols[6669].val /* lambda */;
     array850[2] = builtinSymbols[6618].val /* in */;
-    array850[3] = builtinSymbols[6007].val /* body */;
+    array850[3] = builtinSymbols[219].val /* body */;
     array850[4] = builtinSymbols[6938].val /* out */;
     Object list850 = Pair::wordArrayToList(array850, 5);
 
@@ -20743,11 +20743,11 @@ Object scheme::getBuiltinCompiler() {
     static word array856[]= {
         0xcc /* list855.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6372].val \* f *\ */
+        0xcc /* builtinSymbols[584].val \* f *\ */
     };
     array856[0] = list855.val;
     array856[1] = builtinSymbols[6669].val /* lambda */;
-    array856[2] = builtinSymbols[6372].val /* f */;
+    array856[2] = builtinSymbols[584].val /* f */;
     Object list856 = Pair::wordArrayToList(array856, 3);
 
     static word array857[]= {
@@ -20793,11 +20793,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array862[]= {
         0xcc /* list861.val */,
-        0xcc /* builtinSymbols[6290].val \* do-wind *\ */,
+        0xcc /* builtinSymbols[502].val \* do-wind *\ */,
         0xcc /* builtinSymbols[6881].val \* new *\ */
     };
     array862[0] = list861.val;
-    array862[1] = builtinSymbols[6290].val /* do-wind */;
+    array862[1] = builtinSymbols[502].val /* do-wind */;
     array862[2] = builtinSymbols[6881].val /* new */;
     Object list862 = Pair::wordArrayToList(array862, 3);
 
@@ -20829,12 +20829,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array866[]= {
         0xcc /* list865.val */,
-        0xcc /* builtinSymbols[6214].val \* common-tail *\ */,
+        0xcc /* builtinSymbols[426].val \* common-tail *\ */,
         0xcc /* builtinSymbols[8346].val \* x *\ */,
         0xcc /* builtinSymbols[8353].val \* y *\ */
     };
     array866[0] = list865.val;
-    array866[1] = builtinSymbols[6214].val /* common-tail */;
+    array866[1] = builtinSymbols[426].val /* common-tail */;
     array866[2] = builtinSymbols[8346].val /* x */;
     array866[3] = builtinSymbols[8353].val /* y */;
     Object list866 = Pair::wordArrayToList(array866, 4);
@@ -20848,12 +20848,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array868[]= {
         0xcc /* list867.val */,
-        0xcc /* builtinSymbols[6101].val \* call-with-current-continuation *\ */,
-        0xcc /* builtinSymbols[6237].val \* cont *\ */
+        0xcc /* builtinSymbols[313].val \* call-with-current-continuation *\ */,
+        0xcc /* builtinSymbols[449].val \* cont *\ */
     };
     array868[0] = list867.val;
-    array868[1] = builtinSymbols[6101].val /* call-with-current-continuation */;
-    array868[2] = builtinSymbols[6237].val /* cont */;
+    array868[1] = builtinSymbols[313].val /* call-with-current-continuation */;
+    array868[2] = builtinSymbols[449].val /* cont */;
     Object list868 = Pair::wordArrayToList(array868, 3);
 
     static word array869[]= {
@@ -20865,12 +20865,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array870[]= {
         0xcc /* list869.val */,
-        0xcc /* builtinSymbols[6109].val \* call\cc *\ */,
-        0xcc /* builtinSymbols[6237].val \* cont *\ */
+        0xcc /* builtinSymbols[321].val \* call\cc *\ */,
+        0xcc /* builtinSymbols[449].val \* cont *\ */
     };
     array870[0] = list869.val;
-    array870[1] = builtinSymbols[6109].val /* call\cc */;
-    array870[2] = builtinSymbols[6237].val /* cont */;
+    array870[1] = builtinSymbols[321].val /* call\cc */;
+    array870[2] = builtinSymbols[449].val /* cont */;
     Object list870 = Pair::wordArrayToList(array870, 3);
 
     static word array871[]= {
@@ -20882,16 +20882,16 @@ Object scheme::getBuiltinCompiler() {
 
     static word array872[]= {
         0xcc /* list871.val */,
-        0xcc /* builtinSymbols[6301].val \* dynamic-wind *\ */,
-        0xcc /* builtinSymbols[5982].val \* before *\ */,
+        0xcc /* builtinSymbols[513].val \* dynamic-wind *\ */,
+        0xcc /* builtinSymbols[194].val \* before *\ */,
         0xcc /* builtinSymbols[7354].val \* thunk *\ */,
-        0xcc /* builtinSymbols[5944].val \* after *\ */
+        0xcc /* builtinSymbols[156].val \* after *\ */
     };
     array872[0] = list871.val;
-    array872[1] = builtinSymbols[6301].val /* dynamic-wind */;
-    array872[2] = builtinSymbols[5982].val /* before */;
+    array872[1] = builtinSymbols[513].val /* dynamic-wind */;
+    array872[2] = builtinSymbols[194].val /* before */;
     array872[3] = builtinSymbols[7354].val /* thunk */;
-    array872[4] = builtinSymbols[5944].val /* after */;
+    array872[4] = builtinSymbols[156].val /* after */;
     Object list872 = Pair::wordArrayToList(array872, 5);
 
     static word array873[]= {
@@ -20922,12 +20922,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array876[]= {
         0xcc /* list875.val */,
-        0xcc /* builtinSymbols[6370].val \* expt *\ */,
+        0xcc /* builtinSymbols[582].val \* expt *\ */,
         0xcc /* builtinSymbols[6870].val \* n *\ */,
         0xcc /* builtinSymbols[6759].val \* m *\ */
     };
     array876[0] = list875.val;
-    array876[1] = builtinSymbols[6370].val /* expt */;
+    array876[1] = builtinSymbols[582].val /* expt */;
     array876[2] = builtinSymbols[6870].val /* n */;
     array876[3] = builtinSymbols[6759].val /* m */;
     Object list876 = Pair::wordArrayToList(array876, 4);
@@ -21106,13 +21106,13 @@ Object scheme::getBuiltinCompiler() {
 
     static word array896[]= {
         0xcc /* list895.val */,
-        0xcc /* builtinSymbols[6356].val \* exists *\ */,
+        0xcc /* builtinSymbols[568].val \* exists *\ */,
         0xcc /* builtinSymbols[7079].val \* proc *\ */,
         0xcc /* builtinSymbols[6752].val \* lst *\ */,
         0xcc /* builtinSymbols[6737].val \* lists *\ */
     };
     array896[0] = list895.val;
-    array896[1] = builtinSymbols[6356].val /* exists */;
+    array896[1] = builtinSymbols[568].val /* exists */;
     array896[2] = builtinSymbols[7079].val /* proc */;
     array896[3] = builtinSymbols[6752].val /* lst */;
     array896[4] = builtinSymbols[6737].val /* lists */;
@@ -21161,11 +21161,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array902[]= {
         0xcc /* list901.val */,
-        0xcc /* builtinSymbols[6353].val \* exact? *\ */,
+        0xcc /* builtinSymbols[565].val \* exact? *\ */,
         0xcc /* builtinSymbols[6870].val \* n *\ */
     };
     array902[0] = list901.val;
-    array902[1] = builtinSymbols[6353].val /* exact? */;
+    array902[1] = builtinSymbols[565].val /* exact? */;
     array902[2] = builtinSymbols[6870].val /* n */;
     Object list902 = Pair::wordArrayToList(array902, 3);
 
@@ -21178,11 +21178,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array904[]= {
         0xcc /* list903.val */,
-        0xcc /* builtinSymbols[6348].val \* eval-core *\ */,
+        0xcc /* builtinSymbols[560].val \* eval-core *\ */,
         0xcc /* builtinSymbols[8346].val \* x *\ */
     };
     array904[0] = list903.val;
-    array904[1] = builtinSymbols[6348].val /* eval-core */;
+    array904[1] = builtinSymbols[560].val /* eval-core */;
     array904[2] = builtinSymbols[8346].val /* x */;
     Object list904 = Pair::wordArrayToList(array904, 3);
 
@@ -21230,12 +21230,12 @@ Object scheme::getBuiltinCompiler() {
     static word array910[]= {
         0xcc /* list909.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6197].val \* closure *\ */,
+        0xcc /* builtinSymbols[409].val \* closure *\ */,
         0xcc /* builtinSymbols[7183].val \* sample-count *\ */
     };
     array910[0] = list909.val;
     array910[1] = builtinSymbols[6669].val /* lambda */;
-    array910[2] = builtinSymbols[6197].val /* closure */;
+    array910[2] = builtinSymbols[409].val /* closure */;
     array910[3] = builtinSymbols[7183].val /* sample-count */;
     Object list910 = Pair::wordArrayToList(array910, 4);
 
@@ -21266,11 +21266,11 @@ Object scheme::getBuiltinCompiler() {
     static word array914[]= {
         0xcc /* list913.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6197].val \* closure *\ */
+        0xcc /* builtinSymbols[409].val \* closure *\ */
     };
     array914[0] = list913.val;
     array914[1] = builtinSymbols[6669].val /* lambda */;
-    array914[2] = builtinSymbols[6197].val /* closure */;
+    array914[2] = builtinSymbols[409].val /* closure */;
     Object list914 = Pair::wordArrayToList(array914, 3);
 
     static word array915[]= {
@@ -21338,11 +21338,11 @@ Object scheme::getBuiltinCompiler() {
     static word array922[]= {
         0xcc /* list921.val */,
         0xcc /* builtinSymbols[6538].val \* get-closure-name *\ */,
-        0xcc /* builtinSymbols[6197].val \* closure *\ */
+        0xcc /* builtinSymbols[409].val \* closure *\ */
     };
     array922[0] = list921.val;
     array922[1] = builtinSymbols[6538].val /* get-closure-name */;
-    array922[2] = builtinSymbols[6197].val /* closure */;
+    array922[2] = builtinSymbols[409].val /* closure */;
     Object list922 = Pair::wordArrayToList(array922, 3);
 
     static word array923[]= {
@@ -21768,11 +21768,11 @@ Object scheme::getBuiltinCompiler() {
     static word array970[]= {
         0xcc /* list969.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5965].val \* args *\ */
+        0xcc /* builtinSymbols[177].val \* args *\ */
     };
     array970[0] = list969.val;
     array970[1] = builtinSymbols[6669].val /* lambda */;
-    array970[2] = builtinSymbols[5965].val /* args */;
+    array970[2] = builtinSymbols[177].val /* args */;
     Object list970 = Pair::wordArrayToList(array970, 3);
 
     static word array971[]= {
@@ -21903,14 +21903,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array986[]= {
         0xcc /* list985.val */,
-        0xcc /* builtinSymbols[6390].val \* filter-map *\ */,
-        0xcc /* builtinSymbols[6372].val \* f *\ */,
+        0xcc /* builtinSymbols[602].val \* filter-map *\ */,
+        0xcc /* builtinSymbols[584].val \* f *\ */,
         0xcc /* builtinSymbols[6722].val \* lis1 *\ */,
         0xcc /* builtinSymbols[6737].val \* lists *\ */
     };
     array986[0] = list985.val;
-    array986[1] = builtinSymbols[6390].val /* filter-map */;
-    array986[2] = builtinSymbols[6372].val /* f */;
+    array986[1] = builtinSymbols[602].val /* filter-map */;
+    array986[2] = builtinSymbols[584].val /* f */;
     array986[3] = builtinSymbols[6722].val /* lis1 */;
     array986[4] = builtinSymbols[6737].val /* lists */;
     Object list986 = Pair::wordArrayToList(array986, 5);
@@ -21942,11 +21942,11 @@ Object scheme::getBuiltinCompiler() {
     static word array990[]= {
         0xcc /* list989.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5937].val \* abort *\ */
+        0xcc /* builtinSymbols[149].val \* abort *\ */
     };
     array990[0] = list989.val;
     array990[1] = builtinSymbols[6669].val /* lambda */;
-    array990[2] = builtinSymbols[5937].val /* abort */;
+    array990[2] = builtinSymbols[149].val /* abort */;
     Object list990 = Pair::wordArrayToList(array990, 3);
 
     static word array991[]= {
@@ -21960,12 +21960,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list991.val */,
         0xcc /* builtinSymbols[39].val \* %cars+cdrs+ *\ */,
         0xcc /* builtinSymbols[6737].val \* lists *\ */,
-        0xcc /* builtinSymbols[6119].val \* cars-final *\ */
+        0xcc /* builtinSymbols[331].val \* cars-final *\ */
     };
     array992[0] = list991.val;
     array992[1] = builtinSymbols[39].val /* %cars+cdrs+ */;
     array992[2] = builtinSymbols[6737].val /* lists */;
-    array992[3] = builtinSymbols[6119].val /* cars-final */;
+    array992[3] = builtinSymbols[331].val /* cars-final */;
     Object list992 = Pair::wordArrayToList(array992, 4);
 
     static word array993[]= {
@@ -21995,11 +21995,11 @@ Object scheme::getBuiltinCompiler() {
     static word array996[]= {
         0xcc /* list995.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5937].val \* abort *\ */
+        0xcc /* builtinSymbols[149].val \* abort *\ */
     };
     array996[0] = list995.val;
     array996[1] = builtinSymbols[6669].val /* lambda */;
-    array996[2] = builtinSymbols[5937].val /* abort */;
+    array996[2] = builtinSymbols[149].val /* abort */;
     Object list996 = Pair::wordArrayToList(array996, 3);
 
     static word array997[]= {
@@ -22045,16 +22045,16 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1002[]= {
         0xcc /* list1001.val */,
-        0xcc /* builtinSymbols[6184].val \* check-arg *\ */,
+        0xcc /* builtinSymbols[396].val \* check-arg *\ */,
         0xcc /* builtinSymbols[7072].val \* pred *\ */,
         0xcc /* builtinSymbols[8304].val \* val *\ */,
-        0xcc /* builtinSymbols[6110].val \* caller *\ */
+        0xcc /* builtinSymbols[322].val \* caller *\ */
     };
     array1002[0] = list1001.val;
-    array1002[1] = builtinSymbols[6184].val /* check-arg */;
+    array1002[1] = builtinSymbols[396].val /* check-arg */;
     array1002[2] = builtinSymbols[7072].val /* pred */;
     array1002[3] = builtinSymbols[8304].val /* val */;
-    array1002[4] = builtinSymbols[6110].val /* caller */;
+    array1002[4] = builtinSymbols[322].val /* caller */;
     Object list1002 = Pair::wordArrayToList(array1002, 5);
 
     static word array1003[]= {
@@ -22083,11 +22083,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1006[]= {
         0xcc /* list1005.val */,
-        0xcc /* builtinSymbols[6114].val \* car+cdr *\ */,
+        0xcc /* builtinSymbols[326].val \* car+cdr *\ */,
         0xcc /* builtinSymbols[6945].val \* pair *\ */
     };
     array1006[0] = list1005.val;
-    array1006[1] = builtinSymbols[6114].val /* car+cdr */;
+    array1006[1] = builtinSymbols[326].val /* car+cdr */;
     array1006[2] = builtinSymbols[6945].val /* pair */;
     Object list1006 = Pair::wordArrayToList(array1006, 3);
 
@@ -22119,13 +22119,13 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1010[]= {
         0xcc /* list1009.val */,
-        0xcc /* builtinSymbols[6234].val \* cons* *\ */,
-        0xcc /* builtinSymbols[6397].val \* first *\ */,
+        0xcc /* builtinSymbols[446].val \* cons* *\ */,
+        0xcc /* builtinSymbols[609].val \* first *\ */,
         0xcc /* builtinSymbols[7153].val \* rest *\ */
     };
     array1010[0] = list1009.val;
-    array1010[1] = builtinSymbols[6234].val /* cons* */;
-    array1010[2] = builtinSymbols[6397].val /* first */;
+    array1010[1] = builtinSymbols[446].val /* cons* */;
+    array1010[2] = builtinSymbols[609].val /* first */;
     array1010[3] = builtinSymbols[7153].val /* rest */;
     Object list1010 = Pair::wordArrayToList(array1010, 4);
 
@@ -22172,11 +22172,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1016[]= {
         0xcc /* list1015.val */,
-        0xcc /* builtinSymbols[6309].val \* eighth *\ */,
+        0xcc /* builtinSymbols[521].val \* eighth *\ */,
         0xcc /* builtinSymbols[8346].val \* x *\ */
     };
     array1016[0] = list1015.val;
-    array1016[1] = builtinSymbols[6309].val /* eighth */;
+    array1016[1] = builtinSymbols[521].val /* eighth */;
     array1016[2] = builtinSymbols[8346].val /* x */;
     Object list1016 = Pair::wordArrayToList(array1016, 3);
 
@@ -22223,11 +22223,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1022[]= {
         0xcc /* list1021.val */,
-        0xcc /* builtinSymbols[6380].val \* fifth *\ */,
+        0xcc /* builtinSymbols[592].val \* fifth *\ */,
         0xcc /* builtinSymbols[8346].val \* x *\ */
     };
     array1022[0] = list1021.val;
-    array1022[1] = builtinSymbols[6380].val /* fifth */;
+    array1022[1] = builtinSymbols[592].val /* fifth */;
     array1022[2] = builtinSymbols[8346].val /* x */;
     Object list1022 = Pair::wordArrayToList(array1022, 3);
 
@@ -22240,11 +22240,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1024[]= {
         0xcc /* list1023.val */,
-        0xcc /* builtinSymbols[6474].val \* fourth *\ */,
+        0xcc /* builtinSymbols[686].val \* fourth *\ */,
         0xcc /* builtinSymbols[6945].val \* pair *\ */
     };
     array1024[0] = list1023.val;
-    array1024[1] = builtinSymbols[6474].val /* fourth */;
+    array1024[1] = builtinSymbols[686].val /* fourth */;
     array1024[2] = builtinSymbols[6945].val /* pair */;
     Object list1024 = Pair::wordArrayToList(array1024, 3);
 
@@ -22310,12 +22310,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1032[]= {
         0xcc /* list1031.val */,
-        0xcc /* builtinSymbols[6295].val \* drop-right! *\ */,
+        0xcc /* builtinSymbols[507].val \* drop-right! *\ */,
         0xcc /* builtinSymbols[6721].val \* lis *\ */,
         0xcc /* builtinSymbols[6656].val \* k *\ */
     };
     array1032[0] = list1031.val;
-    array1032[1] = builtinSymbols[6295].val /* drop-right! */;
+    array1032[1] = builtinSymbols[507].val /* drop-right! */;
     array1032[2] = builtinSymbols[6721].val /* lis */;
     array1032[3] = builtinSymbols[6656].val /* k */;
     Object list1032 = Pair::wordArrayToList(array1032, 4);
@@ -22348,12 +22348,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1036[]= {
         0xcc /* list1035.val */,
-        0xcc /* builtinSymbols[6294].val \* drop-right *\ */,
+        0xcc /* builtinSymbols[506].val \* drop-right *\ */,
         0xcc /* builtinSymbols[6721].val \* lis *\ */,
         0xcc /* builtinSymbols[6656].val \* k *\ */
     };
     array1036[0] = list1035.val;
-    array1036[1] = builtinSymbols[6294].val /* drop-right */;
+    array1036[1] = builtinSymbols[506].val /* drop-right */;
     array1036[2] = builtinSymbols[6721].val /* lis */;
     array1036[3] = builtinSymbols[6656].val /* k */;
     Object list1036 = Pair::wordArrayToList(array1036, 4);
@@ -22443,12 +22443,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1046[]= {
         0xcc /* list1045.val */,
-        0xcc /* builtinSymbols[6293].val \* drop *\ */,
+        0xcc /* builtinSymbols[505].val \* drop *\ */,
         0xcc /* builtinSymbols[6721].val \* lis *\ */,
         0xcc /* builtinSymbols[6656].val \* k *\ */
     };
     array1046[0] = list1045.val;
-    array1046[1] = builtinSymbols[6293].val /* drop */;
+    array1046[1] = builtinSymbols[505].val /* drop */;
     array1046[2] = builtinSymbols[6721].val /* lis */;
     array1046[3] = builtinSymbols[6656].val /* k */;
     Object list1046 = Pair::wordArrayToList(array1046, 4);
@@ -22519,11 +22519,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1054[]= {
         0xcc /* list1053.val */,
-        0xcc /* builtinSymbols[6292].val \* dotted-list? *\ */,
+        0xcc /* builtinSymbols[504].val \* dotted-list? *\ */,
         0xcc /* builtinSymbols[8346].val \* x *\ */
     };
     array1054[0] = list1053.val;
-    array1054[1] = builtinSymbols[6292].val /* dotted-list? */;
+    array1054[1] = builtinSymbols[504].val /* dotted-list? */;
     array1054[2] = builtinSymbols[8346].val /* x */;
     Object list1054 = Pair::wordArrayToList(array1054, 3);
 
@@ -22555,11 +22555,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1058[]= {
         0xcc /* list1057.val */,
-        0xcc /* builtinSymbols[6190].val \* circular-list? *\ */,
+        0xcc /* builtinSymbols[402].val \* circular-list? *\ */,
         0xcc /* builtinSymbols[8346].val \* x *\ */
     };
     array1058[0] = list1057.val;
-    array1058[1] = builtinSymbols[6190].val /* circular-list? */;
+    array1058[1] = builtinSymbols[402].val /* circular-list? */;
     array1058[2] = builtinSymbols[8346].val /* x */;
     Object list1058 = Pair::wordArrayToList(array1058, 3);
 
@@ -22608,12 +22608,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1064[]= {
         0xcc /* list1063.val */,
-        0xcc /* builtinSymbols[6189].val \* circular-list *\ */,
+        0xcc /* builtinSymbols[401].val \* circular-list *\ */,
         0xcc /* builtinSymbols[8305].val \* val1 *\ */,
         0xcc /* builtinSymbols[8306].val \* vals *\ */
     };
     array1064[0] = list1063.val;
-    array1064[1] = builtinSymbols[6189].val /* circular-list */;
+    array1064[1] = builtinSymbols[401].val /* circular-list */;
     array1064[2] = builtinSymbols[8305].val /* val1 */;
     array1064[3] = builtinSymbols[8306].val /* vals */;
     Object list1064 = Pair::wordArrayToList(array1064, 4);
@@ -22714,12 +22714,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list1075.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[6578].val \* i *\ */,
-        0xcc /* builtinSymbols[5952].val \* ans *\ */
+        0xcc /* builtinSymbols[164].val \* ans *\ */
     };
     array1076[0] = list1075.val;
     array1076[1] = builtinSymbols[6669].val /* lambda */;
     array1076[2] = builtinSymbols[6578].val /* i */;
-    array1076[3] = builtinSymbols[5952].val /* ans */;
+    array1076[3] = builtinSymbols[164].val /* ans */;
     Object list1076 = Pair::wordArrayToList(array1076, 4);
 
     static word array1077[]= {
@@ -22769,12 +22769,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list1081.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[6578].val \* i *\ */,
-        0xcc /* builtinSymbols[5952].val \* ans *\ */
+        0xcc /* builtinSymbols[164].val \* ans *\ */
     };
     array1082[0] = list1081.val;
     array1082[1] = builtinSymbols[6669].val /* lambda */;
     array1082[2] = builtinSymbols[6578].val /* i */;
-    array1082[3] = builtinSymbols[5952].val /* ans */;
+    array1082[3] = builtinSymbols[164].val /* ans */;
     Object list1082 = Pair::wordArrayToList(array1082, 4);
 
     static word array1083[]= {
@@ -22823,13 +22823,13 @@ Object scheme::getBuiltinCompiler() {
     static word array1088[]= {
         0xcc /* list1087.val */,
         0xcc /* builtinSymbols[8350].val \* xcons *\ */,
-        0xcc /* builtinSymbols[6254].val \* d *\ */,
-        0xcc /* builtinSymbols[5935].val \* a *\ */
+        0xcc /* builtinSymbols[466].val \* d *\ */,
+        0xcc /* builtinSymbols[147].val \* a *\ */
     };
     array1088[0] = list1087.val;
     array1088[1] = builtinSymbols[8350].val /* xcons */;
-    array1088[2] = builtinSymbols[6254].val /* d */;
-    array1088[3] = builtinSymbols[5935].val /* a */;
+    array1088[2] = builtinSymbols[466].val /* d */;
+    array1088[3] = builtinSymbols[147].val /* a */;
     Object list1088 = Pair::wordArrayToList(array1088, 4);
 
     static word array1089[]= {
@@ -22972,12 +22972,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1104[]= {
         0xcc /* list1103.val */,
-        0xcc /* builtinSymbols[6105].val \* call-with-string-input-port *\ */,
+        0xcc /* builtinSymbols[317].val \* call-with-string-input-port *\ */,
         0xcc /* builtinSymbols[7251].val \* str *\ */,
         0xcc /* builtinSymbols[7079].val \* proc *\ */
     };
     array1104[0] = list1103.val;
-    array1104[1] = builtinSymbols[6105].val /* call-with-string-input-port */;
+    array1104[1] = builtinSymbols[317].val /* call-with-string-input-port */;
     array1104[2] = builtinSymbols[7251].val /* str */;
     array1104[3] = builtinSymbols[7079].val /* proc */;
     Object list1104 = Pair::wordArrayToList(array1104, 4);
@@ -22991,12 +22991,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1106[]= {
         0xcc /* list1105.val */,
-        0xcc /* builtinSymbols[6106].val \* call-with-string-io *\ */,
+        0xcc /* builtinSymbols[318].val \* call-with-string-io *\ */,
         0xcc /* builtinSymbols[7251].val \* str *\ */,
         0xcc /* builtinSymbols[7079].val \* proc *\ */
     };
     array1106[0] = list1105.val;
-    array1106[1] = builtinSymbols[6106].val /* call-with-string-io */;
+    array1106[1] = builtinSymbols[318].val /* call-with-string-io */;
     array1106[2] = builtinSymbols[7251].val /* str */;
     array1106[3] = builtinSymbols[7079].val /* proc */;
     Object list1106 = Pair::wordArrayToList(array1106, 4);
@@ -23012,12 +23012,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list1107.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[7155].val \* ret *\ */,
-        0xcc /* builtinSymbols[6065].val \* c *\ */
+        0xcc /* builtinSymbols[277].val \* c *\ */
     };
     array1108[0] = list1107.val;
     array1108[1] = builtinSymbols[6669].val /* lambda */;
     array1108[2] = builtinSymbols[7155].val /* ret */;
-    array1108[3] = builtinSymbols[6065].val /* c */;
+    array1108[3] = builtinSymbols[277].val /* c */;
     Object list1108 = Pair::wordArrayToList(array1108, 4);
 
     static word array1109[]= {
@@ -23046,12 +23046,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1112[]= {
         0xcc /* list1111.val */,
-        0xcc /* builtinSymbols[6382].val \* file->string *\ */,
-        0xcc /* builtinSymbols[6387].val \* filename *\ */
+        0xcc /* builtinSymbols[594].val \* file->string *\ */,
+        0xcc /* builtinSymbols[599].val \* filename *\ */
     };
     array1112[0] = list1111.val;
-    array1112[1] = builtinSymbols[6382].val /* file->string */;
-    array1112[2] = builtinSymbols[6387].val /* filename */;
+    array1112[1] = builtinSymbols[594].val /* file->string */;
+    array1112[2] = builtinSymbols[599].val /* filename */;
     Object list1112 = Pair::wordArrayToList(array1112, 3);
 
     static word array1113[]= {
@@ -23082,12 +23082,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list1115.val */,
         0xcc /* builtinSymbols[8345].val \* write-to-file *\ */,
         0xcc /* builtinSymbols[7055].val \* path *\ */,
-        0xcc /* builtinSymbols[6238].val \* content *\ */
+        0xcc /* builtinSymbols[450].val \* content *\ */
     };
     array1116[0] = list1115.val;
     array1116[1] = builtinSymbols[8345].val /* write-to-file */;
     array1116[2] = builtinSymbols[7055].val /* path */;
-    array1116[3] = builtinSymbols[6238].val /* content */;
+    array1116[3] = builtinSymbols[450].val /* content */;
     Object list1116 = Pair::wordArrayToList(array1116, 4);
 
     static word array1117[]= {
@@ -23100,13 +23100,13 @@ Object scheme::getBuiltinCompiler() {
     static word array1118[]= {
         0xcc /* list1117.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6159].val \* char *\ */,
-        0xcc /* builtinSymbols[6193].val \* clist *\ */
+        0xcc /* builtinSymbols[371].val \* char *\ */,
+        0xcc /* builtinSymbols[405].val \* clist *\ */
     };
     array1118[0] = list1117.val;
     array1118[1] = builtinSymbols[6669].val /* lambda */;
-    array1118[2] = builtinSymbols[6159].val /* char */;
-    array1118[3] = builtinSymbols[6193].val /* clist */;
+    array1118[2] = builtinSymbols[371].val /* char */;
+    array1118[3] = builtinSymbols[405].val /* clist */;
     Object list1118 = Pair::wordArrayToList(array1118, 4);
 
     static word array1119[]= {
@@ -23135,12 +23135,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1122[]= {
         0xcc /* list1121.val */,
-        0xcc /* builtinSymbols[5972].val \* assoc-ref *\ */,
+        0xcc /* builtinSymbols[184].val \* assoc-ref *\ */,
         0xcc /* builtinSymbols[6752].val \* lst *\ */,
         0xcc /* builtinSymbols[6657].val \* key *\ */
     };
     array1122[0] = list1121.val;
-    array1122[1] = builtinSymbols[5972].val /* assoc-ref */;
+    array1122[1] = builtinSymbols[184].val /* assoc-ref */;
     array1122[2] = builtinSymbols[6752].val /* lst */;
     array1122[3] = builtinSymbols[6657].val /* key */;
     Object list1122 = Pair::wordArrayToList(array1122, 4);
@@ -23155,12 +23155,12 @@ Object scheme::getBuiltinCompiler() {
     static word array1124[]= {
         0xcc /* list1123.val */,
         0xcc /* builtinSymbols[6823].val \* map1 *\ */,
-        0xcc /* builtinSymbols[6372].val \* f *\ */,
+        0xcc /* builtinSymbols[584].val \* f *\ */,
         0xcc /* builtinSymbols[6663].val \* l *\ */
     };
     array1124[0] = list1123.val;
     array1124[1] = builtinSymbols[6823].val /* map1 */;
-    array1124[2] = builtinSymbols[6372].val /* f */;
+    array1124[2] = builtinSymbols[584].val /* f */;
     array1124[3] = builtinSymbols[6663].val /* l */;
     Object list1124 = Pair::wordArrayToList(array1124, 4);
 
@@ -23242,13 +23242,13 @@ Object scheme::getBuiltinCompiler() {
     static word array1134[]= {
         0xcc /* list1133.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[5935].val \* a *\ */,
-        0xcc /* builtinSymbols[5978].val \* b *\ */
+        0xcc /* builtinSymbols[147].val \* a *\ */,
+        0xcc /* builtinSymbols[190].val \* b *\ */
     };
     array1134[0] = list1133.val;
     array1134[1] = builtinSymbols[6669].val /* lambda */;
-    array1134[2] = builtinSymbols[5935].val /* a */;
-    array1134[3] = builtinSymbols[5978].val /* b */;
+    array1134[2] = builtinSymbols[147].val /* a */;
+    array1134[3] = builtinSymbols[190].val /* b */;
     Object list1134 = Pair::wordArrayToList(array1134, 4);
 
     static word array1135[]= {
@@ -23278,13 +23278,13 @@ Object scheme::getBuiltinCompiler() {
     static word array1138[]= {
         0xcc /* list1137.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
-        0xcc /* builtinSymbols[6372].val \* f *\ */,
+        0xcc /* builtinSymbols[584].val \* f *\ */,
         0xcc /* builtinSymbols[6663].val \* l *\ */,
         0xcc /* builtinSymbols[6578].val \* i *\ */
     };
     array1138[0] = list1137.val;
     array1138[1] = builtinSymbols[6669].val /* lambda */;
-    array1138[2] = builtinSymbols[6372].val /* f */;
+    array1138[2] = builtinSymbols[584].val /* f */;
     array1138[3] = builtinSymbols[6663].val /* l */;
     array1138[4] = builtinSymbols[6578].val /* i */;
     Object list1138 = Pair::wordArrayToList(array1138, 5);
@@ -23299,12 +23299,12 @@ Object scheme::getBuiltinCompiler() {
     static word array1140[]= {
         0xcc /* list1139.val */,
         0xcc /* builtinSymbols[6822].val \* map-with-index *\ */,
-        0xcc /* builtinSymbols[6372].val \* f *\ */,
+        0xcc /* builtinSymbols[584].val \* f *\ */,
         0xcc /* builtinSymbols[6663].val \* l *\ */
     };
     array1140[0] = list1139.val;
     array1140[1] = builtinSymbols[6822].val /* map-with-index */;
-    array1140[2] = builtinSymbols[6372].val /* f */;
+    array1140[2] = builtinSymbols[584].val /* f */;
     array1140[3] = builtinSymbols[6663].val /* l */;
     Object list1140 = Pair::wordArrayToList(array1140, 4);
 
@@ -23355,14 +23355,14 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[6555].val \* hashtable *\ */,
         0xcc /* builtinSymbols[6657].val \* key *\ */,
         0xcc /* builtinSymbols[7079].val \* proc *\ */,
-        0xcc /* builtinSymbols[6258].val \* default *\ */
+        0xcc /* builtinSymbols[470].val \* default *\ */
     };
     array1146[0] = list1145.val;
     array1146[1] = builtinSymbols[6573].val /* hashtable-update! */;
     array1146[2] = builtinSymbols[6555].val /* hashtable */;
     array1146[3] = builtinSymbols[6657].val /* key */;
     array1146[4] = builtinSymbols[7079].val /* proc */;
-    array1146[5] = builtinSymbols[6258].val /* default */;
+    array1146[5] = builtinSymbols[470].val /* default */;
     Object list1146 = Pair::wordArrayToList(array1146, 6);
 
     static word array1147[]= {
@@ -23391,12 +23391,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1150[]= {
         0xcc /* list1149.val */,
-        0xcc /* builtinSymbols[6283].val \* display *\ */,
+        0xcc /* builtinSymbols[495].val \* display *\ */,
         0xcc /* builtinSymbols[8346].val \* x *\ */,
         0xcc /* builtinSymbols[7060].val \* port *\ */
     };
     array1150[0] = list1149.val;
-    array1150[1] = builtinSymbols[6283].val /* display */;
+    array1150[1] = builtinSymbols[495].val /* display */;
     array1150[2] = builtinSymbols[8346].val /* x */;
     array1150[3] = builtinSymbols[7060].val /* port */;
     Object list1150 = Pair::wordArrayToList(array1150, 4);
@@ -23427,13 +23427,13 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1154[]= {
         0xcc /* list1153.val */,
-        0xcc /* builtinSymbols[6022].val \* bytevector-for-each *\ */,
-        0xcc /* builtinSymbols[6013].val \* bv *\ */,
+        0xcc /* builtinSymbols[234].val \* bytevector-for-each *\ */,
+        0xcc /* builtinSymbols[225].val \* bv *\ */,
         0xcc /* builtinSymbols[7079].val \* proc *\ */
     };
     array1154[0] = list1153.val;
-    array1154[1] = builtinSymbols[6022].val /* bytevector-for-each */;
-    array1154[2] = builtinSymbols[6013].val /* bv */;
+    array1154[1] = builtinSymbols[234].val /* bytevector-for-each */;
+    array1154[2] = builtinSymbols[225].val /* bv */;
     array1154[3] = builtinSymbols[7079].val /* proc */;
     Object list1154 = Pair::wordArrayToList(array1154, 4);
 
@@ -23478,12 +23478,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1160[]= {
         0xcc /* list1159.val */,
-        0xcc /* builtinSymbols[6100].val \* call-with-bytevector-output-port *\ */,
+        0xcc /* builtinSymbols[312].val \* call-with-bytevector-output-port *\ */,
         0xcc /* builtinSymbols[7079].val \* proc *\ */,
         0xcc /* builtinSymbols[8271].val \* transcoder *\ */
     };
     array1160[0] = list1159.val;
-    array1160[1] = builtinSymbols[6100].val /* call-with-bytevector-output-port */;
+    array1160[1] = builtinSymbols[312].val /* call-with-bytevector-output-port */;
     array1160[2] = builtinSymbols[7079].val /* proc */;
     array1160[3] = builtinSymbols[8271].val /* transcoder */;
     Object list1160 = Pair::wordArrayToList(array1160, 4);
@@ -23497,11 +23497,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1162[]= {
         0xcc /* list1161.val */,
-        0xcc /* builtinSymbols[6107].val \* call-with-string-output-port *\ */,
+        0xcc /* builtinSymbols[319].val \* call-with-string-output-port *\ */,
         0xcc /* builtinSymbols[7079].val \* proc *\ */
     };
     array1162[0] = list1161.val;
-    array1162[1] = builtinSymbols[6107].val /* call-with-string-output-port */;
+    array1162[1] = builtinSymbols[319].val /* call-with-string-output-port */;
     array1162[2] = builtinSymbols[7079].val /* proc */;
     Object list1162 = Pair::wordArrayToList(array1162, 3);
 
@@ -23544,13 +23544,13 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1168[]= {
         0xcc /* list1167.val */,
-        0xcc /* builtinSymbols[6102].val \* call-with-input-file *\ */,
-        0xcc /* builtinSymbols[6387].val \* filename *\ */,
+        0xcc /* builtinSymbols[314].val \* call-with-input-file *\ */,
+        0xcc /* builtinSymbols[599].val \* filename *\ */,
         0xcc /* builtinSymbols[7079].val \* proc *\ */
     };
     array1168[0] = list1167.val;
-    array1168[1] = builtinSymbols[6102].val /* call-with-input-file */;
-    array1168[2] = builtinSymbols[6387].val /* filename */;
+    array1168[1] = builtinSymbols[314].val /* call-with-input-file */;
+    array1168[2] = builtinSymbols[599].val /* filename */;
     array1168[3] = builtinSymbols[7079].val /* proc */;
     Object list1168 = Pair::wordArrayToList(array1168, 4);
 
@@ -23563,13 +23563,13 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1170[]= {
         0xcc /* list1169.val */,
-        0xcc /* builtinSymbols[6103].val \* call-with-output-file *\ */,
-        0xcc /* builtinSymbols[6387].val \* filename *\ */,
+        0xcc /* builtinSymbols[315].val \* call-with-output-file *\ */,
+        0xcc /* builtinSymbols[599].val \* filename *\ */,
         0xcc /* builtinSymbols[7079].val \* proc *\ */
     };
     array1170[0] = list1169.val;
-    array1170[1] = builtinSymbols[6103].val /* call-with-output-file */;
-    array1170[2] = builtinSymbols[6387].val /* filename */;
+    array1170[1] = builtinSymbols[315].val /* call-with-output-file */;
+    array1170[2] = builtinSymbols[599].val /* filename */;
     array1170[3] = builtinSymbols[7079].val /* proc */;
     Object list1170 = Pair::wordArrayToList(array1170, 4);
 
@@ -23583,12 +23583,12 @@ Object scheme::getBuiltinCompiler() {
     static word array1172[]= {
         0xcc /* list1171.val */,
         0xcc /* builtinSymbols[8341].val \* with-output-to-file *\ */,
-        0xcc /* builtinSymbols[6387].val \* filename *\ */,
+        0xcc /* builtinSymbols[599].val \* filename *\ */,
         0xcc /* builtinSymbols[7354].val \* thunk *\ */
     };
     array1172[0] = list1171.val;
     array1172[1] = builtinSymbols[8341].val /* with-output-to-file */;
-    array1172[2] = builtinSymbols[6387].val /* filename */;
+    array1172[2] = builtinSymbols[599].val /* filename */;
     array1172[3] = builtinSymbols[7354].val /* thunk */;
     Object list1172 = Pair::wordArrayToList(array1172, 4);
 
@@ -23602,12 +23602,12 @@ Object scheme::getBuiltinCompiler() {
     static word array1174[]= {
         0xcc /* list1173.val */,
         0xcc /* builtinSymbols[8340].val \* with-input-from-file *\ */,
-        0xcc /* builtinSymbols[6387].val \* filename *\ */,
+        0xcc /* builtinSymbols[599].val \* filename *\ */,
         0xcc /* builtinSymbols[7354].val \* thunk *\ */
     };
     array1174[0] = list1173.val;
     array1174[1] = builtinSymbols[8340].val /* with-input-from-file */;
-    array1174[2] = builtinSymbols[6387].val /* filename */;
+    array1174[2] = builtinSymbols[599].val /* filename */;
     array1174[3] = builtinSymbols[7354].val /* thunk */;
     Object list1174 = Pair::wordArrayToList(array1174, 4);
 
@@ -23779,13 +23779,13 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1194[]= {
         0xcc /* list1193.val */,
-        0xcc /* builtinSymbols[6466].val \* for-all *\ */,
+        0xcc /* builtinSymbols[678].val \* for-all *\ */,
         0xcc /* builtinSymbols[7079].val \* proc *\ */,
         0xcc /* builtinSymbols[6752].val \* lst *\ */,
         0xcc /* builtinSymbols[6737].val \* lists *\ */
     };
     array1194[0] = list1193.val;
-    array1194[1] = builtinSymbols[6466].val /* for-all */;
+    array1194[1] = builtinSymbols[678].val /* for-all */;
     array1194[2] = builtinSymbols[7079].val /* proc */;
     array1194[3] = builtinSymbols[6752].val /* lst */;
     array1194[4] = builtinSymbols[6737].val /* lists */;
@@ -23800,14 +23800,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1196[]= {
         0xcc /* list1195.val */,
-        0xcc /* builtinSymbols[5971].val \* assoc *\ */,
+        0xcc /* builtinSymbols[183].val \* assoc *\ */,
         0xcc /* builtinSymbols[6908].val \* obj *\ */,
-        0xcc /* builtinSymbols[5947].val \* alist *\ */
+        0xcc /* builtinSymbols[159].val \* alist *\ */
     };
     array1196[0] = list1195.val;
-    array1196[1] = builtinSymbols[5971].val /* assoc */;
+    array1196[1] = builtinSymbols[183].val /* assoc */;
     array1196[2] = builtinSymbols[6908].val /* obj */;
-    array1196[3] = builtinSymbols[5947].val /* alist */;
+    array1196[3] = builtinSymbols[159].val /* alist */;
     Object list1196 = Pair::wordArrayToList(array1196, 4);
 
     static word array1197[]= {
@@ -23819,14 +23819,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1198[]= {
         0xcc /* list1197.val */,
-        0xcc /* builtinSymbols[5975].val \* assv *\ */,
+        0xcc /* builtinSymbols[187].val \* assv *\ */,
         0xcc /* builtinSymbols[6908].val \* obj *\ */,
-        0xcc /* builtinSymbols[5947].val \* alist *\ */
+        0xcc /* builtinSymbols[159].val \* alist *\ */
     };
     array1198[0] = list1197.val;
-    array1198[1] = builtinSymbols[5975].val /* assv */;
+    array1198[1] = builtinSymbols[187].val /* assv */;
     array1198[2] = builtinSymbols[6908].val /* obj */;
-    array1198[3] = builtinSymbols[5947].val /* alist */;
+    array1198[3] = builtinSymbols[159].val /* alist */;
     Object list1198 = Pair::wordArrayToList(array1198, 4);
 
     static word array1199[]= {
@@ -23838,14 +23838,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1200[]= {
         0xcc /* list1199.val */,
-        0xcc /* builtinSymbols[5974].val \* assq *\ */,
+        0xcc /* builtinSymbols[186].val \* assq *\ */,
         0xcc /* builtinSymbols[6908].val \* obj *\ */,
-        0xcc /* builtinSymbols[5947].val \* alist *\ */
+        0xcc /* builtinSymbols[159].val \* alist *\ */
     };
     array1200[0] = list1199.val;
-    array1200[1] = builtinSymbols[5974].val /* assq */;
+    array1200[1] = builtinSymbols[186].val /* assq */;
     array1200[2] = builtinSymbols[6908].val /* obj */;
-    array1200[3] = builtinSymbols[5947].val /* alist */;
+    array1200[3] = builtinSymbols[159].val /* alist */;
     Object list1200 = Pair::wordArrayToList(array1200, 4);
 
     static word array1201[]= {
@@ -23860,13 +23860,13 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[6529].val \* generic-assoc *\ */,
         0xcc /* builtinSymbols[7142].val \* releq *\ */,
         0xcc /* builtinSymbols[6908].val \* obj *\ */,
-        0xcc /* builtinSymbols[5947].val \* alist *\ */
+        0xcc /* builtinSymbols[159].val \* alist *\ */
     };
     array1202[0] = list1201.val;
     array1202[1] = builtinSymbols[6529].val /* generic-assoc */;
     array1202[2] = builtinSymbols[7142].val /* releq */;
     array1202[3] = builtinSymbols[6908].val /* obj */;
-    array1202[4] = builtinSymbols[5947].val /* alist */;
+    array1202[4] = builtinSymbols[159].val /* alist */;
     Object list1202 = Pair::wordArrayToList(array1202, 5);
 
     static word array1203[]= {
@@ -23895,12 +23895,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1206[]= {
         0xcc /* list1205.val */,
-        0xcc /* builtinSymbols[6392].val \* find *\ */,
+        0xcc /* builtinSymbols[604].val \* find *\ */,
         0xcc /* builtinSymbols[7072].val \* pred *\ */,
         0xcc /* builtinSymbols[6752].val \* lst *\ */
     };
     array1206[0] = list1205.val;
-    array1206[1] = builtinSymbols[6392].val /* find */;
+    array1206[1] = builtinSymbols[604].val /* find */;
     array1206[2] = builtinSymbols[7072].val /* pred */;
     array1206[3] = builtinSymbols[6752].val /* lst */;
     Object list1206 = Pair::wordArrayToList(array1206, 4);
@@ -23914,12 +23914,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1208[]= {
         0xcc /* list1207.val */,
-        0xcc /* builtinSymbols[6389].val \* filter *\ */,
+        0xcc /* builtinSymbols[601].val \* filter *\ */,
         0xcc /* builtinSymbols[7073].val \* pred? *\ */,
         0xcc /* builtinSymbols[6663].val \* l *\ */
     };
     array1208[0] = list1207.val;
-    array1208[1] = builtinSymbols[6389].val /* filter */;
+    array1208[1] = builtinSymbols[601].val /* filter */;
     array1208[2] = builtinSymbols[7073].val /* pred? */;
     array1208[3] = builtinSymbols[6663].val /* l */;
     Object list1208 = Pair::wordArrayToList(array1208, 4);
@@ -23933,12 +23933,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1210[]= {
         0xcc /* list1209.val */,
-        0xcc /* builtinSymbols[5973].val \* assp *\ */,
+        0xcc /* builtinSymbols[185].val \* assp *\ */,
         0xcc /* builtinSymbols[7079].val \* proc *\ */,
         0xcc /* builtinSymbols[6752].val \* lst *\ */
     };
     array1210[0] = list1209.val;
-    array1210[1] = builtinSymbols[5973].val /* assp */;
+    array1210[1] = builtinSymbols[185].val /* assp */;
     array1210[2] = builtinSymbols[7079].val /* proc */;
     array1210[3] = builtinSymbols[6752].val /* lst */;
     Object list1210 = Pair::wordArrayToList(array1210, 4);
@@ -24117,15 +24117,15 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1230[]= {
         0xcc /* list1229.val */,
-        0xcc /* builtinSymbols[6459].val \* fold-right *\ */,
-        0xcc /* builtinSymbols[6211].val \* combine *\ */,
+        0xcc /* builtinSymbols[671].val \* fold-right *\ */,
+        0xcc /* builtinSymbols[423].val \* combine *\ */,
         0xcc /* builtinSymbols[6888].val \* nil *\ */,
         0xcc /* builtinSymbols[6734].val \* list1 *\ */,
         0xcc /* builtinSymbols[6737].val \* lists *\ */
     };
     array1230[0] = list1229.val;
-    array1230[1] = builtinSymbols[6459].val /* fold-right */;
-    array1230[2] = builtinSymbols[6211].val /* combine */;
+    array1230[1] = builtinSymbols[671].val /* fold-right */;
+    array1230[2] = builtinSymbols[423].val /* combine */;
     array1230[3] = builtinSymbols[6888].val /* nil */;
     array1230[4] = builtinSymbols[6734].val /* list1 */;
     array1230[5] = builtinSymbols[6737].val /* lists */;
@@ -24142,12 +24142,12 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list1231.val */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
         0xcc /* builtinSymbols[6721].val \* lis *\ */,
-        0xcc /* builtinSymbols[5952].val \* ans *\ */
+        0xcc /* builtinSymbols[164].val \* ans *\ */
     };
     array1232[0] = list1231.val;
     array1232[1] = builtinSymbols[6669].val /* lambda */;
     array1232[2] = builtinSymbols[6721].val /* lis */;
-    array1232[3] = builtinSymbols[5952].val /* ans */;
+    array1232[3] = builtinSymbols[164].val /* ans */;
     Object list1232 = Pair::wordArrayToList(array1232, 4);
 
     static word array1233[]= {
@@ -24159,13 +24159,13 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1234[]= {
         0xcc /* list1233.val */,
-        0xcc /* builtinSymbols[6457].val \* fold *\ */,
+        0xcc /* builtinSymbols[669].val \* fold *\ */,
         0xcc /* builtinSymbols[6661].val \* kons *\ */,
         0xcc /* builtinSymbols[6660].val \* knil *\ */,
         0xcc /* builtinSymbols[6722].val \* lis1 *\ */
     };
     array1234[0] = list1233.val;
-    array1234[1] = builtinSymbols[6457].val /* fold */;
+    array1234[1] = builtinSymbols[669].val /* fold */;
     array1234[2] = builtinSymbols[6661].val /* kons */;
     array1234[3] = builtinSymbols[6660].val /* knil */;
     array1234[4] = builtinSymbols[6722].val /* lis1 */;
@@ -24180,15 +24180,15 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1236[]= {
         0xcc /* list1235.val */,
-        0xcc /* builtinSymbols[6464].val \* foldr2 *\ */,
-        0xcc /* builtinSymbols[5987].val \* binop *\ */,
+        0xcc /* builtinSymbols[676].val \* foldr2 *\ */,
+        0xcc /* builtinSymbols[199].val \* binop *\ */,
         0xcc /* builtinSymbols[7249].val \* start *\ */,
         0xcc /* builtinSymbols[6664].val \* l1 *\ */,
         0xcc /* builtinSymbols[6665].val \* l2 *\ */
     };
     array1236[0] = list1235.val;
-    array1236[1] = builtinSymbols[6464].val /* foldr2 */;
-    array1236[2] = builtinSymbols[5987].val /* binop */;
+    array1236[1] = builtinSymbols[676].val /* foldr2 */;
+    array1236[2] = builtinSymbols[199].val /* binop */;
     array1236[3] = builtinSymbols[7249].val /* start */;
     array1236[4] = builtinSymbols[6664].val /* l1 */;
     array1236[5] = builtinSymbols[6665].val /* l2 */;
@@ -24203,13 +24203,13 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1238[]= {
         0xcc /* list1237.val */,
-        0xcc /* builtinSymbols[6463].val \* foldr1 *\ */,
-        0xcc /* builtinSymbols[5987].val \* binop *\ */,
+        0xcc /* builtinSymbols[675].val \* foldr1 *\ */,
+        0xcc /* builtinSymbols[199].val \* binop *\ */,
         0xcc /* builtinSymbols[6663].val \* l *\ */
     };
     array1238[0] = list1237.val;
-    array1238[1] = builtinSymbols[6463].val /* foldr1 */;
-    array1238[2] = builtinSymbols[5987].val /* binop */;
+    array1238[1] = builtinSymbols[675].val /* foldr1 */;
+    array1238[2] = builtinSymbols[199].val /* binop */;
     array1238[3] = builtinSymbols[6663].val /* l */;
     Object list1238 = Pair::wordArrayToList(array1238, 4);
 
@@ -24222,14 +24222,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1240[]= {
         0xcc /* list1239.val */,
-        0xcc /* builtinSymbols[6462].val \* foldr *\ */,
-        0xcc /* builtinSymbols[5987].val \* binop *\ */,
+        0xcc /* builtinSymbols[674].val \* foldr *\ */,
+        0xcc /* builtinSymbols[199].val \* binop *\ */,
         0xcc /* builtinSymbols[7249].val \* start *\ */,
         0xcc /* builtinSymbols[6663].val \* l *\ */
     };
     array1240[0] = list1239.val;
-    array1240[1] = builtinSymbols[6462].val /* foldr */;
-    array1240[2] = builtinSymbols[5987].val /* binop */;
+    array1240[1] = builtinSymbols[674].val /* foldr */;
+    array1240[2] = builtinSymbols[199].val /* binop */;
     array1240[3] = builtinSymbols[7249].val /* start */;
     array1240[4] = builtinSymbols[6663].val /* l */;
     Object list1240 = Pair::wordArrayToList(array1240, 5);
@@ -24243,15 +24243,15 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1242[]= {
         0xcc /* list1241.val */,
-        0xcc /* builtinSymbols[6458].val \* fold-left *\ */,
-        0xcc /* builtinSymbols[6211].val \* combine *\ */,
+        0xcc /* builtinSymbols[670].val \* fold-left *\ */,
+        0xcc /* builtinSymbols[423].val \* combine *\ */,
         0xcc /* builtinSymbols[6888].val \* nil *\ */,
         0xcc /* builtinSymbols[6734].val \* list1 *\ */,
         0xcc /* builtinSymbols[6737].val \* lists *\ */
     };
     array1242[0] = list1241.val;
-    array1242[1] = builtinSymbols[6458].val /* fold-left */;
-    array1242[2] = builtinSymbols[6211].val /* combine */;
+    array1242[1] = builtinSymbols[670].val /* fold-left */;
+    array1242[2] = builtinSymbols[423].val /* combine */;
     array1242[3] = builtinSymbols[6888].val /* nil */;
     array1242[4] = builtinSymbols[6734].val /* list1 */;
     array1242[5] = builtinSymbols[6737].val /* lists */;
@@ -24266,14 +24266,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1244[]= {
         0xcc /* list1243.val */,
-        0xcc /* builtinSymbols[6460].val \* foldl *\ */,
-        0xcc /* builtinSymbols[5987].val \* binop *\ */,
+        0xcc /* builtinSymbols[672].val \* foldl *\ */,
+        0xcc /* builtinSymbols[199].val \* binop *\ */,
         0xcc /* builtinSymbols[7249].val \* start *\ */,
         0xcc /* builtinSymbols[6663].val \* l *\ */
     };
     array1244[0] = list1243.val;
-    array1244[1] = builtinSymbols[6460].val /* foldl */;
-    array1244[2] = builtinSymbols[5987].val /* binop */;
+    array1244[1] = builtinSymbols[672].val /* foldl */;
+    array1244[2] = builtinSymbols[199].val /* binop */;
     array1244[3] = builtinSymbols[7249].val /* start */;
     array1244[4] = builtinSymbols[6663].val /* l */;
     Object list1244 = Pair::wordArrayToList(array1244, 5);
@@ -24287,13 +24287,13 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1246[]= {
         0xcc /* list1245.val */,
-        0xcc /* builtinSymbols[6461].val \* foldl1 *\ */,
-        0xcc /* builtinSymbols[5987].val \* binop *\ */,
+        0xcc /* builtinSymbols[673].val \* foldl1 *\ */,
+        0xcc /* builtinSymbols[199].val \* binop *\ */,
         0xcc /* builtinSymbols[6663].val \* l *\ */
     };
     array1246[0] = list1245.val;
-    array1246[1] = builtinSymbols[6461].val /* foldl1 */;
-    array1246[2] = builtinSymbols[5987].val /* binop */;
+    array1246[1] = builtinSymbols[673].val /* foldl1 */;
+    array1246[2] = builtinSymbols[199].val /* binop */;
     array1246[3] = builtinSymbols[6663].val /* l */;
     Object list1246 = Pair::wordArrayToList(array1246, 4);
 
@@ -24414,12 +24414,12 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1260[]= {
         0xcc /* list1259.val */,
-        0xcc /* builtinSymbols[6467].val \* for-each *\ */,
+        0xcc /* builtinSymbols[679].val \* for-each *\ */,
         0xcc /* builtinSymbols[7079].val \* proc *\ */,
         0xcc /* builtinSymbols[6740].val \* ll *\ */
     };
     array1260[0] = list1259.val;
-    array1260[1] = builtinSymbols[6467].val /* for-each */;
+    array1260[1] = builtinSymbols[679].val /* for-each */;
     array1260[2] = builtinSymbols[7079].val /* proc */;
     array1260[3] = builtinSymbols[6740].val /* ll */;
     Object list1260 = Pair::wordArrayToList(array1260, 4);
@@ -24526,11 +24526,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1272[]= {
         0xcc /* list1271.val */,
-        0xcc /* builtinSymbols[5938].val \* abs *\ */,
+        0xcc /* builtinSymbols[150].val \* abs *\ */,
         0xcc /* builtinSymbols[6870].val \* n *\ */
     };
     array1272[0] = list1271.val;
-    array1272[1] = builtinSymbols[5938].val /* abs */;
+    array1272[1] = builtinSymbols[150].val /* abs */;
     array1272[2] = builtinSymbols[6870].val /* n */;
     Object list1272 = Pair::wordArrayToList(array1272, 3);
 
@@ -24544,11 +24544,11 @@ Object scheme::getBuiltinCompiler() {
     static word array1274[]= {
         0xcc /* list1273.val */,
         0xcc /* builtinSymbols[6723].val \* list *\ */,
-        0xcc /* builtinSymbols[5935].val \* a *\ */
+        0xcc /* builtinSymbols[147].val \* a *\ */
     };
     array1274[0] = list1273.val;
     array1274[1] = builtinSymbols[6723].val /* list */;
-    array1274[2] = builtinSymbols[5935].val /* a */;
+    array1274[2] = builtinSymbols[147].val /* a */;
     Object list1274 = Pair::wordArrayToList(array1274, 3);
 
     static word array1275[]= {
@@ -24615,14 +24615,14 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1282[]= {
         0xcc /* list1281.val */,
-        0xcc /* builtinSymbols[6108].val \* call-with-values *\ */,
+        0xcc /* builtinSymbols[320].val \* call-with-values *\ */,
         0xcc /* builtinSymbols[7082].val \* producer *\ */,
-        0xcc /* builtinSymbols[6236].val \* consumer *\ */
+        0xcc /* builtinSymbols[448].val \* consumer *\ */
     };
     array1282[0] = list1281.val;
-    array1282[1] = builtinSymbols[6108].val /* call-with-values */;
+    array1282[1] = builtinSymbols[320].val /* call-with-values */;
     array1282[2] = builtinSymbols[7082].val /* producer */;
-    array1282[3] = builtinSymbols[6236].val /* consumer */;
+    array1282[3] = builtinSymbols[448].val /* consumer */;
     Object list1282 = Pair::wordArrayToList(array1282, 4);
 
     static word array1283[]= {
@@ -24651,11 +24651,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1286[]= {
         0xcc /* list1285.val */,
-        0xcc /* builtinSymbols[6349].val \* even? *\ */,
+        0xcc /* builtinSymbols[561].val \* even? *\ */,
         0xcc /* builtinSymbols[8346].val \* x *\ */
     };
     array1286[0] = list1285.val;
-    array1286[1] = builtinSymbols[6349].val /* even? */;
+    array1286[1] = builtinSymbols[561].val /* even? */;
     array1286[2] = builtinSymbols[8346].val /* x */;
     Object list1286 = Pair::wordArrayToList(array1286, 3);
 
@@ -24668,11 +24668,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1288[]= {
         0xcc /* list1287.val */,
-        0xcc /* builtinSymbols[6150].val \* cdddddr *\ */,
+        0xcc /* builtinSymbols[362].val \* cdddddr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1288[0] = list1287.val;
-    array1288[1] = builtinSymbols[6150].val /* cdddddr */;
+    array1288[1] = builtinSymbols[362].val /* cdddddr */;
     array1288[2] = builtinSymbols[6941].val /* p */;
     Object list1288 = Pair::wordArrayToList(array1288, 3);
 
@@ -24685,11 +24685,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1290[]= {
         0xcc /* list1289.val */,
-        0xcc /* builtinSymbols[6092].val \* caddddr *\ */,
+        0xcc /* builtinSymbols[304].val \* caddddr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1290[0] = list1289.val;
-    array1290[1] = builtinSymbols[6092].val /* caddddr */;
+    array1290[1] = builtinSymbols[304].val /* caddddr */;
     array1290[2] = builtinSymbols[6941].val /* p */;
     Object list1290 = Pair::wordArrayToList(array1290, 3);
 
@@ -24702,11 +24702,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1292[]= {
         0xcc /* list1291.val */,
-        0xcc /* builtinSymbols[6135].val \* cdadddr *\ */,
+        0xcc /* builtinSymbols[347].val \* cdadddr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1292[0] = list1291.val;
-    array1292[1] = builtinSymbols[6135].val /* cdadddr */;
+    array1292[1] = builtinSymbols[347].val /* cdadddr */;
     array1292[2] = builtinSymbols[6941].val /* p */;
     Object list1292 = Pair::wordArrayToList(array1292, 3);
 
@@ -24719,11 +24719,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1294[]= {
         0xcc /* list1293.val */,
-        0xcc /* builtinSymbols[6077].val \* caadddr *\ */,
+        0xcc /* builtinSymbols[289].val \* caadddr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1294[0] = list1293.val;
-    array1294[1] = builtinSymbols[6077].val /* caadddr */;
+    array1294[1] = builtinSymbols[289].val /* caadddr */;
     array1294[2] = builtinSymbols[6941].val /* p */;
     Object list1294 = Pair::wordArrayToList(array1294, 3);
 
@@ -24736,11 +24736,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1296[]= {
         0xcc /* list1295.val */,
-        0xcc /* builtinSymbols[6143].val \* cddaddr *\ */,
+        0xcc /* builtinSymbols[355].val \* cddaddr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1296[0] = list1295.val;
-    array1296[1] = builtinSymbols[6143].val /* cddaddr */;
+    array1296[1] = builtinSymbols[355].val /* cddaddr */;
     array1296[2] = builtinSymbols[6941].val /* p */;
     Object list1296 = Pair::wordArrayToList(array1296, 3);
 
@@ -24753,11 +24753,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1298[]= {
         0xcc /* list1297.val */,
-        0xcc /* builtinSymbols[6085].val \* cadaddr *\ */,
+        0xcc /* builtinSymbols[297].val \* cadaddr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1298[0] = list1297.val;
-    array1298[1] = builtinSymbols[6085].val /* cadaddr */;
+    array1298[1] = builtinSymbols[297].val /* cadaddr */;
     array1298[2] = builtinSymbols[6941].val /* p */;
     Object list1298 = Pair::wordArrayToList(array1298, 3);
 
@@ -24770,11 +24770,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1300[]= {
         0xcc /* list1299.val */,
-        0xcc /* builtinSymbols[6128].val \* cdaaddr *\ */,
+        0xcc /* builtinSymbols[340].val \* cdaaddr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1300[0] = list1299.val;
-    array1300[1] = builtinSymbols[6128].val /* cdaaddr */;
+    array1300[1] = builtinSymbols[340].val /* cdaaddr */;
     array1300[2] = builtinSymbols[6941].val /* p */;
     Object list1300 = Pair::wordArrayToList(array1300, 3);
 
@@ -24787,11 +24787,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1302[]= {
         0xcc /* list1301.val */,
-        0xcc /* builtinSymbols[6070].val \* caaaddr *\ */,
+        0xcc /* builtinSymbols[282].val \* caaaddr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1302[0] = list1301.val;
-    array1302[1] = builtinSymbols[6070].val /* caaaddr */;
+    array1302[1] = builtinSymbols[282].val /* caaaddr */;
     array1302[2] = builtinSymbols[6941].val /* p */;
     Object list1302 = Pair::wordArrayToList(array1302, 3);
 
@@ -24804,11 +24804,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1304[]= {
         0xcc /* list1303.val */,
-        0xcc /* builtinSymbols[6147].val \* cdddadr *\ */,
+        0xcc /* builtinSymbols[359].val \* cdddadr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1304[0] = list1303.val;
-    array1304[1] = builtinSymbols[6147].val /* cdddadr */;
+    array1304[1] = builtinSymbols[359].val /* cdddadr */;
     array1304[2] = builtinSymbols[6941].val /* p */;
     Object list1304 = Pair::wordArrayToList(array1304, 3);
 
@@ -24821,11 +24821,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1306[]= {
         0xcc /* list1305.val */,
-        0xcc /* builtinSymbols[6089].val \* caddadr *\ */,
+        0xcc /* builtinSymbols[301].val \* caddadr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1306[0] = list1305.val;
-    array1306[1] = builtinSymbols[6089].val /* caddadr */;
+    array1306[1] = builtinSymbols[301].val /* caddadr */;
     array1306[2] = builtinSymbols[6941].val /* p */;
     Object list1306 = Pair::wordArrayToList(array1306, 3);
 
@@ -24838,11 +24838,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1308[]= {
         0xcc /* list1307.val */,
-        0xcc /* builtinSymbols[6132].val \* cdadadr *\ */,
+        0xcc /* builtinSymbols[344].val \* cdadadr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1308[0] = list1307.val;
-    array1308[1] = builtinSymbols[6132].val /* cdadadr */;
+    array1308[1] = builtinSymbols[344].val /* cdadadr */;
     array1308[2] = builtinSymbols[6941].val /* p */;
     Object list1308 = Pair::wordArrayToList(array1308, 3);
 
@@ -24855,11 +24855,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1310[]= {
         0xcc /* list1309.val */,
-        0xcc /* builtinSymbols[6074].val \* caadadr *\ */,
+        0xcc /* builtinSymbols[286].val \* caadadr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1310[0] = list1309.val;
-    array1310[1] = builtinSymbols[6074].val /* caadadr */;
+    array1310[1] = builtinSymbols[286].val /* caadadr */;
     array1310[2] = builtinSymbols[6941].val /* p */;
     Object list1310 = Pair::wordArrayToList(array1310, 3);
 
@@ -24872,11 +24872,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1312[]= {
         0xcc /* list1311.val */,
-        0xcc /* builtinSymbols[6140].val \* cddaadr *\ */,
+        0xcc /* builtinSymbols[352].val \* cddaadr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1312[0] = list1311.val;
-    array1312[1] = builtinSymbols[6140].val /* cddaadr */;
+    array1312[1] = builtinSymbols[352].val /* cddaadr */;
     array1312[2] = builtinSymbols[6941].val /* p */;
     Object list1312 = Pair::wordArrayToList(array1312, 3);
 
@@ -24889,11 +24889,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1314[]= {
         0xcc /* list1313.val */,
-        0xcc /* builtinSymbols[6082].val \* cadaadr *\ */,
+        0xcc /* builtinSymbols[294].val \* cadaadr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1314[0] = list1313.val;
-    array1314[1] = builtinSymbols[6082].val /* cadaadr */;
+    array1314[1] = builtinSymbols[294].val /* cadaadr */;
     array1314[2] = builtinSymbols[6941].val /* p */;
     Object list1314 = Pair::wordArrayToList(array1314, 3);
 
@@ -24906,11 +24906,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1316[]= {
         0xcc /* list1315.val */,
-        0xcc /* builtinSymbols[6125].val \* cdaaadr *\ */,
+        0xcc /* builtinSymbols[337].val \* cdaaadr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1316[0] = list1315.val;
-    array1316[1] = builtinSymbols[6125].val /* cdaaadr */;
+    array1316[1] = builtinSymbols[337].val /* cdaaadr */;
     array1316[2] = builtinSymbols[6941].val /* p */;
     Object list1316 = Pair::wordArrayToList(array1316, 3);
 
@@ -24923,11 +24923,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1318[]= {
         0xcc /* list1317.val */,
-        0xcc /* builtinSymbols[6067].val \* caaaadr *\ */,
+        0xcc /* builtinSymbols[279].val \* caaaadr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1318[0] = list1317.val;
-    array1318[1] = builtinSymbols[6067].val /* caaaadr */;
+    array1318[1] = builtinSymbols[279].val /* caaaadr */;
     array1318[2] = builtinSymbols[6941].val /* p */;
     Object list1318 = Pair::wordArrayToList(array1318, 3);
 
@@ -24940,11 +24940,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1320[]= {
         0xcc /* list1319.val */,
-        0xcc /* builtinSymbols[6149].val \* cddddar *\ */,
+        0xcc /* builtinSymbols[361].val \* cddddar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1320[0] = list1319.val;
-    array1320[1] = builtinSymbols[6149].val /* cddddar */;
+    array1320[1] = builtinSymbols[361].val /* cddddar */;
     array1320[2] = builtinSymbols[6941].val /* p */;
     Object list1320 = Pair::wordArrayToList(array1320, 3);
 
@@ -24957,11 +24957,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1322[]= {
         0xcc /* list1321.val */,
-        0xcc /* builtinSymbols[6091].val \* cadddar *\ */,
+        0xcc /* builtinSymbols[303].val \* cadddar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1322[0] = list1321.val;
-    array1322[1] = builtinSymbols[6091].val /* cadddar */;
+    array1322[1] = builtinSymbols[303].val /* cadddar */;
     array1322[2] = builtinSymbols[6941].val /* p */;
     Object list1322 = Pair::wordArrayToList(array1322, 3);
 
@@ -24974,11 +24974,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1324[]= {
         0xcc /* list1323.val */,
-        0xcc /* builtinSymbols[6134].val \* cdaddar *\ */,
+        0xcc /* builtinSymbols[346].val \* cdaddar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1324[0] = list1323.val;
-    array1324[1] = builtinSymbols[6134].val /* cdaddar */;
+    array1324[1] = builtinSymbols[346].val /* cdaddar */;
     array1324[2] = builtinSymbols[6941].val /* p */;
     Object list1324 = Pair::wordArrayToList(array1324, 3);
 
@@ -24991,11 +24991,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1326[]= {
         0xcc /* list1325.val */,
-        0xcc /* builtinSymbols[6076].val \* caaddar *\ */,
+        0xcc /* builtinSymbols[288].val \* caaddar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1326[0] = list1325.val;
-    array1326[1] = builtinSymbols[6076].val /* caaddar */;
+    array1326[1] = builtinSymbols[288].val /* caaddar */;
     array1326[2] = builtinSymbols[6941].val /* p */;
     Object list1326 = Pair::wordArrayToList(array1326, 3);
 
@@ -25008,11 +25008,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1328[]= {
         0xcc /* list1327.val */,
-        0xcc /* builtinSymbols[6142].val \* cddadar *\ */,
+        0xcc /* builtinSymbols[354].val \* cddadar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1328[0] = list1327.val;
-    array1328[1] = builtinSymbols[6142].val /* cddadar */;
+    array1328[1] = builtinSymbols[354].val /* cddadar */;
     array1328[2] = builtinSymbols[6941].val /* p */;
     Object list1328 = Pair::wordArrayToList(array1328, 3);
 
@@ -25025,11 +25025,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1330[]= {
         0xcc /* list1329.val */,
-        0xcc /* builtinSymbols[6084].val \* cadadar *\ */,
+        0xcc /* builtinSymbols[296].val \* cadadar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1330[0] = list1329.val;
-    array1330[1] = builtinSymbols[6084].val /* cadadar */;
+    array1330[1] = builtinSymbols[296].val /* cadadar */;
     array1330[2] = builtinSymbols[6941].val /* p */;
     Object list1330 = Pair::wordArrayToList(array1330, 3);
 
@@ -25042,11 +25042,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1332[]= {
         0xcc /* list1331.val */,
-        0xcc /* builtinSymbols[6127].val \* cdaadar *\ */,
+        0xcc /* builtinSymbols[339].val \* cdaadar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1332[0] = list1331.val;
-    array1332[1] = builtinSymbols[6127].val /* cdaadar */;
+    array1332[1] = builtinSymbols[339].val /* cdaadar */;
     array1332[2] = builtinSymbols[6941].val /* p */;
     Object list1332 = Pair::wordArrayToList(array1332, 3);
 
@@ -25059,11 +25059,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1334[]= {
         0xcc /* list1333.val */,
-        0xcc /* builtinSymbols[6069].val \* caaadar *\ */,
+        0xcc /* builtinSymbols[281].val \* caaadar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1334[0] = list1333.val;
-    array1334[1] = builtinSymbols[6069].val /* caaadar */;
+    array1334[1] = builtinSymbols[281].val /* caaadar */;
     array1334[2] = builtinSymbols[6941].val /* p */;
     Object list1334 = Pair::wordArrayToList(array1334, 3);
 
@@ -25076,11 +25076,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1336[]= {
         0xcc /* list1335.val */,
-        0xcc /* builtinSymbols[6146].val \* cdddaar *\ */,
+        0xcc /* builtinSymbols[358].val \* cdddaar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1336[0] = list1335.val;
-    array1336[1] = builtinSymbols[6146].val /* cdddaar */;
+    array1336[1] = builtinSymbols[358].val /* cdddaar */;
     array1336[2] = builtinSymbols[6941].val /* p */;
     Object list1336 = Pair::wordArrayToList(array1336, 3);
 
@@ -25093,11 +25093,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1338[]= {
         0xcc /* list1337.val */,
-        0xcc /* builtinSymbols[6088].val \* caddaar *\ */,
+        0xcc /* builtinSymbols[300].val \* caddaar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1338[0] = list1337.val;
-    array1338[1] = builtinSymbols[6088].val /* caddaar */;
+    array1338[1] = builtinSymbols[300].val /* caddaar */;
     array1338[2] = builtinSymbols[6941].val /* p */;
     Object list1338 = Pair::wordArrayToList(array1338, 3);
 
@@ -25110,11 +25110,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1340[]= {
         0xcc /* list1339.val */,
-        0xcc /* builtinSymbols[6131].val \* cdadaar *\ */,
+        0xcc /* builtinSymbols[343].val \* cdadaar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1340[0] = list1339.val;
-    array1340[1] = builtinSymbols[6131].val /* cdadaar */;
+    array1340[1] = builtinSymbols[343].val /* cdadaar */;
     array1340[2] = builtinSymbols[6941].val /* p */;
     Object list1340 = Pair::wordArrayToList(array1340, 3);
 
@@ -25127,11 +25127,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1342[]= {
         0xcc /* list1341.val */,
-        0xcc /* builtinSymbols[6073].val \* caadaar *\ */,
+        0xcc /* builtinSymbols[285].val \* caadaar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1342[0] = list1341.val;
-    array1342[1] = builtinSymbols[6073].val /* caadaar */;
+    array1342[1] = builtinSymbols[285].val /* caadaar */;
     array1342[2] = builtinSymbols[6941].val /* p */;
     Object list1342 = Pair::wordArrayToList(array1342, 3);
 
@@ -25144,11 +25144,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1344[]= {
         0xcc /* list1343.val */,
-        0xcc /* builtinSymbols[6139].val \* cddaaar *\ */,
+        0xcc /* builtinSymbols[351].val \* cddaaar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1344[0] = list1343.val;
-    array1344[1] = builtinSymbols[6139].val /* cddaaar */;
+    array1344[1] = builtinSymbols[351].val /* cddaaar */;
     array1344[2] = builtinSymbols[6941].val /* p */;
     Object list1344 = Pair::wordArrayToList(array1344, 3);
 
@@ -25161,11 +25161,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1346[]= {
         0xcc /* list1345.val */,
-        0xcc /* builtinSymbols[6081].val \* cadaaar *\ */,
+        0xcc /* builtinSymbols[293].val \* cadaaar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1346[0] = list1345.val;
-    array1346[1] = builtinSymbols[6081].val /* cadaaar */;
+    array1346[1] = builtinSymbols[293].val /* cadaaar */;
     array1346[2] = builtinSymbols[6941].val /* p */;
     Object list1346 = Pair::wordArrayToList(array1346, 3);
 
@@ -25178,11 +25178,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1348[]= {
         0xcc /* list1347.val */,
-        0xcc /* builtinSymbols[6124].val \* cdaaaar *\ */,
+        0xcc /* builtinSymbols[336].val \* cdaaaar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1348[0] = list1347.val;
-    array1348[1] = builtinSymbols[6124].val /* cdaaaar */;
+    array1348[1] = builtinSymbols[336].val /* cdaaaar */;
     array1348[2] = builtinSymbols[6941].val /* p */;
     Object list1348 = Pair::wordArrayToList(array1348, 3);
 
@@ -25195,11 +25195,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1350[]= {
         0xcc /* list1349.val */,
-        0xcc /* builtinSymbols[6066].val \* caaaaar *\ */,
+        0xcc /* builtinSymbols[278].val \* caaaaar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1350[0] = list1349.val;
-    array1350[1] = builtinSymbols[6066].val /* caaaaar */;
+    array1350[1] = builtinSymbols[278].val /* caaaaar */;
     array1350[2] = builtinSymbols[6941].val /* p */;
     Object list1350 = Pair::wordArrayToList(array1350, 3);
 
@@ -25212,11 +25212,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1352[]= {
         0xcc /* list1351.val */,
-        0xcc /* builtinSymbols[6151].val \* cddddr *\ */,
+        0xcc /* builtinSymbols[363].val \* cddddr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1352[0] = list1351.val;
-    array1352[1] = builtinSymbols[6151].val /* cddddr */;
+    array1352[1] = builtinSymbols[363].val /* cddddr */;
     array1352[2] = builtinSymbols[6941].val /* p */;
     Object list1352 = Pair::wordArrayToList(array1352, 3);
 
@@ -25229,11 +25229,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1354[]= {
         0xcc /* list1353.val */,
-        0xcc /* builtinSymbols[6093].val \* cadddr *\ */,
+        0xcc /* builtinSymbols[305].val \* cadddr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1354[0] = list1353.val;
-    array1354[1] = builtinSymbols[6093].val /* cadddr */;
+    array1354[1] = builtinSymbols[305].val /* cadddr */;
     array1354[2] = builtinSymbols[6941].val /* p */;
     Object list1354 = Pair::wordArrayToList(array1354, 3);
 
@@ -25246,11 +25246,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1356[]= {
         0xcc /* list1355.val */,
-        0xcc /* builtinSymbols[6136].val \* cdaddr *\ */,
+        0xcc /* builtinSymbols[348].val \* cdaddr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1356[0] = list1355.val;
-    array1356[1] = builtinSymbols[6136].val /* cdaddr */;
+    array1356[1] = builtinSymbols[348].val /* cdaddr */;
     array1356[2] = builtinSymbols[6941].val /* p */;
     Object list1356 = Pair::wordArrayToList(array1356, 3);
 
@@ -25263,11 +25263,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1358[]= {
         0xcc /* list1357.val */,
-        0xcc /* builtinSymbols[6078].val \* caaddr *\ */,
+        0xcc /* builtinSymbols[290].val \* caaddr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1358[0] = list1357.val;
-    array1358[1] = builtinSymbols[6078].val /* caaddr */;
+    array1358[1] = builtinSymbols[290].val /* caaddr */;
     array1358[2] = builtinSymbols[6941].val /* p */;
     Object list1358 = Pair::wordArrayToList(array1358, 3);
 
@@ -25280,11 +25280,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1360[]= {
         0xcc /* list1359.val */,
-        0xcc /* builtinSymbols[6144].val \* cddadr *\ */,
+        0xcc /* builtinSymbols[356].val \* cddadr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1360[0] = list1359.val;
-    array1360[1] = builtinSymbols[6144].val /* cddadr */;
+    array1360[1] = builtinSymbols[356].val /* cddadr */;
     array1360[2] = builtinSymbols[6941].val /* p */;
     Object list1360 = Pair::wordArrayToList(array1360, 3);
 
@@ -25297,11 +25297,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1362[]= {
         0xcc /* list1361.val */,
-        0xcc /* builtinSymbols[6086].val \* cadadr *\ */,
+        0xcc /* builtinSymbols[298].val \* cadadr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1362[0] = list1361.val;
-    array1362[1] = builtinSymbols[6086].val /* cadadr */;
+    array1362[1] = builtinSymbols[298].val /* cadadr */;
     array1362[2] = builtinSymbols[6941].val /* p */;
     Object list1362 = Pair::wordArrayToList(array1362, 3);
 
@@ -25314,11 +25314,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1364[]= {
         0xcc /* list1363.val */,
-        0xcc /* builtinSymbols[6129].val \* cdaadr *\ */,
+        0xcc /* builtinSymbols[341].val \* cdaadr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1364[0] = list1363.val;
-    array1364[1] = builtinSymbols[6129].val /* cdaadr */;
+    array1364[1] = builtinSymbols[341].val /* cdaadr */;
     array1364[2] = builtinSymbols[6941].val /* p */;
     Object list1364 = Pair::wordArrayToList(array1364, 3);
 
@@ -25331,11 +25331,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1366[]= {
         0xcc /* list1365.val */,
-        0xcc /* builtinSymbols[6071].val \* caaadr *\ */,
+        0xcc /* builtinSymbols[283].val \* caaadr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1366[0] = list1365.val;
-    array1366[1] = builtinSymbols[6071].val /* caaadr */;
+    array1366[1] = builtinSymbols[283].val /* caaadr */;
     array1366[2] = builtinSymbols[6941].val /* p */;
     Object list1366 = Pair::wordArrayToList(array1366, 3);
 
@@ -25348,11 +25348,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1368[]= {
         0xcc /* list1367.val */,
-        0xcc /* builtinSymbols[6148].val \* cdddar *\ */,
+        0xcc /* builtinSymbols[360].val \* cdddar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1368[0] = list1367.val;
-    array1368[1] = builtinSymbols[6148].val /* cdddar */;
+    array1368[1] = builtinSymbols[360].val /* cdddar */;
     array1368[2] = builtinSymbols[6941].val /* p */;
     Object list1368 = Pair::wordArrayToList(array1368, 3);
 
@@ -25365,11 +25365,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1370[]= {
         0xcc /* list1369.val */,
-        0xcc /* builtinSymbols[6090].val \* caddar *\ */,
+        0xcc /* builtinSymbols[302].val \* caddar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1370[0] = list1369.val;
-    array1370[1] = builtinSymbols[6090].val /* caddar */;
+    array1370[1] = builtinSymbols[302].val /* caddar */;
     array1370[2] = builtinSymbols[6941].val /* p */;
     Object list1370 = Pair::wordArrayToList(array1370, 3);
 
@@ -25382,11 +25382,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1372[]= {
         0xcc /* list1371.val */,
-        0xcc /* builtinSymbols[6133].val \* cdadar *\ */,
+        0xcc /* builtinSymbols[345].val \* cdadar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1372[0] = list1371.val;
-    array1372[1] = builtinSymbols[6133].val /* cdadar */;
+    array1372[1] = builtinSymbols[345].val /* cdadar */;
     array1372[2] = builtinSymbols[6941].val /* p */;
     Object list1372 = Pair::wordArrayToList(array1372, 3);
 
@@ -25399,11 +25399,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1374[]= {
         0xcc /* list1373.val */,
-        0xcc /* builtinSymbols[6075].val \* caadar *\ */,
+        0xcc /* builtinSymbols[287].val \* caadar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1374[0] = list1373.val;
-    array1374[1] = builtinSymbols[6075].val /* caadar */;
+    array1374[1] = builtinSymbols[287].val /* caadar */;
     array1374[2] = builtinSymbols[6941].val /* p */;
     Object list1374 = Pair::wordArrayToList(array1374, 3);
 
@@ -25416,11 +25416,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1376[]= {
         0xcc /* list1375.val */,
-        0xcc /* builtinSymbols[6141].val \* cddaar *\ */,
+        0xcc /* builtinSymbols[353].val \* cddaar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1376[0] = list1375.val;
-    array1376[1] = builtinSymbols[6141].val /* cddaar */;
+    array1376[1] = builtinSymbols[353].val /* cddaar */;
     array1376[2] = builtinSymbols[6941].val /* p */;
     Object list1376 = Pair::wordArrayToList(array1376, 3);
 
@@ -25433,11 +25433,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1378[]= {
         0xcc /* list1377.val */,
-        0xcc /* builtinSymbols[6083].val \* cadaar *\ */,
+        0xcc /* builtinSymbols[295].val \* cadaar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1378[0] = list1377.val;
-    array1378[1] = builtinSymbols[6083].val /* cadaar */;
+    array1378[1] = builtinSymbols[295].val /* cadaar */;
     array1378[2] = builtinSymbols[6941].val /* p */;
     Object list1378 = Pair::wordArrayToList(array1378, 3);
 
@@ -25450,11 +25450,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1380[]= {
         0xcc /* list1379.val */,
-        0xcc /* builtinSymbols[6126].val \* cdaaar *\ */,
+        0xcc /* builtinSymbols[338].val \* cdaaar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1380[0] = list1379.val;
-    array1380[1] = builtinSymbols[6126].val /* cdaaar */;
+    array1380[1] = builtinSymbols[338].val /* cdaaar */;
     array1380[2] = builtinSymbols[6941].val /* p */;
     Object list1380 = Pair::wordArrayToList(array1380, 3);
 
@@ -25467,11 +25467,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1382[]= {
         0xcc /* list1381.val */,
-        0xcc /* builtinSymbols[6068].val \* caaaar *\ */,
+        0xcc /* builtinSymbols[280].val \* caaaar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1382[0] = list1381.val;
-    array1382[1] = builtinSymbols[6068].val /* caaaar */;
+    array1382[1] = builtinSymbols[280].val /* caaaar */;
     array1382[2] = builtinSymbols[6941].val /* p */;
     Object list1382 = Pair::wordArrayToList(array1382, 3);
 
@@ -25484,11 +25484,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1384[]= {
         0xcc /* list1383.val */,
-        0xcc /* builtinSymbols[6152].val \* cdddr *\ */,
+        0xcc /* builtinSymbols[364].val \* cdddr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1384[0] = list1383.val;
-    array1384[1] = builtinSymbols[6152].val /* cdddr */;
+    array1384[1] = builtinSymbols[364].val /* cdddr */;
     array1384[2] = builtinSymbols[6941].val /* p */;
     Object list1384 = Pair::wordArrayToList(array1384, 3);
 
@@ -25501,11 +25501,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1386[]= {
         0xcc /* list1385.val */,
-        0xcc /* builtinSymbols[6094].val \* caddr *\ */,
+        0xcc /* builtinSymbols[306].val \* caddr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1386[0] = list1385.val;
-    array1386[1] = builtinSymbols[6094].val /* caddr */;
+    array1386[1] = builtinSymbols[306].val /* caddr */;
     array1386[2] = builtinSymbols[6941].val /* p */;
     Object list1386 = Pair::wordArrayToList(array1386, 3);
 
@@ -25518,11 +25518,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1388[]= {
         0xcc /* list1387.val */,
-        0xcc /* builtinSymbols[6137].val \* cdadr *\ */,
+        0xcc /* builtinSymbols[349].val \* cdadr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1388[0] = list1387.val;
-    array1388[1] = builtinSymbols[6137].val /* cdadr */;
+    array1388[1] = builtinSymbols[349].val /* cdadr */;
     array1388[2] = builtinSymbols[6941].val /* p */;
     Object list1388 = Pair::wordArrayToList(array1388, 3);
 
@@ -25535,11 +25535,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1390[]= {
         0xcc /* list1389.val */,
-        0xcc /* builtinSymbols[6079].val \* caadr *\ */,
+        0xcc /* builtinSymbols[291].val \* caadr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1390[0] = list1389.val;
-    array1390[1] = builtinSymbols[6079].val /* caadr */;
+    array1390[1] = builtinSymbols[291].val /* caadr */;
     array1390[2] = builtinSymbols[6941].val /* p */;
     Object list1390 = Pair::wordArrayToList(array1390, 3);
 
@@ -25552,11 +25552,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1392[]= {
         0xcc /* list1391.val */,
-        0xcc /* builtinSymbols[6145].val \* cddar *\ */,
+        0xcc /* builtinSymbols[357].val \* cddar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1392[0] = list1391.val;
-    array1392[1] = builtinSymbols[6145].val /* cddar */;
+    array1392[1] = builtinSymbols[357].val /* cddar */;
     array1392[2] = builtinSymbols[6941].val /* p */;
     Object list1392 = Pair::wordArrayToList(array1392, 3);
 
@@ -25569,11 +25569,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1394[]= {
         0xcc /* list1393.val */,
-        0xcc /* builtinSymbols[6087].val \* cadar *\ */,
+        0xcc /* builtinSymbols[299].val \* cadar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1394[0] = list1393.val;
-    array1394[1] = builtinSymbols[6087].val /* cadar */;
+    array1394[1] = builtinSymbols[299].val /* cadar */;
     array1394[2] = builtinSymbols[6941].val /* p */;
     Object list1394 = Pair::wordArrayToList(array1394, 3);
 
@@ -25586,11 +25586,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1396[]= {
         0xcc /* list1395.val */,
-        0xcc /* builtinSymbols[6130].val \* cdaar *\ */,
+        0xcc /* builtinSymbols[342].val \* cdaar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1396[0] = list1395.val;
-    array1396[1] = builtinSymbols[6130].val /* cdaar */;
+    array1396[1] = builtinSymbols[342].val /* cdaar */;
     array1396[2] = builtinSymbols[6941].val /* p */;
     Object list1396 = Pair::wordArrayToList(array1396, 3);
 
@@ -25603,11 +25603,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1398[]= {
         0xcc /* list1397.val */,
-        0xcc /* builtinSymbols[6072].val \* caaar *\ */,
+        0xcc /* builtinSymbols[284].val \* caaar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1398[0] = list1397.val;
-    array1398[1] = builtinSymbols[6072].val /* caaar */;
+    array1398[1] = builtinSymbols[284].val /* caaar */;
     array1398[2] = builtinSymbols[6941].val /* p */;
     Object list1398 = Pair::wordArrayToList(array1398, 3);
 
@@ -25620,11 +25620,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1400[]= {
         0xcc /* list1399.val */,
-        0xcc /* builtinSymbols[6153].val \* cddr *\ */,
+        0xcc /* builtinSymbols[365].val \* cddr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1400[0] = list1399.val;
-    array1400[1] = builtinSymbols[6153].val /* cddr */;
+    array1400[1] = builtinSymbols[365].val /* cddr */;
     array1400[2] = builtinSymbols[6941].val /* p */;
     Object list1400 = Pair::wordArrayToList(array1400, 3);
 
@@ -25637,11 +25637,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1402[]= {
         0xcc /* list1401.val */,
-        0xcc /* builtinSymbols[6095].val \* cadr *\ */,
+        0xcc /* builtinSymbols[307].val \* cadr *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1402[0] = list1401.val;
-    array1402[1] = builtinSymbols[6095].val /* cadr */;
+    array1402[1] = builtinSymbols[307].val /* cadr */;
     array1402[2] = builtinSymbols[6941].val /* p */;
     Object list1402 = Pair::wordArrayToList(array1402, 3);
 
@@ -25654,11 +25654,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1404[]= {
         0xcc /* list1403.val */,
-        0xcc /* builtinSymbols[6138].val \* cdar *\ */,
+        0xcc /* builtinSymbols[350].val \* cdar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1404[0] = list1403.val;
-    array1404[1] = builtinSymbols[6138].val /* cdar */;
+    array1404[1] = builtinSymbols[350].val /* cdar */;
     array1404[2] = builtinSymbols[6941].val /* p */;
     Object list1404 = Pair::wordArrayToList(array1404, 3);
 
@@ -25671,11 +25671,11 @@ Object scheme::getBuiltinCompiler() {
 
     static word array1406[]= {
         0xcc /* list1405.val */,
-        0xcc /* builtinSymbols[6080].val \* caar *\ */,
+        0xcc /* builtinSymbols[292].val \* caar *\ */,
         0xcc /* builtinSymbols[6941].val \* p *\ */
     };
     array1406[0] = list1405.val;
-    array1406[1] = builtinSymbols[6080].val /* caar */;
+    array1406[1] = builtinSymbols[292].val /* caar */;
     array1406[2] = builtinSymbols[6941].val /* p */;
     Object list1406 = Pair::wordArrayToList(array1406, 3);
 
@@ -25880,7 +25880,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7877].val \* top level :$:caar *\ */,
+        0xcc /* builtinSymbols[7445].val \* top level :$:caar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         41 /* 10 */,
@@ -25894,7 +25894,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7918].val \* top level :$:cdar *\ */,
+        0xcc /* builtinSymbols[7486].val \* top level :$:cdar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         41 /* 10 */,
@@ -25908,7 +25908,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7892].val \* top level :$:cadr *\ */,
+        0xcc /* builtinSymbols[7460].val \* top level :$:cadr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         41 /* 10 */,
@@ -25922,7 +25922,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7933].val \* top level :$:cddr *\ */,
+        0xcc /* builtinSymbols[7501].val \* top level :$:cddr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         45 /* 11 */,
@@ -25937,7 +25937,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7869].val \* top level :$:caaar *\ */,
+        0xcc /* builtinSymbols[7437].val \* top level :$:caaar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         45 /* 11 */,
@@ -25952,7 +25952,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7910].val \* top level :$:cdaar *\ */,
+        0xcc /* builtinSymbols[7478].val \* top level :$:cdaar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         45 /* 11 */,
@@ -25967,7 +25967,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         45 /* 11 */,
@@ -25982,7 +25982,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7925].val \* top level :$:cddar *\ */,
+        0xcc /* builtinSymbols[7493].val \* top level :$:cddar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         45 /* 11 */,
@@ -25997,7 +25997,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7876].val \* top level :$:caadr *\ */,
+        0xcc /* builtinSymbols[7444].val \* top level :$:caadr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         45 /* 11 */,
@@ -26012,7 +26012,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7917].val \* top level :$:cdadr *\ */,
+        0xcc /* builtinSymbols[7485].val \* top level :$:cdadr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         45 /* 11 */,
@@ -26027,7 +26027,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         45 /* 11 */,
@@ -26042,7 +26042,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7932].val \* top level :$:cdddr *\ */,
+        0xcc /* builtinSymbols[7500].val \* top level :$:cdddr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         49 /* 12 */,
@@ -26058,7 +26058,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7865].val \* top level :$:caaaar *\ */,
+        0xcc /* builtinSymbols[7433].val \* top level :$:caaaar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         49 /* 12 */,
@@ -26074,7 +26074,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7906].val \* top level :$:cdaaar *\ */,
+        0xcc /* builtinSymbols[7474].val \* top level :$:cdaaar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         49 /* 12 */,
@@ -26090,7 +26090,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7880].val \* top level :$:cadaar *\ */,
+        0xcc /* builtinSymbols[7448].val \* top level :$:cadaar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         49 /* 12 */,
@@ -26106,7 +26106,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7921].val \* top level :$:cddaar *\ */,
+        0xcc /* builtinSymbols[7489].val \* top level :$:cddaar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         49 /* 12 */,
@@ -26122,7 +26122,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7872].val \* top level :$:caadar *\ */,
+        0xcc /* builtinSymbols[7440].val \* top level :$:caadar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         49 /* 12 */,
@@ -26138,7 +26138,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7913].val \* top level :$:cdadar *\ */,
+        0xcc /* builtinSymbols[7481].val \* top level :$:cdadar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         49 /* 12 */,
@@ -26154,7 +26154,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7887].val \* top level :$:caddar *\ */,
+        0xcc /* builtinSymbols[7455].val \* top level :$:caddar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         49 /* 12 */,
@@ -26170,7 +26170,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7928].val \* top level :$:cdddar *\ */,
+        0xcc /* builtinSymbols[7496].val \* top level :$:cdddar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         49 /* 12 */,
@@ -26186,7 +26186,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7868].val \* top level :$:caaadr *\ */,
+        0xcc /* builtinSymbols[7436].val \* top level :$:caaadr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         49 /* 12 */,
@@ -26202,7 +26202,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7909].val \* top level :$:cdaadr *\ */,
+        0xcc /* builtinSymbols[7477].val \* top level :$:cdaadr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         49 /* 12 */,
@@ -26218,7 +26218,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7883].val \* top level :$:cadadr *\ */,
+        0xcc /* builtinSymbols[7451].val \* top level :$:cadadr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         49 /* 12 */,
@@ -26234,7 +26234,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7924].val \* top level :$:cddadr *\ */,
+        0xcc /* builtinSymbols[7492].val \* top level :$:cddadr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         49 /* 12 */,
@@ -26250,7 +26250,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7875].val \* top level :$:caaddr *\ */,
+        0xcc /* builtinSymbols[7443].val \* top level :$:caaddr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         49 /* 12 */,
@@ -26266,7 +26266,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7916].val \* top level :$:cdaddr *\ */,
+        0xcc /* builtinSymbols[7484].val \* top level :$:cdaddr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         49 /* 12 */,
@@ -26282,7 +26282,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7890].val \* top level :$:cadddr *\ */,
+        0xcc /* builtinSymbols[7458].val \* top level :$:cadddr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         49 /* 12 */,
@@ -26298,7 +26298,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7931].val \* top level :$:cddddr *\ */,
+        0xcc /* builtinSymbols[7499].val \* top level :$:cddddr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26315,7 +26315,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7863].val \* top level :$:caaaaar *\ */,
+        0xcc /* builtinSymbols[7431].val \* top level :$:caaaaar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26332,7 +26332,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7904].val \* top level :$:cdaaaar *\ */,
+        0xcc /* builtinSymbols[7472].val \* top level :$:cdaaaar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26349,7 +26349,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7878].val \* top level :$:cadaaar *\ */,
+        0xcc /* builtinSymbols[7446].val \* top level :$:cadaaar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26366,7 +26366,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7919].val \* top level :$:cddaaar *\ */,
+        0xcc /* builtinSymbols[7487].val \* top level :$:cddaaar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26383,7 +26383,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7870].val \* top level :$:caadaar *\ */,
+        0xcc /* builtinSymbols[7438].val \* top level :$:caadaar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26400,7 +26400,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7911].val \* top level :$:cdadaar *\ */,
+        0xcc /* builtinSymbols[7479].val \* top level :$:cdadaar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26417,7 +26417,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7885].val \* top level :$:caddaar *\ */,
+        0xcc /* builtinSymbols[7453].val \* top level :$:caddaar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26434,7 +26434,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7926].val \* top level :$:cdddaar *\ */,
+        0xcc /* builtinSymbols[7494].val \* top level :$:cdddaar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26451,7 +26451,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7866].val \* top level :$:caaadar *\ */,
+        0xcc /* builtinSymbols[7434].val \* top level :$:caaadar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26468,7 +26468,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7907].val \* top level :$:cdaadar *\ */,
+        0xcc /* builtinSymbols[7475].val \* top level :$:cdaadar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26485,7 +26485,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7881].val \* top level :$:cadadar *\ */,
+        0xcc /* builtinSymbols[7449].val \* top level :$:cadadar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26502,7 +26502,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7922].val \* top level :$:cddadar *\ */,
+        0xcc /* builtinSymbols[7490].val \* top level :$:cddadar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26519,7 +26519,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7873].val \* top level :$:caaddar *\ */,
+        0xcc /* builtinSymbols[7441].val \* top level :$:caaddar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26536,7 +26536,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7914].val \* top level :$:cdaddar *\ */,
+        0xcc /* builtinSymbols[7482].val \* top level :$:cdaddar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26553,7 +26553,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7888].val \* top level :$:cadddar *\ */,
+        0xcc /* builtinSymbols[7456].val \* top level :$:cadddar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26570,7 +26570,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7929].val \* top level :$:cddddar *\ */,
+        0xcc /* builtinSymbols[7497].val \* top level :$:cddddar *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26587,7 +26587,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7864].val \* top level :$:caaaadr *\ */,
+        0xcc /* builtinSymbols[7432].val \* top level :$:caaaadr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26604,7 +26604,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7905].val \* top level :$:cdaaadr *\ */,
+        0xcc /* builtinSymbols[7473].val \* top level :$:cdaaadr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26621,7 +26621,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7879].val \* top level :$:cadaadr *\ */,
+        0xcc /* builtinSymbols[7447].val \* top level :$:cadaadr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26638,7 +26638,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7920].val \* top level :$:cddaadr *\ */,
+        0xcc /* builtinSymbols[7488].val \* top level :$:cddaadr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26655,7 +26655,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7871].val \* top level :$:caadadr *\ */,
+        0xcc /* builtinSymbols[7439].val \* top level :$:caadadr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26672,7 +26672,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7912].val \* top level :$:cdadadr *\ */,
+        0xcc /* builtinSymbols[7480].val \* top level :$:cdadadr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26689,7 +26689,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7886].val \* top level :$:caddadr *\ */,
+        0xcc /* builtinSymbols[7454].val \* top level :$:caddadr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26706,7 +26706,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7927].val \* top level :$:cdddadr *\ */,
+        0xcc /* builtinSymbols[7495].val \* top level :$:cdddadr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26723,7 +26723,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7867].val \* top level :$:caaaddr *\ */,
+        0xcc /* builtinSymbols[7435].val \* top level :$:caaaddr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26740,7 +26740,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7908].val \* top level :$:cdaaddr *\ */,
+        0xcc /* builtinSymbols[7476].val \* top level :$:cdaaddr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26757,7 +26757,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7882].val \* top level :$:cadaddr *\ */,
+        0xcc /* builtinSymbols[7450].val \* top level :$:cadaddr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26774,7 +26774,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7923].val \* top level :$:cddaddr *\ */,
+        0xcc /* builtinSymbols[7491].val \* top level :$:cddaddr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26791,7 +26791,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7874].val \* top level :$:caadddr *\ */,
+        0xcc /* builtinSymbols[7442].val \* top level :$:caadddr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26808,7 +26808,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7915].val \* top level :$:cdadddr *\ */,
+        0xcc /* builtinSymbols[7483].val \* top level :$:cdadddr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26825,7 +26825,7 @@ Object scheme::getBuiltinCompiler() {
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7889].val \* top level :$:caddddr *\ */,
+        0xcc /* builtinSymbols[7457].val \* top level :$:caddddr *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         53 /* 13 */,
@@ -26842,7 +26842,7 @@ Object scheme::getBuiltinCompiler() {
         430 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7930].val \* top level :$:cdddddr *\ */,
+        0xcc /* builtinSymbols[7498].val \* top level :$:cdddddr *\ */,
         1070 /* *insn* */,
         3406 /* *insn* */,
         425 /* 106 */,
@@ -26869,7 +26869,7 @@ Object scheme::getBuiltinCompiler() {
         5 /* 1 */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7993].val \* top level :$:even? *\ */,
+        0xcc /* builtinSymbols[7561].val \* top level :$:even? *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         3406 /* *insn* */,
@@ -26930,7 +26930,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7900].val \* top level :$:call-with-values *\ */,
+        0xcc /* builtinSymbols[7468].val \* top level :$:call-with-values *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         462 /* *insn* */,
@@ -27035,7 +27035,7 @@ Object scheme::getBuiltinCompiler() {
         1358 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7851].val \* top level :$:abs *\ */,
+        0xcc /* builtinSymbols[7419].val \* top level :$:abs *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -27369,7 +27369,7 @@ Object scheme::getBuiltinCompiler() {
         2286 /* *insn* */,
         2798 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[8019].val \* top level :$:for-each *\ */,
+        0xcc /* builtinSymbols[7587].val \* top level :$:for-each *\ */,
         110 /* *insn* */,
         3406 /* *insn* */,
         17 /* 4 */,
@@ -27385,7 +27385,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8019].val \* top level :$:for-each *\ */,
+        0xcc /* builtinSymbols[7587].val \* top level :$:for-each *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -27721,14 +27721,14 @@ Object scheme::getBuiltinCompiler() {
         494 /* *insn* */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[8014].val \* top level :$:foldl1 *\ */,
+        0xcc /* builtinSymbols[7582].val \* top level :$:foldl1 *\ */,
         3182 /* *insn* */,
         9 /* 2 */,
         9 /* 2 */,
         9 /* 2 */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8014].val \* top level :$:foldl1 *\ */,
+        0xcc /* builtinSymbols[7582].val \* top level :$:foldl1 *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -27759,14 +27759,14 @@ Object scheme::getBuiltinCompiler() {
         2158 /* *insn* */,
         3054 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[8013].val \* top level :$:foldl *\ */,
+        0xcc /* builtinSymbols[7581].val \* top level :$:foldl *\ */,
         3182 /* *insn* */,
         13 /* 3 */,
         13 /* 3 */,
         13 /* 3 */,
         2766 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8013].val \* top level :$:foldl *\ */,
+        0xcc /* builtinSymbols[7581].val \* top level :$:foldl *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -27791,7 +27791,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         201 /* 50 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[8011].val \* top level :$:fold-left *\ */,
+        0xcc /* builtinSymbols[7579].val \* top level :$:fold-left *\ */,
         2894 /* *insn* */,
         161 /* 40 */,
         2350 /* *insn* */,
@@ -27813,7 +27813,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7946].val \* top level :$:cons* *\ */,
+        0xcc /* builtinSymbols[7514].val \* top level :$:cons* *\ */,
         13 /* 3 */,
         110 /* *insn* */,
         2254 /* *insn* */,
@@ -27831,7 +27831,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7946].val \* top level :$:cons* *\ */,
+        0xcc /* builtinSymbols[7514].val \* top level :$:cons* *\ */,
         17 /* 4 */,
         110 /* *insn* */,
         2254 /* *insn* */,
@@ -27842,7 +27842,7 @@ Object scheme::getBuiltinCompiler() {
         1710 /* *insn* */,
         17 /* 4 */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8011].val \* top level :$:fold-left *\ */,
+        0xcc /* builtinSymbols[7579].val \* top level :$:fold-left *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -27874,7 +27874,7 @@ Object scheme::getBuiltinCompiler() {
         2158 /* *insn* */,
         3054 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8015].val \* top level :$:foldr *\ */,
+        0xcc /* builtinSymbols[7583].val \* top level :$:foldr *\ */,
         13 /* 3 */,
         110 /* *insn* */,
         2094 /* *insn* */,
@@ -27884,7 +27884,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         2766 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8015].val \* top level :$:foldr *\ */,
+        0xcc /* builtinSymbols[7583].val \* top level :$:foldr *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -27913,7 +27913,7 @@ Object scheme::getBuiltinCompiler() {
         2126 /* *insn* */,
         3054 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8016].val \* top level :$:foldr1 *\ */,
+        0xcc /* builtinSymbols[7584].val \* top level :$:foldr1 *\ */,
         9 /* 2 */,
         110 /* *insn* */,
         2094 /* *insn* */,
@@ -27923,7 +27923,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8016].val \* top level :$:foldr1 *\ */,
+        0xcc /* builtinSymbols[7584].val \* top level :$:foldr1 *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -27955,7 +27955,7 @@ Object scheme::getBuiltinCompiler() {
         2190 /* *insn* */,
         3054 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8017].val \* top level :$:foldr2 *\ */,
+        0xcc /* builtinSymbols[7585].val \* top level :$:foldr2 *\ */,
         17 /* 4 */,
         110 /* *insn* */,
         2094 /* *insn* */,
@@ -27966,7 +27966,7 @@ Object scheme::getBuiltinCompiler() {
         1710 /* *insn* */,
         17 /* 4 */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8017].val \* top level :$:foldr2 *\ */,
+        0xcc /* builtinSymbols[7585].val \* top level :$:foldr2 *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -28035,7 +28035,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2766 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8010].val \* top level :$:fold *\ */,
+        0xcc /* builtinSymbols[7578].val \* top level :$:fold *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -28082,7 +28082,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         97 /* 24 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[8012].val \* top level :$:fold-right *\ */,
+        0xcc /* builtinSymbols[7580].val \* top level :$:fold-right *\ */,
         2894 /* *insn* */,
         69 /* 17 */,
         2350 /* *insn* */,
@@ -28099,7 +28099,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7946].val \* top level :$:cons* *\ */,
+        0xcc /* builtinSymbols[7514].val \* top level :$:cons* *\ */,
         17 /* 4 */,
         110 /* *insn* */,
         2222 /* *insn* */,
@@ -28118,7 +28118,7 @@ Object scheme::getBuiltinCompiler() {
         1710 /* *insn* */,
         17 /* 4 */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8012].val \* top level :$:fold-right *\ */,
+        0xcc /* builtinSymbols[7580].val \* top level :$:fold-right *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -28418,7 +28418,7 @@ Object scheme::getBuiltinCompiler() {
         2222 /* *insn* */,
         3054 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7859].val \* top level :$:assp *\ */,
+        0xcc /* builtinSymbols[7427].val \* top level :$:assp *\ */,
         3182 /* *insn* */,
         9 /* 2 */,
         21 /* 5 */,
@@ -28426,7 +28426,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7859].val \* top level :$:assp *\ */,
+        0xcc /* builtinSymbols[7427].val \* top level :$:assp *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -28465,7 +28465,7 @@ Object scheme::getBuiltinCompiler() {
         2126 /* *insn* */,
         3054 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8003].val \* top level :$:filter *\ */,
+        0xcc /* builtinSymbols[7571].val \* top level :$:filter *\ */,
         9 /* 2 */,
         494 /* *insn* */,
         974 /* *insn* */,
@@ -28474,14 +28474,14 @@ Object scheme::getBuiltinCompiler() {
         2126 /* *insn* */,
         3054 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[8003].val \* top level :$:filter *\ */,
+        0xcc /* builtinSymbols[7571].val \* top level :$:filter *\ */,
         3182 /* *insn* */,
         9 /* 2 */,
         9 /* 2 */,
         9 /* 2 */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8003].val \* top level :$:filter *\ */,
+        0xcc /* builtinSymbols[7571].val \* top level :$:filter *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -28559,7 +28559,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8006].val \* top level :$:find *\ */,
+        0xcc /* builtinSymbols[7574].val \* top level :$:find *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -28635,7 +28635,7 @@ Object scheme::getBuiltinCompiler() {
         13 /* 3 */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7860].val \* top level :$:assq *\ */,
+        0xcc /* builtinSymbols[7428].val \* top level :$:assq *\ */,
         1070 /* *insn* */,
         3406 /* *insn* */,
         241 /* 60 */,
@@ -28657,7 +28657,7 @@ Object scheme::getBuiltinCompiler() {
         13 /* 3 */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7861].val \* top level :$:assv *\ */,
+        0xcc /* builtinSymbols[7429].val \* top level :$:assv *\ */,
         1070 /* *insn* */,
         3406 /* *insn* */,
         129 /* 32 */,
@@ -28679,7 +28679,7 @@ Object scheme::getBuiltinCompiler() {
         13 /* 3 */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7857].val \* top level :$:assoc *\ */,
+        0xcc /* builtinSymbols[7425].val \* top level :$:assoc *\ */,
         1070 /* *insn* */,
         3406 /* *insn* */,
         265 /* 66 */,
@@ -28767,7 +28767,7 @@ Object scheme::getBuiltinCompiler() {
         3246 /* *insn* */,
         57 /* 14 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6466].val \* for-all *\ */,
+        0xcc /* builtinSymbols[678].val \* for-all *\ */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("proper list required")).val */,
         3406 /* *insn* */,
@@ -28935,7 +28935,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         45 /* 11 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6466].val \* for-all *\ */,
+        0xcc /* builtinSymbols[678].val \* for-all *\ */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("the lists all should have the same length")).val */,
         2958 /* *insn* */,
@@ -29108,7 +29108,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         2766 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8018].val \* top level :$:for-all *\ */,
+        0xcc /* builtinSymbols[7586].val \* top level :$:for-all *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -29474,7 +29474,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7896].val \* top level :$:call-with-output-file *\ */,
+        0xcc /* builtinSymbols[7464].val \* top level :$:call-with-output-file *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -29529,7 +29529,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7895].val \* top level :$:call-with-input-file *\ */,
+        0xcc /* builtinSymbols[7463].val \* top level :$:call-with-input-file *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -29656,7 +29656,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7899].val \* top level :$:call-with-string-output-port *\ */,
+        0xcc /* builtinSymbols[7467].val \* top level :$:call-with-string-output-port *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -29697,7 +29697,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7893].val \* top level :$:call-with-bytevector-output-port *\ */,
+        0xcc /* builtinSymbols[7461].val \* top level :$:call-with-bytevector-output-port *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -29861,7 +29861,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7862].val \* top level :$:bytevector-for-each *\ */,
+        0xcc /* builtinSymbols[7430].val \* top level :$:bytevector-for-each *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -29900,7 +29900,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -29914,7 +29914,7 @@ Object scheme::getBuiltinCompiler() {
         33 /* 8 */,
         0xcc /* list1148.val */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         2862 /* *insn* */,
         0xcc /* Object::makeString(UC("\n")).val */,
         110 /* *insn* */,
@@ -30477,12 +30477,12 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         5 /* 1 */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("\n")).val */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         5 /* 1 */,
@@ -30543,7 +30543,7 @@ Object scheme::getBuiltinCompiler() {
         2446 /* *insn* */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7857].val \* top level :$:assoc *\ */,
+        0xcc /* builtinSymbols[7425].val \* top level :$:assoc *\ */,
         9 /* 2 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -30559,7 +30559,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7858].val \* top level :$:assoc-ref *\ */,
+        0xcc /* builtinSymbols[7426].val \* top level :$:assoc-ref *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -30764,7 +30764,7 @@ Object scheme::getBuiltinCompiler() {
         2926 /* *insn* */,
         2350 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         3182 /* *insn* */,
         9 /* 2 */,
         5 /* 1 */,
@@ -30772,7 +30772,7 @@ Object scheme::getBuiltinCompiler() {
         2702 /* *insn* */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7896].val \* top level :$:call-with-output-file *\ */,
+        0xcc /* builtinSymbols[7464].val \* top level :$:call-with-output-file *\ */,
         3182 /* *insn* */,
         9 /* 2 */,
         9 /* 2 */,
@@ -30890,7 +30890,7 @@ Object scheme::getBuiltinCompiler() {
         2702 /* *insn* */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7895].val \* top level :$:call-with-input-file *\ */,
+        0xcc /* builtinSymbols[7463].val \* top level :$:call-with-input-file *\ */,
         3182 /* *insn* */,
         9 /* 2 */,
         5 /* 1 */,
@@ -30901,7 +30901,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* Object::makeString(UC("")).val */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8002].val \* top level :$:file->string *\ */,
+        0xcc /* builtinSymbols[7570].val \* top level :$:file->string *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -30970,7 +30970,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7898].val \* top level :$:call-with-string-io *\ */,
+        0xcc /* builtinSymbols[7466].val \* top level :$:call-with-string-io *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -31006,7 +31006,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7897].val \* top level :$:call-with-string-input-port *\ */,
+        0xcc /* builtinSymbols[7465].val \* top level :$:call-with-string-input-port *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         462 /* *insn* */,
@@ -31026,7 +31026,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8230].val \* top level :$:split-at *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7935].val \* top level :$:check-arg *\ */,
+        0xcc /* builtinSymbols[7503].val \* top level :$:check-arg *\ */,
         13 /* 3 */,
         878 /* *insn* */,
         2350 /* *insn* */,
@@ -31132,7 +31132,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8231].val \* top level :$:split-at! *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7935].val \* top level :$:check-arg *\ */,
+        0xcc /* builtinSymbols[7503].val \* top level :$:check-arg *\ */,
         13 /* 3 */,
         750 /* *insn* */,
         21 /* 5 */,
@@ -31160,7 +31160,7 @@ Object scheme::getBuiltinCompiler() {
         5 /* 1 */,
         2478 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7960].val \* top level :$:drop *\ */,
+        0xcc /* builtinSymbols[7528].val \* top level :$:drop *\ */,
         9 /* 2 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -31474,7 +31474,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8063].val \* top level :$:make-list *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7935].val \* top level :$:check-arg *\ */,
+        0xcc /* builtinSymbols[7503].val \* top level :$:check-arg *\ */,
         13 /* 3 */,
         878 /* *insn* */,
         2350 /* *insn* */,
@@ -31622,7 +31622,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8053].val \* top level :$:list-tabulate *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7935].val \* top level :$:check-arg *\ */,
+        0xcc /* builtinSymbols[7503].val \* top level :$:check-arg *\ */,
         13 /* 3 */,
         750 /* *insn* */,
         37 /* 9 */,
@@ -31632,7 +31632,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8053].val \* top level :$:list-tabulate *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7935].val \* top level :$:check-arg *\ */,
+        0xcc /* builtinSymbols[7503].val \* top level :$:check-arg *\ */,
         13 /* 3 */,
         878 /* *insn* */,
         2350 /* *insn* */,
@@ -31792,7 +31792,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8041].val \* top level :$:last-pair *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7935].val \* top level :$:check-arg *\ */,
+        0xcc /* builtinSymbols[7503].val \* top level :$:check-arg *\ */,
         13 /* 3 */,
         878 /* *insn* */,
         2350 /* *insn* */,
@@ -31901,7 +31901,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7936].val \* top level :$:circular-list *\ */,
+        0xcc /* builtinSymbols[7504].val \* top level :$:circular-list *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         462 /* *insn* */,
@@ -32099,7 +32099,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7937].val \* top level :$:circular-list? *\ */,
+        0xcc /* builtinSymbols[7505].val \* top level :$:circular-list? *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -32205,7 +32205,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7959].val \* top level :$:dotted-list? *\ */,
+        0xcc /* builtinSymbols[7527].val \* top level :$:dotted-list? *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -32231,7 +32231,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8240].val \* top level :$:take *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7935].val \* top level :$:check-arg *\ */,
+        0xcc /* builtinSymbols[7503].val \* top level :$:check-arg *\ */,
         13 /* 3 */,
         878 /* *insn* */,
         2350 /* *insn* */,
@@ -32316,10 +32316,10 @@ Object scheme::getBuiltinCompiler() {
         110 /* *insn* */,
         2446 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7960].val \* top level :$:drop *\ */,
+        0xcc /* builtinSymbols[7528].val \* top level :$:drop *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7935].val \* top level :$:check-arg *\ */,
+        0xcc /* builtinSymbols[7503].val \* top level :$:check-arg *\ */,
         13 /* 3 */,
         878 /* *insn* */,
         2350 /* *insn* */,
@@ -32379,7 +32379,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7960].val \* top level :$:drop *\ */,
+        0xcc /* builtinSymbols[7528].val \* top level :$:drop *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -32403,7 +32403,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8241].val \* top level :$:take! *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7935].val \* top level :$:check-arg *\ */,
+        0xcc /* builtinSymbols[7503].val \* top level :$:check-arg *\ */,
         13 /* 3 */,
         750 /* *insn* */,
         21 /* 5 */,
@@ -32424,7 +32424,7 @@ Object scheme::getBuiltinCompiler() {
         5 /* 1 */,
         2478 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7960].val \* top level :$:drop *\ */,
+        0xcc /* builtinSymbols[7528].val \* top level :$:drop *\ */,
         9 /* 2 */,
         2862 /* *insn* */,
         6 /* () */,
@@ -32456,7 +32456,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8242].val \* top level :$:take-right *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7935].val \* top level :$:check-arg *\ */,
+        0xcc /* builtinSymbols[7503].val \* top level :$:check-arg *\ */,
         13 /* 3 */,
         878 /* *insn* */,
         2350 /* *insn* */,
@@ -32502,7 +32502,7 @@ Object scheme::getBuiltinCompiler() {
         2958 /* *insn* */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7960].val \* top level :$:drop *\ */,
+        0xcc /* builtinSymbols[7528].val \* top level :$:drop *\ */,
         9 /* 2 */,
         110 /* *insn* */,
         2094 /* *insn* */,
@@ -32535,10 +32535,10 @@ Object scheme::getBuiltinCompiler() {
         110 /* *insn* */,
         2446 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7961].val \* top level :$:drop-right *\ */,
+        0xcc /* builtinSymbols[7529].val \* top level :$:drop-right *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7935].val \* top level :$:check-arg *\ */,
+        0xcc /* builtinSymbols[7503].val \* top level :$:check-arg *\ */,
         13 /* 3 */,
         878 /* *insn* */,
         2350 /* *insn* */,
@@ -32587,7 +32587,7 @@ Object scheme::getBuiltinCompiler() {
         2958 /* *insn* */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7960].val \* top level :$:drop *\ */,
+        0xcc /* builtinSymbols[7528].val \* top level :$:drop *\ */,
         9 /* 2 */,
         110 /* *insn* */,
         2094 /* *insn* */,
@@ -32599,7 +32599,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7961].val \* top level :$:drop-right *\ */,
+        0xcc /* builtinSymbols[7529].val \* top level :$:drop-right *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -32621,10 +32621,10 @@ Object scheme::getBuiltinCompiler() {
         110 /* *insn* */,
         2446 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7962].val \* top level :$:drop-right! *\ */,
+        0xcc /* builtinSymbols[7530].val \* top level :$:drop-right! *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7935].val \* top level :$:check-arg *\ */,
+        0xcc /* builtinSymbols[7503].val \* top level :$:check-arg *\ */,
         13 /* 3 */,
         878 /* *insn* */,
         2350 /* *insn* */,
@@ -32635,7 +32635,7 @@ Object scheme::getBuiltinCompiler() {
         2350 /* *insn* */,
         2446 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7960].val \* top level :$:drop *\ */,
+        0xcc /* builtinSymbols[7528].val \* top level :$:drop *\ */,
         9 /* 2 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -32705,7 +32705,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7962].val \* top level :$:drop-right! *\ */,
+        0xcc /* builtinSymbols[7530].val \* top level :$:drop-right! *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -32716,7 +32716,7 @@ Object scheme::getBuiltinCompiler() {
         1070 /* *insn* */,
         2286 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8009].val \* top level :$:first *\ */,
+        0xcc /* builtinSymbols[7577].val \* top level :$:first *\ */,
         462 /* *insn* */,
         37 /* 9 */,
         5 /* 1 */,
@@ -32739,7 +32739,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list1026.val */,
         2350 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         5 /* 1 */,
@@ -32757,14 +32757,14 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list1024.val */,
         2350 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7890].val \* top level :$:cadddr *\ */,
+        0xcc /* builtinSymbols[7458].val \* top level :$:cadddr *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         5 /* 1 */,
         5 /* 1 */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8020].val \* top level :$:fourth *\ */,
+        0xcc /* builtinSymbols[7588].val \* top level :$:fourth *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         57 /* 14 */,
@@ -32777,12 +32777,12 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7931].val \* top level :$:cddddr *\ */,
+        0xcc /* builtinSymbols[7499].val \* top level :$:cddddr *\ */,
         5 /* 1 */,
         334 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8001].val \* top level :$:fifth *\ */,
+        0xcc /* builtinSymbols[7569].val \* top level :$:fifth *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         462 /* *insn* */,
@@ -32796,7 +32796,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7931].val \* top level :$:cddddr *\ */,
+        0xcc /* builtinSymbols[7499].val \* top level :$:cddddr *\ */,
         5 /* 1 */,
         302 /* *insn* */,
         2702 /* *insn* */,
@@ -32815,11 +32815,11 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7931].val \* top level :$:cddddr *\ */,
+        0xcc /* builtinSymbols[7499].val \* top level :$:cddddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         5 /* 1 */,
@@ -32840,18 +32840,18 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7931].val \* top level :$:cddddr *\ */,
+        0xcc /* builtinSymbols[7499].val \* top level :$:cddddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7890].val \* top level :$:cadddr *\ */,
+        0xcc /* builtinSymbols[7458].val \* top level :$:cadddr *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         5 /* 1 */,
         5 /* 1 */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7969].val \* top level :$:eighth *\ */,
+        0xcc /* builtinSymbols[7537].val \* top level :$:eighth *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         462 /* *insn* */,
@@ -32867,11 +32867,11 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7931].val \* top level :$:cddddr *\ */,
+        0xcc /* builtinSymbols[7499].val \* top level :$:cddddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7931].val \* top level :$:cddddr *\ */,
+        0xcc /* builtinSymbols[7499].val \* top level :$:cddddr *\ */,
         5 /* 1 */,
         334 /* *insn* */,
         2702 /* *insn* */,
@@ -32893,11 +32893,11 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7931].val \* top level :$:cddddr *\ */,
+        0xcc /* builtinSymbols[7499].val \* top level :$:cddddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7931].val \* top level :$:cddddr *\ */,
+        0xcc /* builtinSymbols[7499].val \* top level :$:cddddr *\ */,
         5 /* 1 */,
         302 /* *insn* */,
         2702 /* *insn* */,
@@ -32965,7 +32965,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7946].val \* top level :$:cons* *\ */,
+        0xcc /* builtinSymbols[7514].val \* top level :$:cons* *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -32986,7 +32986,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7902].val \* top level :$:car+cdr *\ */,
+        0xcc /* builtinSymbols[7470].val \* top level :$:car+cdr *\ */,
         1070 /* *insn* */,
         3406 /* *insn* */,
         261 /* 65 */,
@@ -33115,7 +33115,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2766 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7935].val \* top level :$:check-arg *\ */,
+        0xcc /* builtinSymbols[7503].val \* top level :$:check-arg *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -33173,7 +33173,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7902].val \* top level :$:car+cdr *\ */,
+        0xcc /* builtinSymbols[7470].val \* top level :$:car+cdr *\ */,
         5 /* 1 */,
         3502 /* *insn* */,
         9 /* 2 */,
@@ -33208,7 +33208,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7902].val \* top level :$:car+cdr *\ */,
+        0xcc /* builtinSymbols[7470].val \* top level :$:car+cdr *\ */,
         5 /* 1 */,
         3502 /* *insn* */,
         9 /* 2 */,
@@ -33271,7 +33271,7 @@ Object scheme::getBuiltinCompiler() {
         2702 /* *insn* */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7894].val \* top level :$:call-with-current-continuation *\ */,
+        0xcc /* builtinSymbols[7462].val \* top level :$:call-with-current-continuation *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         5 /* 1 */,
@@ -33343,7 +33343,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7902].val \* top level :$:car+cdr *\ */,
+        0xcc /* builtinSymbols[7470].val \* top level :$:car+cdr *\ */,
         5 /* 1 */,
         3502 /* *insn* */,
         9 /* 2 */,
@@ -33378,7 +33378,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7902].val \* top level :$:car+cdr *\ */,
+        0xcc /* builtinSymbols[7470].val \* top level :$:car+cdr *\ */,
         5 /* 1 */,
         3502 /* *insn* */,
         9 /* 2 */,
@@ -33445,7 +33445,7 @@ Object scheme::getBuiltinCompiler() {
         2702 /* *insn* */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7894].val \* top level :$:call-with-current-continuation *\ */,
+        0xcc /* builtinSymbols[7462].val \* top level :$:call-with-current-continuation *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         9 /* 2 */,
@@ -33481,10 +33481,10 @@ Object scheme::getBuiltinCompiler() {
         2958 /* *insn* */,
         2350 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[8004].val \* top level :$:filter-map *\ */,
+        0xcc /* builtinSymbols[7572].val \* top level :$:filter-map *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7935].val \* top level :$:check-arg *\ */,
+        0xcc /* builtinSymbols[7503].val \* top level :$:check-arg *\ */,
         13 /* 3 */,
         2158 /* *insn* */,
         1454 /* *insn* */,
@@ -33711,7 +33711,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2766 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8004].val \* top level :$:filter-map *\ */,
+        0xcc /* builtinSymbols[7572].val \* top level :$:filter-map *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -33846,7 +33846,7 @@ Object scheme::getBuiltinCompiler() {
         5 /* 1 */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7991].val \* top level :$:errorf *\ */,
+        0xcc /* builtinSymbols[7559].val \* top level :$:errorf *\ */,
         3182 /* *insn* */,
         13 /* 3 */,
         5 /* 1 */,
@@ -33913,7 +33913,7 @@ Object scheme::getBuiltinCompiler() {
         5 /* 1 */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7991].val \* top level :$:errorf *\ */,
+        0xcc /* builtinSymbols[7559].val \* top level :$:errorf *\ */,
         3182 /* *insn* */,
         13 /* 3 */,
         9 /* 2 */,
@@ -34958,7 +34958,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         13 /* 3 */,
         526 /* *insn* */,
-        0xcc /* builtinSymbols[5951].val \* anonymous *\ */,
+        0xcc /* builtinSymbols[163].val \* anonymous *\ */,
         2574 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
@@ -35175,7 +35175,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8009].val \* top level :$:first *\ */,
+        0xcc /* builtinSymbols[7577].val \* top level :$:first *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
@@ -35257,7 +35257,7 @@ Object scheme::getBuiltinCompiler() {
         110 /* *insn* */,
         3150 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8019].val \* top level :$:for-each *\ */,
+        0xcc /* builtinSymbols[7587].val \* top level :$:for-each *\ */,
         9 /* 2 */,
         750 /* *insn* */,
         25 /* 6 */,
@@ -35295,7 +35295,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8009].val \* top level :$:first *\ */,
+        0xcc /* builtinSymbols[7577].val \* top level :$:first *\ */,
         5 /* 1 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -35647,7 +35647,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8019].val \* top level :$:for-each *\ */,
+        0xcc /* builtinSymbols[7587].val \* top level :$:for-each *\ */,
         9 /* 2 */,
         878 /* *insn* */,
         2350 /* *insn* */,
@@ -35792,7 +35792,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7992].val \* top level :$:eval-core *\ */,
+        0xcc /* builtinSymbols[7560].val \* top level :$:eval-core *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         37 /* 9 */,
@@ -35805,7 +35805,7 @@ Object scheme::getBuiltinCompiler() {
         70 /* #t */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7994].val \* top level :$:exact? *\ */,
+        0xcc /* builtinSymbols[7562].val \* top level :$:exact? *\ */,
         1070 /* *insn* */,
         2926 /* *insn* */,
         462 /* *insn* */,
@@ -35931,7 +35931,7 @@ Object scheme::getBuiltinCompiler() {
         3246 /* *insn* */,
         57 /* 14 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6356].val \* exists *\ */,
+        0xcc /* builtinSymbols[568].val \* exists *\ */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("proper list required")).val */,
         3406 /* *insn* */,
@@ -36097,7 +36097,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         45 /* 11 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6356].val \* exists *\ */,
+        0xcc /* builtinSymbols[568].val \* exists *\ */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("the lists all should have the same length")).val */,
         2958 /* *insn* */,
@@ -36270,7 +36270,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         2766 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7995].val \* top level :$:exists *\ */,
+        0xcc /* builtinSymbols[7563].val \* top level :$:exists *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -36498,7 +36498,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7999].val \* top level :$:expt *\ */,
+        0xcc /* builtinSymbols[7567].val \* top level :$:expt *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -36514,7 +36514,7 @@ Object scheme::getBuiltinCompiler() {
         86 /* #f */,
         2766 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7968].val \* top level :$:dynamic-wind *\ */,
+        0xcc /* builtinSymbols[7536].val \* top level :$:dynamic-wind *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         37 /* 9 */,
@@ -36527,7 +36527,7 @@ Object scheme::getBuiltinCompiler() {
         86 /* #f */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7901].val \* top level :$:call\cc *\ */,
+        0xcc /* builtinSymbols[7469].val \* top level :$:call\cc *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         37 /* 9 */,
@@ -36540,7 +36540,7 @@ Object scheme::getBuiltinCompiler() {
         86 /* #f */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7894].val \* top level :$:call-with-current-continuation *\ */,
+        0xcc /* builtinSymbols[7462].val \* top level :$:call-with-current-continuation *\ */,
         1070 /* *insn* */,
         878 /* *insn* */,
         3406 /* *insn* */,
@@ -36688,7 +36688,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7939].val \* top level :$:common-tail *\ */,
+        0xcc /* builtinSymbols[7507].val \* top level :$:common-tail *\ */,
         2350 /* *insn* */,
         462 /* *insn* */,
         561 /* 140 */,
@@ -36709,7 +36709,7 @@ Object scheme::getBuiltinCompiler() {
         3086 /* *insn* */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7939].val \* top level :$:common-tail *\ */,
+        0xcc /* builtinSymbols[7507].val \* top level :$:common-tail *\ */,
         9 /* 2 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -36832,7 +36832,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7956].val \* top level :$:do-wind *\ */,
+        0xcc /* builtinSymbols[7524].val \* top level :$:do-wind *\ */,
         2350 /* *insn* */,
         2958 /* *insn* */,
         462 /* *insn* */,
@@ -36888,7 +36888,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7956].val \* top level :$:do-wind *\ */,
+        0xcc /* builtinSymbols[7524].val \* top level :$:do-wind *\ */,
         5 /* 1 */,
         974 /* *insn* */,
         9 /* 2 */,
@@ -36915,11 +36915,11 @@ Object scheme::getBuiltinCompiler() {
         5 /* 1 */,
         2702 /* *insn* */,
         174 /* *insn* */,
-        0xcc /* builtinSymbols[7901].val \* top level :$:call\cc *\ */,
+        0xcc /* builtinSymbols[7469].val \* top level :$:call\cc *\ */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7901].val \* top level :$:call\cc *\ */,
+        0xcc /* builtinSymbols[7469].val \* top level :$:call\cc *\ */,
         174 /* *insn* */,
-        0xcc /* builtinSymbols[7894].val \* top level :$:call-with-current-continuation *\ */,
+        0xcc /* builtinSymbols[7462].val \* top level :$:call-with-current-continuation *\ */,
         2350 /* *insn* */,
         2926 /* *insn* */,
         2958 /* *insn* */,
@@ -36981,7 +36981,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2766 /* *insn* */,
         174 /* *insn* */,
-        0xcc /* builtinSymbols[7968].val \* top level :$:dynamic-wind *\ */,
+        0xcc /* builtinSymbols[7536].val \* top level :$:dynamic-wind *\ */,
         2574 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -37098,7 +37098,7 @@ Object scheme::getBuiltinCompiler() {
         110 /* *insn* */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7967].val \* top level :$:dynamic-lookup *\ */,
+        0xcc /* builtinSymbols[7535].val \* top level :$:dynamic-lookup *\ */,
         9 /* 2 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -37180,7 +37180,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         17 /* 4 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7965].val \* top level :$:dynamic-env-local-get *\ */,
+        0xcc /* builtinSymbols[7533].val \* top level :$:dynamic-env-local-get *\ */,
         1 /* 0 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -37241,7 +37241,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list838.val */,
         2926 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7966].val \* top level :$:dynamic-env-local-set! *\ */,
+        0xcc /* builtinSymbols[7534].val \* top level :$:dynamic-env-local-set! *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         1 /* 0 */,
@@ -37260,7 +37260,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list836.val */,
         2926 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7966].val \* top level :$:dynamic-env-local-set! *\ */,
+        0xcc /* builtinSymbols[7534].val \* top level :$:dynamic-env-local-set! *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         1 /* 0 */,
@@ -37269,7 +37269,7 @@ Object scheme::getBuiltinCompiler() {
         1 /* 0 */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7968].val \* top level :$:dynamic-wind *\ */,
+        0xcc /* builtinSymbols[7536].val \* top level :$:dynamic-wind *\ */,
         3182 /* *insn* */,
         13 /* 3 */,
         49 /* 12 */,
@@ -37279,7 +37279,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2766 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7963].val \* top level :$:dynamic-bind *\ */,
+        0xcc /* builtinSymbols[7531].val \* top level :$:dynamic-bind *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -37302,7 +37302,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         17 /* 4 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7965].val \* top level :$:dynamic-env-local-get *\ */,
+        0xcc /* builtinSymbols[7533].val \* top level :$:dynamic-env-local-get *\ */,
         1 /* 0 */,
         110 /* *insn* */,
         2222 /* *insn* */,
@@ -37314,7 +37314,7 @@ Object scheme::getBuiltinCompiler() {
         2126 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7967].val \* top level :$:dynamic-lookup *\ */,
+        0xcc /* builtinSymbols[7535].val \* top level :$:dynamic-lookup *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -37323,7 +37323,7 @@ Object scheme::getBuiltinCompiler() {
         526 /* *insn* */,
         6 /* () */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7964].val \* top level :$:dynamic-env-local *\ */,
+        0xcc /* builtinSymbols[7532].val \* top level :$:dynamic-env-local *\ */,
         462 /* *insn* */,
         41 /* 10 */,
         1 /* 0 */,
@@ -37332,11 +37332,11 @@ Object scheme::getBuiltinCompiler() {
         17 /* 4 */,
         0xcc /* list832.val */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7964].val \* top level :$:dynamic-env-local *\ */,
+        0xcc /* builtinSymbols[7532].val \* top level :$:dynamic-env-local *\ */,
         1710 /* *insn* */,
         1 /* 0 */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7965].val \* top level :$:dynamic-env-local-get *\ */,
+        0xcc /* builtinSymbols[7533].val \* top level :$:dynamic-env-local-get *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         41 /* 10 */,
@@ -37347,10 +37347,10 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* list830.val */,
         2094 /* *insn* */,
         174 /* *insn* */,
-        0xcc /* builtinSymbols[7964].val \* top level :$:dynamic-env-local *\ */,
+        0xcc /* builtinSymbols[7532].val \* top level :$:dynamic-env-local *\ */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7966].val \* top level :$:dynamic-env-local-set! *\ */,
+        0xcc /* builtinSymbols[7534].val \* top level :$:dynamic-env-local-set! *\ */,
         1070 /* *insn* */,
         750 /* *insn* */,
         25 /* 6 */,
@@ -37360,7 +37360,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8064].val \* top level :$:make-parameter *\ */,
         5 /* 1 */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7948].val \* top level :$:current-exception-handler *\ */,
+        0xcc /* builtinSymbols[7516].val \* top level :$:current-exception-handler *\ */,
         1070 /* *insn* */,
         750 /* *insn* */,
         25 /* 6 */,
@@ -37390,7 +37390,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         17 /* 4 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7948].val \* top level :$:current-exception-handler *\ */,
+        0xcc /* builtinSymbols[7516].val \* top level :$:current-exception-handler *\ */,
         1 /* 0 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -37400,7 +37400,7 @@ Object scheme::getBuiltinCompiler() {
         0xcc /* builtinSymbols[8100].val \* top level :$:parent-exception-handler *\ */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7948].val \* top level :$:current-exception-handler *\ */,
+        0xcc /* builtinSymbols[7516].val \* top level :$:current-exception-handler *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
         0xcc /* builtinSymbols[8048].val \* top level :$:list *\ */,
@@ -37421,7 +37421,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         29 /* 7 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7948].val \* top level :$:current-exception-handler *\ */,
+        0xcc /* builtinSymbols[7516].val \* top level :$:current-exception-handler *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
         0xcc /* builtinSymbols[8048].val \* top level :$:list *\ */,
@@ -37452,7 +37452,7 @@ Object scheme::getBuiltinCompiler() {
         1 /* 0 */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7963].val \* top level :$:dynamic-bind *\ */,
+        0xcc /* builtinSymbols[7531].val \* top level :$:dynamic-bind *\ */,
         3182 /* *insn* */,
         13 /* 3 */,
         5 /* 1 */,
@@ -37480,7 +37480,7 @@ Object scheme::getBuiltinCompiler() {
         1 /* 0 */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7963].val \* top level :$:dynamic-bind *\ */,
+        0xcc /* builtinSymbols[7531].val \* top level :$:dynamic-bind *\ */,
         3182 /* *insn* */,
         13 /* 3 */,
         21 /* 5 */,
@@ -37517,7 +37517,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         17 /* 4 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7948].val \* top level :$:current-exception-handler *\ */,
+        0xcc /* builtinSymbols[7516].val \* top level :$:current-exception-handler *\ */,
         1 /* 0 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -37644,7 +37644,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         17 /* 4 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7948].val \* top level :$:current-exception-handler *\ */,
+        0xcc /* builtinSymbols[7516].val \* top level :$:current-exception-handler *\ */,
         1 /* 0 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -37751,7 +37751,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         69 /* 17 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6313].val \* enum-set *\ */,
+        0xcc /* builtinSymbols[525].val \* enum-set *\ */,
         2062 /* *insn* */,
         86 /* #f */,
         2062 /* *insn* */,
@@ -37767,11 +37767,11 @@ Object scheme::getBuiltinCompiler() {
         46 /* *insn* */,
         25 /* 6 */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7980].val \* top level :$:enum-set-rtd *\ */,
+        0xcc /* builtinSymbols[7548].val \* top level :$:enum-set-rtd *\ */,
         750 /* *insn* */,
         45 /* 11 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7980].val \* top level :$:enum-set-rtd *\ */,
+        0xcc /* builtinSymbols[7548].val \* top level :$:enum-set-rtd *\ */,
         2862 /* *insn* */,
         86 /* #f */,
         2862 /* *insn* */,
@@ -37781,11 +37781,11 @@ Object scheme::getBuiltinCompiler() {
         641 /* 160 */,
         3214 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7979].val \* top level :$:enum-set-rcd *\ */,
+        0xcc /* builtinSymbols[7547].val \* top level :$:enum-set-rcd *\ */,
         750 /* *insn* */,
         33 /* 8 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7979].val \* top level :$:enum-set-rcd *\ */,
+        0xcc /* builtinSymbols[7547].val \* top level :$:enum-set-rcd *\ */,
         110 /* *insn* */,
         1582 /* *insn* */,
         649 /* 162 */,
@@ -37796,7 +37796,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         37 /* 9 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7980].val \* top level :$:enum-set-rtd *\ */,
+        0xcc /* builtinSymbols[7548].val \* top level :$:enum-set-rtd *\ */,
         2862 /* *insn* */,
         5 /* 1 */,
         110 /* *insn* */,
@@ -37804,11 +37804,11 @@ Object scheme::getBuiltinCompiler() {
         653 /* 163 */,
         2798 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7977].val \* top level :$:enum-set-members *\ */,
+        0xcc /* builtinSymbols[7545].val \* top level :$:enum-set-members *\ */,
         750 /* *insn* */,
         37 /* 9 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7980].val \* top level :$:enum-set-rtd *\ */,
+        0xcc /* builtinSymbols[7548].val \* top level :$:enum-set-rtd *\ */,
         2862 /* *insn* */,
         1 /* 0 */,
         110 /* *insn* */,
@@ -37816,7 +37816,7 @@ Object scheme::getBuiltinCompiler() {
         653 /* 163 */,
         2798 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -37825,7 +37825,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         69 /* 17 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6328].val \* enum-type *\ */,
+        0xcc /* builtinSymbols[540].val \* enum-type *\ */,
         2062 /* *insn* */,
         86 /* #f */,
         2062 /* *insn* */,
@@ -37841,11 +37841,11 @@ Object scheme::getBuiltinCompiler() {
         46 /* *insn* */,
         25 /* 6 */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7988].val \* top level :$:enum-type-rtd *\ */,
+        0xcc /* builtinSymbols[7556].val \* top level :$:enum-type-rtd *\ */,
         750 /* *insn* */,
         45 /* 11 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7988].val \* top level :$:enum-type-rtd *\ */,
+        0xcc /* builtinSymbols[7556].val \* top level :$:enum-type-rtd *\ */,
         2862 /* *insn* */,
         86 /* #f */,
         2862 /* *insn* */,
@@ -37855,11 +37855,11 @@ Object scheme::getBuiltinCompiler() {
         641 /* 160 */,
         3214 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7987].val \* top level :$:enum-type-rcd *\ */,
+        0xcc /* builtinSymbols[7555].val \* top level :$:enum-type-rcd *\ */,
         750 /* *insn* */,
         33 /* 8 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7987].val \* top level :$:enum-type-rcd *\ */,
+        0xcc /* builtinSymbols[7555].val \* top level :$:enum-type-rcd *\ */,
         110 /* *insn* */,
         1582 /* *insn* */,
         649 /* 162 */,
@@ -37870,7 +37870,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         37 /* 9 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7988].val \* top level :$:enum-type-rtd *\ */,
+        0xcc /* builtinSymbols[7556].val \* top level :$:enum-type-rtd *\ */,
         2862 /* *insn* */,
         5 /* 1 */,
         110 /* *insn* */,
@@ -37878,11 +37878,11 @@ Object scheme::getBuiltinCompiler() {
         653 /* 163 */,
         2798 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7986].val \* top level :$:enum-type-indexer *\ */,
+        0xcc /* builtinSymbols[7554].val \* top level :$:enum-type-indexer *\ */,
         750 /* *insn* */,
         37 /* 9 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7988].val \* top level :$:enum-type-rtd *\ */,
+        0xcc /* builtinSymbols[7556].val \* top level :$:enum-type-rtd *\ */,
         2862 /* *insn* */,
         1 /* 0 */,
         110 /* *insn* */,
@@ -37890,7 +37890,7 @@ Object scheme::getBuiltinCompiler() {
         653 /* 163 */,
         2798 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7989].val \* top level :$:enum-type-universe *\ */,
+        0xcc /* builtinSymbols[7557].val \* top level :$:enum-type-universe *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -38064,7 +38064,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         45 /* 11 */,
@@ -38072,11 +38072,11 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7989].val \* top level :$:enum-type-universe *\ */,
+        0xcc /* builtinSymbols[7557].val \* top level :$:enum-type-universe *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         1614 /* *insn* */,
@@ -38087,7 +38087,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7984].val \* top level :$:enum-set-universe *\ */,
+        0xcc /* builtinSymbols[7552].val \* top level :$:enum-set-universe *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -38103,18 +38103,18 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7986].val \* top level :$:enum-type-indexer *\ */,
+        0xcc /* builtinSymbols[7554].val \* top level :$:enum-type-indexer *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         5 /* 1 */,
         5 /* 1 */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7974].val \* top level :$:enum-set-indexer *\ */,
+        0xcc /* builtinSymbols[7542].val \* top level :$:enum-set-indexer *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         3406 /* *insn* */,
@@ -38152,11 +38152,11 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7989].val \* top level :$:enum-type-universe *\ */,
+        0xcc /* builtinSymbols[7557].val \* top level :$:enum-type-universe *\ */,
         5 /* 1 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -38184,7 +38184,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8018].val \* top level :$:for-all *\ */,
+        0xcc /* builtinSymbols[7586].val \* top level :$:for-all *\ */,
         9 /* 2 */,
         1870 /* *insn* */,
         73 /* 18 */,
@@ -38192,7 +38192,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3406 /* *insn* */,
@@ -38206,7 +38206,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         53 /* 13 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6316].val \* enum-set-constructor *\ */,
+        0xcc /* builtinSymbols[528].val \* enum-set-constructor *\ */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("the symbol list must all belong to the universe.")).val */,
         2350 /* *insn* */,
@@ -38221,7 +38221,7 @@ Object scheme::getBuiltinCompiler() {
         2702 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7972].val \* top level :$:enum-set-constructor *\ */,
+        0xcc /* builtinSymbols[7540].val \* top level :$:enum-set-constructor *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -38250,17 +38250,17 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7989].val \* top level :$:enum-type-universe *\ */,
+        0xcc /* builtinSymbols[7557].val \* top level :$:enum-type-universe *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7977].val \* top level :$:enum-set-members *\ */,
+        0xcc /* builtinSymbols[7545].val \* top level :$:enum-set-members *\ */,
         5 /* 1 */,
         2510 /* *insn* */,
         9 /* 2 */,
@@ -38339,7 +38339,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7970].val \* top level :$:enum-set->list *\ */,
+        0xcc /* builtinSymbols[7538].val \* top level :$:enum-set->list *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -38367,7 +38367,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2446 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7977].val \* top level :$:enum-set-members *\ */,
+        0xcc /* builtinSymbols[7545].val \* top level :$:enum-set-members *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2222 /* *insn* */,
@@ -38380,7 +38380,7 @@ Object scheme::getBuiltinCompiler() {
         5 /* 1 */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7976].val \* top level :$:enum-set-member? *\ */,
+        0xcc /* builtinSymbols[7544].val \* top level :$:enum-set-member? *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -38406,11 +38406,11 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2446 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7984].val \* top level :$:enum-set-universe *\ */,
+        0xcc /* builtinSymbols[7552].val \* top level :$:enum-set-universe *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7970].val \* top level :$:enum-set->list *\ */,
+        0xcc /* builtinSymbols[7538].val \* top level :$:enum-set->list *\ */,
         5 /* 1 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -38439,15 +38439,15 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7984].val \* top level :$:enum-set-universe *\ */,
+        0xcc /* builtinSymbols[7552].val \* top level :$:enum-set-universe *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7970].val \* top level :$:enum-set->list *\ */,
+        0xcc /* builtinSymbols[7538].val \* top level :$:enum-set->list *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8018].val \* top level :$:for-all *\ */,
+        0xcc /* builtinSymbols[7586].val \* top level :$:for-all *\ */,
         9 /* 2 */,
         2574 /* *insn* */,
         1870 /* *insn* */,
@@ -38463,7 +38463,7 @@ Object scheme::getBuiltinCompiler() {
         2350 /* *insn* */,
         2926 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7976].val \* top level :$:enum-set-member? *\ */,
+        0xcc /* builtinSymbols[7544].val \* top level :$:enum-set-member? *\ */,
         3182 /* *insn* */,
         9 /* 2 */,
         5 /* 1 */,
@@ -38473,11 +38473,11 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7977].val \* top level :$:enum-set-members *\ */,
+        0xcc /* builtinSymbols[7545].val \* top level :$:enum-set-members *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[8018].val \* top level :$:for-all *\ */,
+        0xcc /* builtinSymbols[7586].val \* top level :$:for-all *\ */,
         3182 /* *insn* */,
         9 /* 2 */,
         9 /* 2 */,
@@ -38486,7 +38486,7 @@ Object scheme::getBuiltinCompiler() {
         5 /* 1 */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7981].val \* top level :$:enum-set-subset? *\ */,
+        0xcc /* builtinSymbols[7549].val \* top level :$:enum-set-subset? *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -38510,14 +38510,14 @@ Object scheme::getBuiltinCompiler() {
         2350 /* *insn* */,
         2446 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7981].val \* top level :$:enum-set-subset? *\ */,
+        0xcc /* builtinSymbols[7549].val \* top level :$:enum-set-subset? *\ */,
         9 /* 2 */,
         1870 /* *insn* */,
         45 /* 11 */,
         2446 /* *insn* */,
         2350 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7981].val \* top level :$:enum-set-subset? *\ */,
+        0xcc /* builtinSymbols[7549].val \* top level :$:enum-set-subset? *\ */,
         3182 /* *insn* */,
         9 /* 2 */,
         9 /* 2 */,
@@ -38526,7 +38526,7 @@ Object scheme::getBuiltinCompiler() {
         5 /* 1 */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7985].val \* top level :$:enum-set=? *\ */,
+        0xcc /* builtinSymbols[7553].val \* top level :$:enum-set=? *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -38642,13 +38642,13 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
         2990 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         654 /* *insn* */,
         1870 /* *insn* */,
@@ -38658,7 +38658,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         73 /* 18 */,
@@ -38667,13 +38667,13 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7977].val \* top level :$:enum-set-members *\ */,
+        0xcc /* builtinSymbols[7545].val \* top level :$:enum-set-members *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
         2990 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7977].val \* top level :$:enum-set-members *\ */,
+        0xcc /* builtinSymbols[7545].val \* top level :$:enum-set-members *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2094 /* *insn* */,
@@ -38689,7 +38689,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         41 /* 10 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6323].val \* enum-set-union *\ */,
+        0xcc /* builtinSymbols[535].val \* enum-set-union *\ */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("enum-set1 and enum-set2 must be enumeration sets that have the same enumeration type.")).val */,
         2254 /* *insn* */,
@@ -38700,7 +38700,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7983].val \* top level :$:enum-set-union *\ */,
+        0xcc /* builtinSymbols[7551].val \* top level :$:enum-set-union *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -38830,13 +38830,13 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
         2990 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         654 /* *insn* */,
         1870 /* *insn* */,
@@ -38846,7 +38846,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         73 /* 18 */,
@@ -38855,13 +38855,13 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7977].val \* top level :$:enum-set-members *\ */,
+        0xcc /* builtinSymbols[7545].val \* top level :$:enum-set-members *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
         2990 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7977].val \* top level :$:enum-set-members *\ */,
+        0xcc /* builtinSymbols[7545].val \* top level :$:enum-set-members *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2094 /* *insn* */,
@@ -38877,7 +38877,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         41 /* 10 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6319].val \* enum-set-intersection *\ */,
+        0xcc /* builtinSymbols[531].val \* enum-set-intersection *\ */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("enum-set1 and enum-set2 must be enumeration sets that have the same enumeration type.")).val */,
         2254 /* *insn* */,
@@ -38888,7 +38888,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7975].val \* top level :$:enum-set-intersection *\ */,
+        0xcc /* builtinSymbols[7543].val \* top level :$:enum-set-intersection *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -39018,13 +39018,13 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
         2990 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         654 /* *insn* */,
         1870 /* *insn* */,
@@ -39034,7 +39034,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         73 /* 18 */,
@@ -39043,13 +39043,13 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7977].val \* top level :$:enum-set-members *\ */,
+        0xcc /* builtinSymbols[7545].val \* top level :$:enum-set-members *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
         2990 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7977].val \* top level :$:enum-set-members *\ */,
+        0xcc /* builtinSymbols[7545].val \* top level :$:enum-set-members *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2094 /* *insn* */,
@@ -39065,7 +39065,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         41 /* 10 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6317].val \* enum-set-difference *\ */,
+        0xcc /* builtinSymbols[529].val \* enum-set-difference *\ */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("enum-set1 and enum-set2 must be enumeration sets that have the same enumeration type.")).val */,
         2254 /* *insn* */,
@@ -39076,7 +39076,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7973].val \* top level :$:enum-set-difference *\ */,
+        0xcc /* builtinSymbols[7541].val \* top level :$:enum-set-difference *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -39111,7 +39111,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7977].val \* top level :$:enum-set-members *\ */,
+        0xcc /* builtinSymbols[7545].val \* top level :$:enum-set-members *\ */,
         5 /* 1 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -39119,7 +39119,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2958 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         137 /* 34 */,
@@ -39146,15 +39146,15 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2958 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7989].val \* top level :$:enum-type-universe *\ */,
+        0xcc /* builtinSymbols[7557].val \* top level :$:enum-type-universe *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8003].val \* top level :$:filter *\ */,
+        0xcc /* builtinSymbols[7571].val \* top level :$:filter *\ */,
         9 /* 2 */,
         110 /* *insn* */,
         1614 /* *insn* */,
@@ -39166,7 +39166,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7971].val \* top level :$:enum-set-complement *\ */,
+        0xcc /* builtinSymbols[7539].val \* top level :$:enum-set-complement *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -39189,7 +39189,7 @@ Object scheme::getBuiltinCompiler() {
         2350 /* *insn* */,
         2446 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7981].val \* top level :$:enum-set-subset? *\ */,
+        0xcc /* builtinSymbols[7549].val \* top level :$:enum-set-subset? *\ */,
         9 /* 2 */,
         1870 /* *insn* */,
         17 /* 4 */,
@@ -39207,17 +39207,17 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2446 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7989].val \* top level :$:enum-type-universe *\ */,
+        0xcc /* builtinSymbols[7557].val \* top level :$:enum-type-universe *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7977].val \* top level :$:enum-set-members *\ */,
+        0xcc /* builtinSymbols[7545].val \* top level :$:enum-set-members *\ */,
         5 /* 1 */,
         2510 /* *insn* */,
         9 /* 2 */,
@@ -39225,7 +39225,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2958 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7982].val \* top level :$:enum-set-type *\ */,
+        0xcc /* builtinSymbols[7550].val \* top level :$:enum-set-type *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         93 /* 23 */,
@@ -39249,7 +39249,7 @@ Object scheme::getBuiltinCompiler() {
         110 /* *insn* */,
         2446 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8003].val \* top level :$:filter *\ */,
+        0xcc /* builtinSymbols[7571].val \* top level :$:filter *\ */,
         9 /* 2 */,
         110 /* *insn* */,
         1614 /* *insn* */,
@@ -39262,7 +39262,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7978].val \* top level :$:enum-set-projection *\ */,
+        0xcc /* builtinSymbols[7546].val \* top level :$:enum-set-projection *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -39285,7 +39285,7 @@ Object scheme::getBuiltinCompiler() {
         2350 /* *insn* */,
         2446 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         9 /* 2 */,
         2446 /* *insn* */,
         1614 /* *insn* */,
@@ -39300,9 +39300,9 @@ Object scheme::getBuiltinCompiler() {
         1070 /* *insn* */,
         1070 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7949].val \* top level :$:dd *\ */,
+        0xcc /* builtinSymbols[7517].val \* top level :$:dd *\ */,
         1614 /* *insn* */,
         0xcc /* builtinSymbols[8208].val \* top level :$:print *\ */,
         558 /* *insn* */,
@@ -39324,7 +39324,7 @@ Object scheme::getBuiltinCompiler() {
         1710 /* *insn* */,
         1 /* 0 */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7938].val \* top level :$:command-line *\ */,
+        0xcc /* builtinSymbols[7506].val \* top level :$:command-line *\ */,
         1070 /* *insn* */,
         3406 /* *insn* */,
         273 /* 68 */,
@@ -39379,7 +39379,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7990].val \* top level :$:eq-hashtable-copy *\ */,
+        0xcc /* builtinSymbols[7558].val \* top level :$:eq-hashtable-copy *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -39596,7 +39596,7 @@ Object scheme::getBuiltinCompiler() {
         494 /* *insn* */,
         2766 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7854].val \* top level :$:alist-cons *\ */,
+        0xcc /* builtinSymbols[7422].val \* top level :$:alist-cons *\ */,
         1070 /* *insn* */,
         3406 /* *insn* */,
         77 /* 19 */,
@@ -39964,12 +39964,12 @@ Object scheme::getBuiltinCompiler() {
         2126 /* *insn* */,
         3054 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7855].val \* top level :$:apply-each-pair *\ */,
+        0xcc /* builtinSymbols[7423].val \* top level :$:apply-each-pair *\ */,
         9 /* 2 */,
         494 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7855].val \* top level :$:apply-each-pair *\ */,
+        0xcc /* builtinSymbols[7423].val \* top level :$:apply-each-pair *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -41692,7 +41692,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         1454 /* *insn* */,
         1870 /* *insn* */,
@@ -41701,11 +41701,11 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         3022 /* *insn* */,
         526 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         654 /* *insn* */,
         974 /* *insn* */,
         5 /* 1 */,
@@ -41736,7 +41736,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         2862 /* *insn* */,
         6 /* () */,
@@ -41749,7 +41749,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7932].val \* top level :$:cdddr *\ */,
+        0xcc /* builtinSymbols[7500].val \* top level :$:cdddr *\ */,
         5 /* 1 */,
         494 /* *insn* */,
         494 /* *insn* */,
@@ -41804,7 +41804,7 @@ Object scheme::getBuiltinCompiler() {
         110 /* *insn* */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8012].val \* top level :$:fold-right *\ */,
+        0xcc /* builtinSymbols[7580].val \* top level :$:fold-right *\ */,
         13 /* 3 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -41822,7 +41822,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7997].val \* top level :$:expand-let *\ */,
+        0xcc /* builtinSymbols[7565].val \* top level :$:expand-let *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -41865,14 +41865,14 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         2621 /* 655 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6265].val \* define-macro *\ */,
+        0xcc /* builtinSymbols[477].val \* define-macro *\ */,
         2830 /* *insn* */,
         17 /* 4 */,
         2318 /* *insn* */,
         974 /* *insn* */,
         2593 /* 648 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         2830 /* *insn* */,
         257 /* 64 */,
         750 /* *insn* */,
@@ -41880,7 +41880,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7951].val \* top level :$:define-is-lambda? *\ */,
+        0xcc /* builtinSymbols[7519].val \* top level :$:define-is-lambda? *\ */,
         5 /* 1 */,
         1870 /* *insn* */,
         69 /* 17 */,
@@ -41889,7 +41889,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7950].val \* top level :$:define->lambda *\ */,
+        0xcc /* builtinSymbols[7518].val \* top level :$:define->lambda *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         1614 /* *insn* */,
@@ -42020,7 +42020,7 @@ Object scheme::getBuiltinCompiler() {
         398 /* *insn* */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7997].val \* top level :$:expand-let *\ */,
+        0xcc /* builtinSymbols[7565].val \* top level :$:expand-let *\ */,
         9 /* 2 */,
         2894 /* *insn* */,
         25 /* 6 */,
@@ -42070,7 +42070,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         1801 /* 450 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6222].val \* cond *\ */,
+        0xcc /* builtinSymbols[434].val \* cond *\ */,
         2830 /* *insn* */,
         117 /* 29 */,
         750 /* *insn* */,
@@ -42080,7 +42080,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7944].val \* top level :$:cond->if *\ */,
+        0xcc /* builtinSymbols[7512].val \* top level :$:cond->if *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
@@ -42230,14 +42230,14 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7932].val \* top level :$:cdddr *\ */,
+        0xcc /* builtinSymbols[7500].val \* top level :$:cdddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3406 /* *insn* */,
@@ -42254,7 +42254,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         65 /* 16 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6222].val \* cond *\ */,
+        0xcc /* builtinSymbols[434].val \* cond *\ */,
         2350 /* *insn* */,
         2446 /* *insn* */,
         2158 /* *insn* */,
@@ -42349,14 +42349,14 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7932].val \* top level :$:cdddr *\ */,
+        0xcc /* builtinSymbols[7500].val \* top level :$:cdddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3406 /* *insn* */,
@@ -42373,7 +42373,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         89 /* 22 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6222].val \* cond *\ */,
+        0xcc /* builtinSymbols[434].val \* cond *\ */,
         2062 /* *insn* */,
         0xcc /* builtinSymbols[6896].val \* not *\ */,
         2382 /* *insn* */,
@@ -42437,7 +42437,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         333 /* 83 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5945].val \* aif *\ */,
+        0xcc /* builtinSymbols[157].val \* aif *\ */,
         2830 /* *insn* */,
         117 /* 29 */,
         750 /* *insn* */,
@@ -42447,7 +42447,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7853].val \* top level :$:aif->let *\ */,
+        0xcc /* builtinSymbols[7421].val \* top level :$:aif->let *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
@@ -42469,7 +42469,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         205 /* 51 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6120].val \* case *\ */,
+        0xcc /* builtinSymbols[332].val \* case *\ */,
         2830 /* *insn* */,
         117 /* 29 */,
         750 /* *insn* */,
@@ -42479,7 +42479,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         13 /* 3 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7903].val \* top level :$:case->cond *\ */,
+        0xcc /* builtinSymbols[7471].val \* top level :$:case->cond *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
@@ -42510,7 +42510,7 @@ Object scheme::getBuiltinCompiler() {
         1 /* 0 */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7998].val \* top level :$:expand-quasiquote *\ */,
+        0xcc /* builtinSymbols[7566].val \* top level :$:expand-quasiquote *\ */,
         3182 /* *insn* */,
         9 /* 2 */,
         17 /* 4 */,
@@ -42636,7 +42636,7 @@ Object scheme::getBuiltinCompiler() {
         1454 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7951].val \* top level :$:define-is-lambda? *\ */,
+        0xcc /* builtinSymbols[7519].val \* top level :$:define-is-lambda? *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         145 /* 36 */,
@@ -42663,7 +42663,7 @@ Object scheme::getBuiltinCompiler() {
         2094 /* *insn* */,
         3054 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7945].val \* top level :$:conditions->if *\ */,
+        0xcc /* builtinSymbols[7513].val \* top level :$:conditions->if *\ */,
         5 /* 1 */,
         2862 /* *insn* */,
         86 /* #f */,
@@ -42676,7 +42676,7 @@ Object scheme::getBuiltinCompiler() {
         17 /* 4 */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7945].val \* top level :$:conditions->if *\ */,
+        0xcc /* builtinSymbols[7513].val \* top level :$:conditions->if *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -42801,7 +42801,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8007].val \* top level :$:find-serial-from-head *\ */,
+        0xcc /* builtinSymbols[7575].val \* top level :$:find-serial-from-head *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -42870,7 +42870,7 @@ Object scheme::getBuiltinCompiler() {
         1870 /* *insn* */,
         33 /* 8 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         2094 /* *insn* */,
         334 /* *insn* */,
         654 /* *insn* */,
@@ -42880,7 +42880,7 @@ Object scheme::getBuiltinCompiler() {
         110 /* *insn* */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8007].val \* top level :$:find-serial-from-head *\ */,
+        0xcc /* builtinSymbols[7575].val \* top level :$:find-serial-from-head *\ */,
         9 /* 2 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -42948,7 +42948,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         1614 /* *insn* */,
@@ -43057,7 +43057,7 @@ Object scheme::getBuiltinCompiler() {
         2510 /* *insn* */,
         9 /* 2 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         2094 /* *insn* */,
         334 /* *insn* */,
         2894 /* *insn* */,
@@ -43095,7 +43095,7 @@ Object scheme::getBuiltinCompiler() {
         9 /* 2 */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7950].val \* top level :$:define->lambda *\ */,
+        0xcc /* builtinSymbols[7518].val \* top level :$:define->lambda *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -43109,7 +43109,7 @@ Object scheme::getBuiltinCompiler() {
         41 /* 10 */,
         0xcc /* list610.val */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6222].val \* cond *\ */,
+        0xcc /* builtinSymbols[434].val \* cond *\ */,
         2062 /* *insn* */,
         0xcc /* builtinSymbols[6896].val \* not *\ */,
         2094 /* *insn* */,
@@ -43299,7 +43299,7 @@ Object scheme::getBuiltinCompiler() {
         1870 /* *insn* */,
         29 /* 7 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5983].val \* begin *\ */,
+        0xcc /* builtinSymbols[195].val \* begin *\ */,
         2126 /* *insn* */,
         494 /* *insn* */,
         974 /* *insn* */,
@@ -43361,7 +43361,7 @@ Object scheme::getBuiltinCompiler() {
         1870 /* *insn* */,
         33 /* 8 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6310].val \* else *\ */,
+        0xcc /* builtinSymbols[522].val \* else *\ */,
         2094 /* *insn* */,
         270 /* *insn* */,
         654 /* *insn* */,
@@ -43383,7 +43383,7 @@ Object scheme::getBuiltinCompiler() {
         1870 /* *insn* */,
         33 /* 8 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5983].val \* begin *\ */,
+        0xcc /* builtinSymbols[195].val \* begin *\ */,
         2094 /* *insn* */,
         366 /* *insn* */,
         494 /* *insn* */,
@@ -43391,7 +43391,7 @@ Object scheme::getBuiltinCompiler() {
         33 /* 8 */,
         2350 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         5 /* 1 */,
@@ -43416,7 +43416,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7884].val \* top level :$:cadar *\ */,
+        0xcc /* builtinSymbols[7452].val \* top level :$:cadar *\ */,
         5 /* 1 */,
         654 /* *insn* */,
         974 /* *insn* */,
@@ -43456,7 +43456,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2990 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7887].val \* top level :$:caddar *\ */,
+        0xcc /* builtinSymbols[7455].val \* top level :$:caddar *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2382 /* *insn* */,
@@ -43580,7 +43580,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7944].val \* top level :$:cond->if *\ */,
+        0xcc /* builtinSymbols[7512].val \* top level :$:cond->if *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -43653,7 +43653,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         349 /* 87 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6310].val \* else *\ */,
+        0xcc /* builtinSymbols[522].val \* else *\ */,
         2094 /* *insn* */,
         270 /* *insn* */,
         654 /* *insn* */,
@@ -43676,14 +43676,14 @@ Object scheme::getBuiltinCompiler() {
         1870 /* *insn* */,
         145 /* 36 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6341].val \* eqv? *\ */,
+        0xcc /* builtinSymbols[553].val \* eqv? *\ */,
         2062 /* *insn* */,
         0xcc /* builtinSymbols[7096].val \* quote *\ */,
         750 /* *insn* */,
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7869].val \* top level :$:caaar *\ */,
+        0xcc /* builtinSymbols[7437].val \* top level :$:caaar *\ */,
         5 /* 1 */,
         2862 /* *insn* */,
         6 /* () */,
@@ -43751,7 +43751,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7996].val \* top level :$:expand-clauses *\ */,
+        0xcc /* builtinSymbols[7564].val \* top level :$:expand-clauses *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -43816,7 +43816,7 @@ Object scheme::getBuiltinCompiler() {
         2926 /* *insn* */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7996].val \* top level :$:expand-clauses *\ */,
+        0xcc /* builtinSymbols[7564].val \* top level :$:expand-clauses *\ */,
         9 /* 2 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -43832,7 +43832,7 @@ Object scheme::getBuiltinCompiler() {
         6 /* () */,
         494 /* *insn* */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[6222].val \* cond *\ */,
+        0xcc /* builtinSymbols[434].val \* cond *\ */,
         110 /* *insn* */,
         2094 /* *insn* */,
         494 /* *insn* */,
@@ -43847,7 +43847,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7903].val \* top level :$:case->cond *\ */,
+        0xcc /* builtinSymbols[7471].val \* top level :$:case->cond *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -43889,7 +43889,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -43928,7 +43928,7 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         33 /* 8 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7892].val \* top level :$:cadr *\ */,
+        0xcc /* builtinSymbols[7460].val \* top level :$:cadr *\ */,
         110 /* *insn* */,
         2926 /* *insn* */,
         3278 /* *insn* */,
@@ -43954,7 +43954,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7932].val \* top level :$:cdddr *\ */,
+        0xcc /* builtinSymbols[7500].val \* top level :$:cdddr *\ */,
         5 /* 1 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -44074,13 +44074,13 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7890].val \* top level :$:cadddr *\ */,
+        0xcc /* builtinSymbols[7458].val \* top level :$:cadddr *\ */,
         5 /* 1 */,
         2862 /* *insn* */,
         6 /* () */,
@@ -44095,7 +44095,7 @@ Object scheme::getBuiltinCompiler() {
         494 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7853].val \* top level :$:aif->let *\ */,
+        0xcc /* builtinSymbols[7421].val \* top level :$:aif->let *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -44168,7 +44168,7 @@ Object scheme::getBuiltinCompiler() {
         494 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8005].val \* top level :$:finalize-quasiquote *\ */,
+        0xcc /* builtinSymbols[7573].val \* top level :$:finalize-quasiquote *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -44191,7 +44191,7 @@ Object scheme::getBuiltinCompiler() {
         2446 /* *insn* */,
         3150 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7954].val \* top level :$:descend-quasiquote-vector *\ */,
+        0xcc /* builtinSymbols[7522].val \* top level :$:descend-quasiquote-vector *\ */,
         3182 /* *insn* */,
         13 /* 3 */,
         13 /* 3 */,
@@ -44228,7 +44228,7 @@ Object scheme::getBuiltinCompiler() {
         2670 /* *insn* */,
         3150 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7953].val \* top level :$:descend-quasiquote-pair *\ */,
+        0xcc /* builtinSymbols[7521].val \* top level :$:descend-quasiquote-pair *\ */,
         3182 /* *insn* */,
         13 /* 3 */,
         13 /* 3 */,
@@ -44268,7 +44268,7 @@ Object scheme::getBuiltinCompiler() {
         2478 /* *insn* */,
         3150 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7953].val \* top level :$:descend-quasiquote-pair *\ */,
+        0xcc /* builtinSymbols[7521].val \* top level :$:descend-quasiquote-pair *\ */,
         3182 /* *insn* */,
         13 /* 3 */,
         13 /* 3 */,
@@ -44308,7 +44308,7 @@ Object scheme::getBuiltinCompiler() {
         2478 /* *insn* */,
         3150 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7953].val \* top level :$:descend-quasiquote-pair *\ */,
+        0xcc /* builtinSymbols[7521].val \* top level :$:descend-quasiquote-pair *\ */,
         3182 /* *insn* */,
         13 /* 3 */,
         13 /* 3 */,
@@ -44319,14 +44319,14 @@ Object scheme::getBuiltinCompiler() {
         2446 /* *insn* */,
         3150 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7953].val \* top level :$:descend-quasiquote-pair *\ */,
+        0xcc /* builtinSymbols[7521].val \* top level :$:descend-quasiquote-pair *\ */,
         3182 /* *insn* */,
         13 /* 3 */,
         13 /* 3 */,
         13 /* 3 */,
         2766 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7952].val \* top level :$:descend-quasiquote *\ */,
+        0xcc /* builtinSymbols[7520].val \* top level :$:descend-quasiquote *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -44432,7 +44432,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         93 /* 23 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5954].val \* append *\ */,
+        0xcc /* builtinSymbols[166].val \* append *\ */,
         750 /* *insn* */,
         53 /* 13 */,
         2926 /* *insn* */,
@@ -44441,7 +44441,7 @@ Object scheme::getBuiltinCompiler() {
         2350 /* *insn* */,
         2446 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8005].val \* top level :$:finalize-quasiquote *\ */,
+        0xcc /* builtinSymbols[7573].val \* top level :$:finalize-quasiquote *\ */,
         9 /* 2 */,
         110 /* *insn* */,
         3278 /* *insn* */,
@@ -44456,7 +44456,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         121 /* 30 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6233].val \* cons *\ */,
+        0xcc /* builtinSymbols[445].val \* cons *\ */,
         750 /* *insn* */,
         81 /* 20 */,
         750 /* *insn* */,
@@ -44465,14 +44465,14 @@ Object scheme::getBuiltinCompiler() {
         13 /* 3 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8005].val \* top level :$:finalize-quasiquote *\ */,
+        0xcc /* builtinSymbols[7573].val \* top level :$:finalize-quasiquote *\ */,
         9 /* 2 */,
         2894 /* *insn* */,
         25 /* 6 */,
         2350 /* *insn* */,
         2446 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8005].val \* top level :$:finalize-quasiquote *\ */,
+        0xcc /* builtinSymbols[7573].val \* top level :$:finalize-quasiquote *\ */,
         9 /* 2 */,
         110 /* *insn* */,
         3278 /* *insn* */,
@@ -44487,7 +44487,7 @@ Object scheme::getBuiltinCompiler() {
         2734 /* *insn* */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7952].val \* top level :$:descend-quasiquote *\ */,
+        0xcc /* builtinSymbols[7520].val \* top level :$:descend-quasiquote *\ */,
         3182 /* *insn* */,
         13 /* 3 */,
         9 /* 2 */,
@@ -44495,14 +44495,14 @@ Object scheme::getBuiltinCompiler() {
         2734 /* *insn* */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7952].val \* top level :$:descend-quasiquote *\ */,
+        0xcc /* builtinSymbols[7520].val \* top level :$:descend-quasiquote *\ */,
         3182 /* *insn* */,
         13 /* 3 */,
         13 /* 3 */,
         13 /* 3 */,
         2766 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7953].val \* top level :$:descend-quasiquote-pair *\ */,
+        0xcc /* builtinSymbols[7521].val \* top level :$:descend-quasiquote-pair *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -44571,7 +44571,7 @@ Object scheme::getBuiltinCompiler() {
         2350 /* *insn* */,
         2446 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8005].val \* top level :$:finalize-quasiquote *\ */,
+        0xcc /* builtinSymbols[7573].val \* top level :$:finalize-quasiquote *\ */,
         9 /* 2 */,
         110 /* *insn* */,
         3278 /* *insn* */,
@@ -44586,14 +44586,14 @@ Object scheme::getBuiltinCompiler() {
         2734 /* *insn* */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7952].val \* top level :$:descend-quasiquote *\ */,
+        0xcc /* builtinSymbols[7520].val \* top level :$:descend-quasiquote *\ */,
         3182 /* *insn* */,
         13 /* 3 */,
         13 /* 3 */,
         13 /* 3 */,
         2766 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7954].val \* top level :$:descend-quasiquote-vector *\ */,
+        0xcc /* builtinSymbols[7522].val \* top level :$:descend-quasiquote-vector *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -44634,17 +44634,17 @@ Object scheme::getBuiltinCompiler() {
         2350 /* *insn* */,
         2446 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[8005].val \* top level :$:finalize-quasiquote *\ */,
+        0xcc /* builtinSymbols[7573].val \* top level :$:finalize-quasiquote *\ */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7952].val \* top level :$:descend-quasiquote *\ */,
+        0xcc /* builtinSymbols[7520].val \* top level :$:descend-quasiquote *\ */,
         3182 /* *insn* */,
         13 /* 3 */,
         9 /* 2 */,
         13 /* 3 */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7998].val \* top level :$:expand-quasiquote *\ */,
+        0xcc /* builtinSymbols[7566].val \* top level :$:expand-quasiquote *\ */,
         1070 /* *insn* */,
         462 /* *insn* */,
         137 /* 34 */,
@@ -44675,14 +44675,14 @@ Object scheme::getBuiltinCompiler() {
         2126 /* *insn* */,
         3054 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[8008].val \* top level :$:find-with-car *\ */,
+        0xcc /* builtinSymbols[7576].val \* top level :$:find-with-car *\ */,
         3182 /* *insn* */,
         9 /* 2 */,
         9 /* 2 */,
         9 /* 2 */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[8008].val \* top level :$:find-with-car *\ */,
+        0xcc /* builtinSymbols[7576].val \* top level :$:find-with-car *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -44716,7 +44716,7 @@ Object scheme::getBuiltinCompiler() {
         2926 /* *insn* */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8008].val \* top level :$:find-with-car *\ */,
+        0xcc /* builtinSymbols[7576].val \* top level :$:find-with-car *\ */,
         9 /* 2 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -44729,7 +44729,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         1614 /* *insn* */,
@@ -44792,7 +44792,7 @@ Object scheme::getBuiltinCompiler() {
         2926 /* *insn* */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8008].val \* top level :$:find-with-car *\ */,
+        0xcc /* builtinSymbols[7576].val \* top level :$:find-with-car *\ */,
         9 /* 2 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -44805,7 +44805,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3406 /* *insn* */,
@@ -45357,7 +45357,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7958].val \* top level :$:dotpair->list *\ */,
+        0xcc /* builtinSymbols[7526].val \* top level :$:dotpair->list *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -45573,7 +45573,7 @@ Object scheme::getBuiltinCompiler() {
         302 /* *insn* */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7958].val \* top level :$:dotpair->list *\ */,
+        0xcc /* builtinSymbols[7526].val \* top level :$:dotpair->list *\ */,
         5 /* 1 */,
         494 /* *insn* */,
         494 /* *insn* */,
@@ -45679,7 +45679,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         1614 /* *insn* */,
@@ -45690,7 +45690,7 @@ Object scheme::getBuiltinCompiler() {
         13 /* 3 */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7947].val \* top level :$:copy-identifier *\ */,
+        0xcc /* builtinSymbols[7515].val \* top level :$:copy-identifier *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         3406 /* *insn* */,
@@ -45901,7 +45901,7 @@ Object scheme::getBuiltinCompiler() {
         33 /* 8 */,
         0xcc /* list531.val */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6220].val \* compiler *\ */,
+        0xcc /* builtinSymbols[432].val \* compiler *\ */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("syntax-error: malformed and:")).val */,
         2958 /* *insn* */,
@@ -46133,7 +46133,7 @@ Object scheme::getBuiltinCompiler() {
         33 /* 8 */,
         0xcc /* list523.val */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6220].val \* compiler *\ */,
+        0xcc /* builtinSymbols[432].val \* compiler *\ */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("syntax-error: malformed or:")).val */,
         2958 /* *insn* */,
@@ -46225,7 +46225,7 @@ Object scheme::getBuiltinCompiler() {
         2350 /* *insn* */,
         3150 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8008].val \* top level :$:find-with-car *\ */,
+        0xcc /* builtinSymbols[7576].val \* top level :$:find-with-car *\ */,
         9 /* 2 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -46234,7 +46234,7 @@ Object scheme::getBuiltinCompiler() {
         41 /* 10 */,
         2350 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7947].val \* top level :$:copy-identifier *\ */,
+        0xcc /* builtinSymbols[7515].val \* top level :$:copy-identifier *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         25 /* 6 */,
@@ -46272,7 +46272,7 @@ Object scheme::getBuiltinCompiler() {
         3022 /* *insn* */,
         3150 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8008].val \* top level :$:find-with-car *\ */,
+        0xcc /* builtinSymbols[7576].val \* top level :$:find-with-car *\ */,
         9 /* 2 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -46287,7 +46287,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7947].val \* top level :$:copy-identifier *\ */,
+        0xcc /* builtinSymbols[7515].val \* top level :$:copy-identifier *\ */,
         5 /* 1 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -46494,7 +46494,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8020].val \* top level :$:fourth *\ */,
+        0xcc /* builtinSymbols[7588].val \* top level :$:fourth *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2350 /* *insn* */,
@@ -46517,7 +46517,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2286 /* *insn* */,
@@ -46530,7 +46530,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7931].val \* top level :$:cddddr *\ */,
+        0xcc /* builtinSymbols[7499].val \* top level :$:cddddr *\ */,
         5 /* 1 */,
         2030 /* *insn* */,
         750 /* *insn* */,
@@ -46684,7 +46684,7 @@ Object scheme::getBuiltinCompiler() {
         622 /* *insn* */,
         5 /* 1 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6360].val \* expand *\ */,
+        0xcc /* builtinSymbols[572].val \* expand *\ */,
         2830 /* *insn* */,
         21 /* 5 */,
         526 /* *insn* */,
@@ -46700,7 +46700,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         41 /* 10 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6220].val \* compiler *\ */,
+        0xcc /* builtinSymbols[432].val \* compiler *\ */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("unknown for")).val */,
         2222 /* *insn* */,
@@ -46742,7 +46742,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         41 /* 10 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6220].val \* compiler *\ */,
+        0xcc /* builtinSymbols[432].val \* compiler *\ */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("unknown level on meta")).val */,
         2254 /* *insn* */,
@@ -46803,7 +46803,7 @@ Object scheme::getBuiltinCompiler() {
         622 /* *insn* */,
         5 /* 1 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6465].val \* for *\ */,
+        0xcc /* builtinSymbols[677].val \* for *\ */,
         2830 /* *insn* */,
         117 /* 29 */,
         1582 /* *insn* */,
@@ -46816,7 +46816,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         45 /* 11 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         1582 /* *insn* */,
@@ -46946,7 +46946,7 @@ Object scheme::getBuiltinCompiler() {
         41 /* 10 */,
         2350 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7947].val \* top level :$:copy-identifier *\ */,
+        0xcc /* builtinSymbols[7515].val \* top level :$:copy-identifier *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         5 /* 1 */,
@@ -47032,7 +47032,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         3121 /* 780 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6354].val \* except *\ */,
+        0xcc /* builtinSymbols[566].val \* except *\ */,
         2830 /* *insn* */,
         777 /* 194 */,
         878 /* *insn* */,
@@ -47147,7 +47147,7 @@ Object scheme::getBuiltinCompiler() {
         33 /* 8 */,
         2350 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7947].val \* top level :$:copy-identifier *\ */,
+        0xcc /* builtinSymbols[7515].val \* top level :$:copy-identifier *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         5 /* 1 */,
@@ -47332,7 +47332,7 @@ Object scheme::getBuiltinCompiler() {
         3022 /* *insn* */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8008].val \* top level :$:find-with-car *\ */,
+        0xcc /* builtinSymbols[7576].val \* top level :$:find-with-car *\ */,
         9 /* 2 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -47348,7 +47348,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2958 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         1614 /* *insn* */,
@@ -47361,7 +47361,7 @@ Object scheme::getBuiltinCompiler() {
         33 /* 8 */,
         2958 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7947].val \* top level :$:copy-identifier *\ */,
+        0xcc /* builtinSymbols[7515].val \* top level :$:copy-identifier *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         17 /* 4 */,
@@ -47474,7 +47474,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2958 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2222 /* *insn* */,
@@ -47595,7 +47595,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         1614 /* *insn* */,
@@ -47739,7 +47739,7 @@ Object scheme::getBuiltinCompiler() {
         2894 /* *insn* */,
         45 /* 11 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7947].val \* top level :$:copy-identifier *\ */,
+        0xcc /* builtinSymbols[7515].val \* top level :$:copy-identifier *\ */,
         110 /* *insn* */,
         2382 /* *insn* */,
         9 /* 2 */,
@@ -47981,7 +47981,7 @@ Object scheme::getBuiltinCompiler() {
         1998 /* *insn* */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7857].val \* top level :$:assoc *\ */,
+        0xcc /* builtinSymbols[7425].val \* top level :$:assoc *\ */,
         9 /* 2 */,
         974 /* *insn* */,
         5 /* 1 */,
@@ -48095,7 +48095,7 @@ Object scheme::getBuiltinCompiler() {
         1998 /* *insn* */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7857].val \* top level :$:assoc *\ */,
+        0xcc /* builtinSymbols[7425].val \* top level :$:assoc *\ */,
         9 /* 2 */,
         974 /* *insn* */,
         5 /* 1 */,
@@ -48176,7 +48176,7 @@ Object scheme::getBuiltinCompiler() {
         1998 /* *insn* */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8008].val \* top level :$:find-with-car *\ */,
+        0xcc /* builtinSymbols[7576].val \* top level :$:find-with-car *\ */,
         9 /* 2 */,
         974 /* *insn* */,
         5 /* 1 */,
@@ -48253,7 +48253,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2382 /* *insn* */,
@@ -48261,7 +48261,7 @@ Object scheme::getBuiltinCompiler() {
         1998 /* *insn* */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7857].val \* top level :$:assoc *\ */,
+        0xcc /* builtinSymbols[7425].val \* top level :$:assoc *\ */,
         9 /* 2 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -48521,7 +48521,7 @@ Object scheme::getBuiltinCompiler() {
         2094 /* *insn* */,
         3022 /* *insn* */,
         526 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         718 /* *insn* */,
         1870 /* *insn* */,
         193 /* 48 */,
@@ -48539,7 +48539,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         1454 /* *insn* */,
         1870 /* *insn* */,
@@ -48548,7 +48548,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7875].val \* top level :$:caaddr *\ */,
+        0xcc /* builtinSymbols[7443].val \* top level :$:caaddr *\ */,
         5 /* 1 */,
         2862 /* *insn* */,
         0xcc /* builtinSymbols[6669].val \* lambda *\ */,
@@ -48559,7 +48559,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7932].val \* top level :$:cdddr *\ */,
+        0xcc /* builtinSymbols[7500].val \* top level :$:cdddr *\ */,
         5 /* 1 */,
         1134 /* *insn* */,
         974 /* *insn* */,
@@ -48582,7 +48582,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7916].val \* top level :$:cdaddr *\ */,
+        0xcc /* builtinSymbols[7484].val \* top level :$:cdaddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2350 /* *insn* */,
@@ -48624,7 +48624,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         1582 /* *insn* */,
@@ -48693,7 +48693,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2990 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
@@ -48791,13 +48791,13 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7932].val \* top level :$:cdddr *\ */,
+        0xcc /* builtinSymbols[7500].val \* top level :$:cdddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2446 /* *insn* */,
@@ -49266,7 +49266,7 @@ Object scheme::getBuiltinCompiler() {
         13 /* 3 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8019].val \* top level :$:for-each *\ */,
+        0xcc /* builtinSymbols[7587].val \* top level :$:for-each *\ */,
         13 /* 3 */,
         2062 /* *insn* */,
         0xcc /* builtinSymbols[7114].val \* rec *\ */,
@@ -49435,7 +49435,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7876].val \* top level :$:caadr *\ */,
+        0xcc /* builtinSymbols[7444].val \* top level :$:caadr *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         101 /* 25 */,
@@ -49445,13 +49445,13 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7917].val \* top level :$:cdadr *\ */,
+        0xcc /* builtinSymbols[7485].val \* top level :$:cdadr *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         2862 /* *insn* */,
         6 /* () */,
@@ -49461,7 +49461,7 @@ Object scheme::getBuiltinCompiler() {
         110 /* *insn* */,
         2446 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7943].val \* top level :$:compile-partial *\ */,
+        0xcc /* builtinSymbols[7511].val \* top level :$:compile-partial *\ */,
         9 /* 2 */,
         110 /* *insn* */,
         2414 /* *insn* */,
@@ -49469,7 +49469,7 @@ Object scheme::getBuiltinCompiler() {
         1998 /* *insn* */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7854].val \* top level :$:alist-cons *\ */,
+        0xcc /* builtinSymbols[7422].val \* top level :$:alist-cons *\ */,
         13 /* 3 */,
         2030 /* *insn* */,
         974 /* *insn* */,
@@ -49486,11 +49486,11 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7943].val \* top level :$:compile-partial *\ */,
+        0xcc /* builtinSymbols[7511].val \* top level :$:compile-partial *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         2414 /* *insn* */,
@@ -49498,7 +49498,7 @@ Object scheme::getBuiltinCompiler() {
         1998 /* *insn* */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7854].val \* top level :$:alist-cons *\ */,
+        0xcc /* builtinSymbols[7422].val \* top level :$:alist-cons *\ */,
         13 /* 3 */,
         2030 /* *insn* */,
         1614 /* *insn* */,
@@ -49644,11 +49644,11 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         17 /* 4 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7855].val \* top level :$:apply-each-pair *\ */,
+        0xcc /* builtinSymbols[7423].val \* top level :$:apply-each-pair *\ */,
         9 /* 2 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7945].val \* top level :$:conditions->if *\ */,
+        0xcc /* builtinSymbols[7513].val \* top level :$:conditions->if *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
@@ -50412,7 +50412,7 @@ Object scheme::getBuiltinCompiler() {
         2094 /* *insn* */,
         3054 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[8010].val \* top level :$:fold *\ */,
+        0xcc /* builtinSymbols[7578].val \* top level :$:fold *\ */,
         3182 /* *insn* */,
         13 /* 3 */,
         49 /* 12 */,
@@ -50504,7 +50504,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         5353 /* 1338 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6233].val \* cons *\ */,
+        0xcc /* builtinSymbols[445].val \* cons *\ */,
         2830 /* *insn* */,
         201 /* 50 */,
         2062 /* *insn* */,
@@ -50557,7 +50557,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         5141 /* 1285 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5949].val \* and *\ */,
+        0xcc /* builtinSymbols[161].val \* and *\ */,
         2830 /* *insn* */,
         65 /* 16 */,
         3406 /* *insn* */,
@@ -50595,7 +50595,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         4989 /* 1247 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5983].val \* begin *\ */,
+        0xcc /* builtinSymbols[195].val \* begin *\ */,
         2830 /* *insn* */,
         93 /* 23 */,
         750 /* *insn* */,
@@ -50674,7 +50674,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         4673 /* 1168 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6259].val \* define *\ */,
+        0xcc /* builtinSymbols[471].val \* define *\ */,
         2830 /* *insn* */,
         65 /* 16 */,
         3406 /* *insn* */,
@@ -50693,7 +50693,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         4597 /* 1149 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6265].val \* define-macro *\ */,
+        0xcc /* builtinSymbols[477].val \* define-macro *\ */,
         2830 /* *insn* */,
         65 /* 16 */,
         3406 /* *insn* */,
@@ -50747,7 +50747,7 @@ Object scheme::getBuiltinCompiler() {
         2894 /* *insn* */,
         45 /* 11 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7892].val \* top level :$:cadr *\ */,
+        0xcc /* builtinSymbols[7460].val \* top level :$:cadr *\ */,
         110 /* *insn* */,
         1582 /* *insn* */,
         21 /* 5 */,
@@ -50798,7 +50798,7 @@ Object scheme::getBuiltinCompiler() {
         2894 /* *insn* */,
         45 /* 11 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7892].val \* top level :$:cadr *\ */,
+        0xcc /* builtinSymbols[7460].val \* top level :$:cadr *\ */,
         110 /* *insn* */,
         1582 /* *insn* */,
         21 /* 5 */,
@@ -50880,7 +50880,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
@@ -50912,14 +50912,14 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7932].val \* top level :$:cdddr *\ */,
+        0xcc /* builtinSymbols[7500].val \* top level :$:cdddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3406 /* *insn* */,
@@ -51020,13 +51020,13 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         3289 /* 822 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5954].val \* append *\ */,
+        0xcc /* builtinSymbols[166].val \* append *\ */,
         2830 /* *insn* */,
         85 /* 21 */,
         2062 /* *insn* */,
         30 /* *compiler-insn* */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6296].val \* dummy *\ */,
+        0xcc /* builtinSymbols[508].val \* dummy *\ */,
         1582 /* *insn* */,
         21 /* 5 */,
         3054 /* *insn* */,
@@ -51319,14 +51319,14 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         2894 /* *insn* */,
         25 /* 6 */,
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8020].val \* top level :$:fourth *\ */,
+        0xcc /* builtinSymbols[7588].val \* top level :$:fourth *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3406 /* *insn* */,
@@ -51356,7 +51356,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3406 /* *insn* */,
@@ -51400,7 +51400,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         1769 /* 442 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6113].val \* car *\ */,
+        0xcc /* builtinSymbols[325].val \* car *\ */,
         2830 /* *insn* */,
         81 /* 20 */,
         2062 /* *insn* */,
@@ -51423,7 +51423,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         1677 /* 419 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6154].val \* cdr *\ */,
+        0xcc /* builtinSymbols[366].val \* cdr *\ */,
         2830 /* *insn* */,
         81 /* 20 */,
         2062 /* *insn* */,
@@ -51446,7 +51446,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         1585 /* 396 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6080].val \* caar *\ */,
+        0xcc /* builtinSymbols[292].val \* caar *\ */,
         2830 /* *insn* */,
         81 /* 20 */,
         2062 /* *insn* */,
@@ -51469,7 +51469,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         1493 /* 373 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6095].val \* cadr *\ */,
+        0xcc /* builtinSymbols[307].val \* cadr *\ */,
         2830 /* *insn* */,
         81 /* 20 */,
         2062 /* *insn* */,
@@ -51492,7 +51492,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         1401 /* 350 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6138].val \* cdar *\ */,
+        0xcc /* builtinSymbols[350].val \* cdar *\ */,
         2830 /* *insn* */,
         81 /* 20 */,
         2062 /* *insn* */,
@@ -51515,7 +51515,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         1309 /* 327 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6153].val \* cddr *\ */,
+        0xcc /* builtinSymbols[365].val \* cddr *\ */,
         2830 /* *insn* */,
         81 /* 20 */,
         2062 /* *insn* */,
@@ -51551,7 +51551,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3406 /* *insn* */,
@@ -51581,7 +51581,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3406 /* *insn* */,
@@ -51598,7 +51598,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         977 /* 244 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6338].val \* eq? *\ */,
+        0xcc /* builtinSymbols[550].val \* eq? *\ */,
         2830 /* *insn* */,
         109 /* 27 */,
         2062 /* *insn* */,
@@ -51611,7 +51611,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3406 /* *insn* */,
@@ -51628,7 +51628,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         857 /* 214 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6341].val \* eqv? *\ */,
+        0xcc /* builtinSymbols[553].val \* eqv? *\ */,
         2830 /* *insn* */,
         109 /* 27 */,
         2062 /* *insn* */,
@@ -51641,7 +51641,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3406 /* *insn* */,
@@ -51658,7 +51658,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         737 /* 184 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6340].val \* equal? *\ */,
+        0xcc /* builtinSymbols[552].val \* equal? *\ */,
         2830 /* *insn* */,
         109 /* 27 */,
         2062 /* *insn* */,
@@ -51671,7 +51671,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         21 /* 5 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3406 /* *insn* */,
@@ -52082,7 +52082,7 @@ Object scheme::getBuiltinCompiler() {
         5 /* 1 */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7957].val \* top level :$:dotimes *\ */,
+        0xcc /* builtinSymbols[7525].val \* top level :$:dotimes *\ */,
         3182 /* *insn* */,
         9 /* 2 */,
         5 /* 1 */,
@@ -52201,7 +52201,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("($UNDEF)")).val */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         9 /* 2 */,
@@ -52274,7 +52274,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC(")")).val */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         9 /* 2 */,
@@ -52339,12 +52339,12 @@ Object scheme::getBuiltinCompiler() {
         1998 /* *insn* */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8019].val \* top level :$:for-each *\ */,
+        0xcc /* builtinSymbols[7587].val \* top level :$:for-each *\ */,
         9 /* 2 */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC(")")).val */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         9 /* 2 */,
@@ -52395,7 +52395,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC(")")).val */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         9 /* 2 */,
@@ -52520,7 +52520,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC(")")).val */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         9 /* 2 */,
@@ -52625,7 +52625,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         37 /* 9 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         5 /* 1 */,
         750 /* *insn* */,
         409 /* 102 */,
@@ -52678,7 +52678,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         5 /* 1 */,
         750 /* *insn* */,
         65 /* 16 */,
@@ -52702,7 +52702,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC(")")).val */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         5 /* 1 */,
         3406 /* *insn* */,
         25 /* 6 */,
@@ -52728,14 +52728,14 @@ Object scheme::getBuiltinCompiler() {
         1998 /* *insn* */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8019].val \* top level :$:for-each *\ */,
+        0xcc /* builtinSymbols[7587].val \* top level :$:for-each *\ */,
         13 /* 3 */,
         750 /* *insn* */,
         25 /* 6 */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC(")")).val */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         5 /* 1 */,
         750 /* *insn* */,
         41 /* 10 */,
@@ -52767,7 +52767,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC(")")).val */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         33 /* 8 */,
@@ -52790,7 +52790,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("($IF ")).val */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         5 /* 1 */,
         750 /* *insn* */,
         49 /* 12 */,
@@ -52854,7 +52854,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC(")")).val */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         9 /* 2 */,
@@ -53004,7 +53004,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC(")")).val */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         33 /* 8 */,
@@ -53082,12 +53082,12 @@ Object scheme::getBuiltinCompiler() {
         1998 /* *insn* */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8019].val \* top level :$:for-each *\ */,
+        0xcc /* builtinSymbols[7587].val \* top level :$:for-each *\ */,
         9 /* 2 */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC(")")).val */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         9 /* 2 */,
@@ -53147,7 +53147,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC(")")).val */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         9 /* 2 */,
@@ -53168,7 +53168,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("($CALL-CC ")).val */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         5 /* 1 */,
         750 /* *insn* */,
         45 /* 11 */,
@@ -53185,7 +53185,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC(")")).val */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         9 /* 2 */,
@@ -53206,7 +53206,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC("($LABEL ")).val */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         5 /* 1 */,
         750 /* *insn* */,
         45 /* 11 */,
@@ -53223,7 +53223,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC(")")).val */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         9 /* 2 */,
@@ -53366,12 +53366,12 @@ Object scheme::getBuiltinCompiler() {
         1998 /* *insn* */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8019].val \* top level :$:for-each *\ */,
+        0xcc /* builtinSymbols[7587].val \* top level :$:for-each *\ */,
         9 /* 2 */,
         2062 /* *insn* */,
         0xcc /* Object::makeString(UC(")")).val */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7955].val \* top level :$:display *\ */,
+        0xcc /* builtinSymbols[7523].val \* top level :$:display *\ */,
         3182 /* *insn* */,
         5 /* 1 */,
         21 /* 5 */,
@@ -53526,7 +53526,7 @@ Object scheme::getBuiltinCompiler() {
         526 /* *insn* */,
         49 /* 12 */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7850].val \* top level :$:SMALL_LAMBDA_SIZE *\ */,
+        0xcc /* builtinSymbols[7418].val \* top level :$:SMALL_LAMBDA_SIZE *\ */,
         1614 /* *insn* */,
         0xcc /* builtinSymbols[7372].val \* top level :$:$INSN-NUM *\ */,
         2862 /* *insn* */,
@@ -53868,7 +53868,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         237 /* 59 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5931].val \* NUMBER_MINUS *\ */,
+        0xcc /* builtinSymbols[143].val \* NUMBER_MINUS *\ */,
         2830 /* *insn* */,
         213 /* 53 */,
         1614 /* *insn* */,
@@ -54594,7 +54594,7 @@ Object scheme::getBuiltinCompiler() {
         2350 /* *insn* */,
         2446 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8019].val \* top level :$:for-each *\ */,
+        0xcc /* builtinSymbols[7587].val \* top level :$:for-each *\ */,
         13 /* 3 */,
         878 /* *insn* */,
         3150 /* *insn* */,
@@ -54831,13 +54831,13 @@ Object scheme::getBuiltinCompiler() {
         750 /* *insn* */,
         41 /* 10 */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7854].val \* top level :$:alist-cons *\ */,
+        0xcc /* builtinSymbols[7422].val \* top level :$:alist-cons *\ */,
         110 /* *insn* */,
         2958 /* *insn* */,
         2926 /* *insn* */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8017].val \* top level :$:foldr2 *\ */,
+        0xcc /* builtinSymbols[7585].val \* top level :$:foldr2 *\ */,
         17 /* 4 */,
         494 /* *insn* */,
         2574 /* *insn* */,
@@ -55731,7 +55731,7 @@ Object scheme::getBuiltinCompiler() {
         21 /* 5 */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -55773,14 +55773,14 @@ Object scheme::getBuiltinCompiler() {
         33 /* 8 */,
         2958 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7850].val \* top level :$:SMALL_LAMBDA_SIZE *\ */,
+        0xcc /* builtinSymbols[7418].val \* top level :$:SMALL_LAMBDA_SIZE *\ */,
         110 /* *insn* */,
         3278 /* *insn* */,
         0xcc /* builtinSymbols[8035].val \* top level :$:iform-count-size-upto *\ */,
         9 /* 2 */,
         110 /* *insn* */,
         1614 /* *insn* */,
-        0xcc /* builtinSymbols[7850].val \* top level :$:SMALL_LAMBDA_SIZE *\ */,
+        0xcc /* builtinSymbols[7418].val \* top level :$:SMALL_LAMBDA_SIZE *\ */,
         1326 /* *insn* */,
         1870 /* *insn* */,
         49 /* 12 */,
@@ -56690,7 +56690,7 @@ Object scheme::getBuiltinCompiler() {
         1262 /* *insn* */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7856].val \* top level :$:argcount-ok? *\ */,
+        0xcc /* builtinSymbols[7424].val \* top level :$:argcount-ok? *\ */,
         13 /* 3 */,
         3246 /* *insn* */,
         105 /* 26 */,
@@ -56715,7 +56715,7 @@ Object scheme::getBuiltinCompiler() {
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7991].val \* top level :$:errorf *\ */,
+        0xcc /* builtinSymbols[7559].val \* top level :$:errorf *\ */,
         21 /* 5 */,
         974 /* *insn* */,
         13 /* 3 */,
@@ -56764,7 +56764,7 @@ Object scheme::getBuiltinCompiler() {
         1710 /* *insn* */,
         17 /* 4 */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7852].val \* top level :$:adjust-arglist *\ */,
+        0xcc /* builtinSymbols[7420].val \* top level :$:adjust-arglist *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -56824,7 +56824,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2766 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7856].val \* top level :$:argcount-ok? *\ */,
+        0xcc /* builtinSymbols[7424].val \* top level :$:argcount-ok? *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -56926,7 +56926,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         29 /* 7 */,
         526 /* *insn* */,
-        0xcc /* builtinSymbols[6284].val \* dissolved *\ */,
+        0xcc /* builtinSymbols[496].val \* dissolved *\ */,
         2030 /* *insn* */,
         878 /* *insn* */,
         2958 /* *insn* */,
@@ -57062,7 +57062,7 @@ Object scheme::getBuiltinCompiler() {
         110 /* *insn* */,
         3150 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7852].val \* top level :$:adjust-arglist *\ */,
+        0xcc /* builtinSymbols[7420].val \* top level :$:adjust-arglist *\ */,
         17 /* 4 */,
         2030 /* *insn* */,
         3406 /* *insn* */,
@@ -57083,7 +57083,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         17 /* 4 */,
         526 /* *insn* */,
-        0xcc /* builtinSymbols[6311].val \* embed *\ */,
+        0xcc /* builtinSymbols[523].val \* embed *\ */,
         2030 /* *insn* */,
         3406 /* *insn* */,
         17 /* 4 */,
@@ -57095,7 +57095,7 @@ Object scheme::getBuiltinCompiler() {
         2062 /* *insn* */,
         29 /* 7 */,
         526 /* *insn* */,
-        0xcc /* builtinSymbols[6284].val \* dissolved *\ */,
+        0xcc /* builtinSymbols[496].val \* dissolved *\ */,
         2030 /* *insn* */,
         2254 /* *insn* */,
         1134 /* *insn* */,
@@ -57176,7 +57176,7 @@ Object scheme::getBuiltinCompiler() {
         110 /* *insn* */,
         2958 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7852].val \* top level :$:adjust-arglist *\ */,
+        0xcc /* builtinSymbols[7420].val \* top level :$:adjust-arglist *\ */,
         17 /* 4 */,
         2030 /* *insn* */,
         2382 /* *insn* */,
@@ -57193,7 +57193,7 @@ Object scheme::getBuiltinCompiler() {
         110 /* *insn* */,
         2990 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8019].val \* top level :$:for-each *\ */,
+        0xcc /* builtinSymbols[7587].val \* top level :$:for-each *\ */,
         9 /* 2 */,
         526 /* *insn* */,
         6 /* () */,
@@ -57272,7 +57272,7 @@ Object scheme::getBuiltinCompiler() {
         110 /* *insn* */,
         2926 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7852].val \* top level :$:adjust-arglist *\ */,
+        0xcc /* builtinSymbols[7420].val \* top level :$:adjust-arglist *\ */,
         17 /* 4 */,
         2030 /* *insn* */,
         2094 /* *insn* */,
@@ -57287,7 +57287,7 @@ Object scheme::getBuiltinCompiler() {
         2190 /* *insn* */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8019].val \* top level :$:for-each *\ */,
+        0xcc /* builtinSymbols[7587].val \* top level :$:for-each *\ */,
         9 /* 2 */,
         526 /* *insn* */,
         6 /* () */,
@@ -57378,7 +57378,7 @@ Object scheme::getBuiltinCompiler() {
         29 /* 7 */,
         1998 /* *insn* */,
         2862 /* *insn* */,
-        0xcc /* builtinSymbols[6284].val \* dissolved *\ */,
+        0xcc /* builtinSymbols[496].val \* dissolved *\ */,
         654 /* *insn* */,
         1870 /* *insn* */,
         41 /* 10 */,
@@ -58112,7 +58112,7 @@ Object scheme::getBuiltinCompiler() {
         2350 /* *insn* */,
         2446 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8019].val \* top level :$:for-each *\ */,
+        0xcc /* builtinSymbols[7587].val \* top level :$:for-each *\ */,
         13 /* 3 */,
         2062 /* *insn* */,
         0xcc /* builtinSymbols[6681].val \* let *\ */,
@@ -58242,7 +58242,7 @@ Object scheme::getBuiltinCompiler() {
         5 /* 1 */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7991].val \* top level :$:errorf *\ */,
+        0xcc /* builtinSymbols[7559].val \* top level :$:errorf *\ */,
         21 /* 5 */,
         974 /* *insn* */,
         13 /* 3 */,
@@ -61136,7 +61136,7 @@ Object scheme::getBuiltinCompiler() {
         110 /* *insn* */,
         2350 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8010].val \* top level :$:fold *\ */,
+        0xcc /* builtinSymbols[7578].val \* top level :$:fold *\ */,
         13 /* 3 */,
         2510 /* *insn* */,
         5 /* 1 */,
@@ -62948,7 +62948,7 @@ Object scheme::getBuiltinCompiler() {
         3406 /* *insn* */,
         41 /* 10 */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[7891].val \* top level :$:caddr *\ */,
+        0xcc /* builtinSymbols[7459].val \* top level :$:caddr *\ */,
         5 /* 1 */,
         110 /* *insn* */,
         3406 /* *insn* */,
@@ -63227,13 +63227,13 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         1273 /* 318 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5932].val \* OPEN_INPUT_FILE *\ */,
+        0xcc /* builtinSymbols[144].val \* OPEN_INPUT_FILE *\ */,
         2830 /* *insn* */,
         97 /* 24 */,
         3406 /* *insn* */,
         45 /* 11 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[5932].val \* OPEN_INPUT_FILE *\ */,
+        0xcc /* builtinSymbols[144].val \* OPEN_INPUT_FILE *\ */,
         1582 /* *insn* */,
         41 /* 10 */,
         3022 /* *insn* */,
@@ -64324,7 +64324,7 @@ Object scheme::getBuiltinCompiler() {
         974 /* *insn* */,
         3701 /* 925 */,
         2062 /* *insn* */,
-        0xcc /* builtinSymbols[6311].val \* embed *\ */,
+        0xcc /* builtinSymbols[523].val \* embed *\ */,
         2830 /* *insn* */,
         2669 /* 667 */,
         878 /* *insn* */,
@@ -69090,7 +69090,7 @@ Object scheme::getBuiltinCompiler() {
         1998 /* *insn* */,
         110 /* *insn* */,
         3278 /* *insn* */,
-        0xcc /* builtinSymbols[8019].val \* top level :$:for-each *\ */,
+        0xcc /* builtinSymbols[7587].val \* top level :$:for-each *\ */,
         9 /* 2 */,
         526 /* *insn* */,
         1 /* 0 */,
@@ -69600,7 +69600,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7941].val \* top level :$:compile-library-body! *\ */,
+        0xcc /* builtinSymbols[7509].val \* top level :$:compile-library-body! *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -69694,7 +69694,7 @@ Object scheme::getBuiltinCompiler() {
         2574 /* *insn* */,
         2734 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7943].val \* top level :$:compile-partial *\ */,
+        0xcc /* builtinSymbols[7511].val \* top level :$:compile-partial *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -71182,7 +71182,7 @@ Object scheme::getBuiltinCompiler() {
         5 /* 1 */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7940].val \* top level :$:compile *\ */,
+        0xcc /* builtinSymbols[7508].val \* top level :$:compile *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -71229,7 +71229,7 @@ Object scheme::getBuiltinCompiler() {
         5 /* 1 */,
         2702 /* *insn* */,
         558 /* *insn* */,
-        0xcc /* builtinSymbols[7942].val \* top level :$:compile-no-optimize *\ */,
+        0xcc /* builtinSymbols[7510].val \* top level :$:compile-no-optimize *\ */,
         1070 /* *insn* */,
         1070 /* *insn* */,
         1070 /* *insn* */,
@@ -71256,132 +71256,132 @@ Object scheme::getBuiltinCompiler() {
     array1409[41] = list1408.val;
     array1409[53] = builtinSymbols[8093].val /* top level :$:not */;
     array1409[177] = list1406.val;
-    array1409[183] = builtinSymbols[7877].val /* top level :$:caar */;
+    array1409[183] = builtinSymbols[7445].val /* top level :$:caar */;
     array1409[191] = list1404.val;
-    array1409[197] = builtinSymbols[7918].val /* top level :$:cdar */;
+    array1409[197] = builtinSymbols[7486].val /* top level :$:cdar */;
     array1409[205] = list1402.val;
-    array1409[211] = builtinSymbols[7892].val /* top level :$:cadr */;
+    array1409[211] = builtinSymbols[7460].val /* top level :$:cadr */;
     array1409[219] = list1400.val;
-    array1409[225] = builtinSymbols[7933].val /* top level :$:cddr */;
+    array1409[225] = builtinSymbols[7501].val /* top level :$:cddr */;
     array1409[233] = list1398.val;
-    array1409[240] = builtinSymbols[7869].val /* top level :$:caaar */;
+    array1409[240] = builtinSymbols[7437].val /* top level :$:caaar */;
     array1409[248] = list1396.val;
-    array1409[255] = builtinSymbols[7910].val /* top level :$:cdaar */;
+    array1409[255] = builtinSymbols[7478].val /* top level :$:cdaar */;
     array1409[263] = list1394.val;
-    array1409[270] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array1409[270] = builtinSymbols[7452].val /* top level :$:cadar */;
     array1409[278] = list1392.val;
-    array1409[285] = builtinSymbols[7925].val /* top level :$:cddar */;
+    array1409[285] = builtinSymbols[7493].val /* top level :$:cddar */;
     array1409[293] = list1390.val;
-    array1409[300] = builtinSymbols[7876].val /* top level :$:caadr */;
+    array1409[300] = builtinSymbols[7444].val /* top level :$:caadr */;
     array1409[308] = list1388.val;
-    array1409[315] = builtinSymbols[7917].val /* top level :$:cdadr */;
+    array1409[315] = builtinSymbols[7485].val /* top level :$:cdadr */;
     array1409[323] = list1386.val;
-    array1409[330] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[330] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[338] = list1384.val;
-    array1409[345] = builtinSymbols[7932].val /* top level :$:cdddr */;
+    array1409[345] = builtinSymbols[7500].val /* top level :$:cdddr */;
     array1409[353] = list1382.val;
-    array1409[361] = builtinSymbols[7865].val /* top level :$:caaaar */;
+    array1409[361] = builtinSymbols[7433].val /* top level :$:caaaar */;
     array1409[369] = list1380.val;
-    array1409[377] = builtinSymbols[7906].val /* top level :$:cdaaar */;
+    array1409[377] = builtinSymbols[7474].val /* top level :$:cdaaar */;
     array1409[385] = list1378.val;
-    array1409[393] = builtinSymbols[7880].val /* top level :$:cadaar */;
+    array1409[393] = builtinSymbols[7448].val /* top level :$:cadaar */;
     array1409[401] = list1376.val;
-    array1409[409] = builtinSymbols[7921].val /* top level :$:cddaar */;
+    array1409[409] = builtinSymbols[7489].val /* top level :$:cddaar */;
     array1409[417] = list1374.val;
-    array1409[425] = builtinSymbols[7872].val /* top level :$:caadar */;
+    array1409[425] = builtinSymbols[7440].val /* top level :$:caadar */;
     array1409[433] = list1372.val;
-    array1409[441] = builtinSymbols[7913].val /* top level :$:cdadar */;
+    array1409[441] = builtinSymbols[7481].val /* top level :$:cdadar */;
     array1409[449] = list1370.val;
-    array1409[457] = builtinSymbols[7887].val /* top level :$:caddar */;
+    array1409[457] = builtinSymbols[7455].val /* top level :$:caddar */;
     array1409[465] = list1368.val;
-    array1409[473] = builtinSymbols[7928].val /* top level :$:cdddar */;
+    array1409[473] = builtinSymbols[7496].val /* top level :$:cdddar */;
     array1409[481] = list1366.val;
-    array1409[489] = builtinSymbols[7868].val /* top level :$:caaadr */;
+    array1409[489] = builtinSymbols[7436].val /* top level :$:caaadr */;
     array1409[497] = list1364.val;
-    array1409[505] = builtinSymbols[7909].val /* top level :$:cdaadr */;
+    array1409[505] = builtinSymbols[7477].val /* top level :$:cdaadr */;
     array1409[513] = list1362.val;
-    array1409[521] = builtinSymbols[7883].val /* top level :$:cadadr */;
+    array1409[521] = builtinSymbols[7451].val /* top level :$:cadadr */;
     array1409[529] = list1360.val;
-    array1409[537] = builtinSymbols[7924].val /* top level :$:cddadr */;
+    array1409[537] = builtinSymbols[7492].val /* top level :$:cddadr */;
     array1409[545] = list1358.val;
-    array1409[553] = builtinSymbols[7875].val /* top level :$:caaddr */;
+    array1409[553] = builtinSymbols[7443].val /* top level :$:caaddr */;
     array1409[561] = list1356.val;
-    array1409[569] = builtinSymbols[7916].val /* top level :$:cdaddr */;
+    array1409[569] = builtinSymbols[7484].val /* top level :$:cdaddr */;
     array1409[577] = list1354.val;
-    array1409[585] = builtinSymbols[7890].val /* top level :$:cadddr */;
+    array1409[585] = builtinSymbols[7458].val /* top level :$:cadddr */;
     array1409[593] = list1352.val;
-    array1409[601] = builtinSymbols[7931].val /* top level :$:cddddr */;
+    array1409[601] = builtinSymbols[7499].val /* top level :$:cddddr */;
     array1409[609] = list1350.val;
-    array1409[618] = builtinSymbols[7863].val /* top level :$:caaaaar */;
+    array1409[618] = builtinSymbols[7431].val /* top level :$:caaaaar */;
     array1409[626] = list1348.val;
-    array1409[635] = builtinSymbols[7904].val /* top level :$:cdaaaar */;
+    array1409[635] = builtinSymbols[7472].val /* top level :$:cdaaaar */;
     array1409[643] = list1346.val;
-    array1409[652] = builtinSymbols[7878].val /* top level :$:cadaaar */;
+    array1409[652] = builtinSymbols[7446].val /* top level :$:cadaaar */;
     array1409[660] = list1344.val;
-    array1409[669] = builtinSymbols[7919].val /* top level :$:cddaaar */;
+    array1409[669] = builtinSymbols[7487].val /* top level :$:cddaaar */;
     array1409[677] = list1342.val;
-    array1409[686] = builtinSymbols[7870].val /* top level :$:caadaar */;
+    array1409[686] = builtinSymbols[7438].val /* top level :$:caadaar */;
     array1409[694] = list1340.val;
-    array1409[703] = builtinSymbols[7911].val /* top level :$:cdadaar */;
+    array1409[703] = builtinSymbols[7479].val /* top level :$:cdadaar */;
     array1409[711] = list1338.val;
-    array1409[720] = builtinSymbols[7885].val /* top level :$:caddaar */;
+    array1409[720] = builtinSymbols[7453].val /* top level :$:caddaar */;
     array1409[728] = list1336.val;
-    array1409[737] = builtinSymbols[7926].val /* top level :$:cdddaar */;
+    array1409[737] = builtinSymbols[7494].val /* top level :$:cdddaar */;
     array1409[745] = list1334.val;
-    array1409[754] = builtinSymbols[7866].val /* top level :$:caaadar */;
+    array1409[754] = builtinSymbols[7434].val /* top level :$:caaadar */;
     array1409[762] = list1332.val;
-    array1409[771] = builtinSymbols[7907].val /* top level :$:cdaadar */;
+    array1409[771] = builtinSymbols[7475].val /* top level :$:cdaadar */;
     array1409[779] = list1330.val;
-    array1409[788] = builtinSymbols[7881].val /* top level :$:cadadar */;
+    array1409[788] = builtinSymbols[7449].val /* top level :$:cadadar */;
     array1409[796] = list1328.val;
-    array1409[805] = builtinSymbols[7922].val /* top level :$:cddadar */;
+    array1409[805] = builtinSymbols[7490].val /* top level :$:cddadar */;
     array1409[813] = list1326.val;
-    array1409[822] = builtinSymbols[7873].val /* top level :$:caaddar */;
+    array1409[822] = builtinSymbols[7441].val /* top level :$:caaddar */;
     array1409[830] = list1324.val;
-    array1409[839] = builtinSymbols[7914].val /* top level :$:cdaddar */;
+    array1409[839] = builtinSymbols[7482].val /* top level :$:cdaddar */;
     array1409[847] = list1322.val;
-    array1409[856] = builtinSymbols[7888].val /* top level :$:cadddar */;
+    array1409[856] = builtinSymbols[7456].val /* top level :$:cadddar */;
     array1409[864] = list1320.val;
-    array1409[873] = builtinSymbols[7929].val /* top level :$:cddddar */;
+    array1409[873] = builtinSymbols[7497].val /* top level :$:cddddar */;
     array1409[881] = list1318.val;
-    array1409[890] = builtinSymbols[7864].val /* top level :$:caaaadr */;
+    array1409[890] = builtinSymbols[7432].val /* top level :$:caaaadr */;
     array1409[898] = list1316.val;
-    array1409[907] = builtinSymbols[7905].val /* top level :$:cdaaadr */;
+    array1409[907] = builtinSymbols[7473].val /* top level :$:cdaaadr */;
     array1409[915] = list1314.val;
-    array1409[924] = builtinSymbols[7879].val /* top level :$:cadaadr */;
+    array1409[924] = builtinSymbols[7447].val /* top level :$:cadaadr */;
     array1409[932] = list1312.val;
-    array1409[941] = builtinSymbols[7920].val /* top level :$:cddaadr */;
+    array1409[941] = builtinSymbols[7488].val /* top level :$:cddaadr */;
     array1409[949] = list1310.val;
-    array1409[958] = builtinSymbols[7871].val /* top level :$:caadadr */;
+    array1409[958] = builtinSymbols[7439].val /* top level :$:caadadr */;
     array1409[966] = list1308.val;
-    array1409[975] = builtinSymbols[7912].val /* top level :$:cdadadr */;
+    array1409[975] = builtinSymbols[7480].val /* top level :$:cdadadr */;
     array1409[983] = list1306.val;
-    array1409[992] = builtinSymbols[7886].val /* top level :$:caddadr */;
+    array1409[992] = builtinSymbols[7454].val /* top level :$:caddadr */;
     array1409[1000] = list1304.val;
-    array1409[1009] = builtinSymbols[7927].val /* top level :$:cdddadr */;
+    array1409[1009] = builtinSymbols[7495].val /* top level :$:cdddadr */;
     array1409[1017] = list1302.val;
-    array1409[1026] = builtinSymbols[7867].val /* top level :$:caaaddr */;
+    array1409[1026] = builtinSymbols[7435].val /* top level :$:caaaddr */;
     array1409[1034] = list1300.val;
-    array1409[1043] = builtinSymbols[7908].val /* top level :$:cdaaddr */;
+    array1409[1043] = builtinSymbols[7476].val /* top level :$:cdaaddr */;
     array1409[1051] = list1298.val;
-    array1409[1060] = builtinSymbols[7882].val /* top level :$:cadaddr */;
+    array1409[1060] = builtinSymbols[7450].val /* top level :$:cadaddr */;
     array1409[1068] = list1296.val;
-    array1409[1077] = builtinSymbols[7923].val /* top level :$:cddaddr */;
+    array1409[1077] = builtinSymbols[7491].val /* top level :$:cddaddr */;
     array1409[1085] = list1294.val;
-    array1409[1094] = builtinSymbols[7874].val /* top level :$:caadddr */;
+    array1409[1094] = builtinSymbols[7442].val /* top level :$:caadddr */;
     array1409[1102] = list1292.val;
-    array1409[1111] = builtinSymbols[7915].val /* top level :$:cdadddr */;
+    array1409[1111] = builtinSymbols[7483].val /* top level :$:cdadddr */;
     array1409[1119] = list1290.val;
-    array1409[1128] = builtinSymbols[7889].val /* top level :$:caddddr */;
+    array1409[1128] = builtinSymbols[7457].val /* top level :$:caddddr */;
     array1409[1136] = list1288.val;
-    array1409[1145] = builtinSymbols[7930].val /* top level :$:cdddddr */;
+    array1409[1145] = builtinSymbols[7498].val /* top level :$:cdddddr */;
     array1409[1155] = list1286.val;
     array1409[1165] = builtinSymbols[8266].val /* top level :$:zero? */;
-    array1409[1172] = builtinSymbols[7993].val /* top level :$:even? */;
+    array1409[1172] = builtinSymbols[7561].val /* top level :$:even? */;
     array1409[1183] = list1284.val;
     array1409[1196] = builtinSymbols[8097].val /* top level :$:odd? */;
     array1409[1207] = list1282.val;
-    array1409[1233] = builtinSymbols[7900].val /* top level :$:call-with-values */;
+    array1409[1233] = builtinSymbols[7468].val /* top level :$:call-with-values */;
     array1409[1242] = list1280.val;
     array1409[1257] = builtinSymbols[8054].val /* top level :$:list-tail */;
     array1409[1264] = builtinSymbols[8054].val /* top level :$:list-tail */;
@@ -71393,7 +71393,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[1311] = list1274.val;
     array1409[1315] = builtinSymbols[8048].val /* top level :$:list */;
     array1409[1323] = list1272.val;
-    array1409[1338] = builtinSymbols[7851].val /* top level :$:abs */;
+    array1409[1338] = builtinSymbols[7419].val /* top level :$:abs */;
     array1409[1353] = list1270.val;
     array1409[1375] = builtinSymbols[8068].val /* top level :$:map1 */;
     array1409[1382] = builtinSymbols[8068].val /* top level :$:map1 */;
@@ -71408,8 +71408,8 @@ Object scheme::getBuiltinCompiler() {
     array1409[1617] = list1260.val;
     array1409[1640] = builtinSymbols[8066].val /* top level :$:map */;
     array1409[1659] = builtinSymbols[8066].val /* top level :$:map */;
-    array1409[1672] = builtinSymbols[8019].val /* top level :$:for-each */;
-    array1409[1688] = builtinSymbols[8019].val /* top level :$:for-each */;
+    array1409[1672] = builtinSymbols[7587].val /* top level :$:for-each */;
+    array1409[1688] = builtinSymbols[7587].val /* top level :$:for-each */;
     array1409[1703] = list1258.val;
     array1409[1747] = list1256.val;
     array1409[1787] = builtinSymbols[8050].val /* top level :$:list->vector */;
@@ -71420,38 +71420,38 @@ Object scheme::getBuiltinCompiler() {
     array1409[1925] = list1248.val;
     array1409[1975] = builtinSymbols[8256].val /* top level :$:vector-map */;
     array1409[1998] = list1246.val;
-    array1409[2024] = builtinSymbols[8014].val /* top level :$:foldl1 */;
-    array1409[2031] = builtinSymbols[8014].val /* top level :$:foldl1 */;
+    array1409[2024] = builtinSymbols[7582].val /* top level :$:foldl1 */;
+    array1409[2031] = builtinSymbols[7582].val /* top level :$:foldl1 */;
     array1409[2042] = list1244.val;
-    array1409[2062] = builtinSymbols[8013].val /* top level :$:foldl */;
-    array1409[2069] = builtinSymbols[8013].val /* top level :$:foldl */;
+    array1409[2062] = builtinSymbols[7581].val /* top level :$:foldl */;
+    array1409[2069] = builtinSymbols[7581].val /* top level :$:foldl */;
     array1409[2085] = list1242.val;
-    array1409[2094] = builtinSymbols[8011].val /* top level :$:fold-left */;
+    array1409[2094] = builtinSymbols[7579].val /* top level :$:fold-left */;
     array1409[2112] = builtinSymbols[8066].val /* top level :$:map */;
-    array1409[2116] = builtinSymbols[7946].val /* top level :$:cons* */;
+    array1409[2116] = builtinSymbols[7514].val /* top level :$:cons* */;
     array1409[2130] = builtinSymbols[8066].val /* top level :$:map */;
-    array1409[2134] = builtinSymbols[7946].val /* top level :$:cons* */;
-    array1409[2145] = builtinSymbols[8011].val /* top level :$:fold-left */;
+    array1409[2134] = builtinSymbols[7514].val /* top level :$:cons* */;
+    array1409[2145] = builtinSymbols[7579].val /* top level :$:fold-left */;
     array1409[2160] = list1240.val;
-    array1409[2177] = builtinSymbols[8015].val /* top level :$:foldr */;
-    array1409[2187] = builtinSymbols[8015].val /* top level :$:foldr */;
+    array1409[2177] = builtinSymbols[7583].val /* top level :$:foldr */;
+    array1409[2187] = builtinSymbols[7583].val /* top level :$:foldr */;
     array1409[2198] = list1238.val;
-    array1409[2216] = builtinSymbols[8016].val /* top level :$:foldr1 */;
-    array1409[2226] = builtinSymbols[8016].val /* top level :$:foldr1 */;
+    array1409[2216] = builtinSymbols[7584].val /* top level :$:foldr1 */;
+    array1409[2226] = builtinSymbols[7584].val /* top level :$:foldr1 */;
     array1409[2237] = list1236.val;
-    array1409[2258] = builtinSymbols[8017].val /* top level :$:foldr2 */;
-    array1409[2269] = builtinSymbols[8017].val /* top level :$:foldr2 */;
+    array1409[2258] = builtinSymbols[7585].val /* top level :$:foldr2 */;
+    array1409[2269] = builtinSymbols[7585].val /* top level :$:foldr2 */;
     array1409[2280] = list1234.val;
     array1409[2301] = list1232.val;
-    array1409[2338] = builtinSymbols[8010].val /* top level :$:fold */;
+    array1409[2338] = builtinSymbols[7578].val /* top level :$:fold */;
     array1409[2355] = list1230.val;
     array1409[2369] = builtinSymbols[8048].val /* top level :$:list */;
     array1409[2377] = builtinSymbols[8066].val /* top level :$:map */;
-    array1409[2385] = builtinSymbols[8012].val /* top level :$:fold-right */;
+    array1409[2385] = builtinSymbols[7580].val /* top level :$:fold-right */;
     array1409[2398] = builtinSymbols[8066].val /* top level :$:map */;
-    array1409[2402] = builtinSymbols[7946].val /* top level :$:cons* */;
+    array1409[2402] = builtinSymbols[7514].val /* top level :$:cons* */;
     array1409[2409] = builtinSymbols[8048].val /* top level :$:list */;
-    array1409[2421] = builtinSymbols[8012].val /* top level :$:fold-right */;
+    array1409[2421] = builtinSymbols[7580].val /* top level :$:fold-right */;
     array1409[2439] = list1228.val;
     array1409[2463] = list1226.val;
     array1409[2532] = builtinSymbols[8219].val /* top level :$:remp */;
@@ -71471,43 +71471,43 @@ Object scheme::getBuiltinCompiler() {
     array1409[2667] = builtinSymbols[8087].val /* top level :$:memp */;
     array1409[2674] = builtinSymbols[8087].val /* top level :$:memp */;
     array1409[2687] = list1210.val;
-    array1409[2721] = builtinSymbols[7859].val /* top level :$:assp */;
-    array1409[2729] = builtinSymbols[7859].val /* top level :$:assp */;
+    array1409[2721] = builtinSymbols[7427].val /* top level :$:assp */;
+    array1409[2729] = builtinSymbols[7427].val /* top level :$:assp */;
     array1409[2742] = list1208.val;
-    array1409[2768] = builtinSymbols[8003].val /* top level :$:filter */;
-    array1409[2777] = builtinSymbols[8003].val /* top level :$:filter */;
-    array1409[2784] = builtinSymbols[8003].val /* top level :$:filter */;
+    array1409[2768] = builtinSymbols[7571].val /* top level :$:filter */;
+    array1409[2777] = builtinSymbols[7571].val /* top level :$:filter */;
+    array1409[2784] = builtinSymbols[7571].val /* top level :$:filter */;
     array1409[2798] = list1206.val;
     array1409[2820] = list1204.val;
-    array1409[2862] = builtinSymbols[8006].val /* top level :$:find */;
+    array1409[2862] = builtinSymbols[7574].val /* top level :$:find */;
     array1409[2876] = list1202.val;
     array1409[2904] = builtinSymbols[8021].val /* top level :$:generic-assoc */;
     array1409[2911] = builtinSymbols[8021].val /* top level :$:generic-assoc */;
     array1409[2926] = list1200.val;
     array1409[2931] = builtinSymbols[8021].val /* top level :$:generic-assoc */;
-    array1409[2938] = builtinSymbols[7860].val /* top level :$:assq */;
+    array1409[2938] = builtinSymbols[7428].val /* top level :$:assq */;
     array1409[2948] = list1198.val;
     array1409[2953] = builtinSymbols[8021].val /* top level :$:generic-assoc */;
-    array1409[2960] = builtinSymbols[7861].val /* top level :$:assv */;
+    array1409[2960] = builtinSymbols[7429].val /* top level :$:assv */;
     array1409[2970] = list1196.val;
     array1409[2975] = builtinSymbols[8021].val /* top level :$:generic-assoc */;
-    array1409[2982] = builtinSymbols[7857].val /* top level :$:assoc */;
+    array1409[2982] = builtinSymbols[7425].val /* top level :$:assoc */;
     array1409[2996] = list1194.val;
     array1409[3029] = list1192.val;
     array1409[3064] = list1190.val;
-    array1409[3070] = builtinSymbols[6466].val /* for-all */;
+    array1409[3070] = builtinSymbols[678].val /* for-all */;
     array1409[3072] = Object::makeString(UC("proper list required")).val;
     array1409[3109] = list1188.val;
     array1409[3161] = list1186.val;
     array1409[3186] = list1184.val;
     array1409[3210] = list1182.val;
-    array1409[3238] = builtinSymbols[6466].val /* for-all */;
+    array1409[3238] = builtinSymbols[678].val /* for-all */;
     array1409[3240] = Object::makeString(UC("the lists all should have the same length")).val;
     array1409[3265] = builtinSymbols[8095].val /* top level :$:null*? */;
     array1409[3303] = list1180.val;
     array1409[3340] = builtinSymbols[8066].val /* top level :$:map */;
     array1409[3366] = builtinSymbols[8066].val /* top level :$:map */;
-    array1409[3411] = builtinSymbols[8018].val /* top level :$:for-all */;
+    array1409[3411] = builtinSymbols[7586].val /* top level :$:for-all */;
     array1409[3454] = list1178.val;
     array1409[3474] = list1176.val;
     array1409[3510] = builtinSymbols[8095].val /* top level :$:null*? */;
@@ -71516,28 +71516,28 @@ Object scheme::getBuiltinCompiler() {
     array1409[3607] = list1172.val;
     array1409[3660] = builtinSymbols[8262].val /* top level :$:with-output-to-file */;
     array1409[3737] = list1170.val;
-    array1409[3777] = builtinSymbols[7896].val /* top level :$:call-with-output-file */;
+    array1409[3777] = builtinSymbols[7464].val /* top level :$:call-with-output-file */;
     array1409[3792] = list1168.val;
-    array1409[3832] = builtinSymbols[7895].val /* top level :$:call-with-input-file */;
+    array1409[3832] = builtinSymbols[7463].val /* top level :$:call-with-input-file */;
     array1409[3849] = list1166.val;
     array1409[3879] = list1164.val;
     array1409[3917] = builtinSymbols[8099].val /* top level :$:open-string-output-port */;
     array1409[3929] = list1162.val;
     array1409[3937] = builtinSymbols[8099].val /* top level :$:open-string-output-port */;
-    array1409[3959] = builtinSymbols[7899].val /* top level :$:call-with-string-output-port */;
+    array1409[3959] = builtinSymbols[7467].val /* top level :$:call-with-string-output-port */;
     array1409[3969] = list1160.val;
     array1409[3978] = builtinSymbols[8098].val /* top level :$:open-bytevector-output-port */;
-    array1409[4000] = builtinSymbols[7893].val /* top level :$:call-with-bytevector-output-port */;
+    array1409[4000] = builtinSymbols[7461].val /* top level :$:call-with-bytevector-output-port */;
     array1409[4014] = list1158.val;
     array1409[4042] = list1156.val;
     array1409[4061] = builtinSymbols[8098].val /* top level :$:open-bytevector-output-port */;
     array1409[4075] = list1154.val;
     array1409[4117] = list1152.val;
-    array1409[4164] = builtinSymbols[7862].val /* top level :$:bytevector-for-each */;
+    array1409[4164] = builtinSymbols[7430].val /* top level :$:bytevector-for-each */;
     array1409[4180] = list1150.val;
-    array1409[4203] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[4203] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[4215] = list1148.val;
-    array1409[4217] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[4217] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[4219] = Object::makeString(UC("\n")).val;
     array1409[4229] = builtinSymbols[8091].val /* top level :$:newline */;
     array1409[4255] = list1146.val;
@@ -71559,50 +71559,50 @@ Object scheme::getBuiltinCompiler() {
     array1409[4727] = list1128.val;
     array1409[4759] = builtinSymbols[8057].val /* top level :$:macroexpand */;
     array1409[4774] = list1126.val;
-    array1409[4779] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[4779] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[4782] = Object::makeString(UC("\n")).val;
-    array1409[4784] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[4784] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[4791] = builtinSymbols[8208].val /* top level :$:print */;
     array1409[4800] = list1124.val;
     array1409[4821] = builtinSymbols[8068].val /* top level :$:map1 */;
     array1409[4826] = builtinSymbols[8068].val /* top level :$:map1 */;
     array1409[4838] = list1122.val;
-    array1409[4845] = builtinSymbols[7857].val /* top level :$:assoc */;
-    array1409[4861] = builtinSymbols[7858].val /* top level :$:assoc-ref */;
+    array1409[4845] = builtinSymbols[7425].val /* top level :$:assoc */;
+    array1409[4861] = builtinSymbols[7426].val /* top level :$:assoc-ref */;
     array1409[4882] = list1120.val;
     array1409[4957] = list1118.val;
     array1409[4990] = builtinSymbols[8049].val /* top level :$:list->string */;
     array1409[5031] = builtinSymbols[8214].val /* top level :$:read-line */;
     array1409[5052] = list1116.val;
     array1409[5061] = list1114.val;
-    array1409[5065] = builtinSymbols[7955].val /* top level :$:display */;
-    array1409[5073] = builtinSymbols[7896].val /* top level :$:call-with-output-file */;
+    array1409[5065] = builtinSymbols[7523].val /* top level :$:display */;
+    array1409[5073] = builtinSymbols[7464].val /* top level :$:call-with-output-file */;
     array1409[5080] = builtinSymbols[8264].val /* top level :$:write-to-file */;
     array1409[5095] = list1112.val;
     array1409[5113] = list1110.val;
     array1409[5137] = list1108.val;
     array1409[5154] = builtinSymbols[8049].val /* top level :$:list->string */;
-    array1409[5191] = builtinSymbols[7895].val /* top level :$:call-with-input-file */;
+    array1409[5191] = builtinSymbols[7463].val /* top level :$:call-with-input-file */;
     array1409[5199] = Object::makeString(UC("")).val;
-    array1409[5202] = builtinSymbols[8002].val /* top level :$:file->string */;
+    array1409[5202] = builtinSymbols[7570].val /* top level :$:file->string */;
     array1409[5221] = list1106.val;
     array1409[5231] = builtinSymbols[8099].val /* top level :$:open-string-output-port */;
-    array1409[5271] = builtinSymbols[7898].val /* top level :$:call-with-string-io */;
+    array1409[5271] = builtinSymbols[7466].val /* top level :$:call-with-string-io */;
     array1409[5284] = list1104.val;
-    array1409[5307] = builtinSymbols[7897].val /* top level :$:call-with-string-input-port */;
+    array1409[5307] = builtinSymbols[7465].val /* top level :$:call-with-string-input-port */;
     array1409[5316] = list1102.val;
     array1409[5320] = builtinSymbols[8036].val /* top level :$:integer? */;
     array1409[5324] = builtinSymbols[8230].val /* top level :$:split-at */;
-    array1409[5327] = builtinSymbols[7935].val /* top level :$:check-arg */;
+    array1409[5327] = builtinSymbols[7503].val /* top level :$:check-arg */;
     array1409[5349] = list1100.val;
     array1409[5354] = builtinSymbols[8266].val /* top level :$:zero? */;
     array1409[5408] = builtinSymbols[8230].val /* top level :$:split-at */;
     array1409[5422] = list1098.val;
     array1409[5426] = builtinSymbols[8036].val /* top level :$:integer? */;
     array1409[5430] = builtinSymbols[8231].val /* top level :$:split-at! */;
-    array1409[5433] = builtinSymbols[7935].val /* top level :$:check-arg */;
+    array1409[5433] = builtinSymbols[7503].val /* top level :$:check-arg */;
     array1409[5439] = builtinSymbols[8266].val /* top level :$:zero? */;
-    array1409[5461] = builtinSymbols[7960].val /* top level :$:drop */;
+    array1409[5461] = builtinSymbols[7528].val /* top level :$:drop */;
     array1409[5486] = builtinSymbols[8231].val /* top level :$:split-at! */;
     array1409[5499] = list1096.val;
     array1409[5505] = builtinSymbols[8094].val /* top level :$:not-pair? */;
@@ -71619,7 +71619,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[5754] = list1084.val;
     array1409[5759] = builtinSymbols[8036].val /* top level :$:integer? */;
     array1409[5772] = builtinSymbols[8063].val /* top level :$:make-list */;
-    array1409[5775] = builtinSymbols[7935].val /* top level :$:check-arg */;
+    array1409[5775] = builtinSymbols[7503].val /* top level :$:check-arg */;
     array1409[5802] = builtinSymbols[6798].val /* make-list */;
     array1409[5804] = Object::makeString(UC("Too many arguments to MAKE-LIST")).val;
     array1409[5832] = list1082.val;
@@ -71628,9 +71628,9 @@ Object scheme::getBuiltinCompiler() {
     array1409[5902] = list1078.val;
     array1409[5907] = builtinSymbols[8036].val /* top level :$:integer? */;
     array1409[5920] = builtinSymbols[8053].val /* top level :$:list-tabulate */;
-    array1409[5923] = builtinSymbols[7935].val /* top level :$:check-arg */;
+    array1409[5923] = builtinSymbols[7503].val /* top level :$:check-arg */;
     array1409[5930] = builtinSymbols[8053].val /* top level :$:list-tabulate */;
-    array1409[5933] = builtinSymbols[7935].val /* top level :$:check-arg */;
+    array1409[5933] = builtinSymbols[7503].val /* top level :$:check-arg */;
     array1409[5954] = list1076.val;
     array1409[6001] = builtinSymbols[8053].val /* top level :$:list-tabulate */;
     array1409[6019] = list1074.val;
@@ -71638,7 +71638,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[6070] = builtinSymbols[8051].val /* top level :$:list-copy */;
     array1409[6084] = list1070.val;
     array1409[6090] = builtinSymbols[8041].val /* top level :$:last-pair */;
-    array1409[6093] = builtinSymbols[7935].val /* top level :$:check-arg */;
+    array1409[6093] = builtinSymbols[7503].val /* top level :$:check-arg */;
     array1409[6114] = list1068.val;
     array1409[6151] = builtinSymbols[8041].val /* top level :$:last-pair */;
     array1409[6163] = list1066.val;
@@ -71646,94 +71646,94 @@ Object scheme::getBuiltinCompiler() {
     array1409[6173] = builtinSymbols[8040].val /* top level :$:last */;
     array1409[6182] = list1064.val;
     array1409[6193] = builtinSymbols[8041].val /* top level :$:last-pair */;
-    array1409[6202] = builtinSymbols[7936].val /* top level :$:circular-list */;
+    array1409[6202] = builtinSymbols[7504].val /* top level :$:circular-list */;
     array1409[6211] = list1062.val;
     array1409[6231] = list1060.val;
     array1409[6300] = builtinSymbols[8209].val /* top level :$:proper-list? */;
     array1409[6315] = list1058.val;
     array1409[6335] = list1056.val;
-    array1409[6400] = builtinSymbols[7937].val /* top level :$:circular-list? */;
+    array1409[6400] = builtinSymbols[7505].val /* top level :$:circular-list? */;
     array1409[6415] = list1054.val;
     array1409[6435] = list1052.val;
-    array1409[6506] = builtinSymbols[7959].val /* top level :$:dotted-list? */;
+    array1409[6506] = builtinSymbols[7527].val /* top level :$:dotted-list? */;
     array1409[6521] = list1050.val;
     array1409[6525] = builtinSymbols[8036].val /* top level :$:integer? */;
     array1409[6529] = builtinSymbols[8240].val /* top level :$:take */;
-    array1409[6532] = builtinSymbols[7935].val /* top level :$:check-arg */;
+    array1409[6532] = builtinSymbols[7503].val /* top level :$:check-arg */;
     array1409[6556] = list1048.val;
     array1409[6561] = builtinSymbols[8266].val /* top level :$:zero? */;
     array1409[6595] = builtinSymbols[8240].val /* top level :$:take */;
     array1409[6609] = list1046.val;
     array1409[6613] = builtinSymbols[8036].val /* top level :$:integer? */;
-    array1409[6617] = builtinSymbols[7960].val /* top level :$:drop */;
-    array1409[6620] = builtinSymbols[7935].val /* top level :$:check-arg */;
+    array1409[6617] = builtinSymbols[7528].val /* top level :$:drop */;
+    array1409[6620] = builtinSymbols[7503].val /* top level :$:check-arg */;
     array1409[6644] = list1044.val;
     array1409[6649] = builtinSymbols[8266].val /* top level :$:zero? */;
-    array1409[6680] = builtinSymbols[7960].val /* top level :$:drop */;
+    array1409[6680] = builtinSymbols[7528].val /* top level :$:drop */;
     array1409[6693] = list1042.val;
     array1409[6697] = builtinSymbols[8036].val /* top level :$:integer? */;
     array1409[6701] = builtinSymbols[8241].val /* top level :$:take! */;
-    array1409[6704] = builtinSymbols[7935].val /* top level :$:check-arg */;
+    array1409[6704] = builtinSymbols[7503].val /* top level :$:check-arg */;
     array1409[6710] = builtinSymbols[8266].val /* top level :$:zero? */;
-    array1409[6725] = builtinSymbols[7960].val /* top level :$:drop */;
+    array1409[6725] = builtinSymbols[7528].val /* top level :$:drop */;
     array1409[6733] = builtinSymbols[8241].val /* top level :$:take! */;
     array1409[6746] = list1040.val;
     array1409[6750] = builtinSymbols[8036].val /* top level :$:integer? */;
     array1409[6754] = builtinSymbols[8242].val /* top level :$:take-right */;
-    array1409[6757] = builtinSymbols[7935].val /* top level :$:check-arg */;
+    array1409[6757] = builtinSymbols[7503].val /* top level :$:check-arg */;
     array1409[6777] = list1038.val;
-    array1409[6803] = builtinSymbols[7960].val /* top level :$:drop */;
+    array1409[6803] = builtinSymbols[7528].val /* top level :$:drop */;
     array1409[6815] = builtinSymbols[8242].val /* top level :$:take-right */;
     array1409[6828] = list1036.val;
     array1409[6832] = builtinSymbols[8036].val /* top level :$:integer? */;
-    array1409[6836] = builtinSymbols[7961].val /* top level :$:drop-right */;
-    array1409[6839] = builtinSymbols[7935].val /* top level :$:check-arg */;
+    array1409[6836] = builtinSymbols[7529].val /* top level :$:drop-right */;
+    array1409[6839] = builtinSymbols[7503].val /* top level :$:check-arg */;
     array1409[6859] = list1034.val;
-    array1409[6888] = builtinSymbols[7960].val /* top level :$:drop */;
-    array1409[6900] = builtinSymbols[7961].val /* top level :$:drop-right */;
+    array1409[6888] = builtinSymbols[7528].val /* top level :$:drop */;
+    array1409[6900] = builtinSymbols[7529].val /* top level :$:drop-right */;
     array1409[6914] = list1032.val;
     array1409[6918] = builtinSymbols[8036].val /* top level :$:integer? */;
-    array1409[6922] = builtinSymbols[7962].val /* top level :$:drop-right! */;
-    array1409[6925] = builtinSymbols[7935].val /* top level :$:check-arg */;
-    array1409[6936] = builtinSymbols[7960].val /* top level :$:drop */;
+    array1409[6922] = builtinSymbols[7530].val /* top level :$:drop-right! */;
+    array1409[6925] = builtinSymbols[7503].val /* top level :$:check-arg */;
+    array1409[6936] = builtinSymbols[7528].val /* top level :$:drop */;
     array1409[6966] = list1030.val;
-    array1409[7006] = builtinSymbols[7962].val /* top level :$:drop-right! */;
-    array1409[7017] = builtinSymbols[8009].val /* top level :$:first */;
+    array1409[7006] = builtinSymbols[7530].val /* top level :$:drop-right! */;
+    array1409[7017] = builtinSymbols[7577].val /* top level :$:first */;
     array1409[7024] = list1028.val;
     array1409[7029] = builtinSymbols[8224].val /* top level :$:second */;
     array1409[7037] = list1026.val;
-    array1409[7040] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[7040] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[7047] = builtinSymbols[8244].val /* top level :$:third */;
     array1409[7055] = list1024.val;
-    array1409[7058] = builtinSymbols[7890].val /* top level :$:cadddr */;
-    array1409[7065] = builtinSymbols[8020].val /* top level :$:fourth */;
+    array1409[7058] = builtinSymbols[7458].val /* top level :$:cadddr */;
+    array1409[7065] = builtinSymbols[7588].val /* top level :$:fourth */;
     array1409[7073] = list1022.val;
-    array1409[7078] = builtinSymbols[7931].val /* top level :$:cddddr */;
-    array1409[7083] = builtinSymbols[8001].val /* top level :$:fifth */;
+    array1409[7078] = builtinSymbols[7499].val /* top level :$:cddddr */;
+    array1409[7083] = builtinSymbols[7569].val /* top level :$:fifth */;
     array1409[7092] = list1020.val;
-    array1409[7097] = builtinSymbols[7931].val /* top level :$:cddddr */;
+    array1409[7097] = builtinSymbols[7499].val /* top level :$:cddddr */;
     array1409[7102] = builtinSymbols[8227].val /* top level :$:sixth */;
     array1409[7111] = list1018.val;
-    array1409[7116] = builtinSymbols[7931].val /* top level :$:cddddr */;
-    array1409[7120] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[7116] = builtinSymbols[7499].val /* top level :$:cddddr */;
+    array1409[7120] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[7127] = builtinSymbols[8225].val /* top level :$:seventh */;
     array1409[7136] = list1016.val;
-    array1409[7141] = builtinSymbols[7931].val /* top level :$:cddddr */;
-    array1409[7145] = builtinSymbols[7890].val /* top level :$:cadddr */;
-    array1409[7152] = builtinSymbols[7969].val /* top level :$:eighth */;
+    array1409[7141] = builtinSymbols[7499].val /* top level :$:cddddr */;
+    array1409[7145] = builtinSymbols[7458].val /* top level :$:cadddr */;
+    array1409[7152] = builtinSymbols[7537].val /* top level :$:eighth */;
     array1409[7161] = list1014.val;
-    array1409[7168] = builtinSymbols[7931].val /* top level :$:cddddr */;
-    array1409[7172] = builtinSymbols[7931].val /* top level :$:cddddr */;
+    array1409[7168] = builtinSymbols[7499].val /* top level :$:cddddr */;
+    array1409[7172] = builtinSymbols[7499].val /* top level :$:cddddr */;
     array1409[7177] = builtinSymbols[8092].val /* top level :$:ninth */;
     array1409[7187] = list1012.val;
-    array1409[7194] = builtinSymbols[7931].val /* top level :$:cddddr */;
-    array1409[7198] = builtinSymbols[7931].val /* top level :$:cddddr */;
+    array1409[7194] = builtinSymbols[7499].val /* top level :$:cddddr */;
+    array1409[7198] = builtinSymbols[7499].val /* top level :$:cddddr */;
     array1409[7203] = builtinSymbols[8243].val /* top level :$:tenth */;
     array1409[7213] = list1010.val;
     array1409[7234] = list1008.val;
-    array1409[7266] = builtinSymbols[7946].val /* top level :$:cons* */;
+    array1409[7266] = builtinSymbols[7514].val /* top level :$:cons* */;
     array1409[7278] = list1006.val;
-    array1409[7287] = builtinSymbols[7902].val /* top level :$:car+cdr */;
+    array1409[7287] = builtinSymbols[7470].val /* top level :$:car+cdr */;
     array1409[7297] = list1004.val;
     array1409[7315] = builtinSymbols[6902].val /* null-list? */;
     array1409[7317] = Object::makeString(UC("argument out of domain")).val;
@@ -71742,34 +71742,34 @@ Object scheme::getBuiltinCompiler() {
     array1409[7367] = list1000.val;
     array1409[7384] = Object::makeString(UC("Bad argument ~a ~a ~a")).val;
     array1409[7394] = builtinSymbols[8212].val /* top level :$:raise */;
-    array1409[7416] = builtinSymbols[7935].val /* top level :$:check-arg */;
+    array1409[7416] = builtinSymbols[7503].val /* top level :$:check-arg */;
     array1409[7430] = list998.val;
     array1409[7438] = list996.val;
     array1409[7460] = list994.val;
-    array1409[7474] = builtinSymbols[7902].val /* top level :$:car+cdr */;
+    array1409[7474] = builtinSymbols[7470].val /* top level :$:car+cdr */;
     array1409[7485] = builtinSymbols[8096].val /* top level :$:null-list? */;
-    array1409[7509] = builtinSymbols[7902].val /* top level :$:car+cdr */;
-    array1409[7572] = builtinSymbols[7894].val /* top level :$:call-with-current-continuation */;
+    array1409[7509] = builtinSymbols[7470].val /* top level :$:car+cdr */;
+    array1409[7572] = builtinSymbols[7462].val /* top level :$:call-with-current-continuation */;
     array1409[7579] = builtinSymbols[7412].val /* top level :$:%cars+cdrs */;
     array1409[7597] = list992.val;
     array1409[7606] = list990.val;
     array1409[7630] = list988.val;
-    array1409[7644] = builtinSymbols[7902].val /* top level :$:car+cdr */;
+    array1409[7644] = builtinSymbols[7470].val /* top level :$:car+cdr */;
     array1409[7655] = builtinSymbols[8096].val /* top level :$:null-list? */;
-    array1409[7679] = builtinSymbols[7902].val /* top level :$:car+cdr */;
+    array1409[7679] = builtinSymbols[7470].val /* top level :$:car+cdr */;
     array1409[7726] = builtinSymbols[8048].val /* top level :$:list */;
-    array1409[7746] = builtinSymbols[7894].val /* top level :$:call-with-current-continuation */;
+    array1409[7746] = builtinSymbols[7462].val /* top level :$:call-with-current-continuation */;
     array1409[7753] = builtinSymbols[7413].val /* top level :$:%cars+cdrs+ */;
     array1409[7776] = list986.val;
-    array1409[7782] = builtinSymbols[8004].val /* top level :$:filter-map */;
-    array1409[7785] = builtinSymbols[7935].val /* top level :$:check-arg */;
+    array1409[7782] = builtinSymbols[7572].val /* top level :$:filter-map */;
+    array1409[7785] = builtinSymbols[7503].val /* top level :$:check-arg */;
     array1409[7815] = list984.val;
     array1409[7826] = builtinSymbols[7412].val /* top level :$:%cars+cdrs */;
     array1409[7865] = list982.val;
     array1409[7932] = list980.val;
     array1409[7937] = builtinSymbols[8096].val /* top level :$:null-list? */;
     array1409[7985] = list978.val;
-    array1409[8012] = builtinSymbols[8004].val /* top level :$:filter-map */;
+    array1409[8012] = builtinSymbols[7572].val /* top level :$:filter-map */;
     array1409[8045] = list976.val;
     array1409[8053] = list974.val;
     array1409[8057] = builtinSymbols[8257].val /* top level :$:vector-type-instance-of? */;
@@ -71784,7 +71784,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[8129] = builtinSymbols[8249].val /* top level :$:typed-vector-get-nth */;
     array1409[8137] = Object::makeString(UC("typed-vector-accessor required ~a, but got ~a")).val;
     array1409[8143] = builtinSymbols[8252].val /* top level :$:typed-vector-type */;
-    array1409[8147] = builtinSymbols[7991].val /* top level :$:errorf */;
+    array1409[8147] = builtinSymbols[7559].val /* top level :$:errorf */;
     array1409[8155] = builtinSymbols[8247].val /* top level :$:typed-vector-accessor */;
     array1409[8169] = list964.val;
     array1409[8178] = list962.val;
@@ -71792,7 +71792,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[8196] = builtinSymbols[8251].val /* top level :$:typed-vector-set-nth */;
     array1409[8204] = Object::makeString(UC("typed-vector-mutator required ~a, but got ~a")).val;
     array1409[8210] = builtinSymbols[8252].val /* top level :$:typed-vector-type */;
-    array1409[8214] = builtinSymbols[7991].val /* top level :$:errorf */;
+    array1409[8214] = builtinSymbols[7559].val /* top level :$:errorf */;
     array1409[8222] = builtinSymbols[8250].val /* top level :$:typed-vector-mutator */;
     array1409[8243] = list960.val;
     array1409[8269] = list958.val;
@@ -71832,20 +71832,20 @@ Object scheme::getBuiltinCompiler() {
     array1409[9222] = builtinSymbols[8028].val /* top level :$:hashtable-map */;
     array1409[9229] = builtinSymbols[8024].val /* top level :$:hashtable->alist */;
     array1409[9239] = list922.val;
-    array1409[9259] = builtinSymbols[5951].val /* anonymous */;
+    array1409[9259] = builtinSymbols[163].val /* anonymous */;
     array1409[9263] = builtinSymbols[8022].val /* top level :$:get-closure-name */;
     array1409[9284] = list920.val;
     array1409[9354] = list918.val;
     array1409[9424] = builtinSymbols[8234].val /* top level :$:string-chop */;
     array1409[9457] = list916.val;
-    array1409[9476] = builtinSymbols[8009].val /* top level :$:first */;
+    array1409[9476] = builtinSymbols[7577].val /* top level :$:first */;
     array1409[9482] = builtinSymbols[8224].val /* top level :$:second */;
     array1409[9508] = list914.val;
-    array1409[9558] = builtinSymbols[8019].val /* top level :$:for-each */;
+    array1409[9558] = builtinSymbols[7587].val /* top level :$:for-each */;
     array1409[9563] = Object::makeString(UC("time%        msec      calls   name                              location")).val;
     array1409[9565] = builtinSymbols[8208].val /* top level :$:print */;
     array1409[9582] = list912.val;
-    array1409[9596] = builtinSymbols[8009].val /* top level :$:first */;
+    array1409[9596] = builtinSymbols[7577].val /* top level :$:first */;
     array1409[9640] = Object::makeString(UC("~a")).val;
     array1409[9652] = builtinSymbols[8022].val /* top level :$:get-closure-name */;
     array1409[9660] = Object::makeString(UC("...)")).val;
@@ -71872,7 +71872,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[9932] = builtinSymbols[8224].val /* top level :$:second */;
     array1409[9938] = builtinSymbols[8224].val /* top level :$:second */;
     array1409[9944] = builtinSymbols[8228].val /* top level :$:sort */;
-    array1409[9948] = builtinSymbols[8019].val /* top level :$:for-each */;
+    array1409[9948] = builtinSymbols[7587].val /* top level :$:for-each */;
     array1409[9976] = Object::makeString(UC("  **   ~d         **   total\n")).val;
     array1409[9985] = Object::makeString(UC(" ")).val;
     array1409[9990] = builtinSymbols[8056].val /* top level :$:lpad */;
@@ -71880,9 +71880,9 @@ Object scheme::getBuiltinCompiler() {
     array1409[10057] = list906.val;
     array1409[10070] = builtinSymbols[8259].val /* top level :$:void */;
     array1409[10082] = list904.val;
-    array1409[10093] = builtinSymbols[7992].val /* top level :$:eval-core */;
+    array1409[10093] = builtinSymbols[7560].val /* top level :$:eval-core */;
     array1409[10101] = list902.val;
-    array1409[10106] = builtinSymbols[7994].val /* top level :$:exact? */;
+    array1409[10106] = builtinSymbols[7562].val /* top level :$:exact? */;
     array1409[10115] = list900.val;
     array1409[10124] = builtinSymbols[8215].val /* top level :$:real? */;
     array1409[10133] = list898.val;
@@ -71890,96 +71890,96 @@ Object scheme::getBuiltinCompiler() {
     array1409[10158] = list896.val;
     array1409[10191] = list894.val;
     array1409[10226] = list892.val;
-    array1409[10232] = builtinSymbols[6356].val /* exists */;
+    array1409[10232] = builtinSymbols[568].val /* exists */;
     array1409[10234] = Object::makeString(UC("proper list required")).val;
     array1409[10269] = list890.val;
     array1409[10321] = list888.val;
     array1409[10346] = list886.val;
     array1409[10370] = list884.val;
-    array1409[10398] = builtinSymbols[6356].val /* exists */;
+    array1409[10398] = builtinSymbols[568].val /* exists */;
     array1409[10400] = Object::makeString(UC("the lists all should have the same length")).val;
     array1409[10425] = builtinSymbols[8095].val /* top level :$:null*? */;
     array1409[10463] = list882.val;
     array1409[10502] = builtinSymbols[8066].val /* top level :$:map */;
     array1409[10526] = builtinSymbols[8066].val /* top level :$:map */;
-    array1409[10571] = builtinSymbols[7995].val /* top level :$:exists */;
+    array1409[10571] = builtinSymbols[7563].val /* top level :$:exists */;
     array1409[10616] = list880.val;
     array1409[10640] = list878.val;
     array1409[10726] = builtinSymbols[8103].val /* top level :$:partition */;
     array1409[10742] = list876.val;
     array1409[10762] = list874.val;
-    array1409[10799] = builtinSymbols[7999].val /* top level :$:expt */;
+    array1409[10799] = builtinSymbols[7567].val /* top level :$:expt */;
     array1409[10810] = list872.val;
-    array1409[10815] = builtinSymbols[7968].val /* top level :$:dynamic-wind */;
+    array1409[10815] = builtinSymbols[7536].val /* top level :$:dynamic-wind */;
     array1409[10823] = list870.val;
-    array1409[10828] = builtinSymbols[7901].val /* top level :$:call\cc */;
+    array1409[10828] = builtinSymbols[7469].val /* top level :$:call\cc */;
     array1409[10836] = list868.val;
-    array1409[10841] = builtinSymbols[7894].val /* top level :$:call-with-current-continuation */;
+    array1409[10841] = builtinSymbols[7462].val /* top level :$:call-with-current-continuation */;
     array1409[10865] = list866.val;
     array1409[10913] = list864.val;
     array1409[10950] = builtinSymbols[8054].val /* top level :$:list-tail */;
     array1409[10972] = builtinSymbols[8054].val /* top level :$:list-tail */;
-    array1409[10989] = builtinSymbols[7939].val /* top level :$:common-tail */;
+    array1409[10989] = builtinSymbols[7507].val /* top level :$:common-tail */;
     array1409[10997] = list862.val;
-    array1409[11010] = builtinSymbols[7939].val /* top level :$:common-tail */;
+    array1409[11010] = builtinSymbols[7507].val /* top level :$:common-tail */;
     array1409[11035] = list860.val;
     array1409[11094] = list858.val;
-    array1409[11133] = builtinSymbols[7956].val /* top level :$:do-wind */;
+    array1409[11133] = builtinSymbols[7524].val /* top level :$:do-wind */;
     array1409[11142] = list856.val;
     array1409[11155] = list854.val;
     array1409[11176] = list852.val;
-    array1409[11189] = builtinSymbols[7956].val /* top level :$:do-wind */;
-    array1409[11216] = builtinSymbols[7901].val /* top level :$:call\cc */;
-    array1409[11218] = builtinSymbols[7901].val /* top level :$:call\cc */;
-    array1409[11220] = builtinSymbols[7894].val /* top level :$:call-with-current-continuation */;
+    array1409[11189] = builtinSymbols[7524].val /* top level :$:do-wind */;
+    array1409[11216] = builtinSymbols[7469].val /* top level :$:call\cc */;
+    array1409[11218] = builtinSymbols[7469].val /* top level :$:call\cc */;
+    array1409[11220] = builtinSymbols[7462].val /* top level :$:call-with-current-continuation */;
     array1409[11230] = list850.val;
-    array1409[11282] = builtinSymbols[7968].val /* top level :$:dynamic-wind */;
+    array1409[11282] = builtinSymbols[7536].val /* top level :$:dynamic-wind */;
     array1409[11324] = list848.val;
     array1409[11339] = list846.val;
     array1409[11385] = list844.val;
-    array1409[11399] = builtinSymbols[7967].val /* top level :$:dynamic-lookup */;
+    array1409[11399] = builtinSymbols[7535].val /* top level :$:dynamic-lookup */;
     array1409[11449] = builtinSymbols[8064].val /* top level :$:make-parameter */;
     array1409[11471] = list842.val;
-    array1409[11481] = builtinSymbols[7965].val /* top level :$:dynamic-env-local-get */;
+    array1409[11481] = builtinSymbols[7533].val /* top level :$:dynamic-env-local-get */;
     array1409[11500] = list840.val;
     array1409[11515] = builtinSymbols[8066].val /* top level :$:map */;
     array1409[11539] = list838.val;
-    array1409[11542] = builtinSymbols[7966].val /* top level :$:dynamic-env-local-set! */;
+    array1409[11542] = builtinSymbols[7534].val /* top level :$:dynamic-env-local-set! */;
     array1409[11558] = list836.val;
-    array1409[11561] = builtinSymbols[7966].val /* top level :$:dynamic-env-local-set! */;
-    array1409[11570] = builtinSymbols[7968].val /* top level :$:dynamic-wind */;
-    array1409[11580] = builtinSymbols[7963].val /* top level :$:dynamic-bind */;
+    array1409[11561] = builtinSymbols[7534].val /* top level :$:dynamic-env-local-set! */;
+    array1409[11570] = builtinSymbols[7536].val /* top level :$:dynamic-wind */;
+    array1409[11580] = builtinSymbols[7531].val /* top level :$:dynamic-bind */;
     array1409[11596] = list834.val;
-    array1409[11603] = builtinSymbols[7965].val /* top level :$:dynamic-env-local-get */;
-    array1409[11615] = builtinSymbols[7967].val /* top level :$:dynamic-lookup */;
-    array1409[11624] = builtinSymbols[7964].val /* top level :$:dynamic-env-local */;
+    array1409[11603] = builtinSymbols[7533].val /* top level :$:dynamic-env-local-get */;
+    array1409[11615] = builtinSymbols[7535].val /* top level :$:dynamic-lookup */;
+    array1409[11624] = builtinSymbols[7532].val /* top level :$:dynamic-env-local */;
     array1409[11631] = list832.val;
-    array1409[11633] = builtinSymbols[7964].val /* top level :$:dynamic-env-local */;
-    array1409[11637] = builtinSymbols[7965].val /* top level :$:dynamic-env-local-get */;
+    array1409[11633] = builtinSymbols[7532].val /* top level :$:dynamic-env-local */;
+    array1409[11637] = builtinSymbols[7533].val /* top level :$:dynamic-env-local-get */;
     array1409[11645] = list830.val;
-    array1409[11648] = builtinSymbols[7964].val /* top level :$:dynamic-env-local */;
-    array1409[11651] = builtinSymbols[7966].val /* top level :$:dynamic-env-local-set! */;
+    array1409[11648] = builtinSymbols[7532].val /* top level :$:dynamic-env-local */;
+    array1409[11651] = builtinSymbols[7534].val /* top level :$:dynamic-env-local-set! */;
     array1409[11658] = builtinSymbols[8064].val /* top level :$:make-parameter */;
-    array1409[11661] = builtinSymbols[7948].val /* top level :$:current-exception-handler */;
+    array1409[11661] = builtinSymbols[7516].val /* top level :$:current-exception-handler */;
     array1409[11668] = builtinSymbols[8064].val /* top level :$:make-parameter */;
     array1409[11671] = builtinSymbols[8100].val /* top level :$:parent-exception-handler */;
     array1409[11681] = list828.val;
-    array1409[11691] = builtinSymbols[7948].val /* top level :$:current-exception-handler */;
+    array1409[11691] = builtinSymbols[7516].val /* top level :$:current-exception-handler */;
     array1409[11698] = builtinSymbols[8100].val /* top level :$:parent-exception-handler */;
-    array1409[11701] = builtinSymbols[7948].val /* top level :$:current-exception-handler */;
+    array1409[11701] = builtinSymbols[7516].val /* top level :$:current-exception-handler */;
     array1409[11704] = builtinSymbols[8048].val /* top level :$:list */;
     array1409[11718] = list826.val;
-    array1409[11722] = builtinSymbols[7948].val /* top level :$:current-exception-handler */;
+    array1409[11722] = builtinSymbols[7516].val /* top level :$:current-exception-handler */;
     array1409[11725] = builtinSymbols[8048].val /* top level :$:list */;
     array1409[11731] = builtinSymbols[8048].val /* top level :$:list */;
     array1409[11742] = list824.val;
-    array1409[11753] = builtinSymbols[7963].val /* top level :$:dynamic-bind */;
+    array1409[11753] = builtinSymbols[7531].val /* top level :$:dynamic-bind */;
     array1409[11761] = builtinSymbols[8048].val /* top level :$:list */;
     array1409[11771] = list823.val;
-    array1409[11781] = builtinSymbols[7963].val /* top level :$:dynamic-bind */;
+    array1409[11781] = builtinSymbols[7531].val /* top level :$:dynamic-bind */;
     array1409[11789] = builtinSymbols[8260].val /* top level :$:with-exception-handler */;
     array1409[11809] = list822.val;
-    array1409[11818] = builtinSymbols[7948].val /* top level :$:current-exception-handler */;
+    array1409[11818] = builtinSymbols[7516].val /* top level :$:current-exception-handler */;
     array1409[11836] = list820.val;
     array1409[11851] = builtinSymbols[8100].val /* top level :$:parent-exception-handler */;
     array1409[11869] = list818.val;
@@ -71987,7 +71987,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[11902] = Object::makeString(UC("    Unhandled exception\n\n~a")).val;
     array1409[11914] = builtinSymbols[8212].val /* top level :$:raise */;
     array1409[11936] = list816.val;
-    array1409[11945] = builtinSymbols[7948].val /* top level :$:current-exception-handler */;
+    array1409[11945] = builtinSymbols[7516].val /* top level :$:current-exception-handler */;
     array1409[11960] = list814.val;
     array1409[11975] = builtinSymbols[7101].val /* raise-continuable */;
     array1409[11977] = Object::makeString(UC("unhandled exception has occurred")).val;
@@ -71998,28 +71998,28 @@ Object scheme::getBuiltinCompiler() {
     array1409[12020] = list810.val;
     array1409[12030] = builtinSymbols[8066].val /* top level :$:map */;
     array1409[12043] = builtinSymbols[8237].val /* top level :$:symbol-append */;
-    array1409[12052] = builtinSymbols[6313].val /* enum-set */;
+    array1409[12052] = builtinSymbols[525].val /* enum-set */;
     array1409[12062] =     Object::makeVector(Object::makeRaw(list808.val)).val;
-    array1409[12068] = builtinSymbols[7980].val /* top level :$:enum-set-rtd */;
-    array1409[12072] = builtinSymbols[7980].val /* top level :$:enum-set-rtd */;
-    array1409[12082] = builtinSymbols[7979].val /* top level :$:enum-set-rcd */;
-    array1409[12086] = builtinSymbols[7979].val /* top level :$:enum-set-rcd */;
+    array1409[12068] = builtinSymbols[7548].val /* top level :$:enum-set-rtd */;
+    array1409[12072] = builtinSymbols[7548].val /* top level :$:enum-set-rtd */;
+    array1409[12082] = builtinSymbols[7547].val /* top level :$:enum-set-rcd */;
+    array1409[12086] = builtinSymbols[7547].val /* top level :$:enum-set-rcd */;
     array1409[12093] = builtinSymbols[8059].val /* top level :$:make-enum-set */;
-    array1409[12097] = builtinSymbols[7980].val /* top level :$:enum-set-rtd */;
-    array1409[12105] = builtinSymbols[7977].val /* top level :$:enum-set-members */;
-    array1409[12109] = builtinSymbols[7980].val /* top level :$:enum-set-rtd */;
-    array1409[12117] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[12126] = builtinSymbols[6328].val /* enum-type */;
+    array1409[12097] = builtinSymbols[7548].val /* top level :$:enum-set-rtd */;
+    array1409[12105] = builtinSymbols[7545].val /* top level :$:enum-set-members */;
+    array1409[12109] = builtinSymbols[7548].val /* top level :$:enum-set-rtd */;
+    array1409[12117] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[12126] = builtinSymbols[540].val /* enum-type */;
     array1409[12136] =     Object::makeVector(Object::makeRaw(list805.val)).val;
-    array1409[12142] = builtinSymbols[7988].val /* top level :$:enum-type-rtd */;
-    array1409[12146] = builtinSymbols[7988].val /* top level :$:enum-type-rtd */;
-    array1409[12156] = builtinSymbols[7987].val /* top level :$:enum-type-rcd */;
-    array1409[12160] = builtinSymbols[7987].val /* top level :$:enum-type-rcd */;
+    array1409[12142] = builtinSymbols[7556].val /* top level :$:enum-type-rtd */;
+    array1409[12146] = builtinSymbols[7556].val /* top level :$:enum-type-rtd */;
+    array1409[12156] = builtinSymbols[7555].val /* top level :$:enum-type-rcd */;
+    array1409[12160] = builtinSymbols[7555].val /* top level :$:enum-type-rcd */;
     array1409[12167] = builtinSymbols[8060].val /* top level :$:make-enum-type */;
-    array1409[12171] = builtinSymbols[7988].val /* top level :$:enum-type-rtd */;
-    array1409[12179] = builtinSymbols[7986].val /* top level :$:enum-type-indexer */;
-    array1409[12183] = builtinSymbols[7988].val /* top level :$:enum-type-rtd */;
-    array1409[12191] = builtinSymbols[7989].val /* top level :$:enum-type-universe */;
+    array1409[12171] = builtinSymbols[7556].val /* top level :$:enum-type-rtd */;
+    array1409[12179] = builtinSymbols[7554].val /* top level :$:enum-type-indexer */;
+    array1409[12183] = builtinSymbols[7556].val /* top level :$:enum-type-rtd */;
+    array1409[12191] = builtinSymbols[7557].val /* top level :$:enum-type-universe */;
     array1409[12209] = list802.val;
     array1409[12249] = list800.val;
     array1409[12298] = list798.val;
@@ -72030,123 +72030,123 @@ Object scheme::getBuiltinCompiler() {
     array1409[12344] = builtinSymbols[8059].val /* top level :$:make-enum-set */;
     array1409[12351] = builtinSymbols[8061].val /* top level :$:make-enumeration */;
     array1409[12360] = list794.val;
-    array1409[12365] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[12373] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[12377] = builtinSymbols[7989].val /* top level :$:enum-type-universe */;
+    array1409[12365] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[12373] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[12377] = builtinSymbols[7557].val /* top level :$:enum-type-universe */;
     array1409[12381] = builtinSymbols[8059].val /* top level :$:make-enum-set */;
-    array1409[12388] = builtinSymbols[7984].val /* top level :$:enum-set-universe */;
+    array1409[12388] = builtinSymbols[7552].val /* top level :$:enum-set-universe */;
     array1409[12399] = list792.val;
-    array1409[12404] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[12408] = builtinSymbols[7986].val /* top level :$:enum-type-indexer */;
-    array1409[12415] = builtinSymbols[7974].val /* top level :$:enum-set-indexer */;
+    array1409[12404] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[12408] = builtinSymbols[7554].val /* top level :$:enum-type-indexer */;
+    array1409[12415] = builtinSymbols[7542].val /* top level :$:enum-set-indexer */;
     array1409[12428] = list790.val;
     array1409[12438] = list788.val;
-    array1409[12453] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[12457] = builtinSymbols[7989].val /* top level :$:enum-type-universe */;
+    array1409[12453] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[12457] = builtinSymbols[7557].val /* top level :$:enum-type-universe */;
     array1409[12472] = list786.val;
-    array1409[12485] = builtinSymbols[8018].val /* top level :$:for-all */;
-    array1409[12493] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
+    array1409[12485] = builtinSymbols[7586].val /* top level :$:for-all */;
+    array1409[12493] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
     array1409[12499] = builtinSymbols[8059].val /* top level :$:make-enum-set */;
-    array1409[12507] = builtinSymbols[6316].val /* enum-set-constructor */;
+    array1409[12507] = builtinSymbols[528].val /* enum-set-constructor */;
     array1409[12509] = Object::makeString(UC("the symbol list must all belong to the universe.")).val;
-    array1409[12522] = builtinSymbols[7972].val /* top level :$:enum-set-constructor */;
+    array1409[12522] = builtinSymbols[7540].val /* top level :$:enum-set-constructor */;
     array1409[12540] = list784.val;
-    array1409[12551] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[12555] = builtinSymbols[7989].val /* top level :$:enum-type-universe */;
-    array1409[12561] = builtinSymbols[7977].val /* top level :$:enum-set-members */;
+    array1409[12551] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[12555] = builtinSymbols[7557].val /* top level :$:enum-type-universe */;
+    array1409[12561] = builtinSymbols[7545].val /* top level :$:enum-set-members */;
     array1409[12588] = list782.val;
-    array1409[12640] = builtinSymbols[7970].val /* top level :$:enum-set->list */;
+    array1409[12640] = builtinSymbols[7538].val /* top level :$:enum-set->list */;
     array1409[12660] = list780.val;
-    array1409[12668] = builtinSymbols[7977].val /* top level :$:enum-set-members */;
-    array1409[12681] = builtinSymbols[7976].val /* top level :$:enum-set-member? */;
+    array1409[12668] = builtinSymbols[7545].val /* top level :$:enum-set-members */;
+    array1409[12681] = builtinSymbols[7544].val /* top level :$:enum-set-member? */;
     array1409[12695] = list778.val;
-    array1409[12707] = builtinSymbols[7984].val /* top level :$:enum-set-universe */;
-    array1409[12711] = builtinSymbols[7970].val /* top level :$:enum-set->list */;
+    array1409[12707] = builtinSymbols[7552].val /* top level :$:enum-set-universe */;
+    array1409[12711] = builtinSymbols[7538].val /* top level :$:enum-set->list */;
     array1409[12725] = list776.val;
-    array1409[12740] = builtinSymbols[7984].val /* top level :$:enum-set-universe */;
-    array1409[12744] = builtinSymbols[7970].val /* top level :$:enum-set->list */;
-    array1409[12748] = builtinSymbols[8018].val /* top level :$:for-all */;
+    array1409[12740] = builtinSymbols[7552].val /* top level :$:enum-set-universe */;
+    array1409[12744] = builtinSymbols[7538].val /* top level :$:enum-set->list */;
+    array1409[12748] = builtinSymbols[7586].val /* top level :$:for-all */;
     array1409[12760] = list774.val;
-    array1409[12764] = builtinSymbols[7976].val /* top level :$:enum-set-member? */;
-    array1409[12774] = builtinSymbols[7977].val /* top level :$:enum-set-members */;
-    array1409[12778] = builtinSymbols[8018].val /* top level :$:for-all */;
-    array1409[12787] = builtinSymbols[7981].val /* top level :$:enum-set-subset? */;
+    array1409[12764] = builtinSymbols[7544].val /* top level :$:enum-set-member? */;
+    array1409[12774] = builtinSymbols[7545].val /* top level :$:enum-set-members */;
+    array1409[12778] = builtinSymbols[7586].val /* top level :$:for-all */;
+    array1409[12787] = builtinSymbols[7549].val /* top level :$:enum-set-subset? */;
     array1409[12805] = list772.val;
-    array1409[12811] = builtinSymbols[7981].val /* top level :$:enum-set-subset? */;
-    array1409[12818] = builtinSymbols[7981].val /* top level :$:enum-set-subset? */;
-    array1409[12827] = builtinSymbols[7985].val /* top level :$:enum-set=? */;
+    array1409[12811] = builtinSymbols[7549].val /* top level :$:enum-set-subset? */;
+    array1409[12818] = builtinSymbols[7549].val /* top level :$:enum-set-subset? */;
+    array1409[12827] = builtinSymbols[7553].val /* top level :$:enum-set=? */;
     array1409[12842] = list770.val;
     array1409[12863] = list768.val;
     array1409[12884] = list766.val;
-    array1409[12943] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[12949] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[12959] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[12968] = builtinSymbols[7977].val /* top level :$:enum-set-members */;
-    array1409[12974] = builtinSymbols[7977].val /* top level :$:enum-set-members */;
+    array1409[12943] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[12949] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[12959] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[12968] = builtinSymbols[7545].val /* top level :$:enum-set-members */;
+    array1409[12974] = builtinSymbols[7545].val /* top level :$:enum-set-members */;
     array1409[12982] = builtinSymbols[8059].val /* top level :$:make-enum-set */;
-    array1409[12990] = builtinSymbols[6323].val /* enum-set-union */;
+    array1409[12990] = builtinSymbols[535].val /* enum-set-union */;
     array1409[12992] = Object::makeString(UC("enum-set1 and enum-set2 must be enumeration sets that have the same enumeration type.")).val;
-    array1409[13001] = builtinSymbols[7983].val /* top level :$:enum-set-union */;
+    array1409[13001] = builtinSymbols[7551].val /* top level :$:enum-set-union */;
     array1409[13028] = list764.val;
     array1409[13049] = list762.val;
     array1409[13071] = list760.val;
-    array1409[13131] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[13137] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[13147] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[13156] = builtinSymbols[7977].val /* top level :$:enum-set-members */;
-    array1409[13162] = builtinSymbols[7977].val /* top level :$:enum-set-members */;
+    array1409[13131] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[13137] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[13147] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[13156] = builtinSymbols[7545].val /* top level :$:enum-set-members */;
+    array1409[13162] = builtinSymbols[7545].val /* top level :$:enum-set-members */;
     array1409[13170] = builtinSymbols[8059].val /* top level :$:make-enum-set */;
-    array1409[13178] = builtinSymbols[6319].val /* enum-set-intersection */;
+    array1409[13178] = builtinSymbols[531].val /* enum-set-intersection */;
     array1409[13180] = Object::makeString(UC("enum-set1 and enum-set2 must be enumeration sets that have the same enumeration type.")).val;
-    array1409[13189] = builtinSymbols[7975].val /* top level :$:enum-set-intersection */;
+    array1409[13189] = builtinSymbols[7543].val /* top level :$:enum-set-intersection */;
     array1409[13216] = list758.val;
     array1409[13237] = list756.val;
     array1409[13259] = list754.val;
-    array1409[13319] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[13325] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[13335] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[13344] = builtinSymbols[7977].val /* top level :$:enum-set-members */;
-    array1409[13350] = builtinSymbols[7977].val /* top level :$:enum-set-members */;
+    array1409[13319] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[13325] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[13335] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[13344] = builtinSymbols[7545].val /* top level :$:enum-set-members */;
+    array1409[13350] = builtinSymbols[7545].val /* top level :$:enum-set-members */;
     array1409[13358] = builtinSymbols[8059].val /* top level :$:make-enum-set */;
-    array1409[13366] = builtinSymbols[6317].val /* enum-set-difference */;
+    array1409[13366] = builtinSymbols[529].val /* enum-set-difference */;
     array1409[13368] = Object::makeString(UC("enum-set1 and enum-set2 must be enumeration sets that have the same enumeration type.")).val;
-    array1409[13377] = builtinSymbols[7973].val /* top level :$:enum-set-difference */;
+    array1409[13377] = builtinSymbols[7541].val /* top level :$:enum-set-difference */;
     array1409[13402] = list752.val;
-    array1409[13412] = builtinSymbols[7977].val /* top level :$:enum-set-members */;
-    array1409[13420] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
+    array1409[13412] = builtinSymbols[7545].val /* top level :$:enum-set-members */;
+    array1409[13420] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
     array1409[13432] = list750.val;
-    array1409[13447] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[13451] = builtinSymbols[7989].val /* top level :$:enum-type-universe */;
-    array1409[13455] = builtinSymbols[8003].val /* top level :$:filter */;
+    array1409[13447] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[13451] = builtinSymbols[7557].val /* top level :$:enum-type-universe */;
+    array1409[13455] = builtinSymbols[7571].val /* top level :$:filter */;
     array1409[13459] = builtinSymbols[8059].val /* top level :$:make-enum-set */;
-    array1409[13467] = builtinSymbols[7971].val /* top level :$:enum-set-complement */;
+    array1409[13467] = builtinSymbols[7539].val /* top level :$:enum-set-complement */;
     array1409[13484] = list748.val;
-    array1409[13490] = builtinSymbols[7981].val /* top level :$:enum-set-subset? */;
-    array1409[13508] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
-    array1409[13512] = builtinSymbols[7989].val /* top level :$:enum-type-universe */;
-    array1409[13518] = builtinSymbols[7977].val /* top level :$:enum-set-members */;
-    array1409[13526] = builtinSymbols[7982].val /* top level :$:enum-set-type */;
+    array1409[13490] = builtinSymbols[7549].val /* top level :$:enum-set-subset? */;
+    array1409[13508] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
+    array1409[13512] = builtinSymbols[7557].val /* top level :$:enum-type-universe */;
+    array1409[13518] = builtinSymbols[7545].val /* top level :$:enum-set-members */;
+    array1409[13526] = builtinSymbols[7550].val /* top level :$:enum-set-type */;
     array1409[13538] = list746.val;
-    array1409[13550] = builtinSymbols[8003].val /* top level :$:filter */;
+    array1409[13550] = builtinSymbols[7571].val /* top level :$:filter */;
     array1409[13554] = builtinSymbols[8059].val /* top level :$:make-enum-set */;
-    array1409[13563] = builtinSymbols[7978].val /* top level :$:enum-set-projection */;
+    array1409[13563] = builtinSymbols[7546].val /* top level :$:enum-set-projection */;
     array1409[13580] = list744.val;
-    array1409[13586] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[13586] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[13590] = builtinSymbols[8091].val /* top level :$:newline */;
     array1409[13597] = builtinSymbols[8207].val /* top level :$:pretty-print */;
-    array1409[13601] = builtinSymbols[7955].val /* top level :$:display */;
-    array1409[13603] = builtinSymbols[7949].val /* top level :$:dd */;
+    array1409[13601] = builtinSymbols[7523].val /* top level :$:display */;
+    array1409[13603] = builtinSymbols[7517].val /* top level :$:dd */;
     array1409[13605] = builtinSymbols[8208].val /* top level :$:print */;
     array1409[13607] = builtinSymbols[8204].val /* top level :$:pp */;
     array1409[13609] = list742.val;
     array1409[13611] = builtinSymbols[7417].val /* top level :$:*free-vars-decl* */;
     array1409[13619] = list741.val;
     array1409[13621] = builtinSymbols[7416].val /* top level :$:*command-line-args* */;
-    array1409[13625] = builtinSymbols[7938].val /* top level :$:command-line */;
+    array1409[13625] = builtinSymbols[7506].val /* top level :$:command-line */;
     array1409[13637] = list739.val;
     array1409[13661] = list737.val;
     array1409[13674] = builtinSymbols[8026].val /* top level :$:hashtable-for-each */;
-    array1409[13680] = builtinSymbols[7990].val /* top level :$:eq-hashtable-copy */;
+    array1409[13680] = builtinSymbols[7558].val /* top level :$:eq-hashtable-copy */;
     array1409[13693] = list735.val;
     array1409[13717] = list733.val;
     array1409[13754] = builtinSymbols[8029].val /* top level :$:hashtable-set-true! */;
@@ -72158,7 +72158,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[13872] = builtinSymbols[8212].val /* top level :$:raise */;
     array1409[13879] = builtinSymbols[8239].val /* top level :$:syntax-error */;
     array1409[13888] = list725.val;
-    array1409[13897] = builtinSymbols[7854].val /* top level :$:alist-cons */;
+    array1409[13897] = builtinSymbols[7422].val /* top level :$:alist-cons */;
     array1409[13911] = list723.val;
     array1409[13938] = list721.val;
     array1409[13964] = Object::makeString(UC(" ")).val;
@@ -72179,8 +72179,8 @@ Object scheme::getBuiltinCompiler() {
     array1409[14224] = builtinSymbols[8253].val /* top level :$:uniq */;
     array1409[14238] = list709.val;
     array1409[14257] = builtinSymbols[8048].val /* top level :$:list */;
-    array1409[14265] = builtinSymbols[7855].val /* top level :$:apply-each-pair */;
-    array1409[14270] = builtinSymbols[7855].val /* top level :$:apply-each-pair */;
+    array1409[14265] = builtinSymbols[7423].val /* top level :$:apply-each-pair */;
+    array1409[14270] = builtinSymbols[7423].val /* top level :$:apply-each-pair */;
     array1409[14284] = list707.val;
     array1409[14308] = list705.val;
     array1409[14365] = builtinSymbols[8218].val /* top level :$:remove-tail */;
@@ -72299,29 +72299,29 @@ Object scheme::getBuiltinCompiler() {
     array1409[15890] = list644.val;
     array1409[15965] = builtinSymbols[8101].val /* top level :$:parse-lambda-args */;
     array1409[15983] = list642.val;
-    array1409[15993] = builtinSymbols[7891].val /* top level :$:caddr */;
-    array1409[16002] = builtinSymbols[7891].val /* top level :$:caddr */;
-    array1409[16006] = builtinSymbols[6259].val /* define */;
+    array1409[15993] = builtinSymbols[7459].val /* top level :$:caddr */;
+    array1409[16002] = builtinSymbols[7459].val /* top level :$:caddr */;
+    array1409[16006] = builtinSymbols[471].val /* define */;
     array1409[16014] = builtinSymbols[8039].val /* top level :$:lambda-has-define? */;
     array1409[16028] = list640.val;
     array1409[16030] = builtinSymbols[6681].val /* let */;
-    array1409[16037] = builtinSymbols[7891].val /* top level :$:caddr */;
-    array1409[16050] = builtinSymbols[7932].val /* top level :$:cdddr */;
+    array1409[16037] = builtinSymbols[7459].val /* top level :$:caddr */;
+    array1409[16050] = builtinSymbols[7500].val /* top level :$:cdddr */;
     array1409[16056] = builtinSymbols[8044].val /* top level :$:let1->let */;
     array1409[16066] = list638.val;
     array1409[16079] = list636.val;
     array1409[16090] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[16094] = builtinSymbols[8048].val /* top level :$:list */;
-    array1409[16105] = builtinSymbols[8012].val /* top level :$:fold-right */;
+    array1409[16105] = builtinSymbols[7580].val /* top level :$:fold-right */;
     array1409[16110] = builtinSymbols[6681].val /* let */;
     array1409[16116] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
-    array1409[16123] = builtinSymbols[7997].val /* top level :$:expand-let */;
+    array1409[16123] = builtinSymbols[7565].val /* top level :$:expand-let */;
     array1409[16142] = list634.val;
     array1409[16159] = builtinSymbols[7096].val /* quote */;
-    array1409[16166] = builtinSymbols[6265].val /* define-macro */;
-    array1409[16173] = builtinSymbols[6259].val /* define */;
-    array1409[16181] = builtinSymbols[7951].val /* top level :$:define-is-lambda? */;
-    array1409[16190] = builtinSymbols[7950].val /* top level :$:define->lambda */;
+    array1409[16166] = builtinSymbols[477].val /* define-macro */;
+    array1409[16173] = builtinSymbols[471].val /* define */;
+    array1409[16181] = builtinSymbols[7519].val /* top level :$:define-is-lambda? */;
+    array1409[16190] = builtinSymbols[7518].val /* top level :$:define->lambda */;
     array1409[16194] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[16209] = list632.val;
     array1409[16212] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
@@ -72333,12 +72333,12 @@ Object scheme::getBuiltinCompiler() {
     array1409[16280] = builtinSymbols[8043].val /* top level :$:let-is-named? */;
     array1409[16291] = builtinSymbols[8089].val /* top level :$:named-let->letrec */;
     array1409[16295] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
-    array1409[16321] = builtinSymbols[7997].val /* top level :$:expand-let */;
+    array1409[16321] = builtinSymbols[7565].val /* top level :$:expand-let */;
     array1409[16339] = builtinSymbols[6682].val /* let* */;
     array1409[16349] = builtinSymbols[8042].val /* top level :$:let*->let */;
     array1409[16353] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
-    array1409[16371] = builtinSymbols[6222].val /* cond */;
-    array1409[16381] = builtinSymbols[7944].val /* top level :$:cond->if */;
+    array1409[16371] = builtinSymbols[434].val /* cond */;
+    array1409[16381] = builtinSymbols[7512].val /* top level :$:cond->if */;
     array1409[16385] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[16403] = builtinSymbols[6669].val /* lambda */;
     array1409[16411] = builtinSymbols[8039].val /* top level :$:lambda-has-define? */;
@@ -72349,55 +72349,55 @@ Object scheme::getBuiltinCompiler() {
     array1409[16473] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[16494] = builtinSymbols[8336].val /* when */;
     array1409[16504] = builtinSymbols[8336].val /* when */;
-    array1409[16531] = builtinSymbols[7891].val /* top level :$:caddr */;
-    array1409[16538] = builtinSymbols[7932].val /* top level :$:cdddr */;
+    array1409[16531] = builtinSymbols[7459].val /* top level :$:caddr */;
+    array1409[16538] = builtinSymbols[7500].val /* top level :$:cdddr */;
     array1409[16551] = list630.val;
-    array1409[16555] = builtinSymbols[6222].val /* cond */;
+    array1409[16555] = builtinSymbols[434].val /* cond */;
     array1409[16567] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[16596] = list629.val;
     array1409[16598] = Object::makeString(UC("malformed when")).val;
     array1409[16600] = builtinSymbols[8239].val /* top level :$:syntax-error */;
     array1409[16613] = builtinSymbols[8290].val /* unless */;
     array1409[16623] = builtinSymbols[8290].val /* unless */;
-    array1409[16650] = builtinSymbols[7891].val /* top level :$:caddr */;
-    array1409[16657] = builtinSymbols[7932].val /* top level :$:cdddr */;
+    array1409[16650] = builtinSymbols[7459].val /* top level :$:caddr */;
+    array1409[16657] = builtinSymbols[7500].val /* top level :$:cdddr */;
     array1409[16670] = list628.val;
-    array1409[16674] = builtinSymbols[6222].val /* cond */;
+    array1409[16674] = builtinSymbols[434].val /* cond */;
     array1409[16676] = builtinSymbols[6896].val /* not */;
     array1409[16692] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[16721] = list627.val;
     array1409[16723] = Object::makeString(UC("malformed unless")).val;
     array1409[16725] = builtinSymbols[8239].val /* top level :$:syntax-error */;
-    array1409[16738] = builtinSymbols[5945].val /* aif */;
-    array1409[16748] = builtinSymbols[7853].val /* top level :$:aif->let */;
+    array1409[16738] = builtinSymbols[157].val /* aif */;
+    array1409[16748] = builtinSymbols[7421].val /* top level :$:aif->let */;
     array1409[16752] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
-    array1409[16770] = builtinSymbols[6120].val /* case */;
-    array1409[16780] = builtinSymbols[7903].val /* top level :$:case->cond */;
+    array1409[16770] = builtinSymbols[332].val /* case */;
+    array1409[16780] = builtinSymbols[7471].val /* top level :$:case->cond */;
     array1409[16784] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[16802] = builtinSymbols[7094].val /* quasiquote */;
-    array1409[16811] = builtinSymbols[7998].val /* top level :$:expand-quasiquote */;
+    array1409[16811] = builtinSymbols[7566].val /* top level :$:expand-quasiquote */;
     array1409[16825] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[16931] = list626.val;
-    array1409[16937] = builtinSymbols[7951].val /* top level :$:define-is-lambda? */;
+    array1409[16937] = builtinSymbols[7519].val /* top level :$:define-is-lambda? */;
     array1409[16945] = list624.val;
     array1409[16956] = builtinSymbols[6601].val /* if */;
-    array1409[16964] = builtinSymbols[7945].val /* top level :$:conditions->if */;
+    array1409[16964] = builtinSymbols[7513].val /* top level :$:conditions->if */;
     array1409[16970] = builtinSymbols[8048].val /* top level :$:list */;
-    array1409[16977] = builtinSymbols[7945].val /* top level :$:conditions->if */;
+    array1409[16977] = builtinSymbols[7513].val /* top level :$:conditions->if */;
     array1409[16988] = list622.val;
     array1409[17010] = list620.val;
     array1409[17023] = builtinSymbols[8048].val /* top level :$:list */;
     array1409[17051] = builtinSymbols[8048].val /* top level :$:list */;
     array1409[17072] = builtinSymbols[8048].val /* top level :$:list */;
     array1409[17082] = builtinSymbols[8048].val /* top level :$:list */;
-    array1409[17102] = builtinSymbols[8007].val /* top level :$:find-serial-from-head */;
+    array1409[17102] = builtinSymbols[7575].val /* top level :$:find-serial-from-head */;
     array1409[17125] = list618.val;
     array1409[17165] = list616.val;
-    array1409[17171] = builtinSymbols[6259].val /* define */;
-    array1409[17181] = builtinSymbols[8007].val /* top level :$:find-serial-from-head */;
+    array1409[17171] = builtinSymbols[471].val /* define */;
+    array1409[17181] = builtinSymbols[7575].val /* top level :$:find-serial-from-head */;
     array1409[17233] = builtinSymbols[6691].val /* letrec */;
     array1409[17242] = list614.val;
-    array1409[17249] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[17249] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[17253] = builtinSymbols[8048].val /* top level :$:list */;
     array1409[17262] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[17267] = builtinSymbols[8066].val /* top level :$:map */;
@@ -72405,12 +72405,12 @@ Object scheme::getBuiltinCompiler() {
     array1409[17289] = builtinSymbols[6669].val /* lambda */;
     array1409[17317] = builtinSymbols[8038].val /* top level :$:internal-define->letrec */;
     array1409[17342] = list612.val;
-    array1409[17358] = builtinSymbols[6259].val /* define */;
+    array1409[17358] = builtinSymbols[471].val /* define */;
     array1409[17368] = builtinSymbols[6669].val /* lambda */;
     array1409[17372] = builtinSymbols[8048].val /* top level :$:list */;
-    array1409[17396] = builtinSymbols[7950].val /* top level :$:define->lambda */;
+    array1409[17396] = builtinSymbols[7518].val /* top level :$:define->lambda */;
     array1409[17408] = list610.val;
-    array1409[17410] = builtinSymbols[6222].val /* cond */;
+    array1409[17410] = builtinSymbols[434].val /* cond */;
     array1409[17412] = builtinSymbols[6896].val /* not */;
     array1409[17429] = builtinSymbols[8254].val /* top level :$:unless->cond */;
     array1409[17441] = list608.val;
@@ -72419,40 +72419,40 @@ Object scheme::getBuiltinCompiler() {
     array1409[17542] = builtinSymbols[8042].val /* top level :$:let*->let */;
     array1409[17560] = list604.val;
     array1409[17581] = list602.val;
-    array1409[17600] = builtinSymbols[5983].val /* begin */;
+    array1409[17600] = builtinSymbols[195].val /* begin */;
     array1409[17610] = builtinSymbols[6601].val /* if */;
     array1409[17647] = list600.val;
-    array1409[17662] = builtinSymbols[6310].val /* else */;
-    array1409[17684] = builtinSymbols[5983].val /* begin */;
-    array1409[17692] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array1409[17662] = builtinSymbols[522].val /* else */;
+    array1409[17684] = builtinSymbols[195].val /* begin */;
+    array1409[17692] = builtinSymbols[7452].val /* top level :$:cadar */;
     array1409[17712] = builtinSymbols[138].val /* => */;
-    array1409[17717] = builtinSymbols[7884].val /* top level :$:cadar */;
+    array1409[17717] = builtinSymbols[7452].val /* top level :$:cadar */;
     array1409[17738] = builtinSymbols[6681].val /* let */;
     array1409[17750] = builtinSymbols[6601].val /* if */;
-    array1409[17757] = builtinSymbols[7887].val /* top level :$:caddar */;
+    array1409[17757] = builtinSymbols[7455].val /* top level :$:caddar */;
     array1409[17811] = builtinSymbols[6681].val /* let */;
     array1409[17823] = builtinSymbols[6601].val /* if */;
-    array1409[17881] = builtinSymbols[7944].val /* top level :$:cond->if */;
+    array1409[17881] = builtinSymbols[7512].val /* top level :$:cond->if */;
     array1409[17920] = list598.val;
     array1409[17944] = list596.val;
-    array1409[17954] = builtinSymbols[6310].val /* else */;
-    array1409[17977] = builtinSymbols[6341].val /* eqv? */;
+    array1409[17954] = builtinSymbols[522].val /* else */;
+    array1409[17977] = builtinSymbols[553].val /* eqv? */;
     array1409[17979] = builtinSymbols[7096].val /* quote */;
-    array1409[17984] = builtinSymbols[7869].val /* top level :$:caaar */;
+    array1409[17984] = builtinSymbols[7437].val /* top level :$:caaar */;
     array1409[18012] = builtinSymbols[6852].val /* memv */;
     array1409[18015] = builtinSymbols[7096].val /* quote */;
-    array1409[18052] = builtinSymbols[7996].val /* top level :$:expand-clauses */;
+    array1409[18052] = builtinSymbols[7564].val /* top level :$:expand-clauses */;
     array1409[18073] = list594.val;
-    array1409[18117] = builtinSymbols[7996].val /* top level :$:expand-clauses */;
+    array1409[18117] = builtinSymbols[7564].val /* top level :$:expand-clauses */;
     array1409[18122] = builtinSymbols[6681].val /* let */;
-    array1409[18133] = builtinSymbols[6222].val /* cond */;
-    array1409[18148] = builtinSymbols[7903].val /* top level :$:case->cond */;
+    array1409[18133] = builtinSymbols[434].val /* cond */;
+    array1409[18148] = builtinSymbols[7471].val /* top level :$:case->cond */;
     array1409[18163] = list592.val;
-    array1409[18190] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[18190] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[18210] = builtinSymbols[7407].val /* top level :$:$map1 */;
-    array1409[18229] = builtinSymbols[7892].val /* top level :$:cadr */;
+    array1409[18229] = builtinSymbols[7460].val /* top level :$:cadr */;
     array1409[18233] = builtinSymbols[7407].val /* top level :$:$map1 */;
-    array1409[18255] = builtinSymbols[7932].val /* top level :$:cdddr */;
+    array1409[18255] = builtinSymbols[7500].val /* top level :$:cdddr */;
     array1409[18279] = builtinSymbols[6669].val /* lambda */;
     array1409[18297] = builtinSymbols[6691].val /* letrec */;
     array1409[18338] = builtinSymbols[8089].val /* top level :$:named-let->letrec */;
@@ -72461,9 +72461,9 @@ Object scheme::getBuiltinCompiler() {
     array1409[18357] = builtinSymbols[6651].val /* it */;
     array1409[18368] = builtinSymbols[6601].val /* if */;
     array1409[18370] = builtinSymbols[6651].val /* it */;
-    array1409[18375] = builtinSymbols[7891].val /* top level :$:caddr */;
-    array1409[18381] = builtinSymbols[7890].val /* top level :$:cadddr */;
-    array1409[18396] = builtinSymbols[7853].val /* top level :$:aif->let */;
+    array1409[18375] = builtinSymbols[7459].val /* top level :$:caddr */;
+    array1409[18381] = builtinSymbols[7458].val /* top level :$:cadddr */;
+    array1409[18396] = builtinSymbols[7421].val /* top level :$:aif->let */;
     array1409[18406] = list588.val;
     array1409[18412] = builtinSymbols[8043].val /* top level :$:let-is-named? */;
     array1409[18422] = list586.val;
@@ -72474,23 +72474,23 @@ Object scheme::getBuiltinCompiler() {
     array1409[18448] = builtinSymbols[8293].val /* unquote-splicing */;
     array1409[18453] = builtinSymbols[7094].val /* quasiquote */;
     array1409[18455] = Object::makeString(UC(",@ in invalid context")).val;
-    array1409[18469] = builtinSymbols[8005].val /* top level :$:finalize-quasiquote */;
+    array1409[18469] = builtinSymbols[7573].val /* top level :$:finalize-quasiquote */;
     array1409[18483] = list584.val;
-    array1409[18492] = builtinSymbols[7954].val /* top level :$:descend-quasiquote-vector */;
+    array1409[18492] = builtinSymbols[7522].val /* top level :$:descend-quasiquote-vector */;
     array1409[18504] = builtinSymbols[7096].val /* quote */;
     array1409[18516] = builtinSymbols[7094].val /* quasiquote */;
     array1409[18519] = builtinSymbols[8037].val /* top level :$:interesting-to-quasiquote? */;
-    array1409[18529] = builtinSymbols[7953].val /* top level :$:descend-quasiquote-pair */;
+    array1409[18529] = builtinSymbols[7521].val /* top level :$:descend-quasiquote-pair */;
     array1409[18539] = builtinSymbols[8292].val /* unquote */;
     array1409[18542] = builtinSymbols[8037].val /* top level :$:interesting-to-quasiquote? */;
     array1409[18552] = builtinSymbols[8292].val /* unquote */;
-    array1409[18569] = builtinSymbols[7953].val /* top level :$:descend-quasiquote-pair */;
+    array1409[18569] = builtinSymbols[7521].val /* top level :$:descend-quasiquote-pair */;
     array1409[18579] = builtinSymbols[8293].val /* unquote-splicing */;
     array1409[18582] = builtinSymbols[8037].val /* top level :$:interesting-to-quasiquote? */;
     array1409[18592] = builtinSymbols[8293].val /* unquote-splicing */;
-    array1409[18609] = builtinSymbols[7953].val /* top level :$:descend-quasiquote-pair */;
-    array1409[18620] = builtinSymbols[7953].val /* top level :$:descend-quasiquote-pair */;
-    array1409[18627] = builtinSymbols[7952].val /* top level :$:descend-quasiquote */;
+    array1409[18609] = builtinSymbols[7521].val /* top level :$:descend-quasiquote-pair */;
+    array1409[18620] = builtinSymbols[7521].val /* top level :$:descend-quasiquote-pair */;
+    array1409[18627] = builtinSymbols[7520].val /* top level :$:descend-quasiquote */;
     array1409[18652] = list582.val;
     array1409[18665] = list580.val;
     array1409[18679] = list578.val;
@@ -72500,43 +72500,43 @@ Object scheme::getBuiltinCompiler() {
     array1409[18707] = builtinSymbols[8293].val /* unquote-splicing */;
     array1409[18712] = builtinSymbols[7096].val /* quote */;
     array1409[18723] = builtinSymbols[8292].val /* unquote */;
-    array1409[18733] = builtinSymbols[5954].val /* append */;
-    array1409[18742] = builtinSymbols[8005].val /* top level :$:finalize-quasiquote */;
+    array1409[18733] = builtinSymbols[166].val /* append */;
+    array1409[18742] = builtinSymbols[7573].val /* top level :$:finalize-quasiquote */;
     array1409[18746] = builtinSymbols[8048].val /* top level :$:list */;
-    array1409[18757] = builtinSymbols[6233].val /* cons */;
-    array1409[18766] = builtinSymbols[8005].val /* top level :$:finalize-quasiquote */;
-    array1409[18773] = builtinSymbols[8005].val /* top level :$:finalize-quasiquote */;
+    array1409[18757] = builtinSymbols[445].val /* cons */;
+    array1409[18766] = builtinSymbols[7573].val /* top level :$:finalize-quasiquote */;
+    array1409[18773] = builtinSymbols[7573].val /* top level :$:finalize-quasiquote */;
     array1409[18777] = builtinSymbols[8048].val /* top level :$:list */;
-    array1409[18788] = builtinSymbols[7952].val /* top level :$:descend-quasiquote */;
-    array1409[18796] = builtinSymbols[7952].val /* top level :$:descend-quasiquote */;
-    array1409[18803] = builtinSymbols[7953].val /* top level :$:descend-quasiquote-pair */;
+    array1409[18788] = builtinSymbols[7520].val /* top level :$:descend-quasiquote */;
+    array1409[18796] = builtinSymbols[7520].val /* top level :$:descend-quasiquote */;
+    array1409[18803] = builtinSymbols[7521].val /* top level :$:descend-quasiquote-pair */;
     array1409[18830] = list576.val;
     array1409[18847] = list574.val;
     array1409[18849] = builtinSymbols[7096].val /* quote */;
     array1409[18854] = builtinSymbols[7096].val /* quote */;
     array1409[18864] = builtinSymbols[6725].val /* list->vector */;
-    array1409[18872] = builtinSymbols[8005].val /* top level :$:finalize-quasiquote */;
+    array1409[18872] = builtinSymbols[7573].val /* top level :$:finalize-quasiquote */;
     array1409[18876] = builtinSymbols[8048].val /* top level :$:list */;
-    array1409[18887] = builtinSymbols[7952].val /* top level :$:descend-quasiquote */;
-    array1409[18894] = builtinSymbols[7954].val /* top level :$:descend-quasiquote-vector */;
+    array1409[18887] = builtinSymbols[7520].val /* top level :$:descend-quasiquote */;
+    array1409[18894] = builtinSymbols[7522].val /* top level :$:descend-quasiquote-vector */;
     array1409[18908] = list572.val;
     array1409[18921] = builtinSymbols[8037].val /* top level :$:interesting-to-quasiquote? */;
     array1409[18931] = list570.val;
-    array1409[18935] = builtinSymbols[8005].val /* top level :$:finalize-quasiquote */;
-    array1409[18938] = builtinSymbols[7952].val /* top level :$:descend-quasiquote */;
-    array1409[18945] = builtinSymbols[7998].val /* top level :$:expand-quasiquote */;
+    array1409[18935] = builtinSymbols[7573].val /* top level :$:finalize-quasiquote */;
+    array1409[18938] = builtinSymbols[7520].val /* top level :$:descend-quasiquote */;
+    array1409[18945] = builtinSymbols[7566].val /* top level :$:expand-quasiquote */;
     array1409[18953] = list568.val;
-    array1409[18976] = builtinSymbols[8008].val /* top level :$:find-with-car */;
-    array1409[18983] = builtinSymbols[8008].val /* top level :$:find-with-car */;
+    array1409[18976] = builtinSymbols[7576].val /* top level :$:find-with-car */;
+    array1409[18983] = builtinSymbols[7576].val /* top level :$:find-with-car */;
     array1409[18995] = list566.val;
-    array1409[19017] = builtinSymbols[8008].val /* top level :$:find-with-car */;
-    array1409[19030] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[19017] = builtinSymbols[7576].val /* top level :$:find-with-car */;
+    array1409[19030] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[19034] = builtinSymbols[7393].val /* top level :$:$global-ref */;
     array1409[19048] = builtinSymbols[7393].val /* top level :$:$global-ref */;
     array1409[19057] = builtinSymbols[8125].val /* top level :$:pass1\lib-refer->iform */;
     array1409[19069] = list564.val;
-    array1409[19093] = builtinSymbols[8008].val /* top level :$:find-with-car */;
-    array1409[19106] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[19093] = builtinSymbols[7576].val /* top level :$:find-with-car */;
+    array1409[19106] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[19112] = builtinSymbols[7392].val /* top level :$:$global-assign */;
     array1409[19128] = builtinSymbols[7392].val /* top level :$:$global-assign */;
     array1409[19137] = builtinSymbols[8124].val /* top level :$:pass1\lib-assign->iform */;
@@ -72563,21 +72563,21 @@ Object scheme::getBuiltinCompiler() {
     array1409[19574] = builtinSymbols[8113].val /* top level :$:pass1\body->iform */;
     array1409[19590] = list550.val;
     array1409[19610] = list548.val;
-    array1409[19658] = builtinSymbols[7958].val /* top level :$:dotpair->list */;
+    array1409[19658] = builtinSymbols[7526].val /* top level :$:dotpair->list */;
     array1409[19678] = list546.val;
     array1409[19733] = builtinSymbols[8102].val /* top level :$:parse-lambda-vars */;
     array1409[19807] = list544.val;
     array1409[19816] = builtinSymbols[7405].val /* top level :$:$lvar */;
     array1409[19825] = builtinSymbols[7407].val /* top level :$:$map1 */;
-    array1409[19874] = builtinSymbols[7958].val /* top level :$:dotpair->list */;
+    array1409[19874] = builtinSymbols[7526].val /* top level :$:dotpair->list */;
     array1409[19919] = builtinSymbols[8113].val /* top level :$:pass1\body->iform */;
     array1409[19927] = builtinSymbols[7399].val /* top level :$:$lambda */;
     array1409[19942] = builtinSymbols[8121].val /* top level :$:pass1\lambda->iform */;
     array1409[19962] = builtinSymbols[8046].val /* top level :$:libraries */;
     array1409[19971] = list542.val;
-    array1409[19980] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[19980] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[19984] = builtinSymbols[8048].val /* top level :$:list */;
-    array1409[19991] = builtinSymbols[7947].val /* top level :$:copy-identifier */;
+    array1409[19991] = builtinSymbols[7515].val /* top level :$:copy-identifier */;
     array1409[20002] = list540.val;
     array1409[20008] = builtinSymbols[8218].val /* top level :$:remove-tail */;
     array1409[20015] = builtinSymbols[8047].val /* top level :$:library-name */;
@@ -72594,7 +72594,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[20175] = builtinSymbols[7397].val /* top level :$:$it */;
     array1409[20179] = builtinSymbols[7394].val /* top level :$:$if */;
     array1409[20200] = list531.val;
-    array1409[20202] = builtinSymbols[6220].val /* compiler */;
+    array1409[20202] = builtinSymbols[432].val /* compiler */;
     array1409[20204] = Object::makeString(UC("syntax-error: malformed and:")).val;
     array1409[20231] = builtinSymbols[8104].val /* top level :$:pass1\and->iform */;
     array1409[20257] = list530.val;
@@ -72610,17 +72610,17 @@ Object scheme::getBuiltinCompiler() {
     array1409[20401] = builtinSymbols[7397].val /* top level :$:$it */;
     array1409[20411] = builtinSymbols[7394].val /* top level :$:$if */;
     array1409[20432] = list523.val;
-    array1409[20434] = builtinSymbols[6220].val /* compiler */;
+    array1409[20434] = builtinSymbols[432].val /* compiler */;
     array1409[20436] = Object::makeString(UC("syntax-error: malformed or:")).val;
     array1409[20463] = builtinSymbols[8128].val /* top level :$:pass1\or->iform */;
     array1409[20489] = list522.val;
     array1409[20515] = list520.val;
-    array1409[20526] = builtinSymbols[8008].val /* top level :$:find-with-car */;
-    array1409[20535] = builtinSymbols[7947].val /* top level :$:copy-identifier */;
+    array1409[20526] = builtinSymbols[7576].val /* top level :$:find-with-car */;
+    array1409[20535] = builtinSymbols[7515].val /* top level :$:copy-identifier */;
     array1409[20546] = builtinSymbols[8048].val /* top level :$:list */;
     array1409[20561] = list518.val;
-    array1409[20573] = builtinSymbols[8008].val /* top level :$:find-with-car */;
-    array1409[20588] = builtinSymbols[7947].val /* top level :$:copy-identifier */;
+    array1409[20573] = builtinSymbols[7576].val /* top level :$:find-with-car */;
+    array1409[20588] = builtinSymbols[7515].val /* top level :$:copy-identifier */;
     array1409[20607] = builtinSymbols[8048].val /* top level :$:list */;
     array1409[20624] = list516.val;
     array1409[20651] = list514.val;
@@ -72629,10 +72629,10 @@ Object scheme::getBuiltinCompiler() {
     array1409[20704] = builtinSymbols[7407].val /* top level :$:$map1 */;
     array1409[20767] = builtinSymbols[8047].val /* top level :$:library-name */;
     array1409[20783] = builtinSymbols[7401].val /* top level :$:$library */;
-    array1409[20795] = builtinSymbols[8020].val /* top level :$:fourth */;
+    array1409[20795] = builtinSymbols[7588].val /* top level :$:fourth */;
     array1409[20800] = builtinSymbols[8120].val /* top level :$:pass1\import->iform */;
-    array1409[20818] = builtinSymbols[7891].val /* top level :$:caddr */;
-    array1409[20831] = builtinSymbols[7931].val /* top level :$:cddddr */;
+    array1409[20818] = builtinSymbols[7459].val /* top level :$:caddr */;
+    array1409[20831] = builtinSymbols[7499].val /* top level :$:cddddr */;
     array1409[20837] = builtinSymbols[8046].val /* top level :$:libraries */;
     array1409[20852] = builtinSymbols[8126].val /* top level :$:pass1\library->iform */;
     array1409[20904] = list510.val;
@@ -72640,28 +72640,28 @@ Object scheme::getBuiltinCompiler() {
     array1409[20952] = builtinSymbols[8218].val /* top level :$:remove-tail */;
     array1409[20956] = builtinSymbols[8045].val /* top level :$:libname->symbol */;
     array1409[20972] = list506.val;
-    array1409[20985] = builtinSymbols[6360].val /* expand */;
+    array1409[20985] = builtinSymbols[572].val /* expand */;
     array1409[20993] = builtinSymbols[7175].val /* run */;
-    array1409[21001] = builtinSymbols[6220].val /* compiler */;
+    array1409[21001] = builtinSymbols[432].val /* compiler */;
     array1409[21003] = Object::makeString(UC("unknown for")).val;
     array1409[21030] = builtinSymbols[6856].val /* meta */;
-    array1409[21043] = builtinSymbols[6220].val /* compiler */;
+    array1409[21043] = builtinSymbols[432].val /* compiler */;
     array1409[21045] = Object::makeString(UC("unknown level on meta")).val;
     array1409[21076] = list504.val;
-    array1409[21104] = builtinSymbols[6465].val /* for */;
-    array1409[21117] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[21104] = builtinSymbols[677].val /* for */;
+    array1409[21117] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[21136] = builtinSymbols[6917].val /* only */;
     array1409[21183] = builtinSymbols[8046].val /* top level :$:libraries */;
     array1409[21235] = list502.val;
-    array1409[21247] = builtinSymbols[7947].val /* top level :$:copy-identifier */;
+    array1409[21247] = builtinSymbols[7515].val /* top level :$:copy-identifier */;
     array1409[21263] = builtinSymbols[7390].val /* top level :$:$filter-map1 */;
     array1409[21273] = builtinSymbols[7396].val /* top level :$:$import-spec */;
     array1409[21305] = Object::makeString(UC("library ")).val;
     array1409[21315] = Object::makeString(UC(" not found")).val;
-    array1409[21333] = builtinSymbols[6354].val /* except */;
+    array1409[21333] = builtinSymbols[566].val /* except */;
     array1409[21380] = builtinSymbols[8046].val /* top level :$:libraries */;
     array1409[21432] = list500.val;
-    array1409[21448] = builtinSymbols[7947].val /* top level :$:copy-identifier */;
+    array1409[21448] = builtinSymbols[7515].val /* top level :$:copy-identifier */;
     array1409[21460] = builtinSymbols[7390].val /* top level :$:$filter-map1 */;
     array1409[21470] = builtinSymbols[7396].val /* top level :$:$import-spec */;
     array1409[21502] = Object::makeString(UC("library ")).val;
@@ -72669,26 +72669,26 @@ Object scheme::getBuiltinCompiler() {
     array1409[21530] = builtinSymbols[7149].val /* rename */;
     array1409[21573] = builtinSymbols[8046].val /* top level :$:libraries */;
     array1409[21621] = list498.val;
-    array1409[21633] = builtinSymbols[8008].val /* top level :$:find-with-car */;
-    array1409[21649] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[21633] = builtinSymbols[7576].val /* top level :$:find-with-car */;
+    array1409[21649] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[21653] = builtinSymbols[8048].val /* top level :$:list */;
-    array1409[21662] = builtinSymbols[7947].val /* top level :$:copy-identifier */;
+    array1409[21662] = builtinSymbols[7515].val /* top level :$:copy-identifier */;
     array1409[21675] = builtinSymbols[7390].val /* top level :$:$filter-map1 */;
     array1409[21685] = builtinSymbols[7396].val /* top level :$:$import-spec */;
     array1409[21717] = Object::makeString(UC("library ")).val;
     array1409[21727] = Object::makeString(UC(" not found")).val;
     array1409[21745] = builtinSymbols[7074].val /* prefix */;
-    array1409[21775] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[21775] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[21808] = builtinSymbols[8046].val /* top level :$:libraries */;
     array1409[21868] = list496.val;
-    array1409[21896] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[21896] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[21900] = builtinSymbols[8048].val /* top level :$:list */;
     array1409[21912] = builtinSymbols[7390].val /* top level :$:$filter-map1 */;
     array1409[21922] = builtinSymbols[7396].val /* top level :$:$import-spec */;
     array1409[21954] = Object::makeString(UC("library ")).val;
     array1409[21964] = Object::makeString(UC(" not found")).val;
     array1409[22003] = builtinSymbols[8046].val /* top level :$:libraries */;
-    array1409[22040] = builtinSymbols[7947].val /* top level :$:copy-identifier */;
+    array1409[22040] = builtinSymbols[7515].val /* top level :$:copy-identifier */;
     array1409[22047] = builtinSymbols[7407].val /* top level :$:$map1 */;
     array1409[22057] = builtinSymbols[7396].val /* top level :$:$import-spec */;
     array1409[22089] = Object::makeString(UC("library ")).val;
@@ -72699,17 +72699,17 @@ Object scheme::getBuiltinCompiler() {
     array1409[22152] = builtinSymbols[8120].val /* top level :$:pass1\import->iform */;
     array1409[22253] = list492.val;
     array1409[22276] = builtinSymbols[8245].val /* top level :$:top-level-library */;
-    array1409[22282] = builtinSymbols[7857].val /* top level :$:assoc */;
+    array1409[22282] = builtinSymbols[7425].val /* top level :$:assoc */;
     array1409[22309] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[22346] = builtinSymbols[8127].val /* top level :$:pass1\macroexpand */;
     array1409[22370] = list490.val;
-    array1409[22396] = builtinSymbols[7857].val /* top level :$:assoc */;
+    array1409[22396] = builtinSymbols[7425].val /* top level :$:assoc */;
     array1409[22432] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[22439] = builtinSymbols[8131].val /* top level :$:pass1\sexp->iform */;
-    array1409[22477] = builtinSymbols[8008].val /* top level :$:find-with-car */;
+    array1409[22477] = builtinSymbols[7576].val /* top level :$:find-with-car */;
     array1409[22522] = builtinSymbols[8046].val /* top level :$:libraries */;
-    array1409[22554] = builtinSymbols[7891].val /* top level :$:caddr */;
-    array1409[22562] = builtinSymbols[7857].val /* top level :$:assoc */;
+    array1409[22554] = builtinSymbols[7459].val /* top level :$:caddr */;
+    array1409[22562] = builtinSymbols[7425].val /* top level :$:assoc */;
     array1409[22582] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[22591] = builtinSymbols[8131].val /* top level :$:pass1\sexp->iform */;
     array1409[22604] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
@@ -72728,27 +72728,27 @@ Object scheme::getBuiltinCompiler() {
     array1409[22755] = builtinSymbols[7386].val /* top level :$:$call */;
     array1409[22771] = builtinSymbols[8114].val /* top level :$:pass1\call */;
     array1409[22814] = list484.val;
-    array1409[22822] = builtinSymbols[6259].val /* define */;
-    array1409[22840] = builtinSymbols[7891].val /* top level :$:caddr */;
-    array1409[22849] = builtinSymbols[7875].val /* top level :$:caaddr */;
+    array1409[22822] = builtinSymbols[471].val /* define */;
+    array1409[22840] = builtinSymbols[7459].val /* top level :$:caddr */;
+    array1409[22849] = builtinSymbols[7443].val /* top level :$:caaddr */;
     array1409[22852] = builtinSymbols[6669].val /* lambda */;
-    array1409[22860] = builtinSymbols[7932].val /* top level :$:cdddr */;
-    array1409[22883] = builtinSymbols[7916].val /* top level :$:cdaddr */;
+    array1409[22860] = builtinSymbols[7500].val /* top level :$:cdddr */;
+    array1409[22883] = builtinSymbols[7484].val /* top level :$:cdaddr */;
     array1409[22897] = list482.val;
     array1409[22910] = builtinSymbols[6669].val /* lambda */;
-    array1409[22925] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[22925] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[22948] = builtinSymbols[8121].val /* top level :$:pass1\lambda->iform */;
     array1409[22952] = builtinSymbols[7389].val /* top level :$:$define */;
     array1409[22977] = list481.val;
-    array1409[22994] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[22994] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[22998] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[23006] = builtinSymbols[8131].val /* top level :$:pass1\sexp->iform */;
     array1409[23010] = builtinSymbols[7389].val /* top level :$:$define */;
     array1409[23023] = builtinSymbols[8115].val /* top level :$:pass1\define */;
     array1409[23058] = list480.val;
     array1409[23066] = builtinSymbols[7116].val /* receive */;
-    array1409[23092] = builtinSymbols[7891].val /* top level :$:caddr */;
-    array1409[23098] = builtinSymbols[7932].val /* top level :$:cdddr */;
+    array1409[23092] = builtinSymbols[7459].val /* top level :$:caddr */;
+    array1409[23098] = builtinSymbols[7500].val /* top level :$:cdddr */;
     array1409[23111] = list478.val;
     array1409[23124] = builtinSymbols[8101].val /* top level :$:parse-lambda-args */;
     array1409[23151] = list477.val;
@@ -72785,7 +72785,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[23534] = builtinSymbols[8131].val /* top level :$:pass1\sexp->iform */;
     array1409[23543] = builtinSymbols[7407].val /* top level :$:$map1 */;
     array1409[23555] = list462.val;
-    array1409[23567] = builtinSymbols[8019].val /* top level :$:for-each */;
+    array1409[23567] = builtinSymbols[7587].val /* top level :$:for-each */;
     array1409[23570] = builtinSymbols[7114].val /* rec */;
     array1409[23581] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[23593] = builtinSymbols[8113].val /* top level :$:pass1\body->iform */;
@@ -72802,15 +72802,15 @@ Object scheme::getBuiltinCompiler() {
     array1409[23697] = builtinSymbols[7394].val /* top level :$:$if */;
     array1409[23705] = builtinSymbols[8119].val /* top level :$:pass1\if */;
     array1409[23722] = list458.val;
-    array1409[23736] = builtinSymbols[7876].val /* top level :$:caadr */;
+    array1409[23736] = builtinSymbols[7444].val /* top level :$:caadr */;
     array1409[23741] = builtinSymbols[6669].val /* lambda */;
-    array1409[23746] = builtinSymbols[7917].val /* top level :$:cdadr */;
-    array1409[23752] = builtinSymbols[7891].val /* top level :$:caddr */;
-    array1409[23762] = builtinSymbols[7943].val /* top level :$:compile-partial */;
-    array1409[23770] = builtinSymbols[7854].val /* top level :$:alist-cons */;
-    array1409[23787] = builtinSymbols[7891].val /* top level :$:caddr */;
-    array1409[23791] = builtinSymbols[7943].val /* top level :$:compile-partial */;
-    array1409[23799] = builtinSymbols[7854].val /* top level :$:alist-cons */;
+    array1409[23746] = builtinSymbols[7485].val /* top level :$:cdadr */;
+    array1409[23752] = builtinSymbols[7459].val /* top level :$:caddr */;
+    array1409[23762] = builtinSymbols[7511].val /* top level :$:compile-partial */;
+    array1409[23770] = builtinSymbols[7422].val /* top level :$:alist-cons */;
+    array1409[23787] = builtinSymbols[7459].val /* top level :$:caddr */;
+    array1409[23791] = builtinSymbols[7511].val /* top level :$:compile-partial */;
+    array1409[23799] = builtinSymbols[7422].val /* top level :$:alist-cons */;
     array1409[23803] = builtinSymbols[7411].val /* top level :$:$undef */;
     array1409[23811] = builtinSymbols[8116].val /* top level :$:pass1\define-macro */;
     array1409[23833] = list456.val;
@@ -72821,8 +72821,8 @@ Object scheme::getBuiltinCompiler() {
     array1409[23919] = builtinSymbols[8131].val /* top level :$:pass1\sexp->iform */;
     array1409[23923] = builtinSymbols[8048].val /* top level :$:list */;
     array1409[23927] = builtinSymbols[7385].val /* top level :$:$asm */;
-    array1409[23945] = builtinSymbols[7855].val /* top level :$:apply-each-pair */;
-    array1409[23949] = builtinSymbols[7945].val /* top level :$:conditions->if */;
+    array1409[23945] = builtinSymbols[7423].val /* top level :$:apply-each-pair */;
+    array1409[23949] = builtinSymbols[7513].val /* top level :$:conditions->if */;
     array1409[23953] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[23961] = builtinSymbols[8131].val /* top level :$:pass1\sexp->iform */;
     array1409[23970] = builtinSymbols[8111].val /* top level :$:pass1\asm-numcmp */;
@@ -72895,23 +72895,23 @@ Object scheme::getBuiltinCompiler() {
     array1409[24690] = list440.val;
     array1409[24697] = builtinSymbols[8048].val /* top level :$:list */;
     array1409[24701] = builtinSymbols[7385].val /* top level :$:$asm */;
-    array1409[24713] = builtinSymbols[8010].val /* top level :$:fold */;
+    array1409[24713] = builtinSymbols[7578].val /* top level :$:fold */;
     array1409[24723] = builtinSymbols[8110].val /* top level :$:pass1\asm-n-args */;
     array1409[24765] = list438.val;
     array1409[24785] = builtinSymbols[6669].val /* lambda */;
     array1409[24789] = builtinSymbols[6669].val /* lambda */;
     array1409[24797] = builtinSymbols[8121].val /* top level :$:pass1\lambda->iform */;
-    array1409[24805] = builtinSymbols[6233].val /* cons */;
+    array1409[24805] = builtinSymbols[445].val /* cons */;
     array1409[24823] = list436.val;
     array1409[24828] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[24835] = builtinSymbols[8131].val /* top level :$:pass1\sexp->iform */;
     array1409[24846] = builtinSymbols[7407].val /* top level :$:$map1 */;
     array1409[24850] = builtinSymbols[7385].val /* top level :$:$asm */;
-    array1409[24858] = builtinSymbols[5949].val /* and */;
+    array1409[24858] = builtinSymbols[161].val /* and */;
     array1409[24869] = builtinSymbols[8104].val /* top level :$:pass1\and->iform */;
     array1409[24877] = builtinSymbols[6933].val /* or */;
     array1409[24888] = builtinSymbols[8128].val /* top level :$:pass1\or->iform */;
-    array1409[24896] = builtinSymbols[5983].val /* begin */;
+    array1409[24896] = builtinSymbols[195].val /* begin */;
     array1409[24905] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[24914] = builtinSymbols[8113].val /* top level :$:pass1\body->iform */;
     array1409[24922] = builtinSymbols[8308].val /* values */;
@@ -72920,20 +72920,20 @@ Object scheme::getBuiltinCompiler() {
     array1409[24952] = builtinSymbols[8131].val /* top level :$:pass1\sexp->iform */;
     array1409[24963] = builtinSymbols[7407].val /* top level :$:$map1 */;
     array1409[24967] = builtinSymbols[7385].val /* top level :$:$asm */;
-    array1409[24975] = builtinSymbols[6259].val /* define */;
+    array1409[24975] = builtinSymbols[471].val /* define */;
     array1409[24986] = builtinSymbols[8115].val /* top level :$:pass1\define */;
-    array1409[24994] = builtinSymbols[6265].val /* define-macro */;
+    array1409[24994] = builtinSymbols[477].val /* define-macro */;
     array1409[25005] = builtinSymbols[8116].val /* top level :$:pass1\define-macro */;
     array1409[25013] = builtinSymbols[7116].val /* receive */;
     array1409[25024] = builtinSymbols[8129].val /* top level :$:pass1\receive */;
     array1409[25032] = builtinSymbols[6681].val /* let */;
     array1409[25043] = builtinSymbols[7407].val /* top level :$:$map1 */;
-    array1409[25048] = builtinSymbols[7892].val /* top level :$:cadr */;
+    array1409[25048] = builtinSymbols[7460].val /* top level :$:cadr */;
     array1409[25055] = builtinSymbols[7407].val /* top level :$:$map1 */;
     array1409[25075] = builtinSymbols[8122].val /* top level :$:pass1\let */;
     array1409[25083] = builtinSymbols[6691].val /* letrec */;
     array1409[25094] = builtinSymbols[7407].val /* top level :$:$map1 */;
-    array1409[25099] = builtinSymbols[7892].val /* top level :$:cadr */;
+    array1409[25099] = builtinSymbols[7460].val /* top level :$:cadr */;
     array1409[25106] = builtinSymbols[7407].val /* top level :$:$map1 */;
     array1409[25126] = builtinSymbols[8123].val /* top level :$:pass1\letrec */;
     array1409[25134] = builtinSymbols[6703].val /* library */;
@@ -72941,12 +72941,12 @@ Object scheme::getBuiltinCompiler() {
     array1409[25152] = builtinSymbols[6614].val /* import */;
     array1409[25160] = builtinSymbols[8120].val /* top level :$:pass1\import->iform */;
     array1409[25168] = builtinSymbols[7192].val /* set! */;
-    array1409[25181] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[25181] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[25185] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[25194] = builtinSymbols[8112].val /* top level :$:pass1\assign */;
     array1409[25202] = builtinSymbols[6601].val /* if */;
-    array1409[25213] = builtinSymbols[7891].val /* top level :$:caddr */;
-    array1409[25220] = builtinSymbols[7932].val /* top level :$:cdddr */;
+    array1409[25213] = builtinSymbols[7459].val /* top level :$:caddr */;
+    array1409[25220] = builtinSymbols[7500].val /* top level :$:cdddr */;
     array1409[25229] = builtinSymbols[8119].val /* top level :$:pass1\if */;
     array1409[25237] = builtinSymbols[37].val /* %call\cc */;
     array1409[25249] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
@@ -72958,8 +72958,8 @@ Object scheme::getBuiltinCompiler() {
     array1409[25297] = builtinSymbols[7387].val /* top level :$:$call-cc */;
     array1409[25305] = builtinSymbols[7096].val /* quote */;
     array1409[25313] = builtinSymbols[7388].val /* top level :$:$const */;
-    array1409[25321] = builtinSymbols[5954].val /* append */;
-    array1409[25327] = builtinSymbols[6296].val /* dummy */;
+    array1409[25321] = builtinSymbols[166].val /* append */;
+    array1409[25327] = builtinSymbols[508].val /* dummy */;
     array1409[25337] = builtinSymbols[8110].val /* top level :$:pass1\asm-n-args */;
     array1409[25345] = builtinSymbols[129].val /* + */;
     array1409[25351] = builtinSymbols[129].val /* + */;
@@ -72993,40 +72993,40 @@ Object scheme::getBuiltinCompiler() {
     array1409[25584] = builtinSymbols[8315].val /* vector-length */;
     array1409[25599] = builtinSymbols[8105].val /* top level :$:pass1\asm-1-arg */;
     array1409[25607] = builtinSymbols[8318].val /* vector-set! */;
-    array1409[25620] = builtinSymbols[7891].val /* top level :$:caddr */;
-    array1409[25627] = builtinSymbols[8020].val /* top level :$:fourth */;
+    array1409[25620] = builtinSymbols[7459].val /* top level :$:caddr */;
+    array1409[25627] = builtinSymbols[7588].val /* top level :$:fourth */;
     array1409[25636] = builtinSymbols[8109].val /* top level :$:pass1\asm-3-arg */;
     array1409[25644] = builtinSymbols[8317].val /* vector-ref */;
-    array1409[25657] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[25657] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[25666] = builtinSymbols[8107].val /* top level :$:pass1\asm-2-arg */;
     array1409[25674] = builtinSymbols[6817].val /* make-vector */;
     array1409[25693] = builtinSymbols[8108].val /* top level :$:pass1\asm-2-arg-optional */;
-    array1409[25701] = builtinSymbols[6113].val /* car */;
+    array1409[25701] = builtinSymbols[325].val /* car */;
     array1409[25716] = builtinSymbols[8105].val /* top level :$:pass1\asm-1-arg */;
-    array1409[25724] = builtinSymbols[6154].val /* cdr */;
+    array1409[25724] = builtinSymbols[366].val /* cdr */;
     array1409[25739] = builtinSymbols[8105].val /* top level :$:pass1\asm-1-arg */;
-    array1409[25747] = builtinSymbols[6080].val /* caar */;
+    array1409[25747] = builtinSymbols[292].val /* caar */;
     array1409[25762] = builtinSymbols[8105].val /* top level :$:pass1\asm-1-arg */;
-    array1409[25770] = builtinSymbols[6095].val /* cadr */;
+    array1409[25770] = builtinSymbols[307].val /* cadr */;
     array1409[25785] = builtinSymbols[8105].val /* top level :$:pass1\asm-1-arg */;
-    array1409[25793] = builtinSymbols[6138].val /* cdar */;
+    array1409[25793] = builtinSymbols[350].val /* cdar */;
     array1409[25808] = builtinSymbols[8105].val /* top level :$:pass1\asm-1-arg */;
-    array1409[25816] = builtinSymbols[6153].val /* cddr */;
+    array1409[25816] = builtinSymbols[365].val /* cddr */;
     array1409[25831] = builtinSymbols[8105].val /* top level :$:pass1\asm-1-arg */;
     array1409[25839] = builtinSymbols[7195].val /* set-car! */;
-    array1409[25852] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[25852] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[25861] = builtinSymbols[8107].val /* top level :$:pass1\asm-2-arg */;
     array1409[25869] = builtinSymbols[7196].val /* set-cdr! */;
-    array1409[25882] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[25882] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[25891] = builtinSymbols[8107].val /* top level :$:pass1\asm-2-arg */;
-    array1409[25899] = builtinSymbols[6338].val /* eq? */;
-    array1409[25912] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[25899] = builtinSymbols[550].val /* eq? */;
+    array1409[25912] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[25921] = builtinSymbols[8107].val /* top level :$:pass1\asm-2-arg */;
-    array1409[25929] = builtinSymbols[6341].val /* eqv? */;
-    array1409[25942] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[25929] = builtinSymbols[553].val /* eqv? */;
+    array1409[25942] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[25951] = builtinSymbols[8107].val /* top level :$:pass1\asm-2-arg */;
-    array1409[25959] = builtinSymbols[6340].val /* equal? */;
-    array1409[25972] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[25959] = builtinSymbols[552].val /* equal? */;
+    array1409[25972] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[25981] = builtinSymbols[8107].val /* top level :$:pass1\asm-2-arg */;
     array1409[25989] = builtinSymbols[6896].val /* not */;
     array1409[26004] = builtinSymbols[8105].val /* top level :$:pass1\asm-1-arg */;
@@ -73048,7 +73048,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[26367] = list430.val;
     array1409[26372] = builtinSymbols[8031].val /* top level :$:i */;
     array1409[26379] = builtinSymbols[8263].val /* top level :$:write-char */;
-    array1409[26383] = builtinSymbols[7957].val /* top level :$:dotimes */;
+    array1409[26383] = builtinSymbols[7525].val /* top level :$:dotimes */;
     array1409[26398] = list428.val;
     array1409[26402] = builtinSymbols[8091].val /* top level :$:newline */;
     array1409[26420] = list426.val;
@@ -73058,22 +73058,22 @@ Object scheme::getBuiltinCompiler() {
     array1409[26477] = Object::makeString(UC("($CONST ~s)")).val;
     array1409[26491] = builtinSymbols[7384].val /* top level :$:$UNDEF */;
     array1409[26500] = Object::makeString(UC("($UNDEF)")).val;
-    array1409[26502] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[26502] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[26510] = builtinSymbols[7375].val /* top level :$:$LAMBDA */;
     array1409[26523] = Object::makeString(UC("($LAMBDA[~a ~a ~a]")).val;
     array1409[26538] = builtinSymbols[8066].val /* top level :$:map */;
     array1409[26573] = Object::makeString(UC(")")).val;
-    array1409[26575] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[26575] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[26583] = builtinSymbols[7383].val /* top level :$:$SEQ */;
     array1409[26596] = Object::makeString(UC("($SEQ")).val;
     array1409[26613] = list422.val;
-    array1409[26640] = builtinSymbols[8019].val /* top level :$:for-each */;
+    array1409[26640] = builtinSymbols[7587].val /* top level :$:for-each */;
     array1409[26643] = Object::makeString(UC(")")).val;
-    array1409[26645] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[26645] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[26653] = builtinSymbols[7377].val /* top level :$:$LIBRARY */;
     array1409[26666] = Object::makeString(UC("($LIBRARY ~a export [~a] import [~a]")).val;
     array1409[26694] = Object::makeString(UC(")")).val;
-    array1409[26696] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[26696] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[26704] = builtinSymbols[7380].val /* top level :$:$LOCAL-REF */;
     array1409[26715] = Object::makeString(UC("($LOCAL-REF ~a)")).val;
     array1409[26737] = builtinSymbols[7368].val /* top level :$:$GLOBAL-REF */;
@@ -73081,67 +73081,67 @@ Object scheme::getBuiltinCompiler() {
     array1409[26766] = builtinSymbols[7379].val /* top level :$:$LOCAL-ASSIGN */;
     array1409[26779] = Object::makeString(UC("($LOCAL-ASSIGN ~a")).val;
     array1409[26819] = Object::makeString(UC(")")).val;
-    array1409[26821] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[26821] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[26829] = builtinSymbols[7367].val /* top level :$:$GLOBAL-ASSIGN */;
     array1409[26840] = Object::makeString(UC("($GLOBAL-ASSIGN ~a ~a)")).val;
     array1409[26858] = builtinSymbols[7376].val /* top level :$:$LET */;
     array1409[26886] = Object::makeString(UC("($LET (")).val;
-    array1409[26926] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[26926] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[26946] = list420.val;
     array1409[26963] = Object::makeString(UC("(~a ")).val;
-    array1409[26979] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[26979] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[27001] = Object::makeString(UC(")")).val;
-    array1409[27003] = builtinSymbols[7955].val /* top level :$:display */;
-    array1409[27029] = builtinSymbols[8019].val /* top level :$:for-each */;
+    array1409[27003] = builtinSymbols[7523].val /* top level :$:display */;
+    array1409[27029] = builtinSymbols[7587].val /* top level :$:for-each */;
     array1409[27034] = Object::makeString(UC(")")).val;
-    array1409[27036] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[27036] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[27066] = Object::makeString(UC(")")).val;
-    array1409[27068] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[27068] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[27078] = builtinSymbols[7369].val /* top level :$:$IF */;
     array1409[27089] = Object::makeString(UC("($IF ")).val;
-    array1409[27091] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[27091] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[27153] = Object::makeString(UC(")")).val;
-    array1409[27155] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[27155] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[27163] = builtinSymbols[7374].val /* top level :$:$LABEL */;
     array1409[27209] = list418.val;
     array1409[27213] = Object::makeString(UC("label#~a")).val;
     array1409[27263] = builtinSymbols[8210].val /* top level :$:push! */;
     array1409[27270] = Object::makeString(UC("($label #~a")).val;
     array1409[27303] = Object::makeString(UC(")")).val;
-    array1409[27305] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[27305] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[27315] = builtinSymbols[7362].val /* top level :$:$ASM */;
     array1409[27338] = Object::makeString(UC("($asm ~a")).val;
     array1409[27356] = list416.val;
-    array1409[27383] = builtinSymbols[8019].val /* top level :$:for-each */;
+    array1409[27383] = builtinSymbols[7587].val /* top level :$:for-each */;
     array1409[27386] = Object::makeString(UC(")")).val;
-    array1409[27388] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[27388] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[27396] = builtinSymbols[7366].val /* top level :$:$DEFINE */;
     array1409[27409] = Object::makeString(UC("($DEFINE ~a:~a")).val;
     array1409[27446] = Object::makeString(UC(")")).val;
-    array1409[27448] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[27448] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[27456] = builtinSymbols[7364].val /* top level :$:$CALL-CC */;
     array1409[27467] = Object::makeString(UC("($CALL-CC ")).val;
-    array1409[27469] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[27469] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[27484] = Object::makeString(UC(")")).val;
-    array1409[27486] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[27486] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[27494] = builtinSymbols[7374].val /* top level :$:$LABEL */;
     array1409[27505] = Object::makeString(UC("($LABEL ")).val;
-    array1409[27507] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[27507] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[27522] = Object::makeString(UC(")")).val;
-    array1409[27524] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[27524] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[27532] = builtinSymbols[7363].val /* top level :$:$CALL */;
     array1409[27571] = list414.val;
     array1409[27573] = Object::makeString(UC("($call[tail] ")).val;
     array1409[27580] = Object::makeString(UC("($call ")).val;
     array1409[27597] = Object::makeString(UC("[~a]")).val;
     array1409[27638] = list412.val;
-    array1409[27667] = builtinSymbols[8019].val /* top level :$:for-each */;
+    array1409[27667] = builtinSymbols[7587].val /* top level :$:for-each */;
     array1409[27670] = Object::makeString(UC(")")).val;
-    array1409[27672] = builtinSymbols[7955].val /* top level :$:display */;
+    array1409[27672] = builtinSymbols[7523].val /* top level :$:display */;
     array1409[27681] = Object::makeString(UC("pretty-iform: unknown tag:")).val;
     array1409[27705] = builtinSymbols[8091].val /* top level :$:newline */;
     array1409[27714] = builtinSymbols[8206].val /* top level :$:pretty-iform */;
-    array1409[27827] = builtinSymbols[7850].val /* top level :$:SMALL_LAMBDA_SIZE */;
+    array1409[27827] = builtinSymbols[7418].val /* top level :$:SMALL_LAMBDA_SIZE */;
     array1409[27829] = builtinSymbols[7372].val /* top level :$:$INSN-NUM */;
     array1409[27834] = builtinSymbols[8146].val /* top level :$:pass2\dispatch-table */;
     array1409[27841] = list410.val;
@@ -73171,7 +73171,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[28117] = builtinSymbols[7365].val /* top level :$:$CONST */;
     array1409[28128] = builtinSymbols[7365].val /* top level :$:$CONST */;
     array1409[28144] = builtinSymbols[7365].val /* top level :$:$CONST */;
-    array1409[28169] = builtinSymbols[5931].val /* NUMBER_MINUS */;
+    array1409[28169] = builtinSymbols[143].val /* NUMBER_MINUS */;
     array1409[28173] = builtinSymbols[7365].val /* top level :$:$CONST */;
     array1409[28184] = builtinSymbols[7365].val /* top level :$:$CONST */;
     array1409[28200] = builtinSymbols[7365].val /* top level :$:$CONST */;
@@ -73269,7 +73269,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[28847] = builtinSymbols[8155].val /* top level :$:pass2\optimize-local-ref */;
     array1409[28869] = list378.val;
     array1409[28890] = builtinSymbols[8154].val /* top level :$:pass2\optimize-closure */;
-    array1409[28895] = builtinSymbols[8019].val /* top level :$:for-each */;
+    array1409[28895] = builtinSymbols[7587].val /* top level :$:for-each */;
     array1409[28907] = builtinSymbols[8157].val /* top level :$:pass2\remove-vars */;
     array1409[28969] = builtinSymbols[8048].val /* top level :$:list */;
     array1409[28979] = builtinSymbols[7410].val /* top level :$:$seq */;
@@ -73281,8 +73281,8 @@ Object scheme::getBuiltinCompiler() {
     array1409[29103] = list374.val;
     array1409[29115] = builtinSymbols[7405].val /* top level :$:$lvar */;
     array1409[29124] = builtinSymbols[7407].val /* top level :$:$map1 */;
-    array1409[29132] = builtinSymbols[7854].val /* top level :$:alist-cons */;
-    array1409[29138] = builtinSymbols[8017].val /* top level :$:foldr2 */;
+    array1409[29132] = builtinSymbols[7422].val /* top level :$:alist-cons */;
+    array1409[29138] = builtinSymbols[7585].val /* top level :$:foldr2 */;
     array1409[29144] = builtinSymbols[8034].val /* top level :$:iform-copy-zip-lvs */;
     array1409[29157] = list372.val;
     array1409[29181] = list370.val;
@@ -73343,11 +73343,11 @@ Object scheme::getBuiltinCompiler() {
     array1409[29940] = builtinSymbols[8266].val /* top level :$:zero? */;
     array1409[29953] = builtinSymbols[7375].val /* top level :$:$LAMBDA */;
     array1409[29993] = builtinSymbols[8142].val /* top level :$:pass2\classify-calls */;
-    array1409[30032] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[30032] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[30058] = builtinSymbols[8150].val /* top level :$:pass2\local-call-embedder */;
-    array1409[30074] = builtinSymbols[7850].val /* top level :$:SMALL_LAMBDA_SIZE */;
+    array1409[30074] = builtinSymbols[7418].val /* top level :$:SMALL_LAMBDA_SIZE */;
     array1409[30077] = builtinSymbols[8035].val /* top level :$:iform-count-size-upto */;
-    array1409[30081] = builtinSymbols[7850].val /* top level :$:SMALL_LAMBDA_SIZE */;
+    array1409[30081] = builtinSymbols[7418].val /* top level :$:SMALL_LAMBDA_SIZE */;
     array1409[30092] = builtinSymbols[8151].val /* top level :$:pass2\local-call-inliner */;
     array1409[30115] = builtinSymbols[8152].val /* top level :$:pass2\local-call-optimizer */;
     array1409[30126] = builtinSymbols[8154].val /* top level :$:pass2\optimize-closure */;
@@ -73370,45 +73370,45 @@ Object scheme::getBuiltinCompiler() {
     array1409[30847] = list352.val;
     array1409[30894] = builtinSymbols[8035].val /* top level :$:iform-count-size-upto */;
     array1409[30981] = list350.val;
-    array1409[30991] = builtinSymbols[7856].val /* top level :$:argcount-ok? */;
+    array1409[30991] = builtinSymbols[7424].val /* top level :$:argcount-ok? */;
     array1409[30998] = Object::makeString(UC("wrong number of arguments: ~a requires ~a, but got ~a at ~a")).val;
-    array1409[31016] = builtinSymbols[7991].val /* top level :$:errorf */;
+    array1409[31016] = builtinSymbols[7559].val /* top level :$:errorf */;
     array1409[31026] = builtinSymbols[8266].val /* top level :$:zero? */;
     array1409[31039] = builtinSymbols[8230].val /* top level :$:split-at */;
     array1409[31053] = builtinSymbols[7402].val /* top level :$:$list */;
     array1409[31057] = builtinSymbols[8048].val /* top level :$:list */;
-    array1409[31065] = builtinSymbols[7852].val /* top level :$:adjust-arglist */;
+    array1409[31065] = builtinSymbols[7420].val /* top level :$:adjust-arglist */;
     array1409[31087] = list348.val;
-    array1409[31125] = builtinSymbols[7856].val /* top level :$:argcount-ok? */;
+    array1409[31125] = builtinSymbols[7424].val /* top level :$:argcount-ok? */;
     array1409[31140] = list346.val;
     array1409[31161] = list344.val;
     array1409[31174] = builtinSymbols[8149].val /* top level :$:pass2\expand-inlined-procedure */;
     array1409[31182] = builtinSymbols[7383].val /* top level :$:$SEQ */;
     array1409[31185] = builtinSymbols[7383].val /* top level :$:$SEQ */;
     array1409[31209] = builtinSymbols[8048].val /* top level :$:list */;
-    array1409[31227] = builtinSymbols[6284].val /* dissolved */;
+    array1409[31227] = builtinSymbols[496].val /* dissolved */;
     array1409[31252] = list342.val;
     array1409[31278] = builtinSymbols[8032].val /* top level :$:iform-copy */;
     array1409[31304] = builtinSymbols[8151].val /* top level :$:pass2\local-call-inliner */;
     array1409[31324] = list340.val;
-    array1409[31363] = builtinSymbols[7852].val /* top level :$:adjust-arglist */;
-    array1409[31384] = builtinSymbols[6311].val /* embed */;
-    array1409[31396] = builtinSymbols[6284].val /* dissolved */;
+    array1409[31363] = builtinSymbols[7420].val /* top level :$:adjust-arglist */;
+    array1409[31384] = builtinSymbols[523].val /* embed */;
+    array1409[31396] = builtinSymbols[496].val /* dissolved */;
     array1409[31450] = list338.val;
-    array1409[31477] = builtinSymbols[7852].val /* top level :$:adjust-arglist */;
+    array1409[31477] = builtinSymbols[7420].val /* top level :$:adjust-arglist */;
     array1409[31488] = builtinSymbols[6655].val /* jump */;
-    array1409[31494] = builtinSymbols[8019].val /* top level :$:for-each */;
+    array1409[31494] = builtinSymbols[7587].val /* top level :$:for-each */;
     array1409[31508] = builtinSymbols[8150].val /* top level :$:pass2\local-call-embedder */;
     array1409[31523] = list337.val;
     array1409[31556] = list335.val;
-    array1409[31573] = builtinSymbols[7852].val /* top level :$:adjust-arglist */;
+    array1409[31573] = builtinSymbols[7420].val /* top level :$:adjust-arglist */;
     array1409[31581] = builtinSymbols[6742].val /* local */;
-    array1409[31588] = builtinSymbols[8019].val /* top level :$:for-each */;
+    array1409[31588] = builtinSymbols[7587].val /* top level :$:for-each */;
     array1409[31602] = builtinSymbols[8152].val /* top level :$:pass2\local-call-optimizer */;
     array1409[31613] = list334.val;
     array1409[31632] = list332.val;
     array1409[31654] = list330.val;
-    array1409[31679] = builtinSymbols[6284].val /* dissolved */;
+    array1409[31679] = builtinSymbols[496].val /* dissolved */;
     array1409[31729] = list328.val;
     array1409[31744] = list326.val;
     array1409[31749] = builtinSymbols[8048].val /* top level :$:list */;
@@ -73438,7 +73438,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[32366] = list316.val;
     array1409[32390] = builtinSymbols[8140].val /* top level :$:pass2\adjust-arglist */;
     array1409[32402] = list314.val;
-    array1409[32413] = builtinSymbols[8019].val /* top level :$:for-each */;
+    array1409[32413] = builtinSymbols[7587].val /* top level :$:for-each */;
     array1409[32416] = builtinSymbols[6681].val /* let */;
     array1409[32429] = builtinSymbols[7400].val /* top level :$:$let */;
     array1409[32438] = builtinSymbols[8149].val /* top level :$:pass2\expand-inlined-procedure */;
@@ -73447,7 +73447,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[32508] = list310.val;
     array1409[32518] = builtinSymbols[8141].val /* top level :$:pass2\argcount-ok? */;
     array1409[32525] = Object::makeString(UC("wrong number of arguments: ~a requires ~a, but got ~a at ~a")).val;
-    array1409[32543] = builtinSymbols[7991].val /* top level :$:errorf */;
+    array1409[32543] = builtinSymbols[7559].val /* top level :$:errorf */;
     array1409[32553] = builtinSymbols[8266].val /* top level :$:zero? */;
     array1409[32566] = builtinSymbols[8159].val /* top level :$:pass2\split-args */;
     array1409[32594] = builtinSymbols[7402].val /* top level :$:$list */;
@@ -73589,7 +73589,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[35320] = list244.val;
     array1409[35382] = list242.val;
     array1409[35413] = builtinSymbols[8195].val /* top level :$:pass3\rec */;
-    array1409[35437] = builtinSymbols[8010].val /* top level :$:fold */;
+    array1409[35437] = builtinSymbols[7578].val /* top level :$:fold */;
     array1409[35465] = builtinSymbols[8178].val /* top level :$:pass3\$list */;
     array1409[35485] = list240.val;
     array1409[35532] = builtinSymbols[8180].val /* top level :$:pass3\$local-ref */;
@@ -73657,7 +73657,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[37165] = builtinSymbols[8163].val /* top level :$:pass3\$asm-2-arg */;
     array1409[37196] = builtinSymbols[8163].val /* top level :$:pass3\$asm-2-arg */;
     array1409[37223] = builtinSymbols[8162].val /* top level :$:pass3\$asm-1-arg */;
-    array1409[37249] = builtinSymbols[7891].val /* top level :$:caddr */;
+    array1409[37249] = builtinSymbols[7459].val /* top level :$:caddr */;
     array1409[37261] = builtinSymbols[8164].val /* top level :$:pass3\$asm-3-arg */;
     array1409[37292] = builtinSymbols[8163].val /* top level :$:pass3\$asm-2-arg */;
     array1409[37323] = builtinSymbols[8163].val /* top level :$:pass3\$asm-2-arg */;
@@ -73668,8 +73668,8 @@ Object scheme::getBuiltinCompiler() {
     array1409[37466] = builtinSymbols[8162].val /* top level :$:pass3\$asm-1-arg */;
     array1409[37493] = builtinSymbols[8162].val /* top level :$:pass3\$asm-1-arg */;
     array1409[37520] = builtinSymbols[8162].val /* top level :$:pass3\$asm-1-arg */;
-    array1409[37528] = builtinSymbols[5932].val /* OPEN_INPUT_FILE */;
-    array1409[37534] = builtinSymbols[5932].val /* OPEN_INPUT_FILE */;
+    array1409[37528] = builtinSymbols[144].val /* OPEN_INPUT_FILE */;
+    array1409[37534] = builtinSymbols[144].val /* OPEN_INPUT_FILE */;
     array1409[37547] = builtinSymbols[8162].val /* top level :$:pass3\$asm-1-arg */;
     array1409[37574] = builtinSymbols[8162].val /* top level :$:pass3\$asm-1-arg */;
     array1409[37601] = builtinSymbols[8162].val /* top level :$:pass3\$asm-1-arg */;
@@ -73698,7 +73698,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[38456] = list198.val;
     array1409[38494] = builtinSymbols[6655].val /* jump */;
     array1409[38594] = builtinSymbols[8186].val /* top level :$:pass3\compile-args */;
-    array1409[38625] = builtinSymbols[6311].val /* embed */;
+    array1409[38625] = builtinSymbols[523].val /* embed */;
     array1409[38781] = builtinSymbols[7406].val /* top level :$:$lvar.sym-proc */;
     array1409[38785] = builtinSymbols[7407].val /* top level :$:$map1 */;
     array1409[38843] = builtinSymbols[8048].val /* top level :$:list */;
@@ -73783,7 +73783,7 @@ Object scheme::getBuiltinCompiler() {
     array1409[43264] = list174.val;
     array1409[43282] = list172.val;
     array1409[43316] = builtinSymbols[8046].val /* top level :$:libraries */;
-    array1409[43391] = builtinSymbols[8019].val /* top level :$:for-each */;
+    array1409[43391] = builtinSymbols[7587].val /* top level :$:for-each */;
     array1409[43410] = builtinSymbols[8173].val /* top level :$:pass3\$import */;
     array1409[43428] = list170.val;
     array1409[43449] = builtinSymbols[8177].val /* top level :$:pass3\$library */;
@@ -73863,14 +73863,14 @@ Object scheme::getBuiltinCompiler() {
     array1409[43878] = builtinSymbols[7407].val /* top level :$:$map1 */;
     array1409[43891] = list157.val;
     array1409[43895] = builtinSymbols[8202].val /* top level :$:pass4 */;
-    array1409[43901] = builtinSymbols[7941].val /* top level :$:compile-library-body! */;
+    array1409[43901] = builtinSymbols[7509].val /* top level :$:compile-library-body! */;
     array1409[43923] = list156.val;
     array1409[43935] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[43955] = builtinSymbols[8245].val /* top level :$:top-level-library */;
     array1409[43966] = builtinSymbols[8131].val /* top level :$:pass1\sexp->iform */;
     array1409[43972] = builtinSymbols[8153].val /* top level :$:pass2\optimize */;
     array1409[43976] = builtinSymbols[8160].val /* top level :$:pass3 */;
-    array1409[43995] = builtinSymbols[7943].val /* top level :$:compile-partial */;
+    array1409[43995] = builtinSymbols[7511].val /* top level :$:compile-partial */;
     array1409[44019] = list154.val;
     array1409[44042] = list152.val;
     array1409[44113] = list150.val;
@@ -73884,14 +73884,14 @@ Object scheme::getBuiltinCompiler() {
     array1409[45464] = builtinSymbols[8153].val /* top level :$:pass2\optimize */;
     array1409[45472] = builtinSymbols[8160].val /* top level :$:pass3 */;
     array1409[45476] = builtinSymbols[8202].val /* top level :$:pass4 */;
-    array1409[45483] = builtinSymbols[7940].val /* top level :$:compile */;
+    array1409[45483] = builtinSymbols[7508].val /* top level :$:compile */;
     array1409[45495] = list144.val;
     array1409[45504] = builtinSymbols[8117].val /* top level :$:pass1\expand */;
     array1409[45508] = builtinSymbols[8245].val /* top level :$:top-level-library */;
     array1409[45515] = builtinSymbols[8131].val /* top level :$:pass1\sexp->iform */;
     array1409[45519] = builtinSymbols[8160].val /* top level :$:pass3 */;
     array1409[45523] = builtinSymbols[8202].val /* top level :$:pass4 */;
-    array1409[45530] = builtinSymbols[7942].val /* top level :$:compile-no-optimize */;
+    array1409[45530] = builtinSymbols[7510].val /* top level :$:compile-no-optimize */;
     array1409[45538] = builtinSymbols[8245].val /* top level :$:top-level-library */;
     array1409[45543] = builtinSymbols[8245].val /* top level :$:top-level-library */;
     array1409[45548] = list142.val;
