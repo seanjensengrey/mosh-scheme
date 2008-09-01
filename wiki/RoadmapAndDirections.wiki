@@ -4,17 +4,17 @@
  * Simple and first stack based VM interpreter.
  * Core libraries, Regexp, Port, CGI, traditional macro and continuation.
 == by version 0.1.0 ==
- * [R6RS] List utilities.
- * [R6RS] Records.
- * [R6RS] Exception and conditions.
+ * [R6RS] List utilities. *done*
+ * [R6RS] Records. *done*
+ * [R6RS] Exception and conditions. *done*
  * [R6RS] Library form *done*
  * [R6RS] eval *done*
 == by version 0.2.0 ==
- * [R6RS] Hashtables.
+ * [R6RS] Hashtables. *done*
  * [R6RS] I/O.
  * [R6RS] Bytevectors.
 == by version 0.3.0 ==
- * [R6RS] enumerations
+ * [R6RS] enumerations *done*
  * [R6RS] syntax-case *done*
 == by version 0.4.0 ==
  * [R6RS] Numeric tower with Bignum.
