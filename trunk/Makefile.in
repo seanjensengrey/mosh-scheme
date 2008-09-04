@@ -65,9 +65,10 @@ libpsyntax_a_OBJECTS = $(am_libpsyntax_a_OBJECTS)
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
-am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) \
-	mosh-read.$(OBJEXT) mosh-Port.$(OBJEXT) mosh-Regexp.$(OBJEXT) \
-	mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
+am_mosh_OBJECTS = mosh-reader.tab.$(OBJEXT) \
+	mosh-reader.lex.yy.$(OBJEXT) mosh-main.$(OBJEXT) \
+	mosh-scheme.$(OBJEXT) mosh-read.$(OBJEXT) mosh-Port.$(OBJEXT) \
+	mosh-Regexp.$(OBJEXT) mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
 	mosh-freeproc.$(OBJEXT) mosh-GenericHashTable.$(OBJEXT) \
 	mosh-CodeBuilder.$(OBJEXT) mosh-RecordTypeDescriptor.$(OBJEXT) \
 	mosh-RecordConstructorDescriptor.$(OBJEXT) \
@@ -241,6 +242,9 @@ ONIG_DIR = ./onig-5.7.0
 REGEXP_LIB = $(ONIG_DIR)/.libs/libonig.a
 SUBDIRS = $(BOEHM_GC_DIR) $(ONIG_DIR) .
 mosh_SOURCES = \
+reader.tab.cpp      \
+reader.tab.hpp      \
+reader.lex.yy.cpp   \
 main.cpp             \
 scheme.cpp           \
 read.cpp             \
@@ -478,6 +482,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-freeproc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-read.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-reader.lex.yy.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-reader.tab.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-scheme.Po@am__quote@
 
 .cpp.o:
@@ -535,6 +541,34 @@ libpsyntax_a-psyntax.obj: psyntax.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='psyntax.cpp' object='libpsyntax_a-psyntax.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsyntax_a_CXXFLAGS) $(CXXFLAGS) -c -o libpsyntax_a-psyntax.obj `if test -f 'psyntax.cpp'; then $(CYGPATH_W) 'psyntax.cpp'; else $(CYGPATH_W) '$(srcdir)/psyntax.cpp'; fi`
+
+mosh-reader.tab.o: reader.tab.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-reader.tab.o -MD -MP -MF $(DEPDIR)/mosh-reader.tab.Tpo -c -o mosh-reader.tab.o `test -f 'reader.tab.cpp' || echo '$(srcdir)/'`reader.tab.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-reader.tab.Tpo $(DEPDIR)/mosh-reader.tab.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='reader.tab.cpp' object='mosh-reader.tab.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-reader.tab.o `test -f 'reader.tab.cpp' || echo '$(srcdir)/'`reader.tab.cpp
+
+mosh-reader.tab.obj: reader.tab.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-reader.tab.obj -MD -MP -MF $(DEPDIR)/mosh-reader.tab.Tpo -c -o mosh-reader.tab.obj `if test -f 'reader.tab.cpp'; then $(CYGPATH_W) 'reader.tab.cpp'; else $(CYGPATH_W) '$(srcdir)/reader.tab.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-reader.tab.Tpo $(DEPDIR)/mosh-reader.tab.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='reader.tab.cpp' object='mosh-reader.tab.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-reader.tab.obj `if test -f 'reader.tab.cpp'; then $(CYGPATH_W) 'reader.tab.cpp'; else $(CYGPATH_W) '$(srcdir)/reader.tab.cpp'; fi`
+
+mosh-reader.lex.yy.o: reader.lex.yy.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-reader.lex.yy.o -MD -MP -MF $(DEPDIR)/mosh-reader.lex.yy.Tpo -c -o mosh-reader.lex.yy.o `test -f 'reader.lex.yy.cpp' || echo '$(srcdir)/'`reader.lex.yy.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-reader.lex.yy.Tpo $(DEPDIR)/mosh-reader.lex.yy.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='reader.lex.yy.cpp' object='mosh-reader.lex.yy.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-reader.lex.yy.o `test -f 'reader.lex.yy.cpp' || echo '$(srcdir)/'`reader.lex.yy.cpp
+
+mosh-reader.lex.yy.obj: reader.lex.yy.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-reader.lex.yy.obj -MD -MP -MF $(DEPDIR)/mosh-reader.lex.yy.Tpo -c -o mosh-reader.lex.yy.obj `if test -f 'reader.lex.yy.cpp'; then $(CYGPATH_W) 'reader.lex.yy.cpp'; else $(CYGPATH_W) '$(srcdir)/reader.lex.yy.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-reader.lex.yy.Tpo $(DEPDIR)/mosh-reader.lex.yy.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='reader.lex.yy.cpp' object='mosh-reader.lex.yy.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-reader.lex.yy.obj `if test -f 'reader.lex.yy.cpp'; then $(CYGPATH_W) 'reader.lex.yy.cpp'; else $(CYGPATH_W) '$(srcdir)/reader.lex.yy.cpp'; fi`
 
 mosh-main.o: main.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-main.o -MD -MP -MF $(DEPDIR)/mosh-main.Tpo -c -o mosh-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp
@@ -1334,6 +1368,12 @@ $(PSYNTAX_DIR)/psyntax.pp: $(PSYNTAX_DIR)/psyntax-buildscript.ss $(PSYNTAX_SRC)
 # psyntax-buildscript.ss を更新する
 psyntax-update:
 	(cd $(PSYNTAX_DIR) && gosh gosh.r6rs.ss psyntax-buildscript.ss)
+
+reader.tab.cpp: reader.y
+	bison -d $< -o $@
+
+reader.lex.yy.cpp: reader.lex
+	flex -o $@ $<
 
 # psyntax-mosh-p:
 # 	(cd tools/psyntax-r6rs/ && cp pre-built/psyntax-mosh.pp psyntax.pp && $(HOME)/mosh/mosh -p ./mosh.r6rs.ss ./hello.scm)
