@@ -76,6 +76,7 @@ am_mosh_OBJECTS = mosh-reader.tab.$(OBJEXT) \
 	mosh-CustomBinaryInputPort.$(OBJEXT) \
 	mosh-TextualOutputPort.$(OBJEXT) \
 	mosh-TextualByteVectorOutputPort.$(OBJEXT) \
+	mosh-TextualInputPort.$(OBJEXT) mosh-UTF8Codec.$(OBJEXT) \
 	mosh-GenericHashTable.$(OBJEXT) mosh-CodeBuilder.$(OBJEXT) \
 	mosh-RecordTypeDescriptor.$(OBJEXT) \
 	mosh-RecordConstructorDescriptor.$(OBJEXT) \
@@ -279,6 +280,10 @@ TextualOutputPort.h \
 TextualOutputPort.cpp \
 TextualByteVectorOutputPort.h \
 TextualByteVectorOutputPort.cpp \
+TextualInputPort.cpp \
+TextualInputPort.h \
+UTF8Codec.cpp \
+UTF8Codec.h \
 SString.h            \
 Symbol.h             \
 config.h             \
@@ -504,7 +509,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-StringProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Symbol.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-TextualByteVectorOutputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-TextualInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-TextualOutputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-UTF8Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-VM.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-freeproc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-main.Po@am__quote@
@@ -792,6 +799,34 @@ mosh-TextualByteVectorOutputPort.obj: TextualByteVectorOutputPort.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TextualByteVectorOutputPort.cpp' object='mosh-TextualByteVectorOutputPort.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-TextualByteVectorOutputPort.obj `if test -f 'TextualByteVectorOutputPort.cpp'; then $(CYGPATH_W) 'TextualByteVectorOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TextualByteVectorOutputPort.cpp'; fi`
+
+mosh-TextualInputPort.o: TextualInputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-TextualInputPort.o -MD -MP -MF $(DEPDIR)/mosh-TextualInputPort.Tpo -c -o mosh-TextualInputPort.o `test -f 'TextualInputPort.cpp' || echo '$(srcdir)/'`TextualInputPort.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-TextualInputPort.Tpo $(DEPDIR)/mosh-TextualInputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TextualInputPort.cpp' object='mosh-TextualInputPort.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-TextualInputPort.o `test -f 'TextualInputPort.cpp' || echo '$(srcdir)/'`TextualInputPort.cpp
+
+mosh-TextualInputPort.obj: TextualInputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-TextualInputPort.obj -MD -MP -MF $(DEPDIR)/mosh-TextualInputPort.Tpo -c -o mosh-TextualInputPort.obj `if test -f 'TextualInputPort.cpp'; then $(CYGPATH_W) 'TextualInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TextualInputPort.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-TextualInputPort.Tpo $(DEPDIR)/mosh-TextualInputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TextualInputPort.cpp' object='mosh-TextualInputPort.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-TextualInputPort.obj `if test -f 'TextualInputPort.cpp'; then $(CYGPATH_W) 'TextualInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TextualInputPort.cpp'; fi`
+
+mosh-UTF8Codec.o: UTF8Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-UTF8Codec.o -MD -MP -MF $(DEPDIR)/mosh-UTF8Codec.Tpo -c -o mosh-UTF8Codec.o `test -f 'UTF8Codec.cpp' || echo '$(srcdir)/'`UTF8Codec.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-UTF8Codec.Tpo $(DEPDIR)/mosh-UTF8Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UTF8Codec.cpp' object='mosh-UTF8Codec.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-UTF8Codec.o `test -f 'UTF8Codec.cpp' || echo '$(srcdir)/'`UTF8Codec.cpp
+
+mosh-UTF8Codec.obj: UTF8Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-UTF8Codec.obj -MD -MP -MF $(DEPDIR)/mosh-UTF8Codec.Tpo -c -o mosh-UTF8Codec.obj `if test -f 'UTF8Codec.cpp'; then $(CYGPATH_W) 'UTF8Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/UTF8Codec.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-UTF8Codec.Tpo $(DEPDIR)/mosh-UTF8Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UTF8Codec.cpp' object='mosh-UTF8Codec.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-UTF8Codec.obj `if test -f 'UTF8Codec.cpp'; then $(CYGPATH_W) 'UTF8Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/UTF8Codec.cpp'; fi`
 
 mosh-GenericHashTable.o: GenericHashTable.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-GenericHashTable.o -MD -MP -MF $(DEPDIR)/mosh-GenericHashTable.Tpo -c -o mosh-GenericHashTable.o `test -f 'GenericHashTable.cpp' || echo '$(srcdir)/'`GenericHashTable.cpp
