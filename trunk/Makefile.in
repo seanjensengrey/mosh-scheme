@@ -67,7 +67,7 @@ binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
 am_mosh_OBJECTS = mosh-reader.tab.$(OBJEXT) \
 	mosh-reader.lex.yy.$(OBJEXT) mosh-main.$(OBJEXT) \
-	mosh-scheme.$(OBJEXT) mosh-read.$(OBJEXT) mosh-Port.$(OBJEXT) \
+	mosh-scheme.$(OBJEXT) mosh-read.$(OBJEXT) \
 	mosh-Regexp.$(OBJEXT) mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
 	mosh-freeproc.$(OBJEXT) \
 	mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
@@ -76,7 +76,9 @@ am_mosh_OBJECTS = mosh-reader.tab.$(OBJEXT) \
 	mosh-CustomBinaryInputPort.$(OBJEXT) \
 	mosh-TextualOutputPort.$(OBJEXT) \
 	mosh-TextualByteVectorOutputPort.$(OBJEXT) \
-	mosh-TextualInputPort.$(OBJEXT) mosh-UTF8Codec.$(OBJEXT) \
+	mosh-TextualInputPort.$(OBJEXT) \
+	mosh-StringTextualOutputPort.$(OBJEXT) \
+	mosh-StringTextualInputPort.$(OBJEXT) mosh-UTF8Codec.$(OBJEXT) \
 	mosh-GenericHashTable.$(OBJEXT) mosh-CodeBuilder.$(OBJEXT) \
 	mosh-RecordTypeDescriptor.$(OBJEXT) \
 	mosh-RecordConstructorDescriptor.$(OBJEXT) \
@@ -256,7 +258,6 @@ reader.lex.yy.cpp   \
 main.cpp             \
 scheme.cpp           \
 read.cpp             \
-Port.cpp             \
 Regexp.cpp           \
 Symbol.cpp           \
 VM.cpp               \
@@ -265,7 +266,6 @@ CProcedure.h         \
 Instruction.h        \
 Callable.h        \
 GenericMap.h        \
-Port.h               \
 BinaryInputPort.h    \
 BinaryOutputPort.h    \
 ByteArrayBinaryInputPort.h \
@@ -282,6 +282,10 @@ TextualByteVectorOutputPort.h \
 TextualByteVectorOutputPort.cpp \
 TextualInputPort.cpp \
 TextualInputPort.h \
+StringTextualOutputPort.h \
+StringTextualOutputPort.cpp \
+StringTextualInputPort.h \
+StringTextualInputPort.cpp \
 UTF8Codec.cpp \
 UTF8Codec.h \
 SString.h            \
@@ -497,7 +501,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-GenericHashTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-HashTableProceduures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ListProcedures.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Port.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-PortProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Record.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-RecordConstructorDescriptor.Po@am__quote@
@@ -507,6 +510,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-RegexpProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-SString.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-StringProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-StringTextualInputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-StringTextualOutputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Symbol.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-TextualByteVectorOutputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-TextualInputPort.Po@am__quote@
@@ -645,20 +650,6 @@ mosh-read.obj: read.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='read.cpp' object='mosh-read.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-read.obj `if test -f 'read.cpp'; then $(CYGPATH_W) 'read.cpp'; else $(CYGPATH_W) '$(srcdir)/read.cpp'; fi`
-
-mosh-Port.o: Port.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Port.o -MD -MP -MF $(DEPDIR)/mosh-Port.Tpo -c -o mosh-Port.o `test -f 'Port.cpp' || echo '$(srcdir)/'`Port.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Port.Tpo $(DEPDIR)/mosh-Port.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Port.cpp' object='mosh-Port.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Port.o `test -f 'Port.cpp' || echo '$(srcdir)/'`Port.cpp
-
-mosh-Port.obj: Port.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Port.obj -MD -MP -MF $(DEPDIR)/mosh-Port.Tpo -c -o mosh-Port.obj `if test -f 'Port.cpp'; then $(CYGPATH_W) 'Port.cpp'; else $(CYGPATH_W) '$(srcdir)/Port.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Port.Tpo $(DEPDIR)/mosh-Port.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Port.cpp' object='mosh-Port.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Port.obj `if test -f 'Port.cpp'; then $(CYGPATH_W) 'Port.cpp'; else $(CYGPATH_W) '$(srcdir)/Port.cpp'; fi`
 
 mosh-Regexp.o: Regexp.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Regexp.o -MD -MP -MF $(DEPDIR)/mosh-Regexp.Tpo -c -o mosh-Regexp.o `test -f 'Regexp.cpp' || echo '$(srcdir)/'`Regexp.cpp
@@ -813,6 +804,34 @@ mosh-TextualInputPort.obj: TextualInputPort.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TextualInputPort.cpp' object='mosh-TextualInputPort.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-TextualInputPort.obj `if test -f 'TextualInputPort.cpp'; then $(CYGPATH_W) 'TextualInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TextualInputPort.cpp'; fi`
+
+mosh-StringTextualOutputPort.o: StringTextualOutputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-StringTextualOutputPort.o -MD -MP -MF $(DEPDIR)/mosh-StringTextualOutputPort.Tpo -c -o mosh-StringTextualOutputPort.o `test -f 'StringTextualOutputPort.cpp' || echo '$(srcdir)/'`StringTextualOutputPort.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-StringTextualOutputPort.Tpo $(DEPDIR)/mosh-StringTextualOutputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='StringTextualOutputPort.cpp' object='mosh-StringTextualOutputPort.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-StringTextualOutputPort.o `test -f 'StringTextualOutputPort.cpp' || echo '$(srcdir)/'`StringTextualOutputPort.cpp
+
+mosh-StringTextualOutputPort.obj: StringTextualOutputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-StringTextualOutputPort.obj -MD -MP -MF $(DEPDIR)/mosh-StringTextualOutputPort.Tpo -c -o mosh-StringTextualOutputPort.obj `if test -f 'StringTextualOutputPort.cpp'; then $(CYGPATH_W) 'StringTextualOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/StringTextualOutputPort.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-StringTextualOutputPort.Tpo $(DEPDIR)/mosh-StringTextualOutputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='StringTextualOutputPort.cpp' object='mosh-StringTextualOutputPort.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-StringTextualOutputPort.obj `if test -f 'StringTextualOutputPort.cpp'; then $(CYGPATH_W) 'StringTextualOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/StringTextualOutputPort.cpp'; fi`
+
+mosh-StringTextualInputPort.o: StringTextualInputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-StringTextualInputPort.o -MD -MP -MF $(DEPDIR)/mosh-StringTextualInputPort.Tpo -c -o mosh-StringTextualInputPort.o `test -f 'StringTextualInputPort.cpp' || echo '$(srcdir)/'`StringTextualInputPort.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-StringTextualInputPort.Tpo $(DEPDIR)/mosh-StringTextualInputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='StringTextualInputPort.cpp' object='mosh-StringTextualInputPort.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-StringTextualInputPort.o `test -f 'StringTextualInputPort.cpp' || echo '$(srcdir)/'`StringTextualInputPort.cpp
+
+mosh-StringTextualInputPort.obj: StringTextualInputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-StringTextualInputPort.obj -MD -MP -MF $(DEPDIR)/mosh-StringTextualInputPort.Tpo -c -o mosh-StringTextualInputPort.obj `if test -f 'StringTextualInputPort.cpp'; then $(CYGPATH_W) 'StringTextualInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/StringTextualInputPort.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-StringTextualInputPort.Tpo $(DEPDIR)/mosh-StringTextualInputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='StringTextualInputPort.cpp' object='mosh-StringTextualInputPort.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-StringTextualInputPort.obj `if test -f 'StringTextualInputPort.cpp'; then $(CYGPATH_W) 'StringTextualInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/StringTextualInputPort.cpp'; fi`
 
 mosh-UTF8Codec.o: UTF8Codec.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-UTF8Codec.o -MD -MP -MF $(DEPDIR)/mosh-UTF8Codec.Tpo -c -o mosh-UTF8Codec.o `test -f 'UTF8Codec.cpp' || echo '$(srcdir)/'`UTF8Codec.cpp
