@@ -66,8 +66,8 @@ am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
 am_mosh_OBJECTS = mosh-reader.tab.$(OBJEXT) \
-	mosh-reader.lex.yy.$(OBJEXT) mosh-main.$(OBJEXT) \
-	mosh-scheme.$(OBJEXT) mosh-read.$(OBJEXT) \
+	mosh-reader.lex.yy.$(OBJEXT) mosh-reader.$(OBJEXT) \
+	mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) mosh-read.$(OBJEXT) \
 	mosh-Regexp.$(OBJEXT) mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
 	mosh-freeproc.$(OBJEXT) \
 	mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
@@ -255,6 +255,7 @@ mosh_SOURCES = \
 reader.tab.cpp      \
 reader.tab.hpp      \
 reader.lex.yy.cpp   \
+reader.cpp        \
 main.cpp             \
 scheme.cpp           \
 read.cpp             \
@@ -521,6 +522,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-freeproc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-read.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-reader.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-reader.lex.yy.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-reader.tab.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-scheme.Po@am__quote@
@@ -608,6 +610,20 @@ mosh-reader.lex.yy.obj: reader.lex.yy.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='reader.lex.yy.cpp' object='mosh-reader.lex.yy.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-reader.lex.yy.obj `if test -f 'reader.lex.yy.cpp'; then $(CYGPATH_W) 'reader.lex.yy.cpp'; else $(CYGPATH_W) '$(srcdir)/reader.lex.yy.cpp'; fi`
+
+mosh-reader.o: reader.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-reader.o -MD -MP -MF $(DEPDIR)/mosh-reader.Tpo -c -o mosh-reader.o `test -f 'reader.cpp' || echo '$(srcdir)/'`reader.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-reader.Tpo $(DEPDIR)/mosh-reader.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='reader.cpp' object='mosh-reader.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-reader.o `test -f 'reader.cpp' || echo '$(srcdir)/'`reader.cpp
+
+mosh-reader.obj: reader.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-reader.obj -MD -MP -MF $(DEPDIR)/mosh-reader.Tpo -c -o mosh-reader.obj `if test -f 'reader.cpp'; then $(CYGPATH_W) 'reader.cpp'; else $(CYGPATH_W) '$(srcdir)/reader.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-reader.Tpo $(DEPDIR)/mosh-reader.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='reader.cpp' object='mosh-reader.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-reader.obj `if test -f 'reader.cpp'; then $(CYGPATH_W) 'reader.cpp'; else $(CYGPATH_W) '$(srcdir)/reader.cpp'; fi`
 
 mosh-main.o: main.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-main.o -MD -MP -MF $(DEPDIR)/mosh-main.Tpo -c -o mosh-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp
