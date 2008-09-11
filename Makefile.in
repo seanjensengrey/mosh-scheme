@@ -92,7 +92,7 @@ am_mosh_OBJECTS = mosh-reader.tab.$(OBJEXT) \
 	mosh-ListProcedures.$(OBJEXT) mosh-ErrorProcedures.$(OBJEXT) \
 	mosh-ArithmeticProcedures.$(OBJEXT) mosh-SString.$(OBJEXT) \
 	mosh-BuiltinSymbols.$(OBJEXT) mosh-CompoundCondition.$(OBJEXT) \
-	mosh-Equivalent.$(OBJEXT)
+	mosh-Equivalent.$(OBJEXT) mosh-ucs4string.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
 mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB) $(noinst_LIBRARIES)
 mosh_LINK = $(CXXLD) $(mosh_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
@@ -338,7 +338,8 @@ CompoundCondition.cpp\
 Equivalent.h\
 Equivalent.cpp\
 Builtin.h\
-ucs4string.h
+ucs4string.h \
+ucs4string.cpp
 
 mosh_OPTS = -D MONA_SCHEME -D USE_BOEHM_GC -Wall -D MOSH_LIB_PATH="\"@MOSH_LIB_PATH@\""
 mosh_CFLAGS = -O2  $(mosh_OPTS) -g -fomit-frame-pointer -D_FILE_OFFSET_BITS=64 -Wall -DDEBUG_VERSION
@@ -534,6 +535,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-reader.lex.yy.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-reader.tab.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-scheme.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ucs4string.Po@am__quote@
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -1178,6 +1180,20 @@ mosh-Equivalent.obj: Equivalent.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Equivalent.cpp' object='mosh-Equivalent.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Equivalent.obj `if test -f 'Equivalent.cpp'; then $(CYGPATH_W) 'Equivalent.cpp'; else $(CYGPATH_W) '$(srcdir)/Equivalent.cpp'; fi`
+
+mosh-ucs4string.o: ucs4string.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ucs4string.o -MD -MP -MF $(DEPDIR)/mosh-ucs4string.Tpo -c -o mosh-ucs4string.o `test -f 'ucs4string.cpp' || echo '$(srcdir)/'`ucs4string.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ucs4string.Tpo $(DEPDIR)/mosh-ucs4string.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ucs4string.cpp' object='mosh-ucs4string.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ucs4string.o `test -f 'ucs4string.cpp' || echo '$(srcdir)/'`ucs4string.cpp
+
+mosh-ucs4string.obj: ucs4string.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ucs4string.obj -MD -MP -MF $(DEPDIR)/mosh-ucs4string.Tpo -c -o mosh-ucs4string.obj `if test -f 'ucs4string.cpp'; then $(CYGPATH_W) 'ucs4string.cpp'; else $(CYGPATH_W) '$(srcdir)/ucs4string.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ucs4string.Tpo $(DEPDIR)/mosh-ucs4string.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ucs4string.cpp' object='mosh-ucs4string.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ucs4string.obj `if test -f 'ucs4string.cpp'; then $(CYGPATH_W) 'ucs4string.cpp'; else $(CYGPATH_W) '$(srcdir)/ucs4string.cpp'; fi`
 install-dataDATA: $(data_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(datadir)" || $(MKDIR_P) "$(DESTDIR)$(datadir)"
