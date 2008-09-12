@@ -79,9 +79,10 @@ am_mosh_OBJECTS = mosh-reader.tab.$(OBJEXT) \
 	mosh-TextualInputPort.$(OBJEXT) \
 	mosh-StringTextualOutputPort.$(OBJEXT) \
 	mosh-StringTextualInputPort.$(OBJEXT) mosh-UTF8Codec.$(OBJEXT) \
-	mosh-EqHashTable.$(OBJEXT) mosh-GenericHashTable.$(OBJEXT) \
-	mosh-Object.$(OBJEXT) mosh-Vector.$(OBJEXT) \
-	mosh-CodeBuilder.$(OBJEXT) mosh-RecordTypeDescriptor.$(OBJEXT) \
+	mosh-UTF32Codec.$(OBJEXT) mosh-EqHashTable.$(OBJEXT) \
+	mosh-GenericHashTable.$(OBJEXT) mosh-Object.$(OBJEXT) \
+	mosh-Vector.$(OBJEXT) mosh-CodeBuilder.$(OBJEXT) \
+	mosh-RecordTypeDescriptor.$(OBJEXT) \
 	mosh-RecordConstructorDescriptor.$(OBJEXT) \
 	mosh-Record.$(OBJEXT) mosh-RecordProcedures.$(OBJEXT) \
 	mosh-ConditionProcedures.$(OBJEXT) \
@@ -290,6 +291,8 @@ StringTextualInputPort.h \
 StringTextualInputPort.cpp \
 UTF8Codec.cpp \
 UTF8Codec.h \
+UTF32Codec.cpp \
+UTF32Codec.h \
 SString.h            \
 Symbol.h             \
 config.h             \
@@ -525,6 +528,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-TextualByteVectorOutputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-TextualInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-TextualOutputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-UTF32Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-UTF8Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-VM.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Vector.Po@am__quote@
@@ -872,6 +876,20 @@ mosh-UTF8Codec.obj: UTF8Codec.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UTF8Codec.cpp' object='mosh-UTF8Codec.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-UTF8Codec.obj `if test -f 'UTF8Codec.cpp'; then $(CYGPATH_W) 'UTF8Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/UTF8Codec.cpp'; fi`
+
+mosh-UTF32Codec.o: UTF32Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-UTF32Codec.o -MD -MP -MF $(DEPDIR)/mosh-UTF32Codec.Tpo -c -o mosh-UTF32Codec.o `test -f 'UTF32Codec.cpp' || echo '$(srcdir)/'`UTF32Codec.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-UTF32Codec.Tpo $(DEPDIR)/mosh-UTF32Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UTF32Codec.cpp' object='mosh-UTF32Codec.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-UTF32Codec.o `test -f 'UTF32Codec.cpp' || echo '$(srcdir)/'`UTF32Codec.cpp
+
+mosh-UTF32Codec.obj: UTF32Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-UTF32Codec.obj -MD -MP -MF $(DEPDIR)/mosh-UTF32Codec.Tpo -c -o mosh-UTF32Codec.obj `if test -f 'UTF32Codec.cpp'; then $(CYGPATH_W) 'UTF32Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/UTF32Codec.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-UTF32Codec.Tpo $(DEPDIR)/mosh-UTF32Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UTF32Codec.cpp' object='mosh-UTF32Codec.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-UTF32Codec.obj `if test -f 'UTF32Codec.cpp'; then $(CYGPATH_W) 'UTF32Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/UTF32Codec.cpp'; fi`
 
 mosh-EqHashTable.o: EqHashTable.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-EqHashTable.o -MD -MP -MF $(DEPDIR)/mosh-EqHashTable.Tpo -c -o mosh-EqHashTable.o `test -f 'EqHashTable.cpp' || echo '$(srcdir)/'`EqHashTable.cpp
