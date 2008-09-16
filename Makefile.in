@@ -65,9 +65,9 @@ libpsyntax_a_OBJECTS = $(am_libpsyntax_a_OBJECTS)
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
-am_mosh_OBJECTS = mosh-scanner.$(OBJEXT) mosh-reader.tab.$(OBJEXT) \
-	mosh-reader.$(OBJEXT) mosh-main.$(OBJEXT) \
-	mosh-scheme.$(OBJEXT) mosh-read.$(OBJEXT) \
+am_mosh_OBJECTS = mosh-scanner.$(OBJEXT) mosh-ScannerHelper.$(OBJEXT) \
+	mosh-reader.tab.$(OBJEXT) mosh-reader.$(OBJEXT) \
+	mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) mosh-read.$(OBJEXT) \
 	mosh-Regexp.$(OBJEXT) mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
 	mosh-freeproc.$(OBJEXT) \
 	mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
@@ -254,6 +254,8 @@ REGEXP_LIB = $(ONIG_DIR)/.libs/libonig.a
 SUBDIRS = $(BOEHM_GC_DIR) $(ONIG_DIR) .
 mosh_SOURCES = \
 scanner.cpp       \
+ScannerHelper.h \
+ScannerHelper.cpp \
 reader.tab.cpp      \
 reader.tab.hpp      \
 reader.cpp        \
@@ -518,6 +520,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Regexp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-RegexpProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-SString.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ScannerHelper.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-StringProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-StringTextualInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-StringTextualOutputPort.Po@am__quote@
@@ -606,6 +609,20 @@ mosh-scanner.obj: scanner.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scanner.cpp' object='mosh-scanner.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-scanner.obj `if test -f 'scanner.cpp'; then $(CYGPATH_W) 'scanner.cpp'; else $(CYGPATH_W) '$(srcdir)/scanner.cpp'; fi`
+
+mosh-ScannerHelper.o: ScannerHelper.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ScannerHelper.o -MD -MP -MF $(DEPDIR)/mosh-ScannerHelper.Tpo -c -o mosh-ScannerHelper.o `test -f 'ScannerHelper.cpp' || echo '$(srcdir)/'`ScannerHelper.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ScannerHelper.Tpo $(DEPDIR)/mosh-ScannerHelper.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ScannerHelper.cpp' object='mosh-ScannerHelper.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ScannerHelper.o `test -f 'ScannerHelper.cpp' || echo '$(srcdir)/'`ScannerHelper.cpp
+
+mosh-ScannerHelper.obj: ScannerHelper.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ScannerHelper.obj -MD -MP -MF $(DEPDIR)/mosh-ScannerHelper.Tpo -c -o mosh-ScannerHelper.obj `if test -f 'ScannerHelper.cpp'; then $(CYGPATH_W) 'ScannerHelper.cpp'; else $(CYGPATH_W) '$(srcdir)/ScannerHelper.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ScannerHelper.Tpo $(DEPDIR)/mosh-ScannerHelper.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ScannerHelper.cpp' object='mosh-ScannerHelper.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ScannerHelper.obj `if test -f 'ScannerHelper.cpp'; then $(CYGPATH_W) 'ScannerHelper.cpp'; else $(CYGPATH_W) '$(srcdir)/ScannerHelper.cpp'; fi`
 
 mosh-reader.tab.o: reader.tab.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-reader.tab.o -MD -MP -MF $(DEPDIR)/mosh-reader.tab.Tpo -c -o mosh-reader.tab.o `test -f 'reader.tab.cpp' || echo '$(srcdir)/'`reader.tab.cpp
@@ -1620,7 +1637,7 @@ reader.tab.cpp: reader.y
 	bison -d $< -o $@
 
 scanner.cpp : scanner.re
-	/usr/local/bin/re2c -ud $< > $@ # -d is debug option
+	/usr/local/bin/re2c -ugd $< > $@ # -d is debug option
 
 reader.lex.yy.cpp: reader.lex
 	flex -o $@ $<
@@ -1707,6 +1724,7 @@ bench:
 check:test
 
 test:all-tests.scm ./mosh
+	./mosh -r test/reader.scm
 	./mosh all-tests.scm
 	(cd r6rs-examples && ../mosh -b record-test.ss)
 	(cd r6rs-examples && ../mosh -b condition-test.ss)
