@@ -63,10 +63,8 @@ public:
     virtual Scanner* scanner() const;
 
 private:
-
     Codec* codec_;
     BinaryInputPort* port_;
-private:
     Transcoder* coder_;
     ucs4string buffer_;
     int line_;

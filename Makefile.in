@@ -65,12 +65,12 @@ libpsyntax_a_OBJECTS = $(am_libpsyntax_a_OBJECTS)
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
-am_mosh_OBJECTS = mosh-scanner.$(OBJEXT) mosh-ScannerHelper.$(OBJEXT) \
-	mosh-reader.tab.$(OBJEXT) mosh-reader.$(OBJEXT) \
-	mosh-main.$(OBJEXT) mosh-scheme.$(OBJEXT) mosh-read.$(OBJEXT) \
+am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
+	mosh-BuiltinSymbols.$(OBJEXT) mosh-freeproc.$(OBJEXT) \
+	mosh-reader.$(OBJEXT) mosh-scheme.$(OBJEXT) \
 	mosh-Regexp.$(OBJEXT) mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
-	mosh-freeproc.$(OBJEXT) \
-	mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
+	mosh-Scanner.$(OBJEXT) mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
+	mosh-ScannerHelper.$(OBJEXT) mosh-reader.tab.$(OBJEXT) \
 	mosh-FileBinaryInputPort.$(OBJEXT) \
 	mosh-FileBinaryOutputPort.$(OBJEXT) \
 	mosh-CustomBinaryInputPort.$(OBJEXT) \
@@ -79,9 +79,9 @@ am_mosh_OBJECTS = mosh-scanner.$(OBJEXT) mosh-ScannerHelper.$(OBJEXT) \
 	mosh-TextualInputPort.$(OBJEXT) \
 	mosh-StringTextualOutputPort.$(OBJEXT) \
 	mosh-StringTextualInputPort.$(OBJEXT) mosh-UTF8Codec.$(OBJEXT) \
-	mosh-EqHashTable.$(OBJEXT) mosh-GenericHashTable.$(OBJEXT) \
-	mosh-Object.$(OBJEXT) mosh-Vector.$(OBJEXT) \
-	mosh-CodeBuilder.$(OBJEXT) mosh-RecordTypeDescriptor.$(OBJEXT) \
+	mosh-EqHashTable.$(OBJEXT) mosh-SString.$(OBJEXT) \
+	mosh-GenericHashTable.$(OBJEXT) mosh-Object.$(OBJEXT) \
+	mosh-RecordTypeDescriptor.$(OBJEXT) \
 	mosh-RecordConstructorDescriptor.$(OBJEXT) \
 	mosh-Record.$(OBJEXT) mosh-RecordProcedures.$(OBJEXT) \
 	mosh-ConditionProcedures.$(OBJEXT) \
@@ -90,9 +90,9 @@ am_mosh_OBJECTS = mosh-scanner.$(OBJEXT) mosh-ScannerHelper.$(OBJEXT) \
 	mosh-RegexpProcedures.$(OBJEXT) \
 	mosh-StringProcedures.$(OBJEXT) mosh-PortProcedures.$(OBJEXT) \
 	mosh-ListProcedures.$(OBJEXT) mosh-ErrorProcedures.$(OBJEXT) \
-	mosh-ArithmeticProcedures.$(OBJEXT) mosh-SString.$(OBJEXT) \
-	mosh-BuiltinSymbols.$(OBJEXT) mosh-CompoundCondition.$(OBJEXT) \
-	mosh-Equivalent.$(OBJEXT) mosh-ucs4string.$(OBJEXT)
+	mosh-ArithmeticProcedures.$(OBJEXT) mosh-Equivalent.$(OBJEXT) \
+	mosh-CompoundCondition.$(OBJEXT) mosh-ucs4string.$(OBJEXT) \
+	mosh-Vector.$(OBJEXT) mosh-CodeBuilder.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
 mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB) $(noinst_LIBRARIES)
 mosh_LINK = $(CXXLD) $(mosh_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
@@ -253,95 +253,67 @@ ONIG_DIR = ./onig-5.7.0
 REGEXP_LIB = $(ONIG_DIR)/.libs/libonig.a
 SUBDIRS = $(BOEHM_GC_DIR) $(ONIG_DIR) .
 mosh_SOURCES = \
-scanner.cpp       \
-ScannerHelper.h \
-ScannerHelper.cpp \
-reader.tab.cpp      \
-reader.tab.hpp      \
-reader.cpp        \
-main.cpp             \
-scheme.cpp           \
-read.cpp             \
-Regexp.cpp           \
-Symbol.cpp           \
-VM.cpp               \
-freeproc.cpp         \
-CProcedure.h         \
-Instruction.h        \
-Callable.h        \
-GenericMap.h        \
-BinaryInputPort.h    \
-BinaryOutputPort.h    \
-ByteArrayBinaryInputPort.h \
-ByteArrayBinaryInputPort.cpp \
-FileBinaryInputPort.h\
-FileBinaryInputPort.cpp \
-FileBinaryOutputPort.h\
-FileBinaryOutputPort.cpp \
-CustomBinaryInputPort.h \
-CustomBinaryInputPort.cpp \
-TextualOutputPort.h \
-TextualOutputPort.cpp \
-TextualByteVectorOutputPort.h \
-TextualByteVectorOutputPort.cpp \
-TextualInputPort.cpp \
-TextualInputPort.h \
-StringTextualOutputPort.h \
-StringTextualOutputPort.cpp \
-StringTextualInputPort.h \
-StringTextualInputPort.cpp \
-UTF8Codec.cpp \
-UTF8Codec.h \
-SString.h            \
-Symbol.h             \
-config.h             \
-scheme.h             \
-ByteVector.h         \
-Closure.h            \
-HashTable.h          \
-EqHashTable.h        \
-EqHashTable.cpp      \
-EqvHashTable.h       \
-GenericHashTable.h   \
-GenericHashTable.cpp \
-Object.h               \
-Object.cpp              \
-Pair.h               \
-Regexp.h             \
-Stack.h              \
-VM.h                 \
-Vector.h             \
-Vector.cpp           \
-freeproc.h           \
-Box.h                \
-CodeBuilder.h        \
-CodeBuilder.cpp        \
-ProcedureMacro.h \
-RecordTypeDescriptor.h \
-RecordTypeDescriptor.cpp \
-RecordConstructorDescriptor.h\
-RecordConstructorDescriptor.cpp\
-Record.h \
-Record.cpp \
-RecordProcedures.cpp     RecordProcedures.h \
-ConditionProcedures.cpp  ConditionProcedures.h \
-CompilerProcedures.cpp   CompilerProcedures.h   \
-HashTableProceduures.cpp HashTableProceduures.h   \
-RegexpProcedures.cpp     RegexpProcedures.h   \
-StringProcedures.cpp     StringProcedures.h   \
-PortProcedures.cpp       PortProcedures.h   \
-ListProcedures.cpp       ListProcedures.h   \
-ErrorProcedures.cpp      ErrorProcedures.h \
-ArithmeticProcedures.cpp ArithmeticProcedures.h \
-SString.cpp          \
-BuiltinSymbols.cpp\
-CompoundCondition.h\
-CompoundCondition.cpp\
-Equivalent.h\
-Equivalent.cpp\
-Builtin.h\
-ucs4string.h \
-ucs4string.cpp
+main.cpp                                                          \
+read.cpp                                                          \
+CProcedure.h                                                      \
+Instruction.h                                                     \
+Callable.h                                                        \
+GenericMap.h                                                      \
+BinaryInputPort.h                                                 \
+BinaryOutputPort.h                                                \
+config.h                                                          \
+scheme.h                                                          \
+ByteVector.h                                                      \
+Closure.h                                                         \
+HashTable.h                                                       \
+EqvHashTable.h                                                    \
+Pair.h                                                            \
+Stack.h                                                           \
+Box.h                                                             \
+ProcedureMacro.h                                                  \
+BuiltinSymbols.cpp                                                \
+Builtin.h                                                         \
+freeproc.h                    freeproc.cpp                        \
+reader.h                      reader.cpp                          \
+scheme.h                      scheme.cpp                          \
+Regexp.h                      Regexp.cpp                          \
+Symbol.h                      Symbol.cpp                          \
+VM.h                          VM.cpp                              \
+Scanner.h                     Scanner.cpp                         \
+ByteArrayBinaryInputPort.h    ByteArrayBinaryInputPort.cpp        \
+ScannerHelper.h               ScannerHelper.cpp                   \
+reader.tab.hpp                reader.tab.cpp                      \
+FileBinaryInputPort.h         FileBinaryInputPort.cpp             \
+FileBinaryOutputPort.h        FileBinaryOutputPort.cpp            \
+CustomBinaryInputPort.h       CustomBinaryInputPort.cpp           \
+TextualOutputPort.h           TextualOutputPort.cpp               \
+TextualByteVectorOutputPort.h TextualByteVectorOutputPort.cpp     \
+TextualInputPort.cpp          TextualInputPort.h                  \
+StringTextualOutputPort.h     StringTextualOutputPort.cpp         \
+StringTextualInputPort.h      StringTextualInputPort.cpp          \
+UTF8Codec.cpp                 UTF8Codec.h                         \
+EqHashTable.h                 EqHashTable.cpp                     \
+SString.h                     SString.cpp                         \
+GenericHashTable.h            GenericHashTable.cpp                \
+Object.h                      Object.cpp                          \
+RecordTypeDescriptor.h        RecordTypeDescriptor.cpp            \
+RecordConstructorDescriptor.h RecordConstructorDescriptor.cpp     \
+Record.h                      Record.cpp                          \
+RecordProcedures.cpp          RecordProcedures.h                  \
+ConditionProcedures.cpp       ConditionProcedures.h               \
+CompilerProcedures.cpp        CompilerProcedures.h                \
+HashTableProceduures.cpp      HashTableProceduures.h              \
+RegexpProcedures.cpp          RegexpProcedures.h                  \
+StringProcedures.cpp          StringProcedures.h                  \
+PortProcedures.cpp            PortProcedures.h                    \
+ListProcedures.cpp            ListProcedures.h                    \
+ErrorProcedures.cpp           ErrorProcedures.h                   \
+ArithmeticProcedures.cpp      ArithmeticProcedures.h              \
+Equivalent.h                  Equivalent.cpp                      \
+CompoundCondition.h           CompoundCondition.cpp               \
+ucs4string.h                  ucs4string.cpp                      \
+Vector.h                      Vector.cpp                          \
+CodeBuilder.h                 CodeBuilder.cpp
 
 mosh_OPTS = -D MONA_SCHEME -D USE_BOEHM_GC -Wall -D MOSH_LIB_PATH="\"@MOSH_LIB_PATH@\""
 mosh_CFLAGS = -O2  $(mosh_OPTS) -g -fomit-frame-pointer -D_FILE_OFFSET_BITS=64 -Wall -DDEBUG_VERSION
@@ -359,26 +331,19 @@ libmatch_a_SOURCES = match.cpp
 libpsyntax_a_SOURCES = psyntax.cpp
 mosh_LDADD = $(GC_LIB) $(REGEXP_LIB) $(noinst_LIBRARIES)
 
-# generated files should be listed here.
-BUILT_SOURCES = Instruction.h compiler.cpp match.cpp BuiltinSymbols.cpp labels.cpp DebugInstruction.h ./compiler-vm.scm cprocedures.cpp ./compiler-gauche.scm
+# # generated files should be listed here.
+# BUILT_SOURCES  = Instruction.h compiler.cpp match.cpp BuiltinSymbols.cpp labels.cpp DebugInstruction.h ./compiler-vm.scm cprocedures.cpp ./compiler-gauche.scm
 INCLUDES = -I $(BOEHM_GC_DIR)/include -I $(ONIG_DIR)
 EXTRA_DIST = instruction.scm vm.scm library.scm compiler.scm free-vars.scm scripts match.scm test-data.scm doc repl.scm r6rs-examples/psyntax.scm r6rs-examples tools/psyntax-r6rs RELNOTE r6rs-test-suite example
 GENERATED = \
-Instruction.h \
-compiler.cpp \
-psyntax.cpp \
-match.scmc \
-compiler-with-library.scmc \
-compiler-vm-cpp.scm \
-all-tests.scm \
-labels.cpp \
-DebugInstruction.h \
-BuiltinSymbols.cpp\
-./compiler-gauche.scm \
-./compiler-vm-outer.scm \
-./compiler-vm.scm
+all-tests.scm Scanner.cpp psyntax.cpp  compiler-gauche.scm \
+BuiltinSymbols.cpp DebugInstruction.h cprocedures.cpp      \
+labels.cpp match.cpp compiler.cpp psyntax.scmc             \
+match.scmc compiler-with-library.scmc compiler-vm-cpp.scm  \
+compiler-vm.scm compiler-with-library.scm Instruction.h
 
-CLEANFILES = $(GENERATED) mosh-compiler.o
+CLEANFILES = 
+MAINTAINERCLEANFILES = $(GENERATED)
 PSYNTAX_DIR = tools/psyntax-r6rs
 PSYNTAX_SRC_DIR = $(PSYNTAX_DIR)/psyntax
 PSYNTAX_COMMON_SRC = \
@@ -389,7 +354,7 @@ $(PSYNTAX_SRC_DIR)/library-manager.ss
 
 PSYNTAX_MOSH_SRC = $(PSYNTAX_COMMON_SRC) $(PSYNTAX_SRC_DIR)/expander-mosh.ss $(PSYNTAX_SRC_DIR)/main-mosh.ss
 PSYNTAX_SRC = $(PSYNTAX_COMMON_SRC) $(PSYNTAX_SRC_DIR)/expander.ss $(PSYNTAX_SRC_DIR)/main.ss
-all: $(BUILT_SOURCES) config.h
+all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
 .SUFFIXES:
@@ -520,6 +485,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Regexp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-RegexpProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-SString.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Scanner.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ScannerHelper.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-StringProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-StringTextualInputPort.Po@am__quote@
@@ -536,7 +502,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-read.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-reader.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-reader.tab.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-scanner.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-scheme.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ucs4string.Po@am__quote@
 
@@ -596,47 +561,61 @@ libpsyntax_a-psyntax.obj: psyntax.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsyntax_a_CXXFLAGS) $(CXXFLAGS) -c -o libpsyntax_a-psyntax.obj `if test -f 'psyntax.cpp'; then $(CYGPATH_W) 'psyntax.cpp'; else $(CYGPATH_W) '$(srcdir)/psyntax.cpp'; fi`
 
-mosh-scanner.o: scanner.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-scanner.o -MD -MP -MF $(DEPDIR)/mosh-scanner.Tpo -c -o mosh-scanner.o `test -f 'scanner.cpp' || echo '$(srcdir)/'`scanner.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-scanner.Tpo $(DEPDIR)/mosh-scanner.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scanner.cpp' object='mosh-scanner.o' libtool=no @AMDEPBACKSLASH@
+mosh-main.o: main.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-main.o -MD -MP -MF $(DEPDIR)/mosh-main.Tpo -c -o mosh-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-main.Tpo $(DEPDIR)/mosh-main.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='main.cpp' object='mosh-main.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-scanner.o `test -f 'scanner.cpp' || echo '$(srcdir)/'`scanner.cpp
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp
 
-mosh-scanner.obj: scanner.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-scanner.obj -MD -MP -MF $(DEPDIR)/mosh-scanner.Tpo -c -o mosh-scanner.obj `if test -f 'scanner.cpp'; then $(CYGPATH_W) 'scanner.cpp'; else $(CYGPATH_W) '$(srcdir)/scanner.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-scanner.Tpo $(DEPDIR)/mosh-scanner.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scanner.cpp' object='mosh-scanner.obj' libtool=no @AMDEPBACKSLASH@
+mosh-main.obj: main.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-main.obj -MD -MP -MF $(DEPDIR)/mosh-main.Tpo -c -o mosh-main.obj `if test -f 'main.cpp'; then $(CYGPATH_W) 'main.cpp'; else $(CYGPATH_W) '$(srcdir)/main.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-main.Tpo $(DEPDIR)/mosh-main.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='main.cpp' object='mosh-main.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-scanner.obj `if test -f 'scanner.cpp'; then $(CYGPATH_W) 'scanner.cpp'; else $(CYGPATH_W) '$(srcdir)/scanner.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-main.obj `if test -f 'main.cpp'; then $(CYGPATH_W) 'main.cpp'; else $(CYGPATH_W) '$(srcdir)/main.cpp'; fi`
 
-mosh-ScannerHelper.o: ScannerHelper.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ScannerHelper.o -MD -MP -MF $(DEPDIR)/mosh-ScannerHelper.Tpo -c -o mosh-ScannerHelper.o `test -f 'ScannerHelper.cpp' || echo '$(srcdir)/'`ScannerHelper.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ScannerHelper.Tpo $(DEPDIR)/mosh-ScannerHelper.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ScannerHelper.cpp' object='mosh-ScannerHelper.o' libtool=no @AMDEPBACKSLASH@
+mosh-read.o: read.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-read.o -MD -MP -MF $(DEPDIR)/mosh-read.Tpo -c -o mosh-read.o `test -f 'read.cpp' || echo '$(srcdir)/'`read.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-read.Tpo $(DEPDIR)/mosh-read.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='read.cpp' object='mosh-read.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ScannerHelper.o `test -f 'ScannerHelper.cpp' || echo '$(srcdir)/'`ScannerHelper.cpp
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-read.o `test -f 'read.cpp' || echo '$(srcdir)/'`read.cpp
 
-mosh-ScannerHelper.obj: ScannerHelper.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ScannerHelper.obj -MD -MP -MF $(DEPDIR)/mosh-ScannerHelper.Tpo -c -o mosh-ScannerHelper.obj `if test -f 'ScannerHelper.cpp'; then $(CYGPATH_W) 'ScannerHelper.cpp'; else $(CYGPATH_W) '$(srcdir)/ScannerHelper.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ScannerHelper.Tpo $(DEPDIR)/mosh-ScannerHelper.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ScannerHelper.cpp' object='mosh-ScannerHelper.obj' libtool=no @AMDEPBACKSLASH@
+mosh-read.obj: read.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-read.obj -MD -MP -MF $(DEPDIR)/mosh-read.Tpo -c -o mosh-read.obj `if test -f 'read.cpp'; then $(CYGPATH_W) 'read.cpp'; else $(CYGPATH_W) '$(srcdir)/read.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-read.Tpo $(DEPDIR)/mosh-read.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='read.cpp' object='mosh-read.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ScannerHelper.obj `if test -f 'ScannerHelper.cpp'; then $(CYGPATH_W) 'ScannerHelper.cpp'; else $(CYGPATH_W) '$(srcdir)/ScannerHelper.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-read.obj `if test -f 'read.cpp'; then $(CYGPATH_W) 'read.cpp'; else $(CYGPATH_W) '$(srcdir)/read.cpp'; fi`
 
-mosh-reader.tab.o: reader.tab.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-reader.tab.o -MD -MP -MF $(DEPDIR)/mosh-reader.tab.Tpo -c -o mosh-reader.tab.o `test -f 'reader.tab.cpp' || echo '$(srcdir)/'`reader.tab.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-reader.tab.Tpo $(DEPDIR)/mosh-reader.tab.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='reader.tab.cpp' object='mosh-reader.tab.o' libtool=no @AMDEPBACKSLASH@
+mosh-BuiltinSymbols.o: BuiltinSymbols.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-BuiltinSymbols.o -MD -MP -MF $(DEPDIR)/mosh-BuiltinSymbols.Tpo -c -o mosh-BuiltinSymbols.o `test -f 'BuiltinSymbols.cpp' || echo '$(srcdir)/'`BuiltinSymbols.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-BuiltinSymbols.Tpo $(DEPDIR)/mosh-BuiltinSymbols.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='BuiltinSymbols.cpp' object='mosh-BuiltinSymbols.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-reader.tab.o `test -f 'reader.tab.cpp' || echo '$(srcdir)/'`reader.tab.cpp
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-BuiltinSymbols.o `test -f 'BuiltinSymbols.cpp' || echo '$(srcdir)/'`BuiltinSymbols.cpp
 
-mosh-reader.tab.obj: reader.tab.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-reader.tab.obj -MD -MP -MF $(DEPDIR)/mosh-reader.tab.Tpo -c -o mosh-reader.tab.obj `if test -f 'reader.tab.cpp'; then $(CYGPATH_W) 'reader.tab.cpp'; else $(CYGPATH_W) '$(srcdir)/reader.tab.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-reader.tab.Tpo $(DEPDIR)/mosh-reader.tab.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='reader.tab.cpp' object='mosh-reader.tab.obj' libtool=no @AMDEPBACKSLASH@
+mosh-BuiltinSymbols.obj: BuiltinSymbols.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-BuiltinSymbols.obj -MD -MP -MF $(DEPDIR)/mosh-BuiltinSymbols.Tpo -c -o mosh-BuiltinSymbols.obj `if test -f 'BuiltinSymbols.cpp'; then $(CYGPATH_W) 'BuiltinSymbols.cpp'; else $(CYGPATH_W) '$(srcdir)/BuiltinSymbols.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-BuiltinSymbols.Tpo $(DEPDIR)/mosh-BuiltinSymbols.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='BuiltinSymbols.cpp' object='mosh-BuiltinSymbols.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-reader.tab.obj `if test -f 'reader.tab.cpp'; then $(CYGPATH_W) 'reader.tab.cpp'; else $(CYGPATH_W) '$(srcdir)/reader.tab.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-BuiltinSymbols.obj `if test -f 'BuiltinSymbols.cpp'; then $(CYGPATH_W) 'BuiltinSymbols.cpp'; else $(CYGPATH_W) '$(srcdir)/BuiltinSymbols.cpp'; fi`
+
+mosh-freeproc.o: freeproc.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-freeproc.o -MD -MP -MF $(DEPDIR)/mosh-freeproc.Tpo -c -o mosh-freeproc.o `test -f 'freeproc.cpp' || echo '$(srcdir)/'`freeproc.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-freeproc.Tpo $(DEPDIR)/mosh-freeproc.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='freeproc.cpp' object='mosh-freeproc.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-freeproc.o `test -f 'freeproc.cpp' || echo '$(srcdir)/'`freeproc.cpp
+
+mosh-freeproc.obj: freeproc.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-freeproc.obj -MD -MP -MF $(DEPDIR)/mosh-freeproc.Tpo -c -o mosh-freeproc.obj `if test -f 'freeproc.cpp'; then $(CYGPATH_W) 'freeproc.cpp'; else $(CYGPATH_W) '$(srcdir)/freeproc.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-freeproc.Tpo $(DEPDIR)/mosh-freeproc.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='freeproc.cpp' object='mosh-freeproc.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-freeproc.obj `if test -f 'freeproc.cpp'; then $(CYGPATH_W) 'freeproc.cpp'; else $(CYGPATH_W) '$(srcdir)/freeproc.cpp'; fi`
 
 mosh-reader.o: reader.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-reader.o -MD -MP -MF $(DEPDIR)/mosh-reader.Tpo -c -o mosh-reader.o `test -f 'reader.cpp' || echo '$(srcdir)/'`reader.cpp
@@ -652,20 +631,6 @@ mosh-reader.obj: reader.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-reader.obj `if test -f 'reader.cpp'; then $(CYGPATH_W) 'reader.cpp'; else $(CYGPATH_W) '$(srcdir)/reader.cpp'; fi`
 
-mosh-main.o: main.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-main.o -MD -MP -MF $(DEPDIR)/mosh-main.Tpo -c -o mosh-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-main.Tpo $(DEPDIR)/mosh-main.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='main.cpp' object='mosh-main.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp
-
-mosh-main.obj: main.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-main.obj -MD -MP -MF $(DEPDIR)/mosh-main.Tpo -c -o mosh-main.obj `if test -f 'main.cpp'; then $(CYGPATH_W) 'main.cpp'; else $(CYGPATH_W) '$(srcdir)/main.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-main.Tpo $(DEPDIR)/mosh-main.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='main.cpp' object='mosh-main.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-main.obj `if test -f 'main.cpp'; then $(CYGPATH_W) 'main.cpp'; else $(CYGPATH_W) '$(srcdir)/main.cpp'; fi`
-
 mosh-scheme.o: scheme.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-scheme.o -MD -MP -MF $(DEPDIR)/mosh-scheme.Tpo -c -o mosh-scheme.o `test -f 'scheme.cpp' || echo '$(srcdir)/'`scheme.cpp
 @am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-scheme.Tpo $(DEPDIR)/mosh-scheme.Po
@@ -679,20 +644,6 @@ mosh-scheme.obj: scheme.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scheme.cpp' object='mosh-scheme.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-scheme.obj `if test -f 'scheme.cpp'; then $(CYGPATH_W) 'scheme.cpp'; else $(CYGPATH_W) '$(srcdir)/scheme.cpp'; fi`
-
-mosh-read.o: read.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-read.o -MD -MP -MF $(DEPDIR)/mosh-read.Tpo -c -o mosh-read.o `test -f 'read.cpp' || echo '$(srcdir)/'`read.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-read.Tpo $(DEPDIR)/mosh-read.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='read.cpp' object='mosh-read.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-read.o `test -f 'read.cpp' || echo '$(srcdir)/'`read.cpp
-
-mosh-read.obj: read.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-read.obj -MD -MP -MF $(DEPDIR)/mosh-read.Tpo -c -o mosh-read.obj `if test -f 'read.cpp'; then $(CYGPATH_W) 'read.cpp'; else $(CYGPATH_W) '$(srcdir)/read.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-read.Tpo $(DEPDIR)/mosh-read.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='read.cpp' object='mosh-read.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-read.obj `if test -f 'read.cpp'; then $(CYGPATH_W) 'read.cpp'; else $(CYGPATH_W) '$(srcdir)/read.cpp'; fi`
 
 mosh-Regexp.o: Regexp.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Regexp.o -MD -MP -MF $(DEPDIR)/mosh-Regexp.Tpo -c -o mosh-Regexp.o `test -f 'Regexp.cpp' || echo '$(srcdir)/'`Regexp.cpp
@@ -736,19 +687,19 @@ mosh-VM.obj: VM.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-VM.obj `if test -f 'VM.cpp'; then $(CYGPATH_W) 'VM.cpp'; else $(CYGPATH_W) '$(srcdir)/VM.cpp'; fi`
 
-mosh-freeproc.o: freeproc.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-freeproc.o -MD -MP -MF $(DEPDIR)/mosh-freeproc.Tpo -c -o mosh-freeproc.o `test -f 'freeproc.cpp' || echo '$(srcdir)/'`freeproc.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-freeproc.Tpo $(DEPDIR)/mosh-freeproc.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='freeproc.cpp' object='mosh-freeproc.o' libtool=no @AMDEPBACKSLASH@
+mosh-Scanner.o: Scanner.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Scanner.o -MD -MP -MF $(DEPDIR)/mosh-Scanner.Tpo -c -o mosh-Scanner.o `test -f 'Scanner.cpp' || echo '$(srcdir)/'`Scanner.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Scanner.Tpo $(DEPDIR)/mosh-Scanner.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Scanner.cpp' object='mosh-Scanner.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-freeproc.o `test -f 'freeproc.cpp' || echo '$(srcdir)/'`freeproc.cpp
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Scanner.o `test -f 'Scanner.cpp' || echo '$(srcdir)/'`Scanner.cpp
 
-mosh-freeproc.obj: freeproc.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-freeproc.obj -MD -MP -MF $(DEPDIR)/mosh-freeproc.Tpo -c -o mosh-freeproc.obj `if test -f 'freeproc.cpp'; then $(CYGPATH_W) 'freeproc.cpp'; else $(CYGPATH_W) '$(srcdir)/freeproc.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-freeproc.Tpo $(DEPDIR)/mosh-freeproc.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='freeproc.cpp' object='mosh-freeproc.obj' libtool=no @AMDEPBACKSLASH@
+mosh-Scanner.obj: Scanner.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Scanner.obj -MD -MP -MF $(DEPDIR)/mosh-Scanner.Tpo -c -o mosh-Scanner.obj `if test -f 'Scanner.cpp'; then $(CYGPATH_W) 'Scanner.cpp'; else $(CYGPATH_W) '$(srcdir)/Scanner.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Scanner.Tpo $(DEPDIR)/mosh-Scanner.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Scanner.cpp' object='mosh-Scanner.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-freeproc.obj `if test -f 'freeproc.cpp'; then $(CYGPATH_W) 'freeproc.cpp'; else $(CYGPATH_W) '$(srcdir)/freeproc.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Scanner.obj `if test -f 'Scanner.cpp'; then $(CYGPATH_W) 'Scanner.cpp'; else $(CYGPATH_W) '$(srcdir)/Scanner.cpp'; fi`
 
 mosh-ByteArrayBinaryInputPort.o: ByteArrayBinaryInputPort.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ByteArrayBinaryInputPort.o -MD -MP -MF $(DEPDIR)/mosh-ByteArrayBinaryInputPort.Tpo -c -o mosh-ByteArrayBinaryInputPort.o `test -f 'ByteArrayBinaryInputPort.cpp' || echo '$(srcdir)/'`ByteArrayBinaryInputPort.cpp
@@ -763,6 +714,34 @@ mosh-ByteArrayBinaryInputPort.obj: ByteArrayBinaryInputPort.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ByteArrayBinaryInputPort.cpp' object='mosh-ByteArrayBinaryInputPort.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ByteArrayBinaryInputPort.obj `if test -f 'ByteArrayBinaryInputPort.cpp'; then $(CYGPATH_W) 'ByteArrayBinaryInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/ByteArrayBinaryInputPort.cpp'; fi`
+
+mosh-ScannerHelper.o: ScannerHelper.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ScannerHelper.o -MD -MP -MF $(DEPDIR)/mosh-ScannerHelper.Tpo -c -o mosh-ScannerHelper.o `test -f 'ScannerHelper.cpp' || echo '$(srcdir)/'`ScannerHelper.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ScannerHelper.Tpo $(DEPDIR)/mosh-ScannerHelper.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ScannerHelper.cpp' object='mosh-ScannerHelper.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ScannerHelper.o `test -f 'ScannerHelper.cpp' || echo '$(srcdir)/'`ScannerHelper.cpp
+
+mosh-ScannerHelper.obj: ScannerHelper.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ScannerHelper.obj -MD -MP -MF $(DEPDIR)/mosh-ScannerHelper.Tpo -c -o mosh-ScannerHelper.obj `if test -f 'ScannerHelper.cpp'; then $(CYGPATH_W) 'ScannerHelper.cpp'; else $(CYGPATH_W) '$(srcdir)/ScannerHelper.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ScannerHelper.Tpo $(DEPDIR)/mosh-ScannerHelper.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ScannerHelper.cpp' object='mosh-ScannerHelper.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ScannerHelper.obj `if test -f 'ScannerHelper.cpp'; then $(CYGPATH_W) 'ScannerHelper.cpp'; else $(CYGPATH_W) '$(srcdir)/ScannerHelper.cpp'; fi`
+
+mosh-reader.tab.o: reader.tab.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-reader.tab.o -MD -MP -MF $(DEPDIR)/mosh-reader.tab.Tpo -c -o mosh-reader.tab.o `test -f 'reader.tab.cpp' || echo '$(srcdir)/'`reader.tab.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-reader.tab.Tpo $(DEPDIR)/mosh-reader.tab.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='reader.tab.cpp' object='mosh-reader.tab.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-reader.tab.o `test -f 'reader.tab.cpp' || echo '$(srcdir)/'`reader.tab.cpp
+
+mosh-reader.tab.obj: reader.tab.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-reader.tab.obj -MD -MP -MF $(DEPDIR)/mosh-reader.tab.Tpo -c -o mosh-reader.tab.obj `if test -f 'reader.tab.cpp'; then $(CYGPATH_W) 'reader.tab.cpp'; else $(CYGPATH_W) '$(srcdir)/reader.tab.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-reader.tab.Tpo $(DEPDIR)/mosh-reader.tab.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='reader.tab.cpp' object='mosh-reader.tab.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-reader.tab.obj `if test -f 'reader.tab.cpp'; then $(CYGPATH_W) 'reader.tab.cpp'; else $(CYGPATH_W) '$(srcdir)/reader.tab.cpp'; fi`
 
 mosh-FileBinaryInputPort.o: FileBinaryInputPort.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-FileBinaryInputPort.o -MD -MP -MF $(DEPDIR)/mosh-FileBinaryInputPort.Tpo -c -o mosh-FileBinaryInputPort.o `test -f 'FileBinaryInputPort.cpp' || echo '$(srcdir)/'`FileBinaryInputPort.cpp
@@ -904,6 +883,20 @@ mosh-EqHashTable.obj: EqHashTable.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-EqHashTable.obj `if test -f 'EqHashTable.cpp'; then $(CYGPATH_W) 'EqHashTable.cpp'; else $(CYGPATH_W) '$(srcdir)/EqHashTable.cpp'; fi`
 
+mosh-SString.o: SString.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-SString.o -MD -MP -MF $(DEPDIR)/mosh-SString.Tpo -c -o mosh-SString.o `test -f 'SString.cpp' || echo '$(srcdir)/'`SString.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-SString.Tpo $(DEPDIR)/mosh-SString.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='SString.cpp' object='mosh-SString.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-SString.o `test -f 'SString.cpp' || echo '$(srcdir)/'`SString.cpp
+
+mosh-SString.obj: SString.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-SString.obj -MD -MP -MF $(DEPDIR)/mosh-SString.Tpo -c -o mosh-SString.obj `if test -f 'SString.cpp'; then $(CYGPATH_W) 'SString.cpp'; else $(CYGPATH_W) '$(srcdir)/SString.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-SString.Tpo $(DEPDIR)/mosh-SString.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='SString.cpp' object='mosh-SString.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-SString.obj `if test -f 'SString.cpp'; then $(CYGPATH_W) 'SString.cpp'; else $(CYGPATH_W) '$(srcdir)/SString.cpp'; fi`
+
 mosh-GenericHashTable.o: GenericHashTable.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-GenericHashTable.o -MD -MP -MF $(DEPDIR)/mosh-GenericHashTable.Tpo -c -o mosh-GenericHashTable.o `test -f 'GenericHashTable.cpp' || echo '$(srcdir)/'`GenericHashTable.cpp
 @am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-GenericHashTable.Tpo $(DEPDIR)/mosh-GenericHashTable.Po
@@ -931,34 +924,6 @@ mosh-Object.obj: Object.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Object.cpp' object='mosh-Object.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Object.obj `if test -f 'Object.cpp'; then $(CYGPATH_W) 'Object.cpp'; else $(CYGPATH_W) '$(srcdir)/Object.cpp'; fi`
-
-mosh-Vector.o: Vector.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Vector.o -MD -MP -MF $(DEPDIR)/mosh-Vector.Tpo -c -o mosh-Vector.o `test -f 'Vector.cpp' || echo '$(srcdir)/'`Vector.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Vector.Tpo $(DEPDIR)/mosh-Vector.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Vector.cpp' object='mosh-Vector.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Vector.o `test -f 'Vector.cpp' || echo '$(srcdir)/'`Vector.cpp
-
-mosh-Vector.obj: Vector.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Vector.obj -MD -MP -MF $(DEPDIR)/mosh-Vector.Tpo -c -o mosh-Vector.obj `if test -f 'Vector.cpp'; then $(CYGPATH_W) 'Vector.cpp'; else $(CYGPATH_W) '$(srcdir)/Vector.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Vector.Tpo $(DEPDIR)/mosh-Vector.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Vector.cpp' object='mosh-Vector.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Vector.obj `if test -f 'Vector.cpp'; then $(CYGPATH_W) 'Vector.cpp'; else $(CYGPATH_W) '$(srcdir)/Vector.cpp'; fi`
-
-mosh-CodeBuilder.o: CodeBuilder.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-CodeBuilder.o -MD -MP -MF $(DEPDIR)/mosh-CodeBuilder.Tpo -c -o mosh-CodeBuilder.o `test -f 'CodeBuilder.cpp' || echo '$(srcdir)/'`CodeBuilder.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-CodeBuilder.Tpo $(DEPDIR)/mosh-CodeBuilder.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CodeBuilder.cpp' object='mosh-CodeBuilder.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-CodeBuilder.o `test -f 'CodeBuilder.cpp' || echo '$(srcdir)/'`CodeBuilder.cpp
-
-mosh-CodeBuilder.obj: CodeBuilder.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-CodeBuilder.obj -MD -MP -MF $(DEPDIR)/mosh-CodeBuilder.Tpo -c -o mosh-CodeBuilder.obj `if test -f 'CodeBuilder.cpp'; then $(CYGPATH_W) 'CodeBuilder.cpp'; else $(CYGPATH_W) '$(srcdir)/CodeBuilder.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-CodeBuilder.Tpo $(DEPDIR)/mosh-CodeBuilder.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CodeBuilder.cpp' object='mosh-CodeBuilder.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-CodeBuilder.obj `if test -f 'CodeBuilder.cpp'; then $(CYGPATH_W) 'CodeBuilder.cpp'; else $(CYGPATH_W) '$(srcdir)/CodeBuilder.cpp'; fi`
 
 mosh-RecordTypeDescriptor.o: RecordTypeDescriptor.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-RecordTypeDescriptor.o -MD -MP -MF $(DEPDIR)/mosh-RecordTypeDescriptor.Tpo -c -o mosh-RecordTypeDescriptor.o `test -f 'RecordTypeDescriptor.cpp' || echo '$(srcdir)/'`RecordTypeDescriptor.cpp
@@ -1142,33 +1107,19 @@ mosh-ArithmeticProcedures.obj: ArithmeticProcedures.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ArithmeticProcedures.obj `if test -f 'ArithmeticProcedures.cpp'; then $(CYGPATH_W) 'ArithmeticProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ArithmeticProcedures.cpp'; fi`
 
-mosh-SString.o: SString.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-SString.o -MD -MP -MF $(DEPDIR)/mosh-SString.Tpo -c -o mosh-SString.o `test -f 'SString.cpp' || echo '$(srcdir)/'`SString.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-SString.Tpo $(DEPDIR)/mosh-SString.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='SString.cpp' object='mosh-SString.o' libtool=no @AMDEPBACKSLASH@
+mosh-Equivalent.o: Equivalent.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Equivalent.o -MD -MP -MF $(DEPDIR)/mosh-Equivalent.Tpo -c -o mosh-Equivalent.o `test -f 'Equivalent.cpp' || echo '$(srcdir)/'`Equivalent.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Equivalent.Tpo $(DEPDIR)/mosh-Equivalent.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Equivalent.cpp' object='mosh-Equivalent.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-SString.o `test -f 'SString.cpp' || echo '$(srcdir)/'`SString.cpp
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Equivalent.o `test -f 'Equivalent.cpp' || echo '$(srcdir)/'`Equivalent.cpp
 
-mosh-SString.obj: SString.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-SString.obj -MD -MP -MF $(DEPDIR)/mosh-SString.Tpo -c -o mosh-SString.obj `if test -f 'SString.cpp'; then $(CYGPATH_W) 'SString.cpp'; else $(CYGPATH_W) '$(srcdir)/SString.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-SString.Tpo $(DEPDIR)/mosh-SString.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='SString.cpp' object='mosh-SString.obj' libtool=no @AMDEPBACKSLASH@
+mosh-Equivalent.obj: Equivalent.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Equivalent.obj -MD -MP -MF $(DEPDIR)/mosh-Equivalent.Tpo -c -o mosh-Equivalent.obj `if test -f 'Equivalent.cpp'; then $(CYGPATH_W) 'Equivalent.cpp'; else $(CYGPATH_W) '$(srcdir)/Equivalent.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Equivalent.Tpo $(DEPDIR)/mosh-Equivalent.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Equivalent.cpp' object='mosh-Equivalent.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-SString.obj `if test -f 'SString.cpp'; then $(CYGPATH_W) 'SString.cpp'; else $(CYGPATH_W) '$(srcdir)/SString.cpp'; fi`
-
-mosh-BuiltinSymbols.o: BuiltinSymbols.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-BuiltinSymbols.o -MD -MP -MF $(DEPDIR)/mosh-BuiltinSymbols.Tpo -c -o mosh-BuiltinSymbols.o `test -f 'BuiltinSymbols.cpp' || echo '$(srcdir)/'`BuiltinSymbols.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-BuiltinSymbols.Tpo $(DEPDIR)/mosh-BuiltinSymbols.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='BuiltinSymbols.cpp' object='mosh-BuiltinSymbols.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-BuiltinSymbols.o `test -f 'BuiltinSymbols.cpp' || echo '$(srcdir)/'`BuiltinSymbols.cpp
-
-mosh-BuiltinSymbols.obj: BuiltinSymbols.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-BuiltinSymbols.obj -MD -MP -MF $(DEPDIR)/mosh-BuiltinSymbols.Tpo -c -o mosh-BuiltinSymbols.obj `if test -f 'BuiltinSymbols.cpp'; then $(CYGPATH_W) 'BuiltinSymbols.cpp'; else $(CYGPATH_W) '$(srcdir)/BuiltinSymbols.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-BuiltinSymbols.Tpo $(DEPDIR)/mosh-BuiltinSymbols.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='BuiltinSymbols.cpp' object='mosh-BuiltinSymbols.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-BuiltinSymbols.obj `if test -f 'BuiltinSymbols.cpp'; then $(CYGPATH_W) 'BuiltinSymbols.cpp'; else $(CYGPATH_W) '$(srcdir)/BuiltinSymbols.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Equivalent.obj `if test -f 'Equivalent.cpp'; then $(CYGPATH_W) 'Equivalent.cpp'; else $(CYGPATH_W) '$(srcdir)/Equivalent.cpp'; fi`
 
 mosh-CompoundCondition.o: CompoundCondition.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-CompoundCondition.o -MD -MP -MF $(DEPDIR)/mosh-CompoundCondition.Tpo -c -o mosh-CompoundCondition.o `test -f 'CompoundCondition.cpp' || echo '$(srcdir)/'`CompoundCondition.cpp
@@ -1184,20 +1135,6 @@ mosh-CompoundCondition.obj: CompoundCondition.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-CompoundCondition.obj `if test -f 'CompoundCondition.cpp'; then $(CYGPATH_W) 'CompoundCondition.cpp'; else $(CYGPATH_W) '$(srcdir)/CompoundCondition.cpp'; fi`
 
-mosh-Equivalent.o: Equivalent.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Equivalent.o -MD -MP -MF $(DEPDIR)/mosh-Equivalent.Tpo -c -o mosh-Equivalent.o `test -f 'Equivalent.cpp' || echo '$(srcdir)/'`Equivalent.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Equivalent.Tpo $(DEPDIR)/mosh-Equivalent.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Equivalent.cpp' object='mosh-Equivalent.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Equivalent.o `test -f 'Equivalent.cpp' || echo '$(srcdir)/'`Equivalent.cpp
-
-mosh-Equivalent.obj: Equivalent.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Equivalent.obj -MD -MP -MF $(DEPDIR)/mosh-Equivalent.Tpo -c -o mosh-Equivalent.obj `if test -f 'Equivalent.cpp'; then $(CYGPATH_W) 'Equivalent.cpp'; else $(CYGPATH_W) '$(srcdir)/Equivalent.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Equivalent.Tpo $(DEPDIR)/mosh-Equivalent.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Equivalent.cpp' object='mosh-Equivalent.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Equivalent.obj `if test -f 'Equivalent.cpp'; then $(CYGPATH_W) 'Equivalent.cpp'; else $(CYGPATH_W) '$(srcdir)/Equivalent.cpp'; fi`
-
 mosh-ucs4string.o: ucs4string.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ucs4string.o -MD -MP -MF $(DEPDIR)/mosh-ucs4string.Tpo -c -o mosh-ucs4string.o `test -f 'ucs4string.cpp' || echo '$(srcdir)/'`ucs4string.cpp
 @am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ucs4string.Tpo $(DEPDIR)/mosh-ucs4string.Po
@@ -1211,6 +1148,34 @@ mosh-ucs4string.obj: ucs4string.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ucs4string.cpp' object='mosh-ucs4string.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ucs4string.obj `if test -f 'ucs4string.cpp'; then $(CYGPATH_W) 'ucs4string.cpp'; else $(CYGPATH_W) '$(srcdir)/ucs4string.cpp'; fi`
+
+mosh-Vector.o: Vector.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Vector.o -MD -MP -MF $(DEPDIR)/mosh-Vector.Tpo -c -o mosh-Vector.o `test -f 'Vector.cpp' || echo '$(srcdir)/'`Vector.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Vector.Tpo $(DEPDIR)/mosh-Vector.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Vector.cpp' object='mosh-Vector.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Vector.o `test -f 'Vector.cpp' || echo '$(srcdir)/'`Vector.cpp
+
+mosh-Vector.obj: Vector.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Vector.obj -MD -MP -MF $(DEPDIR)/mosh-Vector.Tpo -c -o mosh-Vector.obj `if test -f 'Vector.cpp'; then $(CYGPATH_W) 'Vector.cpp'; else $(CYGPATH_W) '$(srcdir)/Vector.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Vector.Tpo $(DEPDIR)/mosh-Vector.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Vector.cpp' object='mosh-Vector.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Vector.obj `if test -f 'Vector.cpp'; then $(CYGPATH_W) 'Vector.cpp'; else $(CYGPATH_W) '$(srcdir)/Vector.cpp'; fi`
+
+mosh-CodeBuilder.o: CodeBuilder.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-CodeBuilder.o -MD -MP -MF $(DEPDIR)/mosh-CodeBuilder.Tpo -c -o mosh-CodeBuilder.o `test -f 'CodeBuilder.cpp' || echo '$(srcdir)/'`CodeBuilder.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-CodeBuilder.Tpo $(DEPDIR)/mosh-CodeBuilder.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CodeBuilder.cpp' object='mosh-CodeBuilder.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-CodeBuilder.o `test -f 'CodeBuilder.cpp' || echo '$(srcdir)/'`CodeBuilder.cpp
+
+mosh-CodeBuilder.obj: CodeBuilder.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-CodeBuilder.obj -MD -MP -MF $(DEPDIR)/mosh-CodeBuilder.Tpo -c -o mosh-CodeBuilder.obj `if test -f 'CodeBuilder.cpp'; then $(CYGPATH_W) 'CodeBuilder.cpp'; else $(CYGPATH_W) '$(srcdir)/CodeBuilder.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-CodeBuilder.Tpo $(DEPDIR)/mosh-CodeBuilder.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CodeBuilder.cpp' object='mosh-CodeBuilder.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-CodeBuilder.obj `if test -f 'CodeBuilder.cpp'; then $(CYGPATH_W) 'CodeBuilder.cpp'; else $(CYGPATH_W) '$(srcdir)/CodeBuilder.cpp'; fi`
 install-dataDATA: $(data_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(datadir)" || $(MKDIR_P) "$(DESTDIR)$(datadir)"
@@ -1503,16 +1468,14 @@ distcleancheck: distclean
 	       $(distcleancheck_listfiles) ; \
 	       exit 1; } >&2
 check-am: all-am
-check: $(BUILT_SOURCES)
-	$(MAKE) $(AM_MAKEFLAGS) check-recursive
+check: check-recursive
 all-am: Makefile $(LIBRARIES) $(PROGRAMS) $(DATA) config.h
 installdirs: installdirs-recursive
 installdirs-am:
 	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
-install: $(BUILT_SOURCES)
-	$(MAKE) $(AM_MAKEFLAGS) install-recursive
+install: install-recursive
 install-exec: install-exec-recursive
 install-data: install-data-recursive
 uninstall: uninstall-recursive
@@ -1537,7 +1500,7 @@ distclean-generic:
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
-	-test -z "$(BUILT_SOURCES)" || rm -f $(BUILT_SOURCES)
+	-test -z "$(MAINTAINERCLEANFILES)" || rm -f $(MAINTAINERCLEANFILES)
 clean: clean-recursive
 
 clean-am: clean-binPROGRAMS clean-generic clean-noinstLIBRARIES \
@@ -1636,11 +1599,11 @@ psyntax-update:
 reader.tab.cpp: reader.y
 	bison -d $< -o $@
 
-scanner.cpp : scanner.re
+Scanner.cpp : scanner.re
 	/usr/local/bin/re2c -ud $< > $@ # -d is debug option
 
-reader.lex.yy.cpp: reader.lex
-	flex -o $@ $<
+# reader.lex.yy.cpp: reader.lex
+# 	flex -o $@ $<
 
 # psyntax-mosh-p:
 # 	(cd tools/psyntax-r6rs/ && cp pre-built/psyntax-mosh.pp psyntax.pp && $(HOME)/mosh/mosh -p ./mosh.r6rs.ss ./hello.scm)
