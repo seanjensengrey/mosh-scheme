@@ -2,7 +2,7 @@
 #ifndef __SCHEME_DEBUG_INSTRUCTION_H__
 #define __SCHEME_DEBUG_INSTRUCTION_H__
 
-class DebugInstruction EXTEND_GCb
+class DebugInstruction
 {
 public:
     enum {

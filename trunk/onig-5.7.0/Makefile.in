@@ -1111,8 +1111,6 @@ distclean-generic:
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
-clean: clean-recursive
-
 clean-am: clean-checkPROGRAMS clean-generic clean-libLTLIBRARIES \
 	clean-libtool mostlyclean-am
 
@@ -1233,6 +1231,8 @@ atest: testc testp testcu
 
 # [mosh]
 install:
+
+clean:
 
 check:
 
