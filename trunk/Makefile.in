@@ -66,10 +66,11 @@ am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
 am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
-	mosh-BuiltinSymbols.$(OBJEXT) mosh-freeproc.$(OBJEXT) \
-	mosh-reader.$(OBJEXT) mosh-scheme.$(OBJEXT) \
-	mosh-Regexp.$(OBJEXT) mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
-	mosh-Scanner.$(OBJEXT) mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
+	mosh-BuiltinSymbols.$(OBJEXT) mosh-Closure.$(OBJEXT) \
+	mosh-freeproc.$(OBJEXT) mosh-reader.$(OBJEXT) \
+	mosh-scheme.$(OBJEXT) mosh-Regexp.$(OBJEXT) \
+	mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) mosh-Scanner.$(OBJEXT) \
+	mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
 	mosh-ScannerHelper.$(OBJEXT) mosh-reader.tab.$(OBJEXT) \
 	mosh-FileBinaryInputPort.$(OBJEXT) \
 	mosh-FileBinaryOutputPort.$(OBJEXT) \
@@ -264,7 +265,6 @@ BinaryOutputPort.h                                                \
 config.h                                                          \
 scheme.h                                                          \
 ByteVector.h                                                      \
-Closure.h                                                         \
 HashTable.h                                                       \
 EqvHashTable.h                                                    \
 Pair.h                                                            \
@@ -273,6 +273,7 @@ Box.h                                                             \
 ProcedureMacro.h                                                  \
 BuiltinSymbols.cpp                                                \
 Builtin.h                                                         \
+Closure.h                     Closure.cpp                         \
 freeproc.h                    freeproc.cpp                        \
 reader.h                      reader.cpp                          \
 scheme.h                      scheme.cpp                          \
@@ -463,6 +464,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ArithmeticProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-BuiltinSymbols.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ByteArrayBinaryInputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Closure.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CodeBuilder.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompilerProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompoundCondition.Po@am__quote@
@@ -602,6 +604,20 @@ mosh-BuiltinSymbols.obj: BuiltinSymbols.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='BuiltinSymbols.cpp' object='mosh-BuiltinSymbols.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-BuiltinSymbols.obj `if test -f 'BuiltinSymbols.cpp'; then $(CYGPATH_W) 'BuiltinSymbols.cpp'; else $(CYGPATH_W) '$(srcdir)/BuiltinSymbols.cpp'; fi`
+
+mosh-Closure.o: Closure.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Closure.o -MD -MP -MF $(DEPDIR)/mosh-Closure.Tpo -c -o mosh-Closure.o `test -f 'Closure.cpp' || echo '$(srcdir)/'`Closure.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Closure.Tpo $(DEPDIR)/mosh-Closure.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Closure.cpp' object='mosh-Closure.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Closure.o `test -f 'Closure.cpp' || echo '$(srcdir)/'`Closure.cpp
+
+mosh-Closure.obj: Closure.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Closure.obj -MD -MP -MF $(DEPDIR)/mosh-Closure.Tpo -c -o mosh-Closure.obj `if test -f 'Closure.cpp'; then $(CYGPATH_W) 'Closure.cpp'; else $(CYGPATH_W) '$(srcdir)/Closure.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Closure.Tpo $(DEPDIR)/mosh-Closure.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Closure.cpp' object='mosh-Closure.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Closure.obj `if test -f 'Closure.cpp'; then $(CYGPATH_W) 'Closure.cpp'; else $(CYGPATH_W) '$(srcdir)/Closure.cpp'; fi`
 
 mosh-freeproc.o: freeproc.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-freeproc.o -MD -MP -MF $(DEPDIR)/mosh-freeproc.Tpo -c -o mosh-freeproc.o `test -f 'freeproc.cpp' || echo '$(srcdir)/'`freeproc.cpp
