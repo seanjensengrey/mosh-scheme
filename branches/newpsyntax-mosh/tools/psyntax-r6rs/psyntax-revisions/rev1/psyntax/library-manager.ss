@@ -29,7 +29,6 @@ library-path library-locator)
   (import (rnrs)
           (psyntax compat)
           (rnrs r5rs))
-  (define hoge1  (display "hoge1"))
   (define (make-collection)
     (let ((set '()))
       (define (set-cons x ls)
@@ -39,7 +38,6 @@ library-path library-locator)
       (case-lambda
         (() set)
         ((x) (set! set (set-cons x set))))))
-  (define hoge2  (display "hoge2"))
   (define current-library-collection
     ;;; this works now because make-collection is a lambda
     ;;; binding and this turns into a complex binding as far
@@ -84,9 +82,9 @@ library-path library-locator)
             (assertion-violation 'library-path "not a list of strings" x)))))
   
   (define (library-name->file-name x)
-;    (let-values (((p extract) (open-string-output-port)))
-    (call-with-values (lambda () (open-string-output-port))
-      (lambda (p extract)
+    (let-values (((p extract) (open-string-output-port)))
+;    (call-with-values (lambda () (open-string-output-port))
+;      (lambda (p extract)
       (define (display-hex n)
         (cond
           ((<= 0 n 9) (display n p))
@@ -116,7 +114,7 @@ library-path library-locator)
              (string->list 
                (symbol->string (car ls))))
            (f (cdr ls)))))
-      (extract))))
+      (extract)))
 
   (define file-locator
     (make-parameter
@@ -281,7 +279,6 @@ library-path library-locator)
 
   (define (invoke-library-by-spec spec)
     (invoke-library (find-library-by-spec/die spec)))
-  (define hoge4  (display "hoge4"))
   (define installed-libraries 
     (case-lambda
       ((all?)
