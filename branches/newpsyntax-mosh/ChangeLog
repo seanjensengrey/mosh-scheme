@@ -1,0 +1,626 @@
+2008-10-01  higepon  <higepon@users.sourceforge.jp>
+
+        * Implemented all of Unicode procedures.
+
+        * lib/mosh/unicode.ss: Added string-normalize-nfc and string-normalize-nfkc.
+
+        * unicode/make-composition-exclusions-datum.scm : Added.
+
+2008-09-30  higepon  <higepon@users.sourceforge.jp>
+
+        * ArithmeticProcedures.cpp (scheme::minEx):
+                                   (scheme::maxEx): Fixed bug.
+
+        * lib/mosh/unicode.ss (string-normalize-nfd): Added.
+                              (string-normalize-nfkd): Added.
+
+2008-09-29  higepon  <higepon@users.sourceforge.jp>
+
+        * library.scm (hashtable-for-each): Added.
+                               (substring): Added.
+
+        * unicode/make-canonical-decompose-datum.scm : Added.
+
+2008-09-27  higepon  <higepon@users.sourceforge.jp>
+
+        * lib/mosh/unicode.ss (string-ci=?, string-ci<?, string-ci>?)
+                              (string-ci<=?): Added.
+
+        * library.scm (string-compare, string<?, string>?, string<=?)
+                      (string>=?): Added.
+
+        * lib/mosh/unicode.ss (string-upcase, string-foldcase)
+                              (string-downcase): Added.
+
+                              (string-titlecase): Added from Ypsilon Scheme System.
+
+2008-09-26  higepon  <higepon@users.sourceforge.jp>
+
+        * TextualInputPort.cpp (hasPortPosition, hasSetPortPosition)
+                               (portPosition, setPortPostion): Added.
+
+        * Added lookahead-char procedure.
+
+        * TextualInputPort.cpp (lookaheadChar): Added.
+
+2008-09-25  higepon  <higepon@users.sourceforge.jp>
+
+        * lib/mosh/unicode.ss : Added char-whitespace?, char-alphabetic?, char-upper-case?,
+                                      char-lower-case?, char-title-case?, char-numeric?
+                                      and char-general-category.
+
+        * unicode/make-other-lowercase-property-datum.scm (main): Added.
+
+        * unicode/make-other-uppercase-property-datum.scm (main): Added.
+
+        * unicode/make-whitespace-property-datum.scm (main): Added.
+
+        * unicode/make-other-alphabetic-datum.scm: Added for parsing PropList.txt.
+
+2008-09-24  higepon  <higepon@users.sourceforge.jp>
+
+        * lib/mosh/unicode.ss : Added char-ci=?, char-ci>=?, char-ci<=?, char-ci<? and char-ci>?.
+
+        * lib/mosh/unicode.ss : Added char-upcase, char-downcase, char-titlecase and char-foldcase.
+
+2008-09-23  higepon  <higepon@users.sourceforge.jp>
+
+        * Makefile.am (MAINTAINERCLEANFILES): Added for faster compilation.
+
+        * scanner.re (scan): Added DECIMAL_10 to UREAL_10.
+
+        * lib/srfi/8.ss (internal-srfi-8): Addes srfi-8 (receive ...).
+
+        * lib/mosh/unicode.ss (mosh): Added char-upcase/char-downcase.
+
+2008-09-22  higepon  <higepon@users.sourceforge.jp>
+
+        * StringProcedures.cpp (stringTonumberEx): Added base argument support.
+
+2008-09-18  higepon  <higepon@users.sourceforge.jp>
+
+        * scanner.re (currentToken): Replaced (read) to newer one which use re2c. It is much faster than it was.
+
+        * Scanner.h (scheme): Fixed a GC bug.
+                              I forgot to set super class of Scanner to gc.
+
+2008-09-16  higepon  <higepon@users.sourceforge.jp>
+
+        * ScannerHelper.cpp : Added.
+
+        * test/reader.scm: Added for testing reader.
+
+2008-09-15  higepon  <higepon@users.sourceforge.jp>
+
+        * scanner.re (class ScannerHelper): Added new scanner using re2c.
+
+2008-09-13  higepon  <higepon@users.sourceforge.jp>
+
+        * reader.lex (): Added read #\x41 style character.
+
+        * reader.cpp (read): Now we use new read supported by Flex/Bison.
+
+2008-09-12  higepon  <higepon@users.sourceforge.jp>
+
+        * CompilerProcedures.cpp (pass4FixupLabelCollect): Fixed wrong type cast.
+
+        * Object.h (DECL_TO): Added assert for wrong type cast.
+
+        * ErrorProcedures.cpp (raiseAfter): Fixed the bug of type.
+
+2008-09-07  higepon  <higepon@users.sourceforge.jp>
+
+        * UTF8Codec.cpp (readWholeString): Added.
+
+2008-09-06  higepon  <higepon@users.sourceforge.jp>
+
+        * Object-inl.h : Break all compilation dependencies.
+
+2008-09-04  higepon  <higepon@users.sourceforge.jp>
+
+        * reader.lex : Added.
+
+        * reader.y : Added for new reader.
+
+2008-09-01  higepon  <higepon@users.sourceforge.jp>
+
+        * example/grass.scm (parse): Applied a patch by IRIE Shinsuke.
+
+2008-08-29  higepon  <higepon@users.sourceforge.jp>
+
+        * library.scm (list-sort): Ported R6RS sorting from Ypsilon Scheme System by Y.FUJITA, LittleWing Company.
+
+2008-08-28  higepon  <higepon@users.sourceforge.jp>
+
+        * 0.0.6 released.
+
+2008-08-26  higepon  <higepon@users.sourceforge.jp>
+
+        * library.scm (newline): fixed bug of (newline).
+
+        * Rewrote error system for reader.
+
+        * ErrorProcedures.cpp (scheme::callLexicalViolationAfter): Added.
+
+        * read.cpp (read_bytevector): Added read bytevector support.
+
+2008-08-24  higepon  <higepon@users.sourceforge.jp>
+
+        * library.scm: Implmented all of R6RS Enumrations.
+
+        * read.cpp (Scm_StringToNumber): Fixed reader bug.
+
+2008-08-23  higepon  <higepon@users.sourceforge.jp>
+
+        * library.scm : Implmented all of R6RS List utilities.
+
+        * VM.cpp (VM::run): Fixed cal/cc for multiple values.
+
+        * ArithmeticProcedures.cpp : Added max and min.
+
+        * library.scm: Added partition, for-all, null*? and exists.
+
+        * ArithmeticProcedures.cpp: Added.
+
+2008-08-22  higepon  <higepon@users.sourceforge.jp>
+
+        * psyntax.cpp (getBuiltinPsyntax): We now precompiled psyntax. It's load speed become much faster.
+
+        * BuiltinSymbols.cpp : Improved for faster compilation for g++.
+
+2008-08-20  higepon  <higepon@users.sourceforge.jp>
+
+        * compiler.scm (tag?): Fixed the bug. use equal? instead of =.
+
+        * scripts/gen-pre-compiled-faster-cpp.scm :
+          Improved compilation speed for compiler.cpp, match.cpp.
+
+        * Makefile.am (match.scmc): Improved compile time of match.scm -> match.cpp -> libmatch.a
+
+2008-08-19  higepon  <higepon@users.sourceforge.jp>
+
+        * Equivalent.cpp (equal): Added new version of equal.
+                                  It terminates even even if its arguments contain cycles.
+                                  It doesn't cause native stack overflow for long list.
+
+2008-08-18  higepon  <higepon@users.sourceforge.jp>
+
+        * read.cpp (read_internal): Added #, #` #,@ support.
+
+        * lib/mosh/io/conditions.ss: Added for i/o-filename.
+
+        * All of the internal errors are rewrote to error or assertion-violation.
+
+2008-08-17  higepon  <higepon@users.sourceforge.jp>
+
+        * scheme.cpp : Removed TypedVector.cpp
+
+2008-08-16  higepon  <higepon@users.sourceforge.jp>
+
+        * freeproc.cpp (scheme::procedurePEx): Removed typdevector stuff.
+
+        * ProcedureMacro.h: Added.
+
+        * RecordProcedures.cpp: Replaced all RAISE to assertion-violation and added tests for them.
+
+2008-08-15  higepon  <higepon@users.sourceforge.jp>
+
+        * ViolationProcedures.cpp (scheme::throwEx): Added (throw ...) procedure.
+
+        * tools/psyntax-r6rs/psyntax/main-mosh.ss (psyntax): Defined default exception handler.
+
+2008-08-14  higepon  <higepon@users.sourceforge.jp>
+
+        * Fixed with-exception-handler, raise, assertion-violation.
+
+        * Passed hashtables test of R6RS test suite.
+
+        * ViolationProcedures.cpp: Added.
+
+        * library.scm (exists): Fixed bug of (exists proc lst).
+
+        * VM.cpp (run): Added Object Pointer type checking for debug build.
+
+                      : Rewrote apply.
+
+2008-08-13  higepon  <higepon@users.sourceforge.jp>
+
+        * library.scm (make-parameter): Added SRFI-39 Parameter Objects to Mosh core.
+
+2008-08-12  higepon  <higepon@users.sourceforge.jp>
+
+        * Added dynamic-wind. It works well.
+
+        * VM.cpp (VM::run): Fixed bug of recieve from (values).
+
+2008-08-08  higepon  <higepon@users.sourceforge.jp>
+
+        * library.scm (expt): Addes expt.
+
+        * r6rs-test-suite/Makefile (test): Added r6rs-test-suite from PLT Scheme.
+
+        * Makefile.am (test): Added R6RS tests.
+
+2008-08-07  higepon  <higepon@users.sourceforge.jp>
+
+        * Implemented R6RS Conditions.
+
+2008-08-05  higepon  <higepon@users.sourceforge.jp>
+
+        * freeproc.cpp (scheme::assertionViolationEx): added assertion-violation.
+
+        * Implemented R6RS Records "Syntactic Layer".
+
+        * r6rs-examples/record-test.ss: Added R6RS Records test.
+
+        * Implemented R6RS Records "Inspection".
+
+2008-08-04  higepon  <higepon@users.sourceforge.jp>
+
+        * Implemented R6RS Records "Procedural Layer".
+
+2008-08-01  higepon  <higepon@users.sourceforge.jp>
+
+        * example/grass.scm: Applied a patch by IRIE Shinsuke.
+
+        * VM.cpp (VM): Applied a patch for READ_CHAR by IRIE Shinsuke.
+
+        * Record.h: Added.
+
+        * RecordTypeDescriptor.h: Added.
+
+        * Callable.h : Added.
+
+2008-07-25  higepon  <higepon@users.sourceforge.jp>
+
+        * Implemented all of hashtable procedures!
+
+        * string-ci-hash, symbol-hash, equal-hash.
+
+        * hashtable-clear!, hashtable-entries, hashtable-hash-function, hashtable-equivalence-function.
+
+        * library.scm : hashtable-update!, hashtable-copy and hashtable-mutable?.
+
+        * free-vars.scm : Added hashtable-delete!, hashtable-contains?.
+
+2008-07-24  higepon  <higepon@users.sourceforge.jp>
+
+        * free-vars.scm : Added (hashtable? ...) and (hashtable-size ...).
+
+        * HashTableProceduures.cpp : Added (hash-string).
+
+        * HashTableProceduures.h: Added.
+
+        * HashTableProceduures.cpp: Added.
+
+2008-07-22  higepon  <higepon@users.sourceforge.jp>
+
+        * EqHashTable.h : Added (eq-hash ...).
+
+        * GenericMap.h: Added.
+
+        * GenericHashTable.h (scheme): Added.
+
+        * HashTable.h (scheme): Added for Generic HashTable
+
+2008-07-18  higepon  <higepon@users.sourceforge.jp>
+
+        *  0.0.5 released.
+
+2008-07-16  higepon  <higepon@users.sourceforge.jp>
+
+        * library.scm: Removed CGI library from library.scm, it moved to r6rs-examples/ directory.
+
+        * tools/psyntax-r6rs/psyntax-buildscript-mosh.ss : Added library rules.
+
+        * r6rs-examples/cgi.ss: Rewrote cgi library with R6RS form.
+
+        * r6rs-examples/lambda/wiki.ss: Rewrote lambda wiki with R6RS form.
+
+2008-07-15  higepon  <higepon@users.sourceforge.jp>
+
+        * freeproc.cpp: Added extern char** environ.
+
+2008-07-13  higepon  <higepon@users.sourceforge.jp>
+
+        * freeproc.cpp : Added set-symbol-value and symbol-value for psyntax.
+
+        * VM.cpp (VM::callClosure3): Added for make-custom-binary-input-port.
+
+2008-07-12  higepon  <higepon@users.sourceforge.jp>
+
+        * Regexp.cpp (Regexp::replaceAll): Fixed finite loop.
+
+        * freeproc.cpp (scheme::getEnvironmentVariablesEx): Added get-environment-variables.
+
+        * tools/psyntax-r6rs/psyntax-buildscript-mosh.ss (identifier->library-map): Added for Mosh.
+
+        * freeproc.h (scheme): renamed sys-getenv -> get-environment-variable.
+
+        * freeproc.cpp (scheme::errorEx): Improved message for (error ...).
+
+        * main.cpp (main): Added -b "R6RS batch mode" using psyntax.
+
+        * VM.cpp (VM::getStackTrace): Fixed stack trace bug for <subr>.
+
+        * freeproc.cpp (scheme::vectorPEx): Added vector?.
+
+        * Added r6rs-test directory.
+
+        * library.scm (string): Added document of (string ...).
+
+        * freeproc.cpp (scheme::stringEx): Added (string ...).
+
+2008-07-11  higepon  <higepon@users.sourceforge.jp>
+
+        * match.cpp: pre-compiled.
+
+2008-07-10  higepon  <higepon@users.sourceforge.jp>
+
+        * CompilerProcedures.cpp (labelEx): Moved $label to C++.
+
+2008-07-09  higepon  <higepon@users.sourceforge.jp>
+
+        * compiler.scm (pass3/find-free): locals, can-frees and frees becomes list of symbols(used to be list of lvars).
+
+2008-07-07  higepon  <higepon@users.sourceforge.jp>
+
+        * compiler.scm (merge-insn): Moved merge-insn to C++.
+
+2008-07-05  higepon  <higepon@users.sourceforge.jp>
+
+        * VM.cpp (VM::run): RE added "APPEND2" instruction for perfomance.
+
+        * scheme.h (scheme): inlined car(), cdr(), cons(), makeClosure().
+
+2008-07-04  higepon  <higepon@users.sourceforge.jp>
+
+        * compiler.scm (pass3/compile-refer, pass1/find-symbol-in-lvars): Rewrote in C++ for perfomance.
+
+        * CompilerProcedures.h: Added procedures for compiler.
+
+        * compiler.scm (pass3/add-can-frees2): Improved very slow (append2 ...) call on compiler.
+
+2008-07-03  higepon  <higepon@users.sourceforge.jp>
+
+        * CodeBuilder.h (scheme): use ObjectVector instead of gc_vector<Object, gc_allocator<Object> > for perfomance.
+
+        * freeproc.cpp (listTovectorEx): Added for perfomance.
+
+2008-07-02  higepon  <higepon@users.sourceforge.jp>
+
+        * compiler.scm (pass3/$asm): Rewrote internal define to global define for perfomance.
+
+2008-07-01  higepon  <higepon@users.sourceforge.jp>
+
+        * freeproc.cpp (lengthEx): Rewrote (length ...) in C++ for perfomance.
+
+        * compiler.scm (pass4/fixup-labels): Rewrote in C++ for perfomance.
+
+2008-06-30  higepon  <higepon@users.sourceforge.jp>
+
+        * VM.cpp (run): Improved cprocedure call speed.
+
+2008-06-28  higepon  <higepon@users.sourceforge.jp>
+
+        * Added (eq-hashtable-copy ht).
+
+        * compiler.scm: removed set-union and set-intersect.
+
+
+        * compiler.scm (pass3/$call): Changed (%set-union can-frees vars) => (append2 can-frees vars) for perfomance. (thx! koguro)
+
+        * scheme.cpp (Object::cons): comment out source info copy. This made mosh very slow.
+
+        * compiler.scm (pass3/find-free): Removed unnecesary append.
+
+2008-06-26  higepon  <higepon@users.sourceforge.jp>
+
+        * Improved compilaion speed on pass3 phase.
+
+        * freeproc.cpp : Added (make-code-builder), (code-builder-put! cb o),
+                               (code-builder-append cb1 cb2) and (code-builder-emit cb).
+
+        * CodeBuilder.h (scheme): Added CodeBuilder object used for more efficient compilation.
+
+2008-06-23  higepon  <higepon@users.sourceforge.jp>
+
+        * library.scm : Added xcons, make-list, list-tabulate, list-copy, list=, split-at, split-at!, not-pair?
+                        last-pair, last, circular-list, proper-list?, circular-list? and dotted-list?.
+
+2008-06-20  higepon  <higepon@users.sourceforge.jp>
+
+        * library.scm : Added take, drop, take!, take-right, drop-right
+                            , drop-right!, integer?
+                            , fifth, sixth, seventh, eighth, ninth and tenth
+
+2008-06-19  higepon  <higepon@users.sourceforge.jp>
+
+        * Pair.h (scheme): Added append(Object l, Object o) for (append ...).
+
+        * compiler.scm (merge-insn): Added (not 'CONSTANT_PUSH) for PUSH_FRAME.
+
+        * VM.cpp (VM::run): Removed APPEND instruction, it is buggy. We use appendEx instead.
+
+2008-06-18  higepon  <higepon@users.sourceforge.jp>
+
+        * main.cpp (main): Added -l option.
+
+        * VM.cpp (VM::storeCallSample): Improved profiler results.
+
+2008-06-17  higepon  <higepon@users.sourceforge.jp>
+
+        * library.scm (string->lines): Added string->lines procedure.
+                         (filter-map): Added filter-map, car+cdr (SRFI-1).
+                                     : Added map-with-index.
+
+        * Port.cpp (FileBinaryInputPort::FileBinaryInputPort): Fixed file open error condition.
+
+    * VM.cpp (VM::applyClosure): Improved apply procedure. It used to use C stack, so changed not to use C stack.
+
+2008-06-16  higepon  <higepon@users.sourceforge.jp>
+
+    * freeproc.cpp : Fixed (exit) procedure. thx leque.
+
+    * freeproc.cpp (scheme::callProcessEx): Added (call-process "ls").
+
+    * compiler.scm: Improved stack trace, showing file and lineno for precompiled code.
+
+    * scripts/pp.scm: Added for precompiled code.
+
+2008-06-15  higepon  <higepon@users.sourceforge.jp>
+
+    * free-vars.scm (*free-vars*): Added set-source-info for compiler.
+
+2008-06-11  higepon  <higepon@users.sourceforge.jp>
+
+    * library.scm (cons*): Added cons*.
+
+    * freeproc.cpp: Added char>=?, char>? and char<=? and char<?.
+
+    * library.scm (sort!): Fixed SEGV bug.
+                           In library.scm, we can't use do macro.
+                           Because do macro depend on match macro.
+
+2008-06-10  higepon  <higepon@users.sourceforge.jp>
+
+    * freeproc.cpp (scheme::dynamicWindEx): Added dynamic-wind. It's dummy for psyntax.pp.
+
+2008-06-09  higepon  <higepon@users.sourceforge.jp>
+
+    * VM.cpp : Rewrote multiple values support.
+
+2008-06-06  higepon  <higepon@users.sourceforge.jp>
+
+        * example/grass.scm (make-app): Added Grass interpreter.
+
+2008-06-03  higepon  <higepon@users.sourceforge.jp>
+
+        * test-data.scm (call-with-values): Fixed the bug of (call-with-values (lambda () (values 1 2)) cons).
+
+        * freeproc.cpp (scheme::applyEx): Added argument check.
+
+        * scheme.h (isCallable): Added for apply procedure.
+
+2008-06-02  higepon  <higepon@users.sourceforge.jp>
+
+        * Pair.h (scheme): Rewrote cloneList recut to loop.
+
+        * repl.scm (repl): Added EOF handling for Ctrl-D.
+
+        * VM.cpp (VM::load): Added TRY and CATCH macro.
+
+2008-05-30  higepon  <higepon@users.sourceforge.jp>
+
+        * Port.cpp (TextualOutputPort::putPair): Fixed bug of (write '(quote)).
+
+2008-05-29  higepon  <higepon@users.sourceforge.jp>
+
+        * freeproc.cpp : Added load for internal use.
+
+2008-05-28  higepon  <higepon@users.sourceforge.jp>
+
+        * library.scm : Added procedure?, with-input-from-file.
+
+2008-05-26  higepon  <higepon@users.sourceforge.jp>
+
+        * Fixed case bug (thx leque).
+
+        * compiler.scm (do): Added do macro using match.
+
+        * read.cpp (Scm_StringToNumber): Fixed the bug for '... .
+                                         strtol accept "..." and returns 0.
+
+        * freeproc.cpp (scheme::macroexpandEx): Added macroexpand procedure.
+
+2008-05-24  higepon  <higepon@users.sourceforge.jp>
+
+        * match.scm: Added Andrew Wright's match.
+
+        * library.scm : Added (list? obj) procedure.
+
+        * library.scm (string-ref): Added (string-ref s k) procedure.
+
+2008-05-23  higepon  <higepon@users.sourceforge.jp>
+
+        * Added div procedure and some tests.
+
+        * Fixed the bug of mod procedure and added some tests. (thx leque)
+
+2008-05-22  higepon  <higepon@users.sourceforge.jp>
+
+        * Added (exit) procedure.
+
+        * Added profiler.
+          With -p option, you can enable profiler.
+
+2008-05-21  higepon  <higepon@users.sourceforge.jp>
+
+        * library.scm (vector-for-each): Added (vector-for-each ...), Added (hash-table-for-each ...).
+
+        * freeproc.cpp (scheme::hashTableKeysEx): Added (hash-table-keys ...)
+
+        * macro.scm: Removed macro.scm.
+
+        * vm.scm: Added pre-compiled macro support.
+                  Only for top level macro defined at library.scm.
+2008-05-19  higepon  <higepon@users.sourceforge.jp>
+
+        * 0.0.3 released.
+
+        * library.scm : Added for-all.
+
+
+        * library.scm (even?): Added even? defined at Base Library.
+
+        * freeproc.cpp : Added modulo procedure (mod a b).
+
+        * VM.cpp : Added division support for Integer(Fixnum).
+
+        * freeproc.cpp (scheme::applyEx): Fixed apply bug.
+
+2008-05-18  higepon  <higepon@users.sourceforge.jp>
+
+        * Added typed-vector for R6RS Record base.
+
+        * TypedVector.h : Added.
+
+2008-05-17  higepon  <higepon@users.sourceforge.jp>
+
+        * freeproc.cpp (scheme::raiseContinuableEx): Added (raise-continuable ...).
+
+        * scripts/gen-test.scm (print-test): Added mosh-only syntax, it is used for tests only for mosh.
+
+        * macro.scm (guard): Added guard macro and document.
+
+        * VM.cpp (VM::withExceptionHandler): Added with-exception-handler and document.
+
+        * library.scm (raise): Added (raise ...) document.
+
+        * Added (raise obj) procedure.
+
+        * VM.cpp (VM::showStackTrace): Fixed SEGV with stack overflow.
+
+        * Regexp.cpp: Fixed Regexp endian problem by masa_edw.
+
+        * VM.cpp : Changed call frame structure, SEGV with stack trace fixed.
+
+2008-05-15  higepon  <higepon@users.sourceforge.jp>
+
+        * compiler.scm (pass1/sexp->iform): Fixed, (+) => 0, (*) => 1, thx leque.
+
+2008-05-14  higepon  <higepon@users.sourceforge.jp>
+
+        * compiler.scm (cond->if): Fixed the bug when cond clause like (cond ((3))).
+
+        * library.scm (REPL): Added REPL.
+
+        * freeproc.cpp (scheme::evalEx): Added (eval ...). Currently second argument of eval is ignored.
+
+        * 0.0.2 released.
+
+        * Symbol.h (scheme): OS X build patch by mesa_edw.
+
+2008-05-13  higepon  <higepon@users.sourceforge.jp>
+
+        * 0.0.1 released.
