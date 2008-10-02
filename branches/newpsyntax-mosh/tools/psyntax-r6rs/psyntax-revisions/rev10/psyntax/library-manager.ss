@@ -51,7 +51,7 @@
           (assertion-violation 'current-library-collection "not a procedure" x))
         x)))
 
-  (define-record library 
+  (define-record library
     (id name version imp* vis* inv* subst env visit-state
         invoke-state visit-code invoke-code visible?
         source-file-name)
