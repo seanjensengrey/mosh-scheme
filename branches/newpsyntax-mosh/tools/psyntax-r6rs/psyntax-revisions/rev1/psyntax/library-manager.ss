@@ -25,7 +25,7 @@
     find-library-by-name install-library library-spec invoke-library 
     extend-library-subst! extend-library-env! current-library-expander
     current-library-collection
-library-path library-locator)
+    library-path library-locator)
   (import (rnrs)
           (psyntax compat)
           (rnrs r5rs))
@@ -173,7 +173,6 @@ library-path library-locator)
 
   (define external-pending-libraries 
     (make-parameter '()))
-  (define hoge3  (display "hoge3"))
   (define (find-external-library name)
     (when (member name (external-pending-libraries))
       (assertion-violation #f "circular attempt to import library was detected" name))

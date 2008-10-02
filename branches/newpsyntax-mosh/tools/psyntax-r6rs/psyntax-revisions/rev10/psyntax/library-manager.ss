@@ -19,13 +19,16 @@
 ;;; DEALINGS IN THE SOFTWARE. 
 
 (library (psyntax library-manager)
-  (export imported-label->binding library-subst installed-libraries
+  (export
+   imported-label->binding library-subst installed-libraries
     visit-library library-name library-version library-exists?
     find-library-by-name install-library library-spec invoke-library 
     current-library-expander
     current-library-collection library-path library-extensions
     serialize-all current-precompiled-library-loader)
-  (import (except (rnrs) library) (psyntax compat) (rnrs r5rs) )
+  (import (except (rnrs) library) (psyntax compat) (rnrs r5rs)
+          (mosh psyntax) ;; for fprintf
+          )
 
   (define (make-collection)
     (let ((set '()))
@@ -212,7 +215,8 @@
                            source.\n"
                          name dname filename)
                        #f]))))]))]
-        [others #f])))
+        [others #f]))
+    )
 
   (define library-loader
     (make-parameter

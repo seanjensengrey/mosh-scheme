@@ -32,13 +32,15 @@
   )
 
 (define scheme-library-files
-  '("psyntax/compat.ss"
+  '(
+    "psyntax/compat.ss"
     "psyntax/internal.ss"
     "psyntax/config.ss"
     "psyntax/library-manager.ss"
     "psyntax/builders.ss"
     "psyntax/expander.ss"
-    "psyntax/main.ss"))
+    "psyntax/main.ss"
+))
 
 
 (define psyntax-system-macros

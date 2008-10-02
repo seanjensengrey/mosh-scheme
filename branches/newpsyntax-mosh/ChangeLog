@@ -1,3 +1,7 @@
+2008-10-02  higepon  <higepon@users.sourceforge.jp>
+
+        * tools/psyntax-r6rs/psyntax-revisions/rev10/mosh/psyntax.ss (mosh): Added for psyntax.
+
 2008-10-01  higepon  <higepon@users.sourceforge.jp>
 
         * Implemented all of Unicode procedures.
