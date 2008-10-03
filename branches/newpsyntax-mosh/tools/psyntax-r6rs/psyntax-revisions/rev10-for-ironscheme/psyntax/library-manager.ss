@@ -27,7 +27,7 @@
     current-library-collection library-path library-extensions
     serialize-all current-precompiled-library-loader)
   (import (except (rnrs) library) (psyntax compat) (rnrs r5rs)
-          (mosh psyntax) ;; for fprintf
+;          (mosh psyntax) ;; for fprintf
           )
 
   (define (make-collection)
@@ -209,11 +209,12 @@
                       [(and (library? l) (eq? label (library-id l)))
                        (f (cdr deps))]
                       [else 
-                       (fprintf (current-error-port)
-                          "WARNING: library ~s has an inconsistent dependency \
-                           on library ~s; file ~s will be recompiled from \
-                           source.\n"
-                         name dname filename)
+                       (display "WARNING")
+;;                        (fprintf (current-error-port)
+;;                           "WARNING: library ~s has an inconsistent dependency \
+;;                            on library ~s; file ~s will be recompiled from \
+;;                            source.\n"
+;;                          name dname filename)
                        #f]))))]))]
         [others #f]))
     )
@@ -373,7 +374,7 @@
            (else (f (cdr ls))))))
       (() (installed-libraries #f))))
 
-  (define (library? x) #f)
+;  (define (library? x) #f)
   (define library-spec       
     (lambda (x) 
       (unless (library? x)
