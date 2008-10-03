@@ -374,7 +374,7 @@
            (else (f (cdr ls))))))
       (() (installed-libraries #f))))
 
-  (define (library? x) #f)
+;  (define (library? x) #f)
   (define library-spec       
     (lambda (x) 
       (unless (library? x)

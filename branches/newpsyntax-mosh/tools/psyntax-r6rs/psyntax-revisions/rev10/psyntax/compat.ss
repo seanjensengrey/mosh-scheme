@@ -67,37 +67,113 @@
                    (lambda () b b* ...)
                    swap)))))))))
                        
-(define-syntax define-record
-  (lambda (x)
-	  (define (syn->str s)
-		  (symbol->string
-			  (syntax->datum s)))
-    (define (gen-getter id)
-      (lambda (fld)
-        (datum->syntax id
-          (string->symbol
-            (string-append (syn->str id) "-" (syn->str fld))))))
-    (define (gen-setter id)
-      (lambda (fld)
-        (datum->syntax id
-          (string->symbol
-            (string-append "set-" (syn->str id) "-" (syn->str fld) "!")))))
-    (syntax-case x ()
-      [(_ name (field* ...) printer)
-       #`(begin 
-           (define-record name (field* ...)) 
-;           (define rp (make-record-printer 'name printer)))]
-           )]
-      [(_ name (field* ...))
-       (with-syntax ([(getter* ...)
-                      (map (gen-getter #'name) #'(field* ...))]
-                     [(setter* ...)
-                      (map (gen-setter #'name) #'(field* ...))])
-         #`(define-record-type name
-             (sealed #t) ; for better performance
-             (opaque #t) ; for security
-             (nongenerative) ; for sanity
-             (fields (mutable field* getter* setter*) ...)))])))                       
+;; (define-syntax define-record
+;;   (lambda (x)
+;; 	  (define (syn->str s)
+;; 		  (symbol->string
+;; 			  (syntax->datum s)))
+;;     (define (gen-getter id)
+;;       (lambda (fld)
+;;         (datum->syntax id
+;;           (string->symbol
+;;             (string-append (syn->str id) "-" (syn->str fld))))))
+;;     (define (gen-setter id)
+;;       (lambda (fld)
+;;         (datum->syntax id
+;;           (string->symbol
+;;             (string-append "set-" (syn->str id) "-" (syn->str fld) "!")))))
+;;     (syntax-case x ()
+;;       [(_ name (field* ...) printer)
+;;        #`(begin 
+;;            (define-record name (field* ...)) 
+;; ;           (define rp (make-record-printer 'name printer)))]
+;;            )]
+;;       [(_ name (field* ...))
+;;        (with-syntax ([(getter* ...)
+;;                       (map (gen-getter #'name) #'(field* ...))]
+;;                      [(setter* ...)
+;;                       (map (gen-setter #'name) #'(field* ...))])
+;;          #`(define-record-type name
+;;              (sealed #t) ; for better performance
+;;              (opaque #t) ; for security
+;;              (nongenerative) ; for sanity
+;;              (fields (mutable field* getter* setter*) ...)))])))                       
+
+  (define-syntax define-record
+    (lambda (stx)
+      (define (iota i j)
+        (cond
+          ((= i j) '())
+          (else (cons i (iota (+ i 1) j)))))
+      (syntax-case stx ()
+        ((_ name (field* ...) printer) 
+         (syntax (define-record name (field* ...))))
+        ((_ name (field* ...))
+         (with-syntax ((constructor 
+                        (datum->syntax (syntax name)
+                          (string->symbol
+                            (string-append "make-"
+                              (symbol->string 
+                                (syntax->datum (syntax name)))))))
+                       (predicate 
+                        (datum->syntax (syntax name)
+                          (string->symbol
+                            (string-append 
+                              (symbol->string 
+                                (syntax->datum (syntax name)))
+                              "?")))) 
+                       (<rtd> 
+                        (datum->syntax (syntax name) (gensym)))
+                       ((accessor ...)
+                        (map 
+                          (lambda (x) 
+                            (datum->syntax (syntax name)
+                              (string->symbol 
+                                (string-append 
+                                  (symbol->string (syntax->datum
+                                                    (syntax name)))
+                                  "-"
+                                  (symbol->string (syntax->datum x))))))
+                          (syntax (field* ...)))) 
+                       ((mutator ...)
+                        (map 
+                          (lambda (x) 
+                            (datum->syntax (syntax name)
+                              (string->symbol 
+                                (string-append "set-" 
+                                  (symbol->string (syntax->datum
+                                                    (syntax name)))
+                                  "-"
+                                  (symbol->string (syntax->datum x))
+                                  "!"))))
+                          (syntax (field* ...))))
+                       ((idx ...)
+                        (iota 1 (+ 1 (length (syntax (field* ...)))))))
+           (syntax (begin
+               (define constructor
+                 (lambda (field* ...) 
+                   (vector '<rtd> field* ...)))
+               (define predicate
+                 (lambda (x) 
+                   (and (vector? x) 
+                        (= (vector-length x) 
+                           (+ 1 (length '(field* ...))))
+                        (eq? (vector-ref x 0) '<rtd>))))
+               (define accessor
+                 (lambda (x)
+                   (if (predicate x) 
+                       (vector-ref x idx)
+                       (error 'accessor "~s is not of type ~s" x
+                              'name))))
+               ...
+               (define mutator
+                 (lambda (x v)
+                   (if (predicate x) 
+                       (vector-set! x idx v)
+                       (error 'mutator "~s is not of type ~s" x
+                              'name))))
+               ...)))))))
+
 
   (define (file-options-spec x) x)
 )

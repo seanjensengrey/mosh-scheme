@@ -51,6 +51,96 @@
     (psyntax internal)
     (only (rnrs syntax-case) syntax-case syntax with-syntax)
     (prefix (rnrs syntax-case) sys.))
+
+  (define top-level-context (make-parameter #f))
+;;   (define (syntax-violation who msg irr)
+;;     (assertion-violation who msg irr))
+
+  (define syntax-violation
+    (case-lambda
+      [(who msg form) (syntax-violation who msg form #f)]
+      [(who msg form subform) 
+       (syntax-violation* who msg form 
+          (make-syntax-violation 
+            (syntax->datum form)
+            (syntax->datum subform)))]))
+
+  (define-syntax stx-error
+    (lambda (x)
+      (syntax-case x ()
+        ((_ stx)
+         (syntax (syntax-violation #f "invalid syntax" stx)))
+        ((_ stx msg)
+         (syntax (syntax-violation #f msg stx))))))
+
+
+  ;;; Two lists of marks are considered the same if they have the 
+  ;;; same length and the corresponding marks on each are eq?.
+  (define same-marks?
+    (lambda (x y)
+      (or (and (null? x) (null? y)) ;(eq? x y)
+          (and (pair? x) (pair? y)
+               (eq? (car x) (car y))
+               (same-marks? (cdr x) (cdr y))))))
+
+
+(define (annotation-expression x) x)
+(define (annotation-stripped x) x)
+(define (annotation? x) #f)
+
+(define interaction-env-rtd
+  (make-record-type-descriptor
+    'interaction-env #f
+    #f #f #f 
+    '#((mutable rib) (mutable r) (mutable locs))))
+
+(define interaction-env-rcd
+  (make-record-constructor-descriptor interaction-env-rtd #f #f))
+
+(define make-interaction-env (record-constructor interaction-env-rcd))
+
+(define interaction-env? (record-predicate interaction-env-rtd))
+(define interaction-env-rib (record-accessor interaction-env-rtd 0))
+(define set-interaction-env-rib! (record-mutator interaction-env-rtd 0))
+(define interaction-env-r (record-accessor interaction-env-rtd 1))
+(define set-interaction-env-r! (record-mutator interaction-env-rtd 1))
+(define interaction-env-locs (record-accessor interaction-env-rtd 2))
+(define set-interaction-env-locs! (record-mutator interaction-env-rtd 2))
+
+
+(define stx-rtd
+  (make-record-type-descriptor
+    'stx #f
+    #f #f #f 
+    '#((mutable expr) (mutable mark*) (mutable subst*) (mutable ae*))))
+
+(define stx-rcd
+  (make-record-constructor-descriptor stx-rtd #f #f))
+
+(define make-stx (record-constructor stx-rcd))
+
+(define stx? (record-predicate stx-rtd))
+(define stx-expr (record-accessor stx-rtd 0))
+(define stx-expr-set! (record-mutator stx-rtd 0))
+(define stx-mark* (record-accessor stx-rtd 1))
+(define stx-mark*-set! (record-mutator stx-rtd 1))
+(define stx-subst* (record-accessor stx-rtd 2))
+(define stx-subst*-set! (record-mutator stx-rtd 2))
+(define stx-ae* (record-accessor stx-rtd 3))
+(define stx-ae*-set! (record-mutator stx-rtd 3))
+
+  (define id->sym
+    (lambda (x)
+      (unless (stx? x)
+        (error 'id->sym "BUG in ikarus: not an id" x))
+      (let ([expr (stx-expr x)])
+        (let ([sym (if (annotation? expr) 
+                       (annotation-stripped expr)
+                       expr)])
+          (if (symbol? sym) 
+              sym
+              (error 'id->sym "BUG in ikarus: not an id" x))))))
+
   
   (define (set-cons x ls)
     (cond
@@ -236,32 +326,32 @@
       (set-rib-mark**! rib (vector->list (rib-mark** rib)))
       (set-rib-label*! rib (vector->list (rib-label* rib)))))
 
-  #;(define (increment-rib-frequency! rib idx)
-    (let ((freq* (rib-sealed/freq rib)))
-      (let ((freq (vector-ref freq* idx)))
-        (let ((i
-               (let f ((i idx))
-                 (cond
-                   ((zero? i) 0)
-                   (else
-                    (let ((j (- i 1)))
-                      (cond
-                        ((= freq (vector-ref freq* j)) (f j))
-                        (else i))))))))
-          (vector-set! freq* i (+ freq 1))
-          (unless (= i idx)
-            (let ((sym* (rib-sym* rib))
-                  (mark** (rib-mark** rib))
-                  (label* (rib-label* rib)))
-              (let ((sym (vector-ref sym* idx)))
-                (vector-set! sym* idx (vector-ref sym* i))
-                (vector-set! sym* i sym))
-              (let ((mark* (vector-ref mark** idx)))
-                (vector-set! mark** idx (vector-ref mark** i))
-                (vector-set! mark** i mark*))
-              (let ((label (vector-ref label* idx)))
-                (vector-set! label* idx (vector-ref label* i))
-                (vector-set! label* i label))))))))
+;;   #;(define (increment-rib-frequency! rib idx)
+;;     (let ((freq* (rib-sealed/freq rib)))
+;;       (let ((freq (vector-ref freq* idx)))
+;;         (let ((i
+;;                (let f ((i idx))
+;;                  (cond
+;;                    ((zero? i) 0)
+;;                    (else
+;;                     (let ((j (- i 1)))
+;;                       (cond
+;;                         ((= freq (vector-ref freq* j)) (f j))
+;;                         (else i))))))))
+;;           (vector-set! freq* i (+ freq 1))
+;;           (unless (= i idx)
+;;             (let ((sym* (rib-sym* rib))
+;;                   (mark** (rib-mark** rib))
+;;                   (label* (rib-label* rib)))
+;;               (let ((sym (vector-ref sym* idx)))
+;;                 (vector-set! sym* idx (vector-ref sym* i))
+;;                 (vector-set! sym* i sym))
+;;               (let ((mark* (vector-ref mark** idx)))
+;;                 (vector-set! mark** idx (vector-ref mark** i))
+;;                 (vector-set! mark** i mark*))
+;;               (let ((label (vector-ref label* idx)))
+;;                 (vector-set! label* idx (vector-ref label* i))
+;;                 (vector-set! label* i label))))))))
 
   (define make-full-rib ;;; it may be a good idea to seal this rib
     (lambda (id* label*)
@@ -270,20 +360,21 @@
         r)))
 
   ;;; Now to syntax objects which are records defined like:
-  (define-record stx (expr mark* subst* ae*)
-    (lambda (x p)
-      (display "#<syntax " p)
-      (write (stx->datum x) p)
-      (let ([expr (stx-expr x)])
-        (when (annotation? expr) 
-          (let ([src (annotation-source expr)])
-            (when (pair? src)
-              (display " [" p)
-              (display (cdr src) p)
-              (display " of " p)
-              (display (car src) p)
-              (display "]" p)))))
-      (display ">" p)))
+;;   (define-record stx (expr mark* subst* ae*)
+;;     (lambda (x p)
+;;       (display "#<syntax " p)
+;;       (write (stx->datum x) p)
+;;       (let ([expr (stx-expr x)])
+;;         (when (annotation? expr) 
+;;           (let ([src (annotation-source expr)])
+;;             (when (pair? src)
+;;               (display " [" p)
+;;               (display (cdr src) p)
+;;               (display " of " p)
+;;               (display (car src) p)
+;;               (display "]" p)))))
+;;       (display ">" p)))
+
 
   ;;; First, let's look at identifiers, since they're the real 
   ;;; reason why syntax objects are here to begin with.
@@ -487,27 +578,27 @@
           (symbol? (if (annotation? expr)
                        (annotation-stripped expr)
                        expr))))))
-  
-  (define id->sym
-    (lambda (x)
-      (unless (stx? x)
-        (error 'id->sym "BUG in ikarus: not an id" x))
-      (let ([expr (stx-expr x)])
-        (let ([sym (if (annotation? expr) 
-                       (annotation-stripped expr)
-                       expr)])
-          (if (symbol? sym) 
-              sym
-              (error 'id->sym "BUG in ikarus: not an id" x))))))
+;; moved to top  
+;;   (define id->sym
+;;     (lambda (x)
+;;       (unless (stx? x)
+;;         (error 'id->sym "BUG in ikarus: not an id" x))
+;;       (let ([expr (stx-expr x)])
+;;         (let ([sym (if (annotation? expr) 
+;;                        (annotation-stripped expr)
+;;                        expr)])
+;;           (if (symbol? sym) 
+;;               sym
+;;               (error 'id->sym "BUG in ikarus: not an id" x))))))
 
   ;;; Two lists of marks are considered the same if they have the 
   ;;; same length and the corresponding marks on each are eq?.
-  (define same-marks?
-    (lambda (x y)
-      (or (and (null? x) (null? y)) ;(eq? x y)
-          (and (pair? x) (pair? y)
-               (eq? (car x) (car y))
-               (same-marks? (cdr x) (cdr y))))))
+;;   (define same-marks?
+;;     (lambda (x y)
+;;       (or (and (null? x) (null? y)) ;(eq? x y)
+;;           (and (pair? x) (pair? y)
+;;                (eq? (car x) (car y))
+;;                (same-marks? (cdr x) (cdr y))))))
   
   ;;; Two identifiers are bound-id=? if they have the same name and
   ;;; the same set of marks.
@@ -727,13 +818,13 @@
                     (values 'constant d #f)
                     (values 'other #f #f)))))))
 
-  (define-syntax stx-error
-    (lambda (x)
-      (syntax-case x ()
-        ((_ stx)
-         (syntax (syntax-violation #f "invalid syntax" stx)))
-        ((_ stx msg)
-         (syntax (syntax-violation #f msg stx))))))
+;;   (define-syntax stx-error
+;;     (lambda (x)
+;;       (syntax-case x ()
+;;         ((_ stx)
+;;          (syntax (syntax-violation #f "invalid syntax" stx)))
+;;         ((_ stx msg)
+;;          (syntax (syntax-violation #f msg stx))))))
   
   ;;; when the rhs of a syntax definition is evaluated, it should be
   ;;; either a procedure, an identifier-syntax transformer or an
@@ -1188,9 +1279,9 @@
         (cond
           [(null? x*) (values '() old* new*)]
           [else
-           (let*-values ([(x old* new*) (rename (car x*) old* new*)]
-                         [(x* old* new*) (rename* (cdr x*) old* new*)])
-             (values (cons x x*) old* new*))]))
+           (let-values ([(x old* new*) (rename (car x*) old* new*)])
+             (let-values ([(x* old* new*) (rename* (cdr x*) old* new*)])
+             (values (cons x x*) old* new*)))]))
       (syntax-match stx ()
         ((_ () b b* ...)
          (cons* (bless 'let) '() b b*))
@@ -1209,13 +1300,13 @@
                         (lambda ,y* 
                           ,(f (cdr lhs*) (cdr rhs*) old* new*))))]
                   [(x* ... . x)
-                   (let*-values ([(y old* new*) (rename x old* new*)]
-                                 [(y* old* new*) (rename* x* old* new*)])
+                   (let-values ([(y old* new*) (rename x old* new*)])
+                     (let-values ([(y* old* new*) (rename* x* old* new*)])
                      `(call-with-values 
                         (lambda () ,(car rhs*))
                         (lambda ,(append y* y)
                           ,(f (cdr lhs*) (cdr rhs*)
-                              old* new*))))]
+                              old* new*)))))]
                   [others
                    (syntax-violation #f "malformed bindings"
                       stx others)])])))))))
@@ -1452,7 +1543,7 @@
          (bless `(unless ,expr
                    (assertion-violation 'assert "assertion failed" ',expr)))))))
 
-  (define read-annotated read)
+;  (define read-annotated read)
   
   (define endianness-macro
     (lambda (stx)
@@ -3612,9 +3703,10 @@
     (lambda (x p)
       (display "#<environment>" p)))
 
-  (define-record interaction-env (rib r locs)
-    (lambda (x p)
-      (display "#<environment>" p)))
+;; moved to top
+;;   (define-record interaction-env (rib r locs)
+;;     (lambda (x p)
+;;       (display "#<environment>" p)))
       
   (define (interaction-environment-symbols)
     (map (lambda (x) x)
@@ -3923,14 +4015,6 @@
              (extract-position-condition form)
              (extract-trace form))))))
 
-  (define syntax-violation
-    (case-lambda
-      [(who msg form) (syntax-violation who msg form #f)]
-      [(who msg form subform) 
-       (syntax-violation* who msg form 
-          (make-syntax-violation 
-            (syntax->datum form)
-            (syntax->datum subform)))]))
 
   (define identifier? (lambda (x) (id? x)))
   
@@ -3971,7 +4055,7 @@
                 (set! the-env env)
                 env))))))
 
-  (define top-level-context (make-parameter #f))
+;;  (define top-level-context (make-parameter #f))
 
   ;;; register the expander with the library manager
   (current-library-expander library-expander))
