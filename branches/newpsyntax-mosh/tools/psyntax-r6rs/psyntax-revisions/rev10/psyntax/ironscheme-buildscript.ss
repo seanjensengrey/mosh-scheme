@@ -30,40 +30,40 @@
   (psyntax compat)
   (psyntax library-manager)
   (psyntax expander)
-  (only (ironscheme) time-it)
+;  (only (ironscheme) time-it)
   )
 
 (define scheme-library-files
   '(
-    "ironscheme/base.ss"
-    "ironscheme/hashtables.ss"
-    "ironscheme/files.ss"
-    "ironscheme/lists.ss"
-    "ironscheme/bytevectors.ss"
-    "ironscheme/control.ss"
-    "ironscheme/enums.ss"
-    "ironscheme/eval.ss"
-    "ironscheme/exceptions.ss"
-    "ironscheme/conditions.ss"
-    "ironscheme/mutable-pairs.ss"
-    "ironscheme/mutable-strings.ss"
-    "ironscheme/programs.ss"
-    "ironscheme/r5rs.ss"
-    "ironscheme/sorting.ss"
-    "ironscheme/syntax-case.ss"
-    "ironscheme/unicode.ss"
-    "ironscheme/arithmetic/bitwise.ss"
-    "ironscheme/arithmetic/fixnums.ss"
-    "ironscheme/arithmetic/flonums.ss"
-    "ironscheme/io/conditions.ss"
-    "ironscheme/io/ports.ss"
-    "ironscheme/io/simple.ss"
-    "ironscheme/records/inspection.ss"
-    "ironscheme/records/procedural.ss"
-    "ironscheme/records/syntactic.ss"
+;;     "ironscheme/base.ss"
+;;     "ironscheme/hashtables.ss"
+;;     "ironscheme/files.ss"
+;;     "ironscheme/lists.ss"
+;;     "ironscheme/bytevectors.ss"
+;;     "ironscheme/control.ss"
+;;     "ironscheme/enums.ss"
+;;     "ironscheme/eval.ss"
+;;     "ironscheme/exceptions.ss"
+;;     "ironscheme/conditions.ss"
+;;     "ironscheme/mutable-pairs.ss"
+;;     "ironscheme/mutable-strings.ss"
+;;     "ironscheme/programs.ss"
+;;     "ironscheme/r5rs.ss"
+;;     "ironscheme/sorting.ss"
+;;     "ironscheme/syntax-case.ss"
+;;     "ironscheme/unicode.ss"
+;;     "ironscheme/arithmetic/bitwise.ss"
+;;     "ironscheme/arithmetic/fixnums.ss"
+;;     "ironscheme/arithmetic/flonums.ss"
+;;     "ironscheme/io/conditions.ss"
+;;     "ironscheme/io/ports.ss"
+;;     "ironscheme/io/simple.ss"
+;;     "ironscheme/records/inspection.ss"
+;;     "ironscheme/records/procedural.ss"
+;;     "ironscheme/records/syntactic.ss"
     
-    "ironscheme/format.ss"
-    "ironscheme/trace.ss"
+;;     "ironscheme/format.ss"
+;;     "ironscheme/trace.ss"
     
     "psyntax/compat.ss"
     "psyntax/internal.ss"
@@ -1319,6 +1319,9 @@
       ((x) 
        (unless (memq x ls) 
          (set! ls (cons x ls)))))))
+  (define (time-it message expr)
+    (expr))
+
 
 (verify-map)
 

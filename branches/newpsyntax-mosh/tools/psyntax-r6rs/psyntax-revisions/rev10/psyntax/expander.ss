@@ -52,6 +52,13 @@
     (only (rnrs syntax-case) syntax-case syntax with-syntax)
     (prefix (rnrs syntax-case) sys.))
 
+  (define (time-it message expr)
+    (expr))
+
+  ;; temporary
+  (define (compile-core expr)
+    (error 'compile-core "compile-core is not implemented"))
+
   (define top-level-context (make-parameter #f))
 ;;   (define (syntax-violation who msg irr)
 ;;     (assertion-violation who msg irr))
@@ -86,6 +93,7 @@
 
 (define (annotation-expression x) x)
 (define (annotation-stripped x) x)
+(define (annotation-source x) '())
 (define (annotation? x) #f)
 
 (define interaction-env-rtd
@@ -4044,6 +4052,7 @@
     (let ([the-env #f])
       (lambda ()
         (or the-env 
+;            (let ([lib (find-library-by-name '(rnrs))] ; mosh
             (let ([lib (find-library-by-name '(ironscheme))]
                   [rib (make-empty-rib)])
               (let ([subst (library-subst lib)]) 
