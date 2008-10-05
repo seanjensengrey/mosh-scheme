@@ -1,24 +1,24 @@
 ;;; Copyright (c) 2006, 2007 Abdulaziz Ghuloum and Kent Dybvig
-;;;
+;;; 
 ;;; Permission is hereby granted, free of charge, to any person obtaining a
 ;;; copy of this software and associated documentation files (the "Software"),
 ;;; to deal in the Software without restriction, including without limitation
 ;;; the rights to use, copy, modify, merge, publish, distribute, sublicense,
 ;;; and/or sell copies of the Software, and to permit persons to whom the
 ;;; Software is furnished to do so, subject to the following conditions:
-;;;
+;;; 
 ;;; The above copyright notice and this permission notice shall be included in
 ;;; all copies or substantial portions of the Software.
-;;;
+;;; 
 ;;; THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 ;;; IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 ;;; FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
 ;;; THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 ;;; LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 ;;; FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-;;; DEALINGS IN THE SOFTWARE.
+;;; DEALINGS IN THE SOFTWARE. 
 
-(import
+(import 
   (rnrs base)
   (rnrs control)
   (rnrs io simple)
@@ -30,48 +30,49 @@
   (psyntax compat)
   (psyntax library-manager)
   (psyntax expander)
-;  (only (ironscheme) time-it)
+  (only (ironscheme) time-it)
   )
+
 
 (define scheme-library-files
   '(
-;;     "ironscheme/base.ss"
-;;     "ironscheme/hashtables.ss"
-;;     "ironscheme/files.ss"
-;;     "ironscheme/lists.ss"
-;;     "ironscheme/bytevectors.ss"
-;;     "ironscheme/control.ss"
-;;     "ironscheme/enums.ss"
-;;     "ironscheme/eval.ss"
-;;     "ironscheme/exceptions.ss"
-;;     "ironscheme/conditions.ss"
-;;     "ironscheme/mutable-pairs.ss"
-;;     "ironscheme/mutable-strings.ss"
-;;     "ironscheme/programs.ss"
-;;     "ironscheme/r5rs.ss"
-;;     "ironscheme/sorting.ss"
-;;     "ironscheme/syntax-case.ss"
-;;     "ironscheme/unicode.ss"
-;;     "ironscheme/arithmetic/bitwise.ss"
-;;     "ironscheme/arithmetic/fixnums.ss"
-;;     "ironscheme/arithmetic/flonums.ss"
-;;     "ironscheme/io/conditions.ss"
-;;     "ironscheme/io/ports.ss"
-;;     "ironscheme/io/simple.ss"
-;;     "ironscheme/records/inspection.ss"
-;;     "ironscheme/records/procedural.ss"
-;;     "ironscheme/records/syntactic.ss"
-
-;;     "ironscheme/format.ss"
-;;     "ironscheme/trace.ss"
-    "psyntax/hoge.ss"
-;;     "psyntax/compat.ss"
-;;     "psyntax/internal.ss"
-;;     "psyntax/config.ss"
-;;     "psyntax/library-manager.ss"
-;;     "psyntax/builders.ss"
-;;     "psyntax/expander.ss"
-;;     "psyntax/main.ss"
+    "ironscheme/base.ss"
+    "ironscheme/hashtables.ss"
+    "ironscheme/files.ss"
+    "ironscheme/lists.ss"
+    "ironscheme/bytevectors.ss"
+    "ironscheme/control.ss"
+    "ironscheme/enums.ss"
+    "ironscheme/eval.ss"
+    "ironscheme/exceptions.ss"
+    "ironscheme/conditions.ss"
+    "ironscheme/mutable-pairs.ss"
+    "ironscheme/mutable-strings.ss"
+    "ironscheme/programs.ss"
+    "ironscheme/r5rs.ss"
+    "ironscheme/sorting.ss"
+    "ironscheme/syntax-case.ss"
+    "ironscheme/unicode.ss"
+    "ironscheme/arithmetic/bitwise.ss"
+    "ironscheme/arithmetic/fixnums.ss"
+    "ironscheme/arithmetic/flonums.ss"
+    "ironscheme/io/conditions.ss"
+    "ironscheme/io/ports.ss"
+    "ironscheme/io/simple.ss"
+    "ironscheme/records/inspection.ss"
+    "ironscheme/records/procedural.ss"
+    "ironscheme/records/syntactic.ss"
+    
+    "ironscheme/format.ss"
+    "ironscheme/trace.ss"
+    
+    "psyntax/compat.ss"
+    "psyntax/internal.ss"
+    "psyntax/config.ss"
+    "psyntax/library-manager.ss"
+    "psyntax/builders.ss"
+    "psyntax/expander.ss"
+    "psyntax/main.ss"
     ))
 
 
@@ -95,7 +96,7 @@
     (letrec              (core-macro . letrec))
     (letrec*             (core-macro . letrec*))
     (if                  (core-macro . if))
-    (when                (core-macro . when))
+    (when                (core-macro . when))         
     (unless              (core-macro . unless))
     (parameterize        (core-macro . parameterize))
     (case                (core-macro . case))
@@ -142,9 +143,9 @@
     (buffer-mode           (macro . buffer-mode))
     (file-options          (macro . file-options))
     (error-handling-mode   (macro . error-handling-mode))
-    (fields                (macro . fields))
+    (fields                (macro . fields)) 
     (mutable               (macro . mutable))
-    (immutable             (macro . immutable))
+    (immutable             (macro . immutable)) 
     (parent                (macro . parent))
     (protocol              (macro . protocol))
     (sealed                (macro . sealed))
@@ -156,10 +157,10 @@
     (define-condition-type (macro . define-condition-type))
     ;;; for (record-type-descriptor &condition-type) and
     ;;; (record-constructor-descriptor &condition-type) to
-    ;;; expand properly, the implementation must export
-    ;;; the identifiers &condition-type-rtd, which must
-    ;;; be bound to the run-time value of the rtd, and
-    ;;; &condition-type-rcd which must be bound to the
+    ;;; expand properly, the implementation must export 
+    ;;; the identifiers &condition-type-rtd, which must 
+    ;;; be bound to the run-time value of the rtd, and 
+    ;;; &condition-type-rcd which must be bound to the 
     ;;; corresponding record-constructor-descriptor.
     (&condition                ($core-rtd . (&condition-rtd &condition-rcd)))
     (&message                  ($core-rtd . (&message-rtd &message-rcd)))
@@ -236,13 +237,13 @@
     ($boot       (psyntax system $bootstrap)           #f    #t)
     ))
 
-;;; required? flag means that said library is required for
+;;; required? flag means that said library is required for 
 ;;; building the system.  The only non-r6rs required libraries
 ;;; should be (psyntax system $bootstrap) and (psyntax system $all).
-;;; (psyntax system $bootstrap) should export, at a minimum, the
+;;; (psyntax system $bootstrap) should export, at a minimum, the 
 ;;; following procedures: gensym, symbol-value, set-symbol-value!,
 ;;; eval-core, and pretty-print.
-;;; (psyntax system $all) is fabricated by the system to include
+;;; (psyntax system $all) is fabricated by the system to include 
 ;;; every identifier in the system.
 
 
@@ -268,9 +269,9 @@
     (pmap                                       i)
     (trace-lambda                               i)
     (trace-define                               i)
-    (trace-define-syntax                        i)
+    (trace-define-syntax                        i) 
     (trace-let-syntax                           i)
-    (trace-letrec-syntax                        i)
+    (trace-letrec-syntax                        i) 
     (make-traced-macro                          i)
     (make-traced-procedure                      i ic)
     (trace-printer                              i)
@@ -282,8 +283,8 @@
     (vector-copy                                i)
     (vector-index-of                            i)
     (vector-contains?                           i)
-    (vector-reverse!                            i)
-    (vector-filter                              i)
+    (vector-reverse!                            i) 
+    (vector-filter                              i) 
     (vector-append                              i)
     (get-command-line                           ic)
     (get-clr-type                               i)
@@ -510,9 +511,9 @@
     (bitwise-rotate-bit-field                   i r bw)
     ;;;
     (fixnum?                                    i r fx)
-    (fixnum-width                               i r fx)
-    (least-fixnum                               i r fx)
-    (greatest-fixnum                            i r fx)
+    (fixnum-width                               i r fx) 
+    (least-fixnum                               i r fx) 
+    (greatest-fixnum                            i r fx) 
     (fx*                                        i r fx)
     (fx*/carry                                  i r fx)
     (fx+                                        i r fx)
@@ -621,7 +622,7 @@
     (bytevector-ieee-single-native-ref          i r bv)
     (bytevector-ieee-single-native-set!         i r bv)
     (bytevector-ieee-single-ref                 i r bv)
-    (bytevector-ieee-single-set!                i r bv)
+    (bytevector-ieee-single-set!                i r bv)    
     (bytevector-length                          i r bv)
     (bytevector-s16-native-ref                  i r bv)
     (bytevector-s16-native-set!                 i r bv)
@@ -995,7 +996,7 @@
     (identifier?                                i r sc)
     (make-variable-transformer                  i r sc)
     (variable-transformer?                      i ic)
-    (variable-transformer-procedure             i ic)
+    (variable-transformer-procedure             i ic) 
 
     ;;;
     (char-alphabetic?                           i r uc se)
@@ -1036,7 +1037,7 @@
     (compile-system-libraries                   i)
     (serialize-library                          iser)
     (load-serialized-library                    iser)
-        ;;;
+		;;;
     (void                                       $boot i)
     (gensym                                     $boot i)
     (ungensym                                   i)
@@ -1047,7 +1048,7 @@
     (module                                     i)
     (syntax-dispatch ) ; only goes to $all
     (syntax-error    ) ; only goes to $all
-
+    
     (clr-clear-usings-internal                  is-clr-int)
     (clr-using-internal                         is-clr-int)
     (clr-reference-internal                     is-clr-int)
@@ -1059,7 +1060,7 @@
     (clr-field-get-internal                     is-clr-int)
     (clr-field-set!-internal                    is-clr-int)
     (define-clr-class-internal                  is-clr-int)
-
+    
     (ironscheme-build                           i)
     (stacktrace                                 i)
     (license                                    i)
@@ -1072,15 +1073,15 @@
     (sinh                                       i)
     (cosh                                       i)
     (tanh                                       i)
-
+    
     (read-annotated                             ir)
     (annotation?                                ir)
     (annotation-expression                      ir)
     (annotation-source                          ir)
     (annotation-stripped                        ir)
-
+    
     (library-letrec*)
-
+    
     ;;; these should be assigned when creating the record types
     (&condition-rtd)
     (&condition-rcd)
@@ -1205,7 +1206,7 @@
 
 (define identifier->library-map-hashtable
   (let ((ht (make-eq-hashtable)))
-    (for-each
+    (for-each 
       (lambda (x)
         (hashtable-set! ht (car x) x))
       identifier->library-map)
@@ -1275,7 +1276,6 @@
 (define (expand-all files)
   ;;; remove all re-exported identifiers (those with labels in
   ;;; subst but not binding in env).
-  (define read-annotated read)
   (define (prune-subst subst env)
     (cond
       ((null? subst) '())
@@ -1286,7 +1286,7 @@
        (lambda ()
          (let f ()
            (let ((x (read-annotated)))
-             (unless (eof-object? x)
+             (unless (eof-object? x) 
                (proc x)
                (f)))))))
   (let-values (((code* subst env) (make-init-code)))
@@ -1316,18 +1316,15 @@
   (let ((ls '()))
     (case-lambda
       (() ls)
-      ((x)
-       (unless (memq x ls)
+      ((x) 
+       (unless (memq x ls) 
          (set! ls (cons x ls)))))))
-  (define (time-it message expr)
-    (expr))
-
 
 (verify-map)
 
 (let ((all-names (map car identifier->library-map))
       (all-labels (map (lambda (x) (gensym)) identifier->library-map))
-      (all-bindings (map (lambda (x)
+      (all-bindings (map (lambda (x) 
                            (cond
                              ((macro-identifier x) => cadr)
                              (else `(core-prim . ,x))))
@@ -1352,7 +1349,7 @@
                               (values
                                 (get-export-subset key export-subst)
                                 '()))))
-              (parameterize ((current-library-collection
+              (parameterize ((current-library-collection 
                               bootstrap-collection))
                 (install-library
                    id name version import-libs visit-libs invoke-libs
@@ -1369,7 +1366,7 @@
          (for-each set-symbol-value! g* v*)
          (let ((alist (map cons '(name* ...) g*)))
            (current-primitive-locations
-             (lambda (x)
+             (lambda (x) 
                (cond
                  ((assq x alist) => cdr)
                  (else (error #f "undefined prim" x))))))))))
@@ -1377,15 +1374,15 @@
     syntax-dispatch apply cons append map list syntax-error reverse
     assertion-violation null? car cdr pair? bound-identifier=?
     generate-temporaries = + datum->syntax string->symbol void
-    string-append symbol->string syntax->datum gensym length
+    string-append symbol->string syntax->datum gensym length 
     open-string-output-port identifier? free-identifier=? exists
     values call-with-values for-all ellipsis-map vector eq? eqv?))
 
-(time-it "the entire bootstrap process"
-  (lambda ()
+(time-it "the entire bootstrap process"  
+  (lambda () 
     (let-values (((core* locs)
-                   (time-it "macro expansion"
-                     (lambda ()
+                   (time-it "macro expansion"  
+                     (lambda ()   
                        (parameterize ((current-library-collection bootstrap-collection))
                          (expand-all scheme-library-files))))))
         (current-primitive-locations
@@ -1400,11 +1397,15 @@
           (display ";;; Copyright (c) 2007, 2008 Llewellyn Pritchard" p) (newline p)
           (display ";;; automatically generated from psyntax & ironscheme sources" p) (newline p)
           (display ";;; for copyright details, see psyntax/main.ss" p) (newline p) (newline p)
-          (time-it "code generation and pretty-print"
-            (lambda ()
+          (time-it "code generation and pretty-print"  
+            (lambda ()  
               (for-each
                 (lambda (x)
                   (compile-core-expr-to-port x p)
                   (newline p))
                 core*)))
           (close-output-port p)))))
+
+(display "IronScheme build completed.\n")
+
+

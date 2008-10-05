@@ -19,26 +19,15 @@
 ;;; DEALINGS IN THE SOFTWARE. 
 
 (library (psyntax compat)
-  (export make-parameter  define-record parameterize ;compile-core 
-          gensym void eval-core symbol-value set-symbol-value! file-options-spec
-          read-annotated
-          read-library-source-file)
+  (export make-parameter parameterize define-record pretty-print
+          gensym void eval-core symbol-value set-symbol-value!
+          file-options-spec)
   (import 
     (rnrs)
-;    (ironscheme reader)
-;    (ironscheme records printer)
-;    (ironscheme serialization)
     (only (psyntax system $bootstrap)
-          void gensym eval-core set-symbol-value! symbol-value ))
-;compile-core))
+          void gensym eval-core set-symbol-value! symbol-value 
+          pretty-print))
 
-  (define read-annotated read)
-
-  (define (read-library-source-file file-name)
-		(with-input-from-file file-name read-annotated))
-
-
-  
   (define make-parameter
     (case-lambda
       ((x) (make-parameter x (lambda (x) x)))
@@ -68,39 +57,33 @@
                    swap
                    (lambda () b b* ...)
                    swap)))))))))
-                       
-;; (define-syntax define-record
-;;   (lambda (x)
-;; 	  (define (syn->str s)
-;; 		  (symbol->string
-;; 			  (syntax->datum s)))
-;;     (define (gen-getter id)
-;;       (lambda (fld)
-;;         (datum->syntax id
-;;           (string->symbol
-;;             (string-append (syn->str id) "-" (syn->str fld))))))
-;;     (define (gen-setter id)
-;;       (lambda (fld)
-;;         (datum->syntax id
-;;           (string->symbol
-;;             (string-append "set-" (syn->str id) "-" (syn->str fld) "!")))))
-;;     (syntax-case x ()
-;;       [(_ name (field* ...) printer)
-;;        #`(begin 
-;;            (define-record name (field* ...)) 
-;; ;           (define rp (make-record-printer 'name printer)))]
-;;            )]
-;;       [(_ name (field* ...))
-;;        (with-syntax ([(getter* ...)
-;;                       (map (gen-getter #'name) #'(field* ...))]
-;;                      [(setter* ...)
-;;                       (map (gen-setter #'name) #'(field* ...))])
-;;          #`(define-record-type name
-;;              (sealed #t) ; for better performance
-;;              (opaque #t) ; for security
-;;              (nongenerative) ; for sanity
-;;              (fields (mutable field* getter* setter*) ...)))])))                       
 
+  ;;; we represent records as vectors for portability but this is 
+  ;;; not nice.  If your system supports compile-time generative
+  ;;; records, replace the definition of define-record with your 
+  ;;; system supplied definition (which you should support in the 
+  ;;; expander first of course).
+  ;;; if your system allows associating printers with records, 
+  ;;; a printer procedure is provided (so you can use it in the 
+  ;;; output of the macro).  The printers provided take two 
+  ;;; arguments, a record instance and an output port.  They 
+  ;;; output something like #<stx (foo bar)> or #<library (rnrs)> 
+  ;;; to the port.
+  ;;;
+  ;;; The following should be good for full R6RS implementations.
+  ;;;
+  ;;;   (define-syntax define-record
+  ;;;     (syntax-rules ()
+  ;;;       [(_ name (field* ...) printer) 
+  ;;;        (define-record name (field* ...))]
+  ;;;       [(_ name (field* ...))
+  ;;;        (define-record-type name 
+  ;;;           (sealed #t)     ; for better performance
+  ;;;           (opaque #t)     ; for security
+  ;;;           (nongenerative) ; for sanity
+  ;;;           (fields field* ...))]))
+
+  ;; from rev0
   (define-syntax define-record
     (lambda (stx)
       (define (iota i j)
@@ -176,8 +159,9 @@
                               'name))))
                ...)))))))
 
+  (define (file-options-spec x) 
+    (error 'file-options-spec "not implemented"))
 
-  (define (file-options-spec x) x)
 )
 
 
