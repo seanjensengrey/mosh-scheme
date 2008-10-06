@@ -51,6 +51,24 @@
     (psyntax internal)
     (only (rnrs syntax-case) syntax-case syntax with-syntax)
     (prefix (rnrs syntax-case) sys.))
+
+    (define stx-rtd
+      (make-record-type-descriptor
+        'stx #f
+        #f #f #f
+        '#((mutable expr) (mutable mark*) (mutable subst*) (mutable ae*))))
+
+    (define stx-rcd
+      (make-record-constructor-descriptor stx-rtd #f #f))
+
+    (define make-stx (record-constructor stx-rcd))
+
+    (define stx? (record-predicate stx-rtd))
+    (define stx-expr (record-accessor stx-rtd 0))
+    (define stx-mark* (record-accessor stx-rtd 1))
+    (define stx-subst* (record-accessor stx-rtd 2))
+    (define stx-ae* (record-accessor stx-rtd 3))
+
   
   (define (set-cons x ls)
     (cond
@@ -153,7 +171,32 @@
   ;;; symbols, consing the identifier's list of marks to the rib's
   ;;; mark**, and consing the label to the rib's labels.
 
-  (define-record rib (sym* mark** label* sealed/freq))
+;;  (define-record rib (sym* mark** label* sealed/freq))
+
+
+    (define rib-rtd
+      (make-record-type-descriptor
+        'rib #f
+        #f #f #f
+        '#(
+           (mutable sym*)
+           (mutable mark**)
+           (mutable label*)
+           (mutable sealed/freq))))
+
+    (define rib-rcd
+      (make-record-constructor-descriptor rib-rtd #f #f))
+    (define make-rib (record-constructor rib-rcd))
+    (define rib? (record-predicate rib-rtd))
+
+    (define rib-sym* (record-accessor rib-rtd 0))
+    (define rib-mark** (record-accessor rib-rtd 1))
+    (define rib-label* (record-accessor rib-rtd 2))
+    (define rib-sealed/freq (record-accessor rib-rtd 3))
+    (define set-rib-sym*! (record-mutator rib-rtd 0))
+    (define set-rib-mark**! (record-mutator rib-rtd 1))
+    (define set-rib-label*! (record-mutator rib-rtd 2))
+    (define set-rib-sealed/freq! (record-mutator rib-rtd 3))
  
   (define make-empty-rib
     (lambda ()
@@ -236,32 +279,32 @@
       (set-rib-mark**! rib (vector->list (rib-mark** rib)))
       (set-rib-label*! rib (vector->list (rib-label* rib)))))
 
-  #;(define (increment-rib-frequency! rib idx)
-    (let ((freq* (rib-sealed/freq rib)))
-      (let ((freq (vector-ref freq* idx)))
-        (let ((i
-               (let f ((i idx))
-                 (cond
-                   ((zero? i) 0)
-                   (else
-                    (let ((j (- i 1)))
-                      (cond
-                        ((= freq (vector-ref freq* j)) (f j))
-                        (else i))))))))
-          (vector-set! freq* i (+ freq 1))
-          (unless (= i idx)
-            (let ((sym* (rib-sym* rib))
-                  (mark** (rib-mark** rib))
-                  (label* (rib-label* rib)))
-              (let ((sym (vector-ref sym* idx)))
-                (vector-set! sym* idx (vector-ref sym* i))
-                (vector-set! sym* i sym))
-              (let ((mark* (vector-ref mark** idx)))
-                (vector-set! mark** idx (vector-ref mark** i))
-                (vector-set! mark** i mark*))
-              (let ((label (vector-ref label* idx)))
-                (vector-set! label* idx (vector-ref label* i))
-                (vector-set! label* i label))))))))
+;;   #;(define (increment-rib-frequency! rib idx)
+;;     (let ((freq* (rib-sealed/freq rib)))
+;;       (let ((freq (vector-ref freq* idx)))
+;;         (let ((i
+;;                (let f ((i idx))
+;;                  (cond
+;;                    ((zero? i) 0)
+;;                    (else
+;;                     (let ((j (- i 1)))
+;;                       (cond
+;;                         ((= freq (vector-ref freq* j)) (f j))
+;;                         (else i))))))))
+;;           (vector-set! freq* i (+ freq 1))
+;;           (unless (= i idx)
+;;             (let ((sym* (rib-sym* rib))
+;;                   (mark** (rib-mark** rib))
+;;                   (label* (rib-label* rib)))
+;;               (let ((sym (vector-ref sym* idx)))
+;;                 (vector-set! sym* idx (vector-ref sym* i))
+;;                 (vector-set! sym* i sym))
+;;               (let ((mark* (vector-ref mark** idx)))
+;;                 (vector-set! mark** idx (vector-ref mark** i))
+;;                 (vector-set! mark** i mark*))
+;;               (let ((label (vector-ref label* idx)))
+;;                 (vector-set! label* idx (vector-ref label* i))
+;;                 (vector-set! label* i label))))))))
 
   (define make-full-rib ;;; it may be a good idea to seal this rib
     (lambda (id* label*)
@@ -270,20 +313,22 @@
         r)))
 
   ;;; Now to syntax objects which are records defined like:
-  (define-record stx (expr mark* subst* ae*)
-    (lambda (x p)
-      (display "#<syntax " p)
-      (write (stx->datum x) p)
-      (let ([expr (stx-expr x)])
-        (when (annotation? expr) 
-          (let ([src (annotation-source expr)])
-            (when (pair? src)
-              (display " [" p)
-              (display (cdr src) p)
-              (display " of " p)
-              (display (car src) p)
-              (display "]" p)))))
-      (display ">" p)))
+;;   (define-record stx (expr mark* subst* ae*)
+;;     (lambda (x p)
+;;       (display "#<syntax " p)
+;;       (write (stx->datum x) p)
+;;       (let ([expr (stx-expr x)])
+;;         (when (annotation? expr) 
+;;           (let ([src (annotation-source expr)])
+;;             (when (pair? src)
+;;               (display " [" p)
+;;               (display (cdr src) p)
+;;               (display " of " p)
+;;               (display (car src) p)
+;;               (display "]" p)))))
+;;       (display ">" p)))
+
+
 
   ;;; First, let's look at identifiers, since they're the real 
   ;;; reason why syntax objects are here to begin with.
@@ -1188,9 +1233,10 @@
         (cond
           [(null? x*) (values '() old* new*)]
           [else
-           (let*-values ([(x old* new*) (rename (car x*) old* new*)]
-                         [(x* old* new*) (rename* (cdr x*) old* new*)])
-             (values (cons x x*) old* new*))]))
+           ;; for mosh let*-values => let-values/let-values
+           (let-values ([(x old* new*) (rename (car x*) old* new*)])
+             (let-values ([(x* old* new*) (rename* (cdr x*) old* new*)])
+             (values (cons x x*) old* new*)))]))
       (syntax-match stx ()
         ((_ () b b* ...)
          (cons* (bless 'let) '() b b*))
@@ -1209,13 +1255,13 @@
                         (lambda ,y* 
                           ,(f (cdr lhs*) (cdr rhs*) old* new*))))]
                   [(x* ... . x)
-                   (let*-values ([(y old* new*) (rename x old* new*)]
-                                 [(y* old* new*) (rename* x* old* new*)])
+                   (let-values ([(y old* new*) (rename x old* new*)])
+                     (let-values ([(y* old* new*) (rename* x* old* new*)])
                      `(call-with-values 
                         (lambda () ,(car rhs*))
                         (lambda ,(append y* y)
                           ,(f (cdr lhs*) (cdr rhs*)
-                              old* new*))))]
+                              old* new*)))))]
                   [others
                    (syntax-violation #f "malformed bindings"
                       stx others)])])))))))
@@ -1865,7 +1911,7 @@
            (if (free-id=? (bless id) x)
                `(,x . ,rest)
                (get-clause id ls))]))
-      (define (foo-rtd-code name clause* parent-rtd-code) 
+      (define (foo-rtd-code name clause* parent-rtd-code)
         (define (convert-field-spec* ls)
           (list->vector
             (map (lambda (x) 
@@ -2981,7 +3027,24 @@
              (stx-error e "module exports must be identifiers"))
            (values name (list->vector export*) b*))))))
 
-  (define-record module-interface (first-mark exp-id-vec exp-lab-vec))
+;  (define-record module-interface (first-mark exp-id-vec exp-lab-vec))
+
+    (define module-interface-rtd
+      (make-record-type-descriptor
+        'record #f
+        #f #f #f
+        '#((mutable first-mark) (mutable exp-id-vec) (mutable exp-lab-vec))))
+
+    (define module-interface-rcd
+      (make-record-constructor-descriptor module-interface-rtd #f #f))
+
+    (define make-module-interface (record-constructor module-interface-rcd))
+
+    (define module-interface? (record-predicate module-interface-rtd))
+    (define module-interface-first-mark (record-accessor module-interface-rtd 0))
+    (define module-interface-exp-id-vec (record-accessor module-interface-rtd 1))
+    (define module-interface-exp-lab-vec (record-accessor module-interface-rtd 2))
+
 
   (define (module-interface-exp-id* iface id)
     (define (diff-marks ls x) 
@@ -3606,13 +3669,47 @@
 
   ;;; An env record encapsulates a substitution and a set of
   ;;; libraries.
-  (define-record env (names labels itc)
-    (lambda (x p)
-      (display "#<environment>" p)))
+;;   (define-record env (names labels itc)
+;;     (lambda (x p)
+;;       (display "#<environment>" p)))
+;; 
+;;   (define-record interaction-env (rib r locs)
+;;     (lambda (x p)
+;;       (display "#<environment>" p)))
 
-  (define-record interaction-env (rib r locs)
-    (lambda (x p)
-      (display "#<environment>" p)))
+    (define env-rtd
+      (make-record-type-descriptor
+        'env #f
+        #f #f #f
+        '#((mutable names) (mutable labels*) (mutable itc))))
+
+    (define env-rcd
+      (make-record-constructor-descriptor env-rtd #f #f))
+    (define make-env (record-constructor env-rcd))
+
+    (define env? (record-predicate env-rtd))
+    (define env-names (record-accessor env-rtd 0))
+    (define env-labels (record-accessor env-rtd 1))
+    (define env-itc (record-accessor env-rtd 2))
+
+
+    (define interaction-env-rtd
+      (make-record-type-descriptor
+        'interaction-env #f
+        #f #f #f
+        '#((mutable rib) (mutable r) (mutable locs))))
+
+    (define interaction-env-rcd
+      (make-record-constructor-descriptor interaction-env-rtd #f #f))
+    (define make-interaction-env (record-constructor interaction-env-rcd))
+
+    (define interaction-env? (record-predicate interaction-env-rtd))
+    (define interaction-env-rib (record-accessor interaction-env-rtd 0))
+    (define interaction-env-r (record-accessor interaction-env-rtd 1))
+    (define interaction-env-locs (record-accessor interaction-env-rtd 2))
+    (define set-interaction-env-locs! (record-mutator interaction-env-rtd 2))
+    (define set-interaction-env-r! (record-mutator interaction-env-rtd 1))
+
       
   (define (interaction-environment-symbols)
     (map (lambda (x) x)

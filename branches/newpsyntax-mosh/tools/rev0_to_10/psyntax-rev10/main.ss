@@ -32,6 +32,7 @@
     (rnrs base)
     (rnrs control)
     (rnrs io simple)
+    (rename (rnrs programs) (command-line get-command-line))
     (rnrs lists)
     (only (rnrs conditions) serious-condition?)
     (only (rnrs exceptions) raise)
@@ -39,16 +40,22 @@
     (psyntax internal)
     (psyntax library-manager)
     (psyntax expander)
-    (only (ironscheme core) get-command-line format)
-    (ironscheme files)
-    (ironscheme library))
+    (mosh string)
+;    (only (ironscheme core) get-command-line format)
+;    (ironscheme files)
+;    (ironscheme library)
+)
     
   (define trace-printer (make-parameter write))
   
   (define command-line (make-parameter (get-command-line)))  
     
+;;   (define (local-library-path filename)
+;;     (cons (get-directory-name filename) (library-path)))
+
   (define (local-library-path filename)
-    (cons (get-directory-name filename) (library-path)))
+    (cons "." (library-path)))
+
 
   (define (load/args filename . args)
     (apply load-r6rs-top-level filename 'load args)
@@ -116,6 +123,7 @@
   
   (set-symbol-value! 'trace-printer trace-printer)
   
-  (library-path (get-library-paths))
+;  (library-path (get-library-paths))
+  (library-path ".")
   )
 

@@ -39,11 +39,11 @@
     "psyntax-rev10/config.ss"
     "psyntax-rev10/library-manager.ss"
     "psyntax-rev10/builders.ss"
-    "psyntax/expander-mosh.ss"
-    "~/mosh/lib/mosh/condition.ss"
-    "~/mosh/lib/mosh/io/conditions.ss"
-    "~/mosh/lib/mosh/unicode.ss"
-    "psyntax/main.ss"))
+    "psyntax-rev10/expander.ss"
+    "/Users/taro/mosh/lib/mosh/condition.ss"
+    "/Users/taro/mosh/lib/mosh/io/conditions.ss"
+    "/Users/taro/mosh/lib/mosh/unicode.ss"
+    "psyntax-rev10/main.ss"))
 
 
 (define psyntax-system-macros
@@ -1299,7 +1299,7 @@
     generate-temporaries = + datum->syntax string->symbol
     string-append symbol->string syntax->datum gensym length 
     open-string-output-port identifier? free-identifier=? exists
-    values call-with-values for-all))
+    values call-with-values for-all null? cdr car pair? vector eq? bound-identifier=? reverse))
 
 
 
@@ -1312,9 +1312,9 @@
         (cond
           ((assq x locs) => cdr)
           (else #f))))
-    (when (file-exists? "../../r6rs-examples/psyntax.scm")
-      (delete-file "../../r6rs-examples/psyntax.scm"))
-    (let ((p (open-output-file "../../r6rs-examples/psyntax.scm")))
+    (when (file-exists? "./psyntax.scm")
+      (delete-file "./psyntax.scm"))
+    (let ((p (open-output-file "./psyntax.scm")))
       (display ";;; Copyright (c) 2006, 2007 Abdulaziz Ghuloum and Kent Dybvig" p) (newline p)
       (display ";;; automatically generated from psyntax sources" p) (newline p)
       (display ";;; for copyright details, see psyntax/main.ss" p) (newline p) (newline p)
