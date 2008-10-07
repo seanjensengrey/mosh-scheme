@@ -467,7 +467,7 @@ static const yytype_uint8 yyrline[] =
 {
        0,    41,    41,    42,    43,    44,    50,    51,    55,    59,
       60,    64,    69,    73,    74,    77,    85,    89,    91,    93,
-      95,    99,   101,   102,   103,   104,   105,   106,   107,   108
+     107,   111,   113,   114,   115,   116,   117,   118,   119,   120
 };
 #endif
 
@@ -1512,65 +1512,76 @@ yyreduce:
     break;
 
   case 19:
-#line 93 "reader.y"
-    { (yyval.object) = Object::makeByteVector((yyvsp[(2) - (3)].object)); ;}
+#line 94 "reader.y"
+    {
+                for (Object p = (yyvsp[(2) - (3)].object); p.isPair(); p = p.cdr()) {
+                    const Object num = p.car();
+                    if (num.isInt() && num.toInt() >=0 && num.toInt() <= 255) {
+                        continue;
+                    } else {
+                        yyerror("malformed bytevector literal #vu8(...)");
+                        YYERROR;
+                    }
+                }
+                (yyval.object) = Object::makeByteVector((yyvsp[(2) - (3)].object));
+            ;}
     break;
 
   case 20:
-#line 96 "reader.y"
+#line 108 "reader.y"
     {
                (yyval.object) = Pair::appendD2((yyvsp[(1) - (2)].object), Pair::list1((yyvsp[(2) - (2)].object)));
            ;}
     break;
 
   case 21:
-#line 99 "reader.y"
+#line 111 "reader.y"
     {(yyval.object) = Object::Nil; ;}
     break;
 
   case 22:
-#line 101 "reader.y"
+#line 113 "reader.y"
     { (yyval.object) = Symbol::QUOTE; ;}
     break;
 
   case 23:
-#line 102 "reader.y"
+#line 114 "reader.y"
     { (yyval.object) = Symbol::UNQUOTE_SPLICING; ;}
     break;
 
   case 24:
-#line 103 "reader.y"
+#line 115 "reader.y"
     { (yyval.object) = Symbol::QUASIQUOTE; ;}
     break;
 
   case 25:
-#line 104 "reader.y"
+#line 116 "reader.y"
     { (yyval.object) = Symbol::UNQUOTE; ;}
     break;
 
   case 26:
-#line 105 "reader.y"
+#line 117 "reader.y"
     { (yyval.object) = Symbol::SYNTAX;;}
     break;
 
   case 27:
-#line 106 "reader.y"
+#line 118 "reader.y"
     { (yyval.object) = Symbol::UNSYNTAX_SPLICING; ;}
     break;
 
   case 28:
-#line 107 "reader.y"
+#line 119 "reader.y"
     { (yyval.object) = Symbol::QUASISYNTAX; ;}
     break;
 
   case 29:
-#line 108 "reader.y"
+#line 120 "reader.y"
     { (yyval.object) = Symbol::UNSYNTAX; ;}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1574 "reader.tab.cpp"
+#line 1585 "reader.tab.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1784,14 +1795,14 @@ yyreturn:
 }
 
 
-#line 110 "reader.y"
+#line 122 "reader.y"
 
 
 extern ucs4char* token;
 int yyerror(char const *str)
 {
     TextualInputPort* const port = parser_port();
-    port->setError(format(UC("~a near ~a at ~a:~d. "),
+    port->setError(format(UC("~a near [~a] at ~a:~d. "),
                           Pair::list4(str, Object::makeString(port->scanner()->currentToken()), port->toString(), Object::makeInt(port->getLine()))));
     return 0;
 }
