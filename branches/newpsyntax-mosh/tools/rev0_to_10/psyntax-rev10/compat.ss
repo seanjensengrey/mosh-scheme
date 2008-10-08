@@ -40,9 +40,11 @@
   (define (annotation-source x) '())
   (define (annotation-expression x) x)
   (define (serialize-library . x)
-    (error 'serialize-library "not implementated" x))
+    (display "serialize-library called")
+    #f)
   (define (load-serialized-library . x)
-    (error 'load-serialized-library "not implementated" x))
+    (display "load-serialized-library called")
+    #f)
   (define (make-record-printer name printer)
     (lambda x
       (display "record printer")

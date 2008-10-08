@@ -3284,6 +3284,7 @@
         [() (values '() '())]
         [_ (stx-error spec "invalid library name")]))
     (let-values (((name* ver*) (parse spec)))
+      (display "after (parse spec)")
       (when (null? name*) (stx-error spec "empty library name"))
       (values name* ver*)))
 
