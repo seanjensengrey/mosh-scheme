@@ -32,7 +32,8 @@
     (rnrs base)
     (rnrs control)
     (rnrs io simple)
-    (rename (rnrs programs) (command-line get-command-line))
+    ;(rename (rnrs programs) (command-line get-command-line))
+    (mosh) ;; for get-command-line
     (rnrs lists)
     (only (rnrs conditions) serious-condition?)
     (only (rnrs exceptions) raise)
@@ -103,7 +104,7 @@
 					      (compile-r6rs-top-level x*) ; i assume this is needed
 					      (serialize-all serialize-library compile-core-expr)))))))
 
- 
+
   (current-precompiled-library-loader load-serialized-library)
   
   (set-symbol-value! 'default-exception-handler 
@@ -115,8 +116,8 @@
           (newline)])))
       
   (set-symbol-value! 'load load)
-  (set-symbol-value! 'compile compile)
-  (set-symbol-value! 'compile->closure compile->closure)
+;;   (set-symbol-value! 'compile compile)
+;;   (set-symbol-value! 'compile->closure compile->closure)
   (set-symbol-value! 'eval-r6rs eval-top-level)
   (set-symbol-value! 'int-env-syms interaction-environment-symbols)
   (set-symbol-value! 'expanded2core expanded->core)
@@ -124,6 +125,15 @@
   (set-symbol-value! 'trace-printer trace-printer)
   
 ;  (library-path (get-library-paths))
-  (library-path ".")
+  (library-path '("."))
+
+  (display "r6rs psyntax ready\n")
+  (let ((args (command-line)))
+    (unless (= (length args) 2)
+      (display "provide a script name argument\n")
+    )
+    (let ((script-name (car args)) (args (cdr args)))
+      (load-r6rs-top-level (car args) 'load)))
+
   )
 

@@ -1386,7 +1386,7 @@
                        (parameterize ((current-library-collection bootstrap-collection))
                          (expand-all scheme-library-files))))))
         (current-primitive-locations
-          (lambda (x)
+         (lambda (x)
             (cond
               ((assq x locs) => cdr)
               (else #f))))

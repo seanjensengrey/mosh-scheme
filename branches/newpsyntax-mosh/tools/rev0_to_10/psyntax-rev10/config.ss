@@ -49,14 +49,14 @@
   ;;; exported identifiers.  If the option is disabled, 
   ;;; then the global definitions are suppressed.
   
-  (define-option if-wants-case-lambda    #t)
+  (define-option if-wants-case-lambda    #f)
   ;;; Implementations that support case-lambda natively
   ;;; should have the next option enabled.  Disabling
   ;;; wants-case-lambda causes the expander to produce 
   ;;; ugly, inefficient, but correct code by expanding
   ;;; case-lambda into explicit dispatch code.
 
-  (define-option if-wants-letrec*        #t)
+  (define-option if-wants-letrec*        #f)
   ;;; If the implementation has built-in support for
   ;;; efficient letrec* (ikarus, chez), then this option
   ;;; should be enabled.  Disabling the option expands
@@ -64,5 +64,5 @@
   ;;; (let ([lhs* #f] ...) (set! lhs* rhs*) ... body)
   
   
-  (define-option if-wants-library-letrec*  #t)
+  (define-option if-wants-library-letrec*  #f)
 )

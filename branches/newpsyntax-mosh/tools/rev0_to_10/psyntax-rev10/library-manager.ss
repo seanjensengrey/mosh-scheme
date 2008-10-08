@@ -116,6 +116,8 @@
       (else (assertion-violation 'find-dependencies "cannot handle deps yet"))))
 
   (define (find-library-by pred)
+    (display "<find-library-by>")
+    (display ((current-library-collection)))
     (let f ((ls ((current-library-collection))))
       (cond
         ((null? ls) #f)

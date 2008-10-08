@@ -25,6 +25,7 @@
   (rnrs io ports)
   (rnrs lists)
   (rnrs files)
+  (rnrs hashtables)
   (psyntax internal)
   (psyntax compat)
   (psyntax library-manager)
@@ -951,6 +952,7 @@
     ;;; => (mosh string)
     ;;;  操作の中心的な対象が何であるか？で所属のライブラリを決める
     (sys-display mosh)
+    (get-command-line mosh)
     (get-environment-variable sys)
     (get-environment-variables sys)
     (readdir sys)
@@ -1138,6 +1140,14 @@
       (map car identifier->library-map))
     (values (export-subst) (export-env) (export-primlocs))))
 
+(define identifier->library-map-hashtable
+  (let ((ht (make-eq-hashtable)))
+    (for-each 
+      (lambda (x)
+        (hashtable-set! ht (car x) x))
+      identifier->library-map)
+    ht))
+
 (define (get-export-subset key subst)
   (let f ((ls subst))
     (cond
@@ -1146,7 +1156,7 @@
        (let ((x (car ls)))
          (let ((name (car x)))
            (cond
-             ((assq name identifier->library-map)
+             ((hashtable-ref identifier->library-map-hashtable name #f);(assq name identifier->library-map)
               =>
               (lambda (q)
                 (cond
@@ -1176,7 +1186,7 @@
                             '()))))
           `(install-library
              ',id ',name ',version ',import-libs ',visit-libs ',invoke-libs
-             ',subst ',env values values ',visible?)))))
+             ',subst ',env values values '#f '#f ',visible? '#f)))))
   (let ((code `(library (psyntax primlocs)
                   (export) ;;; must be empty
                   (import
