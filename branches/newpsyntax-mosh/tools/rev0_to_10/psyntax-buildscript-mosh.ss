@@ -41,9 +41,9 @@
     "psyntax-rev10/library-manager.ss"
     "psyntax-rev10/builders.ss"
     "psyntax-rev10/expander.ss"
-    "/Users/taro/mosh/lib/mosh/condition.ss"
-    "/Users/taro/mosh/lib/mosh/io/conditions.ss"
-    "/Users/taro/mosh/lib/mosh/unicode.ss"
+    "/home/taro/mosh/lib/mosh/condition.ss"
+    "/home/taro/mosh/lib/mosh/io/conditions.ss"
+    "/home/taro/mosh/lib/mosh/unicode.ss"
     "psyntax-rev10/main.ss"))
 
 
