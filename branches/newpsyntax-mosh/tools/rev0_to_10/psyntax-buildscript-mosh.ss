@@ -41,9 +41,9 @@
     "psyntax-rev10/library-manager.ss"
     "psyntax-rev10/builders.ss"
     "psyntax-rev10/expander.ss"
-    "/Users/taro/mosh/lib/mosh/condition.ss"
-    "/Users/taro/mosh/lib/mosh/io/conditions.ss"
-    "/Users/taro/mosh/lib/mosh/unicode.ss"
+    "/home/taro/mosh/lib/mosh/condition.ss"
+    "/home/taro/mosh/lib/mosh/io/conditions.ss"
+    "/home/taro/mosh/lib/mosh/unicode.ss"
     "psyntax-rev10/main.ss"))
 
 
@@ -70,7 +70,6 @@
     (unless              (core-macro . unless))
     (parameterize        (core-macro . parameterize))
     (case                (core-macro . case))
-    (let-values          (core-macro . let-values))
     (record-type-descriptor (core-macro . record-type-descriptor))
     (record-constructor-descriptor (core-macro . record-constructor-descriptor))
     (define-struct       (macro . define-struct))
@@ -80,6 +79,7 @@
     (quasisyntax         (macro . quasisyntax))
     (with-syntax         (macro . with-syntax))
     (identifier-syntax   (macro . identifier-syntax))
+    (let-values          (core-macro . let-values))
     (let                 (macro . let))
     (let*                (macro . let*))
     (cond                (macro . cond))
