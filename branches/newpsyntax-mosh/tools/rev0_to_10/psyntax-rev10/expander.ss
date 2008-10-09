@@ -1160,6 +1160,8 @@
             ((pair? x) (cons (f (car x)) (f (cdr x))))
             ((symbol? x) (scheme-stx x))
             ((vector? x)
+             (display "vector-map in bless")
+             (display x)
              (vector-map f x))
             (else x)))
         '() '() '())))
@@ -1407,13 +1409,27 @@
          (id? con)
          (let ([outerk (gensym)])
            (bless
-             `((call/cc
+             `(call/cc
                  (lambda (,outerk)
-                   (lambda ()
                      (with-exception-handler
                        (lambda (,con)
                          ,(gen-clauses con outerk clause*))
-                       (lambda () #f ,b ,@b*))))))))])))
+                       (lambda () #f ,b ,@b*))))))])))
+;; for mosh
+;; escape using outerk causes invalid application
+;;       (syntax-match x ()
+;;         [(_ (con clause* ...) b b* ...)
+;;          (id? con)
+;;          (let ([outerk (gensym)])
+;;            (bless
+;;              `((call/cc
+;;                  (lambda (,outerk)
+;;                    (lambda ()
+;;                      (with-exception-handler
+;;                        (lambda (,con)
+;;                          ,(gen-clauses con outerk clause*))
+;;                        (lambda () #f ,b ,@b*))))))))])))
+
 
   (define define-enumeration-macro
     (lambda (stx) 
@@ -1913,11 +1929,13 @@
                (get-clause id ls))]))
       (define (foo-rtd-code name clause* parent-rtd-code)
         (define (convert-field-spec* ls)
+          (display "convert-field-spec")
+          (display ls)
           (list->vector
-            (map (lambda (x) 
+            (map (lambda (x)
                    (syntax-match x (mutable immutable)
-                     [(mutable name . rest) `(mutable ,name)]
-                     [(immutable name . rest) `(immutable ,name)]
+                     [(mutable name . rest) (display "mutable match")  `(mutable ,name)]
+                     [(immutable name . rest) (display "immutable match")  `(immutable ,name)]
                      [name `(immutable ,name)]))
                ls)))
         (let ([uid-code
@@ -1938,6 +1956,7 @@
                  [(_ field-spec* ...)
                   `(quote ,(convert-field-spec* field-spec*))]
                  [_ ''#()])])
+          (display "before bless")
           (bless
             `(make-record-type-descriptor ',name
                ,parent-rtd-code 
@@ -2027,8 +2046,10 @@
                [set-foo-idx* (get-mutator-indices fields)]
                [foo? (get-record-predicate-name namespec)]
                [foo-rtd-code (foo-rtd-code foo clause* (parent-rtd-code clause*))]
+               [dummy (display "dummy")]
                [foo-rcd-code (foo-rcd-code clause* foo-rtd protocol (parent-rcd-code clause*))]
                [protocol-code (get-protocol-code clause*)])
+          (display "after do-define let*")
           (bless
             `(begin
                (define ,foo-rtd ,foo-rtd-code)
@@ -3617,6 +3638,7 @@
                                 (chi-library-internal b* rib top?)))
               (display "<0.2.9>")
                     (seal-rib! rib)
+              (display "<0.2.9.0>")
                     (let* ((init* (chi-expr* init* r mr))
                            (rhs* (chi-rhs* rhs* r mr)))
               (display "<0.2.9.1>")
@@ -4076,6 +4098,7 @@
           (display "<2>")
           (for-each invoke-library lib*)
           (display "<3>")
+          (display (expanded->core invoke-code))
           (eval-core (expanded->core invoke-code))))))
           
   (define pre-compile-r6rs-top-level

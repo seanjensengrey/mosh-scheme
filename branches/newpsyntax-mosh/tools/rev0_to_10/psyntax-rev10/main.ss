@@ -35,8 +35,9 @@
     ;(rename (rnrs programs) (command-line get-command-line))
     (mosh) ;; for get-command-line
     (rnrs lists)
-    (only (rnrs conditions) serious-condition?)
-    (only (rnrs exceptions) raise)
+    (only (rnrs conditions) serious-condition? who-condition? message-condition? violation? irritants-condition? condition-who condition-message condition-irritants simple-conditions)
+    (only (rnrs exceptions) raise with-exception-handler)
+    (rnrs records inspection)
     (psyntax compat)
     (psyntax internal)
     (psyntax library-manager)
@@ -46,6 +47,13 @@
 ;    (ironscheme files)
 ;    (ironscheme library)
 )
+
+  (define (for-each-with-index proc lst)
+    (do ((i 1 (+ i 1)) ; start with 1
+         (lst lst (cdr lst)))
+        ((null? lst))
+      (proc i (car lst))))
+
     
   (define trace-printer (make-parameter write))
   
@@ -98,6 +106,7 @@
           ((closure)   (pre-compile-r6rs-top-level x*))
           ((load)      
             (parameterize ([command-line (cons filename (map (lambda (x) (format "~a" x)) args))])
+;              (display (compile-r6rs-top-level x*))
               ((compile-r6rs-top-level x*))))
           ((compile)   
               (begin 
@@ -107,13 +116,13 @@
 
   (current-precompiled-library-loader load-serialized-library)
   
-  (set-symbol-value! 'default-exception-handler 
-    (lambda (ex)
-      (cond
-        [(serious-condition? ex) (raise ex)]
-        [else 
-          (display ex)
-          (newline)])))
+;;   (set-symbol-value! 'default-exception-handler 
+;;     (lambda (ex)
+;;       (cond
+;;         [(serious-condition? ex) (raise ex)]
+;;         [else 
+;;           (display ex)
+;;           (newline)])))
       
   (set-symbol-value! 'load load)
 ;;   (set-symbol-value! 'compile compile)
@@ -127,13 +136,38 @@
 ;  (library-path (get-library-paths))
   (library-path '("."))
 
-  (display "r6rs psyntax ready\n")
-  (let ((args (command-line)))
-    (unless (= (length args) 2)
-      (display "provide a script name argument\n")
-    )
-    (let ((script-name (car args)) (args (cdr args)))
-      (load-r6rs-top-level (car args) 'load)))
+
+  (let ([args (command-line)]
+        [port (current-error-port)])
+    (with-exception-handler
+     (lambda (c)
+       (display " Condition components:\n" port)
+       (for-each-with-index
+        (lambda (i x)
+          (cond
+           [(who-condition? x)
+            (format port "   ~d. &who: ~a\n" i (condition-who x))]
+           [(message-condition? x)
+            (format port "   ~d. &message: ~s\n" i (condition-message x))]
+           [(violation? x)
+            (format port "   ~d. ~a\n" i (record-type-name (record-rtd x)))]
+           [(irritants-condition? x)
+            (format port "   ~d. &irritants: ~s\n" i (condition-irritants x))]
+           [else
+            (format port "   ~d. ~a\n" i (record-type-name (record-rtd x)))]))
+        (simple-conditions c)))
+     (lambda ()
+;;      (repl)))))
+       (load-r6rs-top-level (cadr args) 'load))))
+
+
+;;   (display "r6rs psyntax ready\n")
+;;   (let ((args (command-line)))
+;;     (unless (= (length args) 2)
+;;       (display "provide a script name argument\n")
+;;     )
+;;     (let ((script-name (car args)) (args (cdr args)))
+;;       (load-r6rs-top-level (car args) 'load)))
 
   )
 
