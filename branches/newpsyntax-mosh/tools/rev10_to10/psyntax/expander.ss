@@ -503,6 +503,7 @@
       (unless (stx? x)
         (error 'id->sym "BUG in ikarus: not an id" x))
       (let ([expr (stx-expr x)])
+          (display "<0.8>")
         (let ([sym (if (annotation? expr) 
                        (annotation-stripped expr)
                        expr)])
@@ -564,6 +565,7 @@
   ;;; a top-mark, then the expr is returned.  
 
   (define (strip-annotations x)
+          (display "<0.9>")
     (cond
       [(pair? x) 
        (cons (strip-annotations (car x))
