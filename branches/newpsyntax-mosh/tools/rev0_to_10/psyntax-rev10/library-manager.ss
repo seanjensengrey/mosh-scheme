@@ -116,7 +116,6 @@
       (else (assertion-violation 'find-dependencies "cannot handle deps yet"))))
 
   (define (find-library-by pred)
-    (display "<find-library-by>")
     (let f ((ls ((current-library-collection))))
       (cond
         ((null? ls) #f)
@@ -231,13 +230,11 @@
     (make-parameter (lambda (filename sk) #f)))
 
   (define (try-load-from-file filename)
-    (display "in try-load-from-file")
     ((current-precompiled-library-loader)
       filename
       (case-lambda
         [(id name ver imp* vis* inv* exp-subst exp-env
           visit-proc invoke-proc visible?)
-         (display "try-load-from-file")
          ;;; make sure all dependencies are met
          ;;; if all is ok, install the library
          ;;; otherwise, return #f so that the
@@ -263,21 +260,17 @@
                            source.\n"
                          name dname filename)
                        #f]))))]))]
-        [others (display "<others>") #f])))
+        [others #f])))
 
   (define library-loader
     (make-parameter
       (lambda (x)
-        (display "library-loader")
         (let ((file-name ((file-locator) x)))
-          (display "file-locator=")
-          (display file-name)
           (cond
             [(not file-name)
              (assertion-violation #f "cannot file library" x)]
             [(try-load-from-file file-name)]
             [else
-        (display "library-loader2")
              ((current-library-expander)
               (read-library-source-file file-name)
               file-name
@@ -294,7 +287,6 @@
                       (display " instead" p)
                       (e))))))])))
       (lambda (f)
-        (display "library-loader predicate")
         (if (procedure? f)
             f
             (assertion-violation 'library-locator
@@ -314,14 +306,11 @@
     (make-parameter '()))
 
   (define (find-external-library name)
-      (display "(find-external-library0")
     (when (member name (external-pending-libraries))
       (assertion-violation #f
         "circular attempt to import library was detected" name))
-      (display "(find-external-library1")
     (parameterize ((external-pending-libraries
                     (cons name (external-pending-libraries))))
-      (display "(find-external-library2")
       ((library-loader) name)
       (or (find-library-by
             (lambda (x) (equal? (library-name x) name)))
@@ -332,7 +321,6 @@
   (define (find-library-by-name name)
     (or (find-library-by
           (lambda (x) (equal? (library-name x) name)))
-        (begin (display "before (find-external-library)") #f)
         (find-external-library name)))
 
   (define (library-exists? name)

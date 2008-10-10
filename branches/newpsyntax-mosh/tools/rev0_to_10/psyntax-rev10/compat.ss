@@ -40,10 +40,8 @@
   (define (annotation-source x) '())
   (define (annotation-expression x) x)
   (define (serialize-library . x)
-    (display "serialize-library called")
     #f)
   (define (load-serialized-library . x)
-    (display "load-serialized-library called")
     #f)
   (define (make-record-printer name printer)
     (lambda x

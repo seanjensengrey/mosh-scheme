@@ -1160,8 +1160,6 @@
             ((pair? x) (cons (f (car x)) (f (cdr x))))
             ((symbol? x) (scheme-stx x))
             ((vector? x)
-             (display "vector-map in bless")
-             (display x)
              (vector-map f x))
             (else x)))
         '() '() '())))
@@ -1929,13 +1927,11 @@
                (get-clause id ls))]))
       (define (foo-rtd-code name clause* parent-rtd-code)
         (define (convert-field-spec* ls)
-          (display "convert-field-spec")
-          (display ls)
           (list->vector
             (map (lambda (x)
                    (syntax-match x (mutable immutable)
-                     [(mutable name . rest) (display "mutable match")  `(mutable ,name)]
-                     [(immutable name . rest) (display "immutable match")  `(immutable ,name)]
+                     [(mutable name . rest)  `(mutable ,name)]
+                     [(immutable name . rest)  `(immutable ,name)]
                      [name `(immutable ,name)]))
                ls)))
         (let ([uid-code
@@ -1956,7 +1952,6 @@
                  [(_ field-spec* ...)
                   `(quote ,(convert-field-spec* field-spec*))]
                  [_ ''#()])])
-          (display "before bless")
           (bless
             `(make-record-type-descriptor ',name
                ,parent-rtd-code 
@@ -2046,10 +2041,8 @@
                [set-foo-idx* (get-mutator-indices fields)]
                [foo? (get-record-predicate-name namespec)]
                [foo-rtd-code (foo-rtd-code foo clause* (parent-rtd-code clause*))]
-               [dummy (display "dummy")]
                [foo-rcd-code (foo-rcd-code clause* foo-rtd protocol (parent-rcd-code clause*))]
                [protocol-code (get-protocol-code clause*)])
-          (display "after do-define let*")
           (bless
             `(begin
                (define ,foo-rtd ,foo-rtd-code)
@@ -3305,7 +3298,6 @@
         [() (values '() '())]
         [_ (stx-error spec "invalid library name")]))
     (let-values (((name* ver*) (parse spec)))
-      (display "after (parse spec)")
       (when (null? name*) (stx-error spec "empty library name"))
       (values name* ver*)))
 
@@ -3444,26 +3436,18 @@
           [() (values '() (lambda (x) #t))]
           [_ (stx-error spec "invalid import spec")])))
     (define (import-library spec*)
-      (display "<import-library>")
       (let-values ([(name pred) (parse-library-name spec*)])
-      (display "<import-library>2")
         (when (null? name) 
-      (display "<import-library>3")
           (syntax-violation 'import "empty library name" spec*))
-      (display "<import-library>4")
         (let ((lib (find-library-by-name name)))
-      (display "<import-library>5")
           (unless lib
-      (display "<import-library>6")
             (syntax-violation 'import 
                "cannot find library with required name"
                name))
-      (display "<import-library>7")
           (unless (pred (library-version lib))
             (syntax-violation 'import 
                "library does not satisfy version specification"
                spec* lib))
-      (display "<import-library>8")
           ((imp-collector) lib)
           (library-subst lib))))
     (define (get-import spec)
@@ -3513,9 +3497,7 @@
          (get-import isp))
         (spec (syntax-violation 'import "invalid import spec" spec))))
     (define (add-imports! imp h)
-      (display "<2.4.30>")
       (let ([subst (get-import imp)])
-      (display "<2.4.31>")
         (for-each
           (lambda (x) 
             (let ([name (car x)] [label (cdr x)])
@@ -3523,16 +3505,13 @@
                 [(hashtable-ref h name #f) =>
                  (lambda (l)
                    (unless (eq? l label) 
-                     (display "dup-error")
                      (dup-error name)))]
                 [else 
                  (hashtable-set! h name label)])))
           subst)))
     (let f ((imp* imp*) (h (make-eq-hashtable)))
-      (display imp*)
       (cond
         ((null? imp*) 
-         (display "<2.4.44>")
          (hashtable-entries h))
         (else
          (add-imports! (car imp*) h)
@@ -3614,43 +3593,31 @@
   (define library-body-expander
     (lambda (name exp* imp* b* top?)
       (define itc (make-collector))
-              (display "<0.2.2>")
       (parameterize ((imp-collector itc)
                      (top-level-context #f))
-              (display "<0.2.3>")
         (let-values (((exp-int* exp-ext*) (parse-exports exp*)))
-              (display "<0.2.4>")
           (let-values (((subst-names subst-labels)
                         (parse-import-spec* imp*)))
-              (display "<0.2.5>")
             (let ((rib (make-top-rib subst-names subst-labels)))
-              (display "<0.2.6>")
               (let ((b* (map (lambda (x) 
                                (make-stx x top-mark* (list rib) '()))
                              b*))
                     (rtc (make-collector))
                     (vtc (make-collector)))
-              (display "<0.2.7>")
                 (parameterize ((inv-collector rtc)
                                (vis-collector vtc))
-              (display "<0.2.8>")
                   (let-values (((init* r mr lex* rhs*)
                                 (chi-library-internal b* rib top?)))
-              (display "<0.2.9>")
                     (seal-rib! rib)
-              (display "<0.2.9.0>")
                     (let* ((init* (chi-expr* init* r mr))
                            (rhs* (chi-rhs* rhs* r mr)))
-              (display "<0.2.9.1>")
                       (unseal-rib! rib)
                       (let ((loc* (map gen-global lex*))
                             (export-subst (make-export-subst exp-int* exp-ext* rib)))
                         (define errstr
                           "attempt to export mutated variable")
-              (display "<0.2.9.2>")
                         (let-values (((export-env global* macro*)
                                       (make-export-env/macros lex* loc* r)))
-              (display "<0.2.9.3>")
                           (for-each
                             (lambda (s) 
                               (let ([name (car s)] [label (cdr s)])
@@ -3671,7 +3638,6 @@
                                          (build-sequence no-source init*)))
                                    (build-letrec* no-source lex* rhs* 
                                      (build-exports global* init*))))
-              (display "<0.2.9.4>")
                                 (invoke-definitions 
                                   (map build-global-define (map cdr global*))))
                             (values
@@ -3709,13 +3675,10 @@
 
   (define top-level-expander
     (lambda (e*)
-              (display "<0.1>")
       (let-values (((imp* b*) (parse-top-level-program e*)))
-              (display "<0.2>")
           (let-values (((imp* invoke-req* visit-req* invoke-code
                          visit-code export-subst export-env)
                         (library-body-expander '() '() imp* b* #t)))
-              (display "<0.3>")
             (values invoke-req* invoke-code)))))
 
   ;;; An env record encapsulates a substitution and a set of
@@ -4091,14 +4054,9 @@
 
   (define compile-r6rs-top-level
     (lambda (x*)
-        (display "<0>")
       (let-values (((lib* invoke-code) (top-level-expander x*)))
-        (display "<1>")
         (lambda ()
-          (display "<2>")
           (for-each invoke-library lib*)
-          (display "<3>")
-          (display (expanded->core invoke-code))
           (eval-core (expanded->core invoke-code))))))
           
   (define pre-compile-r6rs-top-level
