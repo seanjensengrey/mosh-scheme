@@ -188,6 +188,7 @@
     (with-syntax         (macro . with-syntax))
     (identifier-syntax   (macro . identifier-syntax))
     (let-values          (macro . let-values))
+;    (let*-values         (macro . let*-values))
     (let                 (macro . let))
     (let*                (macro . let*))
     (cond                (macro . cond))

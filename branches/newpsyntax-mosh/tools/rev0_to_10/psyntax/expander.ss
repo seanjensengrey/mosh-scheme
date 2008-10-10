@@ -3245,7 +3245,9 @@
 
   (define eval-r6rs-top-level
     (lambda (x*)
+      (display "<0.0.1>")
       (let-values (((lib* invoke-code) (top-level-expander x*)))
+      (display "<0.0.2>")
         (for-each invoke-library lib*)
         (eval-core (expanded->core invoke-code)))))
 
