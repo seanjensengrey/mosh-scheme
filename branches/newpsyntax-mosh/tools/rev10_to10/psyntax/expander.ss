@@ -278,7 +278,6 @@
       (write (stx->datum x) p)
       (let ([expr (stx-expr x)])
         (when (annotation? expr) 
-          (display "<0.1>")
           (let ([src (annotation-source expr)])
             (when (pair? src)
               (display " [" p)
@@ -427,7 +426,6 @@
       (cond
         [(stx? x) (syntax-kind? (stx-expr x) p?)]
         [(annotation? x) 
-          (display "<0.1>")
          (syntax-kind? (annotation-expression x) p?)]
         [else (p? x)])))
 
@@ -441,7 +439,6 @@
                (ae* (stx-ae* x)))
            (map (lambda (x) (mkstx x m* s* ae*)) ls)))
         [(annotation? x) 
-          (display "<0.3>")
          (syntax-vector->list (annotation-expression x))]
         ((vector? x) (vector->list x))
         (else (assertion-violation 'syntax-vector->list "BUG: not a syntax vector" x)))))
@@ -464,7 +461,6 @@
                 (stx-subst* x)
                 (stx-ae* x))]
         [(annotation? x) 
-          (display "<0.4>")
          (syntax-car (annotation-expression x))]
         [(pair? x) (car x)]
         [else (assertion-violation 'syntax-car "BUG: not a pair" x)])))
@@ -477,7 +473,6 @@
                 (stx-subst* x)
                 (stx-ae* x))]
         [(annotation? x) 
-          (display "<0.5>")
          (syntax-cdr (annotation-expression x))]
         [(pair? x) (cdr x)]
         [else (assertion-violation 'syntax-cdr "BUG: not a pair" x)])))
@@ -493,7 +488,6 @@
     (lambda (x) 
       (and (stx? x) 
         (let ([expr (stx-expr x)])
-          (display "<0.7>")
           (symbol? (if (annotation? expr)
                        (annotation-stripped expr)
                        expr))))))
@@ -503,7 +497,6 @@
       (unless (stx? x)
         (error 'id->sym "BUG in ikarus: not an id" x))
       (let ([expr (stx-expr x)])
-          (display "<0.8>")
         (let ([sym (if (annotation? expr) 
                        (annotation-stripped expr)
                        expr)])
@@ -565,7 +558,6 @@
   ;;; a top-mark, then the expr is returned.  
 
   (define (strip-annotations x)
-          (display "<0.9>")
     (cond
       [(pair? x) 
        (cons (strip-annotations (car x))
