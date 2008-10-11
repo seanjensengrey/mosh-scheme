@@ -3923,7 +3923,10 @@
     (define-condition-type &source-information &condition
       make-source-condition source-condition?
       (file-name source-filename)
-      (character source-character))
+      (line source-line))
+;; for mosh
+;;       (file-name source-filename)
+;;       (character source-character))
     (if (stx? x) 
         (let ([x (stx-expr x)])
           (if (annotation? x)

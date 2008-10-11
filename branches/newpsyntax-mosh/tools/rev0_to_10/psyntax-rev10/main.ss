@@ -153,7 +153,7 @@
             (format port "   ~d. ~a\n" i (record-type-name (record-rtd x)))]
            [(irritants-condition? x)
             (format port "   ~d. &irritants: ~s\n" i (condition-irritants x))]
-           [else
+          [else
             (format port "   ~d. ~a\n" i (record-type-name (record-rtd x)))]))
         (simple-conditions c)))
      (lambda ()

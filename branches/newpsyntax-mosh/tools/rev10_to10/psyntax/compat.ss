@@ -36,15 +36,18 @@
   
   ;; defined for mosh
   (define read-annotated read)
-  (define (annotation-stripped x) (set-source-info! x #f))
+;  (define (annotation-stripped x) (set-source-info! x #f))
+  (define (annotation-stripped x) (annotation-expression x)) ;; what is difference between annotation-stripped and annotation-expression?
   (define (annotation? x) (source-info x))
 ;  (define (annotation? x) #f)
   (define (annotation-source x) (source-info x))
+;  (define (annotation-source x) x)
   (define (annotation-expression x)
     (if (pair? x)
         (cons (car x) (cdr x))
         (display "line:46\n")))
   (define (serialize-library . x)
+    (display x)
     #f)
   (define (load-serialized-library . x)
     #f)
