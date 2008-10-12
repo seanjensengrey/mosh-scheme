@@ -4030,7 +4030,8 @@
     (let ([the-env #f])
       (lambda ()
         (or the-env 
-            (let ([lib (find-library-by-name '(ironscheme))]
+;            (let ([lib (find-library-by-name '(ironscheme))]
+            (let ([lib (find-library-by-name '(rnrs))]
                   [rib (make-empty-rib)])
               (let ([subst (library-subst lib)]) 
                 (set-rib-sym*! rib (map car subst))

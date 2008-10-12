@@ -37,12 +37,13 @@
     (mosh) ;; for get-command-line
     (rnrs lists)
     (only (rnrs conditions) serious-condition? who-condition? message-condition? violation? irritants-condition? condition-who condition-message condition-irritants simple-conditions)
-    (only (rnrs exceptions) raise with-exception-handler)
+    (only (rnrs exceptions) raise with-exception-handler guard)
     (rnrs records inspection)
     (psyntax compat)
     (psyntax internal)
     (psyntax library-manager)
     (psyntax expander)
+    (psyntax config)
     (mosh string)
 ;    (only (ironscheme core) get-command-line format)
 ;    (ironscheme files)
@@ -135,6 +136,11 @@
              (newline port)
              (f (+ i 1))))]))))
 
+;;   (define (for-each-with-index proc lst)
+;;     (do ((i 1 (+ i 1)) ; start with 1
+;;          (lst lst (cdr lst)))
+;;         ((null? lst))
+;;       (proc i (car lst))))
 
 
   (current-precompiled-library-loader load-serialized-library)
@@ -220,8 +226,7 @@
             ))
         (simple-conditions c)))
      (lambda ()
-;;      (repl)))))
-       (load-r6rs-top-level (cadr args) 'compile))))
+      (load-r6rs-top-level (car args) 'load))))
 
 
 ;;   (display "r6rs psyntax ready\n")
