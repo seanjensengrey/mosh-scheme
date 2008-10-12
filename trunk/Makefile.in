@@ -321,7 +321,7 @@ mosh_CFLAGS = -O2  $(mosh_OPTS) -g -fomit-frame-pointer -D_FILE_OFFSET_BITS=64 -
 #mosh_CFLAGS   = -O1  $(mosh_OPTS) -pg  -D_FILE_OFFSET_BITS=64
 mosh_CXXFLAGS = $(mosh_CFLAGS)
 MOSHLIB_CXXFLAGS = -fomit-frame-pointer $(mosh_OPTS) # compile libraries with -O0
-data_DATA = all-tests.scm repl.scm r6rs-examples/psyntax.scm
+data_DATA = all-tests.scm repl.scm tools/psyntax-r6rs/rev10_to_10/psyntax.scm
 noinst_LIBRARIES = libcompiler.a libmatch.a libpsyntax.a
 PRECOMPILE_SRC = compiler-with-library.scmc match.scmc psyntax.scmc
 libcompiler_a_CXXFLAGS = $(MOSHLIB_CXXFLAGS)
@@ -335,7 +335,7 @@ mosh_LDADD = $(GC_LIB) $(REGEXP_LIB) $(noinst_LIBRARIES)
 # # generated files should be listed here.
 # BUILT_SOURCES  = Instruction.h compiler.cpp match.cpp BuiltinSymbols.cpp labels.cpp DebugInstruction.h ./compiler-vm.scm cprocedures.cpp ./compiler-gauche.scm
 INCLUDES = -I $(BOEHM_GC_DIR)/include -I $(ONIG_DIR)
-EXTRA_DIST = instruction.scm vm.scm library.scm compiler.scm free-vars.scm scripts match.scm test-data.scm doc repl.scm r6rs-examples/psyntax.scm r6rs-examples tools/psyntax-r6rs RELNOTE r6rs-test-suite example
+EXTRA_DIST = instruction.scm vm.scm library.scm compiler.scm free-vars.scm scripts match.scm test-data.scm doc repl.scm tools/psyntax-r6rs/rev10_to_10/psyntax.scm r6rs-examples tools/psyntax-r6rs RELNOTE r6rs-test-suite example
 GENERATED = \
 all-tests.scm Scanner.cpp psyntax.cpp  compiler-gauche.scm \
 BuiltinSymbols.cpp DebugInstruction.h cprocedures.cpp      \
@@ -345,16 +345,6 @@ compiler-vm.scm compiler-with-library.scm Instruction.h
 
 CLEANFILES = 
 MAINTAINERCLEANFILES = $(GENERATED)
-PSYNTAX_DIR = tools/psyntax-r6rs
-PSYNTAX_SRC_DIR = $(PSYNTAX_DIR)/psyntax
-PSYNTAX_COMMON_SRC = \
-$(PSYNTAX_SRC_DIR)/compat.ss \
-$(PSYNTAX_SRC_DIR)/config.ss \
-$(PSYNTAX_SRC_DIR)/internal.ss \
-$(PSYNTAX_SRC_DIR)/library-manager.ss
-
-PSYNTAX_MOSH_SRC = $(PSYNTAX_COMMON_SRC) $(PSYNTAX_SRC_DIR)/expander-mosh.ss $(PSYNTAX_SRC_DIR)/main-mosh.ss
-PSYNTAX_SRC = $(PSYNTAX_COMMON_SRC) $(PSYNTAX_SRC_DIR)/expander.ss $(PSYNTAX_SRC_DIR)/main.ss
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -1600,17 +1590,30 @@ uninstall-am: uninstall-binPROGRAMS uninstall-dataDATA
 	uninstall-binPROGRAMS uninstall-dataDATA
 
 
-r6rs-examples/psyntax.scm: $(PSYNTAX_DIR)/psyntax-buildscript-mosh.ss $(PSYNTAX_MOSH_SRC) $(PSYNTAX_DIR)/psyntax.pp $(PSYNTAX_DIR)/gosh.r6rs.ss
-	(cd $(PSYNTAX_DIR) && gosh gosh.r6rs.ss psyntax-buildscript-mosh.ss)
-	echo "please make install ***** "
+# PSYNTAX_DIR=tools/psyntax-r6rs
+# PSYNTAX_SRC_DIR=$(PSYNTAX_DIR)/psyntax
 
-$(PSYNTAX_DIR)/psyntax.pp: $(PSYNTAX_DIR)/psyntax-buildscript.ss $(PSYNTAX_SRC)
-	(cd $(PSYNTAX_DIR) && gosh gosh.r6rs.ss psyntax-buildscript.ss)
+# PSYNTAX_COMMON_SRC= \
+# $(PSYNTAX_SRC_DIR)/compat.ss \
+# $(PSYNTAX_SRC_DIR)/config.ss \
+# $(PSYNTAX_SRC_DIR)/internal.ss \
+# $(PSYNTAX_SRC_DIR)/library-manager.ss
 
-# update psyntax
-# psyntax-buildscript.ss を更新する
-psyntax-update:
-	(cd $(PSYNTAX_DIR) && gosh gosh.r6rs.ss psyntax-buildscript.ss)
+# PSYNTAX_MOSH_SRC=$(PSYNTAX_COMMON_SRC) $(PSYNTAX_SRC_DIR)/expander-mosh.ss $(PSYNTAX_SRC_DIR)/main-mosh.ss
+
+# PSYNTAX_SRC=$(PSYNTAX_COMMON_SRC) $(PSYNTAX_SRC_DIR)/expander.ss $(PSYNTAX_SRC_DIR)/main.ss
+
+# r6rs-examples/psyntax.scm: $(PSYNTAX_DIR)/psyntax-buildscript-mosh.ss $(PSYNTAX_MOSH_SRC) $(PSYNTAX_DIR)/psyntax.pp $(PSYNTAX_DIR)/gosh.r6rs.ss
+# 	(cd $(PSYNTAX_DIR) && gosh gosh.r6rs.ss psyntax-buildscript-mosh.ss)
+# 	echo "please make install ***** "
+
+# $(PSYNTAX_DIR)/psyntax.pp: $(PSYNTAX_DIR)/psyntax-buildscript.ss $(PSYNTAX_SRC)
+# 	(cd $(PSYNTAX_DIR) && gosh gosh.r6rs.ss psyntax-buildscript.ss)
+
+# # update psyntax
+# # psyntax-buildscript.ss を更新する
+# psyntax-update:
+# 	(cd $(PSYNTAX_DIR) && gosh gosh.r6rs.ss psyntax-buildscript.ss)
 
 reader.tab.cpp: reader.y
 	bison -d $< -o $@
@@ -1666,7 +1669,7 @@ compiler-with-library.scmc: ./compiler-with-library.scm ./compiler-vm.scm
 match.scmc: ./match.scm ./compiler-vm.scm
 	@GOSH@ ./vm.scm compile-file-without-macro $(PWD)/$< > $(PWD)/$@
 
-psyntax.scmc: r6rs-examples/psyntax.scm ./compiler-vm.scm
+psyntax.scmc: tools/psyntax-r6rs/rev10_to_10/psyntax.scm ./compiler-vm.scm
 	@GOSH@ ./vm.scm compile-file-without-macro $(PWD)/$< > $(PWD)/$@
 
 ./compiler-with-library.scm: ./compiler-vm-cpp.scm ./library.scm
