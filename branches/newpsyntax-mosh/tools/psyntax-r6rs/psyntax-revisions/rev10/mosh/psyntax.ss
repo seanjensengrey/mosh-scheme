@@ -1,5 +1,0 @@
-(library (mosh psyntax)
-  (export fprintf)
-  (import (rnrs) (mosh string))
-  (define fprintf format)
-)
