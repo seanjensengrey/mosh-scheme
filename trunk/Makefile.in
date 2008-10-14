@@ -62,7 +62,8 @@ libpsyntax_a_AR = $(AR) $(ARFLAGS)
 libpsyntax_a_LIBADD =
 am_libpsyntax_a_OBJECTS = libpsyntax_a-psyntax.$(OBJEXT)
 libpsyntax_a_OBJECTS = $(am_libpsyntax_a_OBJECTS)
-am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)"
+am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)" \
+	"$(DESTDIR)$(datadir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
 am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
@@ -128,7 +129,8 @@ am__vpath_adj = case $$p in \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 dataDATA_INSTALL = $(INSTALL_DATA)
-DATA = $(data_DATA)
+nobase_dataDATA_INSTALL = $(install_sh_DATA)
+DATA = $(data_DATA) $(nobase_data_DATA)
 RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
   distclean-recursive maintainer-clean-recursive
 ETAGS = etags
@@ -321,7 +323,8 @@ mosh_CFLAGS = -O2  $(mosh_OPTS) -g -fomit-frame-pointer -D_FILE_OFFSET_BITS=64 -
 #mosh_CFLAGS   = -O1  $(mosh_OPTS) -pg  -D_FILE_OFFSET_BITS=64
 mosh_CXXFLAGS = $(mosh_CFLAGS)
 MOSHLIB_CXXFLAGS = -fomit-frame-pointer $(mosh_OPTS) # compile libraries with -O0
-data_DATA = all-tests.scm repl.scm tools/psyntax-r6rs/rev10_to_10/psyntax.scm
+data_DATA = all-tests.scm repl.scm tools/psyntax-r6rs/rev10_to_10/psyntax.scm lib/srfi/%3A8.ss
+nobase_data_DATA = lib/srfi/%3A8.ss
 noinst_LIBRARIES = libcompiler.a libmatch.a libpsyntax.a
 PRECOMPILE_SRC = compiler-with-library.scmc match.scmc psyntax.scmc
 libcompiler_a_CXXFLAGS = $(MOSHLIB_CXXFLAGS)
@@ -1199,6 +1202,25 @@ uninstall-dataDATA:
 	  echo " rm -f '$(DESTDIR)$(datadir)/$$f'"; \
 	  rm -f "$(DESTDIR)$(datadir)/$$f"; \
 	done
+install-nobase_dataDATA: $(nobase_data_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(datadir)" || $(MKDIR_P) "$(DESTDIR)$(datadir)"
+	@$(am__vpath_adj_setup) \
+	list='$(nobase_data_DATA)'; for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  $(am__vpath_adj) \
+	  echo " $(nobase_dataDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(datadir)/$$f'"; \
+	  $(nobase_dataDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(datadir)/$$f"; \
+	done
+
+uninstall-nobase_dataDATA:
+	@$(NORMAL_UNINSTALL)
+	@$(am__vpath_adj_setup) \
+	list='$(nobase_data_DATA)'; for p in $$list; do \
+	  $(am__vpath_adj) \
+	  echo " rm -f '$(DESTDIR)$(datadir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(datadir)/$$f"; \
+	done
 
 # This directory's subdirectories are mostly independent; you can cd
 # into them and run `make' without going through this Makefile.
@@ -1478,7 +1500,7 @@ check: check-recursive
 all-am: Makefile $(LIBRARIES) $(PROGRAMS) $(DATA) config.h
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)"; do \
+	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)" "$(DESTDIR)$(datadir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-recursive
@@ -1529,7 +1551,7 @@ info: info-recursive
 
 info-am:
 
-install-data-am: install-dataDATA
+install-data-am: install-dataDATA install-nobase_dataDATA
 
 install-dvi: install-dvi-recursive
 
@@ -1566,7 +1588,8 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am: uninstall-binPROGRAMS uninstall-dataDATA
+uninstall-am: uninstall-binPROGRAMS uninstall-dataDATA \
+	uninstall-nobase_dataDATA
 
 .MAKE: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) install-am \
 	install-strip
@@ -1581,13 +1604,14 @@ uninstall-am: uninstall-binPROGRAMS uninstall-dataDATA
 	install install-am install-binPROGRAMS install-data \
 	install-data-am install-dataDATA install-dvi install-dvi-am \
 	install-exec install-exec-am install-html install-html-am \
-	install-info install-info-am install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs installdirs-am \
-	maintainer-clean maintainer-clean-generic mostlyclean \
-	mostlyclean-compile mostlyclean-generic pdf pdf-am ps ps-am \
-	tags tags-recursive uninstall uninstall-am \
-	uninstall-binPROGRAMS uninstall-dataDATA
+	install-info install-info-am install-man \
+	install-nobase_dataDATA install-pdf install-pdf-am install-ps \
+	install-ps-am install-strip installcheck installcheck-am \
+	installdirs installdirs-am maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-compile \
+	mostlyclean-generic pdf pdf-am ps ps-am tags tags-recursive \
+	uninstall uninstall-am uninstall-binPROGRAMS \
+	uninstall-dataDATA uninstall-nobase_dataDATA
 
 
 reader.tab.cpp: reader.y
@@ -1666,11 +1690,12 @@ check:test
 test:all-tests.scm ./mosh
 	./mosh -r test/reader.scm
 	./mosh all-tests.scm
-	(cd r6rs-examples && ../mosh -b record-test.ss)
-	(cd r6rs-examples && ../mosh -b condition-test.ss)
-	(cd r6rs-examples && ../mosh -b exception-test.ss)
+	./mosh -b r6rs-examples/srfi8-test.ss
+	./mosh -b r6rs-examples/record-test.ss
+	./mosh -b r6rs-examples/condition-test.ss
+	./mosh -b r6rs-examples/exception-test.ss
+	./mosh -b r6rs-examples/unicode-test.ss
 	(cd r6rs-test-suite && $(MAKE) $@)
-	(cd r6rs-examples && ../mosh -b unicode-test.ss)
 
 all-tests.scm: ./test-data.scm
 	./mosh ./scripts/gen-test.scm $< > $@
