@@ -33,6 +33,7 @@
 #include "Object-inl.h"
 #include "Pair.h"
 #include "Pair-inl.h"
+#include "SString.h"
 #include "Closure.h"
 #include "StringProcedures.h"
 #include "TextualOutputPort.h"
