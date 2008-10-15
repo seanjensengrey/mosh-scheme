@@ -92,7 +92,8 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
 	mosh-RegexpProcedures.$(OBJEXT) \
 	mosh-StringProcedures.$(OBJEXT) mosh-PortProcedures.$(OBJEXT) \
 	mosh-ListProcedures.$(OBJEXT) mosh-ErrorProcedures.$(OBJEXT) \
-	mosh-ArithmeticProcedures.$(OBJEXT) mosh-Equivalent.$(OBJEXT) \
+	mosh-ArithmeticProcedures.$(OBJEXT) \
+	mosh-ByteVectorProcedures.$(OBJEXT) mosh-Equivalent.$(OBJEXT) \
 	mosh-CompoundCondition.$(OBJEXT) mosh-ucs4string.$(OBJEXT) \
 	mosh-Vector.$(OBJEXT) mosh-CodeBuilder.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
@@ -312,6 +313,7 @@ PortProcedures.cpp            PortProcedures.h                    \
 ListProcedures.cpp            ListProcedures.h                    \
 ErrorProcedures.cpp           ErrorProcedures.h                   \
 ArithmeticProcedures.cpp      ArithmeticProcedures.h              \
+ByteVectorProcedures.cpp      ByteVectorProcedures.h              \
 Equivalent.h                  Equivalent.cpp                      \
 CompoundCondition.h           CompoundCondition.cpp               \
 ucs4string.h                  ucs4string.cpp                      \
@@ -457,6 +459,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ArithmeticProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-BuiltinSymbols.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ByteArrayBinaryInputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ByteVectorProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Closure.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CodeBuilder.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompilerProcedures.Po@am__quote@
@@ -1116,6 +1119,20 @@ mosh-ArithmeticProcedures.obj: ArithmeticProcedures.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ArithmeticProcedures.obj `if test -f 'ArithmeticProcedures.cpp'; then $(CYGPATH_W) 'ArithmeticProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ArithmeticProcedures.cpp'; fi`
 
+mosh-ByteVectorProcedures.o: ByteVectorProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ByteVectorProcedures.o -MD -MP -MF $(DEPDIR)/mosh-ByteVectorProcedures.Tpo -c -o mosh-ByteVectorProcedures.o `test -f 'ByteVectorProcedures.cpp' || echo '$(srcdir)/'`ByteVectorProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ByteVectorProcedures.Tpo $(DEPDIR)/mosh-ByteVectorProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ByteVectorProcedures.cpp' object='mosh-ByteVectorProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ByteVectorProcedures.o `test -f 'ByteVectorProcedures.cpp' || echo '$(srcdir)/'`ByteVectorProcedures.cpp
+
+mosh-ByteVectorProcedures.obj: ByteVectorProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ByteVectorProcedures.obj -MD -MP -MF $(DEPDIR)/mosh-ByteVectorProcedures.Tpo -c -o mosh-ByteVectorProcedures.obj `if test -f 'ByteVectorProcedures.cpp'; then $(CYGPATH_W) 'ByteVectorProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ByteVectorProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ByteVectorProcedures.Tpo $(DEPDIR)/mosh-ByteVectorProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ByteVectorProcedures.cpp' object='mosh-ByteVectorProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ByteVectorProcedures.obj `if test -f 'ByteVectorProcedures.cpp'; then $(CYGPATH_W) 'ByteVectorProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ByteVectorProcedures.cpp'; fi`
+
 mosh-Equivalent.o: Equivalent.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Equivalent.o -MD -MP -MF $(DEPDIR)/mosh-Equivalent.Tpo -c -o mosh-Equivalent.o `test -f 'Equivalent.cpp' || echo '$(srcdir)/'`Equivalent.cpp
 @am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Equivalent.Tpo $(DEPDIR)/mosh-Equivalent.Po
@@ -1690,7 +1707,7 @@ check:test
 test:all-tests.scm ./mosh
 	./mosh -r test/reader.scm
 	./mosh all-tests.scm
-#	./mosh -b r6rs-examples/srfi8-test.ss
+	./mosh -b r6rs-examples/srfi8-test.ss
 	./mosh -b r6rs-examples/record-test.ss
 	./mosh -b r6rs-examples/condition-test.ss
 	./mosh -b r6rs-examples/exception-test.ss
