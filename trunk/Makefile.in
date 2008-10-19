@@ -81,9 +81,10 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
 	mosh-TextualInputPort.$(OBJEXT) \
 	mosh-StringTextualOutputPort.$(OBJEXT) \
 	mosh-StringTextualInputPort.$(OBJEXT) mosh-UTF8Codec.$(OBJEXT) \
-	mosh-UTF32Codec.$(OBJEXT) mosh-EqHashTable.$(OBJEXT) \
-	mosh-SString.$(OBJEXT) mosh-GenericHashTable.$(OBJEXT) \
-	mosh-Object.$(OBJEXT) mosh-RecordTypeDescriptor.$(OBJEXT) \
+	mosh-UTF16Codec.$(OBJEXT) mosh-UTF32Codec.$(OBJEXT) \
+	mosh-EqHashTable.$(OBJEXT) mosh-SString.$(OBJEXT) \
+	mosh-GenericHashTable.$(OBJEXT) mosh-Object.$(OBJEXT) \
+	mosh-RecordTypeDescriptor.$(OBJEXT) \
 	mosh-RecordConstructorDescriptor.$(OBJEXT) \
 	mosh-Record.$(OBJEXT) mosh-RecordProcedures.$(OBJEXT) \
 	mosh-ConditionProcedures.$(OBJEXT) \
@@ -296,6 +297,7 @@ TextualInputPort.cpp          TextualInputPort.h                  \
 StringTextualOutputPort.h     StringTextualOutputPort.cpp         \
 StringTextualInputPort.h      StringTextualInputPort.cpp          \
 UTF8Codec.cpp                 UTF8Codec.h                         \
+UTF16Codec.cpp                UTF16Codec.h                        \
 UTF32Codec.cpp                UTF32Codec.h                        \
 EqHashTable.h                 EqHashTable.cpp                     \
 SString.h                     SString.cpp                         \
@@ -493,6 +495,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-TextualByteVectorOutputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-TextualInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-TextualOutputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-UTF16Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-UTF32Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-UTF8Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-VM.Po@am__quote@
@@ -882,6 +885,20 @@ mosh-UTF8Codec.obj: UTF8Codec.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UTF8Codec.cpp' object='mosh-UTF8Codec.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-UTF8Codec.obj `if test -f 'UTF8Codec.cpp'; then $(CYGPATH_W) 'UTF8Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/UTF8Codec.cpp'; fi`
+
+mosh-UTF16Codec.o: UTF16Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-UTF16Codec.o -MD -MP -MF $(DEPDIR)/mosh-UTF16Codec.Tpo -c -o mosh-UTF16Codec.o `test -f 'UTF16Codec.cpp' || echo '$(srcdir)/'`UTF16Codec.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-UTF16Codec.Tpo $(DEPDIR)/mosh-UTF16Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UTF16Codec.cpp' object='mosh-UTF16Codec.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-UTF16Codec.o `test -f 'UTF16Codec.cpp' || echo '$(srcdir)/'`UTF16Codec.cpp
+
+mosh-UTF16Codec.obj: UTF16Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-UTF16Codec.obj -MD -MP -MF $(DEPDIR)/mosh-UTF16Codec.Tpo -c -o mosh-UTF16Codec.obj `if test -f 'UTF16Codec.cpp'; then $(CYGPATH_W) 'UTF16Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/UTF16Codec.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-UTF16Codec.Tpo $(DEPDIR)/mosh-UTF16Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UTF16Codec.cpp' object='mosh-UTF16Codec.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-UTF16Codec.obj `if test -f 'UTF16Codec.cpp'; then $(CYGPATH_W) 'UTF16Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/UTF16Codec.cpp'; fi`
 
 mosh-UTF32Codec.o: UTF32Codec.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-UTF32Codec.o -MD -MP -MF $(DEPDIR)/mosh-UTF32Codec.Tpo -c -o mosh-UTF32Codec.o `test -f 'UTF32Codec.cpp' || echo '$(srcdir)/'`UTF32Codec.cpp
