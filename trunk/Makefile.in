@@ -68,7 +68,7 @@ binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
 am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
 	mosh-BuiltinSymbols.$(OBJEXT) mosh-Closure.$(OBJEXT) \
-	mosh-freeproc.$(OBJEXT) mosh-reader.$(OBJEXT) \
+	mosh-UtilityProcedures.$(OBJEXT) mosh-reader.$(OBJEXT) \
 	mosh-scheme.$(OBJEXT) mosh-Regexp.$(OBJEXT) \
 	mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) mosh-Scanner.$(OBJEXT) \
 	mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
@@ -278,7 +278,7 @@ ProcedureMacro.h                                                  \
 BuiltinSymbols.cpp                                                \
 Builtin.h                                                         \
 Closure.h                     Closure.cpp                         \
-freeproc.h                    freeproc.cpp                        \
+UtilityProcedures.h           UtilityProcedures.cpp               \
 reader.h                      reader.cpp                          \
 scheme.h                      scheme.cpp                          \
 Regexp.h                      Regexp.cpp                          \
@@ -498,9 +498,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-UTF16Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-UTF32Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-UTF8Codec.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-UtilityProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-VM.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Vector.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-freeproc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-read.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-reader.Po@am__quote@
@@ -620,19 +620,19 @@ mosh-Closure.obj: Closure.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Closure.obj `if test -f 'Closure.cpp'; then $(CYGPATH_W) 'Closure.cpp'; else $(CYGPATH_W) '$(srcdir)/Closure.cpp'; fi`
 
-mosh-freeproc.o: freeproc.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-freeproc.o -MD -MP -MF $(DEPDIR)/mosh-freeproc.Tpo -c -o mosh-freeproc.o `test -f 'freeproc.cpp' || echo '$(srcdir)/'`freeproc.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-freeproc.Tpo $(DEPDIR)/mosh-freeproc.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='freeproc.cpp' object='mosh-freeproc.o' libtool=no @AMDEPBACKSLASH@
+mosh-UtilityProcedures.o: UtilityProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-UtilityProcedures.o -MD -MP -MF $(DEPDIR)/mosh-UtilityProcedures.Tpo -c -o mosh-UtilityProcedures.o `test -f 'UtilityProcedures.cpp' || echo '$(srcdir)/'`UtilityProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-UtilityProcedures.Tpo $(DEPDIR)/mosh-UtilityProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UtilityProcedures.cpp' object='mosh-UtilityProcedures.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-freeproc.o `test -f 'freeproc.cpp' || echo '$(srcdir)/'`freeproc.cpp
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-UtilityProcedures.o `test -f 'UtilityProcedures.cpp' || echo '$(srcdir)/'`UtilityProcedures.cpp
 
-mosh-freeproc.obj: freeproc.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-freeproc.obj -MD -MP -MF $(DEPDIR)/mosh-freeproc.Tpo -c -o mosh-freeproc.obj `if test -f 'freeproc.cpp'; then $(CYGPATH_W) 'freeproc.cpp'; else $(CYGPATH_W) '$(srcdir)/freeproc.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-freeproc.Tpo $(DEPDIR)/mosh-freeproc.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='freeproc.cpp' object='mosh-freeproc.obj' libtool=no @AMDEPBACKSLASH@
+mosh-UtilityProcedures.obj: UtilityProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-UtilityProcedures.obj -MD -MP -MF $(DEPDIR)/mosh-UtilityProcedures.Tpo -c -o mosh-UtilityProcedures.obj `if test -f 'UtilityProcedures.cpp'; then $(CYGPATH_W) 'UtilityProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/UtilityProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-UtilityProcedures.Tpo $(DEPDIR)/mosh-UtilityProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UtilityProcedures.cpp' object='mosh-UtilityProcedures.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-freeproc.obj `if test -f 'freeproc.cpp'; then $(CYGPATH_W) 'freeproc.cpp'; else $(CYGPATH_W) '$(srcdir)/freeproc.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-UtilityProcedures.obj `if test -f 'UtilityProcedures.cpp'; then $(CYGPATH_W) 'UtilityProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/UtilityProcedures.cpp'; fi`
 
 mosh-reader.o: reader.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-reader.o -MD -MP -MF $(DEPDIR)/mosh-reader.Tpo -c -o mosh-reader.o `test -f 'reader.cpp' || echo '$(srcdir)/'`reader.cpp
