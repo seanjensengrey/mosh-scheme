@@ -96,7 +96,8 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
 	mosh-ArithmeticProcedures.$(OBJEXT) \
 	mosh-ByteVectorProcedures.$(OBJEXT) mosh-Equivalent.$(OBJEXT) \
 	mosh-CompoundCondition.$(OBJEXT) mosh-ucs4string.$(OBJEXT) \
-	mosh-Vector.$(OBJEXT) mosh-CodeBuilder.$(OBJEXT)
+	mosh-Vector.$(OBJEXT) mosh-Fasl.$(OBJEXT) \
+	mosh-CodeBuilder.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
 mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB) $(noinst_LIBRARIES)
 mosh_LINK = $(CXXLD) $(mosh_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
@@ -321,6 +322,7 @@ Equivalent.h                  Equivalent.cpp                      \
 CompoundCondition.h           CompoundCondition.cpp               \
 ucs4string.h                  ucs4string.cpp                      \
 Vector.h                      Vector.cpp                          \
+Fasl.h                        Fasl.cpp                            \
 CodeBuilder.h                 CodeBuilder.cpp
 
 mosh_OPTS = -D MONA_SCHEME -D USE_BOEHM_GC -Wall -D MOSH_LIB_PATH="\"@MOSH_LIB_PATH@\""
@@ -472,6 +474,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-EqHashTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Equivalent.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ErrorProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Fasl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-FileBinaryInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-FileBinaryOutputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-GenericHashTable.Po@am__quote@
@@ -1221,6 +1224,20 @@ mosh-Vector.obj: Vector.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Vector.cpp' object='mosh-Vector.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Vector.obj `if test -f 'Vector.cpp'; then $(CYGPATH_W) 'Vector.cpp'; else $(CYGPATH_W) '$(srcdir)/Vector.cpp'; fi`
+
+mosh-Fasl.o: Fasl.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Fasl.o -MD -MP -MF $(DEPDIR)/mosh-Fasl.Tpo -c -o mosh-Fasl.o `test -f 'Fasl.cpp' || echo '$(srcdir)/'`Fasl.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Fasl.Tpo $(DEPDIR)/mosh-Fasl.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Fasl.cpp' object='mosh-Fasl.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Fasl.o `test -f 'Fasl.cpp' || echo '$(srcdir)/'`Fasl.cpp
+
+mosh-Fasl.obj: Fasl.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Fasl.obj -MD -MP -MF $(DEPDIR)/mosh-Fasl.Tpo -c -o mosh-Fasl.obj `if test -f 'Fasl.cpp'; then $(CYGPATH_W) 'Fasl.cpp'; else $(CYGPATH_W) '$(srcdir)/Fasl.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Fasl.Tpo $(DEPDIR)/mosh-Fasl.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Fasl.cpp' object='mosh-Fasl.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Fasl.obj `if test -f 'Fasl.cpp'; then $(CYGPATH_W) 'Fasl.cpp'; else $(CYGPATH_W) '$(srcdir)/Fasl.cpp'; fi`
 
 mosh-CodeBuilder.o: CodeBuilder.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-CodeBuilder.o -MD -MP -MF $(DEPDIR)/mosh-CodeBuilder.Tpo -c -o mosh-CodeBuilder.o `test -f 'CodeBuilder.cpp' || echo '$(srcdir)/'`CodeBuilder.cpp
