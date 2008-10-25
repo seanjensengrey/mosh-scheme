@@ -4766,7 +4766,7 @@ test -z "$INSTALL_DATA" && INSTALL_DATA='${INSTALL} -m 644'
 
 
 #[monar] overwrite
-CFLAGS="-O2 -fomit-frame-pointer"
+CFLAGS="-O2 -fomit-frame-pointer -DUSE_I686_PREFETCH"
 
 GC_CFLAGS=${gc_cflags}
 
