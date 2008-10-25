@@ -15,7 +15,6 @@
 @SET_MAKE@
 
 
-
 VPATH = @srcdir@
 pkgdatadir = $(datadir)/@PACKAGE@
 pkglibdir = $(libdir)/@PACKAGE@
@@ -47,31 +46,15 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = config.h
 CONFIG_CLEAN_FILES =
-LIBRARIES = $(noinst_LIBRARIES)
-AR = ar
-ARFLAGS = cru
-libcompiler_a_AR = $(AR) $(ARFLAGS)
-libcompiler_a_LIBADD =
-am_libcompiler_a_OBJECTS = libcompiler_a-compiler.$(OBJEXT)
-libcompiler_a_OBJECTS = $(am_libcompiler_a_OBJECTS)
-libmatch_a_AR = $(AR) $(ARFLAGS)
-libmatch_a_LIBADD =
-am_libmatch_a_OBJECTS = libmatch_a-match.$(OBJEXT)
-libmatch_a_OBJECTS = $(am_libmatch_a_OBJECTS)
-libpsyntax_a_AR = $(AR) $(ARFLAGS)
-libpsyntax_a_LIBADD =
-am_libpsyntax_a_OBJECTS = libpsyntax_a-psyntax.$(OBJEXT)
-libpsyntax_a_OBJECTS = $(am_libpsyntax_a_OBJECTS)
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)" \
 	"$(DESTDIR)$(datadir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
 am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
-	mosh-BuiltinSymbols.$(OBJEXT) mosh-Closure.$(OBJEXT) \
-	mosh-UtilityProcedures.$(OBJEXT) mosh-reader.$(OBJEXT) \
-	mosh-scheme.$(OBJEXT) mosh-Regexp.$(OBJEXT) \
-	mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) mosh-Scanner.$(OBJEXT) \
-	mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
+	mosh-Closure.$(OBJEXT) mosh-UtilityProcedures.$(OBJEXT) \
+	mosh-reader.$(OBJEXT) mosh-scheme.$(OBJEXT) \
+	mosh-Regexp.$(OBJEXT) mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
+	mosh-Scanner.$(OBJEXT) mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
 	mosh-ScannerHelper.$(OBJEXT) mosh-reader.tab.$(OBJEXT) \
 	mosh-FileBinaryInputPort.$(OBJEXT) \
 	mosh-FileBinaryOutputPort.$(OBJEXT) \
@@ -99,7 +82,7 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
 	mosh-Vector.$(OBJEXT) mosh-Fasl.$(OBJEXT) \
 	mosh-CodeBuilder.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
-mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB) $(noinst_LIBRARIES)
+mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB)
 mosh_LINK = $(CXXLD) $(mosh_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@
@@ -114,10 +97,8 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libcompiler_a_SOURCES) $(libmatch_a_SOURCES) \
-	$(libpsyntax_a_SOURCES) $(mosh_SOURCES)
-DIST_SOURCES = $(libcompiler_a_SOURCES) $(libmatch_a_SOURCES) \
-	$(libpsyntax_a_SOURCES) $(mosh_SOURCES)
+SOURCES = $(mosh_SOURCES)
+DIST_SOURCES = $(mosh_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
 	html-recursive info-recursive install-data-recursive \
 	install-dvi-recursive install-exec-recursive \
@@ -279,8 +260,6 @@ Pair.h                                                            \
 Stack.h                                                           \
 Box.h                                                             \
 ProcedureMacro.h                                                  \
-BuiltinSymbols.cpp                                                \
-Builtin.h                                                         \
 Closure.h                     Closure.cpp                         \
 UtilityProcedures.h           UtilityProcedures.cpp               \
 reader.h                      reader.cpp                          \
@@ -335,15 +314,17 @@ mosh_CXXFLAGS = $(mosh_CFLAGS)
 MOSHLIB_CXXFLAGS = -fomit-frame-pointer $(mosh_OPTS) # compile libraries with -O0
 data_DATA = all-tests.scm repl.scm tools/psyntax-r6rs/rev10_to_10/psyntax.scm
 nobase_data_DATA = lib/srfi/%3A8.ss lib/srfi/%3A98.ss lib/mosh/test.ss
-noinst_LIBRARIES = libcompiler.a libmatch.a libpsyntax.a
+
+#noinst_LIBRARIES = libcompiler.a libmatch.a libpsyntax.a
 PRECOMPILE_SRC = compiler-with-library.scmc match.scmc psyntax.scmc
-libcompiler_a_CXXFLAGS = $(MOSHLIB_CXXFLAGS)
-libmatch_a_CXXFLAGS = $(MOSHLIB_CXXFLAGS)
-libpsyntax_a_CXXFLAGS = $(MOSHLIB_CXXFLAGS)
-libcompiler_a_SOURCES = compiler.cpp
-libmatch_a_SOURCES = match.cpp
-libpsyntax_a_SOURCES = psyntax.cpp
-mosh_LDADD = $(GC_LIB) $(REGEXP_LIB) $(noinst_LIBRARIES)
+
+# libcompiler_a_CXXFLAGS = $(MOSHLIB_CXXFLAGS)
+# libmatch_a_CXXFLAGS    = $(MOSHLIB_CXXFLAGS)
+# libpsyntax_a_CXXFLAGS  = $(MOSHLIB_CXXFLAGS)
+# libcompiler_a_SOURCES  = compiler.cpp
+# libmatch_a_SOURCES     = match.cpp
+# libpsyntax_a_SOURCES   = psyntax.cpp
+mosh_LDADD = $(GC_LIB) $(REGEXP_LIB) #$(noinst_LIBRARIES)
 
 # # generated files should be listed here.
 # BUILT_SOURCES  = Instruction.h compiler.cpp match.cpp BuiltinSymbols.cpp labels.cpp DebugInstruction.h ./compiler-vm.scm cprocedures.cpp ./compiler-gauche.scm
@@ -351,7 +332,7 @@ INCLUDES = -I $(BOEHM_GC_DIR)/include -I $(ONIG_DIR)
 EXTRA_DIST = instruction.scm vm.scm library.scm compiler.scm free-vars.scm scripts match.scm test-data.scm doc repl.scm tools/psyntax-r6rs/rev10_to_10/psyntax.scm r6rs-examples tools/psyntax-r6rs RELNOTE r6rs-test-suite example
 GENERATED = \
 all-tests.scm Scanner.cpp psyntax.cpp  compiler-gauche.scm \
-BuiltinSymbols.cpp DebugInstruction.h cprocedures.cpp      \
+DebugInstruction.h cprocedures.cpp      \
 labels.cpp match.cpp compiler.cpp psyntax.scmc             \
 match.scmc compiler-with-library.scmc compiler-vm-cpp.scm  \
 compiler-vm.scm compiler-with-library.scm Instruction.h    \
@@ -364,7 +345,7 @@ all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
 .SUFFIXES:
-.SUFFIXES: .cpp .o .obj
+.SUFFIXES: .cpp .h .o .obj .scmc
 am--refresh:
 	@:
 $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
@@ -415,21 +396,6 @@ $(srcdir)/config.h.in:  $(am__configure_deps)
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
-
-clean-noinstLIBRARIES:
-	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
-libcompiler.a: $(libcompiler_a_OBJECTS) $(libcompiler_a_DEPENDENCIES) 
-	-rm -f libcompiler.a
-	$(libcompiler_a_AR) libcompiler.a $(libcompiler_a_OBJECTS) $(libcompiler_a_LIBADD)
-	$(RANLIB) libcompiler.a
-libmatch.a: $(libmatch_a_OBJECTS) $(libmatch_a_DEPENDENCIES) 
-	-rm -f libmatch.a
-	$(libmatch_a_AR) libmatch.a $(libmatch_a_OBJECTS) $(libmatch_a_LIBADD)
-	$(RANLIB) libmatch.a
-libpsyntax.a: $(libpsyntax_a_OBJECTS) $(libpsyntax_a_DEPENDENCIES) 
-	-rm -f libpsyntax.a
-	$(libpsyntax_a_AR) libpsyntax.a $(libpsyntax_a_OBJECTS) $(libpsyntax_a_LIBADD)
-	$(RANLIB) libpsyntax.a
 install-binPROGRAMS: $(bin_PROGRAMS)
 	@$(NORMAL_INSTALL)
 	test -z "$(bindir)" || $(MKDIR_P) "$(DESTDIR)$(bindir)"
@@ -463,11 +429,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcompiler_a-compiler.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmatch_a-match.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsyntax_a-psyntax.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ArithmeticProcedures.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-BuiltinSymbols.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ByteArrayBinaryInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ByteVectorProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Closure.Po@am__quote@
@@ -530,48 +492,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
-libcompiler_a-compiler.o: compiler.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcompiler_a_CXXFLAGS) $(CXXFLAGS) -MT libcompiler_a-compiler.o -MD -MP -MF $(DEPDIR)/libcompiler_a-compiler.Tpo -c -o libcompiler_a-compiler.o `test -f 'compiler.cpp' || echo '$(srcdir)/'`compiler.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libcompiler_a-compiler.Tpo $(DEPDIR)/libcompiler_a-compiler.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='compiler.cpp' object='libcompiler_a-compiler.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcompiler_a_CXXFLAGS) $(CXXFLAGS) -c -o libcompiler_a-compiler.o `test -f 'compiler.cpp' || echo '$(srcdir)/'`compiler.cpp
-
-libcompiler_a-compiler.obj: compiler.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcompiler_a_CXXFLAGS) $(CXXFLAGS) -MT libcompiler_a-compiler.obj -MD -MP -MF $(DEPDIR)/libcompiler_a-compiler.Tpo -c -o libcompiler_a-compiler.obj `if test -f 'compiler.cpp'; then $(CYGPATH_W) 'compiler.cpp'; else $(CYGPATH_W) '$(srcdir)/compiler.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libcompiler_a-compiler.Tpo $(DEPDIR)/libcompiler_a-compiler.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='compiler.cpp' object='libcompiler_a-compiler.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcompiler_a_CXXFLAGS) $(CXXFLAGS) -c -o libcompiler_a-compiler.obj `if test -f 'compiler.cpp'; then $(CYGPATH_W) 'compiler.cpp'; else $(CYGPATH_W) '$(srcdir)/compiler.cpp'; fi`
-
-libmatch_a-match.o: match.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmatch_a_CXXFLAGS) $(CXXFLAGS) -MT libmatch_a-match.o -MD -MP -MF $(DEPDIR)/libmatch_a-match.Tpo -c -o libmatch_a-match.o `test -f 'match.cpp' || echo '$(srcdir)/'`match.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmatch_a-match.Tpo $(DEPDIR)/libmatch_a-match.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='match.cpp' object='libmatch_a-match.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmatch_a_CXXFLAGS) $(CXXFLAGS) -c -o libmatch_a-match.o `test -f 'match.cpp' || echo '$(srcdir)/'`match.cpp
-
-libmatch_a-match.obj: match.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmatch_a_CXXFLAGS) $(CXXFLAGS) -MT libmatch_a-match.obj -MD -MP -MF $(DEPDIR)/libmatch_a-match.Tpo -c -o libmatch_a-match.obj `if test -f 'match.cpp'; then $(CYGPATH_W) 'match.cpp'; else $(CYGPATH_W) '$(srcdir)/match.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmatch_a-match.Tpo $(DEPDIR)/libmatch_a-match.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='match.cpp' object='libmatch_a-match.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmatch_a_CXXFLAGS) $(CXXFLAGS) -c -o libmatch_a-match.obj `if test -f 'match.cpp'; then $(CYGPATH_W) 'match.cpp'; else $(CYGPATH_W) '$(srcdir)/match.cpp'; fi`
-
-libpsyntax_a-psyntax.o: psyntax.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsyntax_a_CXXFLAGS) $(CXXFLAGS) -MT libpsyntax_a-psyntax.o -MD -MP -MF $(DEPDIR)/libpsyntax_a-psyntax.Tpo -c -o libpsyntax_a-psyntax.o `test -f 'psyntax.cpp' || echo '$(srcdir)/'`psyntax.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libpsyntax_a-psyntax.Tpo $(DEPDIR)/libpsyntax_a-psyntax.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='psyntax.cpp' object='libpsyntax_a-psyntax.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsyntax_a_CXXFLAGS) $(CXXFLAGS) -c -o libpsyntax_a-psyntax.o `test -f 'psyntax.cpp' || echo '$(srcdir)/'`psyntax.cpp
-
-libpsyntax_a-psyntax.obj: psyntax.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsyntax_a_CXXFLAGS) $(CXXFLAGS) -MT libpsyntax_a-psyntax.obj -MD -MP -MF $(DEPDIR)/libpsyntax_a-psyntax.Tpo -c -o libpsyntax_a-psyntax.obj `if test -f 'psyntax.cpp'; then $(CYGPATH_W) 'psyntax.cpp'; else $(CYGPATH_W) '$(srcdir)/psyntax.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libpsyntax_a-psyntax.Tpo $(DEPDIR)/libpsyntax_a-psyntax.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='psyntax.cpp' object='libpsyntax_a-psyntax.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsyntax_a_CXXFLAGS) $(CXXFLAGS) -c -o libpsyntax_a-psyntax.obj `if test -f 'psyntax.cpp'; then $(CYGPATH_W) 'psyntax.cpp'; else $(CYGPATH_W) '$(srcdir)/psyntax.cpp'; fi`
-
 mosh-main.o: main.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-main.o -MD -MP -MF $(DEPDIR)/mosh-main.Tpo -c -o mosh-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp
 @am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-main.Tpo $(DEPDIR)/mosh-main.Po
@@ -599,20 +519,6 @@ mosh-read.obj: read.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='read.cpp' object='mosh-read.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-read.obj `if test -f 'read.cpp'; then $(CYGPATH_W) 'read.cpp'; else $(CYGPATH_W) '$(srcdir)/read.cpp'; fi`
-
-mosh-BuiltinSymbols.o: BuiltinSymbols.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-BuiltinSymbols.o -MD -MP -MF $(DEPDIR)/mosh-BuiltinSymbols.Tpo -c -o mosh-BuiltinSymbols.o `test -f 'BuiltinSymbols.cpp' || echo '$(srcdir)/'`BuiltinSymbols.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-BuiltinSymbols.Tpo $(DEPDIR)/mosh-BuiltinSymbols.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='BuiltinSymbols.cpp' object='mosh-BuiltinSymbols.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-BuiltinSymbols.o `test -f 'BuiltinSymbols.cpp' || echo '$(srcdir)/'`BuiltinSymbols.cpp
-
-mosh-BuiltinSymbols.obj: BuiltinSymbols.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-BuiltinSymbols.obj -MD -MP -MF $(DEPDIR)/mosh-BuiltinSymbols.Tpo -c -o mosh-BuiltinSymbols.obj `if test -f 'BuiltinSymbols.cpp'; then $(CYGPATH_W) 'BuiltinSymbols.cpp'; else $(CYGPATH_W) '$(srcdir)/BuiltinSymbols.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-BuiltinSymbols.Tpo $(DEPDIR)/mosh-BuiltinSymbols.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='BuiltinSymbols.cpp' object='mosh-BuiltinSymbols.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-BuiltinSymbols.obj `if test -f 'BuiltinSymbols.cpp'; then $(CYGPATH_W) 'BuiltinSymbols.cpp'; else $(CYGPATH_W) '$(srcdir)/BuiltinSymbols.cpp'; fi`
 
 mosh-Closure.o: Closure.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Closure.o -MD -MP -MF $(DEPDIR)/mosh-Closure.Tpo -c -o mosh-Closure.o `test -f 'Closure.cpp' || echo '$(srcdir)/'`Closure.cpp
@@ -1569,7 +1475,7 @@ distcleancheck: distclean
 	       exit 1; } >&2
 check-am: all-am
 check: check-recursive
-all-am: Makefile $(LIBRARIES) $(PROGRAMS) $(DATA) config.h
+all-am: Makefile $(PROGRAMS) $(DATA) config.h
 installdirs: installdirs-recursive
 installdirs-am:
 	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)" "$(DESTDIR)$(datadir)"; do \
@@ -1603,8 +1509,7 @@ maintainer-clean-generic:
 	-test -z "$(MAINTAINERCLEANFILES)" || rm -f $(MAINTAINERCLEANFILES)
 clean: clean-recursive
 
-clean-am: clean-binPROGRAMS clean-generic clean-noinstLIBRARIES \
-	mostlyclean-am
+clean-am: clean-binPROGRAMS clean-generic mostlyclean-am
 
 distclean: distclean-recursive
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
@@ -1668,22 +1573,22 @@ uninstall-am: uninstall-binPROGRAMS uninstall-dataDATA \
 
 .PHONY: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) CTAGS GTAGS \
 	all all-am am--refresh check check-am clean clean-binPROGRAMS \
-	clean-generic clean-noinstLIBRARIES ctags ctags-recursive dist \
-	dist-all dist-bzip2 dist-gzip dist-shar dist-tarZ dist-zip \
-	distcheck distclean distclean-compile distclean-generic \
-	distclean-hdr distclean-tags distcleancheck distdir \
-	distuninstallcheck dvi dvi-am html html-am info info-am \
-	install install-am install-binPROGRAMS install-data \
-	install-data-am install-dataDATA install-dvi install-dvi-am \
-	install-exec install-exec-am install-html install-html-am \
-	install-info install-info-am install-man \
-	install-nobase_dataDATA install-pdf install-pdf-am install-ps \
-	install-ps-am install-strip installcheck installcheck-am \
-	installdirs installdirs-am maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic pdf pdf-am ps ps-am tags tags-recursive \
-	uninstall uninstall-am uninstall-binPROGRAMS \
-	uninstall-dataDATA uninstall-nobase_dataDATA
+	clean-generic ctags ctags-recursive dist dist-all dist-bzip2 \
+	dist-gzip dist-shar dist-tarZ dist-zip distcheck distclean \
+	distclean-compile distclean-generic distclean-hdr \
+	distclean-tags distcleancheck distdir distuninstallcheck dvi \
+	dvi-am html html-am info info-am install install-am \
+	install-binPROGRAMS install-data install-data-am \
+	install-dataDATA install-dvi install-dvi-am install-exec \
+	install-exec-am install-html install-html-am install-info \
+	install-info-am install-man install-nobase_dataDATA \
+	install-pdf install-pdf-am install-ps install-ps-am \
+	install-strip installcheck installcheck-am installdirs \
+	installdirs-am maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic pdf pdf-am \
+	ps ps-am tags tags-recursive uninstall uninstall-am \
+	uninstall-binPROGRAMS uninstall-dataDATA \
+	uninstall-nobase_dataDATA
 
 
 reader.tab.cpp: reader.y
@@ -1704,17 +1609,17 @@ Instruction.h: ./instruction.scm
 #main.cpp: psyntax.h compiler-with-library.h match.h
 
 ##### compiler generation
-BuiltinSymbols.cpp: $(PRECOMPILE_SRC) #compiler-with-library.scmc match.scmc psyntax.scmc
-	@GOSH@ ./scripts/gen-pre-compiled-faster-cpp.scm -g > $(PWD)/$@
+# BuiltinSymbols.cpp: $(PRECOMPILE_SRC) #compiler-with-library.scmc match.scmc psyntax.scmc
+# 	@GOSH@ ./scripts/gen-pre-compiled-faster-cpp.scm -g > $(PWD)/$@
 
-compiler.cpp: compiler-with-library.scmc $(PRECOMPILE_SRC) #match.scmc  psyntax.scmc # match.scmc is also required for collecting symbols
-	@GOSH@ ./scripts/gen-pre-compiled-faster-cpp.scm "getBuiltinCompiler" $(PWD)/$< > $(PWD)/$@
+# compiler.cpp: compiler-with-library.scmc $(PRECOMPILE_SRC) #match.scmc  psyntax.scmc # match.scmc is also required for collecting symbols
+# 	@GOSH@ ./scripts/gen-pre-compiled-faster-cpp.scm "getBuiltinCompiler" $(PWD)/$< > $(PWD)/$@
 
-psyntax.cpp: psyntax.scmc $(PRECOMPILE_SRC) ./scripts/gen-pre-compiled-faster-cpp.scm # match.scmc is also required for collecting symbols
-	@GOSH@ ./scripts/gen-pre-compiled-faster-cpp.scm "getBuiltinPsyntax" $(PWD)/$< > $(PWD)/$@
+# psyntax.cpp: psyntax.scmc $(PRECOMPILE_SRC) ./scripts/gen-pre-compiled-faster-cpp.scm # match.scmc is also required for collecting symbols
+# 	@GOSH@ ./scripts/gen-pre-compiled-faster-cpp.scm "getBuiltinPsyntax" $(PWD)/$< > $(PWD)/$@
 
-match.cpp: match.scmc $(PRECOMPILE_SRC)# compiler-with-library.scmc psyntax.scmc
-	@GOSH@ ./scripts/gen-pre-compiled-faster-cpp.scm "getBuiltinMatch" $(PWD)/$< > $(PWD)/$@
+# match.cpp: match.scmc $(PRECOMPILE_SRC)# compiler-with-library.scmc psyntax.scmc
+# 	@GOSH@ ./scripts/gen-pre-compiled-faster-cpp.scm "getBuiltinMatch" $(PWD)/$< > $(PWD)/$@
 
 ./compiler-vm-cpp.scm: ./compiler.scm free-vars-decl.scm
 	@GOSH@ ./scripts/gen-compiler.scm $(PWD)/$< "mosh" > $(PWD)/$@
@@ -1733,7 +1638,9 @@ compiler-with-library.scmc: ./compiler-with-library.scm ./compiler-vm.scm
 # 	./mosh -b scripts/binary2c.scm $(PWD)/$< $(PWD)/$@
 
 SUFFIXES: .scmc .h
-	./mosh -b scripts/scmc2fasl.scm $(PWD)/$<.fasl $(PWD)/$@
+
+.scmc.h:
+	./mosh -b scripts/scmc2fasl.scm $(PWD)/$< $(PWD)/$<.fasl
 	./mosh -b scripts/binary2c.scm $(PWD)/$<.fasl $(PWD)/$@
 
 # match.fasl: ./match.scmc
