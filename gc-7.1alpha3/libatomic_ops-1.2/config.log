@@ -38,6 +38,11 @@ PATH: /opt/local/sbin
 PATH: /usr/local/bin
 PATH: /usr/local/mysql/bin
 PATH: /home/taro/bin
+PATH: /opt/local/bin
+PATH: /opt/local/sbin
+PATH: /usr/local/bin
+PATH: /usr/local/mysql/bin
+PATH: /home/taro/bin
 PATH: /usr/local/sbin
 PATH: /usr/local/bin
 PATH: /usr/sbin
