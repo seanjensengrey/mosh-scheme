@@ -3971,11 +3971,6 @@ echo "${ECHO_T}no" >&6; }
 fi
 
 
-if test "$GOSH" != "gosh"
-    then { { echo "$as_me:$LINENO: error: gosh not found. Gauche (http://practical-scheme.net/gauche/) is required to build." >&5
-echo "$as_me: error: gosh not found. Gauche (http://practical-scheme.net/gauche/) is required to build." >&2;}
-   { (exit 1); exit 1; }; }
-fi
 
 # Check whether --enable-profiler was given.
 if test "${enable_profiler+set}" = set; then
