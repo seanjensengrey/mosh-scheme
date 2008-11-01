@@ -81,7 +81,7 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
 	mosh-CompoundCondition.$(OBJEXT) mosh-ucs4string.$(OBJEXT) \
 	mosh-Vector.$(OBJEXT) mosh-Fasl.$(OBJEXT) \
 	mosh-Arithmetic.$(OBJEXT) mosh-Rational.$(OBJEXT) \
-	mosh-CodeBuilder.$(OBJEXT)
+	mosh-Flonum.$(OBJEXT) mosh-CodeBuilder.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
 mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB)
 mosh_LINK = $(CXXLD) $(mosh_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
@@ -314,6 +314,7 @@ Vector.h                      Vector.cpp                          \
 Fasl.h                        Fasl.cpp                            \
 Arithmetic.h                  Arithmetic.cpp                      \
 Rational.h                    Rational.cpp                        \
+Flonum.h                      Flonum.cpp                          \
 CodeBuilder.h                 CodeBuilder.cpp
 
 mosh_OPTS = -D MONA_SCHEME -D USE_BOEHM_GC -Wall -D MOSH_LIB_PATH="\"@MOSH_LIB_PATH@\""
@@ -444,6 +445,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Fasl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-FileBinaryInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-FileBinaryOutputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Flonum.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-GenericHashTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-HashTableProceduures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ListProcedures.Po@am__quote@
@@ -1178,6 +1180,20 @@ mosh-Rational.obj: Rational.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Rational.cpp' object='mosh-Rational.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Rational.obj `if test -f 'Rational.cpp'; then $(CYGPATH_W) 'Rational.cpp'; else $(CYGPATH_W) '$(srcdir)/Rational.cpp'; fi`
+
+mosh-Flonum.o: Flonum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Flonum.o -MD -MP -MF $(DEPDIR)/mosh-Flonum.Tpo -c -o mosh-Flonum.o `test -f 'Flonum.cpp' || echo '$(srcdir)/'`Flonum.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Flonum.Tpo $(DEPDIR)/mosh-Flonum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Flonum.cpp' object='mosh-Flonum.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Flonum.o `test -f 'Flonum.cpp' || echo '$(srcdir)/'`Flonum.cpp
+
+mosh-Flonum.obj: Flonum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Flonum.obj -MD -MP -MF $(DEPDIR)/mosh-Flonum.Tpo -c -o mosh-Flonum.obj `if test -f 'Flonum.cpp'; then $(CYGPATH_W) 'Flonum.cpp'; else $(CYGPATH_W) '$(srcdir)/Flonum.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Flonum.Tpo $(DEPDIR)/mosh-Flonum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Flonum.cpp' object='mosh-Flonum.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Flonum.obj `if test -f 'Flonum.cpp'; then $(CYGPATH_W) 'Flonum.cpp'; else $(CYGPATH_W) '$(srcdir)/Flonum.cpp'; fi`
 
 mosh-CodeBuilder.o: CodeBuilder.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-CodeBuilder.o -MD -MP -MF $(DEPDIR)/mosh-CodeBuilder.Tpo -c -o mosh-CodeBuilder.o `test -f 'CodeBuilder.cpp' || echo '$(srcdir)/'`CodeBuilder.cpp
