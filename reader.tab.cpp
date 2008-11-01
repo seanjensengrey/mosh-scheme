@@ -1451,7 +1451,7 @@ yyreduce:
 
   case 9:
 #line 61 "reader.y"
-    { (yyval.object) = Object::makeInt((yyvsp[(1) - (1)].intValue)); ;}
+    { (yyval.object) = Object::makeFixnum((yyvsp[(1) - (1)].intValue)); ;}
     break;
 
   case 10:
@@ -1492,7 +1492,7 @@ yyreduce:
            (yyvsp[(2) - (3)].object) = Pair::reverse((yyvsp[(2) - (3)].object));
            if ((yyvsp[(2) - (3)].object).isPair()) {
                 (yyvsp[(2) - (3)].object).toPair()->sourceInfo = Pair::list2(Object::makeString(parser_port()->toString()),
-                                                      Object::makeInt(parser_port()->getLineNo()));
+                                                      Object::makeFixnum(parser_port()->getLineNo()));
            }
            (yyval.object) = (yyvsp[(2) - (3)].object);
        ;}
@@ -1805,7 +1805,7 @@ int yyerror(char const *str)
 {
     TextualInputPort* const port = parser_port();
     port->setError(format(UC("~a near [~a] at ~a:~d. "),
-                          Pair::list4(str, Object::makeString(port->scanner()->currentToken()), port->toString(), Object::makeInt(port->getLineNo()))));
+                          Pair::list4(str, Object::makeString(port->scanner()->currentToken()), port->toString(), Object::makeFixnum(port->getLineNo()))));
     return 0;
 }
 
