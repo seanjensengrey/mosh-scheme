@@ -11,7 +11,7 @@
  * [R6RS] eval *done*
 == by version 0.2.0 ==
  * [R6RS] Hashtables. *done*
- * [R6RS] Unicode
+ * [R6RS] Unicode *done*
  * [R6RS] I/O.
  * [R6RS] Bytevectors.
 == by version 0.3.0 ==
