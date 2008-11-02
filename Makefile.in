@@ -80,8 +80,9 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
 	mosh-ByteVectorProcedures.$(OBJEXT) mosh-Equivalent.$(OBJEXT) \
 	mosh-CompoundCondition.$(OBJEXT) mosh-ucs4string.$(OBJEXT) \
 	mosh-Vector.$(OBJEXT) mosh-Fasl.$(OBJEXT) \
-	mosh-Arithmetic.$(OBJEXT) mosh-Rational.$(OBJEXT) \
-	mosh-Flonum.$(OBJEXT) mosh-CodeBuilder.$(OBJEXT)
+	mosh-Arithmetic.$(OBJEXT) mosh-Ratnum.$(OBJEXT) \
+	mosh-Bignum.$(OBJEXT) mosh-Flonum.$(OBJEXT) \
+	mosh-CodeBuilder.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
 mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB)
 mosh_LINK = $(CXXLD) $(mosh_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
@@ -267,6 +268,7 @@ Box.h                                                             \
 Codec.h                                                           \
 Transcoder.h                                                      \
 ProcedureMacro.h                                                  \
+Fixnum.h                                                          \
 Closure.h                     Closure.cpp                         \
 UtilityProcedures.h           UtilityProcedures.cpp               \
 reader.h                      reader.cpp                          \
@@ -313,7 +315,8 @@ ucs4string.h                  ucs4string.cpp                      \
 Vector.h                      Vector.cpp                          \
 Fasl.h                        Fasl.cpp                            \
 Arithmetic.h                  Arithmetic.cpp                      \
-Rational.h                    Rational.cpp                        \
+Ratnum.h                      Ratnum.cpp                          \
+Bignum.h                      Bignum.cpp                          \
 Flonum.h                      Flonum.cpp                          \
 CodeBuilder.h                 CodeBuilder.cpp
 
@@ -431,6 +434,7 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Arithmetic.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ArithmeticProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Bignum.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ByteArrayBinaryInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ByteVectorProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Closure.Po@am__quote@
@@ -451,7 +455,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ListProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Object.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-PortProcedures.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Rational.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Ratnum.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Record.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-RecordConstructorDescriptor.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-RecordProcedures.Po@am__quote@
@@ -1167,19 +1171,33 @@ mosh-Arithmetic.obj: Arithmetic.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Arithmetic.obj `if test -f 'Arithmetic.cpp'; then $(CYGPATH_W) 'Arithmetic.cpp'; else $(CYGPATH_W) '$(srcdir)/Arithmetic.cpp'; fi`
 
-mosh-Rational.o: Rational.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Rational.o -MD -MP -MF $(DEPDIR)/mosh-Rational.Tpo -c -o mosh-Rational.o `test -f 'Rational.cpp' || echo '$(srcdir)/'`Rational.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Rational.Tpo $(DEPDIR)/mosh-Rational.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Rational.cpp' object='mosh-Rational.o' libtool=no @AMDEPBACKSLASH@
+mosh-Ratnum.o: Ratnum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Ratnum.o -MD -MP -MF $(DEPDIR)/mosh-Ratnum.Tpo -c -o mosh-Ratnum.o `test -f 'Ratnum.cpp' || echo '$(srcdir)/'`Ratnum.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Ratnum.Tpo $(DEPDIR)/mosh-Ratnum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Ratnum.cpp' object='mosh-Ratnum.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Rational.o `test -f 'Rational.cpp' || echo '$(srcdir)/'`Rational.cpp
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Ratnum.o `test -f 'Ratnum.cpp' || echo '$(srcdir)/'`Ratnum.cpp
 
-mosh-Rational.obj: Rational.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Rational.obj -MD -MP -MF $(DEPDIR)/mosh-Rational.Tpo -c -o mosh-Rational.obj `if test -f 'Rational.cpp'; then $(CYGPATH_W) 'Rational.cpp'; else $(CYGPATH_W) '$(srcdir)/Rational.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Rational.Tpo $(DEPDIR)/mosh-Rational.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Rational.cpp' object='mosh-Rational.obj' libtool=no @AMDEPBACKSLASH@
+mosh-Ratnum.obj: Ratnum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Ratnum.obj -MD -MP -MF $(DEPDIR)/mosh-Ratnum.Tpo -c -o mosh-Ratnum.obj `if test -f 'Ratnum.cpp'; then $(CYGPATH_W) 'Ratnum.cpp'; else $(CYGPATH_W) '$(srcdir)/Ratnum.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Ratnum.Tpo $(DEPDIR)/mosh-Ratnum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Ratnum.cpp' object='mosh-Ratnum.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Rational.obj `if test -f 'Rational.cpp'; then $(CYGPATH_W) 'Rational.cpp'; else $(CYGPATH_W) '$(srcdir)/Rational.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Ratnum.obj `if test -f 'Ratnum.cpp'; then $(CYGPATH_W) 'Ratnum.cpp'; else $(CYGPATH_W) '$(srcdir)/Ratnum.cpp'; fi`
+
+mosh-Bignum.o: Bignum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Bignum.o -MD -MP -MF $(DEPDIR)/mosh-Bignum.Tpo -c -o mosh-Bignum.o `test -f 'Bignum.cpp' || echo '$(srcdir)/'`Bignum.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Bignum.Tpo $(DEPDIR)/mosh-Bignum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Bignum.cpp' object='mosh-Bignum.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Bignum.o `test -f 'Bignum.cpp' || echo '$(srcdir)/'`Bignum.cpp
+
+mosh-Bignum.obj: Bignum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Bignum.obj -MD -MP -MF $(DEPDIR)/mosh-Bignum.Tpo -c -o mosh-Bignum.obj `if test -f 'Bignum.cpp'; then $(CYGPATH_W) 'Bignum.cpp'; else $(CYGPATH_W) '$(srcdir)/Bignum.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Bignum.Tpo $(DEPDIR)/mosh-Bignum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Bignum.cpp' object='mosh-Bignum.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Bignum.obj `if test -f 'Bignum.cpp'; then $(CYGPATH_W) 'Bignum.cpp'; else $(CYGPATH_W) '$(srcdir)/Bignum.cpp'; fi`
 
 mosh-Flonum.o: Flonum.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Flonum.o -MD -MP -MF $(DEPDIR)/mosh-Flonum.Tpo -c -o mosh-Flonum.o `test -f 'Flonum.cpp' || echo '$(srcdir)/'`Flonum.cpp
