@@ -4042,8 +4042,8 @@ _ACEOF
   LIBS="-lgmp $LIBS"
 
 else
-  { { echo "$as_me:$LINENO: error: GNU MP not found, see http://gmplib.org/" >&5
-echo "$as_me: error: GNU MP not found, see http://gmplib.org/" >&2;}
+  { { echo "$as_me:$LINENO: error: GNU MP not found, see http://gmplib.org/.\"CFLAGS+=-m32  ./configure ABI=32 && make\" for OSX" >&5
+echo "$as_me: error: GNU MP not found, see http://gmplib.org/.\"CFLAGS+=-m32  ./configure ABI=32 && make\" for OSX" >&2;}
    { (exit 1); exit 1; }; }
 fi
 
