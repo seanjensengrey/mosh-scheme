@@ -77,6 +77,7 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
 	mosh-StringProcedures.$(OBJEXT) mosh-PortProcedures.$(OBJEXT) \
 	mosh-ListProcedures.$(OBJEXT) mosh-ErrorProcedures.$(OBJEXT) \
 	mosh-ArithmeticProcedures.$(OBJEXT) \
+	mosh-FlonumProcedures.$(OBJEXT) \
 	mosh-ByteVectorProcedures.$(OBJEXT) mosh-Equivalent.$(OBJEXT) \
 	mosh-CompoundCondition.$(OBJEXT) mosh-ucs4string.$(OBJEXT) \
 	mosh-Vector.$(OBJEXT) mosh-Fasl.$(OBJEXT) \
@@ -308,6 +309,7 @@ PortProcedures.cpp            PortProcedures.h                    \
 ListProcedures.cpp            ListProcedures.h                    \
 ErrorProcedures.cpp           ErrorProcedures.h                   \
 ArithmeticProcedures.cpp      ArithmeticProcedures.h              \
+FlonumProcedures.cpp          FlonumProcedures.h                  \
 ByteVectorProcedures.cpp      ByteVectorProcedures.h              \
 Equivalent.h                  Equivalent.cpp                      \
 CompoundCondition.h           CompoundCondition.cpp               \
@@ -450,6 +452,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-FileBinaryInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-FileBinaryOutputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Flonum.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-FlonumProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-GenericHashTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-HashTableProceduures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ListProcedures.Po@am__quote@
@@ -1072,6 +1075,20 @@ mosh-ArithmeticProcedures.obj: ArithmeticProcedures.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ArithmeticProcedures.cpp' object='mosh-ArithmeticProcedures.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-ArithmeticProcedures.obj `if test -f 'ArithmeticProcedures.cpp'; then $(CYGPATH_W) 'ArithmeticProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ArithmeticProcedures.cpp'; fi`
+
+mosh-FlonumProcedures.o: FlonumProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-FlonumProcedures.o -MD -MP -MF $(DEPDIR)/mosh-FlonumProcedures.Tpo -c -o mosh-FlonumProcedures.o `test -f 'FlonumProcedures.cpp' || echo '$(srcdir)/'`FlonumProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-FlonumProcedures.Tpo $(DEPDIR)/mosh-FlonumProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='FlonumProcedures.cpp' object='mosh-FlonumProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-FlonumProcedures.o `test -f 'FlonumProcedures.cpp' || echo '$(srcdir)/'`FlonumProcedures.cpp
+
+mosh-FlonumProcedures.obj: FlonumProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-FlonumProcedures.obj -MD -MP -MF $(DEPDIR)/mosh-FlonumProcedures.Tpo -c -o mosh-FlonumProcedures.obj `if test -f 'FlonumProcedures.cpp'; then $(CYGPATH_W) 'FlonumProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/FlonumProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-FlonumProcedures.Tpo $(DEPDIR)/mosh-FlonumProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='FlonumProcedures.cpp' object='mosh-FlonumProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-FlonumProcedures.obj `if test -f 'FlonumProcedures.cpp'; then $(CYGPATH_W) 'FlonumProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/FlonumProcedures.cpp'; fi`
 
 mosh-ByteVectorProcedures.o: ByteVectorProcedures.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ByteVectorProcedures.o -MD -MP -MF $(DEPDIR)/mosh-ByteVectorProcedures.Tpo -c -o mosh-ByteVectorProcedures.o `test -f 'ByteVectorProcedures.cpp' || echo '$(srcdir)/'`ByteVectorProcedures.cpp
