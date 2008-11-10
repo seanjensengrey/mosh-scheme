@@ -78,6 +78,7 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
 	mosh-ListProcedures.$(OBJEXT) mosh-ErrorProcedures.$(OBJEXT) \
 	mosh-ArithmeticProcedures.$(OBJEXT) \
 	mosh-FlonumProcedures.$(OBJEXT) \
+	mosh-BitwiseProcedures.$(OBJEXT) \
 	mosh-ByteVectorProcedures.$(OBJEXT) mosh-Equivalent.$(OBJEXT) \
 	mosh-CompoundCondition.$(OBJEXT) mosh-ucs4string.$(OBJEXT) \
 	mosh-Vector.$(OBJEXT) mosh-Fasl.$(OBJEXT) \
@@ -310,6 +311,7 @@ ListProcedures.cpp            ListProcedures.h                    \
 ErrorProcedures.cpp           ErrorProcedures.h                   \
 ArithmeticProcedures.cpp      ArithmeticProcedures.h              \
 FlonumProcedures.cpp          FlonumProcedures.h                  \
+BitwiseProcedures.cpp         BitwiseProcedures.h                 \
 ByteVectorProcedures.cpp      ByteVectorProcedures.h              \
 Equivalent.h                  Equivalent.cpp                      \
 CompoundCondition.h           CompoundCondition.cpp               \
@@ -437,6 +439,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Arithmetic.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ArithmeticProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Bignum.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-BitwiseProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ByteArrayBinaryInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ByteVectorProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Closure.Po@am__quote@
@@ -1090,6 +1093,20 @@ mosh-FlonumProcedures.obj: FlonumProcedures.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-FlonumProcedures.obj `if test -f 'FlonumProcedures.cpp'; then $(CYGPATH_W) 'FlonumProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/FlonumProcedures.cpp'; fi`
 
+mosh-BitwiseProcedures.o: BitwiseProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-BitwiseProcedures.o -MD -MP -MF $(DEPDIR)/mosh-BitwiseProcedures.Tpo -c -o mosh-BitwiseProcedures.o `test -f 'BitwiseProcedures.cpp' || echo '$(srcdir)/'`BitwiseProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-BitwiseProcedures.Tpo $(DEPDIR)/mosh-BitwiseProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='BitwiseProcedures.cpp' object='mosh-BitwiseProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-BitwiseProcedures.o `test -f 'BitwiseProcedures.cpp' || echo '$(srcdir)/'`BitwiseProcedures.cpp
+
+mosh-BitwiseProcedures.obj: BitwiseProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-BitwiseProcedures.obj -MD -MP -MF $(DEPDIR)/mosh-BitwiseProcedures.Tpo -c -o mosh-BitwiseProcedures.obj `if test -f 'BitwiseProcedures.cpp'; then $(CYGPATH_W) 'BitwiseProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/BitwiseProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-BitwiseProcedures.Tpo $(DEPDIR)/mosh-BitwiseProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='BitwiseProcedures.cpp' object='mosh-BitwiseProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-BitwiseProcedures.obj `if test -f 'BitwiseProcedures.cpp'; then $(CYGPATH_W) 'BitwiseProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/BitwiseProcedures.cpp'; fi`
+
 mosh-ByteVectorProcedures.o: ByteVectorProcedures.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ByteVectorProcedures.o -MD -MP -MF $(DEPDIR)/mosh-ByteVectorProcedures.Tpo -c -o mosh-ByteVectorProcedures.o `test -f 'ByteVectorProcedures.cpp' || echo '$(srcdir)/'`ByteVectorProcedures.cpp
 @am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ByteVectorProcedures.Tpo $(DEPDIR)/mosh-ByteVectorProcedures.Po
@@ -1715,8 +1732,8 @@ psyntax.scmc: tools/psyntax-r6rs/rev10_to_10/psyntax.scm ./compiler-vm.scm
 	@GOSH@ ./vm.scm compile-file-without-macro $(PWD)/$< > $(PWD)/$@
 	sed -ie "s/#\\\\null/#\\\\nul/g;s/|\.\.\.|/\.\.\./g" $(PWD)/$@
 
-./compiler-with-library.scm: ./compiler-vm-cpp.scm ./library.scm
-	cat ./library.scm ./compiler-vm-cpp.scm > $(PWD)/$@
+./compiler-with-library.scm: ./compiler-vm-cpp.scm ./library.scm lib/core/flonum.scm lib/core/bitwise.scm
+	cat ./library.scm ./compiler-vm-cpp.scm lib/core/flonum.scm lib/core/bitwise.scm > $(PWD)/$@
 
 ./free-vars-decl.scm: ./free-vars.scm
 	@GOSH@ ./scripts/gen-free-vars-decl.scm $(PWD)/$< > $(PWD)/$@
