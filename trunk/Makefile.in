@@ -52,9 +52,10 @@ binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
 am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
 	mosh-Closure.$(OBJEXT) mosh-UtilityProcedures.$(OBJEXT) \
-	mosh-reader.$(OBJEXT) mosh-scheme.$(OBJEXT) \
-	mosh-Regexp.$(OBJEXT) mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
-	mosh-Scanner.$(OBJEXT) mosh-NumberScanner.$(OBJEXT) \
+	mosh-reader.$(OBJEXT) mosh-NumberReader.$(OBJEXT) \
+	mosh-scheme.$(OBJEXT) mosh-Regexp.$(OBJEXT) \
+	mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) mosh-Scanner.$(OBJEXT) \
+	mosh-NumberScanner.$(OBJEXT) \
 	mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
 	mosh-ScannerHelper.$(OBJEXT) mosh-reader.tab.$(OBJEXT) \
 	mosh-NumberReader.tab.$(OBJEXT) \
@@ -276,6 +277,7 @@ Fixnum.h                                                          \
 Closure.h                     Closure.cpp                         \
 UtilityProcedures.h           UtilityProcedures.cpp               \
 reader.h                      reader.cpp                          \
+NumberReader.h                NumberReader.cpp                    \
 scheme.h                      scheme.cpp                          \
 Regexp.h                      Regexp.cpp                          \
 Symbol.h                      Symbol.cpp                          \
@@ -463,6 +465,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-GenericHashTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-HashTableProceduures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ListProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-NumberReader.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-NumberReader.tab.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-NumberScanner.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Object.Po@am__quote@
@@ -580,6 +583,20 @@ mosh-reader.obj: reader.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='reader.cpp' object='mosh-reader.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-reader.obj `if test -f 'reader.cpp'; then $(CYGPATH_W) 'reader.cpp'; else $(CYGPATH_W) '$(srcdir)/reader.cpp'; fi`
+
+mosh-NumberReader.o: NumberReader.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-NumberReader.o -MD -MP -MF $(DEPDIR)/mosh-NumberReader.Tpo -c -o mosh-NumberReader.o `test -f 'NumberReader.cpp' || echo '$(srcdir)/'`NumberReader.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-NumberReader.Tpo $(DEPDIR)/mosh-NumberReader.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='NumberReader.cpp' object='mosh-NumberReader.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-NumberReader.o `test -f 'NumberReader.cpp' || echo '$(srcdir)/'`NumberReader.cpp
+
+mosh-NumberReader.obj: NumberReader.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-NumberReader.obj -MD -MP -MF $(DEPDIR)/mosh-NumberReader.Tpo -c -o mosh-NumberReader.obj `if test -f 'NumberReader.cpp'; then $(CYGPATH_W) 'NumberReader.cpp'; else $(CYGPATH_W) '$(srcdir)/NumberReader.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-NumberReader.Tpo $(DEPDIR)/mosh-NumberReader.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='NumberReader.cpp' object='mosh-NumberReader.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-NumberReader.obj `if test -f 'NumberReader.cpp'; then $(CYGPATH_W) 'NumberReader.cpp'; else $(CYGPATH_W) '$(srcdir)/NumberReader.cpp'; fi`
 
 mosh-scheme.o: scheme.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-scheme.o -MD -MP -MF $(DEPDIR)/mosh-scheme.Tpo -c -o mosh-scheme.o `test -f 'scheme.cpp' || echo '$(srcdir)/'`scheme.cpp

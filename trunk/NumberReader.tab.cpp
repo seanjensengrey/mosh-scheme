@@ -151,7 +151,7 @@ extern Object applyExactness(int exactness, Object num);
 extern int yylex();
 extern int yyerror(const char *);
 extern TextualInputPort* parser_port();
-Object parsed2;
+Object number_parsed;
 
 
 /* Enabling traces.  */
@@ -235,7 +235,7 @@ typedef short int yytype_int16;
 #define YYSIZE_MAXIMUM ((YYSIZE_T) -1)
 
 #ifndef YY_
-# if defined YYENABLE_NLS && YYENABLE_NLS
+# if YYENABLE_NLS
 #  if ENABLE_NLS
 #   include <libintl.h> /* INFRINGES ON USER NAME SPACE */
 #   define YY_(msgid) dgettext ("bison-runtime", msgid)
@@ -678,7 +678,7 @@ while (YYID (0))
    we won't break user code: when these are the locations we know.  */
 
 #ifndef YY_LOCATION_PRINT
-# if defined YYLTYPE_IS_TRIVIAL && YYLTYPE_IS_TRIVIAL
+# if YYLTYPE_IS_TRIVIAL
 #  define YY_LOCATION_PRINT(File, Loc)			\
      fprintf (File, "%d.%d-%d.%d",			\
 	      (Loc).first_line, (Loc).first_column,	\
@@ -1420,12 +1420,12 @@ yyreduce:
     {
         case 2:
 #line 49 "NumberReader.y"
-    { parsed2 = (yyval.object); YYACCEPT; ;}
+    { number_parsed = (yyval.object); YYACCEPT; ;}
     break;
 
   case 3:
 #line 50 "NumberReader.y"
-    { parsed2 = Object::Eof; YYACCEPT; ;}
+    { number_parsed = Object::Eof; YYACCEPT; ;}
     break;
 
   case 4:
@@ -1448,7 +1448,7 @@ yyreduce:
   case 7:
 #line 60 "NumberReader.y"
     {
-                (yyval.object) = readString((yyvsp[(1) - (1)].stringValue));
+              (yyval.object) = Reader::readString((yyvsp[(1) - (1)].stringValue));
             ;}
     break;
 
@@ -1501,8 +1501,8 @@ yyreduce:
            // TODO: not to use reverse.
            (yyvsp[(2) - (3)].object) = Pair::reverse((yyvsp[(2) - (3)].object));
            if ((yyvsp[(2) - (3)].object).isPair()) {
-                (yyvsp[(2) - (3)].object).toPair()->sourceInfo = Pair::list2(Object::makeString(parser_port()->toString()),
-                                                      Object::makeFixnum(parser_port()->getLineNo()));
+             (yyvsp[(2) - (3)].object).toPair()->sourceInfo = Pair::list2(Object::makeString(Reader::port()->toString()),
+                                                      Object::makeFixnum(Reader::port()->getLineNo()));
            }
            (yyval.object) = (yyvsp[(2) - (3)].object);
        ;}
@@ -1813,7 +1813,7 @@ yyreturn:
 extern ucs4char* token;
 int number_yyerror(char const *str)
 {
-    TextualInputPort* const port = parser_port();
+  TextualInputPort* const port = Reader::port();
     port->setError(format(UC("~a near [~a] at ~a:~d. "),
                           Pair::list4(str, Object::makeString(port->scanner()->currentToken()), port->toString(), Object::makeFixnum(port->getLineNo()))));
     return 0;
