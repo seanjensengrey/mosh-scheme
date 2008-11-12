@@ -118,7 +118,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 1 "reader.y"
+#line 1 "Reader.y"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -137,7 +137,7 @@
 #include "ByteVectorProcedures.h"
 #include "Arithmetic.h"
 #include "Codec.h"
-#include "reader.h"
+#include "Reader.h"
 #include "NumberReader.h"
 #include "Scanner.h"
 using namespace scheme;
@@ -179,7 +179,7 @@ typedef int YYSTYPE;
 
 
 /* Line 216 of yacc.c.  */
-#line 183 "reader.tab.cpp"
+#line 183 "Reader.tab.cpp"
 
 #ifdef short
 # undef short
@@ -1422,53 +1422,53 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 51 "reader.y"
+#line 51 "Reader.y"
     { Reader::parsed = (yyval.object); YYACCEPT; ;}
     break;
 
   case 3:
-#line 52 "reader.y"
+#line 52 "Reader.y"
     { Reader::parsed = Object::Eof; YYACCEPT; ;}
     break;
 
   case 4:
-#line 53 "reader.y"
+#line 53 "Reader.y"
     { (yyval.object) = (yyvsp[(1) - (1)].object);;}
     break;
 
   case 5:
-#line 55 "reader.y"
+#line 55 "Reader.y"
     {
           (yyval.object) = (yyvsp[(1) - (1)].object);
       ;}
     break;
 
   case 6:
-#line 60 "reader.y"
+#line 60 "Reader.y"
     { (yyval.object) = (yyvsp[(1) - (1)].boolValue) ? Object::True : Object::False; ;}
     break;
 
   case 7:
-#line 62 "reader.y"
+#line 62 "Reader.y"
     {
               (yyval.object) = Reader::readString((yyvsp[(1) - (1)].stringValue));
             ;}
     break;
 
   case 8:
-#line 66 "reader.y"
+#line 66 "Reader.y"
     {
                 (yyval.object) = Object::makeRegexp((yyvsp[(1) - (1)].stringValue));
             ;}
     break;
 
   case 9:
-#line 69 "reader.y"
+#line 69 "Reader.y"
     { (yyval.object) = Object::makeFixnum((yyvsp[(1) - (1)].intValue)); ;}
     break;
 
   case 10:
-#line 70 "reader.y"
+#line 70 "Reader.y"
     {
                 bool isErrorOccured = false;
                 (yyval.object) = NumberReader::read((yyvsp[(1) - (1)].stringValue), isErrorOccured);
@@ -1476,38 +1476,38 @@ yyreduce:
     break;
 
   case 11:
-#line 75 "reader.y"
+#line 75 "Reader.y"
     {
                 (yyval.object) = Symbol::intern((yyvsp[(1) - (1)].stringValue).strdup());
             ;}
     break;
 
   case 12:
-#line 79 "reader.y"
+#line 79 "Reader.y"
     {
                 (yyval.object) = Object::makeChar((yyvsp[(1) - (1)].intValue));
             ;}
     break;
 
   case 13:
-#line 84 "reader.y"
+#line 84 "Reader.y"
     {
                    (yyval.object) = (yyvsp[(1) - (1)].object);
                ;}
     break;
 
   case 14:
-#line 87 "reader.y"
+#line 87 "Reader.y"
     { (yyval.object) = (yyvsp[(1) - (1)].object); ;}
     break;
 
   case 15:
-#line 88 "reader.y"
+#line 88 "Reader.y"
     { (yyval.object) = (yyvsp[(1) - (1)].object); ;}
     break;
 
   case 16:
-#line 92 "reader.y"
+#line 92 "Reader.y"
     {
            // TODO: not to use reverse.
            (yyvsp[(2) - (3)].object) = Pair::reverse((yyvsp[(2) - (3)].object));
@@ -1520,7 +1520,7 @@ yyreduce:
     break;
 
   case 17:
-#line 102 "reader.y"
+#line 102 "Reader.y"
     {
            (yyvsp[(2) - (6)].object) = Pair::reverse((yyvsp[(2) - (6)].object));
            (yyval.object) = Pair::appendD2((yyvsp[(2) - (6)].object), Object::cons((yyvsp[(3) - (6)].object), (yyvsp[(5) - (6)].object)));
@@ -1528,17 +1528,17 @@ yyreduce:
     break;
 
   case 18:
-#line 106 "reader.y"
+#line 106 "Reader.y"
     { (yyval.object) = Object::cons((yyvsp[(1) - (2)].object), Object::cons((yyvsp[(2) - (2)].object), Object::Nil)); ;}
     break;
 
   case 19:
-#line 108 "reader.y"
+#line 108 "Reader.y"
     { (yyval.object) = Object::makeVector(Pair::reverse((yyvsp[(2) - (3)].object))); ;}
     break;
 
   case 20:
-#line 111 "reader.y"
+#line 111 "Reader.y"
     {
               const Object bytevector = u8ListToByteVector(Pair::reverse((yyvsp[(2) - (3)].object)));
               if (bytevector.isNil()) {
@@ -1551,60 +1551,60 @@ yyreduce:
     break;
 
   case 21:
-#line 122 "reader.y"
+#line 122 "Reader.y"
     {
                  (yyval.object) = Object::cons((yyvsp[(2) - (2)].object), (yyvsp[(1) - (2)].object));
            ;}
     break;
 
   case 22:
-#line 125 "reader.y"
+#line 125 "Reader.y"
     {(yyval.object) = Object::Nil; ;}
     break;
 
   case 23:
-#line 127 "reader.y"
+#line 127 "Reader.y"
     { (yyval.object) = Symbol::QUOTE; ;}
     break;
 
   case 24:
-#line 128 "reader.y"
+#line 128 "Reader.y"
     { (yyval.object) = Symbol::UNQUOTE_SPLICING; ;}
     break;
 
   case 25:
-#line 129 "reader.y"
+#line 129 "Reader.y"
     { (yyval.object) = Symbol::QUASIQUOTE; ;}
     break;
 
   case 26:
-#line 130 "reader.y"
+#line 130 "Reader.y"
     { (yyval.object) = Symbol::UNQUOTE; ;}
     break;
 
   case 27:
-#line 131 "reader.y"
+#line 131 "Reader.y"
     { (yyval.object) = Symbol::SYNTAX;;}
     break;
 
   case 28:
-#line 132 "reader.y"
+#line 132 "Reader.y"
     { (yyval.object) = Symbol::UNSYNTAX_SPLICING; ;}
     break;
 
   case 29:
-#line 133 "reader.y"
+#line 133 "Reader.y"
     { (yyval.object) = Symbol::QUASISYNTAX; ;}
     break;
 
   case 30:
-#line 134 "reader.y"
+#line 134 "Reader.y"
     { (yyval.object) = Symbol::UNSYNTAX; ;}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1608 "reader.tab.cpp"
+#line 1608 "Reader.tab.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1818,7 +1818,7 @@ yyreturn:
 }
 
 
-#line 160 "reader.y"
+#line 160 "Reader.y"
 
 
 extern ucs4char* token;
