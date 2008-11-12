@@ -58,6 +58,14 @@
 /* Using locations.  */
 #define YYLSP_NEEDED 0
 
+/* Substitute the variable and function names.  */
+#define yyparse numberparse
+#define yylex   numberlex
+#define yyerror numbererror
+#define yylval  numberlval
+#define yychar  numberchar
+#define yydebug numberdebug
+#define yynerrs numbernerrs
 
 
 /* Tokens.  */
@@ -116,7 +124,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 1 "reader.y"
+#line 1 "NumberReader.y"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -143,7 +151,7 @@ extern Object applyExactness(int exactness, Object num);
 extern int yylex();
 extern int yyerror(const char *);
 extern TextualInputPort* parser_port();
-Object parsed;
+Object parsed2;
 
 
 /* Enabling traces.  */
@@ -177,7 +185,7 @@ typedef int YYSTYPE;
 
 
 /* Line 216 of yacc.c.  */
-#line 181 "reader.tab.cpp"
+#line 189 "NumberReader.tab.cpp"
 
 #ifdef short
 # undef short
@@ -1411,84 +1419,84 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 49 "reader.y"
-    { parsed = (yyval.object); YYACCEPT; ;}
+#line 49 "NumberReader.y"
+    { parsed2 = (yyval.object); YYACCEPT; ;}
     break;
 
   case 3:
-#line 50 "reader.y"
-    { parsed = Object::Eof; YYACCEPT; ;}
+#line 50 "NumberReader.y"
+    { parsed2 = Object::Eof; YYACCEPT; ;}
     break;
 
   case 4:
-#line 51 "reader.y"
+#line 51 "NumberReader.y"
     { (yyval.object) = (yyvsp[(1) - (1)].object);;}
     break;
 
   case 5:
-#line 53 "reader.y"
+#line 53 "NumberReader.y"
     {
           (yyval.object) = (yyvsp[(1) - (1)].object);
       ;}
     break;
 
   case 6:
-#line 58 "reader.y"
+#line 58 "NumberReader.y"
     { (yyval.object) = (yyvsp[(1) - (1)].boolValue) ? Object::True : Object::False; ;}
     break;
 
   case 7:
-#line 60 "reader.y"
+#line 60 "NumberReader.y"
     {
                 (yyval.object) = readString((yyvsp[(1) - (1)].stringValue));
             ;}
     break;
 
   case 8:
-#line 64 "reader.y"
+#line 64 "NumberReader.y"
     {
                 (yyval.object) = Object::makeRegexp((yyvsp[(1) - (1)].stringValue));
             ;}
     break;
 
   case 9:
-#line 67 "reader.y"
+#line 67 "NumberReader.y"
     { (yyval.object) = Object::makeFixnum((yyvsp[(1) - (1)].intValue)); ;}
     break;
 
   case 10:
-#line 70 "reader.y"
+#line 70 "NumberReader.y"
     {
                 (yyval.object) = Symbol::intern((yyvsp[(1) - (1)].stringValue).strdup());
             ;}
     break;
 
   case 11:
-#line 74 "reader.y"
+#line 74 "NumberReader.y"
     {
                 (yyval.object) = Object::makeChar((yyvsp[(1) - (1)].intValue));
             ;}
     break;
 
   case 12:
-#line 79 "reader.y"
+#line 79 "NumberReader.y"
     {
                    (yyval.object) = (yyvsp[(1) - (1)].object);
                ;}
     break;
 
   case 13:
-#line 82 "reader.y"
+#line 82 "NumberReader.y"
     { (yyval.object) = (yyvsp[(1) - (1)].object); ;}
     break;
 
   case 14:
-#line 83 "reader.y"
+#line 83 "NumberReader.y"
     { (yyval.object) = (yyvsp[(1) - (1)].object); ;}
     break;
 
   case 15:
-#line 87 "reader.y"
+#line 87 "NumberReader.y"
     {
            // TODO: not to use reverse.
            (yyvsp[(2) - (3)].object) = Pair::reverse((yyvsp[(2) - (3)].object));
@@ -1501,7 +1509,7 @@ yyreduce:
     break;
 
   case 16:
-#line 97 "reader.y"
+#line 97 "NumberReader.y"
     {
            (yyvsp[(2) - (6)].object) = Pair::reverse((yyvsp[(2) - (6)].object));
            (yyval.object) = Pair::appendD2((yyvsp[(2) - (6)].object), Object::cons((yyvsp[(3) - (6)].object), (yyvsp[(5) - (6)].object)));
@@ -1509,17 +1517,17 @@ yyreduce:
     break;
 
   case 17:
-#line 101 "reader.y"
+#line 101 "NumberReader.y"
     { (yyval.object) = Object::cons((yyvsp[(1) - (2)].object), Object::cons((yyvsp[(2) - (2)].object), Object::Nil)); ;}
     break;
 
   case 18:
-#line 103 "reader.y"
+#line 103 "NumberReader.y"
     { (yyval.object) = Object::makeVector(Pair::reverse((yyvsp[(2) - (3)].object))); ;}
     break;
 
   case 19:
-#line 106 "reader.y"
+#line 106 "NumberReader.y"
     {
               const Object bytevector = u8ListToByteVector(Pair::reverse((yyvsp[(2) - (3)].object)));
               if (bytevector.isNil()) {
@@ -1532,60 +1540,60 @@ yyreduce:
     break;
 
   case 20:
-#line 117 "reader.y"
+#line 117 "NumberReader.y"
     {
                  (yyval.object) = Object::cons((yyvsp[(2) - (2)].object), (yyvsp[(1) - (2)].object));
            ;}
     break;
 
   case 21:
-#line 120 "reader.y"
+#line 120 "NumberReader.y"
     {(yyval.object) = Object::Nil; ;}
     break;
 
   case 22:
-#line 122 "reader.y"
+#line 122 "NumberReader.y"
     { (yyval.object) = Symbol::QUOTE; ;}
     break;
 
   case 23:
-#line 123 "reader.y"
+#line 123 "NumberReader.y"
     { (yyval.object) = Symbol::UNQUOTE_SPLICING; ;}
     break;
 
   case 24:
-#line 124 "reader.y"
+#line 124 "NumberReader.y"
     { (yyval.object) = Symbol::QUASIQUOTE; ;}
     break;
 
   case 25:
-#line 125 "reader.y"
+#line 125 "NumberReader.y"
     { (yyval.object) = Symbol::UNQUOTE; ;}
     break;
 
   case 26:
-#line 126 "reader.y"
+#line 126 "NumberReader.y"
     { (yyval.object) = Symbol::SYNTAX;;}
     break;
 
   case 27:
-#line 127 "reader.y"
+#line 127 "NumberReader.y"
     { (yyval.object) = Symbol::UNSYNTAX_SPLICING; ;}
     break;
 
   case 28:
-#line 128 "reader.y"
+#line 128 "NumberReader.y"
     { (yyval.object) = Symbol::QUASISYNTAX; ;}
     break;
 
   case 29:
-#line 129 "reader.y"
+#line 129 "NumberReader.y"
     { (yyval.object) = Symbol::UNSYNTAX; ;}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1589 "reader.tab.cpp"
+#line 1597 "NumberReader.tab.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1799,11 +1807,11 @@ yyreturn:
 }
 
 
-#line 155 "reader.y"
+#line 155 "NumberReader.y"
 
 
 extern ucs4char* token;
-int yyerror(char const *str)
+int numbererror(char const *str)
 {
     TextualInputPort* const port = parser_port();
     port->setError(format(UC("~a near [~a] at ~a:~d. "),
