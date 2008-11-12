@@ -54,8 +54,10 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
 	mosh-Closure.$(OBJEXT) mosh-UtilityProcedures.$(OBJEXT) \
 	mosh-reader.$(OBJEXT) mosh-scheme.$(OBJEXT) \
 	mosh-Regexp.$(OBJEXT) mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
-	mosh-Scanner.$(OBJEXT) mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
+	mosh-Scanner.$(OBJEXT) mosh-NumberScanner.$(OBJEXT) \
+	mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
 	mosh-ScannerHelper.$(OBJEXT) mosh-reader.tab.$(OBJEXT) \
+	mosh-NumberReader.tab.$(OBJEXT) \
 	mosh-FileBinaryInputPort.$(OBJEXT) \
 	mosh-FileBinaryOutputPort.$(OBJEXT) \
 	mosh-CustomBinaryInputPort.$(OBJEXT) \
@@ -279,9 +281,11 @@ Regexp.h                      Regexp.cpp                          \
 Symbol.h                      Symbol.cpp                          \
 VM.h                          VM.cpp                              \
 Scanner.h                     Scanner.cpp                         \
+NumberScanner.h               NumberScanner.cpp                   \
 ByteArrayBinaryInputPort.h    ByteArrayBinaryInputPort.cpp        \
 ScannerHelper.h               ScannerHelper.cpp                   \
 reader.tab.hpp                reader.tab.cpp                      \
+NumberReader.tab.hpp          NumberReader.tab.cpp                \
 FileBinaryInputPort.h         FileBinaryInputPort.cpp             \
 FileBinaryOutputPort.h        FileBinaryOutputPort.cpp            \
 CustomBinaryInputPort.h       CustomBinaryInputPort.cpp           \
@@ -338,7 +342,7 @@ mosh_LDADD = $(GC_LIB) $(REGEXP_LIB) #-lglog -lpthread
 INCLUDES = -I $(BOEHM_GC_DIR)/include -I $(ONIG_DIR)
 EXTRA_DIST = instruction.scm vm.scm library.scm compiler.scm free-vars.scm scripts match.scm test-data.scm doc repl.scm tools/psyntax-r6rs/rev10_to_10/psyntax.scm r6rs-examples tools/psyntax-r6rs RELNOTE r6rs-test-suite example lib cprocedures.cpp labels.cpp all-tests.scm test
 GENERATED = \
-all-tests.scm Scanner.cpp psyntax.cpp  compiler-gauche.scm \
+all-tests.scm Scanner.cpp NumberScanner.cpp psyntax.cpp  compiler-gauche.scm \
 DebugInstruction.h cprocedures.cpp      \
 labels.cpp match.cpp compiler.cpp psyntax.scmc             \
 match.scmc compiler-with-library.scmc compiler-vm-cpp.scm  \
@@ -459,6 +463,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-GenericHashTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-HashTableProceduures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ListProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-NumberReader.tab.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-NumberScanner.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Object.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-PortProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Ratnum.Po@am__quote@
@@ -645,6 +651,20 @@ mosh-Scanner.obj: Scanner.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Scanner.obj `if test -f 'Scanner.cpp'; then $(CYGPATH_W) 'Scanner.cpp'; else $(CYGPATH_W) '$(srcdir)/Scanner.cpp'; fi`
 
+mosh-NumberScanner.o: NumberScanner.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-NumberScanner.o -MD -MP -MF $(DEPDIR)/mosh-NumberScanner.Tpo -c -o mosh-NumberScanner.o `test -f 'NumberScanner.cpp' || echo '$(srcdir)/'`NumberScanner.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-NumberScanner.Tpo $(DEPDIR)/mosh-NumberScanner.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='NumberScanner.cpp' object='mosh-NumberScanner.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-NumberScanner.o `test -f 'NumberScanner.cpp' || echo '$(srcdir)/'`NumberScanner.cpp
+
+mosh-NumberScanner.obj: NumberScanner.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-NumberScanner.obj -MD -MP -MF $(DEPDIR)/mosh-NumberScanner.Tpo -c -o mosh-NumberScanner.obj `if test -f 'NumberScanner.cpp'; then $(CYGPATH_W) 'NumberScanner.cpp'; else $(CYGPATH_W) '$(srcdir)/NumberScanner.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-NumberScanner.Tpo $(DEPDIR)/mosh-NumberScanner.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='NumberScanner.cpp' object='mosh-NumberScanner.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-NumberScanner.obj `if test -f 'NumberScanner.cpp'; then $(CYGPATH_W) 'NumberScanner.cpp'; else $(CYGPATH_W) '$(srcdir)/NumberScanner.cpp'; fi`
+
 mosh-ByteArrayBinaryInputPort.o: ByteArrayBinaryInputPort.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-ByteArrayBinaryInputPort.o -MD -MP -MF $(DEPDIR)/mosh-ByteArrayBinaryInputPort.Tpo -c -o mosh-ByteArrayBinaryInputPort.o `test -f 'ByteArrayBinaryInputPort.cpp' || echo '$(srcdir)/'`ByteArrayBinaryInputPort.cpp
 @am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-ByteArrayBinaryInputPort.Tpo $(DEPDIR)/mosh-ByteArrayBinaryInputPort.Po
@@ -686,6 +706,20 @@ mosh-reader.tab.obj: reader.tab.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='reader.tab.cpp' object='mosh-reader.tab.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-reader.tab.obj `if test -f 'reader.tab.cpp'; then $(CYGPATH_W) 'reader.tab.cpp'; else $(CYGPATH_W) '$(srcdir)/reader.tab.cpp'; fi`
+
+mosh-NumberReader.tab.o: NumberReader.tab.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-NumberReader.tab.o -MD -MP -MF $(DEPDIR)/mosh-NumberReader.tab.Tpo -c -o mosh-NumberReader.tab.o `test -f 'NumberReader.tab.cpp' || echo '$(srcdir)/'`NumberReader.tab.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-NumberReader.tab.Tpo $(DEPDIR)/mosh-NumberReader.tab.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='NumberReader.tab.cpp' object='mosh-NumberReader.tab.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-NumberReader.tab.o `test -f 'NumberReader.tab.cpp' || echo '$(srcdir)/'`NumberReader.tab.cpp
+
+mosh-NumberReader.tab.obj: NumberReader.tab.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-NumberReader.tab.obj -MD -MP -MF $(DEPDIR)/mosh-NumberReader.tab.Tpo -c -o mosh-NumberReader.tab.obj `if test -f 'NumberReader.tab.cpp'; then $(CYGPATH_W) 'NumberReader.tab.cpp'; else $(CYGPATH_W) '$(srcdir)/NumberReader.tab.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-NumberReader.tab.Tpo $(DEPDIR)/mosh-NumberReader.tab.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='NumberReader.tab.cpp' object='mosh-NumberReader.tab.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-NumberReader.tab.obj `if test -f 'NumberReader.tab.cpp'; then $(CYGPATH_W) 'NumberReader.tab.cpp'; else $(CYGPATH_W) '$(srcdir)/NumberReader.tab.cpp'; fi`
 
 mosh-FileBinaryInputPort.o: FileBinaryInputPort.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-FileBinaryInputPort.o -MD -MP -MF $(DEPDIR)/mosh-FileBinaryInputPort.Tpo -c -o mosh-FileBinaryInputPort.o `test -f 'FileBinaryInputPort.cpp' || echo '$(srcdir)/'`FileBinaryInputPort.cpp
@@ -1697,7 +1731,13 @@ update:
 reader.tab.cpp: reader.y
 	bison -d $< -o $@
 
+NumberReader.tab.cpp: NumberReader.y
+	bison -pnumber -d $< -o $@
+
 Scanner.cpp : scanner.re
+	/usr/local/bin/re2c -ug $< > $@ # -d is debug option
+
+NumberScanner.cpp : numberScanner.re
 	/usr/local/bin/re2c -ug $< > $@ # -d is debug option
 
 r6rs-test:
