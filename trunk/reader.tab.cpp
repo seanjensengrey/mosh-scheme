@@ -73,20 +73,21 @@
      CHARACTER_NAME = 262,
      REGEXP = 263,
      NUMBER = 264,
-     LEFT_PAREN = 265,
-     RIGHT_PAREN = 266,
-     END_OF_FILE = 267,
-     VECTOR_START = 268,
-     BYTE_VECTOR_START = 269,
-     DOT = 270,
-     ABBV_QUASIQUOTE = 271,
-     ABBV_QUOTE = 272,
-     ABBV_UNQUOTESPLICING = 273,
-     ABBV_UNQUOTE = 274,
-     ABBV_SYNTAX = 275,
-     ABBV_QUASISYNTAX = 276,
-     ABBV_UNSYNTAXSPLICING = 277,
-     ABBV_UNSYNTAX = 278
+     NUMBER2 = 265,
+     LEFT_PAREN = 266,
+     RIGHT_PAREN = 267,
+     END_OF_FILE = 268,
+     VECTOR_START = 269,
+     BYTE_VECTOR_START = 270,
+     DOT = 271,
+     ABBV_QUASIQUOTE = 272,
+     ABBV_QUOTE = 273,
+     ABBV_UNQUOTESPLICING = 274,
+     ABBV_UNQUOTE = 275,
+     ABBV_SYNTAX = 276,
+     ABBV_QUASISYNTAX = 277,
+     ABBV_UNSYNTAXSPLICING = 278,
+     ABBV_UNSYNTAX = 279
    };
 #endif
 /* Tokens.  */
@@ -97,20 +98,21 @@
 #define CHARACTER_NAME 262
 #define REGEXP 263
 #define NUMBER 264
-#define LEFT_PAREN 265
-#define RIGHT_PAREN 266
-#define END_OF_FILE 267
-#define VECTOR_START 268
-#define BYTE_VECTOR_START 269
-#define DOT 270
-#define ABBV_QUASIQUOTE 271
-#define ABBV_QUOTE 272
-#define ABBV_UNQUOTESPLICING 273
-#define ABBV_UNQUOTE 274
-#define ABBV_SYNTAX 275
-#define ABBV_QUASISYNTAX 276
-#define ABBV_UNSYNTAXSPLICING 277
-#define ABBV_UNSYNTAX 278
+#define NUMBER2 265
+#define LEFT_PAREN 266
+#define RIGHT_PAREN 267
+#define END_OF_FILE 268
+#define VECTOR_START 269
+#define BYTE_VECTOR_START 270
+#define DOT 271
+#define ABBV_QUASIQUOTE 272
+#define ABBV_QUOTE 273
+#define ABBV_UNQUOTESPLICING 274
+#define ABBV_UNQUOTE 275
+#define ABBV_SYNTAX 276
+#define ABBV_QUASISYNTAX 277
+#define ABBV_UNSYNTAXSPLICING 278
+#define ABBV_UNSYNTAX 279
 
 
 
@@ -177,7 +179,7 @@ typedef int YYSTYPE;
 
 
 /* Line 216 of yacc.c.  */
-#line 181 "reader.tab.cpp"
+#line 183 "reader.tab.cpp"
 
 #ifdef short
 # undef short
@@ -390,22 +392,22 @@ union yyalloc
 #endif
 
 /* YYFINAL -- State number of the termination state.  */
-#define YYFINAL  30
+#define YYFINAL  31
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   111
+#define YYLAST   121
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  24
+#define YYNTOKENS  25
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  10
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  29
+#define YYNRULES  30
 /* YYNRULES -- Number of states.  */
-#define YYNSTATES  40
+#define YYNSTATES  41
 
 /* YYTRANSLATE(YYLEX) -- Bison symbol number corresponding to YYLEX.  */
 #define YYUNDEFTOK  2
-#define YYMAXUTOK   278
+#define YYMAXUTOK   279
 
 #define YYTRANSLATE(YYX)						\
   ((unsigned int) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
@@ -440,7 +442,7 @@ static const yytype_uint8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
-      15,    16,    17,    18,    19,    20,    21,    22,    23
+      15,    16,    17,    18,    19,    20,    21,    22,    23,    24
 };
 
 #if YYDEBUG
@@ -449,29 +451,31 @@ static const yytype_uint8 yytranslate[] =
 static const yytype_uint8 yyprhs[] =
 {
        0,     0,     3,     5,     7,     9,    11,    13,    15,    17,
-      19,    21,    23,    25,    27,    29,    33,    40,    43,    47,
-      51,    54,    55,    57,    59,    61,    63,    65,    67,    69
+      19,    21,    23,    25,    27,    29,    31,    35,    42,    45,
+      49,    53,    56,    57,    59,    61,    63,    65,    67,    69,
+      71
 };
 
 /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
 static const yytype_int8 yyrhs[] =
 {
-      25,     0,    -1,    26,    -1,    12,    -1,    27,    -1,    28,
-      -1,     4,    -1,     5,    -1,     8,    -1,     9,    -1,     3,
-      -1,     6,    -1,    29,    -1,    30,    -1,    31,    -1,    10,
-      32,    11,    -1,    10,    32,    26,    15,    26,    11,    -1,
-      33,    26,    -1,    13,    32,    11,    -1,    14,    32,    11,
-      -1,    32,    26,    -1,    -1,    17,    -1,    18,    -1,    16,
-      -1,    19,    -1,    20,    -1,    22,    -1,    21,    -1,    23,
-      -1
+      26,     0,    -1,    27,    -1,    13,    -1,    28,    -1,    29,
+      -1,     4,    -1,     5,    -1,     8,    -1,     9,    -1,    10,
+      -1,     3,    -1,     6,    -1,    30,    -1,    31,    -1,    32,
+      -1,    11,    33,    12,    -1,    11,    33,    27,    16,    27,
+      12,    -1,    34,    27,    -1,    14,    33,    12,    -1,    15,
+      33,    12,    -1,    33,    27,    -1,    -1,    18,    -1,    19,
+      -1,    17,    -1,    20,    -1,    21,    -1,    23,    -1,    22,
+      -1,    24,    -1
 };
 
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    49,    49,    50,    51,    52,    58,    59,    63,    67,
-      69,    73,    78,    82,    83,    86,    96,   101,   103,   105,
-     116,   120,   122,   123,   124,   125,   126,   127,   128,   129
+       0,    50,    50,    51,    52,    53,    59,    60,    64,    68,
+      69,    70,    74,    79,    83,    84,    87,    97,   102,   104,
+     106,   117,   121,   123,   124,   125,   126,   127,   128,   129,
+     130
 };
 #endif
 
@@ -481,13 +485,13 @@ static const yytype_uint8 yyrline[] =
 static const char *const yytname[] =
 {
   "$end", "error", "$undefined", "IDENTIFIER", "BOOLEAN", "STRING",
-  "CHARACTER", "CHARACTER_NAME", "REGEXP", "NUMBER", "LEFT_PAREN",
-  "RIGHT_PAREN", "END_OF_FILE", "VECTOR_START", "BYTE_VECTOR_START", "DOT",
-  "ABBV_QUASIQUOTE", "ABBV_QUOTE", "ABBV_UNQUOTESPLICING", "ABBV_UNQUOTE",
-  "ABBV_SYNTAX", "ABBV_QUASISYNTAX", "ABBV_UNSYNTAXSPLICING",
-  "ABBV_UNSYNTAX", "$accept", "top_level", "datum", "lexme_datum",
-  "compound_datum", "list", "vector", "bytevector", "datum_list",
-  "abbreviation", 0
+  "CHARACTER", "CHARACTER_NAME", "REGEXP", "NUMBER", "NUMBER2",
+  "LEFT_PAREN", "RIGHT_PAREN", "END_OF_FILE", "VECTOR_START",
+  "BYTE_VECTOR_START", "DOT", "ABBV_QUASIQUOTE", "ABBV_QUOTE",
+  "ABBV_UNQUOTESPLICING", "ABBV_UNQUOTE", "ABBV_SYNTAX",
+  "ABBV_QUASISYNTAX", "ABBV_UNSYNTAXSPLICING", "ABBV_UNSYNTAX", "$accept",
+  "top_level", "datum", "lexme_datum", "compound_datum", "list", "vector",
+  "bytevector", "datum_list", "abbreviation", 0
 };
 #endif
 
@@ -498,24 +502,26 @@ static const yytype_uint16 yytoknum[] =
 {
        0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
      265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
-     275,   276,   277,   278
+     275,   276,   277,   278,   279
 };
 # endif
 
 /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
-       0,    24,    25,    25,    26,    26,    27,    27,    27,    27,
-      27,    27,    28,    28,    28,    29,    29,    29,    30,    31,
-      32,    32,    33,    33,    33,    33,    33,    33,    33,    33
+       0,    25,    26,    26,    27,    27,    28,    28,    28,    28,
+      28,    28,    28,    29,    29,    29,    30,    30,    30,    31,
+      32,    33,    33,    34,    34,    34,    34,    34,    34,    34,
+      34
 };
 
 /* YYR2[YYN] -- Number of symbols composing right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
        0,     2,     1,     1,     1,     1,     1,     1,     1,     1,
-       1,     1,     1,     1,     1,     3,     6,     2,     3,     3,
-       2,     0,     1,     1,     1,     1,     1,     1,     1,     1
+       1,     1,     1,     1,     1,     1,     3,     6,     2,     3,
+       3,     2,     0,     1,     1,     1,     1,     1,     1,     1,
+       1
 };
 
 /* YYDEFACT[STATE-NAME] -- Default rule to reduce with in state
@@ -523,16 +529,17 @@ static const yytype_uint8 yyr2[] =
    means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-       0,    10,     6,     7,    11,     8,     9,    21,     3,    21,
-      21,    24,    22,    23,    25,    26,    28,    27,    29,     0,
-       2,     4,     5,    12,    13,    14,     0,     0,     0,     0,
-       1,    17,    15,    20,    18,    20,    19,     0,     0,    16
+       0,    11,     6,     7,    12,     8,     9,    10,    22,     3,
+      22,    22,    25,    23,    24,    26,    27,    29,    28,    30,
+       0,     2,     4,     5,    13,    14,    15,     0,     0,     0,
+       0,     1,    18,    16,    21,    19,    21,    20,     0,     0,
+      17
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,    19,    35,    21,    22,    23,    24,    25,    27,    26
+      -1,    20,    36,    22,    23,    24,    25,    26,    28,    27
 };
 
 /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
@@ -541,9 +548,10 @@ static const yytype_int8 yydefgoto[] =
 static const yytype_int8 yypact[] =
 {
       -2,    -7,    -7,    -7,    -7,    -7,    -7,    -7,    -7,    -7,
-      -7,    -7,    -7,    -7,    -7,    -7,    -7,    -7,    -7,     5,
-      -7,    -7,    -7,    -7,    -7,    -7,    88,    25,    46,    67,
-      -7,    -7,    -7,    -6,    -7,    -7,    -7,    88,     2,    -7
+      -7,    -7,    -7,    -7,    -7,    -7,    -7,    -7,    -7,    -7,
+       5,    -7,    -7,    -7,    -7,    -7,    -7,    97,    31,    53,
+      75,    -7,    -7,    -7,    -6,    -7,    -7,    -7,    97,     2,
+      -7
 };
 
 /* YYPGOTO[NTERM-NUM].  */
@@ -559,44 +567,47 @@ static const yytype_int8 yypgoto[] =
 #define YYTABLE_NINF -1
 static const yytype_uint8 yytable[] =
 {
-      20,     1,     2,     3,     4,    30,     5,     6,     7,    37,
-       8,     9,    10,    39,    11,    12,    13,    14,    15,    16,
-      17,    18,    28,    29,     0,     0,    31,    33,     1,     2,
-       3,     4,     0,     5,     6,     7,    32,    38,     9,    10,
-       0,    11,    12,    13,    14,    15,    16,    17,    18,     1,
-       2,     3,     4,     0,     5,     6,     7,    34,     0,     9,
-      10,     0,    11,    12,    13,    14,    15,    16,    17,    18,
-       1,     2,     3,     4,     0,     5,     6,     7,    36,     0,
-       9,    10,     0,    11,    12,    13,    14,    15,    16,    17,
-      18,     1,     2,     3,     4,     0,     5,     6,     7,     0,
-       0,     9,    10,     0,    11,    12,    13,    14,    15,    16,
-      17,    18
+      21,     1,     2,     3,     4,    31,     5,     6,     7,     8,
+      38,     9,    10,    11,    40,    12,    13,    14,    15,    16,
+      17,    18,    19,    29,    30,     0,     0,    32,    34,     0,
+       0,     0,     0,     0,     1,     2,     3,     4,    39,     5,
+       6,     7,     8,    33,     0,    10,    11,     0,    12,    13,
+      14,    15,    16,    17,    18,    19,     1,     2,     3,     4,
+       0,     5,     6,     7,     8,    35,     0,    10,    11,     0,
+      12,    13,    14,    15,    16,    17,    18,    19,     1,     2,
+       3,     4,     0,     5,     6,     7,     8,    37,     0,    10,
+      11,     0,    12,    13,    14,    15,    16,    17,    18,    19,
+       1,     2,     3,     4,     0,     5,     6,     7,     8,     0,
+       0,    10,    11,     0,    12,    13,    14,    15,    16,    17,
+      18,    19
 };
 
 static const yytype_int8 yycheck[] =
 {
-       0,     3,     4,     5,     6,     0,     8,     9,    10,    15,
-      12,    13,    14,    11,    16,    17,    18,    19,    20,    21,
-      22,    23,     9,    10,    -1,    -1,    26,    27,     3,     4,
-       5,     6,    -1,     8,     9,    10,    11,    37,    13,    14,
-      -1,    16,    17,    18,    19,    20,    21,    22,    23,     3,
-       4,     5,     6,    -1,     8,     9,    10,    11,    -1,    13,
-      14,    -1,    16,    17,    18,    19,    20,    21,    22,    23,
+       0,     3,     4,     5,     6,     0,     8,     9,    10,    11,
+      16,    13,    14,    15,    12,    17,    18,    19,    20,    21,
+      22,    23,    24,    10,    11,    -1,    -1,    27,    28,    -1,
+      -1,    -1,    -1,    -1,     3,     4,     5,     6,    38,     8,
+       9,    10,    11,    12,    -1,    14,    15,    -1,    17,    18,
+      19,    20,    21,    22,    23,    24,     3,     4,     5,     6,
+      -1,     8,     9,    10,    11,    12,    -1,    14,    15,    -1,
+      17,    18,    19,    20,    21,    22,    23,    24,     3,     4,
+       5,     6,    -1,     8,     9,    10,    11,    12,    -1,    14,
+      15,    -1,    17,    18,    19,    20,    21,    22,    23,    24,
        3,     4,     5,     6,    -1,     8,     9,    10,    11,    -1,
-      13,    14,    -1,    16,    17,    18,    19,    20,    21,    22,
-      23,     3,     4,     5,     6,    -1,     8,     9,    10,    -1,
-      -1,    13,    14,    -1,    16,    17,    18,    19,    20,    21,
-      22,    23
+      -1,    14,    15,    -1,    17,    18,    19,    20,    21,    22,
+      23,    24
 };
 
 /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
    symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-       0,     3,     4,     5,     6,     8,     9,    10,    12,    13,
-      14,    16,    17,    18,    19,    20,    21,    22,    23,    25,
-      26,    27,    28,    29,    30,    31,    33,    32,    32,    32,
-       0,    26,    11,    26,    11,    26,    11,    15,    26,    11
+       0,     3,     4,     5,     6,     8,     9,    10,    11,    13,
+      14,    15,    17,    18,    19,    20,    21,    22,    23,    24,
+      26,    27,    28,    29,    30,    31,    32,    34,    33,    33,
+      33,     0,    27,    12,    27,    12,    27,    12,    16,    27,
+      12
 };
 
 #define yyerrok		(yyerrstatus = 0)
@@ -1411,75 +1422,75 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 49 "reader.y"
+#line 50 "reader.y"
     { parsed = (yyval.object); YYACCEPT; ;}
     break;
 
   case 3:
-#line 50 "reader.y"
+#line 51 "reader.y"
     { parsed = Object::Eof; YYACCEPT; ;}
     break;
 
   case 4:
-#line 51 "reader.y"
+#line 52 "reader.y"
     { (yyval.object) = (yyvsp[(1) - (1)].object);;}
     break;
 
   case 5:
-#line 53 "reader.y"
+#line 54 "reader.y"
     {
           (yyval.object) = (yyvsp[(1) - (1)].object);
       ;}
     break;
 
   case 6:
-#line 58 "reader.y"
+#line 59 "reader.y"
     { (yyval.object) = (yyvsp[(1) - (1)].boolValue) ? Object::True : Object::False; ;}
     break;
 
   case 7:
-#line 60 "reader.y"
+#line 61 "reader.y"
     {
                 (yyval.object) = readString((yyvsp[(1) - (1)].stringValue));
             ;}
     break;
 
   case 8:
-#line 64 "reader.y"
+#line 65 "reader.y"
     {
                 (yyval.object) = Object::makeRegexp((yyvsp[(1) - (1)].stringValue));
             ;}
     break;
 
   case 9:
-#line 67 "reader.y"
+#line 68 "reader.y"
     { (yyval.object) = Object::makeFixnum((yyvsp[(1) - (1)].intValue)); ;}
     break;
 
   case 10:
-#line 70 "reader.y"
+#line 69 "reader.y"
+    { (yyval.object) = Object::makeString((yyvsp[(1) - (1)].stringValue)); ;}
+    break;
+
+  case 11:
+#line 71 "reader.y"
     {
                 (yyval.object) = Symbol::intern((yyvsp[(1) - (1)].stringValue).strdup());
             ;}
     break;
 
-  case 11:
-#line 74 "reader.y"
+  case 12:
+#line 75 "reader.y"
     {
                 (yyval.object) = Object::makeChar((yyvsp[(1) - (1)].intValue));
             ;}
     break;
 
-  case 12:
-#line 79 "reader.y"
+  case 13:
+#line 80 "reader.y"
     {
                    (yyval.object) = (yyvsp[(1) - (1)].object);
                ;}
-    break;
-
-  case 13:
-#line 82 "reader.y"
-    { (yyval.object) = (yyvsp[(1) - (1)].object); ;}
     break;
 
   case 14:
@@ -1488,7 +1499,12 @@ yyreduce:
     break;
 
   case 15:
-#line 87 "reader.y"
+#line 84 "reader.y"
+    { (yyval.object) = (yyvsp[(1) - (1)].object); ;}
+    break;
+
+  case 16:
+#line 88 "reader.y"
     {
            // TODO: not to use reverse.
            (yyvsp[(2) - (3)].object) = Pair::reverse((yyvsp[(2) - (3)].object));
@@ -1500,26 +1516,26 @@ yyreduce:
        ;}
     break;
 
-  case 16:
-#line 97 "reader.y"
+  case 17:
+#line 98 "reader.y"
     {
            (yyvsp[(2) - (6)].object) = Pair::reverse((yyvsp[(2) - (6)].object));
            (yyval.object) = Pair::appendD2((yyvsp[(2) - (6)].object), Object::cons((yyvsp[(3) - (6)].object), (yyvsp[(5) - (6)].object)));
        ;}
     break;
 
-  case 17:
-#line 101 "reader.y"
+  case 18:
+#line 102 "reader.y"
     { (yyval.object) = Object::cons((yyvsp[(1) - (2)].object), Object::cons((yyvsp[(2) - (2)].object), Object::Nil)); ;}
     break;
 
-  case 18:
-#line 103 "reader.y"
+  case 19:
+#line 104 "reader.y"
     { (yyval.object) = Object::makeVector(Pair::reverse((yyvsp[(2) - (3)].object))); ;}
     break;
 
-  case 19:
-#line 106 "reader.y"
+  case 20:
+#line 107 "reader.y"
     {
               const Object bytevector = u8ListToByteVector(Pair::reverse((yyvsp[(2) - (3)].object)));
               if (bytevector.isNil()) {
@@ -1531,61 +1547,61 @@ yyreduce:
             ;}
     break;
 
-  case 20:
-#line 117 "reader.y"
+  case 21:
+#line 118 "reader.y"
     {
                  (yyval.object) = Object::cons((yyvsp[(2) - (2)].object), (yyvsp[(1) - (2)].object));
            ;}
     break;
 
-  case 21:
-#line 120 "reader.y"
-    {(yyval.object) = Object::Nil; ;}
-    break;
-
   case 22:
-#line 122 "reader.y"
-    { (yyval.object) = Symbol::QUOTE; ;}
+#line 121 "reader.y"
+    {(yyval.object) = Object::Nil; ;}
     break;
 
   case 23:
 #line 123 "reader.y"
-    { (yyval.object) = Symbol::UNQUOTE_SPLICING; ;}
+    { (yyval.object) = Symbol::QUOTE; ;}
     break;
 
   case 24:
 #line 124 "reader.y"
-    { (yyval.object) = Symbol::QUASIQUOTE; ;}
+    { (yyval.object) = Symbol::UNQUOTE_SPLICING; ;}
     break;
 
   case 25:
 #line 125 "reader.y"
-    { (yyval.object) = Symbol::UNQUOTE; ;}
+    { (yyval.object) = Symbol::QUASIQUOTE; ;}
     break;
 
   case 26:
 #line 126 "reader.y"
-    { (yyval.object) = Symbol::SYNTAX;;}
+    { (yyval.object) = Symbol::UNQUOTE; ;}
     break;
 
   case 27:
 #line 127 "reader.y"
-    { (yyval.object) = Symbol::UNSYNTAX_SPLICING; ;}
+    { (yyval.object) = Symbol::SYNTAX;;}
     break;
 
   case 28:
 #line 128 "reader.y"
-    { (yyval.object) = Symbol::QUASISYNTAX; ;}
+    { (yyval.object) = Symbol::UNSYNTAX_SPLICING; ;}
     break;
 
   case 29:
 #line 129 "reader.y"
+    { (yyval.object) = Symbol::QUASISYNTAX; ;}
+    break;
+
+  case 30:
+#line 130 "reader.y"
     { (yyval.object) = Symbol::UNSYNTAX; ;}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1589 "reader.tab.cpp"
+#line 1605 "reader.tab.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1799,7 +1815,7 @@ yyreturn:
 }
 
 
-#line 155 "reader.y"
+#line 156 "reader.y"
 
 
 extern ucs4char* token;
