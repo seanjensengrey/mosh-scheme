@@ -59,13 +59,13 @@
 #define YYLSP_NEEDED 0
 
 /* Substitute the variable and function names.  */
-#define yyparse numberparse
-#define yylex   numberlex
-#define yyerror numbererror
-#define yylval  numberlval
-#define yychar  numberchar
-#define yydebug numberdebug
-#define yynerrs numbernerrs
+#define yyparse number_yyparse
+#define yylex   number_yylex
+#define yyerror number_yyerror
+#define yylval  number_yylval
+#define yychar  number_yychar
+#define yydebug number_yydebug
+#define yynerrs number_yynerrs
 
 
 /* Tokens.  */
@@ -1811,7 +1811,7 @@ yyreturn:
 
 
 extern ucs4char* token;
-int numbererror(char const *str)
+int number_yyerror(char const *str)
 {
     TextualInputPort* const port = parser_port();
     port->setError(format(UC("~a near [~a] at ~a:~d. "),

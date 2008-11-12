@@ -95,5 +95,5 @@ typedef int YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 #endif
 
-extern YYSTYPE numberlval;
+extern YYSTYPE number_yylval;
 
