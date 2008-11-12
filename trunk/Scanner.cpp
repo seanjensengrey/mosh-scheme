@@ -10,8 +10,8 @@
 #include "ScannerHelper.h"
 #include "Scanner.h"
 
-#include "reader.h"
-#include "reader.tab.hpp"
+#include "Reader.h"
+#include "Reader.tab.hpp"
 #include "VM.h"
 
 #define YYCTYPE ucs4char
