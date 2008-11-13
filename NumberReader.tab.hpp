@@ -39,51 +39,33 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     IDENTIFIER = 258,
-     BOOLEAN = 259,
-     STRING = 260,
-     CHARACTER = 261,
-     CHARACTER_NAME = 262,
-     REGEXP = 263,
-     NUMBER = 264,
-     LEFT_PAREN = 265,
-     RIGHT_PAREN = 266,
-     END_OF_FILE = 267,
-     VECTOR_START = 268,
-     BYTE_VECTOR_START = 269,
-     DOT = 270,
-     ABBV_QUASIQUOTE = 271,
-     ABBV_QUOTE = 272,
-     ABBV_UNQUOTESPLICING = 273,
-     ABBV_UNQUOTE = 274,
-     ABBV_SYNTAX = 275,
-     ABBV_QUASISYNTAX = 276,
-     ABBV_UNSYNTAXSPLICING = 277,
-     ABBV_UNSYNTAX = 278
+     END_OF_FILE = 258,
+     PLUS = 259,
+     MINUS = 260,
+     SLASH = 261,
+     AT = 262,
+     NAN = 263,
+     INF = 264,
+     IMAG = 265,
+     RADIX_2 = 266,
+     EXACT = 267,
+     INEXACT = 268,
+     DIGIT_2 = 269
    };
 #endif
 /* Tokens.  */
-#define IDENTIFIER 258
-#define BOOLEAN 259
-#define STRING 260
-#define CHARACTER 261
-#define CHARACTER_NAME 262
-#define REGEXP 263
-#define NUMBER 264
-#define LEFT_PAREN 265
-#define RIGHT_PAREN 266
-#define END_OF_FILE 267
-#define VECTOR_START 268
-#define BYTE_VECTOR_START 269
-#define DOT 270
-#define ABBV_QUASIQUOTE 271
-#define ABBV_QUOTE 272
-#define ABBV_UNQUOTESPLICING 273
-#define ABBV_UNQUOTE 274
-#define ABBV_SYNTAX 275
-#define ABBV_QUASISYNTAX 276
-#define ABBV_UNSYNTAXSPLICING 277
-#define ABBV_UNSYNTAX 278
+#define END_OF_FILE 258
+#define PLUS 259
+#define MINUS 260
+#define SLASH 261
+#define AT 262
+#define NAN 263
+#define INF 264
+#define IMAG 265
+#define RADIX_2 266
+#define EXACT 267
+#define INEXACT 268
+#define DIGIT_2 269
 
 
 
