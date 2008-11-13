@@ -229,7 +229,7 @@ typedef short int yytype_int16;
 #define YYSIZE_MAXIMUM ((YYSIZE_T) -1)
 
 #ifndef YY_
-# if YYENABLE_NLS
+# if defined YYENABLE_NLS && YYENABLE_NLS
 #  if ENABLE_NLS
 #   include <libintl.h> /* INFRINGES ON USER NAME SPACE */
 #   define YY_(msgid) dgettext ("bison-runtime", msgid)
@@ -473,9 +473,9 @@ static const yytype_int8 yyrhs[] =
 static const yytype_uint8 yyrline[] =
 {
        0,    51,    51,    52,    53,    54,    60,    61,    65,    69,
-      70,    74,    78,    83,    87,    88,    91,   101,   106,   108,
-     110,   121,   125,   127,   128,   129,   130,   131,   132,   133,
-     134
+      70,    78,    82,    87,    91,    92,    95,   105,   110,   112,
+     114,   125,   129,   131,   132,   133,   134,   135,   136,   137,
+     138
 };
 #endif
 
@@ -681,7 +681,7 @@ while (YYID (0))
    we won't break user code: when these are the locations we know.  */
 
 #ifndef YY_LOCATION_PRINT
-# if YYLTYPE_IS_TRIVIAL
+# if defined YYLTYPE_IS_TRIVIAL && YYLTYPE_IS_TRIVIAL
 #  define YY_LOCATION_PRINT(File, Loc)			\
      fprintf (File, "%d.%d-%d.%d",			\
 	      (Loc).first_line, (Loc).first_column,	\
@@ -1472,42 +1472,46 @@ yyreduce:
     {
                 bool isErrorOccured = false;
                 (yyval.object) = NumberReader::read((yyvsp[(1) - (1)].stringValue), isErrorOccured);
+                if (isErrorOccured) {
+                    yyerror("invalid number sequence");
+                    YYERROR;
+                }
             ;}
     break;
 
   case 11:
-#line 75 "Reader.y"
+#line 79 "Reader.y"
     {
                 (yyval.object) = Symbol::intern((yyvsp[(1) - (1)].stringValue).strdup());
             ;}
     break;
 
   case 12:
-#line 79 "Reader.y"
+#line 83 "Reader.y"
     {
                 (yyval.object) = Object::makeChar((yyvsp[(1) - (1)].intValue));
             ;}
     break;
 
   case 13:
-#line 84 "Reader.y"
+#line 88 "Reader.y"
     {
                    (yyval.object) = (yyvsp[(1) - (1)].object);
                ;}
     break;
 
   case 14:
-#line 87 "Reader.y"
+#line 91 "Reader.y"
     { (yyval.object) = (yyvsp[(1) - (1)].object); ;}
     break;
 
   case 15:
-#line 88 "Reader.y"
+#line 92 "Reader.y"
     { (yyval.object) = (yyvsp[(1) - (1)].object); ;}
     break;
 
   case 16:
-#line 92 "Reader.y"
+#line 96 "Reader.y"
     {
            // TODO: not to use reverse.
            (yyvsp[(2) - (3)].object) = Pair::reverse((yyvsp[(2) - (3)].object));
@@ -1520,7 +1524,7 @@ yyreduce:
     break;
 
   case 17:
-#line 102 "Reader.y"
+#line 106 "Reader.y"
     {
            (yyvsp[(2) - (6)].object) = Pair::reverse((yyvsp[(2) - (6)].object));
            (yyval.object) = Pair::appendD2((yyvsp[(2) - (6)].object), Object::cons((yyvsp[(3) - (6)].object), (yyvsp[(5) - (6)].object)));
@@ -1528,17 +1532,17 @@ yyreduce:
     break;
 
   case 18:
-#line 106 "Reader.y"
+#line 110 "Reader.y"
     { (yyval.object) = Object::cons((yyvsp[(1) - (2)].object), Object::cons((yyvsp[(2) - (2)].object), Object::Nil)); ;}
     break;
 
   case 19:
-#line 108 "Reader.y"
+#line 112 "Reader.y"
     { (yyval.object) = Object::makeVector(Pair::reverse((yyvsp[(2) - (3)].object))); ;}
     break;
 
   case 20:
-#line 111 "Reader.y"
+#line 115 "Reader.y"
     {
               const Object bytevector = u8ListToByteVector(Pair::reverse((yyvsp[(2) - (3)].object)));
               if (bytevector.isNil()) {
@@ -1551,60 +1555,60 @@ yyreduce:
     break;
 
   case 21:
-#line 122 "Reader.y"
+#line 126 "Reader.y"
     {
                  (yyval.object) = Object::cons((yyvsp[(2) - (2)].object), (yyvsp[(1) - (2)].object));
            ;}
     break;
 
   case 22:
-#line 125 "Reader.y"
+#line 129 "Reader.y"
     {(yyval.object) = Object::Nil; ;}
     break;
 
   case 23:
-#line 127 "Reader.y"
+#line 131 "Reader.y"
     { (yyval.object) = Symbol::QUOTE; ;}
     break;
 
   case 24:
-#line 128 "Reader.y"
+#line 132 "Reader.y"
     { (yyval.object) = Symbol::UNQUOTE_SPLICING; ;}
     break;
 
   case 25:
-#line 129 "Reader.y"
+#line 133 "Reader.y"
     { (yyval.object) = Symbol::QUASIQUOTE; ;}
     break;
 
   case 26:
-#line 130 "Reader.y"
+#line 134 "Reader.y"
     { (yyval.object) = Symbol::UNQUOTE; ;}
     break;
 
   case 27:
-#line 131 "Reader.y"
+#line 135 "Reader.y"
     { (yyval.object) = Symbol::SYNTAX;;}
     break;
 
   case 28:
-#line 132 "Reader.y"
+#line 136 "Reader.y"
     { (yyval.object) = Symbol::UNSYNTAX_SPLICING; ;}
     break;
 
   case 29:
-#line 133 "Reader.y"
+#line 137 "Reader.y"
     { (yyval.object) = Symbol::QUASISYNTAX; ;}
     break;
 
   case 30:
-#line 134 "Reader.y"
+#line 138 "Reader.y"
     { (yyval.object) = Symbol::UNSYNTAX; ;}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1608 "Reader.tab.cpp"
+#line 1612 "Reader.tab.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1818,7 +1822,7 @@ yyreturn:
 }
 
 
-#line 160 "Reader.y"
+#line 164 "Reader.y"
 
 
 extern ucs4char* token;
