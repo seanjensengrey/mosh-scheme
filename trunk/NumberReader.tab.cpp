@@ -134,7 +134,7 @@ extern int number_yyerror(const char *);
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
-# define YYDEBUG 0
+# define YYDEBUG 1
 #endif
 
 /* Enabling verbose error messages.  */
@@ -461,7 +461,7 @@ static const yytype_uint8 yyrline[] =
        0,    39,    39,    40,    41,    43,    46,    47,    48,    49,
       50,    51,    52,    53,    54,    55,    56,    57,    58,    62,
       63,    64,    65,    68,    69,    70,    71,    75,    76,    81,
-      82,    83,    84,    86,    87,    90,    91
+      84,    85,    86,    88,    89,    92,    93
 };
 #endif
 
@@ -1514,37 +1514,37 @@ yyreduce:
     break;
 
   case 30:
-#line 82 "NumberReader.y"
+#line 84 "NumberReader.y"
     { (yyval.exactValue) = 0; printf("exactness empty \n");;}
     break;
 
   case 31:
-#line 83 "NumberReader.y"
+#line 85 "NumberReader.y"
     { (yyval.exactValue) = 1; ;}
     break;
 
   case 32:
-#line 84 "NumberReader.y"
+#line 86 "NumberReader.y"
     { (yyval.exactValue) = -1; ;}
     break;
 
   case 33:
-#line 86 "NumberReader.y"
+#line 88 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(2) - (2)].exactValue); printf("radix[1]=%d\n", (yyvsp[(2) - (2)].exactValue));;}
     break;
 
   case 34:
-#line 87 "NumberReader.y"
+#line 89 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(1) - (2)].exactValue); printf("radix[2]=%d\n", (yyvsp[(1) - (2)].exactValue));;}
     break;
 
   case 35:
-#line 90 "NumberReader.y"
+#line 92 "NumberReader.y"
     { (yyval.object) = Flonum::NOT_A_NUMBER; ;}
     break;
 
   case 36:
-#line 91 "NumberReader.y"
+#line 93 "NumberReader.y"
     { (yyval.object) = Flonum::POSITIVE_INF; ;}
     break;
 
@@ -1764,7 +1764,7 @@ yyreturn:
 }
 
 
-#line 92 "NumberReader.y"
+#line 94 "NumberReader.y"
 
 
 extern ucs4char* token;
