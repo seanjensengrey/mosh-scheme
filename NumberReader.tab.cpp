@@ -1555,8 +1555,11 @@ yyreduce:
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
 
+
+  printf("yylen=%d\n", yylen);
   YYPOPSTACK (yylen);
   yylen = 0;
+  printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
   YY_STACK_PRINT (yyss, yyssp);
 
   *++yyvsp = yyval;
