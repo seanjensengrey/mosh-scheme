@@ -213,7 +213,7 @@ typedef short int yytype_int16;
 #define YYSIZE_MAXIMUM ((YYSIZE_T) -1)
 
 #ifndef YY_
-# if defined YYENABLE_NLS && YYENABLE_NLS
+# if YYENABLE_NLS
 #  if ENABLE_NLS
 #   include <libintl.h> /* INFRINGES ON USER NAME SPACE */
 #   define YY_(msgid) dgettext ("bison-runtime", msgid)
@@ -656,7 +656,7 @@ while (YYID (0))
    we won't break user code: when these are the locations we know.  */
 
 #ifndef YY_LOCATION_PRINT
-# if defined YYLTYPE_IS_TRIVIAL && YYLTYPE_IS_TRIVIAL
+# if YYLTYPE_IS_TRIVIAL
 #  define YY_LOCATION_PRINT(File, Loc)			\
      fprintf (File, "%d.%d-%d.%d",			\
 	      (Loc).first_line, (Loc).first_column,	\
@@ -1508,9 +1508,14 @@ yyreduce:
             ;}
     break;
 
+  case 29:
+#line 81 "NumberReader.y"
+    { (yyval.intValue) = (yyvsp[(1) - (1)].intValue); printf("digit2=%d\n", (yyvsp[(1) - (1)].intValue)); ;}
+    break;
+
   case 30:
 #line 82 "NumberReader.y"
-    { (yyval.exactValue) = 0; ;}
+    { (yyval.exactValue) = 0; printf("exactness empty \n");;}
     break;
 
   case 31:
@@ -1525,12 +1530,12 @@ yyreduce:
 
   case 33:
 #line 86 "NumberReader.y"
-    { (yyval.exactValue) = (yyvsp[(2) - (2)].exactValue);;}
+    { (yyval.exactValue) = (yyvsp[(2) - (2)].exactValue); printf("radix[1]=%d\n", (yyvsp[(2) - (2)].exactValue));;}
     break;
 
   case 34:
 #line 87 "NumberReader.y"
-    { (yyval.exactValue) = (yyvsp[(1) - (2)].exactValue);;}
+    { (yyval.exactValue) = (yyvsp[(1) - (2)].exactValue); printf("radix[2]=%d\n", (yyvsp[(1) - (2)].exactValue));;}
     break;
 
   case 35:
@@ -1545,7 +1550,7 @@ yyreduce:
 
 
 /* Line 1267 of yacc.c.  */
-#line 1549 "NumberReader.tab.cpp"
+#line 1554 "NumberReader.tab.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
