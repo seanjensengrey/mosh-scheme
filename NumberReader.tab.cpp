@@ -120,8 +120,7 @@
 #include "NumberScanner.h"
 #include "TextualInputPort.h"
 #include "Arithmetic.h"
-#include "hoge.h"
-#include "NumberReader.tab.hpp"
+#include "Reader.h"
 #include "NumberReader.h"
 #include "ScannerHelper.h"
 #include "Scanner.h"
@@ -131,8 +130,6 @@
 using namespace scheme;
 extern int number_yylex();
 extern int number_yyerror(const char *);
-#define YYDEBUG 1
-
 
 
 /* Enabling traces.  */
@@ -166,7 +163,7 @@ typedef int YYSTYPE;
 
 
 /* Line 216 of yacc.c.  */
-#line 170 "NumberReader.tab.cpp"
+#line 167 "NumberReader.tab.cpp"
 
 #ifdef short
 # undef short
@@ -461,10 +458,10 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    42,    42,    43,    44,    46,    49,    50,    51,    52,
-      53,    54,    55,    56,    57,    58,    59,    60,    61,    65,
-      66,    67,    68,    71,    72,    73,    74,    78,    79,    84,
-      87,    88,    89,    91,    92,    95,    96
+       0,    39,    39,    40,    41,    43,    46,    47,    48,    49,
+      50,    51,    52,    53,    54,    55,    56,    57,    58,    62,
+      63,    64,    65,    68,    69,    70,    71,    75,    76,    81,
+      84,    85,    86,    88,    89,    92,    93
 };
 #endif
 
@@ -1400,168 +1397,166 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 42 "NumberReader.y"
+#line 39 "NumberReader.y"
     { NumberReader::parsed = (yyval.object); YYACCEPT; ;}
     break;
 
   case 3:
-#line 43 "NumberReader.y"
+#line 40 "NumberReader.y"
     { NumberReader::parsed = Object::Eof; YYACCEPT; ;}
     break;
 
   case 5:
-#line 46 "NumberReader.y"
+#line 43 "NumberReader.y"
     { (yyval.object) = ScannerHelper::applyExactness((yyvsp[(1) - (2)].exactValue), (yyvsp[(2) - (2)].object)); ;}
     break;
 
   case 7:
-#line 50 "NumberReader.y"
+#line 47 "NumberReader.y"
     { (yyval.object) = Arithmetic::makePolar((yyvsp[(1) - (3)].object), (yyvsp[(3) - (3)].object)); ;}
     break;
 
   case 8:
-#line 51 "NumberReader.y"
+#line 48 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), (yyvsp[(1) - (2)].object)); ;}
     break;
 
   case 9:
-#line 52 "NumberReader.y"
+#line 49 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), (yyvsp[(3) - (4)].object)); ;}
     break;
 
   case 10:
-#line 53 "NumberReader.y"
+#line 50 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), Arithmetic::mul(-1, (yyvsp[(3) - (4)].object))); ;}
     break;
 
   case 11:
-#line 54 "NumberReader.y"
+#line 51 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (3)].object), Object::makeFixnum(1)); ;}
     break;
 
   case 12:
-#line 55 "NumberReader.y"
+#line 52 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (3)].object), Object::makeFixnum(-1)); ;}
     break;
 
   case 13:
-#line 56 "NumberReader.y"
+#line 53 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Object::makeFixnum(1)); ;}
     break;
 
   case 14:
-#line 57 "NumberReader.y"
+#line 54 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Object::makeFixnum(-1)); ;}
     break;
 
   case 15:
-#line 58 "NumberReader.y"
+#line 55 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), (yyvsp[(3) - (4)].object)); ;}
     break;
 
   case 16:
-#line 59 "NumberReader.y"
+#line 56 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), Arithmetic::mul(-1, (yyvsp[(3) - (4)].object))); ;}
     break;
 
   case 17:
-#line 60 "NumberReader.y"
+#line 57 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), (yyvsp[(2) - (3)].object)); ;}
     break;
 
   case 18:
-#line 61 "NumberReader.y"
+#line 58 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Arithmetic::mul(-1, (yyvsp[(2) - (3)].object))); ;}
     break;
 
   case 21:
-#line 67 "NumberReader.y"
+#line 64 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(1, (yyvsp[(2) - (2)].object)); ;}
     break;
 
   case 22:
-#line 68 "NumberReader.y"
+#line 65 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(-1, (yyvsp[(2) - (2)].object)); ;}
     break;
 
   case 24:
-#line 72 "NumberReader.y"
+#line 69 "NumberReader.y"
     { (yyval.object) = Arithmetic::div((yyvsp[(1) - (3)].object), (yyvsp[(3) - (3)].object)); ;}
     break;
 
   case 25:
-#line 73 "NumberReader.y"
+#line 70 "NumberReader.y"
     { (yyval.object) = (yyvsp[(2) - (2)].object); ;}
     break;
 
   case 26:
-#line 74 "NumberReader.y"
+#line 71 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(-1, (yyvsp[(2) - (2)].object)); ;}
     break;
 
   case 27:
-#line 78 "NumberReader.y"
+#line 75 "NumberReader.y"
     { (yyval.object) = Object::makeFixnum((yyvsp[(1) - (1)].intValue)); ;}
     break;
 
   case 28:
-#line 79 "NumberReader.y"
+#line 76 "NumberReader.y"
     {
                 (yyval.object) = Arithmetic::add(Arithmetic::mul(2, (yyvsp[(1) - (2)].object)), Object::makeFixnum((yyvsp[(2) - (2)].intValue)));
             ;}
     break;
 
   case 29:
-#line 84 "NumberReader.y"
+#line 81 "NumberReader.y"
     { (yyval.intValue) = (yyvsp[(1) - (1)].intValue); printf("digit2=%d\n", (yyvsp[(1) - (1)].intValue)); ;}
     break;
 
   case 30:
-#line 87 "NumberReader.y"
-    { (yyval.exactValue) = 0; printf("exactness empty \n");  yydebug = 1;;}
+#line 84 "NumberReader.y"
+    { (yyval.exactValue) = 0; printf("exactness empty \n");;}
     break;
 
   case 31:
-#line 88 "NumberReader.y"
+#line 85 "NumberReader.y"
     { (yyval.exactValue) = 1; ;}
     break;
 
   case 32:
-#line 89 "NumberReader.y"
+#line 86 "NumberReader.y"
     { (yyval.exactValue) = -1; ;}
     break;
 
   case 33:
-#line 91 "NumberReader.y"
+#line 88 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(2) - (2)].exactValue); printf("radix[1]=%d\n", (yyvsp[(2) - (2)].exactValue));;}
     break;
 
   case 34:
-#line 92 "NumberReader.y"
+#line 89 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(1) - (2)].exactValue); printf("radix[2]=%d\n", (yyvsp[(1) - (2)].exactValue));;}
     break;
 
   case 35:
-#line 95 "NumberReader.y"
+#line 92 "NumberReader.y"
     { (yyval.object) = Flonum::NOT_A_NUMBER; ;}
     break;
 
   case 36:
-#line 96 "NumberReader.y"
+#line 93 "NumberReader.y"
     { (yyval.object) = Flonum::POSITIVE_INF; ;}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1557 "NumberReader.tab.cpp"
+#line 1554 "NumberReader.tab.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
 
-  printf("yylen=%d\n", yylen);
   YYPOPSTACK (yylen);
   yylen = 0;
-  printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
   YY_STACK_PRINT (yyss, yyssp);
 
   *++yyvsp = yyval;
@@ -1668,7 +1663,6 @@ yyerrorlab:
      this YYERROR.  */
   YYPOPSTACK (yylen);
   yylen = 0;
-  printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
   YY_STACK_PRINT (yyss, yyssp);
   yystate = *yyssp;
   goto yyerrlab1;
@@ -1703,7 +1697,6 @@ yyerrlab1:
 		  yystos[yystate], yyvsp);
       YYPOPSTACK (1);
       yystate = *yyssp;
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
       YY_STACK_PRINT (yyss, yyssp);
     }
 
@@ -1771,14 +1764,13 @@ yyreturn:
 }
 
 
-#line 97 "NumberReader.y"
+#line 94 "NumberReader.y"
 
 
 extern ucs4char* token;
 int number_yyerror(char const *str)
 {
-  TextualInputPort* const port = NumberReader::port();
-  printf(str);
+  TextualInputPort* const port = Reader::port();
     port->setError(format(UC("~a near [~a] at ~a:~d. "),
                           Pair::list4(str, Object::makeString(port->scanner()->currentToken()), port->toString(), Object::makeFixnum(port->getLineNo()))));
     return 0;
