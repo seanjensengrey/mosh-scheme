@@ -48,9 +48,11 @@
      MY_INF = 264,
      IMAG = 265,
      RADIX_2 = 266,
-     EXACT = 267,
-     INEXACT = 268,
-     DIGIT_2 = 269
+     RADIX_10 = 267,
+     EXACT = 268,
+     INEXACT = 269,
+     DIGIT_2 = 270,
+     DIGIT_10 = 271
    };
 #endif
 /* Tokens.  */
@@ -63,9 +65,11 @@
 #define MY_INF 264
 #define IMAG 265
 #define RADIX_2 266
-#define EXACT 267
-#define INEXACT 268
-#define DIGIT_2 269
+#define RADIX_10 267
+#define EXACT 268
+#define INEXACT 269
+#define DIGIT_2 270
+#define DIGIT_10 271
 
 
 
