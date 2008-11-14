@@ -1154,7 +1154,7 @@ yyparse ()
 #endif
 {
   
-  int yystate;
+  volatile int yystate;
   int yyn;
   int yyresult;
   /* Number of tokens to shift before error messages enabled.  */
@@ -1222,12 +1222,20 @@ yyparse ()
 | yynewstate -- Push a new state, which is found in yystate.  |
 `------------------------------------------------------------*/
  yynewstate:
+  printf("yynewstate\n");
+
   /* In all cases, when you get here, the value and location stacks
      have just been pushed.  So pushing a state here evens the stacks.  */
   yyssp++;
 
  yysetstate:
+  asm volatile(" \t # -- yystate after");
   *yyssp = yystate;
+
+
+//      printf("AFTER YYLEX3 %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
+//      for (int i = 0; i < 50; i++) {printf("<%d>", yyssp[-i]);}
+
 
   if (yyss + yystacksize - 1 <= yyssp)
     {
@@ -1356,6 +1364,8 @@ yybackup:
       goto yyreduce;
     }
 
+
+
   if (yyn == YYFINAL)
     YYACCEPT;
 
@@ -1371,7 +1381,10 @@ yybackup:
   if (yychar != YYEOF)
     yychar = YYEMPTY;
 
+
+  printf("yyn=%d \n", yyn);
   yystate = yyn;
+  asm volatile(" \t # -- yystate before");
   *++yyvsp = yylval;
 
   goto yynewstate;
