@@ -130,7 +130,8 @@
 using namespace scheme;
 extern int number_yylex();
 extern int number_yyerror(const char *);
-#define YYDEBUG 1
+//#define YYDEBUG 1
+// yydebug = 1
 
 
 /* Enabling traces.  */
@@ -164,7 +165,7 @@ typedef int YYSTYPE;
 
 
 /* Line 216 of yacc.c.  */
-#line 168 "NumberReader.tab.cpp"
+#line 169 "NumberReader.tab.cpp"
 
 #ifdef short
 # undef short
@@ -459,9 +460,9 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    40,    40,    41,    42,    44,    47,    48,    49,    50,
-      51,    52,    53,    54,    55,    56,    57,    58,    59,    63,
-      64,    65,    66,    69,    70,    71,    72,    76,    77,    82,
+       0,    41,    41,    42,    43,    45,    48,    49,    50,    51,
+      52,    53,    54,    55,    56,    57,    58,    59,    60,    64,
+      65,    66,    67,    70,    71,    72,    73,    77,    78,    83,
       85,    86,    87,    89,    90,    93,    94
 };
 #endif
@@ -1154,7 +1155,7 @@ yyparse ()
 #endif
 {
   
-  volatile int yystate;
+  int yystate;
   int yyn;
   int yyresult;
   /* Number of tokens to shift before error messages enabled.  */
@@ -1222,20 +1223,12 @@ yyparse ()
 | yynewstate -- Push a new state, which is found in yystate.  |
 `------------------------------------------------------------*/
  yynewstate:
-  printf("yynewstate\n");
-
   /* In all cases, when you get here, the value and location stacks
      have just been pushed.  So pushing a state here evens the stacks.  */
   yyssp++;
 
  yysetstate:
-  asm volatile(" \t # -- yystate after");
   *yyssp = yystate;
-
-
-//      printf("AFTER YYLEX3 %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-//      for (int i = 0; i < 50; i++) {printf("<%d>", yyssp[-i]);}
-
 
   if (yyss + yystacksize - 1 <= yyssp)
     {
@@ -1325,18 +1318,7 @@ yybackup:
   if (yychar == YYEMPTY)
     {
       YYDPRINTF ((stderr, "Reading a token: "));
-      printf("BEFORE YYLEX: %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-      for (int i = 0; i < 50; i++) {printf("<%d>", yyssp[-i]);}
-      printf("\n");
-      fflush(stdout);
       yychar = YYLEX;
-      printf("** yychar = <%c> **", yychar);
-      fflush(stdout);
-      printf("AFTER YYLEX %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-      for (int i = 0; i < 50; i++) {printf("<%d>", yyssp[-i]);}
-      printf("\n");
-      fflush(stdout);
-
     }
 
   if (yychar <= YYEOF)
@@ -1364,8 +1346,6 @@ yybackup:
       goto yyreduce;
     }
 
-
-
   if (yyn == YYFINAL)
     YYACCEPT;
 
@@ -1381,10 +1361,7 @@ yybackup:
   if (yychar != YYEOF)
     yychar = YYEMPTY;
 
-
-  printf("yyn=%d \n", yyn);
   yystate = yyn;
-  asm volatile(" \t # -- yystate before");
   *++yyvsp = yylval;
 
   goto yynewstate;
@@ -1422,199 +1399,159 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 40 "NumberReader.y"
-            printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
+#line 41 "NumberReader.y"
     { NumberReader::parsed = (yyval.object); YYACCEPT; ;}
     break;
 
   case 3:
-#line 41 "NumberReader.y"
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
+#line 42 "NumberReader.y"
     { NumberReader::parsed = Object::Eof; YYACCEPT; ;}
     break;
 
   case 5:
-#line 44 "NumberReader.y"
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
+#line 45 "NumberReader.y"
     { (yyval.object) = ScannerHelper::applyExactness((yyvsp[(1) - (2)].exactValue), (yyvsp[(2) - (2)].object)); ;}
     break;
 
   case 7:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 48 "NumberReader.y"
+#line 49 "NumberReader.y"
     { (yyval.object) = Arithmetic::makePolar((yyvsp[(1) - (3)].object), (yyvsp[(3) - (3)].object)); ;}
     break;
 
   case 8:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 49 "NumberReader.y"
+#line 50 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), (yyvsp[(1) - (2)].object)); ;}
     break;
 
   case 9:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 50 "NumberReader.y"
+#line 51 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), (yyvsp[(3) - (4)].object)); ;}
     break;
 
   case 10:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 51 "NumberReader.y"
+#line 52 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), Arithmetic::mul(-1, (yyvsp[(3) - (4)].object))); ;}
     break;
 
   case 11:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 52 "NumberReader.y"
+#line 53 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (3)].object), Object::makeFixnum(1)); ;}
     break;
 
   case 12:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 53 "NumberReader.y"
+#line 54 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (3)].object), Object::makeFixnum(-1)); ;}
     break;
 
   case 13:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 54 "NumberReader.y"
+#line 55 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Object::makeFixnum(1)); ;}
     break;
 
   case 14:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 55 "NumberReader.y"
+#line 56 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Object::makeFixnum(-1)); ;}
     break;
 
   case 15:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 56 "NumberReader.y"
+#line 57 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), (yyvsp[(3) - (4)].object)); ;}
     break;
 
   case 16:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 57 "NumberReader.y"
+#line 58 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), Arithmetic::mul(-1, (yyvsp[(3) - (4)].object))); ;}
     break;
 
   case 17:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 58 "NumberReader.y"
+#line 59 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), (yyvsp[(2) - (3)].object)); ;}
     break;
 
   case 18:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 59 "NumberReader.y"
+#line 60 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Arithmetic::mul(-1, (yyvsp[(2) - (3)].object))); ;}
     break;
 
   case 21:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 65 "NumberReader.y"
+#line 66 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(1, (yyvsp[(2) - (2)].object)); ;}
     break;
 
   case 22:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 66 "NumberReader.y"
+#line 67 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(-1, (yyvsp[(2) - (2)].object)); ;}
     break;
 
   case 24:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 70 "NumberReader.y"
+#line 71 "NumberReader.y"
     { (yyval.object) = Arithmetic::div((yyvsp[(1) - (3)].object), (yyvsp[(3) - (3)].object)); ;}
     break;
 
   case 25:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 71 "NumberReader.y"
+#line 72 "NumberReader.y"
     { (yyval.object) = (yyvsp[(2) - (2)].object); ;}
     break;
 
   case 26:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 72 "NumberReader.y"
+#line 73 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(-1, (yyvsp[(2) - (2)].object)); ;}
     break;
 
   case 27:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 76 "NumberReader.y"
+#line 77 "NumberReader.y"
     { (yyval.object) = Object::makeFixnum((yyvsp[(1) - (1)].intValue)); ;}
     break;
 
   case 28:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 77 "NumberReader.y"
+#line 78 "NumberReader.y"
     {
                 (yyval.object) = Arithmetic::add(Arithmetic::mul(2, (yyvsp[(1) - (2)].object)), Object::makeFixnum((yyvsp[(2) - (2)].intValue)));
-            ;}
-    break;
-
-
-  case 29:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-#line 82 "NumberReader.y"
-    { (yyval.intValue) = (yyvsp[(1) - (1)].intValue); printf("digit2=%d\n", (yyvsp[(1) - (1)].intValue)); ;}
+          ;}
     break;
 
   case 30:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
 #line 85 "NumberReader.y"
-  YY_STACK_PRINT (yyss, yyssp);
-    { yydebug=1; (yyval.exactValue) = 0; printf("exactness empty \n");;}
+    { (yyval.exactValue) = 0; ;}
     break;
 
-
   case 31:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
 #line 86 "NumberReader.y"
     { (yyval.exactValue) = 1; ;}
     break;
 
   case 32:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
 #line 87 "NumberReader.y"
     { (yyval.exactValue) = -1; ;}
     break;
 
   case 33:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
 #line 89 "NumberReader.y"
-    { (yyval.exactValue) = (yyvsp[(2) - (2)].exactValue); printf("radix[1]=%d\n", (yyvsp[(2) - (2)].exactValue));;}
+    { (yyval.exactValue) = (yyvsp[(2) - (2)].exactValue); ;}
     break;
 
   case 34:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
 #line 90 "NumberReader.y"
-    { (yyval.exactValue) = (yyvsp[(1) - (2)].exactValue); printf("radix[2]=%d\n", (yyvsp[(1) - (2)].exactValue));;}
+    { (yyval.exactValue) = (yyvsp[(1) - (2)].exactValue); ;}
     break;
 
   case 35:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
 #line 93 "NumberReader.y"
     { (yyval.object) = Flonum::NOT_A_NUMBER; ;}
     break;
 
   case 36:
-      printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
 #line 94 "NumberReader.y"
     { (yyval.object) = Flonum::POSITIVE_INF; ;}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1555 "NumberReader.tab.cpp"
-      default:
-          printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-          break;
+#line 1551 "NumberReader.tab.cpp"
+      default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
-  YY_STACK_PRINT (yyss, yyssp);
+
   YYPOPSTACK (yylen);
   yylen = 0;
   YY_STACK_PRINT (yyss, yyssp);
