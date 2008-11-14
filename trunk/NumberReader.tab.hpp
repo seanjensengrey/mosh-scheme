@@ -44,8 +44,8 @@
      MINUS = 260,
      SLASH = 261,
      AT = 262,
-     NAN = 263,
-     INF = 264,
+     MY_NAN = 263,
+     MY_INF = 264,
      IMAG = 265,
      RADIX_2 = 266,
      EXACT = 267,
@@ -59,8 +59,8 @@
 #define MINUS 260
 #define SLASH 261
 #define AT 262
-#define NAN 263
-#define INF 264
+#define MY_NAN 263
+#define MY_INF 264
 #define IMAG 265
 #define RADIX_2 266
 #define EXACT 267

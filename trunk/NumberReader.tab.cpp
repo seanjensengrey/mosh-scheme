@@ -79,8 +79,8 @@
      MINUS = 260,
      SLASH = 261,
      AT = 262,
-     NAN = 263,
-     INF = 264,
+     MY_NAN = 263,
+     MY_INF = 264,
      IMAG = 265,
      RADIX_2 = 266,
      EXACT = 267,
@@ -94,8 +94,8 @@
 #define MINUS 260
 #define SLASH 261
 #define AT 262
-#define NAN 263
-#define INF 264
+#define MY_NAN 263
+#define MY_INF 264
 #define IMAG 265
 #define RADIX_2 266
 #define EXACT 267
@@ -117,6 +117,7 @@
 #include "Pair-inl.h"
 #include "SString.h"
 #include "StringProcedures.h"
+#include "NumberScanner.h"
 #include "TextualInputPort.h"
 #include "Arithmetic.h"
 #include "Reader.h"
@@ -162,7 +163,7 @@ typedef int YYSTYPE;
 
 
 /* Line 216 of yacc.c.  */
-#line 166 "NumberReader.tab.cpp"
+#line 167 "NumberReader.tab.cpp"
 
 #ifdef short
 # undef short
@@ -457,10 +458,10 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    38,    38,    39,    40,    42,    45,    46,    47,    48,
-      49,    50,    51,    52,    53,    54,    55,    56,    57,    61,
-      62,    63,    64,    67,    68,    69,    70,    74,    75,    80,
-      81,    82,    83,    85,    86,    89,    90
+       0,    39,    39,    40,    41,    43,    46,    47,    48,    49,
+      50,    51,    52,    53,    54,    55,    56,    57,    58,    62,
+      63,    64,    65,    68,    69,    70,    71,    75,    76,    81,
+      82,    83,    84,    86,    87,    90,    91
 };
 #endif
 
@@ -470,9 +471,10 @@ static const yytype_uint8 yyrline[] =
 static const char *const yytname[] =
 {
   "$end", "error", "$undefined", "END_OF_FILE", "PLUS", "MINUS", "SLASH",
-  "AT", "NAN", "INF", "IMAG", "RADIX_2", "EXACT", "INEXACT", "DIGIT_2",
-  "$accept", "top_level", "datum", "num2", "complex2", "real2", "ureal2",
-  "sreal2", "uinteger2", "digit2", "exactness", "prefix2", "naninf", 0
+  "AT", "MY_NAN", "MY_INF", "IMAG", "RADIX_2", "EXACT", "INEXACT",
+  "DIGIT_2", "$accept", "top_level", "datum", "num2", "complex2", "real2",
+  "ureal2", "sreal2", "uinteger2", "digit2", "exactness", "prefix2",
+  "naninf", 0
 };
 #endif
 
@@ -1395,155 +1397,155 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 38 "NumberReader.y"
+#line 39 "NumberReader.y"
     { NumberReader::parsed = (yyval.object); YYACCEPT; ;}
     break;
 
   case 3:
-#line 39 "NumberReader.y"
+#line 40 "NumberReader.y"
     { NumberReader::parsed = Object::Eof; YYACCEPT; ;}
     break;
 
   case 5:
-#line 42 "NumberReader.y"
+#line 43 "NumberReader.y"
     { (yyval.object) = ScannerHelper::applyExactness((yyvsp[(1) - (2)].exactValue), (yyvsp[(2) - (2)].object)); ;}
     break;
 
   case 7:
-#line 46 "NumberReader.y"
+#line 47 "NumberReader.y"
     { (yyval.object) = Arithmetic::makePolar((yyvsp[(1) - (3)].object), (yyvsp[(3) - (3)].object)); ;}
     break;
 
   case 8:
-#line 47 "NumberReader.y"
+#line 48 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), (yyvsp[(1) - (2)].object)); ;}
     break;
 
   case 9:
-#line 48 "NumberReader.y"
+#line 49 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), (yyvsp[(3) - (4)].object)); ;}
     break;
 
   case 10:
-#line 49 "NumberReader.y"
+#line 50 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), Arithmetic::mul(-1, (yyvsp[(3) - (4)].object))); ;}
     break;
 
   case 11:
-#line 50 "NumberReader.y"
+#line 51 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (3)].object), Object::makeFixnum(1)); ;}
     break;
 
   case 12:
-#line 51 "NumberReader.y"
+#line 52 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (3)].object), Object::makeFixnum(-1)); ;}
     break;
 
   case 13:
-#line 52 "NumberReader.y"
+#line 53 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Object::makeFixnum(1)); ;}
     break;
 
   case 14:
-#line 53 "NumberReader.y"
+#line 54 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Object::makeFixnum(-1)); ;}
     break;
 
   case 15:
-#line 54 "NumberReader.y"
+#line 55 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), (yyvsp[(3) - (4)].object)); ;}
     break;
 
   case 16:
-#line 55 "NumberReader.y"
+#line 56 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), Arithmetic::mul(-1, (yyvsp[(3) - (4)].object))); ;}
     break;
 
   case 17:
-#line 56 "NumberReader.y"
+#line 57 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), (yyvsp[(2) - (3)].object)); ;}
     break;
 
   case 18:
-#line 57 "NumberReader.y"
+#line 58 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Arithmetic::mul(-1, (yyvsp[(2) - (3)].object))); ;}
     break;
 
   case 21:
-#line 63 "NumberReader.y"
+#line 64 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(1, (yyvsp[(2) - (2)].object)); ;}
     break;
 
   case 22:
-#line 64 "NumberReader.y"
+#line 65 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(-1, (yyvsp[(2) - (2)].object)); ;}
     break;
 
   case 24:
-#line 68 "NumberReader.y"
+#line 69 "NumberReader.y"
     { (yyval.object) = Arithmetic::div((yyvsp[(1) - (3)].object), (yyvsp[(3) - (3)].object)); ;}
     break;
 
   case 25:
-#line 69 "NumberReader.y"
+#line 70 "NumberReader.y"
     { (yyval.object) = (yyvsp[(2) - (2)].object); ;}
     break;
 
   case 26:
-#line 70 "NumberReader.y"
+#line 71 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(-1, (yyvsp[(2) - (2)].object)); ;}
     break;
 
   case 27:
-#line 74 "NumberReader.y"
+#line 75 "NumberReader.y"
     { (yyval.object) = Object::makeFixnum((yyvsp[(1) - (1)].intValue)); ;}
     break;
 
   case 28:
-#line 75 "NumberReader.y"
+#line 76 "NumberReader.y"
     {
                 (yyval.object) = Arithmetic::add(Arithmetic::mul(2, (yyvsp[(1) - (2)].object)), Object::makeFixnum((yyvsp[(2) - (2)].intValue)));
             ;}
     break;
 
   case 30:
-#line 81 "NumberReader.y"
+#line 82 "NumberReader.y"
     { (yyval.exactValue) = 0; ;}
     break;
 
   case 31:
-#line 82 "NumberReader.y"
+#line 83 "NumberReader.y"
     { (yyval.exactValue) = 1; ;}
     break;
 
   case 32:
-#line 83 "NumberReader.y"
+#line 84 "NumberReader.y"
     { (yyval.exactValue) = -1; ;}
     break;
 
   case 33:
-#line 85 "NumberReader.y"
+#line 86 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(2) - (2)].exactValue);;}
     break;
 
   case 34:
-#line 86 "NumberReader.y"
+#line 87 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(1) - (2)].exactValue);;}
     break;
 
   case 35:
-#line 89 "NumberReader.y"
+#line 90 "NumberReader.y"
     { (yyval.object) = Flonum::NOT_A_NUMBER; ;}
     break;
 
   case 36:
-#line 90 "NumberReader.y"
+#line 91 "NumberReader.y"
     { (yyval.object) = Flonum::POSITIVE_INF; ;}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1547 "NumberReader.tab.cpp"
+#line 1549 "NumberReader.tab.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1757,7 +1759,7 @@ yyreturn:
 }
 
 
-#line 91 "NumberReader.y"
+#line 92 "NumberReader.y"
 
 
 extern ucs4char* token;
