@@ -481,9 +481,9 @@ static const yytype_uint8 yyrline[] =
       66,    67,    68,    69,    72,    73,    75,    76,    79,    80,
       85,    87,    89,    90,    91,    92,    93,    94,    95,    96,
       97,    98,    99,   100,   101,   102,   105,   106,   107,   108,
-     111,   112,   115,   116,   119,   128,   136,   146,   148,   152,
-     159,   160,   163,   164,   165,   168,   169,   176,   177,   180,
-     181,   182,   185,   186
+     111,   112,   115,   116,   119,   128,   136,   146,   148,   153,
+     160,   161,   164,   165,   166,   169,   170,   177,   178,   181,
+     182,   183,   186,   187
 };
 #endif
 
@@ -1808,14 +1808,15 @@ yyreduce:
 #line 148 "NumberReader.y"
     {
                 const ucs4char ch = '0' + (yyvsp[(1) - (1)].intValue);
+                (yyval.stringValue) = UC("");
                 (yyval.stringValue) += ch;
-             }
+           }
     break;
 
   case 59:
 
 /* Line 1455 of yacc.c  */
-#line 152 "NumberReader.y"
+#line 153 "NumberReader.y"
     {
                const ucs4char ch = '0' + (yyvsp[(2) - (2)].intValue);
                (yyval.stringValue) = (yyvsp[(1) - (2)].stringValue);
@@ -1826,42 +1827,42 @@ yyreduce:
   case 61:
 
 /* Line 1455 of yacc.c  */
-#line 160 "NumberReader.y"
+#line 161 "NumberReader.y"
     { (yyval.intValue) = (yyvsp[(1) - (1)].intValue); }
     break;
 
   case 62:
 
 /* Line 1455 of yacc.c  */
-#line 163 "NumberReader.y"
+#line 164 "NumberReader.y"
     { (yyval.exactValue) = 0; }
     break;
 
   case 63:
 
 /* Line 1455 of yacc.c  */
-#line 164 "NumberReader.y"
+#line 165 "NumberReader.y"
     { (yyval.exactValue) = 1; }
     break;
 
   case 64:
 
 /* Line 1455 of yacc.c  */
-#line 165 "NumberReader.y"
+#line 166 "NumberReader.y"
     { (yyval.exactValue) = -1; }
     break;
 
   case 65:
 
 /* Line 1455 of yacc.c  */
-#line 168 "NumberReader.y"
+#line 169 "NumberReader.y"
     { (yyval.stringValue) = UC(""); }
     break;
 
   case 66:
 
 /* Line 1455 of yacc.c  */
-#line 169 "NumberReader.y"
+#line 170 "NumberReader.y"
     {
               ucs4string ret = UC("e");
               ret += (yyvsp[(1) - (1)].stringValue).substr(1, (yyvsp[(1) - (1)].stringValue).size() - 1);
@@ -1872,49 +1873,49 @@ yyreduce:
   case 67:
 
 /* Line 1455 of yacc.c  */
-#line 176 "NumberReader.y"
+#line 177 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(2) - (2)].exactValue); }
     break;
 
   case 68:
 
 /* Line 1455 of yacc.c  */
-#line 177 "NumberReader.y"
+#line 178 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(1) - (2)].exactValue); }
     break;
 
   case 69:
 
 /* Line 1455 of yacc.c  */
-#line 180 "NumberReader.y"
+#line 181 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(2) - (2)].exactValue);}
     break;
 
   case 70:
 
 /* Line 1455 of yacc.c  */
-#line 181 "NumberReader.y"
+#line 182 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(1) - (2)].exactValue);}
     break;
 
   case 72:
 
 /* Line 1455 of yacc.c  */
-#line 185 "NumberReader.y"
+#line 186 "NumberReader.y"
     { (yyval.object) = Flonum::NOT_A_NUMBER; }
     break;
 
   case 73:
 
 /* Line 1455 of yacc.c  */
-#line 186 "NumberReader.y"
+#line 187 "NumberReader.y"
     { (yyval.object) = Flonum::POSITIVE_INF; }
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 1918 "NumberReader.tab.cpp"
+#line 1919 "NumberReader.tab.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -2126,7 +2127,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 187 "NumberReader.y"
+#line 188 "NumberReader.y"
 
 
 extern ucs4char* token;
