@@ -53,7 +53,8 @@
      EXACT = 269,
      INEXACT = 270,
      DIGIT_2 = 271,
-     DIGIT_10 = 272
+     DIGIT_10 = 272,
+     EXPONENT_MARKER = 273
    };
 #endif
 
