@@ -49,12 +49,16 @@
      MY_INF = 265,
      IMAG = 266,
      RADIX_2 = 267,
-     RADIX_10 = 268,
-     EXACT = 269,
-     INEXACT = 270,
-     DIGIT_2 = 271,
-     DIGIT_10 = 272,
-     EXPONENT_MARKER = 273
+     RADIX_8 = 268,
+     RADIX_10 = 269,
+     RADIX_16 = 270,
+     EXACT = 271,
+     INEXACT = 272,
+     DIGIT_2 = 273,
+     DIGIT_8 = 274,
+     DIGIT_10 = 275,
+     DIGIT_16 = 276,
+     EXPONENT_MARKER = 277
    };
 #endif
 
