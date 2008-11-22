@@ -836,7 +836,7 @@
 (display "")(let1 val (begin (bitwise-bit-count -1)) (if (equal? '-1 val) (format #t " Running ~d/~d" 1104 1578) (begin (add-error '(bitwise-bit-count -1) '-1 val))))
 (display "")(let1 val (begin (bitwise-length 1)) (if (equal? '1 val) (format #t " Running ~d/~d" 1105 1578) (begin (add-error '(bitwise-length 1) '1 val))))
 (display "")(let1 val (begin (bitwise-length 3)) (if (equal? '2 val) (format #t " Running ~d/~d" 1106 1578) (begin (add-error '(bitwise-length 3) '2 val))))
-(display "")(let1 val (begin (= (+ 1 (fixnum-width)) (bitwise-length (+ (greatest-fixnum) 1)))) (if (equal? '#t val) (format #t " Running ~d/~d" 1107 1578) (begin (add-error '(= (+ 1 (fixnum-width)) (bitwise-length (+ (greatest-fixnum) 1))) '#t val))))
+(display "")(let1 val (begin (= (fixnum-width) (bitwise-length (+ (greatest-fixnum) 1)))) (if (equal? '#t val) (format #t " Running ~d/~d" 1107 1578) (begin (add-error '(= (fixnum-width) (bitwise-length (+ (greatest-fixnum) 1))) '#t val))))
 (display "")(let1 val (begin (bitwise-first-bit-set 2)) (if (equal? '1 val) (format #t " Running ~d/~d" 1108 1578) (begin (add-error '(bitwise-first-bit-set 2) '1 val))))
 (display "")(let1 val (begin (bitwise-first-bit-set 4)) (if (equal? '2 val) (format #t " Running ~d/~d" 1109 1578) (begin (add-error '(bitwise-first-bit-set 4) '2 val))))
 (display "")(let1 val (begin (bitwise-first-bit-set 0)) (if (equal? '-1 val) (format #t " Running ~d/~d" 1110 1578) (begin (add-error '(bitwise-first-bit-set 0) '-1 val))))
