@@ -51,11 +51,12 @@ am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)" \
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
 am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
-	mosh-Fixnum.$(OBJEXT) mosh-Closure.$(OBJEXT) \
-	mosh-UtilityProcedures.$(OBJEXT) mosh-Reader.$(OBJEXT) \
-	mosh-NumberReader.$(OBJEXT) mosh-scheme.$(OBJEXT) \
-	mosh-Regexp.$(OBJEXT) mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
-	mosh-Scanner.$(OBJEXT) mosh-NumberScanner.$(OBJEXT) \
+	mosh-Compnum.$(OBJEXT) mosh-Fixnum.$(OBJEXT) \
+	mosh-Closure.$(OBJEXT) mosh-UtilityProcedures.$(OBJEXT) \
+	mosh-Reader.$(OBJEXT) mosh-NumberReader.$(OBJEXT) \
+	mosh-scheme.$(OBJEXT) mosh-Regexp.$(OBJEXT) \
+	mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) mosh-Scanner.$(OBJEXT) \
+	mosh-NumberScanner.$(OBJEXT) \
 	mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
 	mosh-ScannerHelper.$(OBJEXT) mosh-Reader.tab.$(OBJEXT) \
 	mosh-NumberReader.tab.$(OBJEXT) \
@@ -273,6 +274,7 @@ Box.h                                                             \
 Codec.h                                                           \
 Transcoder.h                                                      \
 ProcedureMacro.h                                                  \
+Compnum.h                     Compnum.cpp                         \
 Fixnum.h                      Fixnum.cpp                          \
 Closure.h                     Closure.cpp                         \
 UtilityProcedures.h           UtilityProcedures.cpp               \
@@ -453,6 +455,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Closure.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CodeBuilder.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompilerProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Compnum.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CompoundCondition.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ConditionProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-CustomBinaryInputPort.Po@am__quote@
@@ -545,6 +548,20 @@ mosh-read.obj: read.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='read.cpp' object='mosh-read.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-read.obj `if test -f 'read.cpp'; then $(CYGPATH_W) 'read.cpp'; else $(CYGPATH_W) '$(srcdir)/read.cpp'; fi`
+
+mosh-Compnum.o: Compnum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Compnum.o -MD -MP -MF $(DEPDIR)/mosh-Compnum.Tpo -c -o mosh-Compnum.o `test -f 'Compnum.cpp' || echo '$(srcdir)/'`Compnum.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Compnum.Tpo $(DEPDIR)/mosh-Compnum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Compnum.cpp' object='mosh-Compnum.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Compnum.o `test -f 'Compnum.cpp' || echo '$(srcdir)/'`Compnum.cpp
+
+mosh-Compnum.obj: Compnum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Compnum.obj -MD -MP -MF $(DEPDIR)/mosh-Compnum.Tpo -c -o mosh-Compnum.obj `if test -f 'Compnum.cpp'; then $(CYGPATH_W) 'Compnum.cpp'; else $(CYGPATH_W) '$(srcdir)/Compnum.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Compnum.Tpo $(DEPDIR)/mosh-Compnum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Compnum.cpp' object='mosh-Compnum.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Compnum.obj `if test -f 'Compnum.cpp'; then $(CYGPATH_W) 'Compnum.cpp'; else $(CYGPATH_W) '$(srcdir)/Compnum.cpp'; fi`
 
 mosh-Fixnum.o: Fixnum.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Fixnum.o -MD -MP -MF $(DEPDIR)/mosh-Fixnum.Tpo -c -o mosh-Fixnum.o `test -f 'Fixnum.cpp' || echo '$(srcdir)/'`Fixnum.cpp
