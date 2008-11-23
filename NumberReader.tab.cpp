@@ -89,6 +89,7 @@
 #include "StringProcedures.h"
 #include "NumberScanner.h"
 #include "TextualInputPort.h"
+#include "TextualOutputPort.h"
 #include "Arithmetic.h"
 #include "Reader.h"
 #include "NumberReader.h"
@@ -96,6 +97,7 @@
 #include "Scanner.h"
 #include "Ratnum.h"
 #include "Flonum.h"
+#include "ProcedureMacro.h"
 
 using namespace scheme;
 extern int number_yylex();
@@ -105,7 +107,7 @@ extern int number_yyerror(const char *);
 
 
 /* Line 189 of yacc.c  */
-#line 109 "NumberReader.tab.cpp"
+#line 111 "NumberReader.tab.cpp"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -168,7 +170,7 @@ extern int number_yyerror(const char *);
 
 
 /* Line 264 of yacc.c  */
-#line 172 "NumberReader.tab.cpp"
+#line 174 "NumberReader.tab.cpp"
 
 #ifdef short
 # undef short
@@ -505,20 +507,20 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,    78,    78,    79,    81,    81,    81,    81,    83,    86,
-      87,    88,    89,    90,    91,    92,    93,    94,    95,    96,
-      97,    98,   100,   101,   102,   103,   106,   107,   115,   116,
-     119,   120,   125,   127,   129,   130,   131,   132,   133,   134,
-     135,   136,   137,   138,   139,   140,   141,   142,   145,   146,
-     147,   148,   151,   152,   160,   161,   164,   165,   170,   171,
-     174,   176,   177,   178,   179,   180,   181,   182,   183,   184,
-     185,   186,   187,   188,   189,   192,   193,   194,   195,   198,
-     199,   208,   209,   212,   213,   218,   219,   222,   224,   225,
-     226,   227,   228,   229,   230,   231,   232,   233,   234,   235,
-     236,   237,   240,   241,   242,   243,   246,   247,   256,   257,
-     260,   269,   277,   287,   289,   294,   301,   302,   305,   306,
-     307,   310,   311,   318,   319,   322,   323,   324,   327,   328,
-     331,   332,   335,   336
+       0,    80,    80,    81,    83,    83,    83,    83,    85,    88,
+      89,    90,    91,    92,    93,    94,    95,    96,    97,    98,
+      99,   100,   102,   103,   104,   105,   108,   109,   117,   118,
+     121,   122,   127,   129,   131,   132,   133,   134,   135,   136,
+     137,   138,   139,   140,   141,   142,   143,   144,   147,   148,
+     149,   150,   153,   154,   162,   163,   166,   167,   172,   173,
+     176,   178,   179,   180,   181,   182,   183,   184,   185,   186,
+     187,   188,   189,   190,   191,   194,   195,   196,   197,   200,
+     201,   210,   211,   214,   215,   220,   221,   224,   226,   227,
+     228,   229,   230,   231,   232,   233,   234,   235,   236,   237,
+     238,   239,   242,   243,   244,   245,   248,   249,   258,   259,
+     262,   283,   291,   302,   304,   309,   316,   317,   320,   321,
+     322,   325,   326,   333,   334,   337,   338,   339,   342,   343,
+     346,   347,   350,   351
 };
 #endif
 
@@ -1585,126 +1587,126 @@ yyreduce:
         case 2:
 
 /* Line 1455 of yacc.c  */
-#line 78 "NumberReader.y"
+#line 80 "NumberReader.y"
     { NumberReader::parsed = (yyval.object); YYACCEPT; }
     break;
 
   case 3:
 
 /* Line 1455 of yacc.c  */
-#line 79 "NumberReader.y"
+#line 81 "NumberReader.y"
     { NumberReader::parsed = Object::Eof; YYACCEPT; }
     break;
 
   case 8:
 
 /* Line 1455 of yacc.c  */
-#line 83 "NumberReader.y"
+#line 85 "NumberReader.y"
     { (yyval.object) = ScannerHelper::applyExactness((yyvsp[(1) - (2)].exactValue), (yyvsp[(2) - (2)].object)); }
     break;
 
   case 10:
 
 /* Line 1455 of yacc.c  */
-#line 87 "NumberReader.y"
+#line 89 "NumberReader.y"
     { (yyval.object) = Arithmetic::makePolar((yyvsp[(1) - (3)].object), (yyvsp[(3) - (3)].object)); }
     break;
 
   case 11:
 
 /* Line 1455 of yacc.c  */
-#line 88 "NumberReader.y"
+#line 90 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), (yyvsp[(1) - (2)].object)); }
     break;
 
   case 12:
 
 /* Line 1455 of yacc.c  */
-#line 89 "NumberReader.y"
+#line 91 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), (yyvsp[(3) - (4)].object)); }
     break;
 
   case 13:
 
 /* Line 1455 of yacc.c  */
-#line 90 "NumberReader.y"
+#line 92 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), Arithmetic::mul(-1, (yyvsp[(3) - (4)].object))); }
     break;
 
   case 14:
 
 /* Line 1455 of yacc.c  */
-#line 91 "NumberReader.y"
+#line 93 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (3)].object), Object::makeFixnum(1)); }
     break;
 
   case 15:
 
 /* Line 1455 of yacc.c  */
-#line 92 "NumberReader.y"
+#line 94 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (3)].object), Object::makeFixnum(-1)); }
     break;
 
   case 16:
 
 /* Line 1455 of yacc.c  */
-#line 93 "NumberReader.y"
+#line 95 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Object::makeFixnum(1)); }
     break;
 
   case 17:
 
 /* Line 1455 of yacc.c  */
-#line 94 "NumberReader.y"
+#line 96 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Object::makeFixnum(-1)); }
     break;
 
   case 18:
 
 /* Line 1455 of yacc.c  */
-#line 95 "NumberReader.y"
+#line 97 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), (yyvsp[(3) - (4)].object)); }
     break;
 
   case 19:
 
 /* Line 1455 of yacc.c  */
-#line 96 "NumberReader.y"
+#line 98 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), Arithmetic::mul(-1, (yyvsp[(3) - (4)].object))); }
     break;
 
   case 20:
 
 /* Line 1455 of yacc.c  */
-#line 97 "NumberReader.y"
+#line 99 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), (yyvsp[(2) - (3)].object)); }
     break;
 
   case 21:
 
 /* Line 1455 of yacc.c  */
-#line 98 "NumberReader.y"
+#line 100 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Arithmetic::mul(-1, (yyvsp[(2) - (3)].object))); }
     break;
 
   case 24:
 
 /* Line 1455 of yacc.c  */
-#line 102 "NumberReader.y"
+#line 104 "NumberReader.y"
     { (yyval.object) = (yyvsp[(2) - (2)].object); }
     break;
 
   case 25:
 
 /* Line 1455 of yacc.c  */
-#line 103 "NumberReader.y"
+#line 105 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(-1, (yyvsp[(2) - (2)].object)); }
     break;
 
   case 27:
 
 /* Line 1455 of yacc.c  */
-#line 107 "NumberReader.y"
+#line 109 "NumberReader.y"
     {
                (yyval.object) = Arithmetic::div((yyvsp[(1) - (3)].object), (yyvsp[(3) - (3)].object), true);
                if ((yyval.object).isFalse()) {
@@ -1716,28 +1718,28 @@ yyreduce:
   case 28:
 
 /* Line 1455 of yacc.c  */
-#line 115 "NumberReader.y"
+#line 117 "NumberReader.y"
     { (yyval.object) = (yyvsp[(2) - (2)].object); }
     break;
 
   case 29:
 
 /* Line 1455 of yacc.c  */
-#line 116 "NumberReader.y"
+#line 118 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(-1, (yyvsp[(2) - (2)].object)); }
     break;
 
   case 30:
 
 /* Line 1455 of yacc.c  */
-#line 119 "NumberReader.y"
+#line 121 "NumberReader.y"
     { (yyval.object) = Object::makeFixnum((yyvsp[(1) - (1)].intValue)); }
     break;
 
   case 31:
 
 /* Line 1455 of yacc.c  */
-#line 120 "NumberReader.y"
+#line 122 "NumberReader.y"
     {
                 (yyval.object) = Arithmetic::add(Arithmetic::mul(2, (yyvsp[(1) - (2)].object)), Object::makeFixnum((yyvsp[(2) - (2)].intValue)));
           }
@@ -1746,119 +1748,119 @@ yyreduce:
   case 33:
 
 /* Line 1455 of yacc.c  */
-#line 127 "NumberReader.y"
+#line 129 "NumberReader.y"
     { (yyval.object) = ScannerHelper::applyExactness((yyvsp[(1) - (2)].exactValue), (yyvsp[(2) - (2)].object)); }
     break;
 
   case 35:
 
 /* Line 1455 of yacc.c  */
-#line 130 "NumberReader.y"
+#line 132 "NumberReader.y"
     { (yyval.object) = Arithmetic::makePolar((yyvsp[(1) - (3)].object), (yyvsp[(3) - (3)].object)); }
     break;
 
   case 36:
 
 /* Line 1455 of yacc.c  */
-#line 131 "NumberReader.y"
+#line 133 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), (yyvsp[(3) - (4)].object)); }
     break;
 
   case 37:
 
 /* Line 1455 of yacc.c  */
-#line 132 "NumberReader.y"
+#line 134 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), Arithmetic::mul(-1, (yyvsp[(3) - (4)].object))); }
     break;
 
   case 38:
 
 /* Line 1455 of yacc.c  */
-#line 133 "NumberReader.y"
+#line 135 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (3)].object), Object::makeFixnum(1)); }
     break;
 
   case 39:
 
 /* Line 1455 of yacc.c  */
-#line 134 "NumberReader.y"
+#line 136 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (3)].object), Object::makeFixnum(-1)); }
     break;
 
   case 40:
 
 /* Line 1455 of yacc.c  */
-#line 135 "NumberReader.y"
+#line 137 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), (yyvsp[(2) - (3)].object)); }
     break;
 
   case 41:
 
 /* Line 1455 of yacc.c  */
-#line 136 "NumberReader.y"
+#line 138 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Arithmetic::mul(-1, (yyvsp[(2) - (3)].object))); }
     break;
 
   case 42:
 
 /* Line 1455 of yacc.c  */
-#line 137 "NumberReader.y"
+#line 139 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Object::makeFixnum(1)); }
     break;
 
   case 43:
 
 /* Line 1455 of yacc.c  */
-#line 138 "NumberReader.y"
+#line 140 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Object::makeFixnum(-1)); }
     break;
 
   case 44:
 
 /* Line 1455 of yacc.c  */
-#line 139 "NumberReader.y"
+#line 141 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), (yyvsp[(3) - (4)].object)); }
     break;
 
   case 45:
 
 /* Line 1455 of yacc.c  */
-#line 140 "NumberReader.y"
+#line 142 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), Arithmetic::mul(-1, (yyvsp[(3) - (4)].object))); }
     break;
 
   case 46:
 
 /* Line 1455 of yacc.c  */
-#line 141 "NumberReader.y"
+#line 143 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), (yyvsp[(2) - (3)].object)); }
     break;
 
   case 47:
 
 /* Line 1455 of yacc.c  */
-#line 142 "NumberReader.y"
+#line 144 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Arithmetic::mul(-1, (yyvsp[(2) - (3)].object))); }
     break;
 
   case 50:
 
 /* Line 1455 of yacc.c  */
-#line 147 "NumberReader.y"
+#line 149 "NumberReader.y"
     { (yyval.object) = (yyvsp[(2) - (2)].object); }
     break;
 
   case 51:
 
 /* Line 1455 of yacc.c  */
-#line 148 "NumberReader.y"
+#line 150 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(-1, (yyvsp[(2) - (2)].object)); }
     break;
 
   case 53:
 
 /* Line 1455 of yacc.c  */
-#line 152 "NumberReader.y"
+#line 154 "NumberReader.y"
     {
                (yyval.object) = Arithmetic::div((yyvsp[(1) - (3)].object), (yyvsp[(3) - (3)].object), true);
                if ((yyval.object).isFalse()) {
@@ -1870,28 +1872,28 @@ yyreduce:
   case 54:
 
 /* Line 1455 of yacc.c  */
-#line 160 "NumberReader.y"
+#line 162 "NumberReader.y"
     { (yyval.object) = (yyvsp[(2) - (2)].object); }
     break;
 
   case 55:
 
 /* Line 1455 of yacc.c  */
-#line 161 "NumberReader.y"
+#line 163 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(-1, (yyvsp[(2) - (2)].object)); }
     break;
 
   case 56:
 
 /* Line 1455 of yacc.c  */
-#line 164 "NumberReader.y"
+#line 166 "NumberReader.y"
     { (yyval.object) = Object::makeFixnum((yyvsp[(1) - (1)].intValue)); }
     break;
 
   case 57:
 
 /* Line 1455 of yacc.c  */
-#line 165 "NumberReader.y"
+#line 167 "NumberReader.y"
     {
                 (yyval.object) = Arithmetic::add(Arithmetic::mul(8, (yyvsp[(1) - (2)].object)), Object::makeFixnum((yyvsp[(2) - (2)].intValue)));
           }
@@ -1900,126 +1902,126 @@ yyreduce:
   case 59:
 
 /* Line 1455 of yacc.c  */
-#line 171 "NumberReader.y"
+#line 173 "NumberReader.y"
     { (yyval.intValue) = (yyvsp[(1) - (1)].intValue); }
     break;
 
   case 60:
 
 /* Line 1455 of yacc.c  */
-#line 174 "NumberReader.y"
+#line 176 "NumberReader.y"
     { (yyval.object) = ScannerHelper::applyExactness((yyvsp[(1) - (2)].exactValue), (yyvsp[(2) - (2)].object)); }
     break;
 
   case 62:
 
 /* Line 1455 of yacc.c  */
-#line 177 "NumberReader.y"
+#line 179 "NumberReader.y"
     { (yyval.object) = Arithmetic::makePolar((yyvsp[(1) - (3)].object), (yyvsp[(3) - (3)].object)); }
     break;
 
   case 63:
 
 /* Line 1455 of yacc.c  */
-#line 178 "NumberReader.y"
+#line 180 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), (yyvsp[(3) - (4)].object)); }
     break;
 
   case 64:
 
 /* Line 1455 of yacc.c  */
-#line 179 "NumberReader.y"
+#line 181 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), Arithmetic::mul(-1, (yyvsp[(3) - (4)].object))); }
     break;
 
   case 65:
 
 /* Line 1455 of yacc.c  */
-#line 180 "NumberReader.y"
+#line 182 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (3)].object), Object::makeFixnum(1)); }
     break;
 
   case 66:
 
 /* Line 1455 of yacc.c  */
-#line 181 "NumberReader.y"
+#line 183 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (3)].object), Object::makeFixnum(-1)); }
     break;
 
   case 67:
 
 /* Line 1455 of yacc.c  */
-#line 182 "NumberReader.y"
+#line 184 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), (yyvsp[(2) - (3)].object)); }
     break;
 
   case 68:
 
 /* Line 1455 of yacc.c  */
-#line 183 "NumberReader.y"
+#line 185 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Arithmetic::mul(-1, (yyvsp[(2) - (3)].object))); }
     break;
 
   case 69:
 
 /* Line 1455 of yacc.c  */
-#line 184 "NumberReader.y"
+#line 186 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Object::makeFixnum(1)); }
     break;
 
   case 70:
 
 /* Line 1455 of yacc.c  */
-#line 185 "NumberReader.y"
+#line 187 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Object::makeFixnum(-1)); }
     break;
 
   case 71:
 
 /* Line 1455 of yacc.c  */
-#line 186 "NumberReader.y"
+#line 188 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), (yyvsp[(3) - (4)].object)); }
     break;
 
   case 72:
 
 /* Line 1455 of yacc.c  */
-#line 187 "NumberReader.y"
+#line 189 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), Arithmetic::mul(-1, (yyvsp[(3) - (4)].object))); }
     break;
 
   case 73:
 
 /* Line 1455 of yacc.c  */
-#line 188 "NumberReader.y"
+#line 190 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), (yyvsp[(2) - (3)].object)); }
     break;
 
   case 74:
 
 /* Line 1455 of yacc.c  */
-#line 189 "NumberReader.y"
+#line 191 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Arithmetic::mul(-1, (yyvsp[(2) - (3)].object))); }
     break;
 
   case 77:
 
 /* Line 1455 of yacc.c  */
-#line 194 "NumberReader.y"
+#line 196 "NumberReader.y"
     { (yyval.object) = (yyvsp[(2) - (2)].object); }
     break;
 
   case 78:
 
 /* Line 1455 of yacc.c  */
-#line 195 "NumberReader.y"
+#line 197 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(-1, (yyvsp[(2) - (2)].object)); }
     break;
 
   case 80:
 
 /* Line 1455 of yacc.c  */
-#line 199 "NumberReader.y"
+#line 201 "NumberReader.y"
     {
                (yyval.object) = Arithmetic::div((yyvsp[(1) - (3)].object), (yyvsp[(3) - (3)].object), true);
                if ((yyval.object).isFalse()) {
@@ -2032,28 +2034,28 @@ yyreduce:
   case 81:
 
 /* Line 1455 of yacc.c  */
-#line 208 "NumberReader.y"
+#line 210 "NumberReader.y"
     { (yyval.object) = (yyvsp[(2) - (2)].object); }
     break;
 
   case 82:
 
 /* Line 1455 of yacc.c  */
-#line 209 "NumberReader.y"
+#line 211 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(-1, (yyvsp[(2) - (2)].object)); }
     break;
 
   case 83:
 
 /* Line 1455 of yacc.c  */
-#line 212 "NumberReader.y"
+#line 214 "NumberReader.y"
     { (yyval.object) = Object::makeFixnum((yyvsp[(1) - (1)].intValue)); }
     break;
 
   case 84:
 
 /* Line 1455 of yacc.c  */
-#line 213 "NumberReader.y"
+#line 215 "NumberReader.y"
     {
                 (yyval.object) = Arithmetic::add(Arithmetic::mul(16, (yyvsp[(1) - (2)].object)), Object::makeFixnum((yyvsp[(2) - (2)].intValue)));
           }
@@ -2062,126 +2064,126 @@ yyreduce:
   case 86:
 
 /* Line 1455 of yacc.c  */
-#line 219 "NumberReader.y"
+#line 221 "NumberReader.y"
     { (yyval.intValue) = (yyvsp[(1) - (1)].intValue); }
     break;
 
   case 87:
 
 /* Line 1455 of yacc.c  */
-#line 222 "NumberReader.y"
+#line 224 "NumberReader.y"
     { (yyval.object) = ScannerHelper::applyExactness((yyvsp[(1) - (2)].exactValue), (yyvsp[(2) - (2)].object)); }
     break;
 
   case 89:
 
 /* Line 1455 of yacc.c  */
-#line 225 "NumberReader.y"
+#line 227 "NumberReader.y"
     { (yyval.object) = Arithmetic::makePolar((yyvsp[(1) - (3)].object), (yyvsp[(3) - (3)].object)); }
     break;
 
   case 90:
 
 /* Line 1455 of yacc.c  */
-#line 226 "NumberReader.y"
+#line 228 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), (yyvsp[(3) - (4)].object)); }
     break;
 
   case 91:
 
 /* Line 1455 of yacc.c  */
-#line 227 "NumberReader.y"
+#line 229 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), Arithmetic::mul(-1, (yyvsp[(3) - (4)].object))); }
     break;
 
   case 92:
 
 /* Line 1455 of yacc.c  */
-#line 228 "NumberReader.y"
+#line 230 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (3)].object), Object::makeFixnum(1)); }
     break;
 
   case 93:
 
 /* Line 1455 of yacc.c  */
-#line 229 "NumberReader.y"
+#line 231 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (3)].object), Object::makeFixnum(-1)); }
     break;
 
   case 94:
 
 /* Line 1455 of yacc.c  */
-#line 230 "NumberReader.y"
+#line 232 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), (yyvsp[(2) - (3)].object)); }
     break;
 
   case 95:
 
 /* Line 1455 of yacc.c  */
-#line 231 "NumberReader.y"
+#line 233 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Arithmetic::mul(-1, (yyvsp[(2) - (3)].object))); }
     break;
 
   case 96:
 
 /* Line 1455 of yacc.c  */
-#line 232 "NumberReader.y"
+#line 234 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Object::makeFixnum(1)); }
     break;
 
   case 97:
 
 /* Line 1455 of yacc.c  */
-#line 233 "NumberReader.y"
+#line 235 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Object::makeFixnum(-1)); }
     break;
 
   case 98:
 
 /* Line 1455 of yacc.c  */
-#line 234 "NumberReader.y"
+#line 236 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), (yyvsp[(3) - (4)].object)); }
     break;
 
   case 99:
 
 /* Line 1455 of yacc.c  */
-#line 235 "NumberReader.y"
+#line 237 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum((yyvsp[(1) - (4)].object), Arithmetic::mul(-1, (yyvsp[(3) - (4)].object))); }
     break;
 
   case 100:
 
 /* Line 1455 of yacc.c  */
-#line 236 "NumberReader.y"
+#line 238 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), (yyvsp[(2) - (3)].object)); }
     break;
 
   case 101:
 
 /* Line 1455 of yacc.c  */
-#line 237 "NumberReader.y"
+#line 239 "NumberReader.y"
     { (yyval.object) = Object::makeCompnum(Object::makeFixnum(0), Arithmetic::mul(-1, (yyvsp[(2) - (3)].object))); }
     break;
 
   case 104:
 
 /* Line 1455 of yacc.c  */
-#line 242 "NumberReader.y"
+#line 244 "NumberReader.y"
     { (yyval.object) = (yyvsp[(2) - (2)].object); }
     break;
 
   case 105:
 
 /* Line 1455 of yacc.c  */
-#line 243 "NumberReader.y"
+#line 245 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(-1, (yyvsp[(2) - (2)].object)); }
     break;
 
   case 107:
 
 /* Line 1455 of yacc.c  */
-#line 247 "NumberReader.y"
+#line 249 "NumberReader.y"
     {
                (yyval.object) = Arithmetic::div((yyvsp[(1) - (3)].object), (yyvsp[(3) - (3)].object), true);
                if ((yyval.object).isFalse()) {
@@ -2194,36 +2196,48 @@ yyreduce:
   case 108:
 
 /* Line 1455 of yacc.c  */
-#line 256 "NumberReader.y"
+#line 258 "NumberReader.y"
     { (yyval.object) = (yyvsp[(2) - (2)].object); }
     break;
 
   case 109:
 
 /* Line 1455 of yacc.c  */
-#line 257 "NumberReader.y"
+#line 259 "NumberReader.y"
     { (yyval.object) = Arithmetic::mul(-1, (yyvsp[(2) - (2)].object)); }
     break;
 
   case 110:
 
 /* Line 1455 of yacc.c  */
-#line 260 "NumberReader.y"
+#line 262 "NumberReader.y"
     {
-               if ((yyvsp[(2) - (2)].stringValue).empty()) {
-                   (yyval.object) = Bignum::makeInteger((yyvsp[(1) - (2)].stringValue));
-               } else {
-                   ucs4string ret = (yyvsp[(1) - (2)].stringValue);
-                   ret += (yyvsp[(2) - (2)].stringValue);
-                   (yyval.object) = Flonum::fromString(ret);
-               }
+              if ((yyvsp[(2) - (2)].stringValue).empty()) {
+                  (yyval.object) = Bignum::makeInteger((yyvsp[(1) - (2)].stringValue));
+              } else {
+                  int sign = 1;
+                  uint32_t start = 1;
+                  if ((yyvsp[(2) - (2)].stringValue)[1] == '-') {
+                      sign = -1;
+                      start = 2;
+                  } else if ((yyvsp[(2) - (2)].stringValue)[1] == '+') {
+                      start = 2;
+                  }
+                  Object ret = Object::makeFixnum(1);
+                  for (int i = static_cast<int>((yyvsp[(2) - (2)].stringValue).size() - 1); i >= start; i--) {
+                      ret = Arithmetic::mul(Arithmetic::expt(Object::makeFixnum(10), Object::makeFixnum((yyvsp[(2) - (2)].stringValue).size() - i - 1)),
+                                            Object::makeFixnum((yyvsp[(2) - (2)].stringValue)[i] - '0'));
+                  }
+                  (yyval.object) = Arithmetic::mul(Bignum::makeInteger((yyvsp[(1) - (2)].stringValue)), Arithmetic::expt(Object::makeFixnum(10),
+                                                                                 sign == -1 ? Arithmetic::negate(ret) : ret));
+              }
           }
     break;
 
   case 111:
 
 /* Line 1455 of yacc.c  */
-#line 269 "NumberReader.y"
+#line 283 "NumberReader.y"
     {
               ucs4string ret = UC(".");
               ret += (yyvsp[(2) - (3)].stringValue);
@@ -2237,13 +2251,14 @@ yyreduce:
   case 112:
 
 /* Line 1455 of yacc.c  */
-#line 277 "NumberReader.y"
+#line 291 "NumberReader.y"
     {
               ucs4string ret = (yyvsp[(1) - (4)].stringValue);
               ret += UC(".") + (yyvsp[(3) - (4)].stringValue);
               if (!(yyvsp[(4) - (4)].stringValue).empty()) {
                   ret += (yyvsp[(4) - (4)].stringValue);
               }
+
               (yyval.object) = Flonum::fromString(ret);
           }
     break;
@@ -2251,14 +2266,14 @@ yyreduce:
   case 113:
 
 /* Line 1455 of yacc.c  */
-#line 287 "NumberReader.y"
+#line 302 "NumberReader.y"
     { (yyval.object) = Bignum::makeInteger((yyvsp[(1) - (1)].stringValue)); }
     break;
 
   case 114:
 
 /* Line 1455 of yacc.c  */
-#line 289 "NumberReader.y"
+#line 304 "NumberReader.y"
     {
                 const ucs4char ch = '0' + (yyvsp[(1) - (1)].intValue);
                 (yyval.stringValue) = UC("");
@@ -2269,7 +2284,7 @@ yyreduce:
   case 115:
 
 /* Line 1455 of yacc.c  */
-#line 294 "NumberReader.y"
+#line 309 "NumberReader.y"
     {
                const ucs4char ch = '0' + (yyvsp[(2) - (2)].intValue);
                (yyval.stringValue) = (yyvsp[(1) - (2)].stringValue);
@@ -2280,42 +2295,42 @@ yyreduce:
   case 117:
 
 /* Line 1455 of yacc.c  */
-#line 302 "NumberReader.y"
+#line 317 "NumberReader.y"
     { (yyval.intValue) = (yyvsp[(1) - (1)].intValue); }
     break;
 
   case 118:
 
 /* Line 1455 of yacc.c  */
-#line 305 "NumberReader.y"
+#line 320 "NumberReader.y"
     { (yyval.exactValue) = 0; }
     break;
 
   case 119:
 
 /* Line 1455 of yacc.c  */
-#line 306 "NumberReader.y"
+#line 321 "NumberReader.y"
     { (yyval.exactValue) = 1; }
     break;
 
   case 120:
 
 /* Line 1455 of yacc.c  */
-#line 307 "NumberReader.y"
+#line 322 "NumberReader.y"
     { (yyval.exactValue) = -1; }
     break;
 
   case 121:
 
 /* Line 1455 of yacc.c  */
-#line 310 "NumberReader.y"
+#line 325 "NumberReader.y"
     { (yyval.stringValue) = UC(""); }
     break;
 
   case 122:
 
 /* Line 1455 of yacc.c  */
-#line 311 "NumberReader.y"
+#line 326 "NumberReader.y"
     {
               ucs4string ret = UC("e");
               ret += (yyvsp[(1) - (1)].stringValue).substr(1, (yyvsp[(1) - (1)].stringValue).size() - 1);
@@ -2326,77 +2341,77 @@ yyreduce:
   case 123:
 
 /* Line 1455 of yacc.c  */
-#line 318 "NumberReader.y"
+#line 333 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(2) - (2)].exactValue); }
     break;
 
   case 124:
 
 /* Line 1455 of yacc.c  */
-#line 319 "NumberReader.y"
+#line 334 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(1) - (2)].exactValue); }
     break;
 
   case 125:
 
 /* Line 1455 of yacc.c  */
-#line 322 "NumberReader.y"
+#line 337 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(2) - (2)].exactValue);}
     break;
 
   case 126:
 
 /* Line 1455 of yacc.c  */
-#line 323 "NumberReader.y"
+#line 338 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(1) - (2)].exactValue);}
     break;
 
   case 128:
 
 /* Line 1455 of yacc.c  */
-#line 327 "NumberReader.y"
+#line 342 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(2) - (2)].exactValue);}
     break;
 
   case 129:
 
 /* Line 1455 of yacc.c  */
-#line 328 "NumberReader.y"
+#line 343 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(1) - (2)].exactValue);}
     break;
 
   case 130:
 
 /* Line 1455 of yacc.c  */
-#line 331 "NumberReader.y"
+#line 346 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(2) - (2)].exactValue);}
     break;
 
   case 131:
 
 /* Line 1455 of yacc.c  */
-#line 332 "NumberReader.y"
+#line 347 "NumberReader.y"
     { (yyval.exactValue) = (yyvsp[(1) - (2)].exactValue);}
     break;
 
   case 132:
 
 /* Line 1455 of yacc.c  */
-#line 335 "NumberReader.y"
+#line 350 "NumberReader.y"
     { (yyval.object) = Flonum::NOT_A_NUMBER; }
     break;
 
   case 133:
 
 /* Line 1455 of yacc.c  */
-#line 336 "NumberReader.y"
+#line 351 "NumberReader.y"
     { (yyval.object) = Flonum::POSITIVE_INF; }
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 2400 "NumberReader.tab.cpp"
+#line 2415 "NumberReader.tab.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -2608,7 +2623,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 337 "NumberReader.y"
+#line 352 "NumberReader.y"
 
 
 extern ucs4char* token;
