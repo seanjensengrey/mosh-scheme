@@ -667,53 +667,19 @@
     (vector-set! (unquote iform) 2 (unquote tail?))))
 
 (define $CALL 14)
+(define ($call proc args tail? type)
+  (vector $CALL proc args tail? type 0))
 
-(define
-  ($call proc args tail? type)
-  (let1 v
-        (make-vector 5)
-        (vector-set! v 0 $CALL)
-        (vector-set! v 1 proc)
-        (vector-set! v 2 args)
-        (vector-set! v 3 tail?)
-        (vector-set! v 4 type)
-        v))
-
-(define-macro
-  ($call.proc iform)
-  (quasiquote (vector-ref (unquote iform) 1)))
-
-(define-macro
-  ($call.args iform)
-  (quasiquote (vector-ref (unquote iform) 2)))
-
-(define-macro
-  ($call.tail? iform)
-  (quasiquote (vector-ref (unquote iform) 3)))
-
-(define-macro
-  ($call.type iform)
-  (quasiquote (vector-ref (unquote iform) 4)))
-
-(define-macro
-  ($call.set-proc! iform proc)
-  (quasiquote
-    (vector-set! (unquote iform) 1 (unquote proc))))
-
-(define-macro
-  ($call.set-args! iform args)
-  (quasiquote
-    (vector-set! (unquote iform) 2 (unquote args))))
-
-(define-macro
-  ($call.set-tail?! iform tail?)
-  (quasiquote
-    (vector-set! (unquote iform) 3 (unquote tail?))))
-
-(define-macro
-  ($call.set-type! iform type)
-  (quasiquote
-    (vector-set! (unquote iform) 4 (unquote type))))
+(define-macro ($call.proc iform) `(vector-ref ,iform 1))
+(define-macro ($call.args iform) `(vector-ref ,iform 2))
+(define-macro ($call.tail? iform) `(vector-ref ,iform 3))
+(define-macro ($call.type iform) `(vector-ref ,iform 4))
+(define-macro ($call.depth iform) `(vector-ref ,iform 5))
+(define-macro ($call.set-proc! iform proc) `(vector-set! ,iform 1 ,proc))
+(define-macro ($call.set-args! iform args) `(vector-set! ,iform 2 ,args))
+(define-macro ($call.set-tail?! iform tail?) `(vector-set! ,iform 3 ,tail?))
+(define-macro ($call.set-type! iform type) `(vector-set! ,iform 4 ,type))
+(define-macro ($call.set-depth! iform type) `(vector-set! ,iform 5 ,type))
 
 (define $LABEL 15)
 
@@ -2311,6 +2277,7 @@
              ($library.import-syms iform))
            (nl (+ ind 2))
            (display ")"))
+          ((tag? iform $RECEIVE) 'todo)
           ((tag? iform $LOCAL-REF)
            (format
              #t
@@ -3397,6 +3364,7 @@
        (hashtable-set-true! (eq-hashtable-copy ,sets) ,new-sets)))
 
 (define-macro (pass3/let-frame-size) 2)
+(define-macro (pass3/frame-size) 4)
 
 (define (pass3/collect-free cb frees-here locals frees)
   (let loop ([size 0]
@@ -3621,6 +3589,7 @@
        (error "unknown insn on pass3/$asm")])))
 
 (define (pass3/$if cb iform locals frees can-frees sets tail depth)
+  (format #t "pass3/$if depth=~d\n" depth)
   (let ([end-of-else   (make-label)]
         [begin-of-else (make-label)])
     (let1 test-size (pass3/rec cb ($if.test iform) locals frees can-frees sets #f depth)
@@ -3669,14 +3638,23 @@
   `(append (append ,can-frees (list ,vars1)) (list ,vars2)))
 
 (define (pass3/$call cb iform locals frees can-frees sets tail depth)
+       (format #t "pass3/$call depth=~d type=~a\n" depth ($call.type iform))
   (case ($call.type iform)
     [(jump)
      (let ([label ($lambda.body ($call.proc ($call.proc iform)))]
            [args-length (length ($call.args iform))])
-       (cput! cb 'REDUCE args-length)
+;;        (cond
+;;         [(> (- depth ($call.depth iform) 1) (pass3/let-frame-size))
+;;          ($call.set-type! ($call.proc iform) #f)
+;;          (pass3/$call cb ($call.proc iform) locals frees can-frees sets tail depth)
+;;          ][else
+;       (cput! cb 'REDUCE args-length)
+       (format #t "depth=~d\n" depth)
        (begin0
          (pass3/compile-args cb ($call.args iform) locals frees can-frees sets #f depth)
-         (cput-shift! cb args-length args-length)
+;         (cput-shift! cb args-length args-length)
+         (cput! cb 'SHIFT args-length (+ (pass3/let-frame-size) (- depth ($call.depth iform) 1)))
+;       (cput! cb 'REDUCE (- depth ($call.depth iform)))
          (cput! cb 'UNFIXED_JUMP label)
          ))]
     [(embed)
@@ -3689,6 +3667,7 @@
                                          (pass3/add-can-frees2 can-frees locals frees))]
             [sets-for-this-lvars (pass3/find-sets body vars)]
             [let-cb (make-code-builder)])
+       ($call.set-depth! iform depth) ;; record depth at jump destination point.
        (cput! cb 'LET_FRAME)
        (let* ([frees-here-length (length frees-here)]
               [free-size (if (> frees-here-length 0)
@@ -3708,7 +3687,7 @@
                                       (pass3/add-can-frees1 can-frees vars-sym)
                                       (pass3/add-sets! sets sets-for-this-lvars)
                                       (if tail (+ tail (length vars) (pass3/let-frame-size)) #f)
-                                      depth)
+                                      (+ depth (length vars) (if tail (pass3/let-frame-size) 0)))
              (code-builder-put-insn-arg1! let-cb 'LEAVE args-length)
              (cput! cb (+ args-size body-size free-size))
              (code-builder-append! cb let-cb)
@@ -3752,6 +3731,7 @@
         (cput! cb end-of-frame)))))
 
 (define (pass3/$lambda cb iform locals frees can-frees sets tail depth)
+  (format #t "pass3/$lambda depth=~a\n" depth)
   (let* ([vars ($lambda.lvars iform)]
          [vars-sym (imap $lvar.sym-proc vars)]
          [body ($lambda.body iform)]
@@ -3780,7 +3760,7 @@
                                  (pass3/add-can-frees1 can-frees vars-sym) ;; can-frees and vars don't have common lvars.
                                  (pass3/add-sets! sets sets-for-this-lvars)
                                  vars-length
-                                 depth)
+                                 #?= (+ (length vars) (pass3/frame-size) depth))
         (cput! cb
                (+ body-size free-size vars-length 4) ;; max-stack 4 is sizeof frame
                ($lambda.src iform))                    ;; source code information
@@ -3820,7 +3800,7 @@
                                    (pass3/add-can-frees1 can-frees vars-sym)
                                    (pass3/add-sets! sets sets-for-this-lvars)
                                    (if tail (+ tail vars-length (pass3/let-frame-size)) #f)
-                                   depth)
+                                   (+ depth vars-length (if tail (pass3/let-frame-size) 0)))
           (code-builder-put-insn-arg1! let-cb 'LEAVE vars-length)
           (cput! cb (+ body-size vals-size free-size))
           (code-builder-append! cb let-cb)
@@ -3855,7 +3835,7 @@
                                        (pass3/add-can-frees1 can-frees vars-sym)
                                        (pass3/add-sets! sets sets-for-this-lvars)
                                        (if tail (+ tail vars-length (pass3/let-frame-size)) #f)
-                                       depth) ;; tail call for let is collect
+                                       (+ depth vars-length (if tail (pass3/let-frame-size) 0)))
               (code-builder-put-insn-arg1! let-cb 'LEAVE vars-length)
               (cput! cb (+ body-size args-size free-size))
               (code-builder-append! cb let-cb)
@@ -3921,7 +3901,7 @@
                                         new-can-frees
                                         (pass3/add-sets! sets sets-for-this-lvars)
                                         (if tail (+ tail vars-length (pass3/let-frame-size)) #f)
-                                        depth)
+                                        (+ depth vars-length (if tail (pass3/let-frame-size) 0)))
           (code-builder-put-insn-arg1! let-cb 'LEAVE vars-length)
           (cput! cb (+ free-size assign-size body-size))
           (code-builder-append! cb let-cb)
@@ -3971,7 +3951,7 @@
 
 ;; depth is the depth of frame, used for 'jump' and 'embeded' call and indicate the size of frame to discard.
 (define (pass3/rec cb iform locals frees can-frees sets tail depth)
-  ((vector-ref pass3/dispatch-table (vector-ref iform 0)) cb iform locals frees can-frees sets tail 0))
+  ((vector-ref pass3/dispatch-table (vector-ref iform 0)) cb iform locals frees can-frees sets tail depth))
 
 (define (pass3 iform)
   (let1 cb (make-code-builder)
@@ -4040,6 +4020,7 @@
 (define (peephole-optimization v) (let ((len (vector-length v))) (let loop ((i 0)) (if (= i len) '() (let1 insn (vector-ref v i) (cond ((or (eq? insn 'LOCAL_JMP) (and (eq? insn 'FRAME) (number? (vector-ref v (+ i 1))))) (let* ((offset (+ (vector-ref v (+ i 1)) 1)) (destination-index (+ i offset))) (cond ((eq? (vector-ref v destination-index) 'LOCAL_JMP) (vector-set! v (+ i 1) (+ offset (vector-ref v (+ destination-index 1))))) ((eq? (vector-ref v destination-index) 'RETURN) (vector-set! v i 'RETURN) (vector-set! v (+ i 1) (vector-ref v (+ destination-index 1))))))) ((and (eq? insn 'TEST) (number? (vector-ref v (+ i 1)))) (let* ((offset (+ (vector-ref v (+ i 1)) 1)) (destination-index (+ i offset))) (when (or (eq? (vector-ref v destination-index) 'TEST) (eq? (vector-ref v destination-index) 'LOCAL_JMP)) (vector-set! v (+ i 1) (+ offset (vector-ref v (+ destination-index 1)))))))) (loop (+ i 1)))))))(define (pass4/fixup-labels v) (define (collect-labels) (let* ((len (vector-length v)) (ret (make-vector len 'NOP)) (labels (make-eq-hashtable))) (let loop ((i 0) (j 0)) (cond ((= i len) (values ret labels)) (else (let1 insn (vector-ref v i) (cond ((eq? insn 'UNFIXED_JUMP) (pass4/fixup-labels-clollect 'UNFIXED_JUMP)) ((eq? insn 'TEST) (pass4/fixup-labels-clollect 'TEST)) ((eq? insn 'NUMBER_LE_TEST) (pass4/fixup-labels-clollect 'NUMBER_LE_TEST)) ((eq? insn 'NOT_TEST) (pass4/fixup-labels-clollect 'NOT_TEST)) ((eq? insn 'REFER_LOCAL0_EQV_TEST) (pass4/fixup-labels-clollect 'REFER_LOCAL0_EQV_TEST)) ((eq? insn 'FRAME) (pass4/fixup-labels-clollect 'FRAME)) ((eq? insn 'PUSH_FRAME) (pass4/fixup-labels-clollect 'PUSH_FRAME)) ((eq? insn 'CLOSURE) (pass4/fixup-labels-clollect 'CLOSURE)) ((and (vector? insn) (> (vector-length insn) 0) (tag? insn $LABEL)) (hashtable-set! labels insn j) (loop (+ i 1) j)) (else (vector-set! ret j insn) (loop (+ i 1) (+ j 1)))))))))) (receive (code labels) (collect-labels) (let1 len (vector-length code) (let loop ((i 0)) (cond ((= i len) code) (else (let1 insn (vector-ref code i) (cond ((eq? insn 'UNFIXED_JUMP) (pass4/fixup-labels-insn 'LOCAL_JMP)) ((eq? insn 'CLOSURE) (pass4/fixup-labels-insn 'CLOSURE)) ((eq? insn 'TEST) (pass4/fixup-labels-insn 'TEST)) ((eq? insn 'NUMBER_LE_TEST) (pass4/fixup-labels-insn 'NUMBER_LE_TEST)) ((eq? insn 'NOT_TEST) (pass4/fixup-labels-insn 'NOT_TEST)) ((eq? insn 'REFER_LOCAL0_EQV_TEST) (pass4/fixup-labels-insn 'REFER_LOCAL0_EQV_TEST)) ((eq? insn 'FRAME) (pass4/fixup-labels-insn 'FRAME)) ((eq? insn 'PUSH_FRAME) (pass4/fixup-labels-insn 'PUSH_FRAME)) (else (loop (+ i 1))))))))) (peephole-optimization code) code))(define
   (compile sexp)
   (pass4 (merge-insn
+          (let1 p3
            (pass3 (let1 x
                         (pass2/optimize
                           (pass1/sexp->iform
@@ -4048,7 +4029,12 @@
                             (quote ())
                             #f)
                           (quote ()))
-                        x)))))
+                    (pretty-iform x)
+                        x))
+           (write/ss p3)
+           (newline)
+           p3)
+)))
 
 (define
   (compile-no-optimize sexp)

@@ -401,16 +401,18 @@
 ;; struct $call
 (define $CALL 14)
 (define ($call proc args tail? type)
-  `#(,$CALL ,proc ,args ,tail? ,type ))
+  (vector $CALL proc args tail? type 0))
 
 (define-macro ($call.proc iform) `(vector-ref ,iform 1))
 (define-macro ($call.args iform) `(vector-ref ,iform 2))
 (define-macro ($call.tail? iform) `(vector-ref ,iform 3))
 (define-macro ($call.type iform) `(vector-ref ,iform 4))
+(define-macro ($call.depth iform) `(vector-ref ,iform 5))
 (define-macro ($call.set-proc! iform proc) `(vector-set! ,iform 1 ,proc))
 (define-macro ($call.set-args! iform args) `(vector-set! ,iform 2 ,args))
 (define-macro ($call.set-tail?! iform tail?) `(vector-set! ,iform 3 ,tail?))
 (define-macro ($call.set-type! iform type) `(vector-set! ,iform 4 ,type))
+(define-macro ($call.set-depth! iform type) `(vector-set! ,iform 5 ,type))
 
 (define $LABEL 15)
 
@@ -1467,6 +1469,7 @@
       (display ")")]
      [(tag? iform $IT)
       (display "it")]
+     [(tag? iform $RECEIVE) 'todo]
      [(tag? iform $CALL)
       (let1 pre
           (cond (($call.tail? iform) => (lambda (x) "($call[tail] "))

@@ -1199,7 +1199,7 @@
                ;;---------------------------- REDUCE ---------------------------
                ;; reduce sp to fp
                [(REDUCE)
-                (VM codes (skip 1) a fp c stack (+ fp (next 1)))]
+                (VM codes (skip 1) a fp c stack (- sp (next 1)))]
                ;;---------------------------- CALL ------------------------------
                [(CALL)
                 (val1)
@@ -1286,6 +1286,7 @@
 
                ;;---------------------------- SHIFT ------------------------------
                [(SHIFT)
+                (format #t "SHIFT=~a ~a\n" (index stack sp 0) (index stack sp 1))
                 (VM codes (skip 2) a fp c stack (shift-args-to-bottom stack sp (next 1) (next 2)))]
                [(SHIFT_CALL)
                 (let1 sp (shift-args-to-bottom stack sp (next 1) (next 2))

@@ -1,3 +1,4 @@
+(display "GO\n")
 (define a 1)
 (display
  (let loop ([i 0])
