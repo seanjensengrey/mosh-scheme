@@ -1098,20 +1098,17 @@
                       stack
                       (- sp 2) ;; size of "let frame"
                       ))]
+               ;; pass2 で行われる
                [(LIGHT_LEAVE)
-                (format #t "display=~a\n" (index stack sp 1))
-                (format #t "fp=~a\n" (index stack sp 2))
-
-;;                   (check-vm-paranoia (number? (index stack sp 2)))
-;;                   (check-vm-paranoia (vector? (index stack sp 1)))
+                (let1 new-fp (- sp (next 1)) ; (next 1) is arg-length
                   (VM codes
-                      (skip 0)
+                      (skip 1)
                       a
-                      (- sp 1) ;; fp は spの状態と引数の数があれば復元できる。
-                      (index stack sp 1) ;; display
+                      new-fp
+                      (index stack new-fp 0) ;; restored display
                       stack
                       sp
-                      )]
+                      ))]
                [(LEAVE1)
                 (let ([sp (- sp 1)])
                   (VM codes

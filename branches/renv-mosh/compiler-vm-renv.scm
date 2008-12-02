@@ -1049,7 +1049,7 @@
         (fold-right
           (lambda
             (x y)
-            (cons (list (first x) (pass1/expand (second x)))
+            (cons (list (first x)  (pass1/expand (second x)))
                   y))
           (quote ())
           vars)
@@ -3669,9 +3669,11 @@
          ;; let_frame 突入直後のスタックの状態だから fp, cl を復帰
          ;; fp は sp - arglength
          ;; cl は 現在の fp から復元可能
-         (cput! cb 'LIGHT_LEAVE)
+         (cput! cb 'LIGHT_LEAVE args-length)
 ;         (cput-shift! cb args-length args-length)
 ;       (cput! cb 'REDUCE (- depth ($call.depth iform)))
+         ;; ■■ work.scm が動かないよ
+         ;; let をいくえにも重ねたテストが必要
          (cput! cb 'UNFIXED_JUMP label)
          ))]
     [(embed)
