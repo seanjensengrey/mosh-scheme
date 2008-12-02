@@ -591,25 +591,26 @@
   (syntax-rules ()
     ((_ body-code body-pc arg-length optional-arg? n max-stack stack sp source-info)
      ;; we don't use source-info in vm.scm.
-     (let ([v (make-vector (+ n 5))])
+     (let ([v (make-vector (+ n 6))])
        (vector-set! v 0 body-code)
        (vector-set! v 1 body-pc)
        (vector-set! v 2 arg-length)
        (vector-set! v 3 optional-arg?)
        (vector-set! v 4 max-stack)
+       (vector-set! v 5 #f)
        (let f ([i 0])
          (unless (= i n)
-           (vector-set! v (+ i 5) (index stack sp i))
+           (vector-set! v (+ i 6) (index stack sp i))
            (f (+ i 1))))
        v))))
 
 (define-syntax make-display
   (syntax-rules ()
     ((_ n stack sp)
-     (let1 v (make-vector (+ n 5))
+     (let1 v (make-vector (+ n 6) #f)
        (let f ([i 0])
          (unless (= i n)
-           (vector-set! v (+ i 5) (index stack sp i))
+           (vector-set! v (+ i 6) (index stack sp i))
            (f (+ i 1))))
        v))))
 
@@ -644,8 +645,19 @@
 (define-syntax index-closure
   (syntax-rules ()
     ((_ c n)
-                                        ;(define (index-closure c n)
-     (vector-ref c (+ n 5)))))
+     (vector-ref c (+ n 6)))))
+
+(define-syntax parent-closure
+  (syntax-rules ()
+    ((_ c)
+     (vector-ref c 5))))
+
+(define-syntax set-parent-closure!
+  (syntax-rules ()
+    ((_ c v)
+     (begin
+       (vector-ref c 5 v)
+       c))))
 
 (define (make-continuation stack sp n)
   (make-closure
@@ -863,7 +875,7 @@
                                    (closure-body-pc a)
                                    a
                                    (- stack-pointer required-length)
-                                   a
+                                   (set-parent-closure! a c)
                                    stack
                                    stack-pointer
                                    ))]
@@ -877,7 +889,7 @@
                                    (closure-body-pc a)
                                    a
                                    (- stack-pointer required-length)
-                                   a
+                                   (set-parent-closure! a c)
                                    stack
                                    stack-pointer
                                    ))]
@@ -890,7 +902,7 @@
                                (closure-body-pc a)
                                a
                                (- sp arg-length)
-                               a
+                               #?= (set-parent-closure! a c)
                                stack
                                sp
                                )]
@@ -1028,7 +1040,7 @@
                     (skip 1)
                     a
                     fp
-                    (make-display (next 1) stack sp)
+                   (set-parent-closure! (make-display (next 1) stack sp) #?= c)
                     stack
                     (- sp (next 1))
                     )]
@@ -1086,6 +1098,20 @@
                       stack
                       (- sp 2) ;; size of "let frame"
                       ))]
+               [(LIGHT_LEAVE)
+                (format #t "display=~a\n" (index stack sp 1))
+                (format #t "fp=~a\n" (index stack sp 2))
+
+;;                   (check-vm-paranoia (number? (index stack sp 2)))
+;;                   (check-vm-paranoia (vector? (index stack sp 1)))
+                  (VM codes
+                      (skip 0)
+                      a
+                      (- sp 1) ;; fp は spの状態と引数の数があれば復元できる。
+                      (index stack sp 1) ;; display
+                      stack
+                      sp
+                      )]
                [(LEAVE1)
                 (let ([sp (- sp 1)])
                   (VM codes
@@ -1098,12 +1124,14 @@
                       ))]
                ;;---------------------------- REFER_LOCAL ----------------------
                [(REFER_LOCAL)
+                (format #t "refer-local\n")
                 (check-vm-paranoia (number? (next 1)))
                 (val1)
                 (VM codes (skip 1) (refer-local (next 1)) fp c stack sp)]
                ;;---------------------------- REFER_LOCAL0 ----------------------
                [(REFER_LOCAL0)
                 (val1)
+                (format #t "refer-local0\n")
                 (VM codes (skip 0) (refer-local 0) fp c stack sp)]
                [(REFER_LOCAL1)
                 (val1)
@@ -1120,6 +1148,7 @@
                     (VM codes (skip 1) a fp c stack (- sp 1))
                     (VM codes (skip (next 1)) a fp c stack (- sp 1)))]
                 [(REFER_LOCAL0_PUSH)
+                (format #t "refer-local0push\n")
                  (val1)
                  (VM codes (skip 0) a fp c stack (push stack sp (refer-local 0)))]
 
@@ -1140,6 +1169,7 @@
 ;;                [(REFER_LOCAL0_PUSH)
 ;;                 (VM codes (skip 0) a fp c stack (push stack sp (index stack fp 0)))]
                [(REFER_LOCAL0_PUSH_CONSTANT)
+                (format #t "refer-local0push_constant ~a\n" (refer-local 0))
                 (val1)
 ;                (print "REFER_LOCAL0_PUSH_CONSTANT " (next 1))
                 (VM codes (skip 1) (next 1) fp c stack (push stack sp (refer-local 0)))]
@@ -1288,6 +1318,8 @@
                [(SHIFT)
                 (format #t "SHIFT=~a ~a\n" (index stack sp 0) (index stack sp 1))
                 (VM codes (skip 2) a fp c stack (shift-args-to-bottom stack sp (next 1) (next 2)))]
+               [(HOGE)
+                (VM codes (skip 1) a fp #?= (parent-closure c) stack sp)]
                [(SHIFT_CALL)
                 (let1 sp (shift-args-to-bottom stack sp (next 1) (next 2))
                   (apply-body a (next 3) sp))]
@@ -1364,6 +1396,8 @@
 ;;                     (VM codes (skip (+ (next 1) 1)) a fp c stack (- sp 1)))]
                ;;---------------------------- LOCAL_JMP  -------------------------
                [(LOCAL_JMP)
+                (format #t "LOCAL_JMP=~a fp=~a ~a\n" (next 1) fp (vector-ref codes (+ pc (next 1) 1)))
+
                 (VM codes (+ pc (next 1) 1) a fp c stack sp)]
                ;;---------------------------- BOX  -------------------------------
                [(BOX)

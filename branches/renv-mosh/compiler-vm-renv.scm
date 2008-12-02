@@ -3643,19 +3643,37 @@
     [(jump)
      (let ([label ($lambda.body ($call.proc ($call.proc iform)))]
            [args-length (length ($call.args iform))])
-       (cond
-        [(> (- depth ($call.depth iform) 1) (pass3/let-frame-size))
-         ($call.set-type! ($call.proc iform) #f)
-         (pass3/$call cb ($call.proc iform) locals frees can-frees sets tail depth)
-         ][else
+;;        (cond
+;;         [(> (- depth ($call.depth iform) 1) (pass3/let-frame-size))
+;;          ($call.set-type! ($call.proc iform) #f)
+;;          (pass3/$call cb ($call.proc iform) locals frees can-frees sets tail depth)
+;;          ][else
        (format #t "depth=~d\n" depth)
        (begin0
+         ;; 今のスタック状態を参照して引数を作るからここにおく必要がある
          (pass3/compile-args cb ($call.args iform) locals frees can-frees sets #f depth)
+         ;; まず積んできたものをばっさりすてる。
+         ;;このループのために以前 push された引数もつぶす
+         ;; destination から jump point までの間に詰まれたものを shift する。
+         ;; つまり
+         ;;  let_frame
+         ;;  最初の引数 n こ
+         ;;  let や lambda に突入した分だけ stack につまれる
+         ;;  次の引数 n こ
+         ;; という状態から
+         ;;  let_frame
+         ;;  次の引数 n こ
+         ;; という状態になる
+         (cput! cb 'SHIFT args-length (+ (pass3/let-frame-size) (- depth ($call.depth iform))))
+
+         ;; let_frame 突入直後のスタックの状態だから fp, cl を復帰
+         ;; fp は sp - arglength
+         ;; cl は 現在の fp から復元可能
+         (cput! cb 'LIGHT_LEAVE)
 ;         (cput-shift! cb args-length args-length)
-         (cput! cb 'SHIFT args-length (+ (pass3/let-frame-size) (- depth ($call.depth iform) 1)))
 ;       (cput! cb 'REDUCE (- depth ($call.depth iform)))
          (cput! cb 'UNFIXED_JUMP label)
-         )]))]
+         ))]
     [(embed)
      (let* ([label ($lambda.body ($call.proc iform))]
             [body ($label.body label)]
