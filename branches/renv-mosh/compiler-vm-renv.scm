@@ -3643,12 +3643,11 @@
     [(jump)
      (let ([label ($lambda.body ($call.proc ($call.proc iform)))]
            [args-length (length ($call.args iform))])
-;;        (cond
-;;         [(> (- depth ($call.depth iform) 1) (pass3/let-frame-size))
-;;          ($call.set-type! ($call.proc iform) #f)
-;;          (pass3/$call cb ($call.proc iform) locals frees can-frees sets tail depth)
-;;          ][else
-;       (cput! cb 'REDUCE args-length)
+       (cond
+        [(> (- depth ($call.depth iform) 1) (pass3/let-frame-size))
+         ($call.set-type! ($call.proc iform) #f)
+         (pass3/$call cb ($call.proc iform) locals frees can-frees sets tail depth)
+         ][else
        (format #t "depth=~d\n" depth)
        (begin0
          (pass3/compile-args cb ($call.args iform) locals frees can-frees sets #f depth)
@@ -3656,7 +3655,7 @@
          (cput! cb 'SHIFT args-length (+ (pass3/let-frame-size) (- depth ($call.depth iform) 1)))
 ;       (cput! cb 'REDUCE (- depth ($call.depth iform)))
          (cput! cb 'UNFIXED_JUMP label)
-         ))]
+         )]))]
     [(embed)
      (let* ([label ($lambda.body ($call.proc iform))]
             [body ($label.body label)]
