@@ -591,26 +591,25 @@
   (syntax-rules ()
     ((_ body-code body-pc arg-length optional-arg? n max-stack stack sp source-info)
      ;; we don't use source-info in vm.scm.
-     (let ([v (make-vector (+ n 6))])
+     (let ([v (make-vector (+ n 5))])
        (vector-set! v 0 body-code)
        (vector-set! v 1 body-pc)
        (vector-set! v 2 arg-length)
        (vector-set! v 3 optional-arg?)
        (vector-set! v 4 max-stack)
-       (vector-set! v 5 #f)
        (let f ([i 0])
          (unless (= i n)
-           (vector-set! v (+ i 6) (index stack sp i))
+           (vector-set! v (+ i 5) (index stack sp i))
            (f (+ i 1))))
        v))))
 
 (define-syntax make-display
   (syntax-rules ()
     ((_ n stack sp)
-     (let1 v (make-vector (+ n 6) #f)
+     (let1 v (make-vector (+ n 5) #f)
        (let f ([i 0])
          (unless (= i n)
-           (vector-set! v (+ i 6) (index stack sp i))
+           (vector-set! v (+ i 5) (index stack sp i))
            (f (+ i 1))))
        v))))
 
@@ -645,19 +644,7 @@
 (define-syntax index-closure
   (syntax-rules ()
     ((_ c n)
-     (vector-ref c (+ n 6)))))
-
-(define-syntax parent-closure
-  (syntax-rules ()
-    ((_ c)
-     (vector-ref c 5))))
-
-(define-syntax set-parent-closure!
-  (syntax-rules ()
-    ((_ c v)
-     (begin
-       (vector-ref c 5 v)
-       c))))
+     (vector-ref c (+ n 5)))))
 
 (define (make-continuation stack sp n)
   (make-closure
@@ -875,7 +862,7 @@
                                    (closure-body-pc a)
                                    a
                                    (- stack-pointer required-length)
-                                   (set-parent-closure! a c)
+                                   a
                                    stack
                                    stack-pointer
                                    ))]
@@ -889,7 +876,7 @@
                                    (closure-body-pc a)
                                    a
                                    (- stack-pointer required-length)
-                                   (set-parent-closure! a c)
+                                   a
                                    stack
                                    stack-pointer
                                    ))]
@@ -902,7 +889,7 @@
                                (closure-body-pc a)
                                a
                                (- sp arg-length)
-                               (set-parent-closure! a c)
+                               a
                                stack
                                sp
                                )]
@@ -1040,7 +1027,7 @@
                     (skip 1)
                     a
                     fp
-                   (set-parent-closure! (make-display (next 1) stack sp) c)
+                    (make-display (next 1) stack sp)
                     stack
                     (- sp (next 1))
                     )]
@@ -1323,8 +1310,6 @@
                        [new-fp (- new-sp (next 1))]
                        [new-c (index stack new-fp 0)])
                   (VM codes (skip 2) a new-fp new-c stack new-sp))]
-                [(HOGE)
-                (VM codes (skip 1) a fp #?= (parent-closure c) stack sp)]
                [(SHIFT_CALL)
                 (let1 sp (shift-args-to-bottom stack sp (next 1) (next 2))
                   (apply-body a (next 3) sp))]
