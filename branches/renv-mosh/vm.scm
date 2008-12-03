@@ -1313,9 +1313,22 @@
 
                ;;---------------------------- SHIFT ------------------------------
                [(SHIFT)
-                (format #t "SHIFT=~a ~a\n" (index stack sp 0) (index stack sp 1))
                 (VM codes (skip 2) a fp c stack (shift-args-to-bottom stack sp (next 1) (next 2)))]
-               [(HOGE)
+               ;;---------------------------- SHIFTJ -----------------------------
+               ;;
+               ;; SHIFT for embedded jump which appears in named let optimization.
+               ;;   Two things happens.
+               ;;   1. SHIFT the stack (same as SHIFT operation)
+               ;;   2. Restore fp and c registers.
+               ;;      This is necessary for jump which is across let or closure boundary.
+               ;;      new-fp => new-sp - arg-length
+               ;;
+               [(SHIFTJ)
+                (let* ([new-sp (shift-args-to-bottom stack sp (next 1) (next 2))]
+                       [new-fp (- new-sp (next 1))]
+                       [new-c (index stack new-fp 0)])
+                  (VM codes (skip 2) a new-fp new-c stack new-sp))]
+                [(HOGE)
                 (VM codes (skip 1) a fp #?= (parent-closure c) stack sp)]
                [(SHIFT_CALL)
                 (let1 sp (shift-args-to-bottom stack sp (next 1) (next 2))

@@ -3664,12 +3664,14 @@
          ;;  let_frame
          ;;  次の引数 n こ
          ;; という状態になる
-         (cput! cb 'SHIFT args-length (- depth ($call.depth iform)))
 
-         ;; let_frame 突入直後のスタックの状態だから fp, cl を復帰
-         ;; fp は sp - arglength
-         ;; cl は 現在の fp から復元可能
-         (cput! cb 'LIGHT_LEAVE args-length)
+         (cput! cb 'SHIFTJ args-length (- depth ($call.depth iform)))
+;;          (cput! cb 'SHIFT args-length (- depth ($call.depth iform)))
+
+;;          ;; let_frame 突入直後のスタックの状態だから fp, cl を復帰
+;;          ;; fp は sp - arglength
+;;          ;; cl は 現在の fp から復元可能
+;;          (cput! cb 'LIGHT_LEAVE args-length)
 ;         (cput-shift! cb args-length args-length)
 ;       (cput! cb 'REDUCE (- depth ($call.depth iform)))
          ;; ■■ work.scm が動かないよ
