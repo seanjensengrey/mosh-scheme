@@ -3676,7 +3676,7 @@
                                          (pass3/add-can-frees2 can-frees locals frees))]
             [sets-for-this-lvars (pass3/find-sets body vars)]
             [let-cb (make-code-builder)])
-       (format #t "embeded depth=~a\n" depth)
+;       (format #t "embeded depth=~a\n" depth)
        ($call.set-depth! iform depth) ;; record depth at jump destination point.
        (cput! cb 'LET_FRAME)
        (let* ([frees-here-length (length frees-here)]
@@ -3697,7 +3697,7 @@
                                       (pass3/add-can-frees1 can-frees vars-sym)
                                       (pass3/add-sets! sets sets-for-this-lvars)
                                       (if tail (+ tail (length vars) (pass3/let-frame-size)) #f)
-                                      #?= (+ depth #?= (length vars))); (if tail (pass3/let-frame-size) 0)))
+                                      (+ depth (length vars))); (if tail (pass3/let-frame-size) 0)))
              (code-builder-put-insn-arg1! let-cb 'LEAVE args-length)
              (cput! cb (+ args-size body-size free-size))
              (code-builder-append! cb let-cb)
@@ -3769,7 +3769,7 @@
                                  (pass3/add-can-frees1 can-frees vars-sym) ;; can-frees and vars don't have common lvars.
                                  (pass3/add-sets! sets sets-for-this-lvars)
                                  vars-length
-                                 #?= (+ (length vars) (pass3/frame-size) depth))
+                                 (+ (length vars) (pass3/frame-size) depth))
         (cput! cb
                (+ body-size free-size vars-length 4) ;; max-stack 4 is sizeof frame
                ($lambda.src iform))                    ;; source code information
@@ -3844,7 +3844,7 @@
                                        (pass3/add-can-frees1 can-frees vars-sym)
                                        (pass3/add-sets! sets sets-for-this-lvars)
                                        (if tail (+ tail vars-length (pass3/let-frame-size)) #f)
-                                       #?= (+ depth vars-length (pass3/let-frame-size)))
+                                       (+ depth vars-length (pass3/let-frame-size)))
               (code-builder-put-insn-arg1! let-cb 'LEAVE vars-length)
               (cput! cb (+ body-size args-size free-size))
               (code-builder-append! cb let-cb)
@@ -4006,13 +4006,13 @@
                                 (if (null? lib) top-level-library (car lib))
                                 (quote ())
                                 #f)
-                              (pretty-iform x)
+;                              (pretty-iform x)
                               x)
                               (quote ()))
-                         (pretty-iform v)
+;                         (pretty-iform v)
                          v)
                          )
-                (write/ss code)
+;                (write/ss code)
                 code)
                 ))))))
 
@@ -4048,7 +4048,7 @@
                             (quote ())
                             #f)
                           (quote ()))
-                    (pretty-iform x)
+;                    (pretty-iform x)
                         x))
            p3)
 )))
