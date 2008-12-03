@@ -3589,7 +3589,6 @@
        (error "unknown insn on pass3/$asm")])))
 
 (define (pass3/$if cb iform locals frees can-frees sets tail depth)
-  (format #t "pass3/$if depth=~d\n" depth)
   (let ([end-of-else   (make-label)]
         [begin-of-else (make-label)])
     (let1 test-size (pass3/rec cb ($if.test iform) locals frees can-frees sets #f depth)
@@ -3739,7 +3738,6 @@
         (cput! cb end-of-frame)))))
 
 (define (pass3/$lambda cb iform locals frees can-frees sets tail depth)
-  (format #t "pass3/$lambda depth=~a\n" depth)
   (let* ([vars ($lambda.lvars iform)]
          [vars-sym (imap $lvar.sym-proc vars)]
          [body ($lambda.body iform)]
@@ -3768,7 +3766,7 @@
                                  (pass3/add-can-frees1 can-frees vars-sym) ;; can-frees and vars don't have common lvars.
                                  (pass3/add-sets! sets sets-for-this-lvars)
                                  vars-length
-                                 #?= (+ (length vars) (pass3/frame-size) depth))
+                                 (+ (length vars) (pass3/frame-size) depth))
         (cput! cb
                (+ body-size free-size vars-length 4) ;; max-stack 4 is sizeof frame
                ($lambda.src iform))                    ;; source code information
@@ -4037,10 +4035,8 @@
                             (quote ())
                             #f)
                           (quote ()))
-                    (pretty-iform x)
+;                    (pretty-iform x)
                         x))
-           (write/ss p3)
-           (newline)
            p3)
 )))
 

@@ -902,7 +902,7 @@
                                (closure-body-pc a)
                                a
                                (- sp arg-length)
-                               #?= (set-parent-closure! a c)
+                               (set-parent-closure! a c)
                                stack
                                sp
                                )]
@@ -1040,7 +1040,7 @@
                     (skip 1)
                     a
                     fp
-                   (set-parent-closure! (make-display (next 1) stack sp) #?= c)
+                   (set-parent-closure! (make-display (next 1) stack sp) c)
                     stack
                     (- sp (next 1))
                     )]
@@ -1121,14 +1121,12 @@
                       ))]
                ;;---------------------------- REFER_LOCAL ----------------------
                [(REFER_LOCAL)
-                (format #t "refer-local\n")
                 (check-vm-paranoia (number? (next 1)))
                 (val1)
                 (VM codes (skip 1) (refer-local (next 1)) fp c stack sp)]
                ;;---------------------------- REFER_LOCAL0 ----------------------
                [(REFER_LOCAL0)
                 (val1)
-                (format #t "refer-local0\n")
                 (VM codes (skip 0) (refer-local 0) fp c stack sp)]
                [(REFER_LOCAL1)
                 (val1)
@@ -1145,7 +1143,6 @@
                     (VM codes (skip 1) a fp c stack (- sp 1))
                     (VM codes (skip (next 1)) a fp c stack (- sp 1)))]
                 [(REFER_LOCAL0_PUSH)
-                (format #t "refer-local0push\n")
                  (val1)
                  (VM codes (skip 0) a fp c stack (push stack sp (refer-local 0)))]
 
@@ -1166,9 +1163,7 @@
 ;;                [(REFER_LOCAL0_PUSH)
 ;;                 (VM codes (skip 0) a fp c stack (push stack sp (index stack fp 0)))]
                [(REFER_LOCAL0_PUSH_CONSTANT)
-                (format #t "refer-local0push_constant ~a\n" (refer-local 0))
                 (val1)
-;                (print "REFER_LOCAL0_PUSH_CONSTANT " (next 1))
                 (VM codes (skip 1) (next 1) fp c stack (push stack sp (refer-local 0)))]
                [(REFER_LOCAL1_PUSH_CONSTANT)
                 (val1)
@@ -1406,8 +1401,6 @@
 ;;                     (VM codes (skip (+ (next 1) 1)) a fp c stack (- sp 1)))]
                ;;---------------------------- LOCAL_JMP  -------------------------
                [(LOCAL_JMP)
-                (format #t "LOCAL_JMP=~a fp=~a ~a\n" (next 1) fp (vector-ref codes (+ pc (next 1) 1)))
-
                 (VM codes (+ pc (next 1) 1) a fp c stack sp)]
                ;;---------------------------- BOX  -------------------------------
                [(BOX)
