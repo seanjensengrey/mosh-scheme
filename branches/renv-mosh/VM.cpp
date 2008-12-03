@@ -987,8 +987,12 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             MOSH_ASSERT(n.isFixnum());
             const int freeVariablesNum = n.toFixnum();
 
-           // create display closure
-            dc_ = Object::makeClosure(NULL, 0, false, sp_ - freeVariablesNum, freeVariablesNum, 0, Object::False);
+            // create display closure
+            const Object display = Object::makeClosure(NULL, 0, false, sp_ - freeVariablesNum, freeVariablesNum, 0, Object::False);
+            if (dc_.isClosure()) {
+                dc_.toClosure()->child = display;
+            }
+            dc_ = display;
             TRACE_INSN0("DISPLAY");
             sp_ = sp_ - freeVariablesNum;
             NEXT;
@@ -1569,6 +1573,7 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         //
         CASE(SHIFTJ)
         {
+            printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
             const Object depthObject = fetchOperand();
             MOSH_ASSERT(depthObject.isFixnum());
 
@@ -1580,7 +1585,16 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             sp_ = shiftArgsToBottom(sp_, depth, diff);
 
             fp_ = sp_ - depth;
-            dc_ = index(fp_, 0);
+            printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
+            if (!index(fp_, 0).isClosure()) {
+                LOG1("expected as closure is ~a\n", index(fp_, 0));
+            }
+            MOSH_ASSERT(index(fp_, 0).isClosure());
+            printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
+            dc_ = index(fp_, 0).toClosure()->child;
+            printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
+            MOSH_ASSERT(dc_.isClosure())
+                printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
             NEXT;
         }
         CASE(SHIFT)

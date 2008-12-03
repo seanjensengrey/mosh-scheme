@@ -2699,7 +2699,7 @@
          ;;   Then we restore fp and display registers, and finally jump to [jump destination]
          ;;
 ;         (cput! cb 'SHIFTJ args-length (- depth ($call.depth ($call.proc iform))))
-         (cput! cb 'SHIFTJ args-length (- depth ($call.depth iform)))
+         (cput! cb 'SHIFTJ args-length (- depth ($call.depth ($call.proc iform))))
          (cput! cb 'UNFIXED_JUMP label)))]
     [(embed)
      (let* ([label ($lambda.body ($call.proc iform))]
@@ -2731,7 +2731,7 @@
                                       (pass3/add-can-frees1 can-frees vars-sym)
                                       (pass3/add-sets! sets sets-for-this-lvars)
                                       (if tail (+ tail (length vars) (pass3/let-frame-size)) #f)
-                                      (+ depth (length vars) (if tail (pass3/let-frame-size) 0)))
+                                      (+ depth (length vars))); (if tail (pass3/let-frame-size) 0)))
 ;                                      (+ depth (length vars) (if tail (pass3/let-frame-size) 0)))
              (code-builder-put-insn-arg1! let-cb 'LEAVE args-length)
              (cput! cb (+ args-size body-size free-size))

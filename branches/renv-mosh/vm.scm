@@ -1193,7 +1193,7 @@
                 (val1)
                 (check-vm-paranoia (vector? c))
                 (check-vm-paranoia (number? (next 1)))
-                (format #t "refer free ~a\n" (next 1))
+;                (format #t "refer free ~a\n" (next 1))
                 (VM codes (skip 1) (index-closure c (next 1)) fp c stack sp)]
                [(REFER_FREE0)
                 (val1)
@@ -1335,7 +1335,7 @@
                     (error 'SHIFTJ "new-c should be vector"))
                   (unless (number? new-fp)
                     (error 'SHIFTJ "new-fp should be number"))
-                  (format #t "shiftj ************\n")
+;                  (format #t "shiftj ************\n")
                   (VM codes (skip 2) a new-fp new-c stack new-sp))]
                [(SHIFT_CALL)
                 (let1 sp (shift-args-to-bottom stack sp (next 1) (next 2))
