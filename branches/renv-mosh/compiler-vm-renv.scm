@@ -1620,8 +1620,9 @@
 
 (define
   (pass1/call proc args library lvars tail?)
+;  (write/ss (map car ($library.macro library)))
   (acond ((and (symbol? proc)
-               (assq proc ($library.macro library)))
+                (assq proc ($library.macro library)))
           (pass1/s->i (vm/apply (cdr it) args)))
          ((and (symbol? proc)
                (find-with-car

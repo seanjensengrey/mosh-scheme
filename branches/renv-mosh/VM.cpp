@@ -1378,7 +1378,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         }
         CASE(REFER_GLOBAL)
         {
-
             const Object id = fetchOperand();
             const Object val = nameSpace->ref(id, notFound_);
             if (val == notFound_) {
@@ -1554,6 +1553,31 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             ac_ = Object::Undef;
             sp_--;
             NEXT1;
+        }
+        //---------------------------- SHIFTJ -----------------------------
+        //
+        // SHIFT for embedded jump which appears in named let optimization.
+        //   Two things happens.
+        //   1. SHIFT the stack (same as SHIFT operation)
+        //   2. Restore fp and c registers.
+        //      This is necessary for jump which is across let or closure boundary.
+        //      new-fp => new-sp - arg-length
+        //
+        CASE(SHIFTJ)
+        {
+            const Object depthObject = fetchOperand();
+            MOSH_ASSERT(depthObject.isFixnum());
+
+            const int depth = depthObject.toFixnum();
+
+            const Object diffObject = fetchOperand();
+            MOSH_ASSERT(diffObject.isFixnum());
+            const int diff  = diffObject.toFixnum();
+            sp_ = shiftArgsToBottom(sp_, depth, diff);
+
+            fp_ = sp_ - depth;
+            dc_ = index(fp_, 0);
+            NEXT;
         }
         CASE(SHIFT)
         {

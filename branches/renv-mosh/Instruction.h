@@ -124,6 +124,7 @@ public:
         UNFIXED_JUMP = 3566,
         STOP = 3598,
         CONTINUATION_VALUES = 3630,
+        SHIFTJ = 3662,
     };
 };
 }; // namespace scheme
