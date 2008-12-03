@@ -1498,24 +1498,6 @@
 ;;
 ;;
 ;; =============================================================================
-;;
-;;     Known Bug
-;;     jump with embedded call misses over the let boundary.
-;;
-;;      (define *plugins* '())
-;;      (define (register-plugin plugin)
-;;        (set! *plugins* plugin))
-;;      (register-plugin
-;;                    (lambda ()
-;;                      (let loop ([parent "parent"]
-;;                                 [paths '(1)])
-;;                        (if (null? paths)
-;;                            '()
-;;                            (let1 page (car paths)
-;;                              (loop page (cdr paths)))))))
-;;
-;;      (*plugins*)
-;;
 
 (define SMALL_LAMBDA_SIZE 12)
 
@@ -2698,7 +2680,6 @@
          ;;
          ;;   Then we restore fp and display registers, and finally jump to [jump destination]
          ;;
-;         (cput! cb 'SHIFTJ args-length (- depth ($call.depth ($call.proc iform))))
          (cput! cb 'SHIFTJ args-length (- depth ($call.depth ($call.proc iform))))
          (cput! cb 'UNFIXED_JUMP label)))]
     [(embed)
@@ -2731,8 +2712,7 @@
                                       (pass3/add-can-frees1 can-frees vars-sym)
                                       (pass3/add-sets! sets sets-for-this-lvars)
                                       (if tail (+ tail (length vars) (pass3/let-frame-size)) #f)
-                                      (+ depth (length vars))); (if tail (pass3/let-frame-size) 0)))
-;                                      (+ depth (length vars) (if tail (pass3/let-frame-size) 0)))
+                                      (+ depth (length vars)))
              (code-builder-put-insn-arg1! let-cb 'LEAVE args-length)
              (cput! cb (+ args-size body-size free-size))
              (code-builder-append! cb let-cb)

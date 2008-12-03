@@ -1059,29 +1059,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             push(Object::makeObjectPointer(fp_));
             NEXT;
         }
-        CASE(IMPORT)
-        {
-//             const Object libname = fetchOperand();
-//             TRACE_INSN1("IMPORT", "(~a)\n", libname);
-//             const Object instance = instances_.toEqHashTable()->ref(libname, notFound_);
-//             if (instance == notFound_){
-//                 instances_.toEqHashTable()->set(libname, Object::makeEqHashTable());
-//                 const Object lib = libraries_.toEqHashTable()->ref(libname, notFound_);
-//                 if (getLibraryCompiledBody(lib).isFalse()) {
-//                     static const Object proc = Symbol::intern(UC("compile-library-body!"));
-//                     callClosureByName(proc, lib);
-//                 }
-//                 // todo more efficient code
-//                 Vector* const v = getLibraryCompiledBody(lib).toVector();
-//                 Object* code = v->data();
-//                 pc_ = getDirectThreadedCode(code, v->length());
-//             } else {
-// //                 returnCode_[1] = Object::makeFixnum(0);
-// //                 pc_  = returnCode_;
-//                 goto return_entry;
-//             }
-//            NEXT;
-        }
         CASE(REFER_FREE0_INDIRECT)
         {
             ac_ = referFree(0);
@@ -1136,13 +1113,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             push(dc_);
             push(Object::makeObjectPointer(fp_));
             NEXT;
-        }
-        CASE(LIBRARY)
-        {
-//             const Object libname = fetchOperand();
-//             const Object library = fetchOperand();
-//             libraries_.toEqHashTable()->set(libname, library);
-//             NEXT;
         }
         CASE(LIST)
         {
@@ -1573,7 +1543,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         //
         CASE(SHIFTJ)
         {
-            printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
             const Object depthObject = fetchOperand();
             MOSH_ASSERT(depthObject.isFixnum());
 
@@ -1585,16 +1554,8 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             sp_ = shiftArgsToBottom(sp_, depth, diff);
 
             fp_ = sp_ - depth;
-            printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-            if (!index(fp_, 0).isClosure()) {
-                LOG1("expected as closure is ~a\n", index(fp_, 0));
-            }
-            MOSH_ASSERT(index(fp_, 0).isClosure());
-            printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-            dc_ = index(fp_, 0).toClosure()->child;
-            printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-            MOSH_ASSERT(dc_.isClosure())
-                printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
+            MOSH_ASSERT(index(fp_, 1).isClosure());
+            dc_ = index(fp_, 1).toClosure()->child;
             NEXT;
         }
         CASE(SHIFT)
