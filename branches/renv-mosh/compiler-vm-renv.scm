@@ -3664,7 +3664,7 @@
          ;;  let_frame
          ;;  次の引数 n こ
          ;; という状態になる
-         (cput! cb 'SHIFT args-length (+ (pass3/let-frame-size) (- depth ($call.depth iform))))
+         (cput! cb 'SHIFT args-length (- depth ($call.depth iform)))
 
          ;; let_frame 突入直後のスタックの状態だから fp, cl を復帰
          ;; fp は sp - arglength
@@ -3819,7 +3819,7 @@
                                    (pass3/add-can-frees1 can-frees vars-sym)
                                    (pass3/add-sets! sets sets-for-this-lvars)
                                    (if tail (+ tail vars-length (pass3/let-frame-size)) #f)
-                                   (+ depth vars-length (if tail (pass3/let-frame-size) 0)))
+                                   (+ depth vars-length (pass3/let-frame-size)))
           (code-builder-put-insn-arg1! let-cb 'LEAVE vars-length)
           (cput! cb (+ body-size vals-size free-size))
           (code-builder-append! cb let-cb)
@@ -3854,7 +3854,7 @@
                                        (pass3/add-can-frees1 can-frees vars-sym)
                                        (pass3/add-sets! sets sets-for-this-lvars)
                                        (if tail (+ tail vars-length (pass3/let-frame-size)) #f)
-                                       (+ depth vars-length (if tail (pass3/let-frame-size) 0)))
+                                       (+ depth vars-length (pass3/let-frame-size)))
               (code-builder-put-insn-arg1! let-cb 'LEAVE vars-length)
               (cput! cb (+ body-size args-size free-size))
               (code-builder-append! cb let-cb)
@@ -3920,7 +3920,7 @@
                                         new-can-frees
                                         (pass3/add-sets! sets sets-for-this-lvars)
                                         (if tail (+ tail vars-length (pass3/let-frame-size)) #f)
-                                        (+ depth vars-length (if tail (pass3/let-frame-size) 0)))
+                                        (+ depth vars-length (pass3/let-frame-size)))
           (code-builder-put-insn-arg1! let-cb 'LEAVE vars-length)
           (cput! cb (+ free-size assign-size body-size))
           (code-builder-append! cb let-cb)
