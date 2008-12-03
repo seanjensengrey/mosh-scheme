@@ -451,6 +451,8 @@ Object VM::callClosureByName(Object procSymbol, Object arg)
 
 Object VM::apply(Object proc, Object args)
 {
+//     printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
+//     LOG1("<~a>", proc);
     const int procLength = Pair::length(proc);
     const int length  = procLength + 7;
     Object* code = Object::makeObjectArray(length);
@@ -477,7 +479,9 @@ Object VM::apply(Object proc, Object args)
     Object* const direct = getDirectThreadedCode(code, length);
     dc_ = closure;
     cl_ = closure;
+//    printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
     const Object ret = run(direct, NULL);
+//    printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
     RESTORE_REGISTERS();
     return ret;
 }

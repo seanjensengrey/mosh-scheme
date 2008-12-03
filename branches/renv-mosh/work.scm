@@ -91,6 +91,16 @@
          (loop (+ i b c) (+ j b)))))))
 
 
+(display "1**********\n")
+
+(define-macro (do2 . sexp)
+  (match sexp
+    [((var) ...)
+     1]
+    ))
+
+(display "2**********\n")
+(display (do2 (i)))
 
 
 ;; (define a 1)
