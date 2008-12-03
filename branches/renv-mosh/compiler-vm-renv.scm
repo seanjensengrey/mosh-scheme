@@ -3638,46 +3638,33 @@
   `(append (append ,can-frees (list ,vars1)) (list ,vars2)))
 
 (define (pass3/$call cb iform locals frees can-frees sets tail depth)
-       (format #t "pass3/$call depth=~d type=~a\n" depth ($call.type iform))
   (case ($call.type iform)
     [(jump)
      (let ([label ($lambda.body ($call.proc ($call.proc iform)))]
            [args-length (length ($call.args iform))])
-;;        (cond
-;;         [(> (- depth ($call.depth iform) 1) (pass3/let-frame-size))
-;;          ($call.set-type! ($call.proc iform) #f)
-;;          (pass3/$call cb ($call.proc iform) locals frees can-frees sets tail depth)
-;;          ][else
-       (format #t "depth=~d\n" depth)
        (begin0
-         ;; 今のスタック状態を参照して引数を作るからここにおく必要がある
+         ;; This refers local variables at stack, so we do this first before emitting SHIFTJ.
          (pass3/compile-args cb ($call.args iform) locals frees can-frees sets #f depth)
-         ;; まず積んできたものをばっさりすてる。
-         ;;このループのために以前 push された引数もつぶす
-         ;; destination から jump point までの間に詰まれたものを shift する。
-         ;; つまり
-         ;;  let_frame
-         ;;  最初の引数 n こ
-         ;;  let や lambda に突入した分だけ stack につまれる
-         ;;  次の引数 n こ
-         ;; という状態から
-         ;;  let_frame
-         ;;  次の引数 n こ
-         ;; という状態になる
-
+         ;;
+         ;; Named let jump optimization needs to control stack like following.
+         ;;
+         ;;   let loop (var val) [jump destination] [... body ...] [jump point]
+         ;;
+         ;;   In [... body ...] we may have let or lambda, these expressions push arguments and frames to stack.
+         ;;   So if we jump across the let or lambda boundary, we have to cleanup unnecessary arguments from stack.
+         ;;   "depth" variable is used for this cleaning up.
+         ;;   Just before the jump point, stack may be like following.
+         ;;
+         ;;     [first N values for loop]                <=== cleanup
+         ;;     [M arguments and frames pushed in body]  <=== cleanup
+         ;;     [next K values for loop]
+         ;;
+         ;;   We cleanup M + N objects in stack and shift.
+         ;;
+         ;;   Then we restore fp and display registers, and finally jump to [jump destination]
+         ;;
          (cput! cb 'SHIFTJ args-length (- depth ($call.depth iform)))
-;;          (cput! cb 'SHIFT args-length (- depth ($call.depth iform)))
-
-;;          ;; let_frame 突入直後のスタックの状態だから fp, cl を復帰
-;;          ;; fp は sp - arglength
-;;          ;; cl は 現在の fp から復元可能
-;;          (cput! cb 'LIGHT_LEAVE args-length)
-;         (cput-shift! cb args-length args-length)
-;       (cput! cb 'REDUCE (- depth ($call.depth iform)))
-         ;; ■■ work.scm が動かないよ
-         ;; let をいくえにも重ねたテストが必要
-         (cput! cb 'UNFIXED_JUMP label)
-         ))]
+         (cput! cb 'UNFIXED_JUMP label)))]
     [(embed)
      (let* ([label ($lambda.body ($call.proc iform))]
             [body ($label.body label)]
