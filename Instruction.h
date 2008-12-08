@@ -124,6 +124,355 @@ public:
         CONTINUATION_VALUES = 3566,
         SHIFTJ = 3598,
     };
+    static const ucs4char* toString(int val) {
+        switch(val) {
+        case COMPILE_ERROR:
+           return UC("COMPILE_ERROR");
+           break;
+        case APPEND2:
+           return UC("APPEND2");
+           break;
+        case CALL:
+           return UC("CALL");
+           break;
+        case APPLY:
+           return UC("APPLY");
+           break;
+        case PUSH:
+           return UC("PUSH");
+           break;
+        case ASSIGN_FREE:
+           return UC("ASSIGN_FREE");
+           break;
+        case ASSIGN_GLOBAL:
+           return UC("ASSIGN_GLOBAL");
+           break;
+        case ASSIGN_LOCAL:
+           return UC("ASSIGN_LOCAL");
+           break;
+        case BOX:
+           return UC("BOX");
+           break;
+        case CAAR:
+           return UC("CAAR");
+           break;
+        case CADR:
+           return UC("CADR");
+           break;
+        case CAR:
+           return UC("CAR");
+           break;
+        case CDAR:
+           return UC("CDAR");
+           break;
+        case CDDR:
+           return UC("CDDR");
+           break;
+        case CDR:
+           return UC("CDR");
+           break;
+        case CLOSURE:
+           return UC("CLOSURE");
+           break;
+        case CONS:
+           return UC("CONS");
+           break;
+        case CONSTANT:
+           return UC("CONSTANT");
+           break;
+        case DEFINE_GLOBAL:
+           return UC("DEFINE_GLOBAL");
+           break;
+        case DISPLAY:
+           return UC("DISPLAY");
+           break;
+        case ENTER:
+           return UC("ENTER");
+           break;
+        case EQ:
+           return UC("EQ");
+           break;
+        case EQV:
+           return UC("EQV");
+           break;
+        case EQUAL:
+           return UC("EQUAL");
+           break;
+        case FRAME:
+           return UC("FRAME");
+           break;
+        case INDIRECT:
+           return UC("INDIRECT");
+           break;
+        case LEAVE:
+           return UC("LEAVE");
+           break;
+        case LET_FRAME:
+           return UC("LET_FRAME");
+           break;
+        case LIST:
+           return UC("LIST");
+           break;
+        case LOCAL_JMP:
+           return UC("LOCAL_JMP");
+           break;
+        case MAKE_CONTINUATION:
+           return UC("MAKE_CONTINUATION");
+           break;
+        case MAKE_VECTOR:
+           return UC("MAKE_VECTOR");
+           break;
+        case NOP:
+           return UC("NOP");
+           break;
+        case NOT:
+           return UC("NOT");
+           break;
+        case NULL_P:
+           return UC("NULL_P");
+           break;
+        case NUMBER_ADD:
+           return UC("NUMBER_ADD");
+           break;
+        case NUMBER_EQUAL:
+           return UC("NUMBER_EQUAL");
+           break;
+        case NUMBER_GE:
+           return UC("NUMBER_GE");
+           break;
+        case NUMBER_GT:
+           return UC("NUMBER_GT");
+           break;
+        case NUMBER_LE:
+           return UC("NUMBER_LE");
+           break;
+        case NUMBER_LT:
+           return UC("NUMBER_LT");
+           break;
+        case NUMBER_MUL:
+           return UC("NUMBER_MUL");
+           break;
+        case NUMBER_DIV:
+           return UC("NUMBER_DIV");
+           break;
+        case NUMBER_SUB:
+           return UC("NUMBER_SUB");
+           break;
+        case PAIR_P:
+           return UC("PAIR_P");
+           break;
+        case READ:
+           return UC("READ");
+           break;
+        case READ_CHAR:
+           return UC("READ_CHAR");
+           break;
+        case REDUCE:
+           return UC("REDUCE");
+           break;
+        case REFER_FREE:
+           return UC("REFER_FREE");
+           break;
+        case REFER_GLOBAL:
+           return UC("REFER_GLOBAL");
+           break;
+        case REFER_LOCAL:
+           return UC("REFER_LOCAL");
+           break;
+        case RESTORE_CONTINUATION:
+           return UC("RESTORE_CONTINUATION");
+           break;
+        case RETURN:
+           return UC("RETURN");
+           break;
+        case SET_CAR:
+           return UC("SET_CAR");
+           break;
+        case SET_CDR:
+           return UC("SET_CDR");
+           break;
+        case SHIFT:
+           return UC("SHIFT");
+           break;
+        case SYMBOL_P:
+           return UC("SYMBOL_P");
+           break;
+        case TEST:
+           return UC("TEST");
+           break;
+        case UNDEF:
+           return UC("UNDEF");
+           break;
+        case VECTOR_LENGTH:
+           return UC("VECTOR_LENGTH");
+           break;
+        case VECTOR_P:
+           return UC("VECTOR_P");
+           break;
+        case VECTOR_REF:
+           return UC("VECTOR_REF");
+           break;
+        case VECTOR_SET:
+           return UC("VECTOR_SET");
+           break;
+        case CONSTANT_PUSH:
+           return UC("CONSTANT_PUSH");
+           break;
+        case REFER_LOCAL0:
+           return UC("REFER_LOCAL0");
+           break;
+        case REFER_LOCAL1:
+           return UC("REFER_LOCAL1");
+           break;
+        case REFER_LOCAL2:
+           return UC("REFER_LOCAL2");
+           break;
+        case REFER_LOCAL3:
+           return UC("REFER_LOCAL3");
+           break;
+        case REFER_FREE0:
+           return UC("REFER_FREE0");
+           break;
+        case REFER_FREE1:
+           return UC("REFER_FREE1");
+           break;
+        case REFER_FREE2:
+           return UC("REFER_FREE2");
+           break;
+        case REFER_FREE3:
+           return UC("REFER_FREE3");
+           break;
+        case REFER_LOCAL0_PUSH:
+           return UC("REFER_LOCAL0_PUSH");
+           break;
+        case REFER_LOCAL0_PUSH_CONSTANT:
+           return UC("REFER_LOCAL0_PUSH_CONSTANT");
+           break;
+        case REFER_LOCAL1_PUSH_CONSTANT:
+           return UC("REFER_LOCAL1_PUSH_CONSTANT");
+           break;
+        case REFER_LOCAL1_PUSH:
+           return UC("REFER_LOCAL1_PUSH");
+           break;
+        case NUMBER_SUB_PUSH:
+           return UC("NUMBER_SUB_PUSH");
+           break;
+        case PUSH_ENTER:
+           return UC("PUSH_ENTER");
+           break;
+        case HALT:
+           return UC("HALT");
+           break;
+        case LEAVE1:
+           return UC("LEAVE1");
+           break;
+        case CALL1:
+           return UC("CALL1");
+           break;
+        case NUMBER_LE_TEST:
+           return UC("NUMBER_LE_TEST");
+           break;
+        case NUMBER_ADD_PUSH:
+           return UC("NUMBER_ADD_PUSH");
+           break;
+        case RETURN1:
+           return UC("RETURN1");
+           break;
+        case RETURN2:
+           return UC("RETURN2");
+           break;
+        case RETURN3:
+           return UC("RETURN3");
+           break;
+        case CALL2:
+           return UC("CALL2");
+           break;
+        case REFER_LOCAL0_EQV_TEST:
+           return UC("REFER_LOCAL0_EQV_TEST");
+           break;
+        case PUSH_CONSTANT:
+           return UC("PUSH_CONSTANT");
+           break;
+        case PUSH_FRAME:
+           return UC("PUSH_FRAME");
+           break;
+        case REFER_FREE0_PUSH:
+           return UC("REFER_FREE0_PUSH");
+           break;
+        case REFER_FREE1_PUSH:
+           return UC("REFER_FREE1_PUSH");
+           break;
+        case REFER_FREE2_PUSH:
+           return UC("REFER_FREE2_PUSH");
+           break;
+        case CAR_PUSH:
+           return UC("CAR_PUSH");
+           break;
+        case CDR_PUSH:
+           return UC("CDR_PUSH");
+           break;
+        case REFER_FREE0_INDIRECT:
+           return UC("REFER_FREE0_INDIRECT");
+           break;
+        case REFER_FREE1_INDIRECT:
+           return UC("REFER_FREE1_INDIRECT");
+           break;
+        case REFER_LOCAL2_PUSH:
+           return UC("REFER_LOCAL2_PUSH");
+           break;
+        case SHIFT_CALL:
+           return UC("SHIFT_CALL");
+           break;
+        case CALL3:
+           return UC("CALL3");
+           break;
+        case NOT_TEST:
+           return UC("NOT_TEST");
+           break;
+        case REFER_GLOBAL_CALL:
+           return UC("REFER_GLOBAL_CALL");
+           break;
+        case REFER_LOCAL0_NUMBER_ADD_PUSH:
+           return UC("REFER_LOCAL0_NUMBER_ADD_PUSH");
+           break;
+        case REFER_LOCAL0_VECTOR_SET:
+           return UC("REFER_LOCAL0_VECTOR_SET");
+           break;
+        case REFER_LOCAL0_VECTOR_REF:
+           return UC("REFER_LOCAL0_VECTOR_REF");
+           break;
+        case REFER_FREE_PUSH:
+           return UC("REFER_FREE_PUSH");
+           break;
+        case REFER_LOCAL_PUSH:
+           return UC("REFER_LOCAL_PUSH");
+           break;
+        case VALUES:
+           return UC("VALUES");
+           break;
+        case RECEIVE:
+           return UC("RECEIVE");
+           break;
+        case UNFIXED_JUMP:
+           return UC("UNFIXED_JUMP");
+           break;
+        case STOP:
+           return UC("STOP");
+           break;
+        case CONTINUATION_VALUES:
+           return UC("CONTINUATION_VALUES");
+           break;
+        case SHIFTJ:
+           return UC("SHIFTJ");
+           break;
+        default:
+           return UC("Unkown Instruction");
+           break;
+        }
+        return UC("");
+    }
+
+
 };
 }; // namespace scheme
 
