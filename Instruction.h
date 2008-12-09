@@ -123,7 +123,7 @@ public:
         STOP = 3534,
         CONTINUATION_VALUES = 3566,
         SHIFTJ = 3598,
-    };
+        INSTRUCTION_COUNT = 113,    };
     static const ucs4char* toString(int val) {
         switch(val) {
         case COMPILE_ERROR:
