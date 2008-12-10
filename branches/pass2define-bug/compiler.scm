@@ -1686,7 +1686,7 @@
 (pass2/register $UNDEF         pass2/empty)
 (pass2/register $IF            pass2/$if)
 (pass2/register $ASM           pass2/$asm)
-(pass2/register $DEFINE        pass2/empty)
+(pass2/register $DEFINE        pass2/$define)
 (pass2/register $CALL          pass2/$call)
 (pass2/register $CALL-CC       pass2/empty)
 (pass2/register $LET           pass2/$let)

@@ -661,6 +661,8 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
                 MOSH_ASSERT(operand.isFixnum());
                 const int argLength = operand.toFixnum();
                 const int requiredLength = c->argLength;
+// あれ。ひょっとしてこれけ？
+//                dc_.toClosure()->child = ac_;
                 dc_ = ac_;
                 cl_ = ac_;
                 pc_ = c->pc;
