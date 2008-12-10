@@ -76,6 +76,7 @@ public:
 
     void importTopLevel();
     void dumpCompiledCode(Object code) const;
+    void printStack() const;
     void copyJmpBuf(jmp_buf dst, jmp_buf src);
     void collectProfile();
 
@@ -144,8 +145,8 @@ protected:
     void indexSet(Object* sp, int i, Object v);
     Object* shiftArgsToBottom(Object* sp, int depth, int diff);
     Object* unShiftArgs(Object* sp, int diff);
-    Object index(Object* sp, int n);
-    Object referLocal(int n);
+    Object index(Object* sp, int n) const;
+    Object referLocal(int n) const;
     Object referFree(Object n);
     Object referFree(int n);
     Object makeContinuation(Object n);

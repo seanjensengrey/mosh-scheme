@@ -759,3 +759,11 @@ Object scheme::disasmEx(int argc, const Object* argv)
     }
     return Object::Undef;
 }
+
+Object scheme::printStackEx(int argc, const Object* argv)
+{
+    DeclareProcedureName("print-stack");
+    checkArgumentLength(0);
+    theVM->printStack();
+    return Object::Undef;
+}

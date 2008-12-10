@@ -41,6 +41,7 @@
   (define appendA append)
   (define memq2 memq)
   (define df (lambda a '#f))
+  (define print-stack (lambda a '#f))
   (define (source-info p) (let1 src (debug-source-info p) (if (pair? src) (cons (sys-basename (car src)) (cdr src)) src)))
   (define (make-list-with-src-slot lst) (apply extended-list lst))
   (define (set-source-info! a b)
@@ -2785,6 +2786,11 @@
 ;  (format (current-error-port) "\npass3/compile-args<~a>\n" (length args))
   (let loop ([size 0]
              [iform args])
+    (display "pass3/compile-args: loop body\n" (current-error-port))
+    (print-stack)
+    (if (not (null? iform))
+        (pp-iform (car iform))
+        '())
     (cond
      [(null? iform) size]
      [else

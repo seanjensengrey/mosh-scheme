@@ -2196,3 +2196,19 @@ void VM::expandStack(int plusSize)
     stackSize_ = nextStackSize;
 }
 
+void VM::printStack() const
+{
+    LOG2("==========dc=~a child=~a \n", dc_, dc_.toClosure()->child);
+    LOG2("==== prev dc_=~a prev dc->child=~a\n", index(fp_,1), index(fp_,1).toClosure()->child);
+    for (int i = 1; i>= 0; i--) {
+        if (fp_ + i >= stackEnd_) {
+            break;
+        }
+        const Object obj = referLocal(i);
+
+        if (!obj.isObjectPointer()) {
+            LOG2("~d: ~a\n", Object::makeFixnum(i), obj);
+        }
+        fflush(stderr);
+    }
+}
