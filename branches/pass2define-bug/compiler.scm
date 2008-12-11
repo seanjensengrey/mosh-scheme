@@ -404,18 +404,20 @@
 ;; struct $call
 (define $CALL 14)
 (define ($call proc args tail? type)
-  (vector $CALL proc args tail? type 0))
+  (vector $CALL proc args tail? type 0 0))
 
 (define-macro ($call.proc iform) `(vector-ref ,iform 1))
 (define-macro ($call.args iform) `(vector-ref ,iform 2))
 (define-macro ($call.tail? iform) `(vector-ref ,iform 3))
 (define-macro ($call.type iform) `(vector-ref ,iform 4))
 (define-macro ($call.depth iform) `(vector-ref ,iform 5))
+(define-macro ($call.display-count iform) `(vector-ref ,iform 6))
 (define-macro ($call.set-proc! iform proc) `(vector-set! ,iform 1 ,proc))
 (define-macro ($call.set-args! iform args) `(vector-set! ,iform 2 ,args))
 (define-macro ($call.set-tail?! iform tail?) `(vector-set! ,iform 3 ,tail?))
 (define-macro ($call.set-type! iform type) `(vector-set! ,iform 4 ,type))
 (define-macro ($call.set-depth! iform type) `(vector-set! ,iform 5 ,type))
+(define-macro ($call.set-display-count! iform type) `(vector-set! ,iform 6 ,type))
 
 (define $LABEL 15)
 
@@ -2588,34 +2590,34 @@
 (define (pass3/register insn proc)
   (vector-set! pass3/dispatch-table insn proc))
 
-(define (pass3/$const cb iform locals frees can-frees sets tail depth)
+(define (pass3/$const cb iform locals frees can-frees sets tail depth display-count)
 ;;   (display "pass3/$const\n" (current-error-port))
 ;;   (pp-iform iform)
 
   (code-builder-put-insn-arg1! cb 'CONSTANT ($const.val iform))
   0)
 
-(define (pass3/$it cb iform locals frees can-frees sets tail depth) 0)
+(define (pass3/$it cb iform locals frees can-frees sets tail depth display-count) 0)
 
-(define (pass3/$list cb iform locals frees can-frees sets tail depth)
+(define (pass3/$list cb iform locals frees can-frees sets tail depth display-count)
   (let1 args ($list.args iform)
     (begin0
       (fold (lambda (i accum)
-              (let1 size (pass3/rec cb i locals frees can-frees sets tail depth)
+              (let1 size (pass3/rec cb i locals frees can-frees sets tail depth display-count)
                 (code-builder-put-insn-arg0! cb 'PUSH)
                 (+ size accum))) 0 args)
       (code-builder-put-insn-arg1! cb 'LIST (length args)))))
 
 ;; $local-lef is classified into REFER_LOCAL and REFER_FREE
-(define (pass3/$local-ref cb iform locals frees can-frees sets tail depth)
+(define (pass3/$local-ref cb iform locals frees can-frees sets tail depth display-count)
   (pass3/compile-refer cb ($lvar.sym ($local-ref.lvar iform)) locals frees)
   (when (hashtable-ref sets ($local-ref.lvar iform) #f)
     (code-builder-put-insn-arg0! cb 'INDIRECT))
   0)
 
 ;; $local-assign is classified into ASSIGN_LOCAL and ASSIGN_FREE
-(define (pass3/$local-assign cb iform locals frees can-frees sets tail depth)
-  (let ([val-stack-size (pass3/rec cb ($local-assign.val iform) locals frees can-frees sets #f depth)]
+(define (pass3/$local-assign cb iform locals frees can-frees sets tail depth display-count)
+  (let ([val-stack-size (pass3/rec cb ($local-assign.val iform) locals frees can-frees sets #f depth display-count)]
         [var-stack-size (pass3/compile-assign cb ($lvar.sym ($local-assign.lvar iform)) locals frees)])
     (+ val-stack-size var-stack-size)))
 
@@ -2628,7 +2630,7 @@
                   (symbol->string sym))))
 
 ;; $global-lef is classified into REFER_GLOBAL and REFER_FREE
-(define (pass3/$global-ref cb iform locals frees can-frees sets tail depth)
+(define (pass3/$global-ref cb iform locals frees can-frees sets tail depth display-count)
   (let1 sym ($global-ref.sym iform)
     (let next-free ([free frees] [n 0])
       (cond [(null? free)
@@ -2640,24 +2642,24 @@
             [else
              (next-free (cdr free) (+ n 1))]))))
 
-(define (pass3/$global-assign cb iform locals frees can-frees sets tail depth)
+(define (pass3/$global-assign cb iform locals frees can-frees sets tail depth display-count)
   (let1 sym ($global-assign.sym iform)
     (let next-free ([free frees] [n 0])
       (cond
        [(null? free)
         (begin0
-          (pass3/rec cb ($global-assign.val iform) locals frees can-frees sets #f depth)
+          (pass3/rec cb ($global-assign.val iform) locals frees can-frees sets #f depth display-count)
           (code-builder-put-insn-arg1! cb
                  'ASSIGN_GLOBAL
                  (merge-libname-sym ($global-assign.libname iform) sym)))]
        [(eq? (car free) sym)
         (begin0
-         (pass3/rec cb ($global-assign.val iform) locals frees can-frees sets #f depth)
+         (pass3/rec cb ($global-assign.val iform) locals frees can-frees sets #f depth display-count)
          (code-builder-put-insn-arg1! cb 'ASSIGN_FREE n))]
        [else
         (next-free (cdr free) (+ n 1))]))))
 
-(define (pass3/$seq cb iform locals frees can-frees sets tail depth)
+(define (pass3/$seq cb iform locals frees can-frees sets tail depth display-count)
   (let loop ([form ($seq.body iform)]
              [size 0])
     (cond
@@ -2665,136 +2667,136 @@
      [else
       (let1 tail? (if (null? (cdr form)) tail #f)
         (loop (cdr form)
-              (+ size (pass3/rec cb (car form) locals frees can-frees sets tail? depth))))])))
+              (+ size (pass3/rec cb (car form) locals frees can-frees sets tail? depth display-count))))])))
 
-(define (pass3/$undef cb iform locals frees can-frees sets tail depth)
+(define (pass3/$undef cb iform locals frees can-frees sets tail depth display-count)
   (code-builder-put-insn-arg0! cb 'UNDEF)
   0)
 
-(define (pass3/$asm-1-arg cb insn arg1 locals frees can-frees sets depth)
+(define (pass3/$asm-1-arg cb insn arg1 locals frees can-frees sets depth display-count)
   (begin0
-    (pass3/rec cb arg1 locals frees can-frees sets #f depth)
+    (pass3/rec cb arg1 locals frees can-frees sets #f depth display-count)
     (code-builder-put-insn-arg0! cb insn)))
 
-(define (pass3/$asm-2-arg cb insn arg1 arg2 locals frees can-frees sets depth)
-    (let ([x (pass3/compile-arg cb arg1 locals frees can-frees sets #f depth)]
-          [y (pass3/rec cb arg2 locals frees can-frees sets #f depth)])
+(define (pass3/$asm-2-arg cb insn arg1 arg2 locals frees can-frees sets depth display-count)
+    (let ([x (pass3/compile-arg cb arg1 locals frees can-frees sets #f depth display-count)]
+          [y (pass3/rec cb arg2 locals frees can-frees sets #f depth display-count)])
       (code-builder-put-insn-arg0! cb insn)
       (+ x y)))
 
-(define (pass3/$asm-3-arg cb insn arg1 arg2 arg3 locals frees can-frees sets depth)
-  (let ([x (pass3/compile-arg cb arg1 locals frees can-frees sets #f depth)]
-        [y (pass3/compile-arg cb arg2 locals frees can-frees sets #f depth)]
-        [z (pass3/rec cb arg3 locals frees can-frees sets #f depth)])
+(define (pass3/$asm-3-arg cb insn arg1 arg2 arg3 locals frees can-frees sets depth display-count)
+  (let ([x (pass3/compile-arg cb arg1 locals frees can-frees sets #f depth display-count)]
+        [y (pass3/compile-arg cb arg2 locals frees can-frees sets #f depth display-count)]
+        [z (pass3/rec cb arg3 locals frees can-frees sets #f depth display-count)])
     (code-builder-put-insn-arg0! cb insn)
     (+ x y z)))
 
-(define (pass3/$asm-n-args cb args locals frees can-frees sets depth)
+(define (pass3/$asm-n-args cb args locals frees can-frees sets depth display-count)
   (let loop ([args args]
              [stack-size 0])
     (cond
      [(null? args) stack-size]
      [(null? (cdr args)) ;; last argument is not pushed.
-      (+ stack-size (pass3/rec cb (car args) locals frees can-frees sets #f depth))]
+      (+ stack-size (pass3/rec cb (car args) locals frees can-frees sets #f depth display-count))]
      [else
       (loop (cdr args)
-            (+ stack-size (pass3/compile-arg cb (car args) locals frees can-frees sets #f depth)))])))
+            (+ stack-size (pass3/compile-arg cb (car args) locals frees can-frees sets #f depth display-count)))])))
 
-(define (pass3/$asm cb iform locals frees can-frees sets tail depth)
+(define (pass3/$asm cb iform locals frees can-frees sets tail depth display-count)
   (let1 args ($asm.args iform)
     (case ($asm.insn iform)
-      [(APPEND2)           (pass3/$asm-2-arg cb  'APPEND2         (first args) (second args) locals frees can-frees sets depth)]
-      [(NUMBER_ADD)        (pass3/$asm-2-arg cb  'NUMBER_ADD      (first args) (second args) locals frees can-frees sets depth)]
-      [(NUMBER_SUB)        (pass3/$asm-2-arg cb  'NUMBER_SUB      (first args) (second args) locals frees can-frees sets depth)]
-      [(NUMBER_MUL)        (pass3/$asm-2-arg cb  'NUMBER_MUL      (first args) (second args) locals frees can-frees sets depth)]
-      [(NUMBER_DIV)        (pass3/$asm-2-arg cb  'NUMBER_DIV      (first args) (second args) locals frees can-frees sets depth)]
-      [(NUMBER_EQUAL)      (pass3/$asm-2-arg cb  'NUMBER_EQUAL    (first args) (second args) locals frees can-frees sets depth)]
-      [(NUMBER_GE)         (pass3/$asm-2-arg cb  'NUMBER_GE       (first args) (second args) locals frees can-frees sets depth)]
-      [(NUMBER_GT)         (pass3/$asm-2-arg cb  'NUMBER_GT       (first args) (second args) locals frees can-frees sets depth)]
-      [(NUMBER_LT)         (pass3/$asm-2-arg cb  'NUMBER_LT       (first args) (second args) locals frees can-frees sets depth)]
-      [(NUMBER_LE)         (pass3/$asm-2-arg cb  'NUMBER_LE       (first args) (second args) locals frees can-frees sets depth)]
-      [(CONS)              (pass3/$asm-2-arg cb  'CONS            (first args) (second args) locals frees can-frees sets depth)]
-      [(CAR)               (pass3/$asm-1-arg cb   'CAR             (first args) locals frees can-frees sets depth)]
-      [(CDR)               (pass3/$asm-1-arg cb   'CDR             (first args) locals frees can-frees sets depth)]
-      [(CAAR)              (pass3/$asm-1-arg cb   'CAAR            (first args) locals frees can-frees sets depth)]
-      [(CADR)              (pass3/$asm-1-arg cb   'CADR            (first args) locals frees can-frees sets depth)]
-      [(CDAR)              (pass3/$asm-1-arg cb   'CDAR            (first args) locals frees can-frees sets depth)]
-      [(CDDR)              (pass3/$asm-1-arg cb   'CDDR            (first args) locals frees can-frees sets depth)]
-      [(SET_CDR)           (pass3/$asm-2-arg cb  'SET_CDR         (first args) (second args) locals frees can-frees sets depth)]
-      [(SET_CAR)           (pass3/$asm-2-arg cb  'SET_CAR         (first args) (second args) locals frees can-frees sets depth)]
-      [(MAKE_VECTOR)       (pass3/$asm-2-arg cb  'MAKE_VECTOR     (first args) (second args) locals frees can-frees sets depth)]
-      [(VECTOR_LENGTH)     (pass3/$asm-1-arg cb   'VECTOR_LENGTH   (first args)locals frees can-frees sets depth)]
-      [(VECTOR_SET)        (pass3/$asm-3-arg cb 'VECTOR_SET      (first args) (second args) (third args) locals frees can-frees sets depth)]
-      [(VECTOR_REF)        (pass3/$asm-2-arg cb  'VECTOR_REF      (first args) (second args) locals frees can-frees sets depth)]
-      [(EQ)                (pass3/$asm-2-arg cb  'EQ              (first args) (second args) locals frees can-frees sets depth)]
-      [(EQV)               (pass3/$asm-2-arg cb  'EQV             (first args) (second args) locals frees can-frees sets depth)]
-      [(EQUAL)             (pass3/$asm-2-arg cb  'EQUAL           (first args) (second args) locals frees can-frees sets depth)]
-      [(PAIR_P)            (pass3/$asm-1-arg cb   'PAIR_P          (first args) locals frees can-frees sets depth)]
-      [(NULL_P)            (pass3/$asm-1-arg cb   'NULL_P          (first args) locals frees can-frees sets depth)]
-      [(SYMBOL_P)          (pass3/$asm-1-arg cb   'SYMBOL_P        (first args) locals frees can-frees sets depth)]
-      [(VECTOR_P)          (pass3/$asm-1-arg cb   'VECTOR_P        (first args) locals frees can-frees sets depth)]
-      [(NOT)               (pass3/$asm-1-arg cb   'NOT             (first args) locals frees can-frees sets depth)]
-      [(OPEN_INPUT_FILE)   (pass3/$asm-1-arg cb   'OPEN_INPUT_FILE (first args) locals frees can-frees sets depth)]
-      [(READ)              (pass3/$asm-1-arg cb   'READ            (first args) locals frees can-frees sets depth)]
-      [(READ_CHAR)         (pass3/$asm-1-arg cb   'READ_CHAR       (first args) locals frees can-frees sets depth)]
+      [(APPEND2)           (pass3/$asm-2-arg cb  'APPEND2         (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(NUMBER_ADD)        (pass3/$asm-2-arg cb  'NUMBER_ADD      (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(NUMBER_SUB)        (pass3/$asm-2-arg cb  'NUMBER_SUB      (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(NUMBER_MUL)        (pass3/$asm-2-arg cb  'NUMBER_MUL      (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(NUMBER_DIV)        (pass3/$asm-2-arg cb  'NUMBER_DIV      (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(NUMBER_EQUAL)      (pass3/$asm-2-arg cb  'NUMBER_EQUAL    (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(NUMBER_GE)         (pass3/$asm-2-arg cb  'NUMBER_GE       (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(NUMBER_GT)         (pass3/$asm-2-arg cb  'NUMBER_GT       (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(NUMBER_LT)         (pass3/$asm-2-arg cb  'NUMBER_LT       (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(NUMBER_LE)         (pass3/$asm-2-arg cb  'NUMBER_LE       (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(CONS)              (pass3/$asm-2-arg cb  'CONS            (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(CAR)               (pass3/$asm-1-arg cb   'CAR             (first args) locals frees can-frees sets depth display-count)]
+      [(CDR)               (pass3/$asm-1-arg cb   'CDR             (first args) locals frees can-frees sets depth display-count)]
+      [(CAAR)              (pass3/$asm-1-arg cb   'CAAR            (first args) locals frees can-frees sets depth display-count)]
+      [(CADR)              (pass3/$asm-1-arg cb   'CADR            (first args) locals frees can-frees sets depth display-count)]
+      [(CDAR)              (pass3/$asm-1-arg cb   'CDAR            (first args) locals frees can-frees sets depth display-count)]
+      [(CDDR)              (pass3/$asm-1-arg cb   'CDDR            (first args) locals frees can-frees sets depth display-count)]
+      [(SET_CDR)           (pass3/$asm-2-arg cb  'SET_CDR         (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(SET_CAR)           (pass3/$asm-2-arg cb  'SET_CAR         (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(MAKE_VECTOR)       (pass3/$asm-2-arg cb  'MAKE_VECTOR     (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(VECTOR_LENGTH)     (pass3/$asm-1-arg cb   'VECTOR_LENGTH   (first args)locals frees can-frees sets depth display-count)]
+      [(VECTOR_SET)        (pass3/$asm-3-arg cb 'VECTOR_SET      (first args) (second args) (third args) locals frees can-frees sets depth display-count)]
+      [(VECTOR_REF)        (pass3/$asm-2-arg cb  'VECTOR_REF      (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(EQ)                (pass3/$asm-2-arg cb  'EQ              (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(EQV)               (pass3/$asm-2-arg cb  'EQV             (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(EQUAL)             (pass3/$asm-2-arg cb  'EQUAL           (first args) (second args) locals frees can-frees sets depth display-count)]
+      [(PAIR_P)            (pass3/$asm-1-arg cb   'PAIR_P          (first args) locals frees can-frees sets depth display-count)]
+      [(NULL_P)            (pass3/$asm-1-arg cb   'NULL_P          (first args) locals frees can-frees sets depth display-count)]
+      [(SYMBOL_P)          (pass3/$asm-1-arg cb   'SYMBOL_P        (first args) locals frees can-frees sets depth display-count)]
+      [(VECTOR_P)          (pass3/$asm-1-arg cb   'VECTOR_P        (first args) locals frees can-frees sets depth display-count)]
+      [(NOT)               (pass3/$asm-1-arg cb   'NOT             (first args) locals frees can-frees sets depth display-count)]
+      [(OPEN_INPUT_FILE)   (pass3/$asm-1-arg cb   'OPEN_INPUT_FILE (first args) locals frees can-frees sets depth display-count)]
+      [(READ)              (pass3/$asm-1-arg cb   'READ            (first args) locals frees can-frees sets depth display-count)]
+      [(READ_CHAR)         (pass3/$asm-1-arg cb   'READ_CHAR       (first args) locals frees can-frees sets depth display-count)]
       [(VALUES)
        (begin0
-         (pass3/$asm-n-args cb args locals frees can-frees sets depth)
+         (pass3/$asm-n-args cb args locals frees can-frees sets depth display-count)
          (code-builder-put-insn-arg1! cb 'VALUES (length args)))]
       [(APPLY)
        (let1 end-of-frame (make-label)
          (code-builder-put-insn-arg1! cb 'FRAME (ref-label end-of-frame))
-         (let1 arg2-size (pass3/rec cb (second args) locals frees can-frees sets #f depth)
+         (let1 arg2-size (pass3/rec cb (second args) locals frees can-frees sets #f depth display-count)
            (code-builder-put-insn-arg0! cb 'PUSH)
-           (let1 arg1-size (pass3/rec cb (first args) locals frees can-frees sets #f depth)
+           (let1 arg1-size (pass3/rec cb (first args) locals frees can-frees sets #f depth display-count)
              (cput! cb 'APPLY end-of-frame)
              (+ arg1-size arg2-size))))]
       [else
        (error "unknown insn on pass3/$asm")])))
 
-(define (pass3/$if cb iform locals frees can-frees sets tail depth)
+(define (pass3/$if cb iform locals frees can-frees sets tail depth display-count)
   (let ([end-of-else   (make-label)]
         [begin-of-else (make-label)])
-    (let1 test-size (pass3/rec cb ($if.test iform) locals frees can-frees sets #f depth)
+    (let1 test-size (pass3/rec cb ($if.test iform) locals frees can-frees sets #f depth display-count)
       (code-builder-put-insn-arg1! cb 'TEST (ref-label begin-of-else))
-      (let1 then-size (pass3/rec cb ($if.then iform) locals frees can-frees sets tail depth)
+      (let1 then-size (pass3/rec cb ($if.then iform) locals frees can-frees sets tail depth display-count)
         (cput! cb
                'UNFIXED_JUMP
                (ref-label end-of-else)
                begin-of-else)
-        (let1 else-size (pass3/rec cb ($if.else iform) locals frees can-frees sets tail depth)
+        (let1 else-size (pass3/rec cb ($if.else iform) locals frees can-frees sets tail depth display-count)
           (cput! cb end-of-else)
           (+ test-size then-size else-size))))))
 
-(define (pass3/$define cb iform locals frees can-frees sets tail depth)
+(define (pass3/$define cb iform locals frees can-frees sets tail depth display-count)
   (begin0
-    (pass3/rec cb ($define.val iform) locals frees can-frees sets #f depth)
+    (pass3/rec cb ($define.val iform) locals frees can-frees sets #f depth display-count)
     (cput! cb 'DEFINE_GLOBAL (merge-libname-sym ($define.libname iform)
                                                 ($define.sym iform)))))
 
-(define (pass3/compile-arg cb arg locals frees can-frees sets tail depth)
+(define (pass3/compile-arg cb arg locals frees can-frees sets tail depth display-count)
 ;;   (display "pass3/compile-arg\n" (current-error-port))
 ;;   (pp-iform arg)
-  (let1 size (pass3/rec cb arg locals frees can-frees sets #f depth)
+  (let1 size (pass3/rec cb arg locals frees can-frees sets #f depth display-count)
 ;  (format (current-error-port) "\nPUSH!\n")
     (code-builder-put-insn-arg0! cb 'PUSH)
     (+ size 1)))
 
 ;; fold requires anonymous closure
 ;; So, if this procedure is called many times, it causes slow compilation.
-(define (pass3/compile-args cb args locals frees can-frees sets tail depth)
+(define (pass3/compile-args cb args locals frees can-frees sets tail depth display-count)
 ;  (format (current-error-port) "\npass3/compile-args<~a>\n" (length args))
   (let loop ([size 0]
              [iform args])
-    (display "pass3/compile-args: loop body\n" (current-error-port))
-    (print-stack)
-    (if (not (null? iform))
-        (pp-iform (car iform))
-        '())
+;;      (display "pass3/compile-args: loop body\n" (current-error-port))
+;;      (print-stack)
+;;     (if (not (null? iform))
+;;         (pp-iform (car iform))
+;;         '())
     (cond
      [(null? iform) size]
      [else
-      (loop (+ size (pass3/compile-arg cb (car iform) locals frees can-frees sets tail depth))
+      (loop (+ size (pass3/compile-arg cb (car iform) locals frees can-frees sets tail depth display-count))
             (cdr iform))])))
 
 ;; N.B.
@@ -2809,14 +2811,14 @@
 (define-macro (pass3/add-can-frees2 can-frees vars1 vars2)
   `(append (append ,can-frees (list ,vars1)) (list ,vars2)))
 
-(define (pass3/$call cb iform locals frees can-frees sets tail depth)
+(define (pass3/$call cb iform locals frees can-frees sets tail depth display-count)
   (case ($call.type iform)
     [(jump)
      (let ([label ($lambda.body ($call.proc ($call.proc iform)))]
            [args-length (length ($call.args iform))])
        (begin0
          ;; This refers local variables at stack, so we do this first before emitting SHIFTJ.
-         (pass3/compile-args cb ($call.args iform) locals frees can-frees sets #f depth)
+         (pass3/compile-args cb ($call.args iform) locals frees can-frees sets #f depth display-count)
          ;;
          ;; Named let jump optimization needs to control stack like following.
          ;;
@@ -2835,7 +2837,7 @@
          ;;
          ;;   Then we restore fp and display registers, and finally jump to [jump destination]
          ;;
-         (cput! cb 'SHIFTJ args-length (- depth ($call.depth ($call.proc iform))))
+         (cput! cb 'SHIFTJ args-length (- depth ($call.depth ($call.proc iform))) (- display-count ($call.display-count ($call.proc iform))))
          ($label.set-visited?! label #t)
          (cput! cb 'UNFIXED_JUMP label)))]
     [(embed)
@@ -2848,15 +2850,17 @@
                                          (pass3/add-can-frees2 can-frees locals frees))]
             [sets-for-this-lvars (pass3/find-sets body vars)]
             [let-cb (make-code-builder)])
-       ($call.set-depth! iform depth) ;; record depth at jump destination point.
+       ($call.set-depth! iform depth)           ;; record depth at jump destination point.
+       ($call.set-display-count! iform display-count) ;; record display-count at jump destination point.
        (cput! cb 'LET_FRAME)
        (let* ([frees-here-length (length frees-here)]
               [free-size (if (> frees-here-length 0)
                              (pass3/collect-free let-cb frees-here locals frees)
-                             0)])
-         (when (> frees-here-length 0)
+                             0)]
+              [need-display? (> frees-here-length 0)])
+         (when need-display?
            (cput! let-cb 'DISPLAY frees-here-length))
-         (let ([args-size (pass3/compile-args let-cb ($call.args iform) locals frees-here can-frees sets #f depth)]
+         (let ([args-size (pass3/compile-args let-cb ($call.args iform) locals frees-here can-frees sets #f depth display-count)]
                [args-length (length ($call.args iform))])
            (pass3/make-boxes let-cb sets-for-this-lvars vars)
            (code-builder-put-insn-arg1! let-cb 'ENTER args-length)
@@ -2869,7 +2873,9 @@
                                       (pass3/add-can-frees1 can-frees vars-sym)
                                       (pass3/add-sets! sets sets-for-this-lvars)
                                       (if tail (+ tail (length vars) (pass3/let-frame-size)) #f)
-                                      (+ depth (length vars)))
+                                      (+ depth (length vars) (pass3/let-frame-size))
+                                      display-count)
+                                      ;(if need-display? (+ display-count 1) display-count))
              (code-builder-put-insn-arg1! let-cb 'LEAVE args-length)
              (cput! cb (+ args-size body-size free-size))
              (code-builder-append! cb let-cb)
@@ -2891,9 +2897,9 @@
        (unless tail
          (code-builder-put-insn-arg1! cb 'FRAME (ref-label end-of-frame)))
 ;       (df (current-error-port) "code-builder1 = ~a\n" cb)
-       (let* ([args-size (pass3/compile-args cb ($call.args iform) locals frees can-frees sets #f depth)]
+       (let* ([args-size (pass3/compile-args cb ($call.args iform) locals frees can-frees sets #f depth display-count)]
 ;              [dummy        (df (current-error-port) "code-builder2 = ~a\n" cb)]
-              [proc-size (pass3/rec cb ($call.proc iform) locals frees can-frees sets #f depth)]
+              [proc-size (pass3/rec cb ($call.proc iform) locals frees can-frees sets #f depth display-count)]
 ;              [dummy2        (df (current-error-port) "code-builder3 = ~a\n" cb)]
               [args-length (length ($call.args iform))])
          (when tail
@@ -2904,21 +2910,21 @@
            (cput! cb end-of-frame))
          (+ args-size proc-size)))]))
 
-(define (pass3/$call-cc cb iform locals frees can-frees sets tail depth)
+(define (pass3/$call-cc cb iform locals frees can-frees sets tail depth display-count)
   (let1 end-of-frame (make-label)
     (unless tail
       (code-builder-put-insn-arg1! cb 'FRAME (ref-label end-of-frame)))
     (cput! cb 'MAKE_CONTINUATION (if tail 1 0))
     (code-builder-put-insn-arg0! cb 'PUSH)
     (begin0
-      (pass3/rec cb ($call-cc.proc iform) locals frees can-frees sets #f depth)
+      (pass3/rec cb ($call-cc.proc iform) locals frees can-frees sets #f depth display-count)
       (when tail
         (cput-shift! cb 1 tail))
       (code-builder-put-insn-arg1! cb 'CALL 1)
       (unless tail
         (cput! cb end-of-frame)))))
 
-(define (pass3/$lambda cb iform locals frees can-frees sets tail depth)
+(define (pass3/$lambda cb iform locals frees can-frees sets tail depth display-count)
   (let* ([vars ($lambda.lvars iform)]
          [vars-sym (imap $lvar.sym-proc vars)]
          [body ($lambda.body iform)]
@@ -2947,7 +2953,8 @@
                                  (pass3/add-can-frees1 can-frees vars-sym) ;; can-frees and vars don't have common lvars.
                                  (pass3/add-sets! sets sets-for-this-lvars)
                                  vars-length
-                                 (+ (length vars) (pass3/frame-size) depth))
+                                 (+ (length vars) (pass3/frame-size) depth)
+                                 display-count)
         (cput! cb
                (+ body-size free-size vars-length 4) ;; max-stack 4 is sizeof frame
                ($lambda.src iform))                    ;; source code information
@@ -2957,7 +2964,7 @@
         (cput! cb end-of-closure)
         0)))
 
-(define (pass3/$receive cb iform locals frees can-frees sets tail depth)
+(define (pass3/$receive cb iform locals frees can-frees sets tail depth display-count)
   (let* ([vars ($receive.lvars iform)]
          [vars-sym (imap $lvar.sym-proc vars)]
          [body ($receive.body iform)]
@@ -2972,10 +2979,11 @@
     (let* ([frees-here-length (length frees-here)]
            [free-size (if (> frees-here-length 0)
                           (pass3/collect-free let-cb frees-here locals frees)
-                          0)])
-      (when (> frees-here-length 0)
+                          0)]
+           [need-display? (> frees-here-length 0)])
+      (when need-display?
         (cput! let-cb 'DISPLAY frees-here-length))
-      (let ([vals-size (pass3/rec let-cb ($receive.vals iform) locals frees-here can-frees sets #f depth)]
+      (let ([vals-size (pass3/rec let-cb ($receive.vals iform) locals frees-here can-frees sets #f depth display-count)]
             [vars-length (length vars)])
         (cput! let-cb 'RECEIVE ($receive.reqargs iform) ($receive.optarg  iform))
         (pass3/make-boxes let-cb sets-for-this-lvars vars)
@@ -2987,15 +2995,16 @@
                                    (pass3/add-can-frees1 can-frees vars-sym)
                                    (pass3/add-sets! sets sets-for-this-lvars)
                                    (if tail (+ tail vars-length (pass3/let-frame-size)) #f)
-                                   (+ depth vars-length (pass3/let-frame-size)))
+                                   (+ depth vars-length (pass3/let-frame-size))
+                                   (if need-display? (+ display-count 1) display-count))
           (code-builder-put-insn-arg1! let-cb 'LEAVE vars-length)
           (cput! cb (+ body-size vals-size free-size))
           (code-builder-append! cb let-cb)
           (+ body-size vals-size free-size))))))
 
-(define (pass3/$let cb iform locals frees can-frees sets tail depth)
+(define (pass3/$let cb iform locals frees can-frees sets tail depth display-count)
   (if (eq? ($let.type iform) 'rec)
-      (pass3/letrec cb iform locals frees can-frees sets tail depth)
+      (pass3/letrec cb iform locals frees can-frees sets tail depth display-count)
       (let* ([vars ($let.lvars iform)]
              [vars-sym (imap $lvar.sym-proc vars)]
              [body ($let.body iform)]
@@ -3007,12 +3016,13 @@
              [sets-for-this-lvars (pass3/find-sets body vars)]
              [frees-here-length   (length frees-here)]
              [vars-length         (length vars)]
-             [let-cb (make-code-builder)])
+             [let-cb (make-code-builder)]
+             [need-display? (> frees-here-length 0)])
         (cput! cb 'LET_FRAME)
         (let1 free-size (if (> frees-here-length 0) (pass3/collect-free let-cb frees-here locals frees) 0)
-          (when (> frees-here-length 0)
+          (when need-display?
             (cput! let-cb 'DISPLAY frees-here-length))
-          (let1 args-size (pass3/compile-args let-cb ($let.inits iform) locals frees-here can-frees sets tail depth)
+          (let1 args-size (pass3/compile-args let-cb ($let.inits iform) locals frees-here can-frees sets tail depth display-count)
             (pass3/make-boxes let-cb sets-for-this-lvars vars)
             (code-builder-put-insn-arg1! let-cb 'ENTER vars-length)
             (let1 body-size (pass3/rec let-cb
@@ -3022,7 +3032,8 @@
                                        (pass3/add-can-frees1 can-frees vars-sym)
                                        (pass3/add-sets! sets sets-for-this-lvars)
                                        (if tail (+ tail vars-length (pass3/let-frame-size)) #f)
-                                       (+ depth vars-length (pass3/let-frame-size)))
+                                       (+ depth vars-length (pass3/let-frame-size))
+                                       (if need-display? (+ display-count 1) display-count))
               (code-builder-put-insn-arg1! let-cb 'LEAVE vars-length)
               (cput! cb (+ body-size args-size free-size))
               (code-builder-append! cb let-cb)
@@ -3031,7 +3042,7 @@
 (define (raise-compile-error cb who message irritants)
   (cput! cb 'COMPILE_ERROR who message irritants))
 
-(define (pass3/letrec cb iform locals frees can-frees sets tail depth)
+(define (pass3/letrec cb iform locals frees can-frees sets tail depth display-count)
   (let* ([vars ($let.lvars iform)]
          [vars-sym (imap $lvar.sym-proc vars)]
          [body ($let.body iform)]
@@ -3046,14 +3057,15 @@
          [args ($let.inits iform)]
          [frees-here-length (length frees-here)]
          [vars-length (length vars)]
-         [let-cb (make-code-builder)])
+         [let-cb (make-code-builder)]
+         [need-display? (> frees-here-length 0)])
     (when ($let.error iform)
       (raise-compile-error cb (first ($let.error iform))
                               (second ($let.error iform))
                               (third ($let.error iform))))
     (cput! cb 'LET_FRAME)
     (let1 free-size (if (> frees-here-length 0) (pass3/collect-free let-cb frees-here locals frees) 0)
-      (when (> frees-here-length 0)
+      (when need-display?
         (cput! let-cb 'DISPLAY frees-here-length))
       (let loop ([args args]) ;; init code
         (cond
@@ -3076,7 +3088,7 @@
                                               new-can-frees
                                               (pass3/add-sets! sets sets-for-this-lvars)
                                               #f
-                                              depth)
+                                              depth display-count)
                     (code-builder-put-insn-arg1! let-cb 'ASSIGN_LOCAL index)
                     (loop (cdr args)
                           (+ stack-size size)
@@ -3088,7 +3100,8 @@
                                         new-can-frees
                                         (pass3/add-sets! sets sets-for-this-lvars)
                                         (if tail (+ tail vars-length (pass3/let-frame-size)) #f)
-                                        (+ depth vars-length (pass3/let-frame-size)))
+                                        (+ depth vars-length (pass3/let-frame-size))
+                                        (if need-display? (+ display-count 1) display-count))
           (code-builder-put-insn-arg1! let-cb 'LEAVE vars-length)
           (cput! cb (+ free-size assign-size body-size))
           (code-builder-append! cb let-cb)
@@ -3112,12 +3125,12 @@
 ;;     0)
 ;;   (rec iform))
 
-(define (pass3/$library cb iform locals frees can-frees sets tail depth)
+(define (pass3/$library cb iform locals frees can-frees sets tail depth display-count)
   (cput! cb 'LIBRARY ($library.name iform) iform)
   0)
 
 
-(define (pass3/$label cb iform locals frees can-frees sets tail depth)
+(define (pass3/$label cb iform locals frees can-frees sets tail depth display-count)
   (cond
    [($label.visited? iform)
     (cput! cb UNFIXED_JUMP iform)
@@ -3127,7 +3140,7 @@
     ;; So, not *tested*.
     ($label.set-visited?! iform #t)
     (cput! cb iform) ;; place the label.
-    (pass3/rec cb ($label.body iform)locals frees can-frees sets tail depth)]))
+    (pass3/rec cb ($label.body iform)locals frees can-frees sets tail depth display-count)]))
 
 
 (pass3/register $CONST         pass3/$const)
@@ -3152,12 +3165,12 @@
 (pass3/register $LABEL       pass3/$label)
 
 ;; depth is the depth of frame, used for 'jump' and 'embeded' call and indicate the size of frame to discard.
-(define (pass3/rec cb iform locals frees can-frees sets tail depth)
-  ((vector-ref pass3/dispatch-table (vector-ref iform 0)) cb iform locals frees can-frees sets tail depth))
+(define (pass3/rec cb iform locals frees can-frees sets tail depth display-count)
+  ((vector-ref pass3/dispatch-table (vector-ref iform 0)) cb iform locals frees can-frees sets tail depth display-count))
 
 (define (pass3 iform)
   (let1 cb (make-code-builder)
-    (pass3/rec cb iform '() *free-vars-decl* '() (make-eq-hashtable) #f 0)
+    (pass3/rec cb iform '() *free-vars-decl* '() (make-eq-hashtable) #f 0 0)
     (code-builder-emit cb)))
 
 (define (pass4 lst)

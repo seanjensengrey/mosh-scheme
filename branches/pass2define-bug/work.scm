@@ -1,5 +1,50 @@
+;(list= eq? '(a) '(a))
+
+;(disasm list=)
+
 (disasm (lambda ()
-          (map2 (lambda (s) (string-append s "123")) "ABC")))
+
+;; 問題点 'done に至った後に leave が1回しか動いていなければ正解。
+;; 簡単な pretty-rinter を作ってjump 先を明示しようぜ．
+(display (let loop1 ([i 0])
+  (if (= i 1)
+      'done
+      (let loop2 ([j 0])
+        (if (= j 1)
+            (loop1 (+ i 1))
+            (loop2 (+ j 1)))))))))
+
+;(display "hge")
+;; (define (a flag)
+;;   (format #t "~a" flag)
+;;   (if flag
+;;       (c '(1))
+;;       (b '(a 3) 'x)))
+
+;; (define (b args x)
+;;   (let loop ([args args])
+;;     (if (null? args)
+;;         '()
+;;         (let1 xxx xx
+;;           (if (symbol? (car args))
+;;               (begin (sys-display x) (a #t))
+;;               (begin (sys-display x) (sys-display xxx)))
+;;         (loop (cdr args))))))
+
+;; (define xx 1)
+;; (define (c x)
+;;   (let loop ([i 0])
+;;     (if (= i 2)
+;;         '()
+;;           (loop (+ i (length x))))))
+
+
+;; (a #f)
+
+;(disasm b)
+
+;; (disasm (lambda ()
+;;           (map2 (lambda (s) (string-append s "123")) "ABC")))
 ;; (define g 1)
 
 ;; (define plus +)

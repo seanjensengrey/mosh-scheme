@@ -110,4 +110,4 @@
 (define-insn UNFIXED_JUMP 1)
 (define-insn STOP 0)
 (define-insn CONTINUATION_VALUES 0)
-(define-insn SHIFTJ 2)
+(define-insn SHIFTJ 3)

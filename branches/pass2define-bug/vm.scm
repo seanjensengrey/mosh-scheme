@@ -598,7 +598,7 @@
        (vector-set! v 2 arg-length)
        (vector-set! v 3 optional-arg?)
        (vector-set! v 4 max-stack)
-       (vector-set! v 5 #f) ;; child display
+       (vector-set! v 5 #f) ;; prev display
        (let f ([i 0])
          (unless (= i n)
            (vector-set! v (+ i 6) (index stack sp i))
@@ -643,17 +643,17 @@
     ((_ c)
      (vector-ref c 4))))
 
-(define-syntax closure-child
+(define-syntax closure-prev
   (syntax-rules ()
     ((_ c)
      (vector-ref c 5))))
 
-(define-syntax closure-set-child!
+(define-syntax closure-set-prev!
   (syntax-rules ()
-    ((_ c child)
+    ((_ c prev)
      (begin
-       (vector-set! c 5 child)
-       child))))
+       (vector-set! c 5 prev)
+       prev))))
 
 
 
@@ -764,7 +764,7 @@
 
 (define-macro (check-vm-paranoia pred)
   `(unless ,pred
-     (error "** vm check paranoia " (quote ,pred) " on " debug-clause)))
+     (errorf "** vm check paranoia ~a on ~a : ~a" (quote ,pred) debug-clause c)))
 
 ;; (debug-case val
 ;;   ((a)
@@ -1048,9 +1048,9 @@
                     (skip 1)
                     a
                     fp
-                    (if c
-                        (closure-set-child! c (make-display (next 1) stack sp))
-                        (make-display (next 1) stack sp))
+                    (let1 new-c (make-display (next 1) stack sp)
+                      (closure-set-prev! new-c c)
+                      new-c)
                     stack
                     (- sp (next 1))
                     )]
@@ -1330,14 +1330,18 @@
                ;;
                [(SHIFTJ)
                 (let* ([new-sp (shift-args-to-bottom stack sp (next 1) (next 2))]
-                       [new-fp (- new-sp (next 1))]
-                       [new-c (closure-child (index stack new-fp 0))])
-                  (unless (or (vector? new-c) (not new-c)) ;; vector? or #f
-                    (error 'SHIFTJ "new-c should be vector" new-c))
+                       [new-fp (- new-sp (next 1))])
+;                       [new-c (closure-prev (index stack new-fp 0))])
+;;                   (unless (or (vector? new-c) (not new-c)) ;; vector? or #f
+;;                     (error 'SHIFTJ "new-c should be vector" new-c))
                   (unless (number? new-fp)
                     (error 'SHIFTJ "new-fp should be number"))
-;                  (format #t "shiftj ************\n")
-                  (VM codes (skip 2) a new-fp new-c stack new-sp))]
+;                  (format #t "********** (next 3) =~a\n" (next 3))
+                  (let loop ([i (next 3)]
+                             [new-c c])
+                    (if (= i 0)
+                        (VM codes (skip 3) a new-fp new-c stack new-sp)
+                        (loop (- i 1) (closure-prev new-c)))))]
                [(SHIFT_CALL)
                 (let1 sp (shift-args-to-bottom stack sp (next 1) (next 2))
                   (apply-body a (next 3) sp))]
@@ -2019,19 +2023,19 @@
    ;; test
    [(= (length args) 1)
     (vm-init '())
-;     (load-file "./library.scm")
+     (load-file "./library.scm")
 
-    (load-file "./work.scm")
-;;     (load-file "./match.scm")
+;    (load-file "./work.scm")
+    (load-file "./match.scm")
 
-;;     (vm-test)
-;;     (set! optimize? (not optimize?))
-;;     (vm-init '())
-;;     (load-file "./library.scm")
-;;     (load-file "./match.scm")
+    (vm-test)
+    (set! optimize? (not optimize?))
+    (vm-init '())
+    (load-file "./library.scm")
+    (load-file "./match.scm")
 
-;;     (vm-test)
-;;     (test-end)
+    (vm-test)
+    (test-end)
 
     ]
    ;; compile string

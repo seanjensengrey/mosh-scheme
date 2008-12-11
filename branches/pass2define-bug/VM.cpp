@@ -529,7 +529,7 @@ Object VM::compile(Object code)
 }
 
 #else
-#define CASE(insn)  LABEL_##insn :
+#define CASE(insn)  LABEL_##insn : /* printf("" #insn "\n");fflush(stdout);  */
 #define NEXT                         \
 {                                    \
     asm volatile(" \t # -- next start");   \
@@ -1008,9 +1008,10 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
 
             // create display closure
             const Object display = Object::makeClosure(NULL, 0, 0, false, sp_ - freeVariablesNum, freeVariablesNum, 0, Object::False);
-            if (dc_.isClosure()) {
-                dc_.toClosure()->child = display;
-            }
+//             if (dc_.isClosure()) {
+//                 dc_.toClosure()->child = display;
+//             }
+            display.toClosure()->prev = dc_;
             dc_ = display;
             TRACE_INSN0("DISPLAY");
             sp_ = sp_ - freeVariablesNum;
@@ -1573,8 +1574,16 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             sp_ = shiftArgsToBottom(sp_, depth, diff);
 
             fp_ = sp_ - depth;
-            MOSH_ASSERT(index(fp_, 1).isClosure());
-            dc_ = index(fp_, 1).toClosure()->child;
+
+            const Object displayCount = fetchOperand();
+            MOSH_ASSERT(displayCount.isFixnum());
+            for (int i = displayCount.toFixnum(); i > 0; i--) {
+//                printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
+                dc_ = dc_.toClosure()->prev;
+//                printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
+            }
+            MOSH_ASSERT(dc_.isClosure());
+//            dc_ = index(fp_, 1).toClosure()->child;
             NEXT;
         }
         CASE(SHIFT)
@@ -2198,8 +2207,7 @@ void VM::expandStack(int plusSize)
 
 void VM::printStack() const
 {
-    LOG2("==========dc=~a child=~a \n", dc_, dc_.toClosure()->child);
-    LOG2("==== prev dc_=~a prev dc->child=~a\n", index(fp_,1), index(fp_,1).toClosure()->child);
+    LOG2("==========dc=~a prev=~a \n", dc_, dc_.toClosure()->prev);
     for (int i = 1; i>= 0; i--) {
         if (fp_ + i >= stackEnd_) {
             break;
