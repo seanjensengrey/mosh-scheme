@@ -400,9 +400,37 @@
     vector-fill!
     ungensym
     (disasm (lambda (closure)
-              (for-each
-               (lambda (c)
-                 (format #t "~a " c))
-              (vector->list (vector-ref closure 0)))))
+              (let ([code (vector-ref closure 0)]
+                    [ht (make-hash-table)])
+                (let loop ([i 0])
+                  (if (= i (vector-length code))
+                      '()
+                      (cond
+                       [(eq? (vector-ref code i) 'LOCAL_JMP)
+                        (let1 n (vector-ref code (+ i 1))
+                          (hash-table-put! ht (+ i n 1) (format "<LABEL~a>" (+ i n 1)))
+                          (vector-set! code (+ i 1) (format "<To~a>" (+ i n 1)))
+                          (loop (+ i 2)))]
+                       [(eq? (vector-ref code i) 'TEST)
+                        (let1 n (vector-ref code (+ i 1))
+                          (hash-table-put! ht (+ i n 1) (format "<LABEL~a>" (+ i n 1)))
+                          (vector-set! code (+ i 1) (format "<To~a>" (+ i n 1)))
+                          (loop (+ i 2)))]
+                       [else
+                        (loop (+ i 1))])))
+                (let loop ([i 0])
+                  (if (= i (vector-length code))
+                      '()
+                      (begin
+                        (when (hash-table-get ht i #f)
+                            (format #t "~a " (hash-table-get ht i)))
+                        (format #t "~a " (vector-ref code i))
+                        (loop (+ i 1))))))))
+
+;;     (disasm (lambda (closure)
+;;               (for-each
+;;                (lambda (c)
+;;                  (format #t "~a " c))
+;;               (vector->list (vector-ref closure 0)))))
     print-stack
     )

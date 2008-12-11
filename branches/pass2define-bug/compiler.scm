@@ -2837,7 +2837,11 @@
          ;;
          ;;   Then we restore fp and display registers, and finally jump to [jump destination]
          ;;
-         (cput! cb 'SHIFTJ args-length (- depth ($call.depth ($call.proc iform))) (- display-count ($call.display-count ($call.proc iform))))
+         (cput! cb
+                'SHIFTJ
+                args-length
+                (- depth ($call.depth ($call.proc iform)) (pass3/let-frame-size)) ;; we subtract let-frame size for this jump lambda's let-frame.
+                (- display-count ($call.display-count ($call.proc iform))))
          ($label.set-visited?! label #t)
          (cput! cb 'UNFIXED_JUMP label)))]
     [(embed)

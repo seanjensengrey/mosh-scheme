@@ -2,17 +2,18 @@
 
 ;(disasm list=)
 
-(disasm (lambda ()
+;(disasm (lambda ()
 
 ;; 問題点 'done に至った後に leave が1回しか動いていなければ正解。
 ;; 簡単な pretty-rinter を作ってjump 先を明示しようぜ．
-(display (let loop1 ([i 0])
+(sys-display (let loop1 ([i 0])
   (if (= i 1)
       'done
       (let loop2 ([j 0])
         (if (= j 1)
             (loop1 (+ i 1))
-            (loop2 (+ j 1)))))))))
+            (loop2 (+ j 1)))))))
+;)
 
 ;(display "hge")
 ;; (define (a flag)

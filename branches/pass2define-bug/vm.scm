@@ -924,6 +924,7 @@
     (cond [#f a];(>= pc len) a]
           [else
            (let1 code (vector-ref codes pc)
+;           (format (current-error-port) "~a\n" code)
              (if (not (number? fp)) (error "fp error"))
              (if (not (number? sp)) (error "sp error"))
              (if (not (number? pc)) (error "pc error"))
@@ -2023,19 +2024,19 @@
    ;; test
    [(= (length args) 1)
     (vm-init '())
-     (load-file "./library.scm")
+;     (load-file "./library.scm")
 
-;    (load-file "./work.scm")
-    (load-file "./match.scm")
+    (load-file "./work.scm")
+;;     (load-file "./match.scm")
 
-    (vm-test)
-    (set! optimize? (not optimize?))
-    (vm-init '())
-    (load-file "./library.scm")
-    (load-file "./match.scm")
+;;     (vm-test)
+;;     (set! optimize? (not optimize?))
+;;     (vm-init '())
+;;     (load-file "./library.scm")
+;;     (load-file "./match.scm")
 
-    (vm-test)
-    (test-end)
+;;     (vm-test)
+;;     (test-end)
 
     ]
    ;; compile string
