@@ -1152,7 +1152,7 @@
           this-lvars
           reqargs
           optarg
-          (pass1/s->i vals)
+          (pass1/s->i-non-tail vals)
           ;; the inner lvar comes first.
           (pass1/body->iform (pass1/expand body) library (append this-lvars lvars) tail?)
           tail?)))]
@@ -1463,7 +1463,11 @@
       (rec (+ ind 5) ($if.test iform)) (nl (+ ind 2))
       (rec (+ ind 2) ($if.then iform)) (nl (+ ind 2))
       (rec (+ ind 2) ($if.else iform)) (display ")" (current-error-port))]
-     [(tag? iform $RECEIVE) #f]
+     ((tag? iform $RECEIVE)
+      (format #t "($receive ~a" (map lvar->string ($receive.lvars iform)))
+      (nl (+ ind 4))
+      (rec (+ ind 4) ($receive.vals iform)) (nl (+ ind 2))
+      (rec (+ ind 2) ($receive.body iform)) (display ")"))
      [(tag? iform $LABEL)
       (cond ((assq iform labels)
              => (lambda (p) (format (current-error-port) "label#~a" (cdr p))))
@@ -1593,8 +1597,8 @@
           iform])))]))
 
 (define-pass2/tracable (pass2/$receive iform closures)
-  ($receive.set-body! iform (pass2/optimize ($receive.body iform) closures))
   ($receive.set-vals! iform (pass2/optimize ($receive.vals iform) closures))
+  ($receive.set-body! iform (pass2/optimize ($receive.body iform) closures))
   iform)
 
 (define-pass2/tracable (pass2/$local-ref iform closures)

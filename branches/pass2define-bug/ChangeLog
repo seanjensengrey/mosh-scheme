@@ -1,6 +1,7 @@
 2008-12-12  higepon  <higepon@users.sourceforge.jp>
 
-        * compiler.scm (pass3/$receive): Fiexd the bug of counting depth of vals clause.
+        * compiler.scm (pass3/$receive): Fixed the bug of counting depth of vals clause.
+                       (pass1/receive): Fixed wrong tail? flag.
 
 2008-12-11  higepon  <higepon@users.sourceforge.jp>
 

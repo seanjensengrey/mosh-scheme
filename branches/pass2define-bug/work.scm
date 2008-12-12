@@ -9,9 +9,9 @@
     (receive (prefix suffix) (recur (cdr lis) (- k 1))
       (values (cons (car lis) prefix) suffix)))))
 
-(receive (x y) (split-at '(a b c d e f g h) 1)
-  (sys-display x)
-  (sys-display y))
+;; (receive (x y) (split-at '(a b c d e f g h) 1)
+;;   (sys-display x)
+;;   (sys-display y))
 ;(disasm split-at)
 
 
