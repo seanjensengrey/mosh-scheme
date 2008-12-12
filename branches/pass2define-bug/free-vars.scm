@@ -402,6 +402,7 @@
     (disasm (lambda (closure)
               (let ([code (vector-ref closure 0)]
                     [ht (make-hash-table)])
+                (print code)
                 (let loop ([i 0])
                   (if (= i (vector-length code))
                       '()

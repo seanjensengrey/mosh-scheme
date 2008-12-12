@@ -2841,7 +2841,7 @@
                 'SHIFTJ
                 args-length
                 (- depth ($call.depth ($call.proc iform)) (pass3/let-frame-size)) ;; we subtract let-frame size for this jump lambda's let-frame.
-                (- display-count ($call.display-count ($call.proc iform))))
+                (- display-count ($call.display-count ($call.proc iform)) 1)) ;; we subtract our display count.
          ($label.set-visited?! label #t)
          (cput! cb 'UNFIXED_JUMP label)))]
     [(embed)
@@ -2864,7 +2864,8 @@
               [need-display? (> frees-here-length 0)])
          (when need-display?
            (cput! let-cb 'DISPLAY frees-here-length))
-         (let ([args-size (pass3/compile-args let-cb ($call.args iform) locals frees-here can-frees sets #f depth display-count)]
+         (let ([args-size (pass3/compile-args let-cb ($call.args iform) locals frees-here can-frees sets #f
+                                              (+ depth (pass3/let-frame-size)) (if need-display? (+ display-count 1) display-count))]
                [args-length (length ($call.args iform))])
            (pass3/make-boxes let-cb sets-for-this-lvars vars)
            (code-builder-put-insn-arg1! let-cb 'ENTER args-length)
@@ -2878,8 +2879,7 @@
                                       (pass3/add-sets! sets sets-for-this-lvars)
                                       (if tail (+ tail (length vars) (pass3/let-frame-size)) #f)
                                       (+ depth (length vars) (pass3/let-frame-size))
-                                      display-count)
-                                      ;(if need-display? (+ display-count 1) display-count))
+                                      (if need-display? (+ display-count 1) display-count))
              (code-builder-put-insn-arg1! let-cb 'LEAVE args-length)
              (cput! cb (+ args-size body-size free-size))
              (code-builder-append! cb let-cb)
@@ -2987,7 +2987,9 @@
            [need-display? (> frees-here-length 0)])
       (when need-display?
         (cput! let-cb 'DISPLAY frees-here-length))
-      (let ([vals-size (pass3/rec let-cb ($receive.vals iform) locals frees-here can-frees sets #f depth display-count)]
+      (let ([vals-size (pass3/rec let-cb ($receive.vals iform) locals frees-here can-frees sets #f
+                                  (+ depth (pass3/let-frame-size)) ;; when evaluating vals, we have ready been in let-frame.
+                                  (if need-display? (+ display-count 1) display-count))] ;; display++
             [vars-length (length vars)])
         (cput! let-cb 'RECEIVE ($receive.reqargs iform) ($receive.optarg  iform))
         (pass3/make-boxes let-cb sets-for-this-lvars vars)
@@ -3026,7 +3028,8 @@
         (let1 free-size (if (> frees-here-length 0) (pass3/collect-free let-cb frees-here locals frees) 0)
           (when need-display?
             (cput! let-cb 'DISPLAY frees-here-length))
-          (let1 args-size (pass3/compile-args let-cb ($let.inits iform) locals frees-here can-frees sets tail depth display-count)
+          (let1 args-size (pass3/compile-args let-cb ($let.inits iform) locals frees-here can-frees sets tail
+                                              (+ depth (pass3/let-frame-size)) (if need-display? (+ display-count 1) display-count))
             (pass3/make-boxes let-cb sets-for-this-lvars vars)
             (code-builder-put-insn-arg1! let-cb 'ENTER vars-length)
             (let1 body-size (pass3/rec let-cb
@@ -3092,7 +3095,8 @@
                                               new-can-frees
                                               (pass3/add-sets! sets sets-for-this-lvars)
                                               #f
-                                              depth display-count)
+                                              (+ depth (pass3/let-frame-size))
+                                              (if need-display? (+ display-count 1) display-count))
                     (code-builder-put-insn-arg1! let-cb 'ASSIGN_LOCAL index)
                     (loop (cdr args)
                           (+ stack-size size)

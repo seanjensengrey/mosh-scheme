@@ -3226,7 +3226,7 @@
                   ((lambda (y) (set! loop '())) (display x)))))
    (lambda (z) (loop z))))]
 ;; nested named let optimization
-['done
+[done
 (let loop1 ([i 0])
   (if (= i 1)
       'done

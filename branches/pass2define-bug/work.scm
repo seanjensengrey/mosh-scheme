@@ -1,4 +1,19 @@
-;(list= eq? '(a) '(a))
+;(display (list= eq? '(a) '(a)))
+
+(define (zero? x) (= x 0))
+
+;; recur が receive の value で起きる。
+(define (split-at x k)
+  (let recur ((lis x) (k k))
+    (if (zero? k) (values '() lis)
+    (receive (prefix suffix) (recur (cdr lis) (- k 1))
+      (values (cons (car lis) prefix) suffix)))))
+
+(receive (x y) (split-at '(a b c d e f g h) 1)
+  (sys-display x)
+  (sys-display y))
+;(disasm split-at)
+
 
 ;(disasm list=)
 
@@ -6,14 +21,14 @@
 
 ;; 問題点 'done に至った後に leave が1回しか動いていなければ正解。
 ;; 簡単な pretty-rinter を作ってjump 先を明示しようぜ．
-(sys-display (let loop1 ([i 0])
-  (if (= i 1)
-      'done
-      (let loop2 ([j 0])
-        (if (= j 1)
-            (loop1 (+ i 1))
-            (loop2 (+ j 1)))))))
-;)
+;; (sys-display (let loop1 ([i 0])
+;;   (if (= i 1)
+;;       'done
+;;       (let loop2 ([j 0])
+;;         (if (= j 1)
+;;             (loop1 (+ i 1))
+;;             (loop2 (+ j 1)))))))
+;; ;)
 
 ;(display "hge")
 ;; (define (a flag)
