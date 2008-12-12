@@ -588,7 +588,18 @@
        ,@(cdddr sexp)))
   (define (expand-let vars body)
     (let1 expanded-vars (fold-right (lambda (x y) (cons (list (first x) (pass1/expand (second x))) y)) '() vars)
-      `(let ,expanded-vars ,@(pass1/expand body))))
+      `(let ,expanded-vars ,@(imap pass1/expand body))))
+
+(define (let-internal-define->letrec sexp)
+  (let* ([body (cddr sexp)]
+         [args (second sexp)]
+         [ret  (find-serial-from-head (lambda (s) (and (pair? s) (eq? 'define (car s)))) body)]
+         [defines (first ret)]
+         [rest (second ret)]
+         [letrec-body ($src `(letrec ,(map (lambda (d) (list (second d) (third d))) (map pass1/expand defines))
+                         ,@rest) sexp)])
+    ($src `(let ,args
+             ,letrec-body) sexp)))
 
 ;; don't use internal define, if proc is supposed to be called so many times.
 (define (pass1/expand sexp)
@@ -606,7 +617,11 @@
       [(let)
        (if (let-is-named? sexp)
            ($src (pass1/expand (named-let->letrec sexp)) sexp)
-           ($src (expand-let (second sexp) (cddr sexp)) sexp))]
+           (match sexp
+             [('let vars ('define a . b) . more)
+              ($src (pass1/expand ($src (let-internal-define->letrec sexp) sexp)) sexp)]
+             [else
+              ($src (expand-let (second sexp) (cddr sexp)) sexp)]))]
       [(let*)
        ($src (pass1/expand (let*->let sexp)) sexp)]
       [(cond)
@@ -615,7 +630,7 @@
        (cond [(lambda-has-define? sexp)
               ($src (pass1/expand ($src (internal-define->letrec sexp) sexp)) sexp)]
              [else
-              ($src (append! (list 'lambda (cadr sexp)) (pass1/expand (cddr sexp))) sexp)])]
+              ($src (append! (list 'lambda (cadr sexp)) (imap pass1/expand (cddr sexp))) sexp)])]
       [(when)
        (match sexp
          [('when pred body . more)

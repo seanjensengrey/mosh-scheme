@@ -375,7 +375,7 @@
     even?
     odd?
     abs
-    div
+    (div quotient)
     div0
     numerator
     denominator

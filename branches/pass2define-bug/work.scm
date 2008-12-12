@@ -1,13 +1,87 @@
+(define v-sort!
+  (lambda (proc vect)
+    (let* ((n (vector-length vect)) (work (make-vector (+ (div n 2) 1))))
+
+      (define simple-sort!
+        (lambda (first last)
+          (let loop1 ((i first))
+            (cond ((< i last)
+                   (let ((m (vector-ref vect i)) (k i))
+                     (let loop2 ((j (+ i 1)))
+                       (cond ((<= j last)
+                              (if (proc (vector-ref vect j) m)
+                                  (begin
+                                    (set! m (vector-ref vect j))
+                                    (set! k j)))
+                              (loop2 (+ j 1)))
+                             (else
+                              (vector-set! vect k (vector-ref vect i))
+                              (vector-set! vect i m)
+                              (loop1 (+ i 1)))))))))))
+
+      (define sort!
+        (lambda (first last)
+          (cond ((> (- last first) 10)
+                 (let ((middle (div (+ first last) 2)))
+                   (sort! first middle)
+                   (sort! (+ middle 1) last)
+                   (let loop ((i first) (p2size 0))
+                     (cond ((> i middle)
+                            (let loop ((p1 (+ middle 1)) (p2 0) (p3 first))
+                              (cond ((and (<= p1 last) (< p2 p2size))
+                                     (cond ((proc (vector-ref work p2) (vector-ref vect p1))
+                                            (vector-set! vect p3 (vector-ref work p2))
+                                            (loop p1 (+ p2 1) (+ p3 1)))
+                                           (else
+                                            (vector-set! vect p3 (vector-ref vect p1))
+                                            (loop (+ p1 1) p2 (+ p3 1)))))
+                                    (else
+                                     (let loop ((s2 p2)(d3 p3))
+                                       (cond ((< s2 p2size)
+                                              (vector-set! vect d3 (vector-ref work s2))
+                                              (loop (+ s2 1) (+ d3 1)))))))))
+                           (else
+                            (vector-set! work p2size (vector-ref vect i))
+                            (loop (+ i 1) (+ p2size 1)))))))
+                (else
+                 (simple-sort! first last)))))
+
+      (sort! 0 (- n 1)))))
+
+;; (define vect (vector 3 5 2 1))
+;; (define proc <)
+
+;; (define simple-sort!
+;;         (lambda (first last)
+;;           (let1 vect (vector 3 5 2 1)
+;;           (let loop1 ((i first))
+;;             (cond ((< i last)
+;;                    (let ((m (vector-ref vect i)) (k i))
+;;                      (let loop2 ((j (+ i 1)))
+;;                        (cond ((<= j last)
+;;                               (if (proc (vector-ref vect j) m)
+;;                                   (begin
+;;                                     (set! m (vector-ref vect j))
+;;                                     (set! k j)))
+;;                               (loop2 (+ j 1)))
+;;                              (else
+;;                               (vector-set! vect k (vector-ref vect i))
+;;                               (vector-set! vect i m)
+;;                               (loop1 (+ i 1))))))))))))
+
+;;     (simple-sort! 0 2)
+;;   (sys-display vect)
+
 ;(display (list= eq? '(a) '(a)))
 
-(define (zero? x) (= x 0))
+;; (define (zero? x) (= x 0))
 
-;; recur が receive の value で起きる。
-(define (split-at x k)
-  (let recur ((lis x) (k k))
-    (if (zero? k) (values '() lis)
-    (receive (prefix suffix) (recur (cdr lis) (- k 1))
-      (values (cons (car lis) prefix) suffix)))))
+;; ;; recur が receive の value で起きる。
+;; (define (split-at x k)
+;;   (let recur ((lis x) (k k))
+;;     (if (zero? k) (values '() lis)
+;;     (receive (prefix suffix) (recur (cdr lis) (- k 1))
+;;       (values (cons (car lis) prefix) suffix)))))
 
 ;; (receive (x y) (split-at '(a b c d e f g h) 1)
 ;;   (sys-display x)
