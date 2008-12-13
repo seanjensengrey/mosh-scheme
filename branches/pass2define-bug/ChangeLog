@@ -1,3 +1,13 @@
+2008-12-13  higepon  <higepon@users.sourceforge.jp>
+
+        * compiler.scm (pass1/call): Fixed tail? flag for arguments of $call.
+
+        * VM.cpp (VM_ASSERT): Added VM_ASSERT. It shows dc and cl register.
+
+        * CompilerProcedures.cpp (findSetsLabel): Fixed findSets for searching in $LABEL.
+
+        * compiler.scm : Fixed pass3/find-sets for searching in $LABEL.
+
 2008-12-12  higepon  <higepon@users.sourceforge.jp>
 
         * compiler.scm (pass3/$receive): Fixed the bug of counting depth of vals clause.

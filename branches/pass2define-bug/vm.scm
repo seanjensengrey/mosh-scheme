@@ -1051,6 +1051,7 @@
                     fp
                     (let1 new-c (make-display (next 1) stack sp)
                       (closure-set-prev! new-c c)
+;                      (format (current-error-port) "DISPLAY=~a\n" (index-closure new-c 0))
                       new-c)
                     stack
                     (- sp (next 1))
@@ -1330,6 +1331,7 @@
                ;;      new-fp => new-sp - arg-length
                ;;
                [(SHIFTJ)
+;                (format (current-error-port) "SHIFTJ\n")
                 (let* ([new-sp (shift-args-to-bottom stack sp (next 1) (next 2))]
                        [new-fp (- new-sp (next 1))])
 ;                       [new-c (closure-prev (index stack new-fp 0))])

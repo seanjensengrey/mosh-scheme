@@ -3246,3 +3246,4 @@
 
 
 (todo "VM.cpp の callAssertionViolationAfter で dc_.sourceString() を出力するとうれしいよね。")
+(todo "(pass2/$local-ref iform closures) を C++ で書けば clos 速くなる")

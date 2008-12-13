@@ -49,9 +49,9 @@ static Object pass4FixupLabel(Object vec);
 static Object findFree(Object iform, Object locals, Object canFrees);
 static Object findFreeRec(Object i, Object l, Object canFrees, Object labelsSeen);
 static Object findFreeRecMap(Object l, Object canFrees, Object labelsSeen, Object list);
-static Object findSetsRecMap(Object lvars, Object list);
+static Object findSetsRecMap(Object lvars, Object list, Object labelsSeen);
 static Object findSets(Object iform, Object lvars);
-static Object findSetsRec(Object i, Object lvars);
+static Object findSetsRec(Object i, Object lvars, Object labelsSeen);
 
 enum {
     CONST         = 0,
@@ -362,21 +362,32 @@ Object findFreeRecMap(Object l, Object canFrees, Object labelsSeen, Object list)
     return ret;
 }
 
-Object findSetsRecMap(Object lvars, Object list)
+Object findSetsRecMap(Object lvars, Object list, Object labelsSeen)
 {
     Object ret = Object::Nil;
     for (Object p = list; p.isPair(); p = p.cdr()) {
-        ret = Pair::append2(ret, findSetsRec(p.car(), lvars));
+        ret = Pair::append2(ret, findSetsRec(p.car(), lvars, labelsSeen));
     }
     return ret;
 }
 
 Object findSets(Object iform, Object lvars)
 {
-    return uniq(findSetsRec(iform, lvars));
+    return uniq(findSetsRec(iform, lvars, Object::Nil));
 }
 
-Object findSetsRec(Object i, Object lvars)
+Object findSetsLabel(Object i, Object lvars, Object labelsSeen)
+{
+    Vector* v = i.toVector();
+    const Object labelBody = v->ref(1);
+    if (!memq(i, labelsSeen).isFalse()) {
+        return Object::Nil;
+    } else {
+        return findSetsRec(labelBody, lvars, Object::cons(i, labelsSeen));
+    }
+}
+
+Object findSetsRec(Object i, Object lvars, Object labelsSeen)
 {
     Vector* v = i.toVector();
     MOSH_ASSERT(v->ref(0).isFixnum());
@@ -387,34 +398,34 @@ Object findSetsRec(Object i, Object lvars)
     {
         const Object letInits = v->ref(3);
         const Object letBody = v->ref(4);
-        return Pair::append2(findSetsRecMap(lvars, letInits),
-                             findSetsRec(letBody, lvars));
+        return Pair::append2(findSetsRecMap(lvars, letInits, labelsSeen),
+                             findSetsRec(letBody, lvars, labelsSeen));
     }
     case RECEIVE:
     {
         const Object receiveVals = v->ref(4);
         const Object receiveBody = v->ref(5);
-        return Pair::append2(findSetsRec(receiveVals, lvars),
-                             findSetsRec(receiveBody, lvars));
+        return Pair::append2(findSetsRec(receiveVals, lvars, labelsSeen),
+                             findSetsRec(receiveBody, lvars, labelsSeen));
     }
     case SEQ:
     {
         const Object seqBody = v->ref(1);
-        return findSetsRecMap(lvars, seqBody);
+        return findSetsRecMap(lvars, seqBody, labelsSeen);
     }
     case LAMBDA:
     {
         const Object lambdaBody = v->ref(6);
-        return findSetsRec(lambdaBody, lvars);
+        return findSetsRec(lambdaBody, lvars, labelsSeen);
     }
     case LOCAL_ASSIGN:
     {
         const Object localAssignLvar = v->ref(1);
         const Object localAssignVal = v->ref(2);
         if (memq(localAssignLvar, lvars).isFalse()) {
-            return findSetsRec(localAssignVal, lvars);
+            return findSetsRec(localAssignVal, lvars, labelsSeen);
         } else {
-            return Object::cons(localAssignLvar, findSetsRec(localAssignVal, lvars));
+            return Object::cons(localAssignLvar, findSetsRec(localAssignVal, lvars, labelsSeen));
         }
     }
     case LOCAL_REF:
@@ -429,46 +440,46 @@ Object findSetsRec(Object i, Object lvars)
         return Object::Nil;
     case IF:
     {
-        const Object testF = findSetsRec(v->ref(1), lvars);
-        const Object thenF = findSetsRec(v->ref(2), lvars);
-        const Object elseF = findSetsRec(v->ref(3), lvars);
+        const Object testF = findSetsRec(v->ref(1), lvars, labelsSeen);
+        const Object thenF = findSetsRec(v->ref(2), lvars, labelsSeen);
+        const Object elseF = findSetsRec(v->ref(3), lvars, labelsSeen);
         return Pair::append2(testF, Pair::append2(thenF, elseF));
     }
     case ASM:
     {
         const Object asmArgs = v->ref(2);
-        return findSetsRecMap(lvars, asmArgs);
+        return findSetsRecMap(lvars, asmArgs, labelsSeen);
     }
     case DEFINE:
     {
         const Object defineVal = v->ref(3);
-        return findSetsRec(defineVal, lvars);
+        return findSetsRec(defineVal, lvars, labelsSeen);
     }
     case CALL:
     {
         const Object callArgs = v->ref(2);
         const Object callProc = v->ref(1);
-        return Pair::append2(findSetsRecMap(lvars, callArgs),
-                             findSetsRec(callProc, lvars));
+        return Pair::append2(findSetsRecMap(lvars, callArgs, labelsSeen),
+                             findSetsRec(callProc, lvars, labelsSeen));
     }
     case CALL_CC:
     {
         const Object callccProc = v->ref(1);
-        return findSetsRec(callccProc, lvars);
+        return findSetsRec(callccProc, lvars, labelsSeen);
     }
     case GLOBAL_ASSIGN:
     {
         const Object globalAssignVal = v->ref(3);
-        return findSetsRec(globalAssignVal, lvars);
+        return findSetsRec(globalAssignVal, lvars, labelsSeen);
     }
     case LIST:
     {
         const Object listArgs = v->ref(1);
-        return findSetsRecMap(lvars, listArgs);
+        return findSetsRecMap(lvars, listArgs, labelsSeen);
     }
     case LABEL:
     {
-        return Object::Nil;
+        return findSetsLabel(i, lvars, labelsSeen);
     }
     case IMPORT:
         return Object::Nil;
