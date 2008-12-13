@@ -10,26 +10,29 @@
 ;;          '()
 ;;           (appender '() (recur '())))))
 
+(display           (if (not (pair? 3))
+               4
+               5))
 
 ;(a append '(1 2 3))
-(import (rnrs)
-        (clos2 user)
-        (mosh string))
+;; (import (rnrs)
+;;         (clos2 user)
+;;         (mosh string))
 
-(define-class <point> () x y)
+;; (define-class <point> () x y)
 
-(define-method initialize 'after ((point <point>) init-args)
-  (initialize-direct-slots point <point> init-args))
+;; (define-method initialize 'after ((point <point>) init-args)
+;;   (initialize-direct-slots point <point> init-args))
 
-(define-method print-object ((point <point>) port)
-  (print-object-with-slots point port))
+;; (define-method print-object ((point <point>) port)
+;;   (print-object-with-slots point port))
 
-(define-generic distance-to-origin)
+;; (define-generic distance-to-origin)
 
-(define-method distance-to-origin ((point <point>))
-  (sqrt (+ (expt (slot-ref point 'x) 2)
-           (expt (slot-ref point 'y) 2))))
+;; (define-method distance-to-origin ((point <point>))
+;;   (sqrt (+ (expt (slot-ref point 'x) 2)
+;;            (expt (slot-ref point 'y) 2))))
 
-(define p1 (make <point> 'x 3 'y 4))
+;; (define p1 (make <point> 'x 3 'y 4))
 
-(format #t "distance of ~a to origin: ~a~%\n" p1 (distance-to-origin p1))
+;; (format #t "distance of ~a to origin: ~a~%\n" p1 (distance-to-origin p1))

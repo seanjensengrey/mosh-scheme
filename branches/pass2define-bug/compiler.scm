@@ -1668,6 +1668,7 @@
   ($seq.set-body! iform (imap (lambda (x) (pass2/optimize x closures)) ($seq.body iform)))
   iform)
 
+
 (define (pass2/const-inliner iform)
   (let ([insn ($asm.insn iform)]
         [args ($asm.args iform)])
@@ -2804,18 +2805,28 @@
        (error "unknown insn on pass3/$asm")])))
 
 (define (pass3/$if cb iform locals frees can-frees sets tail depth display-count)
-  (let ([end-of-else   (make-label)]
-        [begin-of-else (make-label)])
-    (let1 test-size (pass3/rec cb ($if.test iform) locals frees can-frees sets #f depth display-count)
-      (code-builder-put-insn-arg1! cb 'TEST (ref-label begin-of-else))
-      (let1 then-size (pass3/rec cb ($if.then iform) locals frees can-frees sets tail depth display-count)
-        (cput! cb
-               'UNFIXED_JUMP
-               (ref-label end-of-else)
-               begin-of-else)
-        (let1 else-size (pass3/rec cb ($if.else iform) locals frees can-frees sets tail depth display-count)
-          (cput! cb end-of-else)
-          (+ test-size then-size else-size))))))
+  (cond
+   [(and (not (tag? ($if.then iform) $IT))
+         (not (tag? ($if.else iform) $IT))
+         (tag? ($if.test iform) $ASM)
+         (eqv? ($asm.insn ($if.test iform)) 'NOT))
+    (pass3/$if cb ($if (car ($asm.args ($if.test iform)))
+                       ($if.else iform)
+                       ($if.then iform))
+               locals frees can-frees sets tail depth display-count)]
+   [else
+    (let ([end-of-else   (make-label)]
+          [begin-of-else (make-label)])
+      (let1 test-size (pass3/rec cb ($if.test iform) locals frees can-frees sets #f depth display-count)
+        (code-builder-put-insn-arg1! cb 'TEST (ref-label begin-of-else))
+        (let1 then-size (pass3/rec cb ($if.then iform) locals frees can-frees sets tail depth display-count)
+          (cput! cb
+                 'UNFIXED_JUMP
+                 (ref-label end-of-else)
+                 begin-of-else)
+          (let1 else-size (pass3/rec cb ($if.else iform) locals frees can-frees sets tail depth display-count)
+            (cput! cb end-of-else)
+            (+ test-size then-size else-size)))))]))
 
 (define (pass3/$define cb iform locals frees can-frees sets tail depth display-count)
   (begin0

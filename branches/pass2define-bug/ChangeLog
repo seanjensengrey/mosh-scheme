@@ -1,6 +1,7 @@
 2008-12-13  higepon  <higepon@users.sourceforge.jp>
 
         * compiler.scm (pass1/call): Fixed tail? flag for arguments of $call.
+                       (pass3/$if): optimization for (if (not x) a b) => (if x b a).
 
         * VM.cpp (VM_ASSERT): Added VM_ASSERT. It shows dc and cl register.
 

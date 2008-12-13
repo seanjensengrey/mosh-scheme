@@ -19,6 +19,18 @@
      0 0 1 ,tz
      0 0 0 1))
 
+(define (make-rotate-x-matrix phi)
+  `#(1 0 0 0
+     0 ,(cos phi) ,(negate (sin phi)) 0
+     0 ,(sin phi) ,(cos phi) 0
+     0 0 0 1))
+
+(define (make-rotate-y-matrix phi)
+  `#(,(cos phi) ,(negate (sin phi)) 0 0
+     ,(sin phi) ,(cos phi) 0 0
+     0 0 1 0
+     0 0 0 1))
+
 (define (make-rotate-z-matrix phi)
   `#(,(cos phi) ,(negate (sin phi)) 0 0
      ,(sin phi) ,(cos phi) 0 0
@@ -76,7 +88,9 @@
           (+ (* (ref m1 12) (ref m2 3)) (* (ref m1 13) (ref m2 4)) (* (ref m1 14) (ref m2 11)) (* (ref m1 15) (ref m2 15))))))
 
 
-(define before '((1.0 1.0 0.0 1.0) (1.0 2.0 0.0 1.0) (2.0 2.0 0.0 1.0) (2.0 1.0 0.0 1.0)))
+;(define before '((1.0 1.0 0.0 1.0) (1.0 2.0 0.0 1.0) (2.0 2.0 0.0 1.0) (2.0 1.0 0.0 1.0)))
+
+(define before '((5.0 0.0 0.0 1.0) (0.0 5.0 0.0 1.0) (0.0 0.0 5.0 1.0)))
 
 ;(define t (make-translation-matrix-matrix 1 2 3))
 
@@ -86,7 +100,11 @@
 
 ;(define t (make-shear-xy-matrix 1.2))
 
-(define t (mulm (make-rotate-z-matrix (/ pi 4)) (make-translation-matrix 1 2 3)))
+;(define t (mulm (make-rotate-z-matrix (/ pi 4)) (make-translation-matrix 1 2 3)))
+
+;(define t (mulm (make-rotate-z-matrix (/ pi 4)) (make-translation-matrix 1 2 3)))
+
+(define t (mulm (mulm (make-rotate-z-matrix 0) (make-rotate-x-matrix (negate (/ pi 16)))) (make-rotate-y-matrix (negate (/ pi 16)))))
 
 (format #t "(define rect-before '~a)\n" before)
 (format #t "(define rect-after '~a)\n"
