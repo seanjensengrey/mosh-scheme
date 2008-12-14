@@ -2,6 +2,7 @@
 
         * compiler.scm (parse-lambda-vars): Return values.
                        (lambda-has-define?): Rewrote.
+                       (pass1/cond->iform): Added cond expansion.
 
         * Removed library support which is not used.
 

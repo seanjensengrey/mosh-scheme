@@ -90,8 +90,14 @@ Object scheme::localRefEx(int argc, const Object* argv)
     DeclareProcedureName("$localRefEx");
     checkArgumentLength(1);
     const Object label = Object::makeVector(2);
+    const Object lvar = argv[0];
     label.toVector()->set(0, Object::makeFixnum(LOCAL_REF));
-    label.toVector()->set(1, argv[0]);
+    label.toVector()->set(1, lvar);
+    MOSH_ASSERT(lvar.isVector());
+    Vector* const v = lvar.toVector();
+    const Object refCount = v->ref(3);
+    MOSH_ASSERT(refCount.isFixnum());
+    v->set(3, Object::makeFixnum(refCount.toFixnum() + 1));
     return label;
 }
 

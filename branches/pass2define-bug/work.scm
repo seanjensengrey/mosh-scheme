@@ -12,8 +12,11 @@
 
 
 
-
-
+(disasm
+(lambda ()
+  (aif (pair? '())
+       it
+       3)))
 
 
 
@@ -25,14 +28,14 @@
 ;(lambda ()
 ;; (let1 val (begin (define a 3))
 
-(define (tak x y z)
-  (if (not (< y x))
-      z
-      (tak (tak (- x 1) y z)
-           (tak (- y 1) z x)
-           (tak (- z 1) x y))))
+;; (define (tak x y z)
+;;   (if (not (< y x))
+;;       z
+;;       (tak (tak (- x 1) y z)
+;;            (tak (- y 1) z x)
+;;            (tak (- z 1) x y))))
 
-(disasm tak)
+;; (disasm tak)
 ;;   (if val #t #f))
 
 

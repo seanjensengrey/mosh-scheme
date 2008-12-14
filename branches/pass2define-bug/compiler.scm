@@ -305,9 +305,24 @@
 (define-macro ($lambda.set-flag! iform flag) `(vector-set! ,iform 7 ,flag))
 (define-macro ($lambda.set-calls! iform calls) `(vector-set! ,iform 8 ,calls))
 
+(define-macro ($lvar.ref-count++! lvar)
+  `($lvar.set-ref-count! ,lvar (+ ($lvar.ref-count ,lvar) 1)))
+
+(define-macro ($lvar.ref-count--! lvar)
+  `($lvar.set-ref-count! ,lvar (- ($lvar.ref-count ,lvar) 1)))
+
+(define-macro ($lvar.set-count++! lvar)
+  `($lvar.set-set-count! ,lvar (+ 1 ($lvar.set-count ,lvar))))
+
+(define-macro ($local-ref.copy dst src)
+  `($local-ref.set-lvar! ,dst ($local-ref.lvar ,src)))
+
 ;; struct $local-ref
 (define $LOCAL-REF 5)
+
+;; moved to C++
 (define ($local-ref lvar)
+  ($lvar.ref-count++! lvar)
   (vector $LOCAL-REF lvar))
 
 (define-macro ($local-ref.lvar iform) `(vector-ref ,iform 1))
@@ -462,17 +477,6 @@
 (define-macro (make-lvar sym)
   `($lvar ,sym '() 0 0))
 
-(define-macro ($lvar.ref-count++! lvar)
-  `($lvar.set-ref-count! ,lvar (+ ($lvar.ref-count ,lvar) 1)))
-
-(define-macro ($lvar.ref-count--! lvar)
-  `($lvar.set-ref-count! ,lvar (- ($lvar.ref-count ,lvar) 1)))
-
-(define-macro ($lvar.set-count++! lvar)
-  `($lvar.set-set-count! ,lvar (+ 1 ($lvar.set-count ,lvar))))
-
-(define-macro ($local-ref.copy dst src)
-  `($local-ref.set-lvar! ,dst ($local-ref.lvar ,src)))
 
 ;;--------------------------------------------------------------------
 ;;
@@ -558,8 +562,8 @@
       ;; use receive instead of call-with-values.
       [(call-with-values)
        ($src (pass1/expand ($src `(receive vals (,(second sexp)) (apply ,(third sexp) vals)) sexp)) sexp)]
-      [(cond)
-       ($src (pass1/expand (cond->if sexp)) sexp)]
+;;       [(cond)
+;;        ($src (pass1/expand (cond->if sexp)) sexp)]
       [(lambda)
        (cond [(lambda-has-define? sexp)
               ($src (pass1/expand ($src (internal-define->letrec sexp) sexp)) sexp)]
@@ -793,7 +797,7 @@
 (define (pass1/refer->iform symbol lvars)
   (acond
    [(pass1/find-symbol-in-lvars symbol lvars) ;; don't use find, it requires closure creation.
-    ($lvar.ref-count++! it)
+;    ($lvar.ref-count++! it)
     ($local-ref it)]
    [#t ($global-ref symbol)]))
 
@@ -887,6 +891,46 @@
       [else
        (error 'compiler "syntax-error: malformed or:" sexp)]))
   (rec (cdr sexp)))
+
+(define (pass1/cond->iform sexp lvars tail?)
+  (define (process-clauses cls)
+    (match cls
+      [() ($undef)]
+      ;; (else . exprs)
+      [(((? (lambda (x) (eq? x 'else))) exprs ...) . rest)
+       (unless (null? rest)
+         (error 'compiler "syntax-error: 'else' clause followed by more clauses:" sexp))
+       (pass1/body->iform exprs lvars tail?)]
+      ;; (test => proc)
+      [((test (? (lambda (x) (eq? x '=>))) proc) . rest)
+       (let ([test (pass1/sexp->iform (pass1/expand test) lvars #f)]
+             [tmp (make-lvar 'tmp)])
+         ($lvar.set-init-val! tmp test)
+         ($let 'let
+               (list tmp)
+               (list test)
+               ($if ($local-ref tmp)
+                    ($call (pass1/sexp->iform (pass1/expand proc) lvars tail?)
+                           (list ($local-ref tmp))
+                           tail?
+                           #f)
+                    (process-clauses rest)) tail? sexp))]
+      [((test) . rest)                  ; (test)
+       ($if (pass1/sexp->iform (pass1/expand test) lvars tail?)
+            ($it)
+            (process-clauses rest))]
+      [((test exprs ...) . rest)          ; (test . exprs)
+       ($if (pass1/sexp->iform test lvars #f)
+            (pass1/body->iform exprs lvars tail?)
+            (process-clauses rest))]
+      (_ (error 'compiler "syntax-error: bad clause in cond:" sexp))))
+  (match sexp
+    ((_)
+     (error "syntax-error: at least one clause is required for cond:" sexp))
+    ((_ clause ...)
+     (process-clauses clause))
+    (else
+     (error "syntax-error: malformed cond:" sexp))))
 
 (define top-level-macros '())
 
@@ -1097,6 +1141,9 @@
       ;;---------------------------- begin -------------------------------------
       [(begin)
        (pass1/body->iform (pass1/expand (cdr sexp)) lvars tail?)]
+      ;;---------------------------- cond --------------------------------------
+      [(cond)
+       (pass1/cond->iform (pass1/expand sexp) lvars tail?)]
       ;;---------------------------- values ------------------------------------
       [(values)
        ($asm 'VALUES (pass1/map-s->i-non-tail (cdr sexp)))]
@@ -1502,23 +1549,24 @@
   (vector-set! pass2/dispatch-table insn proc))
 
 (pass2/register $CONST         pass2/empty)
+(pass2/register $LET           pass2/$let)
+(pass2/register $SEQ           pass2/$seq)
 (pass2/register $LAMBDA        pass2/$lambda)
 (pass2/register $LOCAL-REF     pass2/$local-ref)
 (pass2/register $LOCAL-ASSIGN  pass2/$local-assign)
-(pass2/register $GLOBAL-ASSIGN pass2/$global-assign)
 (pass2/register $GLOBAL-REF    pass2/empty)
-(pass2/register $SEQ           pass2/$seq)
+(pass2/register $GLOBAL-ASSIGN pass2/$global-assign)
 (pass2/register $UNDEF         pass2/empty)
 (pass2/register $IF            pass2/$if)
 (pass2/register $ASM           pass2/$asm)
 (pass2/register $DEFINE        pass2/$define)
 (pass2/register $CALL          pass2/$call)
 (pass2/register $CALL-CC       pass2/empty)
-(pass2/register $LET           pass2/$let)
+(pass2/register $LABEL         pass2/empty)
 (pass2/register $LIST          pass2/empty)
 (pass2/register $IT            pass2/empty)
 (pass2/register $RECEIVE       pass2/$receive)
-(pass2/register $LABEL         pass2/empty)
+
 
 (define (pass2/optimize iform closures)
   ((vector-ref pass2/dispatch-table (vector-ref iform 0)) iform closures))
