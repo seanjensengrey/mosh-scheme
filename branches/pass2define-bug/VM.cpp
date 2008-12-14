@@ -65,6 +65,7 @@
 #include "UtilityProcedures.h"
 #include "Arithmetic.h"
 #include "FixnumProcedures.h"
+#include "Bignum.h"
 
 #ifdef DEBUG_VERSION
 #define VM_ASSERT(condition) { if (!(condition)) { \
@@ -1160,7 +1161,13 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             TRACE_INSN0("NUMBER_ADD");
             const Object n = index(sp_, 0);
             sp_--;
-            ac_ = Arithmetic::add(n, ac_);
+            // short cut for Fixnum. Benmarks tell me this is strongly required.
+            if (n.isFixnum() && ac_.isFixnum()) {
+                const int32_t val = n.toFixnum() + ac_.toFixnum();
+                ac_ = Bignum::makeInteger(val);
+            } else {
+                ac_ = Arithmetic::add(n, ac_);
+            }
             NEXT1;
         }
         CASE(NUMBER_EQUAL)
@@ -1168,7 +1175,12 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             const Object n = index(sp_, 0);
             TRACE_INSN0("NUMBER_EQUAL");
             sp_--;
-            ac_ = Object::makeBool(Arithmetic::eq(n, ac_));
+            // short cut for Fixnum. Benmarks tell me this is strongly required.
+            if (n.isFixnum() && ac_.isFixnum()) {
+                ac_ = Object::makeBool(n.toFixnum() == ac_.toFixnum());
+            } else {
+                ac_ = Object::makeBool(Arithmetic::eq(n, ac_));
+            }
             NEXT1;
         }
         CASE(NUMBER_GE)
@@ -1176,7 +1188,12 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             const Object n = index(sp_, 0);
             TRACE_INSN0("NUMBER_GE");
             sp_--;
-            ac_ = Object::makeBool(Arithmetic::ge(n, ac_));
+            // short cut for Fixnum. Benmarks tell me this is strongly required.
+            if (n.isFixnum() && ac_.isFixnum()) {
+                ac_ = Object::makeBool(n.toFixnum() >= ac_.toFixnum());
+            } else {
+                ac_ = Object::makeBool(Arithmetic::ge(n, ac_));
+            }
             NEXT1;
         }
         CASE(NUMBER_GT)
@@ -1184,7 +1201,12 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             const Object n = index(sp_, 0);
             TRACE_INSN0("NUMBER_GT");
             sp_--;
-            ac_ = Object::makeBool(Arithmetic::gt(n, ac_));
+            // short cut for Fixnum. Benmarks tell me this is strongly required.
+            if (n.isFixnum() && ac_.isFixnum()) {
+                ac_ = Object::makeBool(n.toFixnum() > ac_.toFixnum());
+            } else {
+                ac_ = Object::makeBool(Arithmetic::gt(n, ac_));
+            }
             NEXT1;
         }
         CASE(NUMBER_LE)
@@ -1192,7 +1214,12 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             const Object n = index(sp_, 0);
             TRACE_INSN0("NUMBER_LE");
             sp_--;
-            ac_ = Object::makeBool(Arithmetic::le(n, ac_));
+            // short cut for Fixnum. Benmarks tell me this is strongly required.
+            if (n.isFixnum() && ac_.isFixnum()) {
+                ac_ = Object::makeBool(n.toFixnum() <= ac_.toFixnum());
+            } else {
+                ac_ = Object::makeBool(Arithmetic::le(n, ac_));
+            }
             NEXT1;
         }
         CASE(NUMBER_LT)
@@ -1200,7 +1227,12 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             const Object n = index(sp_, 0);
             TRACE_INSN0("NUMBER_GE");
             sp_--;
-            ac_ = Object::makeBool(Arithmetic::lt(n, ac_));
+            // short cut for Fixnum. Benmarks tell me this is strongly required.
+            if (n.isFixnum() && ac_.isFixnum()) {
+                ac_ = Object::makeBool(n.toFixnum() < ac_.toFixnum());
+            } else {
+                ac_ = Object::makeBool(Arithmetic::lt(n, ac_));
+            }
             NEXT1;
         }
         CASE(NUMBER_MUL)
@@ -1223,7 +1255,13 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             const Object n = index(sp_, 0);
             TRACE_INSN0("NUMBER_SUB");
             sp_--;
-            ac_ = Arithmetic::sub(n, ac_);
+            // short cut for Fixnum. Benmarks tell me this is strongly required.
+            if (n.isFixnum() && ac_.isFixnum()) {
+                const int32_t val = n.toFixnum() - ac_.toFixnum();
+                ac_ = Bignum::makeInteger(val);
+            } else {
+                ac_ = Arithmetic::sub(n, ac_);
+            }
             NEXT1;
         }
         CASE(NUMBER_SUB_PUSH)
@@ -1231,7 +1269,13 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             const Object n = index(sp_, 0);
             TRACE_INSN0("NUMBER_SUB");
             sp_--;
-            ac_ = Arithmetic::sub(n, ac_);
+            // short cut for Fixnum. Benmarks tell me this is strongly required.
+            if (n.isFixnum() && ac_.isFixnum()) {
+                const int32_t val = n.toFixnum() - ac_.toFixnum();
+                ac_ = Bignum::makeInteger(val);
+            } else {
+                ac_ = Arithmetic::sub(n, ac_);
+            }
             push(ac_);
             NEXT1;
         }
@@ -1245,7 +1289,13 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         number_add_push_entry:
             const Object n = index(sp_, 0);
             sp_--;
-            ac_ = Arithmetic::add(n, ac_);
+            // short cut for Fixnum. Benmarks tell me this is strongly required.
+            if (n.isFixnum() && ac_.isFixnum()) {
+                const int32_t val = n.toFixnum() + ac_.toFixnum();
+                ac_ = Bignum::makeInteger(val);
+            } else {
+                ac_ = Arithmetic::add(n, ac_);
+            }
             push(ac_);
             NEXT1;
         }
