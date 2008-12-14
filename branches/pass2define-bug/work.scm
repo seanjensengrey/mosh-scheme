@@ -10,9 +10,34 @@
 ;;          '()
 ;;           (appender '() (recur '())))))
 
-(display           (if (not (pair? 3))
-               4
-               5))
+
+
+
+
+
+
+
+
+
+
+
+;(disasm
+;(lambda ()
+;; (let1 val (begin (define a 3))
+
+(define (tak x y z)
+  (if (not (< y x))
+      z
+      (tak (tak (- x 1) y z)
+           (tak (- y 1) z x)
+           (tak (- z 1) x y))))
+
+(disasm tak)
+;;   (if val #t #f))
+
+
+;(display (macroexpand '(guard (con (#t 'error)) (letrec ((a 3) (b a)) (display b) (newline)))))
+;(guard (con (#t 'error)) (letrec ((a 3) (b a)) (display b) (newline))); (format #t " Running ~d/~d" 71 1878) (add-error '(letrec ((a 3) (b a)) (display b) (newline)) 'error 'not-error))(display "")(let1 val (begin (letrec ((even? (lambda (n) (if (= 0 n) #t (odd? (- n 1))))) (odd? (lambda (n) (if (= 0 n) #f (even? (- n 1)))))) (cons (even? 88) (odd? 88)))) (if (equal? '(#t . #f) val) (format #t " Running ~d/~d" 72 1878) (begin (add-error '(letrec ((even? (lambda (n) (if (= 0 n) #t (odd? (- n 1))))) (odd? (lambda (n) (if (= 0 n) #f (even? (- n 1)))))) (cons (even? 88) (odd? 88))) '(#t . #f) val))))
 
 ;(a append '(1 2 3))
 ;; (import (rnrs)

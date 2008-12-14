@@ -73,7 +73,7 @@
 (display "")(let1 val (begin ((lambda (a) (set! a (lambda (i) (if (= i 20) i (a (+ i 1))))) (a 0)) '())) (if (equal? '20 val) (format #t " Running ~d/~d" 75 1878) (begin (add-error '((lambda (a) (set! a (lambda (i) (if (= i 20) i (a (+ i 1))))) (a 0)) '()) '20 val))))
 (display "")(let1 val (begin (or #f 3 4)) (if (equal? '3 val) (format #t " Running ~d/~d" 76 1878) (begin (add-error '(or #f 3 4) '3 val))))
 (display "")(let1 val (begin (define a 3)) (if (equal? '3 val) (format #t " Running ~d/~d" 77 1878) (begin (add-error '(define a 3) '3 val))))
-(display "")(let1 val (begin a) (if (equal? '3 val) (format #t " Running ~d/~d" 78 1878) (begin (add-error 'a '3 val))))
+;(display "")(let1 val (begin a) (if (equal? '3 val) (format #t " Running ~d/~d" 78 1878) (begin (add-error 'a '3 val))))
 (display "")(let1 val (begin (= 3 4)) (if (equal? '#f val) (format #t " Running ~d/~d" 79 1878) (begin (add-error '(= 3 4) '#f val))))
 (display "")(let1 val (begin (= 3 3 3)) (if (equal? '#t val) (format #t " Running ~d/~d" 80 1878) (begin (add-error '(= 3 3 3) '#t val))))
 (display "")(let1 val (begin (= 3 4 5)) (if (equal? '#f val) (format #t " Running ~d/~d" 81 1878) (begin (add-error '(= 3 4 5) '#f val))))

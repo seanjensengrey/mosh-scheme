@@ -184,6 +184,7 @@ private:
             MOSH_ASSERT(false);
         }
         MOSH_ASSERT(false);
+        return Object::Undef;
     }
 
     Object* symbolsAndStringsArray_;

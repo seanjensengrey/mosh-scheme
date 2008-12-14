@@ -100,7 +100,6 @@ public:
     void showStack(int count, const char* file, int line);
 #define SHOW_STACK(count) showStack(count, __FILE__, __LINE__)
 
-    void initLibraryTable();
     void throwException(Object exception);
     Object getOutputPort();
     Object getErrorPort();
@@ -139,7 +138,6 @@ protected:
     void skip(int n);
     void push(Object obj);
     void pushWithCheck(Object obj);
-    Object splitId(Object id);
     Object stackToPairArgs(Object* sp, int nArgs);
     void pairArgsToStack(Object* sp, int offset, Object args);
     void indexSet(Object* sp, int i, Object v);
@@ -152,10 +150,6 @@ protected:
     Object makeContinuation(Object n);
     Object* getDirectThreadedCode(Object* code, int length);
     void expandStack(int plusSize);
-    // $library structure accessor.
-    // This structure is shared with compiler and VM.
-    void setLibraryMacro(Object library, Object macro);
-    Object getLibraryCompiledBody(Object library);
 
 public:
     Object ac_;  // accumulator     register
@@ -169,9 +163,6 @@ protected:
     Object* stack_;
     Object* stackEnd_;
     Object* maxStack_;
-    Object topLevelInstance_;
-    Object instances_;
-    Object libraries_;
     Object nameSpace_;
     Object notFound_;
     Object outputPort_;

@@ -70,10 +70,8 @@ enum {
     CALL          = 14,
     LABEL         = 15,
     LIST          = 16,
-    LIBRARY       = 17,
-    IMPORT        = 18,
-    IT            = 20,
-    RECEIVE       = 21
+    IT            = 17,
+    RECEIVE       = 18
 };
 
 Object scheme::labelEx(int argc, const Object* argv)
@@ -229,7 +227,7 @@ Object findFreeLocalRef(Vector* v, Object l, Object canFrees, Object labelsSeen)
 
 Object findFreeGlobalRef(Vector* v, Object l, Object canFrees, Object labelsSeen)
 {
-        const Object sym = v->ref(2);
+        const Object sym = v->ref(1);
         if (existsInCanFrees(sym, canFrees)) {
             return Pair::list1(sym);
         } else {
@@ -257,7 +255,6 @@ Object findFreeLabel(Object i, Vector* v, Object l, Object canFrees, Object labe
 
 Object findFreeCall(Vector* v, Object l, Object canFrees, Object labelsSeen)
 {
-
         const Object callArgs = v->ref(2);
         const Object callProc = v->ref(1);
         return Pair::append2(findFreeRecMap(l, canFrees, labelsSeen, callArgs),
@@ -313,7 +310,7 @@ Object findFreeRec(Object i, Object l, Object canFrees, Object labelsSeen)
     }
     case DEFINE:
     {
-        const Object defineVal = v->ref(3);
+        const Object defineVal = v->ref(2);
         return findFreeRec(defineVal, l, canFrees, labelsSeen);
     }
     case CALL:
@@ -327,7 +324,7 @@ Object findFreeRec(Object i, Object l, Object canFrees, Object labelsSeen)
     }
     case GLOBAL_ASSIGN:
     {
-        const Object globalAssignVal = v->ref(3);
+        const Object globalAssignVal = v->ref(2);
         return findFreeRec(globalAssignVal, l, canFrees, labelsSeen);
     }
     case LIST:
@@ -339,10 +336,6 @@ Object findFreeRec(Object i, Object l, Object canFrees, Object labelsSeen)
     {
         return findFreeLabel(i, v, l, canFrees, labelsSeen);
     }
-    case IMPORT:
-        return Object::Nil;
-    case LIBRARY:
-        return Object::Nil;
     case IT:
         return Object::Nil;
     default:
@@ -469,7 +462,7 @@ Object findSetsRec(Object i, Object lvars, Object labelsSeen)
     }
     case GLOBAL_ASSIGN:
     {
-        const Object globalAssignVal = v->ref(3);
+        const Object globalAssignVal = v->ref(2);
         return findSetsRec(globalAssignVal, lvars, labelsSeen);
     }
     case LIST:
@@ -481,10 +474,6 @@ Object findSetsRec(Object i, Object lvars, Object labelsSeen)
     {
         return findSetsLabel(i, lvars, labelsSeen);
     }
-    case IMPORT:
-        return Object::Nil;
-    case LIBRARY:
-        return Object::Nil;
     case IT:
         return Object::Nil;
     default:

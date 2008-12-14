@@ -83,7 +83,6 @@
     values
     (vm/apply vm/apply)
     (pair? pair?)
-    (init-library-table init-library-table) ;; for test
     (make-custom-binary-input-port (lambda (id read! get-position set-position! close) (display "make-custom-binary-input-port not implemented")))
     get-u8
     bytevector-u8-set!

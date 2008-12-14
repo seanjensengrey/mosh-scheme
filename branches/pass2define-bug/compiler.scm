@@ -162,13 +162,6 @@
 
 (define (alist-cons obj1 obj2 obj3) (cons (cons obj1 obj2) obj3))
 
-(define (libname->symbol name)
-  (let loop ([name name]
-             [ret  ""])
-    (if (null? name)
-        (string->symbol ret)
-        (loop (cdr name) (string-append ret (symbol->string (car name)))))))
-
 ;;--------------------------------------------------------------------
 ;;
 ;; Generic
@@ -333,25 +326,21 @@
 
 ;; struct $global-ref
 (define $GLOBAL-REF 7)
-(define ($global-ref libname sym)
-  (vector $GLOBAL-REF libname sym))
+(define ($global-ref sym)
+  (vector $GLOBAL-REF sym))
 
-(define-macro ($global-ref.libname iform) `(vector-ref ,iform 1))
-(define-macro ($global-ref.sym iform) `(vector-ref ,iform 2))
-(define-macro ($global-ref.set-libname! iform libname) `(vector-set! ,iform 1 ,libname))
-(define-macro ($global-ref.set-sym! iform sym) `(vector-set! ,iform 2 ,sym))
+(define-macro ($global-ref.sym iform) `(vector-ref ,iform 1))
+(define-macro ($global-ref.set-sym! iform sym) `(vector-set! ,iform 1 ,sym))
 
 ;; struct $global-assign
 (define $GLOBAL-ASSIGN 8)
-(define ($global-assign libname sym val)
-  (vector $GLOBAL-ASSIGN libname sym val))
+(define ($global-assign sym val)
+  (vector $GLOBAL-ASSIGN sym val))
 
-(define-macro ($global-assign.libname iform) `(vector-ref ,iform 1))
-(define-macro ($global-assign.sym iform) `(vector-ref ,iform 2))
-(define-macro ($global-assign.val iform) `(vector-ref ,iform 3))
-(define-macro ($global-assign.set-libname! iform libname) `(vector-set! ,iform 1 ,libname))
-(define-macro ($global-assign.set-sym! iform sym) `(vector-set! ,iform 2 ,sym))
-(define-macro ($global-assign.set-val! iform val) `(vector-set! ,iform 3 ,val))
+(define-macro ($global-assign.sym iform) `(vector-ref ,iform 1))
+(define-macro ($global-assign.val iform) `(vector-ref ,iform 2))
+(define-macro ($global-assign.set-sym! iform sym) `(vector-set! ,iform 1 ,sym))
+(define-macro ($global-assign.set-val! iform val) `(vector-set! ,iform 2 ,val))
 
 ;; struct $undef
 (define $UNDEF 9)
@@ -381,15 +370,13 @@
 
 ;; struct $define
 (define $DEFINE 12)
-(define ($define libname sym val)
-  (vector $DEFINE libname sym val))
+(define ($define sym val)
+  (vector $DEFINE sym val))
 
-(define-macro ($define.libname iform) `(vector-ref ,iform 1))
-(define-macro ($define.sym iform) `(vector-ref ,iform 2))
-(define-macro ($define.val iform) `(vector-ref ,iform 3))
-(define-macro ($define.set-libname! iform libname) `(vector-set! ,iform 1 ,libname))
-(define-macro ($define.set-sym! iform sym) `(vector-set! ,iform 2 ,sym))
-(define-macro ($define.set-val! iform val) `(vector-set! ,iform 3 ,val))
+(define-macro ($define.sym iform) `(vector-ref ,iform 1))
+(define-macro ($define.val iform) `(vector-ref ,iform 2))
+(define-macro ($define.set-sym! iform sym) `(vector-set! ,iform 1 ,sym))
+(define-macro ($define.set-val! iform val) `(vector-set! ,iform 2 ,val))
 
 ;; struct $call-cc
 (define $CALL-CC 13)
@@ -441,58 +428,12 @@
 (define-macro ($list.args iform) `(vector-ref ,iform 1))
 (define-macro ($list.set-args! iform args) `(vector-set! ,iform 1 ,args))
 
-
-;; struct $library
-(define $LIBRARY 17)
-(define ($library name export-syms import-syms import macro body compiled-body)
-  (vector $LIBRARY (libname->symbol name) export-syms import-syms import macro body compiled-body))
-
-(define-macro ($library.name iform) `(vector-ref ,iform 1))
-(define-macro ($library.export-syms iform) `(vector-ref ,iform 2))
-(define-macro ($library.import-syms iform) `(vector-ref ,iform 3))
-(define-macro ($library.import iform) `(vector-ref ,iform 4))
-(define-macro ($library.macro iform) `(vector-ref ,iform 5))
-(define-macro ($library.body iform) `(vector-ref ,iform 6))
-(define-macro ($library.compiled-body iform) `(vector-ref ,iform 7))
-(define-macro ($library.set-name! iform name) `(vector-set! ,iform 1 ,name))
-(define-macro ($library.set-export-syms! iform export-syms) `(vector-set! ,iform 2 ,export-syms))
-(define-macro ($library.set-import-syms! iform import-syms) `(vector-set! ,iform 3 ,import-syms))
-(define-macro ($library.set-import! iform import) `(vector-set! ,iform 4 ,import))
-(define-macro ($library.set-macro! iform macro) `(vector-set! ,iform 5 ,macro))
-(define-macro ($library.append-macro! iform macro) `(vector-set! ,iform 5 (append ($library.macro ,iform) ,macro)))
-(define-macro ($library.set-body! iform body) `(vector-set! ,iform 6 ,body))
-(define-macro ($library.set-compiled-body! iform compiled-body) `(vector-set! ,iform 7 ,compiled-body))
-
-
-;; struct $import
-(define $IMPORT 18)
-(define ($import import-specs)
-;;   (let1 v (make-vector 2)
-;;     (vector-set! v 0 $IMPORT)
-;;     (vector-set! v 1 import-specs)
-;;     v))
-  (vecto $IMPORT import-specs ))
-
-(define-macro ($import.import-specs iform) `(vector-ref ,iform 1))
-(define-macro ($import.set-import-specs! iform import-specs) `(vector-set! ,iform 1 ,import-specs))
-
-
-;; struct $import-spec
-(define $IMPORT-SPEC 19)
-(define ($import-spec libname level)
-  (vector $IMPORT-SPEC libname level))
-
-(define-macro ($import-spec.libname iform) `(vector-ref ,iform 1))
-(define-macro ($import-spec.level iform) `(vector-ref ,iform 2))
-(define-macro ($import-spec.set-libname! iform libname) `(vector-set! ,iform 1 ,libname))
-(define-macro ($import-spec.set-level! iform level) `(vector-set! ,iform 2 ,level))
-
-(define $IT 20)
+(define $IT 17)
 (define ($it)
   (make-vector 1 $IT))
 
 ;; struct $receive
-(define $RECEIVE 21)
+(define $RECEIVE 18)
 (define ($receive lvars reqargs optarg vals body tail?)
   (vector $RECEIVE lvars reqargs optarg vals body tail?))
 
@@ -507,7 +448,7 @@
 (define-macro ($receive.set-body! iform body) `(vector-set! ,iform 5 ,body))
 (define-macro ($receive.set-tail?! iform tail?) `(vector-set! ,iform 6 ,tail?))
 
-(define $INSN-NUM 22)
+(define $INSN-NUM 19)
 
 (define-macro (tag iform)
   `(vector-ref ,iform 0))
@@ -533,21 +474,10 @@
 (define-macro ($local-ref.copy dst src)
   `($local-ref.set-lvar! ,dst ($local-ref.lvar ,src)))
 
-(define-macro ($library.add-import-syms! library import-syms)
-  `($library.set-import-syms! ,library (append ($library.import-syms ,library) ,import-syms)))
-
-(define-macro ($library.add-import! library import)
-  `($library.set-import! ,library (append ($library.import ,library) (list ,import))))
-
 ;;--------------------------------------------------------------------
 ;;
 ;; Pass1
 ;;
-
-(define (make-empty-library name)
-  ($library name '() '() '() '() '() #f))
-
-(define top-level-library (make-empty-library '(top-level)))
 
 ;; Parse lambda vars and return (optional-arg? . vars).
 ;;   a       => (#t (a))
@@ -847,18 +777,6 @@
           (car lst)
           (find-with-car object (cdr lst)))))
 
-(define (pass1/lib-refer->iform symbol library)
-  (let1 import-syms ($library.import-syms library)
-    (aif (find-with-car symbol import-syms)
-         ($global-ref (second it) (third it)) ;; bind found on import-syms.
-         ($global-ref ($library.name library) symbol))))
-
-(define (pass1/lib-assign->iform symbol library val)
-  (let1 import-syms ($library.import-syms library)
-    (aif (find-with-car symbol import-syms)
-         ($global-assign (second it) (third it) val) ;; bind found on import-syms.
-         ($global-assign ($library.name library) symbol val))))
-
 (cond-expand
  [vm?
   ;; moved to CompilerProcedures.cpp
@@ -871,29 +789,24 @@
       (pass1/find-symbol-in-lvars symbol (cdr lvars))]))]
  [else #f])
 
-(define (pass1/refer->iform symbol library lvars)
+(define (pass1/refer->iform symbol lvars)
   (acond
-;   [(find10 (lambda (lvar) (eq? ($lvar.sym lvar) symbol)) lvars)
    [(pass1/find-symbol-in-lvars symbol lvars) ;; don't use find, it requires closure creation.
     ($lvar.ref-count++! it)
     ($local-ref it)]
-   [(pass1/lib-refer->iform symbol library)
-    it]
-   [#t ($global-ref '(top-level) symbol)]))
+   [#t ($global-ref symbol)]))
 
-(define (pass1/assign symbol val library lvars tail?)
-  (let1 iform (pass1/sexp->iform val library lvars tail?)
+(define (pass1/assign symbol val lvars tail?)
+  (let1 iform (pass1/sexp->iform val lvars tail?)
     (acond
      [(pass1/find-symbol-in-lvars symbol lvars) ;; don't use find, it requires closure creation.
       ($lvar.set-count++! it)
       ($local-assign it iform)]
-     [(pass1/lib-assign->iform symbol library iform)
-      it]
-     [#t ($global-assign '(top-level) symbol iform)])))
+     [#t ($global-assign symbol iform)])))
 
-(define (pass1/body->iform body library lvars tail?)
+(define (pass1/body->iform body lvars tail?)
   (let1 iforms ($map1-with-tail
-                (lambda (b t?) (pass1/sexp->iform (pass1/expand b) library lvars (and t? tail?))) body)
+                (lambda (b t?) (pass1/sexp->iform (pass1/expand b) lvars (and t? tail?))) body)
     (if (= 1 (length iforms))
         (car iforms)
         ($seq iforms tail?))))
@@ -910,7 +823,7 @@
 
 ;; Closure source info format
 ;; ((file . lineno) (proc args))
-(define (pass1/lambda->iform name sexp library lvars)
+(define (pass1/lambda->iform name sexp lvars)
   (let* ([vars          (second sexp)]
          [body          (cddr sexp)]
          [parsed-vars   (parse-lambda-vars vars)]
@@ -924,171 +837,47 @@
              (if optional-arg? 1 0)
              this-lvars
              ;; the inner lvar comes first.
-             (pass1/body->iform body library (append this-lvars lvars) #t)
+             (pass1/body->iform body (append this-lvars lvars) #t)
              '()
              '())))
 
-;; Store <libname . $library> for compiler.
-;; You can't use this for VM.
-(define libraries (make-eq-hashtable))
-
-(define-macro (make-identifier alias libname name)
-  `(list ,alias ,libname ,name))
-
-(define (copy-identifier i)
-  (list (first i) (second i) (third i)))
-
-;; Now, we ignore version.
-(define (library-name form)
-  (remove-tail (second form) pair?))
-
-(define (pass1/and->iform sexp library lvars tail?)
+(define (pass1/and->iform sexp lvars tail?)
   (define (rec s)
     (match s
       [() ($const #t)]
       [(s)
-       (pass1/sexp->iform (pass1/expand s) library lvars tail?)]
+       (pass1/sexp->iform (pass1/expand s) lvars tail?)]
       [(e . more)
-       ($if (pass1/sexp->iform (pass1/expand e) library lvars tail?)
+       ($if (pass1/sexp->iform (pass1/expand e) lvars tail?)
             (rec more)
             ($it))]
       [else
        (error 'compiler "syntax-error: malformed and:" sexp)]))
   (rec (cdr sexp)))
 
-(define (pass1/or->iform sexp library lvars tail?)
+(define (pass1/or->iform sexp lvars tail?)
   (define (rec s)
     (match s
       [() ($const #f)]
       [(s)
-       (pass1/sexp->iform (pass1/expand s) library lvars tail?)]
+       (pass1/sexp->iform (pass1/expand s) lvars tail?)]
       [(e . more)
-       ($if (pass1/sexp->iform (pass1/expand e) library lvars tail?)
+       ($if (pass1/sexp->iform (pass1/expand e) lvars tail?)
             ($it)
             (rec more))]
       [else
        (error 'compiler "syntax-error: malformed or:" sexp)]))
   (rec (cdr sexp)))
 
-;; (define (pass1/library->iform sexp library lvars)
-;;   (define (get-identifier symbol libname imports)
-;;     (aif (find-with-car symbol imports)
-;;          (copy-identifier it)
-;;          (make-identifier symbol libname symbol)))
-;;   (define (get-rename-identifier rename-set libname imports)
-;;     (aif (find-with-car (car rename-set) imports)
-;;          (let1 identifier (copy-identifier it)
-;;            (set-car! identifier (second rename-set))
-;;            identifier)
-;;          (make-identifier (second rename-set) libname (first rename-set))))
-;;   (define (extract-exports imports libname form)
-;;     (let loop ([export (cdr form)]
-;;                [ret    '()])
-;;       (cond
-;;        [(null? export) ret]
-;;        [(and (pair? (car export)) (eq? (caar export) 'rename))
-;;         (loop (cdr export)
-;;               (append ret ($map1 (lambda (p) (get-rename-identifier p libname imports)) (cdar export))))]
-;;        [else
-;;         (loop (cdr export) (cons (get-identifier (car export) libname imports) ret))])))
-;;   (let1 lib ($library (library-name sexp) '() '() '() '() '() #f)
-;;     ;; We parse (library ...) with following order.
-;;     ;; 1. parse (import ...), then we know all impoted symbols and their name.
-;;     ;; 2. parse (export ...).
-;;     ;;    When the library exports symbol which is imported from another library, we link these by using imported symbols information got above.
-;;     ;; 3. set body.
-;;     ($library.set-import! lib (pass1/import->iform (fourth sexp) lib))
-;;     ($library.set-export-syms! lib (extract-exports ($library.import-syms lib) ($library.name lib) (third sexp)))
-;;     ;; We compile body at runtime.
-;;     ($library.set-body! lib (cddddr sexp))
-;;     (hashtable-set! libraries ($library.name lib) lib)
-;;     lib))
-
-;; (define (pass1/import->iform sexp library)
-;;   ;; ignore <version>.
-;;   (define (library-name form)
-;;     (libname->symbol (remove-tail form pair?)))
-;;   (define (parse-level form)
-;;     (cond
-;;      [(symbol? form)
-;;       (case form
-;;         [(expand) 1]
-;;         [(run)    0]
-;;         [else (error 'compiler "unknown for")])]
-;;      [(and (pair? form) (= (length form) 2) (eq? (first form) 'meta))
-;;       (second form)]
-;;      [else
-;;       (error 'compiler "unknown level on meta")]))
-;;   ;; todo cleanup this code. (uhaaaa)
-;;   (define (import-iter form level)
-;;     (case (first form)
-;;       [(for)
-;;        (import-iter (second form) (parse-level (third form)))]
-;;       [(only)
-;;        (let1 only-binds (cddr form)
-;;          (acond
-;;           [(hashtable-ref libraries (library-name (second form)) #f)
-;;            ($library.add-import-syms! library ($filter-map1 (lambda (x)
-;;                                                               (if (memq (car x) only-binds)
-;;                                                                   (copy-identifier x)
-;;                                                                   #f)) ;; not imported
-;;                                                             ($library.export-syms it)))
-;;            ($import-spec ($library.name it) level)]
-;;           [#t
-;;            (error "library " (library-name (second form)) " not found")]))]
-;;       [(except)
-;;        (let1 except-binds (cddr form)
-;;          (acond
-;;           [(hashtable-ref libraries (library-name (second form)) #f)
-;;            ($library.add-import-syms! library ($filter-map1 (lambda (x)
-;;                                                               (if (memq (car x) except-binds)
-;;                                                                   #f ;; not imported
-;;                                                                   (copy-identifier x)))
-;;                                                             ($library.export-syms it)))
-;;            ($import-spec ($library.name it) level)]
-;;           [#t
-;;            (error "library " (library-name (second form)) " not found")]))]
-;;       [(rename)
-;;        (let1 renames (cddr form)
-;;          (acond
-;;           [(hashtable-ref libraries (library-name (second form)) #f)
-;;            ($library.add-import-syms! library ($filter-map1 (lambda (x)
-;;                                                               (aif (find-with-car (first x) renames)
-;;                                                                ;(find10 (lambda (rename) (eq? (first x) (first rename))) renames)
-;;                                                                    (make-identifier (second it) (second x) (third x))
-;;                                                                    (copy-identifier x)))
-;;                                                             ($library.export-syms it)))
-;;            ($import-spec ($library.name it) level)]
-;;           [#t
-;;            (error "library " (library-name (second form)) " not found")]))]
-;;       [(prefix)
-;;        (let1 prefix (symbol->string (third form))
-;;          (acond
-;;           [(hashtable-ref libraries (library-name (second form)) #f)
-;;            ($library.add-import-syms! library ($filter-map1 (lambda (x) (make-identifier
-;;                                                                          (string->symbol (string-append prefix (symbol->string (first x))))
-;;                                                                          (second x)
-;;                                                                          (third x)))
-;;                                                             ($library.export-syms it)))
-;;            ($import-spec ($library.name it) level)]
-;;           [#t
-;;            (error "library " (library-name (second form)) " not found")]))]
-;;       [else
-;;        (acond
-;;         [(hashtable-ref libraries (library-name form) #f)
-;;          ($library.add-import-syms! library ($map1 copy-identifier ($library.export-syms it)))
-;;          ($import-spec ($library.name it) level)]
-;;         [#t
-;;          (error "library " (library-name form) " not found")])]))
-;;   ;; default import level is zero.
-;;   ($import ($map1 (lambda (i) (import-iter i 0)) (cdr sexp))))
+(define top-level-macros '())
 
 ;; N.B.
 ;; this procedure is called from freeproc.cpp
 (define (pass1/macroexpand sexp)
   (let1 proc (first sexp)
     (acond
-     [(and (symbol? proc) (assq proc ($library.macro top-level-library)))
+     [(and (symbol? proc) (assq proc top-level-macros))
+;      (display top-level-macros (current-error-port))
       (pass1/expand (vm/apply (cdr it) (cdr sexp)))]
      [#t sexp])))
 
@@ -1117,10 +906,10 @@
 
 ;; short cut macros
 (define-macro (pass1/s->i sexp)
-  `(pass1/sexp->iform (pass1/expand ,sexp) library lvars tail?))
+  `(pass1/sexp->iform (pass1/expand ,sexp) lvars tail?))
 
 (define-macro (pass1/s->i-non-tail sexp)
-  `(pass1/sexp->iform (pass1/expand ,sexp) library lvars #f))
+  `(pass1/sexp->iform (pass1/expand ,sexp) lvars #f))
 
 (define-macro (pass1/map-s->i sexp)
   `(imap (lambda (s) (pass1/s->i s)) ,sexp))
@@ -1128,40 +917,27 @@
 (define-macro (pass1/map-s->i-non-tail sexp)
   `(imap (lambda (s) (pass1/s->i-non-tail s)) ,sexp))
 
-(define (pass1/call proc args library lvars tail?)
+(define (pass1/call proc args lvars tail?)
   (acond
    [(and (symbol? proc)
-         (assq proc ($library.macro library)))
-;;     (display "before\n" (current-error-port))
-;;     (display (vm/apply (cdr it) args) (current-error-port))
-;;     (display "end\n" (current-error-port))
+         (assq proc top-level-macros))
     (pass1/s->i (vm/apply (cdr it) args))]
-   [(and (symbol? proc) (find-with-car proc ($library.import-syms library)))
-         ;(find10 (lambda (sym) (eq? (first sym) proc)) ($library.import-syms library)))
-    (let* ([lib (hashtable-ref libraries (second it) #f)]
-           [macro (assq (third it) ($library.macro lib))])
-      (if macro
-          (pass1/s->i (vm/apply (cdr macro) args))
-          ($call (pass1/s->i proc)
-                 (pass1/map-s->i args)
-                 tail?
-                 #f)))]
    [#t
     ($call (pass1/s->i proc)
            (pass1/map-s->i-non-tail args)
            tail?
            #f)]))
 
-(define (pass1/define sexp library lvars tail?)
+(define (pass1/define sexp lvars tail?)
   (match sexp
     [('define name ('lambda . more))
      (let1 closure  (make-list-with-src-slot (cons 'lambda more))
        (set-source-info! closure (source-info (third sexp)))
-       ($define ($library.name library) name (pass1/lambda->iform name closure library lvars)))]
+       ($define name (pass1/lambda->iform name closure lvars)))]
     [else
-     ($define ($library.name library) (second sexp) (pass1/s->i (third sexp)))]))
+     ($define (second sexp) (pass1/s->i (third sexp)))]))
 
-(define (pass1/receive sexp library lvars tail?)
+(define (pass1/receive sexp lvars tail?)
   (match sexp
     [('receive vars vals . body)
      (receive (vars reqargs optarg) (parse-lambda-args vars)
@@ -1172,20 +948,20 @@
           optarg
           (pass1/s->i-non-tail vals)
           ;; the inner lvar comes first.
-          (pass1/body->iform (pass1/expand body) library (append this-lvars lvars) tail?)
+          (pass1/body->iform (pass1/expand body) (append this-lvars lvars) tail?)
           tail?)))]
     [else
      (syntax-error "malformed receive")]))
 
 
-(define (pass1/let vars vals body source-info library lvars tail?)
+(define (pass1/let vars vals body source-info lvars tail?)
   (let* ([inits      (pass1/map-s->i vals)]
          [this-lvars (map (lambda (sym init) ($lvar sym init 0 0)) vars inits)])
     ($let 'let
           this-lvars
           inits
           ;; the inner lvar comes first.
-          (pass1/body->iform (pass1/expand body) library (append this-lvars lvars) tail?)
+          (pass1/body->iform (pass1/expand body)  (append this-lvars lvars) tail?)
           tail?
           source-info
           )))
@@ -1193,9 +969,9 @@
 (define (make-compile-error who message . irritants)
   (list who message irritants))
 
-(define (pass1/letrec vars vals body source-info library lvars tail?)
+(define (pass1/letrec vars vals body source-info lvars tail?)
   (let* ([this-lvars (imap (lambda (sym) ($lvar sym ($undef) 0 0)) vars)]
-         [inits      (imap (lambda (x) (pass1/sexp->iform x library (append this-lvars lvars) tail?)) vals)])
+         [inits      (imap (lambda (x) (pass1/sexp->iform x (append this-lvars lvars) tail?)) vals)])
     (for-each (lambda (lvar init) ($lvar.set-init-val! lvar init)) this-lvars inits)
     (let1 found-error (find (lambda (init)
                               (and (tag? init $LOCAL-REF) (memq ($local-ref.lvar init) this-lvars))) inits)
@@ -1203,7 +979,7 @@
           this-lvars
           inits
           ;; the inner lvar comes first.
-          (pass1/body->iform (pass1/expand body) library (append this-lvars lvars) tail?)
+          (pass1/body->iform (pass1/expand body) (append this-lvars lvars) tail?)
           tail?
           source-info
           (if found-error (make-compile-error
@@ -1213,23 +989,23 @@
               #f)
           ))))
 
-(define (pass1/if test then more library lvars tail?)
+(define (pass1/if test then more lvars tail?)
   ($if
-   (pass1/sexp->iform (pass1/expand test) library lvars #f) ;; N.B. test clause is NOT in tail-context.
+   (pass1/sexp->iform (pass1/expand test) lvars #f) ;; N.B. test clause is NOT in tail-context.
    (pass1/s->i then)
    (if (null? more)
        ($undef)
        (pass1/s->i (car more)))))
 
-(define (pass1/define-macro sexp library lvars tail?)
+(define (pass1/define-macro sexp lvars tail?)
   (if (pair? (second sexp))
       ; we can't use hash-table here, because hash-table can't be written with (write).
       ; So we use acons instead.
-      ($library.set-macro! library (alist-cons (caadr sexp)  (compile-partial `(lambda ,(cdadr sexp) ,(third sexp)) library) ($library.macro library)))
-      ($library.set-macro! library (alist-cons (second sexp) (compile-partial (third sexp)) ($library.macro library))))
-       ($undef))
+      (set! top-level-macros (alist-cons (caadr sexp)  (compile-partial `(lambda ,(cdadr sexp) ,(third sexp))) top-level-macros))
+      (set! top-level-macros (alist-cons (second sexp) (compile-partial (third sexp)) top-level-macros)))
+  ($undef))
 
-(define (pass1/asm-numcmp tag operator args library lvars)
+(define (pass1/asm-numcmp tag operator args lvars)
   (let1 len (length args)
     (cond [(> 2 len) (error operator " got too few argument")]
           [(= 2 len)
@@ -1239,26 +1015,26 @@
           [else
            (pass1/s->i-non-tail (conditions->if (apply-each-pair operator args)))])))
 
-(define (pass1/asm-1-arg tag arg1 library lvars)
+(define (pass1/asm-1-arg tag arg1 lvars)
   ($asm tag (list (pass1/s->i-non-tail arg1))))
 
-(define (pass1/asm-2-arg tag arg1 arg2 library lvars)
+(define (pass1/asm-2-arg tag arg1 arg2 lvars)
   ($asm tag (list (pass1/s->i-non-tail arg1) (pass1/s->i-non-tail arg2))))
 
-(define (pass1/asm-3-arg tag arg1 arg2 arg3 library lvars)
+(define (pass1/asm-3-arg tag arg1 arg2 arg3 lvars)
   ($asm tag (list (pass1/s->i-non-tail arg1)
                   (pass1/s->i-non-tail arg2)
                   (pass1/s->i-non-tail arg3))))
 
-(define (pass1/asm-1-arg-optional tag args library lvars)
+(define (pass1/asm-1-arg-optional tag args lvars)
   (let1 arg1 (if (null? args) '() (car args))
     ($asm tag (list (pass1/s->i-non-tail arg1)))))
 
-(define (pass1/asm-2-arg-optional tag arg1 rest library lvars)
+(define (pass1/asm-2-arg-optional tag arg1 rest lvars)
   (let1 arg2 (if (null? rest) '() (car rest))
     ($asm tag (list (pass1/s->i-non-tail arg1) (pass1/s->i-non-tail arg2)))))
 
-(define (pass1/asm-n-args tag operator args library lvars)
+(define (pass1/asm-n-args tag operator args lvars)
   (let1 len (length args)
     (cond
      [(zero? len)
@@ -1283,76 +1059,69 @@
       (let1 args-iform (pass1/map-s->i-non-tail args)
         (fold (lambda (x y) ($asm tag (list y x))) (car args-iform) (cdr args-iform)))])))
 
-(define (pass1/sexp->iform sexp library lvars tail?)
+(define (pass1/sexp->iform sexp lvars tail?)
   (cond
    [(pair? sexp)
     (case (car sexp)
       ;;---------------------------- lambda ------------------------------------
       [(lambda)
-       (pass1/lambda->iform 'lambda sexp library lvars)]
+       (pass1/lambda->iform 'lambda sexp lvars)]
       ;;---------------------------- cons --------------------------------------
       [(cons)
-       (pass1/asm-2-arg 'CONS (second sexp) (third sexp) library lvars)]
+       (pass1/asm-2-arg 'CONS (second sexp) (third sexp) lvars)]
       ;;---------------------------- and ---------------------------------------
       [(and)
-       (pass1/and->iform sexp library lvars tail?)]
+       (pass1/and->iform sexp lvars tail?)]
       ;;---------------------------- and ---------------------------------------
       [(or)
-       (pass1/or->iform sexp library lvars tail?)]
+       (pass1/or->iform sexp lvars tail?)]
       ;;---------------------------- begin -------------------------------------
       [(begin)
-       (pass1/body->iform (pass1/expand (cdr sexp)) library lvars tail?)]
+       (pass1/body->iform (pass1/expand (cdr sexp)) lvars tail?)]
       ;;---------------------------- values ------------------------------------
       [(values)
        ($asm 'VALUES (pass1/map-s->i-non-tail (cdr sexp)))]
       ;;---------------------------- define ------------------------------------
       [(define)
-       (pass1/define sexp library lvars tail?)]
+       (pass1/define sexp lvars tail?)]
       ;;---------------------------- define-macro ------------------------------
       [(define-macro)
-       (pass1/define-macro sexp library lvars tail?)]
+       (pass1/define-macro sexp lvars tail?)]
       ;;---------------------------- receive -----------------------------------
       [(receive)
-       (pass1/receive sexp library lvars tail?)]
+       (pass1/receive sexp lvars tail?)]
       ;;---------------------------- let ---------------------------------------
       [(let)
        (pass1/let (imap car (second sexp))  ; vars
                   (imap cadr (second sexp)) ; vals
                   (cddr sexp)                ; body
                   (source-info sexp)         ; source-info
-                  library lvars tail?)]
+                  lvars tail?)]
       ;;---------------------------- letrec ------------------------------------
       [(letrec)
        (pass1/letrec (imap car (second sexp))  ; vars
                      (imap cadr (second sexp)) ; vals
                      (cddr sexp)                ; body
                      (source-info sexp)         ; source-info
-                     library lvars tail?)]
+                     lvars tail?)]
       ;;---------------------------- letrec ------------------------------------
       [(letrec*)
        (pass1/letrec (imap car (second sexp))  ; vars
                      (imap cadr (second sexp)) ; vals
                      (cddr sexp)                ; body
                      (source-info sexp)         ; source-info
-                     library lvars tail?)]
-      ;;---------------------------- library -----------------------------------
-;;       [(library)
-;;        (pass1/library->iform sexp library lvars)]
-      ;;---------------------------- import ------------------------------------
-;;
-;;       [(import)
-;;        (pass1/import->iform sexp library)]
+                     lvars tail?)]
       ;;---------------------------- set! --------------------------------------
       [(set!)
        (pass1/assign (second sexp)                ;; symbol
                      (pass1/expand (third sexp))  ;; value
-                     library lvars tail?)]
+                     lvars tail?)]
       ;;---------------------------- if ----------------------------------------
       [(if)
        (pass1/if (second sexp) ;; test
                  (third sexp)  ;; then
                  (cdddr sexp)  ;; else if exists.
-                 library lvars tail?)]
+                 lvars tail?)]
       [(undef)
        ($undef)]
       ;;---------------------------- call/cc -----------------------------------
@@ -1363,45 +1132,45 @@
       ;;---------------------------- quote -------------------------------------
       [(quote)
        ($const (second sexp))]
-      [(append)           (pass1/asm-n-args         'APPEND2      'dummy (cdr sexp) library lvars)]
-      [(+)                (pass1/asm-n-args         'NUMBER_ADD   '+  (cdr sexp)    library lvars)]
-      [(-)                (pass1/asm-n-args         'NUMBER_SUB   '-  (cdr sexp)    library lvars)]
-      [(*)                (pass1/asm-n-args         'NUMBER_MUL   '*  (cdr sexp)    library lvars)]
-      [(/)                (pass1/asm-n-args         'NUMBER_DIV   '/  (cdr sexp)    library lvars)]
-      [(=)                (pass1/asm-numcmp         'NUMBER_EQUAL '=  (cdr sexp)    library lvars)]
-      [(>=)               (pass1/asm-numcmp         'NUMBER_GE    '>= (cdr sexp)    library lvars)]
-      [(>)                (pass1/asm-numcmp         'NUMBER_GT    '>  (cdr sexp)    library lvars)]
-      [(<)                (pass1/asm-numcmp         'NUMBER_LT    '<  (cdr sexp)    library lvars)]
-      [(<=)               (pass1/asm-numcmp         'NUMBER_LE    '<= (cdr sexp)    library lvars)]
-      [(vector?)          (pass1/asm-1-arg          'VECTOR_P      (second sexp)    library lvars)]
-      [(vector-length)    (pass1/asm-1-arg          'VECTOR_LENGTH (second sexp)    library lvars)]
-      [(vector-set!)      (pass1/asm-3-arg          'VECTOR_SET    (second sexp)    (third sexp) (fourth sexp) library lvars)]
-      [(vector-ref)       (pass1/asm-2-arg          'VECTOR_REF    (second sexp)    (third sexp) library lvars)]
-      [(make-vector)      (pass1/asm-2-arg-optional 'MAKE_VECTOR   (second sexp)    (cddr sexp) library lvars)]
-      [(car)              (pass1/asm-1-arg          'CAR           (second sexp)    library lvars)]
-      [(cdr)              (pass1/asm-1-arg          'CDR           (second sexp)    library lvars)]
-      [(caar)             (pass1/asm-1-arg          'CAAR          (second sexp)    library lvars)]
-      [(cadr)             (pass1/asm-1-arg          'CADR          (second sexp)    library lvars)]
-      [(cdar)             (pass1/asm-1-arg          'CDAR          (second sexp)    library lvars)]
-      [(cddr)             (pass1/asm-1-arg          'CDDR          (second sexp)    library lvars)]
-      [(set-car!)         (pass1/asm-2-arg          'SET_CAR       (second sexp)    (third sexp) library lvars)]
-      [(set-cdr!)         (pass1/asm-2-arg          'SET_CDR       (second sexp)    (third sexp) library lvars)]
-      [(eq?)              (pass1/asm-2-arg          'EQ            (second sexp)    (third sexp) library lvars)]
-      [(eqv?)             (pass1/asm-2-arg          'EQV           (second sexp)    (third sexp) library lvars)]
-      [(equal?)           (pass1/asm-2-arg          'EQUAL         (second sexp)    (third sexp) library lvars)]
-      [(not)              (pass1/asm-1-arg          'NOT           (second sexp)    library lvars)]
-      [(null?)            (pass1/asm-1-arg          'NULL_P        (second sexp)    library lvars)]
-      [(pair?)            (pass1/asm-1-arg          'PAIR_P        (second sexp)    library lvars)]
-      [(symbol?)          (pass1/asm-1-arg          'SYMBOL_P      (second sexp)    library lvars)]
-      [(read)             (pass1/asm-1-arg-optional 'READ          (cdr sexp)       library lvars)]
-      [(read-char)        (pass1/asm-1-arg-optional 'READ_CHAR     (cdr sexp)       library lvars)]
+      [(append)           (pass1/asm-n-args         'APPEND2      'dummy (cdr sexp) lvars)]
+      [(+)                (pass1/asm-n-args         'NUMBER_ADD   '+  (cdr sexp)    lvars)]
+      [(-)                (pass1/asm-n-args         'NUMBER_SUB   '-  (cdr sexp)    lvars)]
+      [(*)                (pass1/asm-n-args         'NUMBER_MUL   '*  (cdr sexp)    lvars)]
+      [(/)                (pass1/asm-n-args         'NUMBER_DIV   '/  (cdr sexp)    lvars)]
+      [(=)                (pass1/asm-numcmp         'NUMBER_EQUAL '=  (cdr sexp)    lvars)]
+      [(>=)               (pass1/asm-numcmp         'NUMBER_GE    '>= (cdr sexp)    lvars)]
+      [(>)                (pass1/asm-numcmp         'NUMBER_GT    '>  (cdr sexp)    lvars)]
+      [(<)                (pass1/asm-numcmp         'NUMBER_LT    '<  (cdr sexp)    lvars)]
+      [(<=)               (pass1/asm-numcmp         'NUMBER_LE    '<= (cdr sexp)    lvars)]
+      [(vector?)          (pass1/asm-1-arg          'VECTOR_P      (second sexp)    lvars)]
+      [(vector-length)    (pass1/asm-1-arg          'VECTOR_LENGTH (second sexp)    lvars)]
+      [(vector-set!)      (pass1/asm-3-arg          'VECTOR_SET    (second sexp)    (third sexp) (fourth sexp) lvars)]
+      [(vector-ref)       (pass1/asm-2-arg          'VECTOR_REF    (second sexp)    (third sexp) lvars)]
+      [(make-vector)      (pass1/asm-2-arg-optional 'MAKE_VECTOR   (second sexp)    (cddr sexp) lvars)]
+      [(car)              (pass1/asm-1-arg          'CAR           (second sexp)    lvars)]
+      [(cdr)              (pass1/asm-1-arg          'CDR           (second sexp)    lvars)]
+      [(caar)             (pass1/asm-1-arg          'CAAR          (second sexp)    lvars)]
+      [(cadr)             (pass1/asm-1-arg          'CADR          (second sexp)    lvars)]
+      [(cdar)             (pass1/asm-1-arg          'CDAR          (second sexp)    lvars)]
+      [(cddr)             (pass1/asm-1-arg          'CDDR          (second sexp)    lvars)]
+      [(set-car!)         (pass1/asm-2-arg          'SET_CAR       (second sexp)    (third sexp) lvars)]
+      [(set-cdr!)         (pass1/asm-2-arg          'SET_CDR       (second sexp)    (third sexp) lvars)]
+      [(eq?)              (pass1/asm-2-arg          'EQ            (second sexp)    (third sexp) lvars)]
+      [(eqv?)             (pass1/asm-2-arg          'EQV           (second sexp)    (third sexp) lvars)]
+      [(equal?)           (pass1/asm-2-arg          'EQUAL         (second sexp)    (third sexp) lvars)]
+      [(not)              (pass1/asm-1-arg          'NOT           (second sexp)    lvars)]
+      [(null?)            (pass1/asm-1-arg          'NULL_P        (second sexp)    lvars)]
+      [(pair?)            (pass1/asm-1-arg          'PAIR_P        (second sexp)    lvars)]
+      [(symbol?)          (pass1/asm-1-arg          'SYMBOL_P      (second sexp)    lvars)]
+      [(read)             (pass1/asm-1-arg-optional 'READ          (cdr sexp)       lvars)]
+      [(read-char)        (pass1/asm-1-arg-optional 'READ_CHAR     (cdr sexp)       lvars)]
       ;;---------------------------- call or macro------------------------------
       [else
        (pass1/call (car sexp) ; proc
                    (cdr sexp) ; args
-                   library lvars tail?)])]
+                   lvars tail?)])]
    [(symbol? sexp)
-    (pass1/refer->iform sexp library lvars)]
+    (pass1/refer->iform sexp lvars)]
    [else ($const sexp)]))
 
 
@@ -1462,14 +1231,6 @@
       (format (current-error-port) "($seq")
       (for-each (lambda (node) (nl (+ ind 2)) (rec (+ ind 2) node))
                 ($seq.body iform))
-      (display ")" (current-error-port))]
-     [(tag? iform $LIBRARY)
-      (format (current-error-port) "($LIBRARY ~a export [~a] import [~a]"
-              ($library.name iform)
-              ($library.export-syms iform)
-              ($library.import-syms iform))
-      (nl (+ ind 2))
-                                        ;      (rec ind ($library.body iform))
       (display ")" (current-error-port))]
      [(tag? iform $LOCAL-REF)
       (format (current-error-port) "($lref ~a)" (lvar->string ($local-ref.lvar iform)))]
@@ -1739,8 +1500,6 @@
 (pass2/register $CALL-CC       pass2/empty)
 (pass2/register $LET           pass2/$let)
 (pass2/register $LIST          pass2/empty)
-;(pass2/register $LIBRARY       pass2/empty)
-(pass2/register $IMPORT        pass2/empty)
 (pass2/register $IT            pass2/empty)
 (pass2/register $RECEIVE       pass2/$receive)
 (pass2/register $LABEL         pass2/empty)
@@ -1814,7 +1573,7 @@
   (let1 t (tag iform)
     (cond
      [(= $DEFINE t)
-      ($define  ($define.libname iform)
+      ($define  
                 ($define.sym iform)
                 (iform-copy ($define.val iform) lv-alist))]
      [(= $LOCAL-REF t)
@@ -1823,9 +1582,9 @@
       ($local-assign (iform-copy-lvar ($local-assign.lvar iform) lv-alist)
                      (iform-copy ($local-assign.val iform) lv-alist))]
      [(= $GLOBAL-REF t)
-      ($global-ref ($global-ref.libname iform) ($global-ref.sym iform))]
+      ($global-ref ($global-ref.sym iform))]
      [(= $GLOBAL-ASSIGN t)
-      ($global-assign ($global-assign.libname iform) ($global-assign.sym iform) (iform-copy ($global-assign.val iform) lv-alist))]
+      ($global-assign ($global-assign.sym iform) (iform-copy ($global-assign.val iform) lv-alist))]
      [(= $CONST t)
       ($const ($const.val iform))]
      [(= $IF t)
@@ -2298,12 +2057,6 @@
           (if (memq i labels-seen)
               '()
               (rec ($label.body i) l (cons i labels-seen)))]
-;;          [(= $IMPORT t)
-;;           '() ;; todo 本当?
-;;           ]
-;;          [(= $LIBRARY t)
-;;           '() ;; todo 本当?
-;;           ]
          [(= $IT t) '()]
          [else
           (error "pass3/find-free unknown iform:" (tag i))])))
@@ -2378,12 +2131,6 @@
           (if (memq i labels-seen)
               '()
               (rec ($label.body i) l (cons i labels-seen)))]
-;;          [(= $IMPORT t)
-;;           '() ;; todo 本当?
-;;           ]
-;;          [(= $LIBRARY t)
-;;           '() ;; todo 本当?
-;;           ]
          [(= $IT t) '()]
          [else
           (error "pass3/find-free unknown iform:" (tag i))])))
@@ -2436,16 +2183,6 @@
           (if (memq i labels-seen)
               '()
               (rec ($label.body i) (cons i labels-seen)))]
-
-;;          [(= $LABEL t)
-;;           '() ;; todo 本当
-;;           ]
-;;          [(= $IMPORT t)
-;;           '() ;; todo 本当?
-;;           ]
-;;          [(= $LIBRARY t)
-;;           '() ;; todo 本当?
-;;           ]
          [(= $IT t) '()]
          [else
           (error "pass3/find-sets unknown iform:" i)])))
@@ -2671,20 +2408,12 @@
         [var-stack-size (pass3/compile-assign cb ($lvar.sym ($local-assign.lvar iform)) locals frees)])
     (+ val-stack-size var-stack-size)))
 
-(define top-level-sym (string->symbol "top-level-"))
-
-(define (merge-libname-sym libname sym)
-  (string->symbol
-   (string-append (symbol->string libname)
-                  ":$:"
-                  (symbol->string sym))))
-
 ;; $global-lef is classified into REFER_GLOBAL and REFER_FREE
 (define (pass3/$global-ref cb iform locals frees can-frees sets tail depth display-count)
   (let1 sym ($global-ref.sym iform)
     (let next-free ([free frees] [n 0])
       (cond [(null? free)
-             (code-builder-put-insn-arg1! cb 'REFER_GLOBAL (merge-libname-sym ($global-ref.libname iform) sym))
+             (code-builder-put-insn-arg1! cb 'REFER_GLOBAL sym)
              0]
             [(eq? (car free) sym)
              (code-builder-put-insn-arg1! cb 'REFER_FREE n)
@@ -2701,7 +2430,7 @@
           (pass3/rec cb ($global-assign.val iform) locals frees can-frees sets #f depth display-count)
           (code-builder-put-insn-arg1! cb
                  'ASSIGN_GLOBAL
-                 (merge-libname-sym ($global-assign.libname iform) sym)))]
+                 sym))]
        [(eq? (car free) sym)
         (begin0
          (pass3/rec cb ($global-assign.val iform) locals frees can-frees sets #f depth display-count)
@@ -2831,8 +2560,7 @@
 (define (pass3/$define cb iform locals frees can-frees sets tail depth display-count)
   (begin0
     (pass3/rec cb ($define.val iform) locals frees can-frees sets #f depth display-count)
-    (cput! cb 'DEFINE_GLOBAL (merge-libname-sym ($define.libname iform)
-                                                ($define.sym iform)))))
+    (cput! cb 'DEFINE_GLOBAL ($define.sym iform))))
 
 (define (pass3/compile-arg cb arg locals frees can-frees sets tail depth display-count)
 ;;   (display "pass3/compile-arg\n" (current-error-port))
@@ -3175,29 +2903,6 @@
           (code-builder-append! cb let-cb)
           (+ free-size assign-size body-size))))))
 
-;; (define (pass3/$import cb iform locals frees can-frees sets tail)
-;;   (define (rec form)
-;;     (for-each
-;;      (lambda (s)
-;;        (let* ([libname      ($import-spec.libname s)]
-;;               [lib          (hashtable-ref libraries libname)]
-;;               [end-of-frame (make-label)])
-;;          (rec ($library.import lib))
-;;          (code-builder-put-insn-arg1! cb 'FRAME  ;; We execute (RETURN 0) in library body
-;;                                       (ref-label end-of-frame))
-;;          (cput! cb
-;;                 'IMPORT
-;;                 libname
-;;                 end-of-frame)))
-;;      ($import.import-specs form))
-;;     0)
-;;   (rec iform))
-
-(define (pass3/$library cb iform locals frees can-frees sets tail depth display-count)
-  (cput! cb 'LIBRARY ($library.name iform) iform)
-  0)
-
-
 (define (pass3/$label cb iform locals frees can-frees sets tail depth display-count)
   (cond
    [($label.visited? iform)
@@ -3226,8 +2931,6 @@
 (pass3/register $CALL-CC       pass3/$call-cc)
 (pass3/register $LET           pass3/$let)
 (pass3/register $LIST          pass3/$list)
-(pass3/register $LIBRARY       pass3/$library)
-;(pass3/register $IMPORT        pass3/$import)
 (pass3/register $IT            pass3/$it)
 (pass3/register $RECEIVE       pass3/$receive)
 (pass3/register $LABEL       pass3/$label)
@@ -3243,10 +2946,6 @@
 
 (define (pass4 lst)
   (pass4/fixup-labels (list->vector (append lst '(HALT)))))
-
-(define (compile-library-body! lib)
-  (let1 body ($append-map1 (lambda (sexp) (pass3 (pass2/optimize (pass1/sexp->iform (pass1/expand sexp) lib '() #f) '()) )) ($library.body lib))
-    ($library.set-compiled-body! lib (pass4 `(,@body RETURN 0)))))
 
 ;; merge-insn for Mosh is written in CodeBuilder.cpp
 (cond-expand
@@ -3357,7 +3056,7 @@
            (cons (car s) (iter (cdr s)))])]))
     (iter sexp))])
 
-(define (compile-partial sexp . lib)
+(define (compile-partial sexp)
   (let1 ss (pass1/expand sexp)
     (vector->list
      (pass4/fixup-labels
@@ -3365,7 +3064,7 @@
        (merge-insn
          (pass3
           (and (pass2/optimize
-           (pass1/sexp->iform ss (if (null? lib) top-level-library (car lib)) '() #f) '())))))))))
+           (pass1/sexp->iform ss '() #f) '())))))))))
 
 ;; todo local macro
 (define-macro (pass4/fixup-labels-clollect insn)
@@ -3467,13 +3166,12 @@
 (define (compile sexp)
   (pass4 (merge-insn
           ;; default is tail context == #t
-          (pass3 (let1 x (pass2/optimize (pass1/sexp->iform (pass1/expand sexp) top-level-library '() #t) '())
-;                   (pp-iform x)
+          (pass3 (let1 x (pass2/optimize (pass1/sexp->iform (pass1/expand sexp) '() #t) '())
                    x)
                  ))))
 
 (define (compile-no-optimize sexp)
-  (pass4 (pass3 (pass1/sexp->iform (pass1/expand sexp) top-level-library '() #t))))
+  (pass4 (pass3 (pass1/sexp->iform (pass1/expand sexp) '() #t))))
 
 (cond-expand
  [vm-outer?

@@ -59,15 +59,10 @@
         (make-vector 1000)
         0)))
 
-;(define (VM codes pc a fp c stack sp)
-
 
 (define (init-library-table)
   (set! vm-instances (make-hash-table 'eq?))
-  (set! vm-libraries (make-hash-table 'eq?))
-  (set! vm-name-space (make-hash-table 'eq?))
-  (set! top-level-library (make-empty-library '(top-level)))
-  (vm-import (libname->symbol '(top-level))))
+  (set! vm-name-space (make-hash-table 'eq?)))
 
 (load "./free-vars-decl.scm")
 
@@ -93,11 +88,6 @@
 
 (load-free-vars)
 
-(define-syntax check-sexp->iform
-  (syntax-rules ()
-    ((_ sexp)
-     (pretty-iform (pass1/sexp->iform (quote sexp) top-level-library () #f)))))
-
 (define-syntax eqt
   (syntax-rules ()
     ((_ a b)
@@ -109,397 +99,7 @@
 (define debug-compile-time 0)
 (define optimize?          #t)
 
-(cond [#f
-(eqt '(1 2 3) (remove-tail '(1 2 3 4) even?))
-(eqt '(1 2 3 4) (remove-tail '(1 2 3 4) odd?))
 
-(define-syntax check-sexp->iform
-  (syntax-rules ()
-    ((_ sexp)
-     (pretty-iform (pass1/sexp->iform (quote sexp) top-level-library () #f)))))
-
-(test-start "vm")
-
-[check-sexp->iform
- (let ([a 0])
-   0)
- ]
-(eqt "($LET ((a[0 0] ($CONST 0))\n       )\n  ($CONST 0))\n" (with-output-to-string (lambda () (check-sexp->iform (let ((a 0)) 0)))))
-
-
-[check-sexp->iform
- (let ([a 0])
-   a)
- ]
-(eqt "($LET ((a[1 0] ($CONST 0))\n       )\n  ($LOCAL-REF a[1 0]))\n" (with-output-to-string (lambda () (check-sexp->iform (let ((a 0)) a)))))
-
-
-[check-sexp->iform
- (let ([a 0])
-   (let ([b 0])
-     a))
- ]
-(eqt "($LET ((a[1 0] ($CONST 0))\n       )\n  ($LET ((b[0 0] ($CONST 0))\n         )\n    ($LOCAL-REF a[1 0])))\n" (with-output-to-string (lambda () (check-sexp->iform (let ((a 0)) (let ((b 0)) a))))))
-
-
-[check-sexp->iform
- (let ([a 0])
-   (let ([b 0])
-     b))
- ]
-(eqt "($LET ((a[0 0] ($CONST 0))\n       )\n  ($LET ((b[1 0] ($CONST 0))\n         )\n    ($LOCAL-REF b[1 0])))\n" (with-output-to-string (lambda () (check-sexp->iform (let ((a 0)) (let ((b 0)) b))))))
-
-
-[check-sexp->iform
- (let ([a 0])
-   (let ([b 0])
-     (let ([c b])
-       c)))
- ]
-(eqt "($LET ((a[0 0] ($CONST 0))\n       )\n  ($LET ((b[1 0] ($CONST 0))\n         )\n    ($LET ((c[1 0] ($LOCAL-REF b[1 0]))\n           )\n      ($LOCAL-REF c[1 0]))))\n" (with-output-to-string (lambda () (check-sexp->iform (let ((a 0)) (let ((b 0)) (let ((c b)) c)))))))
-
-
-[check-sexp->iform
- (let ([a 0])
-   (let ([b 0])
-     (let ([c b])
-       b)))
- ]
-(eqt "($LET ((a[0 0] ($CONST 0))\n       )\n  ($LET ((b[2 0] ($CONST 0))\n         )\n    ($LET ((c[0 0] ($LOCAL-REF b[2 0]))\n           )\n      ($LOCAL-REF b[2 0]))))\n" (with-output-to-string (lambda () (check-sexp->iform (let ((a 0)) (let ((b 0)) (let ((c b)) b)))))))
-
-
-[check-sexp->iform
- (let ([a 0])
-   (set! a 1))
- ]
-(eqt "($LET ((a[0 1] ($CONST 0))\n       )\n  ($LOCAL-ASSIGN a[0 1]\n    ($CONST 1)))\n" (with-output-to-string (lambda () (check-sexp->iform (let ((a 0)) (set! a 1))))))
-
-[check-sexp->iform
- (let ([a 0])
-   (let ([b 1])
-     (set! b 1)))
- ]
-(eqt "($LET ((a[0 0] ($CONST 0))\n       )\n  ($LET ((b[0 1] ($CONST 1))\n         )\n    ($LOCAL-ASSIGN b[0 1]\n      ($CONST 1))))\n" (with-output-to-string (lambda () (check-sexp->iform (let ((a 0)) (let ((b 1)) (set! b 1)))))))
-
-[check-sexp->iform
- (let ([a 0])
-   (let ([b 1])
-     (set! a 1)))
- ]
-(eqt "($LET ((a[0 1] ($CONST 0))\n       )\n  ($LET ((b[0 0] ($CONST 1))\n         )\n    ($LOCAL-ASSIGN a[0 1]\n      ($CONST 1))))\n" (with-output-to-string (lambda () (check-sexp->iform (let ((a 0)) (let ((b 1)) (set! a 1)))))))
-
-
-[check-sexp->iform
- (lambda (x) x)
- ]
-(eqt "($LAMBDA[anonymous (x[1 0]) ()]\n  ($LOCAL-REF x[1 0]))\n" (with-output-to-string (lambda () (check-sexp->iform (lambda (x) x)))))
-
-
-
-[check-sexp->iform
- (lambda (x)
-   x
-   (lambda (y)
-     y))
- ]
-(eqt "($LAMBDA[anonymous (x[1 0]) ()]\n  ($SEQ\n    ($LOCAL-REF x[1 0])\n    ($LAMBDA[anonymous (y[1 0]) ()]\n      ($LOCAL-REF y[1 0]))))\n" (with-output-to-string (lambda () (check-sexp->iform (lambda (x) x (lambda (y) y))))))
-
-[check-sexp->iform
- (lambda (x)
-   x
-   (lambda (y)
-     (set! x y)))
- ]
-(eqt "($LAMBDA[anonymous (x[1 1]) ()]\n  ($SEQ\n    ($LOCAL-REF x[1 1])\n    ($LAMBDA[anonymous (y[1 0]) ()]\n      ($LOCAL-ASSIGN x[1 1]\n        ($LOCAL-REF y[1 0])))))\n" (with-output-to-string (lambda () (check-sexp->iform (lambda (x) x (lambda (y) (set! x y)))))))
-
-
-[check-sexp->iform
- (if 3 4 5)
- ]
-(eqt "($IF ($CONST 3)\n  ($CONST 4)\n  ($CONST 5))\n" (with-output-to-string (lambda () (check-sexp->iform (if 3 4 5)))))
-
-
-[check-sexp->iform
- (if 3 4)
- ]
-(eqt "($IF ($CONST 3)\n  ($CONST 4)\n  ($UNDEF))\n" (with-output-to-string (lambda () (check-sexp->iform (if 3 4)))))
-
-
-[check-sexp->iform
- (if 3
-     (let ([a 0])
-       a))
- ]
-(eqt "($IF ($CONST 3)\n  ($LET ((a[1 0] ($CONST 0))\n         )\n    ($LOCAL-REF a[1 0]))\n  ($UNDEF))\n" (with-output-to-string (lambda () (check-sexp->iform (if 3 (let ((a 0)) a))))))
-
-
-[check-sexp->iform
- (cons 1 2)
- ]
-(eqt "($asm CONS\n  ($CONST 1)\n  ($CONST 2))\n" (with-output-to-string (lambda () (check-sexp->iform (cons 1 2)))))
-
-[check-sexp->iform
- (begin 3)
- ]
-(eqt "($CONST 3)\n" (with-output-to-string (lambda () (check-sexp->iform (begin 3)))))
-
-
-[check-sexp->iform
- (begin 3 4)
- ]
-(eqt "($SEQ\n  ($CONST 3)\n  ($CONST 4))\n" (with-output-to-string (lambda () (check-sexp->iform (begin 3 4)))))
-
-
-[check-sexp->iform
- (define a 3)
- ]
-
-(eqt "($DEFINE top level :a\n  ($CONST 3))\n" (with-output-to-string (lambda () (check-sexp->iform (define a 3)))))
-
-[check-sexp->iform
- (define (func x) x)
- ]
-(eqt "($DEFINE top level :func\n  ($LAMBDA[func (x[1 0]) ()]\n    ($LOCAL-REF x[1 0])))\n" (with-output-to-string (lambda () (check-sexp->iform (define (func x) x)))))
-
-
-[check-sexp->iform
- (call/cc (lambda (c) c))
- ]
-(eqt "($CALL-CC ($LAMBDA[anonymous (c[1 0]) ()]\n  ($LOCAL-REF c[1 0])))\n" (with-output-to-string (lambda () (check-sexp->iform (call/cc (lambda (c) c))))))
-
-[check-sexp->iform
- '(a b)
- ]
-(eqt "($CONST (a b))\n" (with-output-to-string (lambda () (check-sexp->iform '(a b)))))
-
-
-[check-sexp->iform
- (+ 1 2 3)
- ]
-(eqt "($asm NUMBER_ADD\n  ($asm NUMBER_ADD\n    ($CONST 1)\n    ($CONST 2))\n  ($CONST 3))\n" (with-output-to-string (lambda () (check-sexp->iform (+ 1 2 3)))))
-
-
-[check-sexp->iform
- (= 1 2 3)
- ]
-(eqt "($IF ($asm NUMBER_EQUAL\n       ($CONST 1)\n       ($CONST 2))\n  ($asm NUMBER_EQUAL\n    ($CONST 2)\n    ($CONST 3))\n  ($CONST #f))\n" (with-output-to-string (lambda () (check-sexp->iform (= 1 2 3)))))
-
-
-[check-sexp->iform
- (car 3)
- ]
-(eqt "($asm CAR\n  ($CONST 3))\n" (with-output-to-string (lambda () (check-sexp->iform (car 3)))))
-
-
-[check-sexp->iform
- func
- ]
-(eqt "($GLOBAL-REF top level  func)\n" (with-output-to-string (lambda () (check-sexp->iform func))))
-
-
-[check-sexp->iform
- (func 3 4)
- ]
-(eqt "($call [#f]($GLOBAL-REF top level  func)\n  ($CONST 3)\n  ($CONST 4))\n" (with-output-to-string (lambda () (check-sexp->iform (func 3 4)))))
-
-[check-sexp->iform
- (lambda (a)
-   (func a))
- ]
-(eqt "($LAMBDA[anonymous (a[1 0]) ()]\n  ($call[tail] [#f]($GLOBAL-REF top level  func)\n    ($LOCAL-REF a[1 0])))\n" (with-output-to-string (lambda () (check-sexp->iform (lambda (a) (func a))))))
-
-[check-sexp->iform
- (letrec ([a 1])
-   a)
- ]
-(eqt "($LET ((a[1 0] ($CONST 1))\n       )\n  ($LOCAL-REF a[1 0]))\n" (with-output-to-string (lambda () (check-sexp->iform (letrec ((a 1)) a)))))
-
-;; refer-count of a should be 1.
-[check-sexp->iform
- (letrec ([a 1]
-          [b (lambda () a)])
-   (b))
- ]
-(eqt "($LET ((a[1 0] ($CONST 1))\n       (b[1 0] ($LAMBDA[anonymous () ()]\n                 ($LOCAL-REF a[1 0])))\n       )\n  ($call [#f]($LOCAL-REF b[1 0])))\n" (with-output-to-string (lambda () (check-sexp->iform (letrec ((a 1) (b (lambda () a))) (b))))))
-
-[check-sexp->iform
- (letrec ([a (lambda (i) (if (= i 10) i (a (+ i 1))))])
-   (a 0))
- ]
-(eqt "($LET ((a[2 0] ($LAMBDA[anonymous (i[3 0]) ()]\n                 ($IF ($asm NUMBER_EQUAL\n                        ($LOCAL-REF i[3 0])\n                        ($CONST 10))\n                   ($LOCAL-REF i[3 0])\n                   ($call[tail] [#f]($LOCAL-REF a[2 0])\n                     ($asm NUMBER_ADD\n                       ($LOCAL-REF i[3 0])\n                       ($CONST 1))))))\n       )\n  ($call [#f]($LOCAL-REF a[2 0])\n    ($CONST 0)))\n" (with-output-to-string (lambda () (check-sexp->iform (letrec ((a (lambda (i) (if (= i 10) i (a (+ i 1)))))) (a 0))))))
-
-
-;; letrec の tail-call
-[check-sexp->iform
- (letrec ([a (lambda (i) (if (= i 10) 10 (a (+ i 1))))])
-   (a 0))
- ]
-(eqt "($LET ((a[2 0] ($LAMBDA[anonymous (i[2 0]) ()]\n                 ($IF ($asm NUMBER_EQUAL\n                        ($LOCAL-REF i[2 0])\n                        ($CONST 10))\n                   ($CONST 10)\n                   ($call[tail] [#f]($LOCAL-REF a[2 0])\n                     ($asm NUMBER_ADD\n                       ($LOCAL-REF i[2 0])\n                       ($CONST 1))))))\n       )\n  ($call [#f]($LOCAL-REF a[2 0])\n    ($CONST 0)))\n" (with-output-to-string (lambda () (check-sexp->iform (letrec ((a (lambda (i) (if (= i 10) 10 (a (+ i 1)))))) (a 0))))))
-
-;; pass2 tests
-(define-syntax check-optimize
-  (syntax-rules ()
-    ((_ sexp)
-     (pretty-iform (pass2/optimize (pass1/sexp->iform (pass1/expand (quote sexp)) top-level-library () #f) '())))))
-
-[check-optimize
- (let ([a 0])
-   a)
- ]
-(eqt "($CONST 0)\n" (with-output-to-string (lambda () (check-optimize (let ((a 0)) a)))))
-
-
-[check-optimize
- (let1 a (lambda (x) (let1 b x (+ b 1)))
-   (a 3))
- ]
-(eqt "($CONST 4)\n" (with-output-to-string (lambda () (check-optimize (let1 a (lambda (x) (let1 b x (+ b 1))) (a 3))))))
-
-
-[check-optimize
- (let1 a (lambda () 3)
-   (a)
-   (a))
- ]
-(eqt "($SEQ\n  ($SEQ\n    ($CONST 3))\n  ($SEQ\n    ($CONST 3)))\n" (with-output-to-string (lambda () (check-optimize (let1 a (lambda () 3) (a) (a))))))
-
-[check-optimize
- 3
- ]
-
-
-[check-optimize
- (letrec ([a (lambda (i) (if (= i 10) i (a (+ i 1))))])
-   (print (a 0)))
- ]
-(eqt "($call [#f]($GLOBAL-REF top level  print)\n  ($call [embed]($LAMBDA[anonymous (i[3 0]) dissolved]\n           ($label #0\n             ($IF ($asm NUMBER_EQUAL\n                    ($LOCAL-REF i[3 0])\n                    ($CONST 10))\n               ($LOCAL-REF i[3 0])\n               ($call[tail] [jump]($call [embed]($LAMBDA[anonymous (i[3 0]) dissolved]\n                                     label#0)\n                              ($CONST 0))\n                 ($asm NUMBER_ADD\n                   ($LOCAL-REF i[3 0])\n                   ($CONST 1))))))\n    ($CONST 0)))\n" (with-output-to-string (lambda () (check-optimize (letrec ((a (lambda (i) (if (= i 10) i (a (+ i 1)))))) (print (a 0)))))))
-
-
-(eqt "($call [embed]($LAMBDA[anonymous (i[3 0]) dissolved]\n         ($label #0\n           ($IF ($asm NUMBER_EQUAL\n                  ($LOCAL-REF i[3 0])\n                  ($CONST 10))\n             ($LOCAL-REF i[3 0])\n             ($call[tail] [jump]($call [embed]($LAMBDA[anonymous (i[3 0]) dissolved]\n                                   label#0)\n                            ($CONST 0))\n               ($asm NUMBER_ADD\n                 ($LOCAL-REF i[3 0])\n                 ($CONST 1))))))\n  ($CONST 0))\n" (with-output-to-string (lambda () (check-optimize (letrec ((a (lambda (i) (if (= i 10) i (a (+ i 1)))))) (a 0))))))
-
-(define-syntax check-compile-no-optimize
-  (syntax-rules ()
-    ((_ sexp)
-     (pass3 (pass1/sexp->iform (quote sexp) top-level-library () #f) '() '() '() '() #f))))
-
-(define-syntax check-compile-optimize
-  (syntax-rules ()
-    ((_ sexp)
-     (pass4 (pass3 (pass2/optimize (pass1/sexp->iform (quote sexp) top-level-library () #f) '()) '() '() '() '() #f)))))
-
-;; pass3 tests with optimize
-[check-compile-optimize
- (letrec ([a (lambda (i) (if (= i 10) i (a (+ i 1))))])
-   (a 0))
- ]
-(eqt #(LET_FRAME CONSTANT 0 PUSH ENTER NOP REFER_LOCAL 0 PUSH CONSTANT 10 NUMBER_EQUAL TEST 4 REFER_LOCAL 0 LOCAL_JMP 15 REDUCE REFER_LOCAL 0 PUSH CONSTANT 1 NUMBER_ADD PUSH SHIFT 1 1 LOCAL_JMP -23 LEAVE 1) (check-compile-optimize (letrec ((a (lambda (i) (if (= i 10) i (a (+ i 1)))))) (a 0))))
-
-
-
-[check-compile-optimize
- (letrec ([a (lambda (i) (if (= i 10) i (a (+ i 1))))])
-   (print (a 0)))
- ]
-(eqt #(FRAME 40 LET_FRAME CONSTANT 0 PUSH ENTER NOP REFER_LOCAL 0 PUSH CONSTANT 10 NUMBER_EQUAL TEST 4 REFER_LOCAL 0 LOCAL_JMP 15 REDUCE REFER_LOCAL 0 PUSH CONSTANT 1 NUMBER_ADD PUSH SHIFT 1 1 LOCAL_JMP -23 LEAVE 1 PUSH REFER_GLOBAL |top level | print CALL 1) (check-compile-optimize (letrec ((a (lambda (i) (if (= i 10) i (a (+ i 1)))))) (print (a 0)))))
-
-[check-compile-optimize
- (letrec ([a (lambda (i) (if (= i 10) i (a (+ i 1))))])
-   (begin (a 0)))
- ]
-(eqt #(LET_FRAME CONSTANT 0 PUSH ENTER NOP REFER_LOCAL 0 PUSH CONSTANT 10 NUMBER_EQUAL TEST 4 REFER_LOCAL 0 LOCAL_JMP 15 REDUCE REFER_LOCAL 0 PUSH CONSTANT 1 NUMBER_ADD PUSH SHIFT 1 1 LOCAL_JMP -23 LEAVE 1) (check-compile-optimize (letrec ((a (lambda (i) (if (= i 10) i (a (+ i 1)))))) (begin (a 0)))))
-
-
-;; pass3 tests without optimize
-[check-compile-no-optimize
- 3
- ]
-(eqt '(CONSTANT 3) (check-compile-no-optimize 3))
-
-
-[check-compile-no-optimize
- (lambda () 3)
- ]
-(eqt '(CLOSURE 8 0 #f 0 CONSTANT 3 RETURN 0) (check-compile-no-optimize (lambda () 3)))
-
-
-[check-compile-no-optimize
- (lambda (x) x)
- ]
-(eqt '(CLOSURE 8 1 #f 0 REFER_LOCAL 0 RETURN 1) (check-compile-no-optimize (lambda (x) x)))
-
-[check-compile-no-optimize
- (lambda (x) (lambda () x))
- ]
-(eqt '(CLOSURE 18 1 #f 0 REFER_LOCAL 0 PUSH CLOSURE 8 0 #f 1 REFER_FREE 0 RETURN 0 RETURN 1) (check-compile-no-optimize (lambda (x) (lambda () x))))
-
-
-[check-compile-no-optimize
- (lambda (x) (set! x 3))
- ]
-(eqt '(CLOSURE 12 1 #f 0 BOX 0 CONSTANT 3 ASSIGN_LOCAL 0 RETURN 1) (check-compile-no-optimize (lambda (x) (set! x 3))))
-
-
-[check-compile-no-optimize
- (begin 1 2)
- ]
-(eqt '(CONSTANT 1 CONSTANT 2) (check-compile-no-optimize (begin 1 2)))
-
-
-[check-compile-no-optimize
- a
- ]
-(eqt '(REFER_GLOBAL |top level | a) (check-compile-no-optimize a))
-
-
-[check-compile-no-optimize
- (if #f 3)
- ]
-(eqt '(CONSTANT #f TEST 4 CONSTANT 3 LOCAL_JMP 3 UNDEF) (check-compile-no-optimize (if #f 3)))
-
-
-[check-compile-no-optimize
- (+ 1 2)
- ]
-(eqt '(CONSTANT 1 PUSH CONSTANT 2 NUMBER_ADD) (check-compile-no-optimize (+ 1 2)))
-
-
-[check-compile-no-optimize
- (define a 3)
- ]
-(eqt '(CONSTANT 3 DEFINE_GLOBAL |top level | a) (check-compile-no-optimize (define a 3)))
-
-
-[check-compile-no-optimize
- (func 3)
- ]
-(eqt '(FRAME 9 CONSTANT 3 PUSH REFER_GLOBAL |top level | func CALL 1) (check-compile-no-optimize (func 3)))
-
-
-[check-compile-no-optimize
- (call/cc (lambda (c) c))
- ]
-(eqt '(FRAME 15 MAKE_CONTINUATION 0 PUSH CLOSURE 8 1 #f 0 REFER_LOCAL 0 RETURN 1 CALL 1) (check-compile-no-optimize (call/cc (lambda (c) c))))
-
-
-[check-compile-no-optimize
- (let ([a 0]) a)
- ]
-(eqt '(LET_FRAME CONSTANT 0 PUSH ENTER REFER_LOCAL 0 LEAVE 1) (check-compile-no-optimize (let ((a 0)) a)))
-
-
-[check-compile-no-optimize
- (let ([a 0]) (let ([b 1]) b))
- ]
-(eqt '(LET_FRAME CONSTANT 0 PUSH ENTER LET_FRAME CONSTANT 1 PUSH ENTER REFER_LOCAL 0 LEAVE 1 LEAVE 1) (check-compile-no-optimize (let ((a 0)) (let ((b 1)) b))))
-
-
-[check-compile-no-optimize
- (lambda () (func 3))
- ]
-(eqt '(CLOSURE 17 0 #f 0 CONSTANT 3 PUSH REFER_GLOBAL |top level | func SHIFT 1 0 CALL 1 RETURN 0) (check-compile-no-optimize (lambda () (func 3))))
-
-
-])
 ;;--------------------------------------------------------------------
 ;;
 ;;  VM
@@ -1575,7 +1175,7 @@
 (define (vm-init args)
   (init-library-table)
   (set! vstack (make-vector 10000))
-  (define-global (merge-libname-sym (libname->symbol '(top-level)) '*command-line-args*) args)
+  (define-global '*command-line-args* args)
   (let loop ([i 0]
              [sp  (- (length *free-vars*) 1)])
     (cond [(>= sp 0)
@@ -1975,8 +1575,7 @@
     [else
      (syntax-error "malformed do on mosh")]))
 
-(define default-allowed-macro '($library.append-macro!
-                                define-simple-struct
+(define default-allowed-macro '(define-simple-struct
                                 do
                                 acond
                                 guard
@@ -2005,8 +1604,8 @@
                  [ret '()])
         (cond [(eof-object? obj)
                (let* ([v (map (lambda (x) (cons (car x) (insn-sym->insn-num (fetch-instructions) (cdr x))))
-                              (assq-multi ($library.macro top-level-library) allowed-macro))]
-                      [c (compile-partial `($library.append-macro! top-level-library (quote ,v)))])
+                              #?= (assq-multi top-level-macros allowed-macro))]
+                      [c (compile-partial `(set! top-level-macros (append top-level-macros (quote ,v))))])
                (if (and (pair? for-vm-cpp?) (car for-vm-cpp?))
                    (list->vector (insn-sym->insn-num (fetch-instructions) (vector->list (pass4 (append ret c)))))
                    (pass4 ret)))]
@@ -2026,19 +1625,19 @@
    ;; test
    [(= (length args) 1)
     (vm-init '())
-;     (load-file "./library.scm")
+     (load-file "./library.scm")
 
-    (load-file "./work.scm")
-;;     (load-file "./match.scm")
+;    (load-file "./work.scm")
+    (load-file "./match.scm")
 
-;;     (vm-test)
-;;     (set! optimize? (not optimize?))
-;;     (vm-init '())
-;;     (load-file "./library.scm")
-;;     (load-file "./match.scm")
+    (vm-test)
+    (set! optimize? (not optimize?))
+    (vm-init '())
+    (load-file "./library.scm")
+    (load-file "./match.scm")
 
-;;     (vm-test)
-;;     (test-end)
+    (vm-test)
+    (test-end)
 
     ]
    ;; compile string

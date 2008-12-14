@@ -389,15 +389,6 @@ Object scheme::pairPEx(int argc, const Object* argv)
     return Object::makeBool(argv[0].isPair());
 }
 
-Object scheme::initLibraryTableEx(int argc, const Object* argv)
-{
-    DeclareProcedureName("init-library-table");
-    checkArgumentLength(0);
-    theVM->initLibraryTable();
-    return Object::Undef;
-}
-
-
 Object scheme::vectorEx(int argc, const Object* argv)
 {
     const Object vec = Object::makeVector(argc);

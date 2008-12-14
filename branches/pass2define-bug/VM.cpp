@@ -138,12 +138,8 @@ VM::VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool i
     stackEnd_ = stack_ + stackSize;
     sp_ = stack_;
     fp_ = stack_;
-    libraries_ = Object::makeEqHashTable();
-    instances_ = Object::makeEqHashTable();
     nameSpace_ = Object::makeEqHashTable();
 
-    // Source info format (("compiler-with-library.scm" 8149) pass2/adjust-arglist reqargs optarg iargs name)
-    // lineno = 0 is not appeared in stack trace.
     outerSourceInfo_   = L2(Object::False, Symbol::intern(UC("<top-level>")));
 }
 
@@ -152,8 +148,7 @@ VM::~VM() {}
 
 Object VM::getTopLevelGlobalValue(Object id)
 {
-    const Object key = idToTopLevelSymbol(id);
-    const Object val = nameSpace_.toEqHashTable()->ref(key, notFound_);
+    const Object val = nameSpace_.toEqHashTable()->ref(id, notFound_);
     if (val != notFound_) {
         return val;
     } else {
@@ -240,22 +235,6 @@ void VM::load(const ucs4string& file)
         defaultExceptionHandler(errorObj_);
         exit(-1);
     }
-}
-
-
-void VM::importTopLevel()
-{
-    notFound_  = Symbol::intern(UC("vm hash table not found"));
-    topLevelInstance_ = Object::makeEqHashTable();
-    EqHashTable* ht = instances_.toEqHashTable();
-    ht->set(Symbol::intern(UC("top-level")), topLevelInstance_);
-}
-
-void VM::initLibraryTable()
-{
-    const Object toplevel = Symbol::intern(UC("top-level"));
-    libraries_.toEqHashTable()->eraseAllExcept(toplevel);
-    instances_.toEqHashTable()->eraseAllExcept(toplevel);
 }
 
 Object VM::evaluate(Object codeVector)
@@ -464,11 +443,8 @@ Object VM::callClosureByName(Object procSymbol, Object arg)
         Object::makeFixnum(1),
         Object::makeRaw(Instruction::HALT),
     };
-    //todo
-    ucs4string proc(UC("top-level:$:"));
-    proc += procSymbol.toSymbol()->c_str();
     applyCode[3] = arg;
-    applyCode[6] = Symbol::intern(proc.c_str());
+    applyCode[6] = procSymbol;
 
     SAVE_REGISTERS();
     const Object ret = evaluate(Object::makeVector(sizeof(applyCode) / sizeof(Object), applyCode));
@@ -506,9 +482,7 @@ Object VM::apply(Object proc, Object args)
     Object* const direct = getDirectThreadedCode(code, length);
     dc_ = closure;
     cl_ = closure;
-//    printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
     const Object ret = run(direct, NULL);
-//    printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
     RESTORE_REGISTERS();
     return ret;
 }
@@ -541,7 +515,7 @@ Object VM::compile(Object code)
 }
 
 #else
-#define CASE(insn)  LABEL_##insn : /* printf("" #insn "\n");fflush(stdout);  */
+#define CASE(insn)  LABEL_##insn : // printf("" #insn "\n");fflush(stdout);
 #define NEXT                         \
 {                                    \
     asm volatile(" \t # -- next start");   \
@@ -641,7 +615,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
                 COUNT_CALL(ac_);
                 cl_ = ac_;
                 if (ac_.toCProcedure()->proc == applyEx) {
-
                     // don't share retCode with others.
                     // because apply's arguments length is not constant.
                     Object* const retCode = Object::makeObjectArray(2);
@@ -661,6 +634,7 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
                     pc_[1] = operand;
                     VM_ASSERT(operand.isFixnum());
                     const int argc = operand.toFixnum();
+//                    LOG1("~a\n", getClosureName(ac_));
                     ac_ = ac_.toCProcedure()->call(argc, sp_ - argc);
                 }
             } else if (ac_.isClosure()) {
@@ -673,8 +647,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
                 VM_ASSERT(operand.isFixnum());
                 const int argLength = operand.toFixnum();
                 const int requiredLength = c->argLength;
-// あれ。ひょっとしてこれけ？
-//                dc_.toClosure()->child = ac_;
                 dc_ = ac_;
                 cl_ = ac_;
                 pc_ = c->pc;
@@ -803,16 +775,8 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         {
             const Object id = fetchOperand();
             TRACE_INSN1("ASSIGN_GLOBAL", "(~a)\n", id);
-//            const Object val = nameSpace_.toEqHashTable()->ref(id, notFound_);
-            // "set! to unbound variable" is checked by psyntax.
-//             if (val == notFound_) {
-//                 Object e = splitId(id);
-//                 callAssertionViolationAfter("set!", "can't set! to unbound variable", L1(e.cdr()));
-//                 NEXT;
-//             } else {
-                nameSpace->set(id, ac_);
-                ac_ = Object::Undef;
-//             }
+            nameSpace->set(id, ac_);
+            ac_ = Object::Undef;
             NEXT1;
         }
         CASE(ASSIGN_LOCAL)
@@ -939,18 +903,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         }
         CASE(CLOSURE)
         {
-//             const int skipSize         = fetchOperand().toFixnum();
-//             const int argLength        = fetchOperand().toFixnum();
-//             const bool isOptionalArg   = !fetchOperand().isFalse();
-//             const int freeVariablesNum = fetchOperand().toFixnum();
-//             const int maxStack         = fetchOperand().toFixnum();
-//             const Object sourceInfo    = fetchOperand();
-// //            LOG1("(CLOSURE) source=~a\n", sourceInfo);
-//             TRACE_INSN1("CLOSURE", "(n => ~d)\n", Object::makeFixnum(freeVariablesNum));
-//             ac_ = Object::makeClosure(pc_, argLength, isOptionalArg, (sp_ - freeVariablesNum), freeVariablesNum, maxStack, sourceInfo);
-//             sp_ -= freeVariablesNum;
-//             pc_ += skipSize - 6;
-//             NEXT1;
             const Object skipSizeObject      = fetchOperand();
             const Object argLengthObject     = fetchOperand();
             const Object isOptionalArgObjecg   = fetchOperand();
@@ -1007,8 +959,7 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             if (found == notFound_) {
                 nameSpace->set(id, ac_);
             } else {
-                Object e = splitId(id);
-                callErrorAfter("define", "defined twice", L1(e.cdr()));
+                callErrorAfter("define", "defined twice", L1(id));
             }
             NEXT;
         }
@@ -1020,9 +971,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
 
             // create display closure
             const Object display = Object::makeClosure(NULL, 0, 0, false, sp_ - freeVariablesNum, freeVariablesNum, 0, Object::False);
-//             if (dc_.isClosure()) {
-//                 dc_.toClosure()->child = display;
-//             }
             display.toClosure()->prev = dc_;
             dc_ = display;
             TRACE_INSN0("DISPLAY");
@@ -1391,11 +1339,10 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             const Object id = fetchOperand();
             const Object val = nameSpace->ref(id, notFound_);
             if (val == notFound_) {
-                Object e = splitId(id);
                 callAssertionViolationAfter("eval",
                                             "unbound variable",
                                             // R6RS mode requires demangle of symbol.
-                                            L1(unGenSym(e.cdr())));
+                                            L1(unGenSym(id)));
             } else {
                 ac_ = val;
             }
@@ -1406,10 +1353,9 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             const Object id = fetchOperand();
             const Object val = nameSpace->ref(id, notFound_);
             if (val == notFound_) {
-                Object e = splitId(id);
                 callAssertionViolationAfter("eval",
                                             "unbound variable",
-                                            L1(unGenSym(e.cdr())));
+                                            L1(unGenSym(id)));
                 NEXT1; // for error handling
             } else {
                 ac_ = val;
@@ -1864,21 +1810,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
     }
 }
 
-// id is (format "~a:$:~a" libname symbolname)
-Object VM::splitId(Object id)
-{
-    MOSH_ASSERT(id.isSymbol());
-    const ucs4string text = id.toSymbol()->c_str();
-    ucs4string::size_type i = text.find(UC(":$:"));
-    if (i == ucs4string::npos) {
-        return Object::Nil;
-    }
-    Object libname = Object::makeString(text.substr(0, i).c_str());
-    Object symbol = Symbol::intern(text.substr(i + 3, text.size() - i - 3).c_str());
-    return Object::cons(libname, symbol);
-}
-
-
 Object VM::getStackTrace()
 {
     const int MAX_DEPTH = 20;
@@ -1939,6 +1870,8 @@ Object VM::getStackTrace()
 
 void VM::throwException(Object exception)
 {
+    fflush(stderr);
+    fflush(stdout);
     const Object stackTrace = getStackTrace();
     const Object stringOutputPort = Object::makeStringOutputPort();
     TextualOutputPort* const textualOutputPort = stringOutputPort.toTextualOutputPort();
@@ -2058,7 +1991,7 @@ Object VM::getClosureName(Object closure)
         if (name == notFound_) {
             return Object::False;
         } else {
-            return stringTosymbol(splitId(name.cdr()));
+            return stringTosymbol(name.cdr());
         }
     } else {
         return Object::False;
@@ -2130,49 +2063,16 @@ Object VM::getProfileResult()
 
 void VM::setTopLevelGlobalValue(Object id, Object val)
 {
-    const Object key = idToTopLevelSymbol(id);
-    nameSpace_.toEqHashTable()->set(idToTopLevelSymbol(id), val);
-}
-
-Object VM::idToTopLevelSymbol(Object id)
-{
-    if (!id.isSymbol()) {
-        LOG1("id=~a", id);
-    }
-    MOSH_ASSERT(id.isSymbol());
-    ucs4string name(UC("top-level:$:"));
-    name += id.toSymbol()->c_str();
-    // don't use name variable directly, it is temporary!
-    return Symbol::intern(name.strdup());
-}
-
-// $library structure accessor.
-// This structure is shared with compiler and VM.
-void VM::setLibraryMacro(Object library, Object macro)
-{
-    library.toVector()->set(5, macro);
-}
-Object VM::getLibraryCompiledBody(Object library)
-{
-    return library.toVector()->ref(7);
+    nameSpace_.toEqHashTable()->set(id, val);
 }
 
 Object VM::getTopLevelGlobalValueOrFalse(Object id)
 {
-    const Object key = idToTopLevelSymbol(id);
-    const Object val = nameSpace_.toEqHashTable()->ref(key, notFound_);
+    const Object val = nameSpace_.toEqHashTable()->ref(id, notFound_);
     if (val != notFound_) {
         return val;
     } else {
         return Object::False;
-    }
-}
-
-void VM::import(Object libname)
-{
-    EqHashTable* const ht = instances_.toEqHashTable();
-    if (ht->ref(libname, Object::False).isFalse()) {
-        ht->set(libname, Object::makeEqHashTable());
     }
 }
 
