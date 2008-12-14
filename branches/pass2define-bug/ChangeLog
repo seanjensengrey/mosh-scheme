@@ -1,5 +1,7 @@
 2008-12-14  higepon  <higepon@users.sourceforge.jp>
 
+        * compiler.scm (parse-lambda-vars): Return values.
+
         * Removed library support which is not used.
 
 2008-12-13  higepon  <higepon@users.sourceforge.jp>

@@ -486,16 +486,15 @@
 (define (parse-lambda-vars vars)
   (cond ((pair? vars)
          (let loop ((p vars) (ret '()))
-           (cond ((null? p) (list #f vars))
+           (cond ((null? p) (values #f vars))
                  ((pair? p) (loop (cdr p) (cons (car p) ret)))
                  (else
-                  (list #t (reverse (cons p ret)))))))
+                  (values #t (reverse (cons p ret)))))))
         ((null? vars)
-         (list #f '()))
+         (values #f '()))
         (else
-         (list #t (list vars)))))
+         (values #t (list vars)))))
 
-;; 後でこれに統一
 (define (parse-lambda-args formals)
   (let loop ((formals formals) (args '()))
     (cond ((null? formals) (values (reverse args) (length args) 0))
@@ -824,22 +823,40 @@
 ;; Closure source info format
 ;; ((file . lineno) (proc args))
 (define (pass1/lambda->iform name sexp lvars)
-  (let* ([vars          (second sexp)]
-         [body          (cddr sexp)]
-         [parsed-vars   (parse-lambda-vars vars)]
-         [optional-arg? (first parsed-vars)]
-         [vars          (second parsed-vars)]
-         [this-lvars    (imap (lambda (sym) ($lvar sym #f 0 0)) vars)]
-         [vars-length  (length vars)])
-    ($lambda (cons (source-info sexp) (cons name (dotpair->list (second sexp))))
-             name
-             (if optional-arg? (- vars-length 1) vars-length)
-             (if optional-arg? 1 0)
-             this-lvars
-             ;; the inner lvar comes first.
-             (pass1/body->iform body (append this-lvars lvars) #t)
-             '()
-             '())))
+  (match sexp
+    [('lambda vars . body)
+     (receive (optional-arg? vars) (parse-lambda-vars vars)
+       (let ([this-lvars    (imap (lambda (sym) ($lvar sym #f 0 0)) vars)]
+             [vars-length  (length vars)])
+       ($lambda (cons (source-info sexp) (cons name (dotpair->list (second sexp))))
+                name
+                (if optional-arg? (- vars-length 1) vars-length)
+                (if optional-arg? 1 0)
+                this-lvars
+                ;; the inner lvar comes first.
+                (pass1/body->iform body (append this-lvars lvars) #t)
+                '()
+                '())))]
+    [else
+     (error 'compiler "malformed lambda" sexp)]))
+
+;; (define (pass1/lambda->iform name sexp lvars)
+;;   (let* ([vars          (second sexp)]
+;;          [body          (cddr sexp)])
+;;          [parsed-vars   (parse-lambda-vars vars)]
+;;          [optional-arg? (first parsed-vars)]
+;;          [vars          (second parsed-vars)]
+;;          [this-lvars    (imap (lambda (sym) ($lvar sym #f 0 0)) vars)]
+;;          [vars-length  (length vars)])
+;;     ($lambda (cons (source-info sexp) (cons name (dotpair->list (second sexp))))
+;;              name
+;;              (if optional-arg? (- vars-length 1) vars-length)
+;;              (if optional-arg? 1 0)
+;;              this-lvars
+;;              ;; the inner lvar comes first.
+;;              (pass1/body->iform body (append this-lvars lvars) #t)
+;;              '()
+;;              '())))
 
 (define (pass1/and->iform sexp lvars tail?)
   (define (rec s)
@@ -1371,10 +1388,7 @@
           [inits (imap (lambda (init) (pass2/optimize init closures)) ($let.inits iform))]
           [obody (pass2/optimize ($let.body iform) closures)])
       (for-each pass2/optimize-closure lvars inits)
-      (let* ([v (pass2/remove-vars lvars inits)]
-             [new-lvars (vector-ref v 0)]
-             [new-inits (vector-ref v 1)]
-             [removed-inits (vector-ref v 2)])
+      (receive (new-lvars new-inits removed-inits) (pass2/remove-vars lvars inits)
         (cond
          [(null? new-lvars)
           (if (null? removed-inits)
@@ -1635,10 +1649,7 @@
              (> ($lvar.ref-count lvar) 0)
              (tag? lambda-node $LAMBDA))
     (or (and (= ($lvar.ref-count lvar) (length ($lambda.calls lambda-node)))
-             (let* ([ret (pass2/classify-calls ($lambda.calls lambda-node) lambda-node)]
-                    [locals (first ret)]
-                    [recs (second ret)]
-                    [tail-recs (third ret)])
+             (receive (locals recs tail-recs) (pass2/classify-calls ($lambda.calls lambda-node) lambda-node)
                (and (null? recs)
                     (pair? locals)
                     (or (and (null? (cdr locals))
@@ -1812,7 +1823,7 @@
              (trec '()))
     (match call&envs
       (()
-       (list local rec trec))
+       (values local rec trec))
       (((call . env) . more)
        (case ($call.type call)
          ((tail-rec)
@@ -1846,10 +1857,27 @@
 ;;            (loop (cdr vars) (cdr init-iforms)
 ;;                  (cons (car vars) rl) (cons (car init-iforms) ri) rr)))))
 
+;; (define (pass2/remove-vars lvars inits)
+;;   (let loop ((lvars lvars) (inits inits) (rl '()) (ri '()) (rr '()))
+;;     (cond ((null? lvars)
+;;            (vector (reverse rl) (reverse ri) (reverse rr)))
+;;           ((and (zero? ($lvar.ref-count (car lvars)))
+;;                 (zero? ($lvar.set-count (car lvars))))
+;;            ;; TODO: if we remove $LREF from inits, we have to decrement
+;;            ;; refcount?
+;;            (loop (cdr lvars) (cdr inits) rl ri
+;;                  (if (memv (tag (car inits))
+;;                            `(,$CONST ,$LOCAL-REF ,$LAMBDA))
+;;                    rr
+;;                    (cons (car inits) rr))))
+;;           (else
+;;            (loop (cdr lvars) (cdr inits)
+;;                  (cons (car lvars) rl) (cons (car inits) ri) rr)))))
+
 (define (pass2/remove-vars lvars inits)
   (let loop ((lvars lvars) (inits inits) (rl '()) (ri '()) (rr '()))
     (cond ((null? lvars)
-           (vector (reverse rl) (reverse ri) (reverse rr)))
+           (values (reverse rl) (reverse ri) (reverse rr)))
           ((and (zero? ($lvar.ref-count (car lvars)))
                 (zero? ($lvar.set-count (car lvars))))
            ;; TODO: if we remove $LREF from inits, we have to decrement
@@ -1862,6 +1890,8 @@
           (else
            (loop (cdr lvars) (cdr inits)
                  (cons (car lvars) rl) (cons (car inits) ri) rr)))))
+
+
 
 
 (define (pass2/self-recursing? closure closures)
