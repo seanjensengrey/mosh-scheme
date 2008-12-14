@@ -1,6 +1,7 @@
 2008-12-14  higepon  <higepon@users.sourceforge.jp>
 
         * compiler.scm (parse-lambda-vars): Return values.
+                       (lambda-has-define?): Rewrote.
 
         * Removed library support which is not used.
 

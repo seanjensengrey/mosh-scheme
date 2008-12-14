@@ -508,10 +508,12 @@
 (define-macro ($src x sexp)
   `(set-source-info! (make-list-with-src-slot ,x) (source-info ,sexp)))
 
-  (define (lambda-has-define? sexp)
-    (and (not (null? (cddr sexp)))
-         (pair? (third sexp))
-         (eq? (car (third sexp)) 'define)))
+(define (lambda-has-define? sexp)
+  (match sexp
+    [(_ _ ('define . _) . _) #t]
+    [else #f]))
+
+
   (define (let1->let sexp)
     `(let ((,(second sexp) ,(third sexp)))
        ,@(cdddr sexp)))
