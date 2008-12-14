@@ -1627,17 +1627,17 @@
     (vm-init '())
      (load-file "./library.scm")
 
-;    (load-file "./work.scm")
-    (load-file "./match.scm")
+    (load-file "./work.scm")
+;     (load-file "./match.scm")
 
-    (vm-test)
-    (set! optimize? (not optimize?))
-    (vm-init '())
-    (load-file "./library.scm")
-    (load-file "./match.scm")
+;;     (vm-test)
+;;     (set! optimize? (not optimize?))
+;;     (vm-init '())
+;;     (load-file "./library.scm")
+;;     (load-file "./match.scm")
 
-    (vm-test)
-    (test-end)
+;;     (vm-test)
+;;     (test-end)
 
     ]
    ;; compile string

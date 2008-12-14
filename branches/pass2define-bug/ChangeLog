@@ -3,6 +3,7 @@
         * compiler.scm (parse-lambda-vars): Return values.
                        (lambda-has-define?): Rewrote.
                        (pass1/cond->iform): Added cond expansion.
+                       (pass2/$if): Ported pass2/$if from Gauche.
 
         * Removed library support which is not used.
 

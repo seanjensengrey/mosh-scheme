@@ -638,42 +638,42 @@
                body
                ($src `((let (,(car args)) ,@(loop (cdr args)))) sexp))))))
 
-(define (cond->if sexp)
-  (define (make-if test then else)
-    ;; don't use unquote splicing, it uses append
-    (let ([then (if (> (length then) 1) (cons 'begin then) (car then))])
-      `(if ,test ,then ,else)))
-  (let loop ((clauses (cdr sexp)))
-    (if (null? clauses)
-        '(undef)
-        (cond ((and (null? (cdr clauses)) (eq? 'else (caar clauses)))
-               (if (> (length (cdar clauses)) 1)
-                   (cons 'begin (cdar clauses))
-                   (cadar clauses)))
-              ((and (= 3 (length (car clauses))) (eq? '=> (cadar clauses)))
-               (let ((tmp (gensym)))
-                 `(let ((,tmp ,(caar clauses)))
-                    (if ,tmp
-                        (,(caddar clauses) ,tmp)
-                        ,(loop (cdr clauses))))))
-              ((= 1 (length (car clauses)))
-               (let ((tmp (gensym)))
-                 `(let ((,tmp ,(caar clauses)))
-                    (if ,tmp
-                        ,tmp
-                        ,(loop (cdr clauses))))))
-              (else
-               (make-if (caar clauses) (cdar clauses) (loop (cdr clauses))))))))
+;; (define (cond->if sexp)
+;;   (define (make-if test then else)
+;;     ;; don't use unquote splicing, it uses append
+;;     (let ([then (if (> (length then) 1) (cons 'begin then) (car then))])
+;;       `(if ,test ,then ,else)))
+;;   (let loop ((clauses (cdr sexp)))
+;;     (if (null? clauses)
+;;         '(undef)
+;;         (cond ((and (null? (cdr clauses)) (eq? 'else (caar clauses)))
+;;                (if (> (length (cdar clauses)) 1)
+;;                    (cons 'begin (cdar clauses))
+;;                    (cadar clauses)))
+;;               ((and (= 3 (length (car clauses))) (eq? '=> (cadar clauses)))
+;;                (let ((tmp (gensym)))
+;;                  `(let ((,tmp ,(caar clauses)))
+;;                     (if ,tmp
+;;                         (,(caddar clauses) ,tmp)
+;;                         ,(loop (cdr clauses))))))
+;;               ((= 1 (length (car clauses)))
+;;                (let ((tmp (gensym)))
+;;                  `(let ((,tmp ,(caar clauses)))
+;;                     (if ,tmp
+;;                         ,tmp
+;;                         ,(loop (cdr clauses))))))
+;;               (else
+;;                (make-if (caar clauses) (cdar clauses) (loop (cdr clauses))))))))
 
-  (define (expand-clauses clauses tmpname)
-    (let loop ([clauses clauses])
-      (if (null? clauses)
-          '()
-          (if (eq? 'else (caar clauses))
-              clauses
-              (if (= 1 (length (caar clauses)))
-                  (cons `((eqv? ',(caaar clauses) ,tmpname) ,@(cdar clauses)) (loop (cdr clauses)))
-                  (cons `((memv ,tmpname ',(caar clauses)) ,@(cdar clauses)) (loop (cdr clauses))))))))
+(define (expand-clauses clauses tmpname)
+  (let loop ([clauses clauses])
+    (if (null? clauses)
+        '()
+        (if (eq? 'else (caar clauses))
+            clauses
+            (if (= 1 (length (caar clauses)))
+                (cons `((eqv? ',(caaar clauses) ,tmpname) ,@(cdar clauses)) (loop (cdr clauses)))
+                (cons `((memv ,tmpname ',(caar clauses)) ,@(cdar clauses)) (loop (cdr clauses))))))))
 
 (define (case->cond sexp)
   (let* ([pred (cadr sexp)]
@@ -1521,11 +1521,77 @@
                      (pass2/optimize ($lambda.body iform) (cons iform closures)))
   iform)
 
+;; (define-pass2/tracable (pass2/$if iform closures)
+;;   (let ([test-c (pass2/optimize ($if.test iform) closures)]
+;;         [then-c (pass2/optimize ($if.then iform) closures)]
+;;         [else-c (pass2/optimize ($if.else iform) closures)])
+;;   ($if test-c then-c else-c)))
+
 (define-pass2/tracable (pass2/$if iform closures)
-  (let ([test-c (pass2/optimize ($if.test iform) closures)]
-        [then-c (pass2/optimize ($if.then iform) closures)]
-        [else-c (pass2/optimize ($if.else iform) closures)])
-  ($if test-c then-c else-c)))
+  (let1 test (pass2/optimize ($if.test iform) closures)
+    (or (and
+         (tag? test $IF)
+         (let ([test-then ($if.then test)]
+               [test-else ($if.else test)])
+           (cond ((tag? test-then $IT)
+                  (receive (l0 l1)
+                      (pass2/label-or-dup
+                       (pass2/optimize ($if.then iform) closures))
+                    (pass2/update-if iform ($if.test test)
+                                     l0
+                                     (pass2/optimize ($if
+                                                      test-else
+                                                      l1
+                                                      ($if.else iform))
+                                                closures))))
+                 ((or (tag? test-else $IT)
+                      (and (tag? test-else $CONST)
+                           (not ($const.val test-else))))
+                  (receive (l0 l1)
+                      (pass2/label-or-dup
+                       (pass2/optimize ($if.else iform) closures))
+                    (pass2/update-if iform ($if.test test)
+                                     (pass2/optimize ($if
+                                                     test-then
+                                                     ($if.then iform)
+                                                     l0)
+                                                closures)
+                                     l1)))
+                 ((and (tag? test-then $CONST)
+                       (not ($const.val test-then)))
+                  (receive (l0 l1)
+                      (pass2/label-or-dup
+                       (pass2/optimize ($if.else iform) closures))
+                    (pass2/update-if iform ($if.test test)
+                                     (if (tag? l0 $IT)
+                                       ($const #f)
+                                       l0)
+                                     (pass2/optimize ($if
+                                                     test-else
+                                                     ($if.then iform)
+                                                     l1)
+                                                closures))))
+                 (else #f))))
+        ;; default case
+        (pass2/update-if iform
+                         test
+                         (pass2/optimize ($if.then iform) closures)
+                         (pass2/optimize ($if.else iform) closures)))))
+
+(define (pass2/label-or-dup iform)
+  (if (memv (tag iform) `(,$LOCAL-REF ,$CONST ,$IT))
+    (values iform (iform-copy iform '()))
+    (let1 lab ($label iform)
+      (values lab lab))))
+
+(define (pass2/update-if iform new-test new-then new-else)
+  (if (eq? new-then new-else)
+    ($seq (list new-test new-then))
+    (begin ($if.set-test! iform new-test)
+           ($if.set-then! iform new-then)
+           ($if.set-else! iform new-else)
+           iform)))
+
 
 (define-pass2/tracable (pass2/$local-assign iform closures)
   ($local-assign.set-val! iform (pass2/optimize ($local-assign.val iform) closures))
@@ -2986,7 +3052,7 @@
 (define (pass3/$label cb iform locals frees can-frees sets tail depth display-count)
   (cond
    [($label.visited? iform)
-    (cput! cb UNFIXED_JUMP iform)
+    (cput! cb 'UNFIXED_JUMP iform)
     0]
    [else
     ;; As far as I know, any code doesn't come here.

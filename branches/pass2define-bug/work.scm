@@ -1,66 +1,178 @@
-;; (define (a appender lis1)
-;;   (let recur ((elt (car lis1)) (rest (cdr lis1)))
-;;       (if (null-list? rest)
-;;           elt
-;;           (appender elt (recur (car rest) (cdr rest))))))
-
-;; (define (a appender lis1)
-;;   (let recur ((rest (cdr lis1)))
-;;       (if (null? rest)
-;;          '()
-;;           (appender '() (recur '())))))
-
-
-
-(disasm
-(lambda ()
-  (aif (pair? '())
-       it
-       3)))
-
-
-
-
-
-
-
-;(disasm
-;(lambda ()
-;; (let1 val (begin (define a 3))
-
-;; (define (tak x y z)
-;;   (if (not (< y x))
-;;       z
-;;       (tak (tak (- x 1) y z)
-;;            (tak (- y 1) z x)
-;;            (tak (- z 1) x y))))
-
-;; (disasm tak)
-;;   (if val #t #f))
-
-
-;(display (macroexpand '(guard (con (#t 'error)) (letrec ((a 3) (b a)) (display b) (newline)))))
-;(guard (con (#t 'error)) (letrec ((a 3) (b a)) (display b) (newline))); (format #t " Running ~d/~d" 71 1878) (add-error '(letrec ((a 3) (b a)) (display b) (newline)) 'error 'not-error))(display "")(let1 val (begin (letrec ((even? (lambda (n) (if (= 0 n) #t (odd? (- n 1))))) (odd? (lambda (n) (if (= 0 n) #f (even? (- n 1)))))) (cons (even? 88) (odd? 88)))) (if (equal? '(#t . #f) val) (format #t " Running ~d/~d" 72 1878) (begin (add-error '(letrec ((even? (lambda (n) (if (= 0 n) #t (odd? (- n 1))))) (odd? (lambda (n) (if (= 0 n) #f (even? (- n 1)))))) (cons (even? 88) (odd? 88))) '(#t . #f) val))))
-
-;(a append '(1 2 3))
-;; (import (rnrs)
-;;         (clos2 user)
-;;         (mosh string))
-
-;; (define-class <point> () x y)
-
-;; (define-method initialize 'after ((point <point>) init-args)
-;;   (initialize-direct-slots point <point> init-args))
-
-;; (define-method print-object ((point <point>) port)
-;;   (print-object-with-slots point port))
-
-;; (define-generic distance-to-origin)
-
-;; (define-method distance-to-origin ((point <point>))
-;;   (sqrt (+ (expt (slot-ref point 'x) 2)
-;;            (expt (slot-ref point 'y) 2))))
-
-;; (define p1 (make <point> 'x 3 'y 4))
-
-;; (format #t "distance of ~a to origin: ~a~%\n" p1 (distance-to-origin p1))
+(define match:expanders
+  (letrec (
+           ;; (inline-let (lambda (let-exp)
+           (gen (lambda (x sf plist erract length>= eta)
+                  (if (null? plist)
+                      (erract x)
+                      (let* ((v '())
+                             (val (lambda (x) (cdr (assq x v))))
+                             (fail (lambda (sf)
+                                     (gen x
+                                          sf
+                                          (cdr plist)
+                                          erract
+                                          length>=
+                                          eta)))
+                             (success (lambda (sf)
+                                        (set-car! (cddddr (car plist)) #t)
+                                        (let* ((code (cadr (car plist)))
+                                               (bv (caddr (car plist)))
+                                               (fail-sym (cadddr
+                                                           (car plist))))
+                                          (if fail-sym
+                                              (let ((ap `(,code
+                                                           ,fail-sym
+                                                           ,@(map val bv))))
+                                                `(call-with-current-continuation
+                                                   (lambda (,fail-sym)
+                                                     (let ((,fail-sym (lambda ()
+                                                                        (,fail-sym
+                                                                          ,(fail sf)))))
+                                                       ,ap))))
+                                              `(,code ,@(map val bv)))))))
+                        (let next ((p (caar plist))
+                                   (e x)
+                                   (sf sf)
+                                   (kf fail)
+                                   (ks success))
+                          (cond
+                            ((and (pair? p) (eq? 'quote (car p))) (emit `(equal?
+                                                                           ,e
+                                                                           ,p)
+                                                                        sf
+                                                                        kf
+                                                                        ks))
+                            ((and (pair? p) (eq? '? (car p))) (let ((tst `(,(cadr p)
+                                                                            ,e)))
+                                                                (emit tst
+                                                                      sf
+                                                                      kf
+                                                                      ks)))
+                            ((and (pair? p) (eq? '= (car p))) (next (caddr
+                                                                      p)
+                                                                    `(,(cadr p)
+                                                                       ,e)
+                                                                    sf
+                                                                    kf
+                                                                    ks))
+                            ((and (pair? p) (eq? 'and (car p))) (let loop ((p (cdr p))
+                                                                           (sf sf))
+                                                                  (if (null?
+                                                                        p)
+                                                                      (ks sf)
+                                                                      (next (car p)
+                                                                            e
+                                                                            sf
+                                                                            kf
+                                                                            (lambda (sf)
+                                                                              (loop (cdr p)
+                                                                                    sf))))))
+                            ((and (pair? p)
+                                  (pair? (cdr p))
+                                  (dot-dot-k? (cadr p))) (emit `(list? ,e)
+                                                               sf
+                                                               kf
+                                                               (lambda (sf)
+                                                                 (let* ((k (dot-dot-k?
+                                                                             (cadr p)))
+                                                                        (ks (lambda (sf)
+                                                                              (let ((bound (list-ref
+                                                                                             p
+                                                                                             2)))
+                                                                                (cond
+                                                                                  ((eq? (car p)
+                                                                                        '_) (ks sf))
+                                                                                  ((null?
+                                                                                     bound) (let* ((ptst (next (car p)
+                                                                                                               eta
+                                                                                                               sf
+                                                                                                               (lambda (sf)
+                                                                                                                 #f)
+                                                                                                               (lambda (sf)
+                                                                                                                 #t)))
+                                                                                                   (tst (if (and (pair?
+                                                                                                                   ptst)
+                                                                                                                 (symbol?
+                                                                                                                   (car ptst))
+                                                                                                                 (pair?
+                                                                                                                   (cdr ptst))
+                                                                                                                 (eq? eta
+                                                                                                                      (cadr ptst))
+                                                                                                                 (null?
+                                                                                                                   (cddr ptst)))
+                                                                                                            (car ptst)
+                                                                                                            `(lambda (,eta)
+                                                                                                               ,ptst))))
+                                                                                              (assm `(match:andmap
+                                                                                                       ,tst
+                                                                                                       ,e)
+                                                                                                    (kf sf)
+                                                                                                    (ks sf))))
+                                                                                  ((and (symbol?
+                                                                                          (car p))
+                                                                                        (equal?
+                                                                                          (list (car p))
+                                                                                          bound)) (next (car p)
+                                                                                                        e
+                                                                                                        sf
+                                                                                                        kf
+                                                                                                        ks))
+                                                                                  (else (let* ((gloop (list-ref
+                                                                                                        p
+                                                                                                        3))
+                                                                                               (ge (list-ref
+                                                                                                     p
+                                                                                                     4))
+                                                                                               (fresh (list-ref
+                                                                                                        p
+                                                                                                        5))
+                                                                                               (p1 (next (car p)
+                                                                                                         `(car ,ge)
+                                                                                                         sf
+                                                                                                         kf
+                                                                                                         (lambda (sf)
+                                                                                                           `(,gloop
+                                                                                                              (cdr ,ge)
+                                                                                                              ,@(map (lambda (b
+                                                                                                                              f)
+                                                                                                                       `(cons ,(val b)
+                                                                                                                              ,f))
+                                                                                                                     bound
+                                                                                                                     fresh))))))
+                                                                                          (set! v
+                                                                                            (append
+                                                                                              (map cons
+                                                                                                   bound
+                                                                                                   (map (lambda (x)
+                                                                                                          `(reverse
+                                                                                                             ,x))
+                                                                                                        fresh))
+                                                                                              v))
+                                                                                          `(let ,gloop
+                                                                                             ((,ge ,e)
+                                                                                              ,@(map (lambda (x)
+                                                                                                       `(,x '()))
+                                                                                                     fresh))
+                                                                                             (if (null?
+                                                                                                   ,ge)
+                                                                                                 ,(ks sf)
+                                                                                                 ,p1)))))))))
+                                                                   (case k
+                                                                     ((0) (ks sf))
+                                                                     ((1) (emit `(pair?
+                                                                                   ,e)
+                                                                                sf
+                                                                                kf
+                                                                                ks))
+                                                                     (else (emit `((,length>=
+                                                                                     ,k)
+                                                                                   ,e)
+                                                                                 sf
+                                                                                 kf
+                                                                                 ks)))))))
+                            (else (display
+                                    "FATAL ERROR IN PATTERN MATCHER")
+                             (newline)
+                             (error #f "THIS NEVER HAPPENS"))))))))
+           )
+    (list gen)))

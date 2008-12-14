@@ -55,6 +55,11 @@
      0 0 1  0
      0 0 0  1))
 
+(define (print-matrix m)
+  (format #t "|~a ~a ~a ~a|\n" (vector-ref m 0)  (vector-ref m 1)  (vector-ref m 2) (vector-ref m 3))
+  (format #t "|~a ~a ~a ~a|\n" (vector-ref m 4)  (vector-ref m 5)  (vector-ref m 6) (vector-ref m 7))
+  (format #t "|~a ~a ~a ~a|\n" (vector-ref m 8)  (vector-ref m 9)  (vector-ref m 10) (vector-ref m 11))
+  (format #t "|~a ~a ~a ~a|\n" (vector-ref m 12) (vector-ref m 13) (vector-ref m 14) (vector-ref m 15)))
 
 (define (mul m p)
   (let ([x (point-x p)]
@@ -110,3 +115,5 @@
 (format #t "(define rect-after '~a)\n"
         (map point->list
              (map (lambda (p) (mul t (apply make-point p))) before)))
+
+(print-matrix t)
