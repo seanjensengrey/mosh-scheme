@@ -87,6 +87,9 @@
 /* Define to 1 if the system has the type `_Bool'. */
 #undef HAVE__BOOL
 
+/* system line feed code is CR */
+#undef LINE_FEED_CODE_CR
+
 /* system line feed code is CRLF */
 #undef LINE_FEED_CODE_CRLF
 

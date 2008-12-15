@@ -6614,10 +6614,17 @@ done
 # Check system type
 # todo: added another system type
 case "$target_in" in
-    cygwin* | mingw*)
+    cygwin* | mingw* | amigados* | msdos* | rdos*)
 
 cat >>confdefs.h <<\_ACEOF
 #define LINE_FEED_CODE_CRLF 1
+_ACEOF
+
+        ;;
+    mac*)
+
+cat >>confdefs.h <<\_ACEOF
+#define LINE_FEED_CODE_CR 1
 _ACEOF
 
         ;;
