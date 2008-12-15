@@ -1,3 +1,7 @@
+;; (disasm
+;;  (lambda ()
+;;   ((lambda (a b) (+ a b)) x y)))
+
 (disasm
  (lambda ()
-  (if a b #f)))
+  (let ([a x] [b y]) (+ a b))))
