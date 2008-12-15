@@ -1,6 +1,7 @@
 2008-12-15  higepon  <higepon@users.sourceforge.jp>
 
         * compiler.scm (pass3/$if): Omit the jump after then clause.
+                       (pass2/$if): Omit "if" when (if const then else) appears.
 
 2008-12-14  higepon  <higepon@users.sourceforge.jp>
 

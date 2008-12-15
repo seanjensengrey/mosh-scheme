@@ -1522,10 +1522,18 @@
   iform)
 
 (define-pass2/tracable (pass2/$if iform closures)
-  (let ([test-c (pass2/optimize ($if.test iform) closures)]
-        [then-c (pass2/optimize ($if.then iform) closures)]
-        [else-c (pass2/optimize ($if.else iform) closures)])
-  ($if test-c then-c else-c)))
+  (let1 if-test ($if.test iform)
+    (cond
+     ;; (if const else then) => else or then.
+     [(tag? if-test $CONST)
+      (if ($const.val if-test)
+          ($seq (list if-test (pass2/optimize ($if.then iform) closures)) #f)
+          ($seq (list if-test (pass2/optimize ($if.else iform) closures)) #f))]
+     [else
+      (let ([test-c (pass2/optimize ($if.test iform) closures)]
+            [then-c (pass2/optimize ($if.then iform) closures)]
+            [else-c (pass2/optimize ($if.else iform) closures)])
+        ($if test-c then-c else-c))])))
 
 ;; ** This version of pass2/$if works, but very slow. **
 ;;   This genrates many labels and so it makes pass3/find-free/sets slower.
