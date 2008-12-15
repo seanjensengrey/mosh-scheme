@@ -174,12 +174,13 @@
       l
       (cons (f (car l)) ($map1 f (cdr l)))))
 
-(define ($filter-map1 f l)
-  (if (null? l)
-      l
-      (aif (f (car l))
-           (cons it ($filter-map1 f (cdr l)))
-           ($filter-map1 f (cdr l)))))
+;; not used?
+;; (define ($filter-map1 f l)
+;;   (if (null? l)
+;;       l
+;;       (aif (f (car l))
+;;            (cons it ($filter-map1 f (cdr l)))
+;;            ($filter-map1 f (cdr l)))))
 
 (define ($map1-with-tail f l)
   (if (null? l)
@@ -517,13 +518,13 @@
     [(_ _ ('define . _) . _) #t]
     [else #f]))
 
+(define (let1->let sexp)
+  `(let ((,(second sexp) ,(third sexp)))
+     ,@(cdddr sexp)))
 
-  (define (let1->let sexp)
-    `(let ((,(second sexp) ,(third sexp)))
-       ,@(cdddr sexp)))
-  (define (expand-let vars body)
-    (let1 expanded-vars (fold-right (lambda (x y) (cons (list (first x) (pass1/expand (second x))) y)) '() vars)
-      `(let ,expanded-vars ,@(imap pass1/expand body))))
+(define (expand-let vars body)
+  (let1 expanded-vars (fold-right (lambda (x y) (cons (list (first x) (pass1/expand (second x))) y)) '() vars)
+    `(let ,expanded-vars ,@(imap pass1/expand body))))
 
 (define (let-internal-define->letrec sexp)
   (let* ([body (cddr sexp)]
@@ -775,12 +776,12 @@
 ;;
 
 ;; same as (find (lambbda (l) (eq? object (car l))) lst), but it doesn't need to create closure
-(define (find-with-car object lst)
-  (if (null? lst)
-      #f
-      (if (eq? object (caar lst))
-          (car lst)
-          (find-with-car object (cdr lst)))))
+;; (define (find-with-car object lst)
+;;   (if (null? lst)
+;;       #f
+;;       (if (eq? object (caar lst))
+;;           (car lst)
+;;           (find-with-car object (cdr lst)))))
 
 (cond-expand
  [vm?
