@@ -1530,7 +1530,7 @@
 ;; ** This version of pass2/$if works, but very slow. **
 ;;   This genrates many labels and so it makes pass3/find-free/sets slower.
 ;;   We need to distinguish source label and destination label.
-;;   And visit only destination label.
+;;   And pass3/find-free must visit only destination label .
 ;; (define-pass2/tracable (pass2/$if iform closures)
 ;;   (let1 test (pass2/optimize ($if.test iform) closures)
 ;;     (or (and
@@ -2699,13 +2699,20 @@
       (let1 test-size (pass3/rec cb ($if.test iform) locals frees can-frees sets #f depth display-count)
         (code-builder-put-insn-arg1! cb 'TEST (ref-label begin-of-else))
         (let1 then-size (pass3/rec cb ($if.then iform) locals frees can-frees sets tail depth display-count)
-          (cput! cb
-                 'UNFIXED_JUMP
-                 (ref-label end-of-else)
-                 begin-of-else)
-          (let1 else-size (pass3/rec cb ($if.else iform) locals frees can-frees sets tail depth display-count)
-            (cput! cb end-of-else)
-            (+ test-size then-size else-size)))))]))
+          (cond
+           ;; When else clause is $IT, we can omit the jump after then clause.
+           [(tag? ($if.else iform) $IT)
+            (cput! cb
+                   (ref-label begin-of-else))
+            (+ test-size then-size)]
+           [else
+            (cput! cb
+                   'UNFIXED_JUMP
+                   (ref-label end-of-else)
+                   begin-of-else)
+            (let1 else-size (pass3/rec cb ($if.else iform) locals frees can-frees sets tail depth display-count)
+              (cput! cb end-of-else)
+              (+ test-size then-size else-size))]))))]))
 
 (define (pass3/$define cb iform locals frees can-frees sets tail depth display-count)
   (begin0
