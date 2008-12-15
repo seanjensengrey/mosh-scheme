@@ -1625,7 +1625,7 @@
    ;; test
    [(= (length args) 1)
     (vm-init '())
-     (load-file "./library.scm")
+;     (load-file "./library.scm")
 
     (load-file "./work.scm")
 ;     (load-file "./match.scm")

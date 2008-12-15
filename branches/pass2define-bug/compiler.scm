@@ -1521,62 +1521,66 @@
                      (pass2/optimize ($lambda.body iform) (cons iform closures)))
   iform)
 
-;; (define-pass2/tracable (pass2/$if iform closures)
-;;   (let ([test-c (pass2/optimize ($if.test iform) closures)]
-;;         [then-c (pass2/optimize ($if.then iform) closures)]
-;;         [else-c (pass2/optimize ($if.else iform) closures)])
-;;   ($if test-c then-c else-c)))
-
 (define-pass2/tracable (pass2/$if iform closures)
-  (let1 test (pass2/optimize ($if.test iform) closures)
-    (or (and
-         (tag? test $IF)
-         (let ([test-then ($if.then test)]
-               [test-else ($if.else test)])
-           (cond ((tag? test-then $IT)
-                  (receive (l0 l1)
-                      (pass2/label-or-dup
-                       (pass2/optimize ($if.then iform) closures))
-                    (pass2/update-if iform ($if.test test)
-                                     l0
-                                     (pass2/optimize ($if
-                                                      test-else
-                                                      l1
-                                                      ($if.else iform))
-                                                closures))))
-                 ((or (tag? test-else $IT)
-                      (and (tag? test-else $CONST)
-                           (not ($const.val test-else))))
-                  (receive (l0 l1)
-                      (pass2/label-or-dup
-                       (pass2/optimize ($if.else iform) closures))
-                    (pass2/update-if iform ($if.test test)
-                                     (pass2/optimize ($if
-                                                     test-then
-                                                     ($if.then iform)
-                                                     l0)
-                                                closures)
-                                     l1)))
-                 ((and (tag? test-then $CONST)
-                       (not ($const.val test-then)))
-                  (receive (l0 l1)
-                      (pass2/label-or-dup
-                       (pass2/optimize ($if.else iform) closures))
-                    (pass2/update-if iform ($if.test test)
-                                     (if (tag? l0 $IT)
-                                       ($const #f)
-                                       l0)
-                                     (pass2/optimize ($if
-                                                     test-else
-                                                     ($if.then iform)
-                                                     l1)
-                                                closures))))
-                 (else #f))))
-        ;; default case
-        (pass2/update-if iform
-                         test
-                         (pass2/optimize ($if.then iform) closures)
-                         (pass2/optimize ($if.else iform) closures)))))
+  (let ([test-c (pass2/optimize ($if.test iform) closures)]
+        [then-c (pass2/optimize ($if.then iform) closures)]
+        [else-c (pass2/optimize ($if.else iform) closures)])
+  ($if test-c then-c else-c)))
+
+;; ** This version of pass2/$if works, but very slow. **
+;;   This genrates many labels and so it makes pass3/find-free/sets slower.
+;;   We need to distinguish source label and destination label.
+;;   And visit only destination label.
+;; (define-pass2/tracable (pass2/$if iform closures)
+;;   (let1 test (pass2/optimize ($if.test iform) closures)
+;;     (or (and
+;;          (tag? test $IF)
+;;          (let ([test-then ($if.then test)]
+;;                [test-else ($if.else test)])
+;;            (cond ((tag? test-then $IT)
+;;                   (receive (l0 l1)
+;;                       (pass2/label-or-dup
+;;                        (pass2/optimize ($if.then iform) closures))
+;;                     (pass2/update-if iform ($if.test test)
+;;                                      l0
+;;                                      (pass2/optimize ($if
+;;                                                       test-else
+;;                                                       l1
+;;                                                       ($if.else iform))
+;;                                                 closures))))
+;;                  ((or (tag? test-else $IT)
+;;                       (and (tag? test-else $CONST)
+;;                            (not ($const.val test-else))))
+;;                   (receive (l0 l1)
+;;                       (pass2/label-or-dup
+;;                        (pass2/optimize ($if.else iform) closures))
+;;                     (pass2/update-if iform ($if.test test)
+;;                                      (pass2/optimize ($if
+;;                                                      test-then
+;;                                                      ($if.then iform)
+;;                                                      l0)
+;;                                                 closures)
+;;                                      l1)))
+;;                  ((and (tag? test-then $CONST)
+;;                        (not ($const.val test-then)))
+;;                   (receive (l0 l1)
+;;                       (pass2/label-or-dup
+;;                        (pass2/optimize ($if.else iform) closures))
+;;                     (pass2/update-if iform ($if.test test)
+;;                                      (if (tag? l0 $IT)
+;;                                        ($const #f)
+;;                                        l0)
+;;                                      (pass2/optimize ($if
+;;                                                      test-else
+;;                                                      ($if.then iform)
+;;                                                      l1)
+;;                                                 closures))))
+;;                  (else #f))))
+;;         ;; default case
+;;         (pass2/update-if iform
+;;                          test
+;;                          (pass2/optimize ($if.then iform) closures)
+;;                          (pass2/optimize ($if.else iform) closures)))))
 
 (define (pass2/label-or-dup iform)
   (if (memv (tag iform) `(,$LOCAL-REF ,$CONST ,$IT))
