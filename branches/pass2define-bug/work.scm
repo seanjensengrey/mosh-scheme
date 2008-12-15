@@ -1,3 +1,3 @@
 (disasm
  (lambda ()
-   (or #f 3 4)))
+  (if a b #f)))

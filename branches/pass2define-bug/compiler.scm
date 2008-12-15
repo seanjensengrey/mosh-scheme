@@ -1505,7 +1505,7 @@
        (when (and (tag? (first args) $CONST) (tag? (second args) $CONST))
          (vector-set! iform 0 $CONST)
          ($const.set-val! iform (* ($const.val (first args)) ($const.val (second args)))))]
-      [(NUMBER_MINUS)
+      [(NUMBER_SUB)
        (when (and (tag? (first args) $CONST) (tag? (second args) $CONST))
          (vector-set! iform 0 $CONST)
          ($const.set-val! iform (- ($const.val (first args)) ($const.val (second args)))))]
@@ -2701,6 +2701,10 @@
                        ($if.else iform)
                        ($if.then iform))
                locals frees can-frees sets tail depth display-count)]
+   ;; (if a b #f) => (if a b IT)
+   [(and (tag? ($if.else iform) $CONST) (not ($const.val ($if.else iform))))
+    ($if.set-else! iform ($it))
+    (pass3/$if cb iform locals frees can-frees sets tail depth display-count)]
    [else
     (let ([end-of-else   (make-label)]
           [begin-of-else (make-label)])
