@@ -965,6 +965,12 @@
                 (if a
                     (VM codes (skip 1) a fp c stack sp)
                     (VM codes (skip (next 1)) a fp c stack sp))]
+               [(BNLE)
+                (val1)
+                (let1 val (<= (index stack sp 0) a)
+                (if val
+                    (VM codes (skip 1) val fp c stack (- sp 1))
+                    (VM codes (skip (next 1)) val fp c stack (- sp 1))))]
                [(NUMBER_LE_TEST)
                 (val1)
                 (let1 val (<= (index stack sp 0) a)

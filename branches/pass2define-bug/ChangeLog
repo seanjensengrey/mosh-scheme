@@ -1,3 +1,7 @@
+2008-12-17  higepon  <higepon@users.sourceforge.jp>
+
+        * VM.cpp : Added new Instruction BNLE.
+
 2008-12-16  higepon  <higepon@users.sourceforge.jp>
 
         * CodeBuilder.cpp (CodeBuilder::combineInstructionsArgument1): Enabled REFER_GLOBAL_CALL.

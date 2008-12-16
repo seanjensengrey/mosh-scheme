@@ -123,7 +123,8 @@ public:
         STOP = 3534,
         CONTINUATION_VALUES = 3566,
         SHIFTJ = 3598,
-        INSTRUCTION_COUNT = 113,
+        BNLE = 3630,
+        INSTRUCTION_COUNT = 114,
     };
     static const ucs4char* toString(int val) {
         switch(val) {
@@ -465,6 +466,9 @@ public:
            break;
         case SHIFTJ:
            return UC("SHIFTJ");
+           break;
+        case BNLE:
+           return UC("BNLE");
            break;
         default:
            return UC("Unkown Instruction");

@@ -2706,6 +2706,28 @@
    [(and (tag? ($if.else iform) $CONST) (not ($const.val ($if.else iform))))
     ($if.set-else! iform ($it))
     (pass3/$if cb iform locals frees can-frees sets tail depth display-count)]
+   [(and (tag? ($if.test iform) $ASM) (eq? ($asm.insn ($if.test iform)) 'NUMBER_LE))
+    (let ([end-of-else   (make-label)]
+          [begin-of-else (make-label)]
+          [args ($asm.args ($if.test iform))])
+      (let ([x (pass3/compile-arg cb (first args) locals frees can-frees sets #f depth display-count)]
+            [y (pass3/rec cb (second args) locals frees can-frees sets #f depth display-count)])
+        (code-builder-put-insn-arg1! cb 'BNLE (ref-label begin-of-else))
+        (let1 then-size (pass3/rec cb ($if.then iform) locals frees can-frees sets tail depth display-count)
+          (cond
+           ;; When else clause is $IT, we can omit the jump after then clause.
+           [(tag? ($if.else iform) $IT)
+            (cput! cb
+                   (ref-label begin-of-else))
+            (+ x y then-size)]
+           [else
+            (cput! cb
+                   'UNFIXED_JUMP
+                   (ref-label end-of-else)
+                   begin-of-else)
+            (let1 else-size (pass3/rec cb ($if.else iform) locals frees can-frees sets tail depth display-count)
+              (cput! cb end-of-else)
+              (+ x y then-size else-size))]))))]
    [else
     (let ([end-of-else   (make-label)]
           [begin-of-else (make-label)])
@@ -3299,6 +3321,7 @@
                [(eq? insn 'UNFIXED_JUMP)          (pass4/fixup-labels-clollect 'UNFIXED_JUMP)]
                [(eq? insn 'TEST)                  (pass4/fixup-labels-clollect 'TEST)]
                [(eq? insn 'NUMBER_LE_TEST)        (pass4/fixup-labels-clollect 'NUMBER_LE_TEST)]
+               [(eq? insn 'BNLE)                  (pass4/fixup-labels-clollect 'BNLE)]
                [(eq? insn 'NOT_TEST)              (pass4/fixup-labels-clollect 'NOT_TEST)]
                [(eq? insn 'REFER_LOCAL0_EQV_TEST) (pass4/fixup-labels-clollect 'REFER_LOCAL0_EQV_TEST)]
                [(eq? insn 'FRAME)                 (pass4/fixup-labels-clollect 'FRAME)]
@@ -3321,7 +3344,9 @@
                [(eq? insn 'UNFIXED_JUMP)          (pass4/fixup-labels-insn 'LOCAL_JMP)]
                [(eq? insn 'CLOSURE)               (pass4/fixup-labels-insn 'CLOSURE)]
                [(eq? insn 'TEST)                  (pass4/fixup-labels-insn 'TEST)]
-               [(eq? insn 'NUMBER_LE_TEST)        (pass4/fixup-labels-insn 'NUMBER_LE_TEST)]
+               [(eq? insn 'NUMBER_LE_TEST
+)        (pass4/fixup-labels-insn 'NUMBER_LE_TEST)]
+               [(eq? insn 'BNLE)                  (pass4/fixup-labels-insn 'BNLE)]
                [(eq? insn 'NOT_TEST)              (pass4/fixup-labels-insn 'NOT_TEST)]
                [(eq? insn 'REFER_LOCAL0_EQV_TEST) (pass4/fixup-labels-insn 'REFER_LOCAL0_EQV_TEST)]
                [(eq? insn 'FRAME)                 (pass4/fixup-labels-insn 'FRAME)]

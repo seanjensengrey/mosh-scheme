@@ -111,3 +111,4 @@
 (define-insn STOP 0)
 (define-insn CONTINUATION_VALUES 0)
 (define-insn SHIFTJ 3)
+(define-insn BNLE 1)

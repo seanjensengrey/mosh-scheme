@@ -1654,6 +1654,28 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             sp_--;
             goto test_entry;
         }
+        // Branch on not less than or equal
+        CASE(BNLE)
+        {
+            const Object n = index(sp_, 0);
+            if (n.isFixnum() && ac_.isFixnum()) {
+                ac_ = Object::makeBool(n.toFixnum() <= ac_.toFixnum());
+            } else {
+                ac_ = Object::makeBool(Arithmetic::le(n, ac_));
+            }
+            sp_--;
+#define BRANCH \
+            if (ac_.isFalse()) { \
+                const Object skipSize = fetchOperand();\ 
+                MOSH_ASSERT(skipSize.isFixnum());\
+                skip(skipSize.toFixnum() - 1);\
+            } else {\
+                pc_++;\
+            }
+            // test_entry を共有するより速い
+            BRANCH;
+            NEXT;
+        }
         CASE(REFER_LOCAL0_EQV_TEST)
         {
             ac_ = Object::makeBool(eqv(index(sp_, 0), referLocal(0)));

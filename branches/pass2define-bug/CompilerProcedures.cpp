@@ -616,6 +616,7 @@ Object pass4FixupLabelCollect(Object vec)
     static const Object UNFIXED_JUMP          = Object::makeRaw(Instruction::UNFIXED_JUMP);
     static const Object TEST                  = Object::makeRaw(Instruction::TEST);
     static const Object NUMBER_LE_TEST        = Object::makeRaw(Instruction::NUMBER_LE_TEST);
+    static const Object BNLE                  = Object::makeRaw(Instruction::BNLE);
     static const Object NOT_TEST              = Object::makeRaw(Instruction::NOT_TEST);
     static const Object REFER_LOCAL0_EQV_TEST = Object::makeRaw(Instruction::REFER_LOCAL0_EQV_TEST);
     static const Object FRAME                 = Object::makeRaw(Instruction::FRAME);
@@ -633,6 +634,7 @@ Object pass4FixupLabelCollect(Object vec)
         if (insn == UNFIXED_JUMP          ||
             insn == TEST                  ||
             insn == NUMBER_LE_TEST        ||
+            insn == BNLE                  ||
             insn == NOT_TEST              ||
             insn == REFER_LOCAL0_EQV_TEST ||
             insn == FRAME                 ||
@@ -660,6 +662,7 @@ Object pass4FixupLabel(Object vec)
     static const Object UNFIXED_JUMP          = Object::makeRaw(Instruction::UNFIXED_JUMP);
     static const Object TEST                  = Object::makeRaw(Instruction::TEST);
     static const Object NUMBER_LE_TEST        = Object::makeRaw(Instruction::NUMBER_LE_TEST);
+    static const Object BNLE                  = Object::makeRaw(Instruction::BNLE);
     static const Object NOT_TEST              = Object::makeRaw(Instruction::NOT_TEST);
     static const Object REFER_LOCAL0_EQV_TEST = Object::makeRaw(Instruction::REFER_LOCAL0_EQV_TEST);
     static const Object FRAME                 = Object::makeRaw(Instruction::FRAME);
@@ -687,6 +690,7 @@ Object pass4FixupLabel(Object vec)
             }
         } else if (insn == TEST                  ||
                    insn == NUMBER_LE_TEST        ||
+                   insn == BNLE                  ||
                    insn == NOT_TEST              ||
                    insn == REFER_LOCAL0_EQV_TEST ||
                    insn == FRAME                 ||
