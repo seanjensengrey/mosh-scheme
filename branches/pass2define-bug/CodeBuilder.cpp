@@ -311,33 +311,36 @@ void CodeBuilder::combineInstructionsArgument1(CodePacket codePacket)
     case Instruction::CALL:
     {
         MOSH_ASSERT(argument1.isFixnum());
-        const int index = argument1.toFixnum();
-        if (index <= 3) {
-            flush();
-            switch(index) {
-            case 1:
-                codePacket.setType(CodePacket::ARGUMENT0);
-                codePacket.setInstructionImmediate(Instruction::CALL1);
-                break;
-            case 2:
-                codePacket.setType(CodePacket::ARGUMENT0);
-                codePacket.setInstructionImmediate(Instruction::CALL2);
-                break;
-            case 3:
-                codePacket.setType(CodePacket::ARGUMENT0);
-                codePacket.setInstructionImmediate(Instruction::CALL3);
-                break;
-            default:
-                break;
-            }
-            previousCodePacket_ = codePacket;
-        } else if (previousCodePacket_.instructionImmediate() == Instruction::REFER_GLOBAL) {
+
+        if (previousCodePacket_.instructionImmediate() == Instruction::REFER_GLOBAL) {
             previousCodePacket_.setInstructionImmediate(Instruction::REFER_GLOBAL_CALL);
             previousCodePacket_.setType(CodePacket::ARGUMENT2);
             previousCodePacket_.setArgument2(codePacket.argument1());
         } else {
-            flush();
-            previousCodePacket_ = codePacket;
+            const int index = argument1.toFixnum();
+            if (index <= 3) {
+                flush();
+                switch(index) {
+                case 1:
+                    codePacket.setType(CodePacket::ARGUMENT0);
+                    codePacket.setInstructionImmediate(Instruction::CALL1);
+                    break;
+                case 2:
+                    codePacket.setType(CodePacket::ARGUMENT0);
+                    codePacket.setInstructionImmediate(Instruction::CALL2);
+                    break;
+                case 3:
+                    codePacket.setType(CodePacket::ARGUMENT0);
+                    codePacket.setInstructionImmediate(Instruction::CALL3);
+                    break;
+                default:
+                    break;
+                }
+                previousCodePacket_ = codePacket;
+            } else {
+                flush();
+                previousCodePacket_ = codePacket;
+            }
         }
         break;
     }

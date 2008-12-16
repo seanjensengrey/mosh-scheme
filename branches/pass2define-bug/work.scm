@@ -1,7 +1,5 @@
-;; (disasm
-;;  (lambda ()
-;;   ((lambda (a b) (+ a b)) x y)))
+(define (fib n)
+  (if (<= n 2) 1
+      (+ (fib (- n 1)) (fib (- n 2)))))
 
-(disasm
- (lambda ()
-  (let ([a x] [b y]) (+ a b))))
+(fib 34)
