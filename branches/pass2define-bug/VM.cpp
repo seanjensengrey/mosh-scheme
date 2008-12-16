@@ -1664,7 +1664,7 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
                 ac_ = Object::makeBool(Arithmetic::le(n, ac_));
             }
             sp_--;
-#define BRANCH \
+#define BRANCH_ON_FALSE \
             if (ac_.isFalse()) { \
                 const Object skipSize = fetchOperand();\ 
                 MOSH_ASSERT(skipSize.isFixnum());\
@@ -1673,7 +1673,7 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
                 pc_++;\
             }
             // test_entry を共有するより速い
-            BRANCH;
+            BRANCH_ON_FALSE;
             NEXT;
         }
         CASE(REFER_LOCAL0_EQV_TEST)
