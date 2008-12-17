@@ -1482,6 +1482,13 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             TRACE_INSN0("REFER_LOCAL_PUSH0");
             NEXT1;
         }
+        CASE(REFER_LOCAL2_PUSH_CONSTANT)
+        {
+            push(referLocal(2));
+            const Object n = fetchOperand();
+            ac_ = n;
+            NEXT1;
+        }
         CASE(REFER_LOCAL_PUSH)
         {
             const Object n = fetchOperand();

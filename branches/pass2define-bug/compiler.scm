@@ -3164,6 +3164,8 @@
            (iter `(REFER_LOCAL0_PUSH_CONSTANT ,@rest))]
           [('REFER_LOCAL1_PUSH 'CONSTANT . rest);;done
            (iter `(REFER_LOCAL1_PUSH_CONSTANT ,@rest))]
+          [('REFER_LOCAL2_PUSH 'CONSTANT . rest);;done
+           (iter `(REFER_LOCAL2_PUSH_CONSTANT ,@rest))]
           [('REFER_LOCAL 1 'PUSH . rest) ;; done
            (iter `(REFER_LOCAL1_PUSH ,@rest))]
           [('REFER_LOCAL 0 'PUSH . rest) ;; done

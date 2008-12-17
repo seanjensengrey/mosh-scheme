@@ -73,6 +73,7 @@
 (define-insn REFER_LOCAL0_PUSH 0)
 (define-insn REFER_LOCAL0_PUSH_CONSTANT 1)
 (define-insn REFER_LOCAL1_PUSH_CONSTANT 1)
+(define-insn REFER_LOCAL2_PUSH_CONSTANT 1)
 (define-insn REFER_LOCAL1_PUSH 0)
 (define-insn NUMBER_SUB_PUSH 0)
 (define-insn PUSH_ENTER 1)

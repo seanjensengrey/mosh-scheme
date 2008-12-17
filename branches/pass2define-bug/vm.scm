@@ -780,6 +780,10 @@
                [(REFER_LOCAL1_PUSH_CONSTANT)
                 (val1)
                 (VM codes (skip 1) (next 1) fp c stack (push stack sp (refer-local 1)))]
+               [(REFER_LOCAL2_PUSH_CONSTANT)
+                (val1)
+                (VM codes (skip 1) (next 1) fp c stack (push stack sp (refer-local 2)))]
+
 ;;                ;;---------------------------- REFER_LOCAL1_PUSH ----------------
                [(REFER_LOCAL1_PUSH)
                 (val1)

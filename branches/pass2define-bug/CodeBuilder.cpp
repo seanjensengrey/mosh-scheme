@@ -254,6 +254,11 @@ void CodeBuilder::combineInstructionsArgument1(CodePacket codePacket)
             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL1_PUSH_CONSTANT);
             previousCodePacket_.setArgument1(codePacket.argument1());
             break;
+        case Instruction::REFER_LOCAL2_PUSH:
+            previousCodePacket_.setType(CodePacket::ARGUMENT1);
+            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL2_PUSH_CONSTANT);
+            previousCodePacket_.setArgument1(codePacket.argument1());
+            break;
         case Instruction::PUSH:
             previousCodePacket_.setType(CodePacket::ARGUMENT1);
             previousCodePacket_.setInstructionImmediate(Instruction::PUSH_CONSTANT);
