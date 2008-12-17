@@ -749,11 +749,11 @@
                [(REFER_LOCAL3)
                 (val1)
                 (VM codes (skip 0) (refer-local 3) fp c stack sp)]
-               [(REFER_LOCAL0_EQV_TEST)
-                (val1)
-                (if (eqv? (index stack sp 0) (refer-local 0))
-                    (VM codes (skip 1) a fp c stack (- sp 1))
-                    (VM codes (skip (next 1)) a fp c stack (- sp 1)))]
+;;                [(REFER_LOCAL0_EQV_TEST)
+;;                 (val1)
+;;                 (if (eqv? (index stack sp 0) (refer-local 0))
+;;                     (VM codes (skip 1) a fp c stack (- sp 1))
+;;                     (VM codes (skip (next 1)) a fp c stack (- sp 1)))]
                 [(REFER_LOCAL0_PUSH)
                  (val1)
                  (VM codes (skip 0) a fp c stack (push stack sp (refer-local 0)))]
@@ -1020,12 +1020,12 @@
                       (VM codes (skip 1) val fp c stack (- sp 1))
                       (VM codes (skip (next 1)) val fp c stack (- sp 1))))]
 
-               [(NUMBER_LE_TEST)
-                (val1)
-                (let1 val (<= (index stack sp 0) a)
-                (if val
-                    (VM codes (skip 1) val fp c stack (- sp 1))
-                    (VM codes (skip (next 1)) val fp c stack (- sp 1))))]
+;;                [(NUMBER_LE_TEST)
+;;                 (val1)
+;;                 (let1 val (<= (index stack sp 0) a)
+;;                 (if val
+;;                     (VM codes (skip 1) val fp c stack (- sp 1))
+;;                     (VM codes (skip (next 1)) val fp c stack (- sp 1))))]
                [(NOT_TEST)
                 (val1)
                 (let1 val (not a)

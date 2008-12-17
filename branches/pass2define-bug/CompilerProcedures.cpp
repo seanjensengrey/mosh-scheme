@@ -615,7 +615,7 @@ Object pass4FixupLabelCollect(Object vec)
     static const Object NOP                   = Object::makeRaw(Instruction::NOP);
     static const Object UNFIXED_JUMP          = Object::makeRaw(Instruction::UNFIXED_JUMP);
     static const Object TEST                  = Object::makeRaw(Instruction::TEST);
-    static const Object NUMBER_LE_TEST        = Object::makeRaw(Instruction::NUMBER_LE_TEST);
+//    static const Object NUMBER_LE_TEST        = Object::makeRaw(Instruction::NUMBER_LE_TEST);
     static const Object BRANCH_NOT_NUMBER_EQUAL                 = Object::makeRaw(Instruction::BRANCH_NOT_NUMBER_EQUAL);
     static const Object BRANCH_NOT_NULL                  = Object::makeRaw(Instruction::BRANCH_NOT_NULL);
     static const Object BRANCH_NOT_LE                  = Object::makeRaw(Instruction::BRANCH_NOT_LE);
@@ -626,7 +626,7 @@ Object pass4FixupLabelCollect(Object vec)
     static const Object BRANCH_NOT_EQV                  = Object::makeRaw(Instruction::BRANCH_NOT_EQV);
     static const Object BRANCH_NOT_EQUAL                  = Object::makeRaw(Instruction::BRANCH_NOT_EQUAL);
     static const Object NOT_TEST              = Object::makeRaw(Instruction::NOT_TEST);
-    static const Object REFER_LOCAL0_EQV_TEST = Object::makeRaw(Instruction::REFER_LOCAL0_EQV_TEST);
+//    static const Object REFER_LOCAL0_EQV_TEST = Object::makeRaw(Instruction::REFER_LOCAL0_EQV_TEST);
     static const Object FRAME                 = Object::makeRaw(Instruction::FRAME);
     static const Object PUSH_FRAME            = Object::makeRaw(Instruction::PUSH_FRAME);
     static const Object CLOSURE               = Object::makeRaw(Instruction::CLOSURE);
@@ -641,7 +641,7 @@ Object pass4FixupLabelCollect(Object vec)
         const Object insn = v->ref(i);
         if (insn == UNFIXED_JUMP          ||
             insn == TEST                  ||
-            insn == NUMBER_LE_TEST        ||
+//            insn == NUMBER_LE_TEST        ||
             insn == BRANCH_NOT_NULL                  ||
             insn == BRANCH_NOT_NUMBER_EQUAL                  ||
             insn == BRANCH_NOT_LE                  ||
@@ -652,7 +652,7 @@ Object pass4FixupLabelCollect(Object vec)
             insn == BRANCH_NOT_EQV                  ||
             insn == BRANCH_NOT_EQUAL                 ||
             insn == NOT_TEST              ||
-            insn == REFER_LOCAL0_EQV_TEST ||
+//            insn == REFER_LOCAL0_EQV_TEST ||
             insn == FRAME                 ||
             insn == PUSH_FRAME            ||
             insn == CLOSURE) {
@@ -677,7 +677,7 @@ Object pass4FixupLabel(Object vec)
 {
     static const Object UNFIXED_JUMP          = Object::makeRaw(Instruction::UNFIXED_JUMP);
     static const Object TEST                  = Object::makeRaw(Instruction::TEST);
-    static const Object NUMBER_LE_TEST        = Object::makeRaw(Instruction::NUMBER_LE_TEST);
+//    static const Object NUMBER_LE_TEST        = Object::makeRaw(Instruction::NUMBER_LE_TEST);
     static const Object BRANCH_NOT_NULL                  = Object::makeRaw(Instruction::BRANCH_NOT_NULL);
     static const Object BRANCH_NOT_NUMBER_EQUAL                  = Object::makeRaw(Instruction::BRANCH_NOT_NUMBER_EQUAL);
     static const Object BRANCH_NOT_LE                  = Object::makeRaw(Instruction::BRANCH_NOT_LE);
@@ -689,7 +689,7 @@ Object pass4FixupLabel(Object vec)
     static const Object BRANCH_NOT_EQUAL                = Object::makeRaw(Instruction::BRANCH_NOT_EQUAL);
 
     static const Object NOT_TEST              = Object::makeRaw(Instruction::NOT_TEST);
-    static const Object REFER_LOCAL0_EQV_TEST = Object::makeRaw(Instruction::REFER_LOCAL0_EQV_TEST);
+//    static const Object REFER_LOCAL0_EQV_TEST = Object::makeRaw(Instruction::REFER_LOCAL0_EQV_TEST);
     static const Object FRAME                 = Object::makeRaw(Instruction::FRAME);
     static const Object PUSH_FRAME            = Object::makeRaw(Instruction::PUSH_FRAME);
     static const Object CLOSURE               = Object::makeRaw(Instruction::CLOSURE);
@@ -714,7 +714,7 @@ Object pass4FixupLabel(Object vec)
                 i++;
             }
         } else if (insn == TEST                  ||
-                   insn == NUMBER_LE_TEST        ||
+//                   insn == NUMBER_LE_TEST        ||
                    insn == BRANCH_NOT_NUMBER_EQUAL                  ||
                    insn == BRANCH_NOT_NULL                  ||
                    insn == BRANCH_NOT_LE                  ||
@@ -725,7 +725,7 @@ Object pass4FixupLabel(Object vec)
                    insn == BRANCH_NOT_EQV                  ||
                    insn == BRANCH_NOT_EQUAL                  ||
                    insn == NOT_TEST              ||
-                   insn == REFER_LOCAL0_EQV_TEST ||
+//                   insn == REFER_LOCAL0_EQV_TEST ||
                    insn == FRAME                 ||
                    insn == PUSH_FRAME            ||
                    insn == CLOSURE) {
@@ -769,7 +769,17 @@ Object pass4FixupLabel(Object vec)
                 code->set(i + 1, code->ref(destinationIndex + 1));
             }
 
-        } else if (insn == TEST) {
+        } else if (insn == TEST ||
+                   insn == BRANCH_NOT_NULL ||
+                   insn == BRANCH_NOT_LE ||
+                   insn == BRANCH_NOT_LT ||
+                   insn == BRANCH_NOT_GT ||
+                   insn == BRANCH_NOT_GE ||
+                   insn == BRANCH_NOT_NUMBER_EQUAL ||
+                   insn == BRANCH_NOT_EQ ||
+                   insn == BRANCH_NOT_EQV ||
+                   insn == BRANCH_NOT_EQUAL
+            ) {
             // when test destination is test
             // if ac_ == #f, test in destination is also #f.
             MOSH_ASSERT(i + 1 < length);

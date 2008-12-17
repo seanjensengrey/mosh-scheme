@@ -1667,12 +1667,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             ac_ = ac_.isFalse() ? Object::True : Object::False;
             goto test_entry;
         }
-        CASE(NUMBER_LE_TEST)
-        {
-            ac_ = Object::makeBool(Arithmetic::le(index(sp_, 0), ac_));
-            sp_--;
-            goto test_entry;
-        }
         // Branch on not eq?
         CASE(BRANCH_NOT_EQ)
         {
@@ -1742,12 +1736,13 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             BRANCH_ON_FALSE;
             NEXT;
         }
-        CASE(REFER_LOCAL0_EQV_TEST)
-        {
-            ac_ = Object::makeBool(eqv(index(sp_, 0), referLocal(0)));
-            sp_--;
-            goto test_entry;
-        }
+//         CASE(REFER_LOCAL0_EQV_TEST)
+//         {
+//             printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
+//             ac_ = Object::makeBool(eqv(index(sp_, 0), referLocal(0)));
+//             sp_--;
+//             goto test_entry;
+//         }
         CASE(UNDEF)
         {
             TRACE_INSN0("UNDEF");

@@ -199,11 +199,11 @@ void CodeBuilder::combineInstructionsArgument1(CodePacket codePacket)
             previousCodePacket_.setType(CodePacket::ARGUMENT1);
             previousCodePacket_.setArgument1(codePacket.argument1());
             break;
-        case Instruction::NUMBER_LE:
-            previousCodePacket_.setInstructionImmediate(Instruction::NUMBER_LE_TEST);
-            previousCodePacket_.setType(CodePacket::ARGUMENT1);
-            previousCodePacket_.setArgument1(codePacket.argument1());
-            break;
+//         case Instruction::NUMBER_LE:
+//             previousCodePacket_.setInstructionImmediate(Instruction::NUMBER_LE_TEST);
+//             previousCodePacket_.setType(CodePacket::ARGUMENT1);
+//             previousCodePacket_.setArgument1(codePacket.argument1());
+//             break;
         default:
             flush();
             previousCodePacket_ = codePacket;

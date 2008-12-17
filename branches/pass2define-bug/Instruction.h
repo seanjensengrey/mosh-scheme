@@ -91,48 +91,46 @@ public:
         HALT = 2510,
         LEAVE1 = 2542,
         CALL1 = 2574,
-        NUMBER_LE_TEST = 2606,
-        NUMBER_ADD_PUSH = 2638,
-        RETURN1 = 2670,
-        RETURN2 = 2702,
-        RETURN3 = 2734,
-        CALL2 = 2766,
-        REFER_LOCAL0_EQV_TEST = 2798,
-        PUSH_CONSTANT = 2830,
-        PUSH_FRAME = 2862,
-        REFER_FREE0_PUSH = 2894,
-        REFER_FREE1_PUSH = 2926,
-        REFER_FREE2_PUSH = 2958,
-        CAR_PUSH = 2990,
-        CDR_PUSH = 3022,
-        REFER_FREE0_INDIRECT = 3054,
-        REFER_FREE1_INDIRECT = 3086,
-        REFER_LOCAL2_PUSH = 3118,
-        SHIFT_CALL = 3150,
-        CALL3 = 3182,
-        NOT_TEST = 3214,
-        REFER_GLOBAL_CALL = 3246,
-        REFER_LOCAL0_NUMBER_ADD_PUSH = 3278,
-        REFER_LOCAL0_VECTOR_SET = 3310,
-        REFER_LOCAL0_VECTOR_REF = 3342,
-        REFER_FREE_PUSH = 3374,
-        REFER_LOCAL_PUSH = 3406,
-        VALUES = 3438,
-        RECEIVE = 3470,
-        UNFIXED_JUMP = 3502,
-        STOP = 3534,
-        CONTINUATION_VALUES = 3566,
-        SHIFTJ = 3598,
-        BRANCH_NOT_LE = 3630,
-        BRANCH_NOT_GE = 3662,
-        BRANCH_NOT_LT = 3694,
-        BRANCH_NOT_GT = 3726,
-        BRANCH_NOT_NULL = 3758,
-        BRANCH_NOT_NUMBER_EQUAL = 3790,
-        BRANCH_NOT_EQ = 3822,
-        BRANCH_NOT_EQV = 3854,
-        BRANCH_NOT_EQUAL = 3886,
-        INSTRUCTION_COUNT = 122,
+        NUMBER_ADD_PUSH = 2606,
+        RETURN1 = 2638,
+        RETURN2 = 2670,
+        RETURN3 = 2702,
+        CALL2 = 2734,
+        PUSH_CONSTANT = 2766,
+        PUSH_FRAME = 2798,
+        REFER_FREE0_PUSH = 2830,
+        REFER_FREE1_PUSH = 2862,
+        REFER_FREE2_PUSH = 2894,
+        CAR_PUSH = 2926,
+        CDR_PUSH = 2958,
+        REFER_FREE0_INDIRECT = 2990,
+        REFER_FREE1_INDIRECT = 3022,
+        REFER_LOCAL2_PUSH = 3054,
+        SHIFT_CALL = 3086,
+        CALL3 = 3118,
+        NOT_TEST = 3150,
+        REFER_GLOBAL_CALL = 3182,
+        REFER_LOCAL0_NUMBER_ADD_PUSH = 3214,
+        REFER_LOCAL0_VECTOR_SET = 3246,
+        REFER_LOCAL0_VECTOR_REF = 3278,
+        REFER_FREE_PUSH = 3310,
+        REFER_LOCAL_PUSH = 3342,
+        VALUES = 3374,
+        RECEIVE = 3406,
+        UNFIXED_JUMP = 3438,
+        STOP = 3470,
+        CONTINUATION_VALUES = 3502,
+        SHIFTJ = 3534,
+        BRANCH_NOT_LE = 3566,
+        BRANCH_NOT_GE = 3598,
+        BRANCH_NOT_LT = 3630,
+        BRANCH_NOT_GT = 3662,
+        BRANCH_NOT_NULL = 3694,
+        BRANCH_NOT_NUMBER_EQUAL = 3726,
+        BRANCH_NOT_EQ = 3758,
+        BRANCH_NOT_EQV = 3790,
+        BRANCH_NOT_EQUAL = 3822,
+        INSTRUCTION_COUNT = 120,
     };
     static const ucs4char* toString(int val) {
         switch(val) {
@@ -379,9 +377,6 @@ public:
         case CALL1:
            return UC("CALL1");
            break;
-        case NUMBER_LE_TEST:
-           return UC("NUMBER_LE_TEST");
-           break;
         case NUMBER_ADD_PUSH:
            return UC("NUMBER_ADD_PUSH");
            break;
@@ -396,9 +391,6 @@ public:
            break;
         case CALL2:
            return UC("CALL2");
-           break;
-        case REFER_LOCAL0_EQV_TEST:
-           return UC("REFER_LOCAL0_EQV_TEST");
            break;
         case PUSH_CONSTANT:
            return UC("PUSH_CONSTANT");

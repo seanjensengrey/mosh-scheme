@@ -1,5 +1,9 @@
 2008-12-17  higepon  <higepon@users.sourceforge.jp>
 
+        * VM.cpp (run): Removed NUMBER_LE_TEST and REFER_LOCAL0_EQV_TEST.
+
+        * CompilerProcedures.cpp (pass4FixupLabel): Added peep hole optimization for instructions below.
+
         * VM.cpp : Added new Instructions BRANCH_NOT_(LE|LT|GE|GT).
                    Added BRANCH_NOT_NULL, BRANCH_NOT_NUMBER_EQUAL, BRANCH_NOT_EQ, BRANCH_NOT_EQV and BRANCH_NOT_EQUAL.
 

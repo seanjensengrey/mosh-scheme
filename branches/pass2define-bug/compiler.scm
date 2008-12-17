@@ -3239,8 +3239,8 @@
            (iter `(REFER_LOCAL2 ,@rest))]
           [('LEAVE 1 . rest)
            (iter `(LEAVE1 ,@rest))]
-          [('NUMBER_LE 'TEST . rest)
-           (iter `(NUMBER_LE_TEST ,@rest))]
+;;           [('NUMBER_LE 'TEST . rest)
+;;            (iter `(NUMBER_LE_TEST ,@rest))]
           [('NUMBER_ADD 'PUSH . rest)
            (iter `(NUMBER_ADD_PUSH ,@rest))]
           [('RETURN 1 . rest) ;; done
@@ -3249,8 +3249,8 @@
            (iter `(RETURN2 ,@rest))]
           [('RETURN 3 . rest) ;;done
            (iter `(RETURN3 ,@rest))]
-          [('REFER_LOCAL0 'EQV 'TEST . rest)
-           (iter `(REFER_LOCAL0_EQV_TEST ,@rest))]
+;;           [('REFER_LOCAL0 'EQV 'TEST . rest)
+;;            (iter `(REFER_LOCAL0_EQV_TEST ,@rest))]
           [('PUSH 'CONSTANT . rest)
            (iter `(PUSH_CONSTANT ,@rest))]
           [('PUSH 'FRAME . rest)
@@ -3369,7 +3369,7 @@
               (cond
                [(eq? insn 'UNFIXED_JUMP)          (pass4/fixup-labels-clollect 'UNFIXED_JUMP)]
                [(eq? insn 'TEST)                  (pass4/fixup-labels-clollect 'TEST)]
-               [(eq? insn 'NUMBER_LE_TEST)        (pass4/fixup-labels-clollect 'NUMBER_LE_TEST)]
+;;               [(eq? insn 'NUMBER_LE_TEST)        (pass4/fixup-labels-clollect 'NUMBER_LE_TEST)]
                [(eq? insn 'BRANCH_NOT_NULL)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_NULL)]
                [(eq? insn 'BRANCH_NOT_NUMBER_EQUAL)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_NUMBER_EQUAL)]
                [(eq? insn 'BRANCH_NOT_LE)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_LE)]
@@ -3380,7 +3380,7 @@
                [(eq? insn 'BRANCH_NOT_EQV)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_EQV)]
                [(eq? insn 'BRANCH_NOT_EQUAL)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_EQUAL)]
                [(eq? insn 'NOT_TEST)              (pass4/fixup-labels-clollect 'NOT_TEST)]
-               [(eq? insn 'REFER_LOCAL0_EQV_TEST) (pass4/fixup-labels-clollect 'REFER_LOCAL0_EQV_TEST)]
+;;                [(eq? insn 'REFER_LOCAL0_EQV_TEST) (pass4/fixup-labels-clollect 'REFER_LOCAL0_EQV_TEST)]
                [(eq? insn 'FRAME)                 (pass4/fixup-labels-clollect 'FRAME)]
                [(eq? insn 'PUSH_FRAME)            (pass4/fixup-labels-clollect 'PUSH_FRAME)]
                [(eq? insn 'CLOSURE)               (pass4/fixup-labels-clollect 'CLOSURE)]
@@ -3401,7 +3401,7 @@
                [(eq? insn 'UNFIXED_JUMP)          (pass4/fixup-labels-insn 'LOCAL_JMP)]
                [(eq? insn 'CLOSURE)               (pass4/fixup-labels-insn 'CLOSURE)]
                [(eq? insn 'TEST)                  (pass4/fixup-labels-insn 'TEST)]
-               [(eq? insn 'NUMBER_LE_TEST)        (pass4/fixup-labels-insn 'NUMBER_LE_TEST)]
+;;               [(eq? insn 'NUMBER_LE_TEST)        (pass4/fixup-labels-insn 'NUMBER_LE_TEST)]
                [(eq? insn 'BRANCH_NOT_NUMBER_EQUAL)                  (pass4/fixup-labels-insn 'BRANCH_NOT_NUMBER_EQUAL)]
                [(eq? insn 'BRANCH_NOT_NULL)                  (pass4/fixup-labels-insn 'BRANCH_NOT_NULL)]
                [(eq? insn 'BRANCH_NOT_LE)                  (pass4/fixup-labels-insn 'BRANCH_NOT_LE)]
@@ -3412,7 +3412,7 @@
                [(eq? insn 'BRANCH_NOT_EQV)                  (pass4/fixup-labels-insn 'BRANCH_NOT_EQV)]
                [(eq? insn 'BRANCH_NOT_EQUAL)                  (pass4/fixup-labels-insn 'BRANCH_NOT_EQUAL)]
                [(eq? insn 'NOT_TEST)              (pass4/fixup-labels-insn 'NOT_TEST)]
-               [(eq? insn 'REFER_LOCAL0_EQV_TEST) (pass4/fixup-labels-insn 'REFER_LOCAL0_EQV_TEST)]
+;;                [(eq? insn 'REFER_LOCAL0_EQV_TEST) (pass4/fixup-labels-insn 'REFER_LOCAL0_EQV_TEST)]
                [(eq? insn 'FRAME)                 (pass4/fixup-labels-insn 'FRAME)]
                [(eq? insn 'PUSH_FRAME)            (pass4/fixup-labels-insn 'PUSH_FRAME)]
                [else (loop (+ i 1))]))])))
