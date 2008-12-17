@@ -2706,48 +2706,65 @@
    [(and (tag? ($if.else iform) $CONST) (not ($const.val ($if.else iform))))
     ($if.set-else! iform ($it))
     (pass3/$if cb iform locals frees can-frees sets tail depth display-count)]
-   [(and (tag? ($if.test iform) $ASM) (eq? ($asm.insn ($if.test iform)) 'NUMBER_LE))
-    (let ([end-of-else   (make-label)]
-          [begin-of-else (make-label)]
-          [args ($asm.args ($if.test iform))])
-      (let ([x (pass3/compile-arg cb (first args) locals frees can-frees sets #f depth display-count)]
-            [y (pass3/rec cb (second args) locals frees can-frees sets #f depth display-count)])
-        (code-builder-put-insn-arg1! cb 'BNLE (ref-label begin-of-else))
-        (let1 then-size (pass3/rec cb ($if.then iform) locals frees can-frees sets tail depth display-count)
-          (cond
-           ;; When else clause is $IT, we can omit the jump after then clause.
-           [(tag? ($if.else iform) $IT)
-            (cput! cb
-                   (ref-label begin-of-else))
-            (+ x y then-size)]
-           [else
-            (cput! cb
-                   'UNFIXED_JUMP
-                   (ref-label end-of-else)
-                   begin-of-else)
-            (let1 else-size (pass3/rec cb ($if.else iform) locals frees can-frees sets tail depth display-count)
-              (cput! cb end-of-else)
-              (+ x y then-size else-size))]))))]
+   [(tag? ($if.test iform) $ASM)
+    (let1 insn ($asm.insn ($if.test iform))
+      (cond
+       [(eq? insn 'NUMBER_LE)
+        (pass3/branch-on-asm2 'BRANCH_NOT_LE cb iform locals frees can-frees sets tail depth display-count)]
+       [(eq? insn 'NUMBER_LT)
+        (pass3/branch-on-asm2 'BRANCH_NOT_LT cb iform locals frees can-frees sets tail depth display-count)]
+       [(eq? insn 'NUMBER_GT)
+        (pass3/branch-on-asm2 'BRANCH_NOT_GT cb iform locals frees can-frees sets tail depth display-count)]
+       [(eq? insn 'NUMBER_GE)
+        (pass3/branch-on-asm2 'BRANCH_NOT_GE cb iform locals frees can-frees sets tail depth display-count)]
+       [else
+        (pass3/branch-on-false cb iform locals frees can-frees sets tail depth display-count)]))]
    [else
-    (let ([end-of-else   (make-label)]
-          [begin-of-else (make-label)])
-      (let1 test-size (pass3/rec cb ($if.test iform) locals frees can-frees sets #f depth display-count)
-        (code-builder-put-insn-arg1! cb 'TEST (ref-label begin-of-else))
-        (let1 then-size (pass3/rec cb ($if.then iform) locals frees can-frees sets tail depth display-count)
-          (cond
-           ;; When else clause is $IT, we can omit the jump after then clause.
-           [(tag? ($if.else iform) $IT)
-            (cput! cb
-                   (ref-label begin-of-else))
-            (+ test-size then-size)]
-           [else
-            (cput! cb
-                   'UNFIXED_JUMP
-                   (ref-label end-of-else)
-                   begin-of-else)
-            (let1 else-size (pass3/rec cb ($if.else iform) locals frees can-frees sets tail depth display-count)
-              (cput! cb end-of-else)
-              (+ test-size then-size else-size))]))))]))
+    (pass3/branch-on-false cb iform locals frees can-frees sets tail depth display-count)]))
+
+(define (pass3/branch-on-asm2 insn cb iform locals frees can-frees sets tail depth display-count)
+  (let ([end-of-else   (make-label)]
+        [begin-of-else (make-label)]
+        [args ($asm.args ($if.test iform))])
+    (let ([x (pass3/compile-arg cb (first args) locals frees can-frees sets #f depth display-count)]
+          [y (pass3/rec cb (second args) locals frees can-frees sets #f depth display-count)])
+      (code-builder-put-insn-arg1! cb insn (ref-label begin-of-else))
+      (let1 then-size (pass3/rec cb ($if.then iform) locals frees can-frees sets tail depth display-count)
+        (cond
+         ;; When else clause is $IT, we can omit the jump after then clause.
+         [(tag? ($if.else iform) $IT)
+          (cput! cb
+                 (ref-label begin-of-else))
+          (+ x y then-size)]
+         [else
+          (cput! cb
+                 'UNFIXED_JUMP
+                 (ref-label end-of-else)
+                 begin-of-else)
+          (let1 else-size (pass3/rec cb ($if.else iform) locals frees can-frees sets tail depth display-count)
+            (cput! cb end-of-else)
+            (+ x y then-size else-size))])))))
+
+(define (pass3/branch-on-false cb iform locals frees can-frees sets tail depth display-count)
+  (let ([end-of-else   (make-label)]
+        [begin-of-else (make-label)])
+    (let1 test-size (pass3/rec cb ($if.test iform) locals frees can-frees sets #f depth display-count)
+      (code-builder-put-insn-arg1! cb 'TEST (ref-label begin-of-else))
+      (let1 then-size (pass3/rec cb ($if.then iform) locals frees can-frees sets tail depth display-count)
+        (cond
+         ;; When else clause is $IT, we can omit the jump after then clause.
+         [(tag? ($if.else iform) $IT)
+          (cput! cb
+                 (ref-label begin-of-else))
+          (+ test-size then-size)]
+         [else
+          (cput! cb
+                 'UNFIXED_JUMP
+                 (ref-label end-of-else)
+                 begin-of-else)
+          (let1 else-size (pass3/rec cb ($if.else iform) locals frees can-frees sets tail depth display-count)
+            (cput! cb end-of-else)
+            (+ test-size then-size else-size))])))))
 
 (define (pass3/$define cb iform locals frees can-frees sets tail depth display-count)
   (begin0
@@ -3321,7 +3338,10 @@
                [(eq? insn 'UNFIXED_JUMP)          (pass4/fixup-labels-clollect 'UNFIXED_JUMP)]
                [(eq? insn 'TEST)                  (pass4/fixup-labels-clollect 'TEST)]
                [(eq? insn 'NUMBER_LE_TEST)        (pass4/fixup-labels-clollect 'NUMBER_LE_TEST)]
-               [(eq? insn 'BNLE)                  (pass4/fixup-labels-clollect 'BNLE)]
+               [(eq? insn 'BRANCH_NOT_LE)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_LE)]
+               [(eq? insn 'BRANCH_NOT_LT)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_LT)]
+               [(eq? insn 'BRANCH_NOT_GE)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_GE)]
+               [(eq? insn 'BRANCH_NOT_GT)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_GT)]
                [(eq? insn 'NOT_TEST)              (pass4/fixup-labels-clollect 'NOT_TEST)]
                [(eq? insn 'REFER_LOCAL0_EQV_TEST) (pass4/fixup-labels-clollect 'REFER_LOCAL0_EQV_TEST)]
                [(eq? insn 'FRAME)                 (pass4/fixup-labels-clollect 'FRAME)]
@@ -3346,7 +3366,11 @@
                [(eq? insn 'TEST)                  (pass4/fixup-labels-insn 'TEST)]
                [(eq? insn 'NUMBER_LE_TEST
 )        (pass4/fixup-labels-insn 'NUMBER_LE_TEST)]
-               [(eq? insn 'BNLE)                  (pass4/fixup-labels-insn 'BNLE)]
+               [(eq? insn 'BRANCH_NOT_LE)                  (pass4/fixup-labels-insn 'BRANCH_NOT_LE)]
+               [(eq? insn 'BRANCH_NOT_GE)                  (pass4/fixup-labels-insn 'BRANCH_NOT_GE)]
+               [(eq? insn 'BRANCH_NOT_LT)                  (pass4/fixup-labels-insn 'BRANCH_NOT_LT)]
+               [(eq? insn 'BRANCH_NOT_GT)                  (pass4/fixup-labels-insn 'BRANCH_NOT_GT)]
+
                [(eq? insn 'NOT_TEST)              (pass4/fixup-labels-insn 'NOT_TEST)]
                [(eq? insn 'REFER_LOCAL0_EQV_TEST) (pass4/fixup-labels-insn 'REFER_LOCAL0_EQV_TEST)]
                [(eq? insn 'FRAME)                 (pass4/fixup-labels-insn 'FRAME)]

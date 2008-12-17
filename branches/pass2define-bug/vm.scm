@@ -965,12 +965,31 @@
                 (if a
                     (VM codes (skip 1) a fp c stack sp)
                     (VM codes (skip (next 1)) a fp c stack sp))]
-               [(BNLE)
+               [(BRANCH_NOT_LT)
+                (val1)
+                (let1 val (< (index stack sp 0) a)
+                  (if val
+                      (VM codes (skip 1) val fp c stack (- sp 1))
+                      (VM codes (skip (next 1)) val fp c stack (- sp 1))))]
+               [(BRANCH_NOT_LE)
                 (val1)
                 (let1 val (<= (index stack sp 0) a)
-                (if val
-                    (VM codes (skip 1) val fp c stack (- sp 1))
-                    (VM codes (skip (next 1)) val fp c stack (- sp 1))))]
+                  (if val
+                      (VM codes (skip 1) val fp c stack (- sp 1))
+                      (VM codes (skip (next 1)) val fp c stack (- sp 1))))]
+               [(BRANCH_NOT_GT)
+                (val1)
+                (let1 val (> (index stack sp 0) a)
+                  (if val
+                      (VM codes (skip 1) val fp c stack (- sp 1))
+                      (VM codes (skip (next 1)) val fp c stack (- sp 1))))]
+               [(BRANCH_NOT_GE)
+                (val1)
+                (let1 val (>= (index stack sp 0) a)
+                  (if val
+                      (VM codes (skip 1) val fp c stack (- sp 1))
+                      (VM codes (skip (next 1)) val fp c stack (- sp 1))))]
+
                [(NUMBER_LE_TEST)
                 (val1)
                 (let1 val (<= (index stack sp 0) a)

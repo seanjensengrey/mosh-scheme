@@ -123,8 +123,11 @@ public:
         STOP = 3534,
         CONTINUATION_VALUES = 3566,
         SHIFTJ = 3598,
-        BNLE = 3630,
-        INSTRUCTION_COUNT = 114,
+        BRANCH_NOT_LE = 3630,
+        BRANCH_NOT_GE = 3662,
+        BRANCH_NOT_LT = 3694,
+        BRANCH_NOT_GT = 3726,
+        INSTRUCTION_COUNT = 117,
     };
     static const ucs4char* toString(int val) {
         switch(val) {
@@ -467,8 +470,17 @@ public:
         case SHIFTJ:
            return UC("SHIFTJ");
            break;
-        case BNLE:
-           return UC("BNLE");
+        case BRANCH_NOT_LE:
+           return UC("BRANCH_NOT_LE");
+           break;
+        case BRANCH_NOT_GE:
+           return UC("BRANCH_NOT_GE");
+           break;
+        case BRANCH_NOT_LT:
+           return UC("BRANCH_NOT_LT");
+           break;
+        case BRANCH_NOT_GT:
+           return UC("BRANCH_NOT_GT");
            break;
         default:
            return UC("Unkown Instruction");

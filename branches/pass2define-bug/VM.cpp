@@ -116,6 +116,25 @@ using namespace scheme;
     pc_ = pc;                     \
     sp_ = sp;
 
+#define BRANCH_ON_FALSE                         \
+    if (ac_.isFalse()) {                        \
+        const Object skipSize = fetchOperand(); \
+        MOSH_ASSERT(skipSize.isFixnum());       \
+        skip(skipSize.toFixnum() - 1);          \
+    } else {                                    \
+        pc_++;                                  \
+    }
+
+#define NUM_CMP(op, func)                                       \
+   const Object n = index(sp_, 0);                              \
+   if (n.isFixnum() && ac_.isFixnum()) {                        \
+       ac_ = Object::makeBool(n.toFixnum() op ac_.toFixnum());  \
+   } else {                                                     \
+       ac_ = Object::makeBool(Arithmetic::func(n, ac_));        \
+   }                                                            \
+   sp_--;
+
+
 VM::VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool isProfiler) :
     ac_(Object::Nil),
     dc_(Object::Nil),
@@ -1655,24 +1674,30 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             goto test_entry;
         }
         // Branch on not less than or equal
-        CASE(BNLE)
+        CASE(BRANCH_NOT_LE)
         {
-            const Object n = index(sp_, 0);
-            if (n.isFixnum() && ac_.isFixnum()) {
-                ac_ = Object::makeBool(n.toFixnum() <= ac_.toFixnum());
-            } else {
-                ac_ = Object::makeBool(Arithmetic::le(n, ac_));
-            }
-            sp_--;
-#define BRANCH_ON_FALSE \
-            if (ac_.isFalse()) { \
-                const Object skipSize = fetchOperand();\ 
-                MOSH_ASSERT(skipSize.isFixnum());\
-                skip(skipSize.toFixnum() - 1);\
-            } else {\
-                pc_++;\
-            }
-            // test_entry を共有するより速い
+            NUM_CMP(<=, le);
+            BRANCH_ON_FALSE;
+            NEXT;
+        }
+        // Branch on not less than
+        CASE(BRANCH_NOT_LT)
+        {
+            NUM_CMP(<, lt);
+            BRANCH_ON_FALSE;
+            NEXT;
+        }
+        // Branch on not greater than or equal
+        CASE(BRANCH_NOT_GE)
+        {
+            NUM_CMP(>=, ge);
+            BRANCH_ON_FALSE;
+            NEXT;
+        }
+        // Branch on not greater than
+        CASE(BRANCH_NOT_GT)
+        {
+            NUM_CMP(>, gt);
             BRANCH_ON_FALSE;
             NEXT;
         }

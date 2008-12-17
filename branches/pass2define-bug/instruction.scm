@@ -111,4 +111,7 @@
 (define-insn STOP 0)
 (define-insn CONTINUATION_VALUES 0)
 (define-insn SHIFTJ 3)
-(define-insn BNLE 1)
+(define-insn BRANCH_NOT_LE 1)
+(define-insn BRANCH_NOT_GE 1)
+(define-insn BRANCH_NOT_LT 1)
+(define-insn BRANCH_NOT_GT 1)

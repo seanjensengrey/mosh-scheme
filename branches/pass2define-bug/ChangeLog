@@ -1,6 +1,6 @@
 2008-12-17  higepon  <higepon@users.sourceforge.jp>
 
-        * VM.cpp : Added new Instruction BNLE.
+        * VM.cpp : Added new Instructions BRANCH_NUMBER_(LE|LT|GE|GT).
 
 2008-12-16  higepon  <higepon@users.sourceforge.jp>
 
