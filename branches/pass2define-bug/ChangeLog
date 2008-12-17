@@ -1,7 +1,7 @@
 2008-12-17  higepon  <higepon@users.sourceforge.jp>
 
         * VM.cpp : Added new Instructions BRANCH_NOT_(LE|LT|GE|GT).
-                   Added BRANCH_NOT_NULL.
+                   Added BRANCH_NOT_NULL, BRANCH_NOT_NUMBER_EQUAL.
 
 2008-12-16  higepon  <higepon@users.sourceforge.jp>
 

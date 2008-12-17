@@ -116,3 +116,4 @@
 (define-insn BRANCH_NOT_LT 1)
 (define-insn BRANCH_NOT_GT 1)
 (define-insn BRANCH_NOT_NULL 1)
+(define-insn BRANCH_NOT_NUMBER_EQUAL 1)

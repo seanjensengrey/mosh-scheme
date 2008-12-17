@@ -2711,6 +2711,8 @@
       (cond
        [(eq? insn 'NULL_P)
         (pass3/branch-on-asm1 'BRANCH_NOT_NULL cb iform locals frees can-frees sets tail depth display-count)]
+       [(eq? insn 'NUMBER_EQUAL)
+        (pass3/branch-on-asm2 'BRANCH_NOT_NUMBER_EQUAL cb iform locals frees can-frees sets tail depth display-count)]
        [(eq? insn 'NUMBER_LE)
         (pass3/branch-on-asm2 'BRANCH_NOT_LE cb iform locals frees can-frees sets tail depth display-count)]
        [(eq? insn 'NUMBER_LT)
@@ -3363,6 +3365,7 @@
                [(eq? insn 'TEST)                  (pass4/fixup-labels-clollect 'TEST)]
                [(eq? insn 'NUMBER_LE_TEST)        (pass4/fixup-labels-clollect 'NUMBER_LE_TEST)]
                [(eq? insn 'BRANCH_NOT_NULL)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_NULL)]
+               [(eq? insn 'BRANCH_NOT_NUMBER_EQUAL)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_NUMBER_EQUAL)]
                [(eq? insn 'BRANCH_NOT_LE)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_LE)]
                [(eq? insn 'BRANCH_NOT_LT)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_LT)]
                [(eq? insn 'BRANCH_NOT_GE)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_GE)]
@@ -3390,6 +3393,7 @@
                [(eq? insn 'CLOSURE)               (pass4/fixup-labels-insn 'CLOSURE)]
                [(eq? insn 'TEST)                  (pass4/fixup-labels-insn 'TEST)]
                [(eq? insn 'NUMBER_LE_TEST)        (pass4/fixup-labels-insn 'NUMBER_LE_TEST)]
+               [(eq? insn 'BRANCH_NOT_NUMBER_EQUAL)                  (pass4/fixup-labels-insn 'BRANCH_NOT_NUMBER_EQUAL)]
                [(eq? insn 'BRANCH_NOT_NULL)                  (pass4/fixup-labels-insn 'BRANCH_NOT_NULL)]
                [(eq? insn 'BRANCH_NOT_LE)                  (pass4/fixup-labels-insn 'BRANCH_NOT_LE)]
                [(eq? insn 'BRANCH_NOT_GE)                  (pass4/fixup-labels-insn 'BRANCH_NOT_GE)]

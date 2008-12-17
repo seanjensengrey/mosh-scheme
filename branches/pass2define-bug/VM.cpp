@@ -1701,6 +1701,13 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             BRANCH_ON_FALSE;
             NEXT;
         }
+        // Branch on not number equal
+        CASE(BRANCH_NOT_NUMBER_EQUAL)
+        {
+            NUM_CMP(==, eq);
+            BRANCH_ON_FALSE;
+            NEXT;
+        }
         // Branch on not null
         CASE(BRANCH_NOT_NULL)
         {

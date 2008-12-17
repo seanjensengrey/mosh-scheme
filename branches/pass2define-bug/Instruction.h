@@ -128,7 +128,8 @@ public:
         BRANCH_NOT_LT = 3694,
         BRANCH_NOT_GT = 3726,
         BRANCH_NOT_NULL = 3758,
-        INSTRUCTION_COUNT = 118,
+        BRANCH_NOT_NUMBER_EQUAL = 3790,
+        INSTRUCTION_COUNT = 119,
     };
     static const ucs4char* toString(int val) {
         switch(val) {
@@ -485,6 +486,9 @@ public:
            break;
         case BRANCH_NOT_NULL:
            return UC("BRANCH_NOT_NULL");
+           break;
+        case BRANCH_NOT_NUMBER_EQUAL:
+           return UC("BRANCH_NOT_NUMBER_EQUAL");
            break;
         default:
            return UC("Unkown Instruction");
