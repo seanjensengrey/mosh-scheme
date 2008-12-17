@@ -3347,7 +3347,8 @@
                     (vector-set! v (+ i 1) (vector-ref v (+ destination-index 1)))
                     ]
                     ))]
-               [(and (eq? insn 'TEST) (number? (vector-ref v (+ i 1))))
+               [(and (memq insn '(TEST BRANCH_NOT_GE BRANCH_NOT_GT BRANCH_NOT_LT BRANCH_NOT_LE BRANCH_NOT_NUMBER_EQUAL BRANCH_NOT_NULL))
+                     (number? (vector-ref v (+ i 1))))
                 (let* ([offset (+ (vector-ref v (+ i 1)) 1)]
                        [destination-index (+ i offset)])
                   (when (or (eq? (vector-ref v destination-index) 'TEST) (eq? (vector-ref v destination-index) 'LOCAL_JMP))
@@ -3369,7 +3370,7 @@
               (cond
                [(eq? insn 'UNFIXED_JUMP)          (pass4/fixup-labels-clollect 'UNFIXED_JUMP)]
                [(eq? insn 'TEST)                  (pass4/fixup-labels-clollect 'TEST)]
-;;               [(eq? insn 'NUMBER_LE_TEST)        (pass4/fixup-labels-clollect 'NUMBER_LE_TEST)]
+               [(eq? insn 'CONSTANT_BRANCH_NOT_LE)                  (pass4/fixup-labels-clollect 'CONSTANT_BRANCH_NOT_LE)]
                [(eq? insn 'BRANCH_NOT_NULL)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_NULL)]
                [(eq? insn 'BRANCH_NOT_NUMBER_EQUAL)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_NUMBER_EQUAL)]
                [(eq? insn 'BRANCH_NOT_LE)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_LE)]
@@ -3401,7 +3402,7 @@
                [(eq? insn 'UNFIXED_JUMP)          (pass4/fixup-labels-insn 'LOCAL_JMP)]
                [(eq? insn 'CLOSURE)               (pass4/fixup-labels-insn 'CLOSURE)]
                [(eq? insn 'TEST)                  (pass4/fixup-labels-insn 'TEST)]
-;;               [(eq? insn 'NUMBER_LE_TEST)        (pass4/fixup-labels-insn 'NUMBER_LE_TEST)]
+               [(eq? insn 'CONSTANT_BRANCH_NOT_LE)        (pass4/fixup-labels-insn 'CONSTANT_BRANCH_NOT_LE)]
                [(eq? insn 'BRANCH_NOT_NUMBER_EQUAL)                  (pass4/fixup-labels-insn 'BRANCH_NOT_NUMBER_EQUAL)]
                [(eq? insn 'BRANCH_NOT_NULL)                  (pass4/fixup-labels-insn 'BRANCH_NOT_NULL)]
                [(eq? insn 'BRANCH_NOT_LE)                  (pass4/fixup-labels-insn 'BRANCH_NOT_LE)]
