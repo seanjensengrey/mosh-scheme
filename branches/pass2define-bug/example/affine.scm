@@ -55,6 +55,11 @@
      0 0 1  0
      0 0 0  1))
 
+(define (make-matrix a b c)
+  (vector (point-x a) (point-y a) (point-y a) (point-w a)
+          (point-x b) (point-y b) (point-y b) (point-w b)
+          (point-x c) (point-y c) (point-y c) (point-w c)))
+
 (define (print-matrix m)
   (format #t "|~a ~a ~a ~a|\n" (vector-ref m 0)  (vector-ref m 1)  (vector-ref m 2) (vector-ref m 3))
   (format #t "|~a ~a ~a ~a|\n" (vector-ref m 4)  (vector-ref m 5)  (vector-ref m 6) (vector-ref m 7))
@@ -92,6 +97,43 @@
           (+ (* (ref m1 12) (ref m2 2)) (* (ref m1 13) (ref m2 6)) (* (ref m1 14) (ref m2 10)) (* (ref m1 15) (ref m2 14)))
           (+ (* (ref m1 12) (ref m2 3)) (* (ref m1 13) (ref m2 4)) (* (ref m1 14) (ref m2 11)) (* (ref m1 15) (ref m2 15))))))
 
+(define (transpose m)
+  (let-syntax ([ref (syntax-rules ()
+                    [(_ v i j)
+                     (vector-ref v (+ (* 4 j) i))])])
+  (vector (ref m 0 0) (ref m 0 1) (ref m 0 2) (ref m 0 3)
+          (ref m 1 0) (ref m 1 1) (ref m 1 2) (ref m 1 3)
+          (ref m 2 0) (ref m 2 1) (ref m 2 2) (ref m 2 3)
+          (ref m 3 0) (ref m 3 1) (ref m 3 2) (ref m 3 3))))
+
+(define (cross-product a b)
+  (make-point (- (* (point-y a) (point-z b)) (* (point-z a) (point-y b)))
+              (- (* (point-z a) (point-x b)) (* (point-x a) (point-z b)))
+              (- (* (point-x a) (point-y b)) (* (point-y a) (point-x b)))
+              1))
+
+(define (orthonormal-axis p)
+  (let* ([x (abs (point-x p))]
+         [y (abs (point-y p))]
+         [z (abs (point-z p))]
+         [min (min x y z)])
+    (normalize
+     (cond
+      [(= x min)
+       (make-point 0 (negate (point-z p)) (point-y p) 1)]
+      [(= y min)
+       (make-point (negate (point-z p)) 0 (point-x p) 1)]
+      [else
+       (make-point (negate (point-y p)) (point-x p) 0 1)]))))
+
+(define (normalize p)
+  (let* ([x (abs (point-x p))]
+         [y (abs (point-y p))]
+         [z (abs (point-z p))]
+         [mag (sqrt (+ (* x x) (* y y) (* z z)))])
+    (make-point (/ x mag) (/ y mag) (/ z mag) 1)))
+
+
 
 ;(define before '((1.0 1.0 0.0 1.0) (1.0 2.0 0.0 1.0) (2.0 2.0 0.0 1.0) (2.0 1.0 0.0 1.0)))
 
@@ -117,3 +159,18 @@
              (map (lambda (p) (mul t (apply make-point p))) before)))
 
 (print-matrix t)
+(print-matrix (transpose t))
+
+(display (cross-product (make-point 1 0 0 0) (make-point 0 1 0 0)))
+(display (normalize (orthonormal-axis (make-point 1 0 0 0))))
+
+;; r (1 1 1 1) を基準に pi/4 回す
+(define rm (make-point 1 1 1 1))
+(define sm (orthonormal-axis rm))
+(define tm (cross-product rm sm))
+
+(define mm (make-matrix rm sm tm))
+
+これがおちる。
+;;(print-matrix mm)
+

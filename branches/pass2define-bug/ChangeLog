@@ -1,3 +1,7 @@
+2008-12-18  higepon  <higepon@users.sourceforge.jp>
+
+        * Added graph.
+
 2008-12-17  higepon  <higepon@users.sourceforge.jp>
 
         * VM.cpp (run): Removed NUMBER_LE_TEST and REFER_LOCAL0_EQV_TEST.
