@@ -1673,6 +1673,33 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             sp_--;
             goto test_entry;
         }
+        // Branch on not eq?
+        CASE(BRANCH_NOT_EQ)
+        {
+            const Object obj = index(sp_, 0);
+            ac_ = Object::makeBool(obj.eq(ac_));
+            sp_--;
+            BRANCH_ON_FALSE;
+            NEXT;
+        }
+        // Branch on not eqv?
+        CASE(BRANCH_NOT_EQV)
+        {
+            const Object obj = index(sp_, 0);
+            ac_ = Object::makeBool(eqv(obj, ac_));
+            sp_--;
+            BRANCH_ON_FALSE;
+            NEXT;
+        }
+        // Branch on not equal?
+        CASE(BRANCH_NOT_EQUAL)
+        {
+            const Object obj = index(sp_, 0);
+            ac_ = Object::makeBool(equal(obj, ac_));
+            sp_--;
+            BRANCH_ON_FALSE;
+            NEXT;
+        }
         // Branch on not less than or equal
         CASE(BRANCH_NOT_LE)
         {

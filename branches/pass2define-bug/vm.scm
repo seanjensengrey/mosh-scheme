@@ -977,6 +977,24 @@
                   (if val
                       (VM codes (skip 1) val fp c stack (- sp 1))
                       (VM codes (skip (next 1)) val fp c stack (- sp 1))))]
+               [(BRANCH_NOT_EQ)
+                (val1)
+                (let1 val (eq? (index stack sp 0) a)
+                  (if val
+                      (VM codes (skip 1) val fp c stack (- sp 1))
+                      (VM codes (skip (next 1)) val fp c stack (- sp 1))))]
+               [(BRANCH_NOT_EQV)
+                (val1)
+                (let1 val (eqv? (index stack sp 0) a)
+                  (if val
+                      (VM codes (skip 1) val fp c stack (- sp 1))
+                      (VM codes (skip (next 1)) val fp c stack (- sp 1))))]
+               [(BRANCH_NOT_EQUAL)
+                (val1)
+                (let1 val (equal? (index stack sp 0) a)
+                  (if val
+                      (VM codes (skip 1) val fp c stack (- sp 1))
+                      (VM codes (skip (next 1)) val fp c stack (- sp 1))))]
                [(BRANCH_NOT_NUMBER_EQUAL)
                 (val1)
                 (let1 val (= (index stack sp 0) a)

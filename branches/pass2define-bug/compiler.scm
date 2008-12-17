@@ -2711,6 +2711,12 @@
       (cond
        [(eq? insn 'NULL_P)
         (pass3/branch-on-asm1 'BRANCH_NOT_NULL cb iform locals frees can-frees sets tail depth display-count)]
+       [(eq? insn 'EQ)
+        (pass3/branch-on-asm2 'BRANCH_NOT_EQ cb iform locals frees can-frees sets tail depth display-count)]
+       [(eq? insn 'EQV)
+        (pass3/branch-on-asm2 'BRANCH_NOT_EQV cb iform locals frees can-frees sets tail depth display-count)]
+       [(eq? insn 'EQUAL)
+        (pass3/branch-on-asm2 'BRANCH_NOT_EQUAL cb iform locals frees can-frees sets tail depth display-count)]
        [(eq? insn 'NUMBER_EQUAL)
         (pass3/branch-on-asm2 'BRANCH_NOT_NUMBER_EQUAL cb iform locals frees can-frees sets tail depth display-count)]
        [(eq? insn 'NUMBER_LE)
@@ -3370,6 +3376,9 @@
                [(eq? insn 'BRANCH_NOT_LT)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_LT)]
                [(eq? insn 'BRANCH_NOT_GE)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_GE)]
                [(eq? insn 'BRANCH_NOT_GT)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_GT)]
+               [(eq? insn 'BRANCH_NOT_EQ)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_EQ)]
+               [(eq? insn 'BRANCH_NOT_EQV)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_EQV)]
+               [(eq? insn 'BRANCH_NOT_EQUAL)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_EQUAL)]
                [(eq? insn 'NOT_TEST)              (pass4/fixup-labels-clollect 'NOT_TEST)]
                [(eq? insn 'REFER_LOCAL0_EQV_TEST) (pass4/fixup-labels-clollect 'REFER_LOCAL0_EQV_TEST)]
                [(eq? insn 'FRAME)                 (pass4/fixup-labels-clollect 'FRAME)]
@@ -3399,7 +3408,9 @@
                [(eq? insn 'BRANCH_NOT_GE)                  (pass4/fixup-labels-insn 'BRANCH_NOT_GE)]
                [(eq? insn 'BRANCH_NOT_LT)                  (pass4/fixup-labels-insn 'BRANCH_NOT_LT)]
                [(eq? insn 'BRANCH_NOT_GT)                  (pass4/fixup-labels-insn 'BRANCH_NOT_GT)]
-
+               [(eq? insn 'BRANCH_NOT_EQ)                  (pass4/fixup-labels-insn 'BRANCH_NOT_EQ)]
+               [(eq? insn 'BRANCH_NOT_EQV)                  (pass4/fixup-labels-insn 'BRANCH_NOT_EQV)]
+               [(eq? insn 'BRANCH_NOT_EQUAL)                  (pass4/fixup-labels-insn 'BRANCH_NOT_EQUAL)]
                [(eq? insn 'NOT_TEST)              (pass4/fixup-labels-insn 'NOT_TEST)]
                [(eq? insn 'REFER_LOCAL0_EQV_TEST) (pass4/fixup-labels-insn 'REFER_LOCAL0_EQV_TEST)]
                [(eq? insn 'FRAME)                 (pass4/fixup-labels-insn 'FRAME)]

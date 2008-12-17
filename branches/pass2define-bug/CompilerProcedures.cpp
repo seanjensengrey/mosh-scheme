@@ -622,6 +622,9 @@ Object pass4FixupLabelCollect(Object vec)
     static const Object BRANCH_NOT_LT                  = Object::makeRaw(Instruction::BRANCH_NOT_LT);
     static const Object BRANCH_NOT_GE                  = Object::makeRaw(Instruction::BRANCH_NOT_GE);
     static const Object BRANCH_NOT_GT                  = Object::makeRaw(Instruction::BRANCH_NOT_GT);
+    static const Object BRANCH_NOT_EQ                  = Object::makeRaw(Instruction::BRANCH_NOT_EQ);
+    static const Object BRANCH_NOT_EQV                  = Object::makeRaw(Instruction::BRANCH_NOT_EQV);
+    static const Object BRANCH_NOT_EQUAL                  = Object::makeRaw(Instruction::BRANCH_NOT_EQUAL);
     static const Object NOT_TEST              = Object::makeRaw(Instruction::NOT_TEST);
     static const Object REFER_LOCAL0_EQV_TEST = Object::makeRaw(Instruction::REFER_LOCAL0_EQV_TEST);
     static const Object FRAME                 = Object::makeRaw(Instruction::FRAME);
@@ -645,6 +648,9 @@ Object pass4FixupLabelCollect(Object vec)
             insn == BRANCH_NOT_LT                  ||
             insn == BRANCH_NOT_GE                  ||
             insn == BRANCH_NOT_GT                  ||
+            insn == BRANCH_NOT_EQ                  ||
+            insn == BRANCH_NOT_EQV                  ||
+            insn == BRANCH_NOT_EQUAL                 ||
             insn == NOT_TEST              ||
             insn == REFER_LOCAL0_EQV_TEST ||
             insn == FRAME                 ||
@@ -678,6 +684,10 @@ Object pass4FixupLabel(Object vec)
     static const Object BRANCH_NOT_LT                  = Object::makeRaw(Instruction::BRANCH_NOT_LT);
     static const Object BRANCH_NOT_GE                  = Object::makeRaw(Instruction::BRANCH_NOT_GE);
     static const Object BRANCH_NOT_GT                  = Object::makeRaw(Instruction::BRANCH_NOT_GT);
+    static const Object BRANCH_NOT_EQ                  = Object::makeRaw(Instruction::BRANCH_NOT_EQ);
+    static const Object BRANCH_NOT_EQV                  = Object::makeRaw(Instruction::BRANCH_NOT_EQV);
+    static const Object BRANCH_NOT_EQUAL                = Object::makeRaw(Instruction::BRANCH_NOT_EQUAL);
+
     static const Object NOT_TEST              = Object::makeRaw(Instruction::NOT_TEST);
     static const Object REFER_LOCAL0_EQV_TEST = Object::makeRaw(Instruction::REFER_LOCAL0_EQV_TEST);
     static const Object FRAME                 = Object::makeRaw(Instruction::FRAME);
@@ -711,6 +721,9 @@ Object pass4FixupLabel(Object vec)
                    insn == BRANCH_NOT_LT                  ||
                    insn == BRANCH_NOT_GE                  ||
                    insn == BRANCH_NOT_GT                  ||
+                   insn == BRANCH_NOT_EQ                  ||
+                   insn == BRANCH_NOT_EQV                  ||
+                   insn == BRANCH_NOT_EQUAL                  ||
                    insn == NOT_TEST              ||
                    insn == REFER_LOCAL0_EQV_TEST ||
                    insn == FRAME                 ||
