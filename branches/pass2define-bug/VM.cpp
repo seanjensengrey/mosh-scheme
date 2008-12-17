@@ -535,7 +535,7 @@ Object VM::compile(Object code)
 }
 
 #else
-#define CASE(insn)  LABEL_##insn : // printf("" #insn "\n");fflush(stdout);
+#define CASE(insn)  LABEL_##insn : //printf("" #insn "\n");fflush(stdout);
 #define NEXT                         \
 {                                    \
     asm volatile(" \t # -- next start");   \
@@ -1698,6 +1698,13 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(BRANCH_NOT_GT)
         {
             NUM_CMP(>, gt);
+            BRANCH_ON_FALSE;
+            NEXT;
+        }
+        // Branch on not null
+        CASE(BRANCH_NOT_NULL)
+        {
+            ac_ = Object::makeBool(ac_.isNil());
             BRANCH_ON_FALSE;
             NEXT;
         }

@@ -965,6 +965,12 @@
                 (if a
                     (VM codes (skip 1) a fp c stack sp)
                     (VM codes (skip (next 1)) a fp c stack sp))]
+               [(BRANCH_NOT_NULL)
+                (val1)
+                (let1 val (null? a)
+                  (if val
+                      (VM codes (skip 1) val fp c stack sp)
+                      (VM codes (skip (next 1)) val fp c stack sp)))]
                [(BRANCH_NOT_LT)
                 (val1)
                 (let1 val (< (index stack sp 0) a)
@@ -1650,19 +1656,18 @@
    ;; test
    [(= (length args) 1)
     (vm-init '())
-;     (load-file "./library.scm")
+     (load-file "./library.scm")
 
-    (load-file "./work.scm")
-;     (load-file "./match.scm")
+;    (load-file "./work.scm")
+    (load-file "./match.scm")
+    (vm-test)
+    (set! optimize? (not optimize?))
+    (vm-init '())
+    (load-file "./library.scm")
+    (load-file "./match.scm")
 
-;;     (vm-test)
-;;     (set! optimize? (not optimize?))
-;;     (vm-init '())
-;;     (load-file "./library.scm")
-;;     (load-file "./match.scm")
-
-;;     (vm-test)
-;;     (test-end)
+    (vm-test)
+    (test-end)
 
     ]
    ;; compile string

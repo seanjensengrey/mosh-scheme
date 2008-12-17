@@ -115,3 +115,4 @@
 (define-insn BRANCH_NOT_GE 1)
 (define-insn BRANCH_NOT_LT 1)
 (define-insn BRANCH_NOT_GT 1)
+(define-insn BRANCH_NOT_NULL 1)

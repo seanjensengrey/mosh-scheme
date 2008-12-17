@@ -616,6 +616,7 @@ Object pass4FixupLabelCollect(Object vec)
     static const Object UNFIXED_JUMP          = Object::makeRaw(Instruction::UNFIXED_JUMP);
     static const Object TEST                  = Object::makeRaw(Instruction::TEST);
     static const Object NUMBER_LE_TEST        = Object::makeRaw(Instruction::NUMBER_LE_TEST);
+    static const Object BRANCH_NOT_NULL                  = Object::makeRaw(Instruction::BRANCH_NOT_NULL);
     static const Object BRANCH_NOT_LE                  = Object::makeRaw(Instruction::BRANCH_NOT_LE);
     static const Object BRANCH_NOT_LT                  = Object::makeRaw(Instruction::BRANCH_NOT_LT);
     static const Object BRANCH_NOT_GE                  = Object::makeRaw(Instruction::BRANCH_NOT_GE);
@@ -637,6 +638,7 @@ Object pass4FixupLabelCollect(Object vec)
         if (insn == UNFIXED_JUMP          ||
             insn == TEST                  ||
             insn == NUMBER_LE_TEST        ||
+            insn == BRANCH_NOT_NULL                  ||
             insn == BRANCH_NOT_LE                  ||
             insn == BRANCH_NOT_LT                  ||
             insn == BRANCH_NOT_GE                  ||
@@ -668,6 +670,7 @@ Object pass4FixupLabel(Object vec)
     static const Object UNFIXED_JUMP          = Object::makeRaw(Instruction::UNFIXED_JUMP);
     static const Object TEST                  = Object::makeRaw(Instruction::TEST);
     static const Object NUMBER_LE_TEST        = Object::makeRaw(Instruction::NUMBER_LE_TEST);
+    static const Object BRANCH_NOT_NULL                  = Object::makeRaw(Instruction::BRANCH_NOT_NULL);
     static const Object BRANCH_NOT_LE                  = Object::makeRaw(Instruction::BRANCH_NOT_LE);
     static const Object BRANCH_NOT_LT                  = Object::makeRaw(Instruction::BRANCH_NOT_LT);
     static const Object BRANCH_NOT_GE                  = Object::makeRaw(Instruction::BRANCH_NOT_GE);
@@ -699,6 +702,7 @@ Object pass4FixupLabel(Object vec)
             }
         } else if (insn == TEST                  ||
                    insn == NUMBER_LE_TEST        ||
+                   insn == BRANCH_NOT_NULL                  ||
                    insn == BRANCH_NOT_LE                  ||
                    insn == BRANCH_NOT_LT                  ||
                    insn == BRANCH_NOT_GE                  ||
