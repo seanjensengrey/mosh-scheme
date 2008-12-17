@@ -2732,71 +2732,40 @@
    [else
     (pass3/branch-on-false cb iform locals frees can-frees sets tail depth display-count)]))
 
-(define (pass3/branch-on-asm1 insn cb iform locals frees can-frees sets tail depth display-count)
-  (let ([end-of-else   (make-label)]
-        [begin-of-else (make-label)]
-        [args ($asm.args ($if.test iform))])
-    (let ([x (pass3/rec cb (first args) locals frees can-frees sets #f depth display-count)])
-      (code-builder-put-insn-arg1! cb insn (ref-label begin-of-else))
-      (let1 then-size (pass3/rec cb ($if.then iform) locals frees can-frees sets tail depth display-count)
-        (cond
-         ;; When else clause is $IT, we can omit the jump after then clause.
-         [(tag? ($if.else iform) $IT)
-          (cput! cb
-                 (ref-label begin-of-else))
-          (+ x then-size)]
-         [else
-          (cput! cb
-                 'UNFIXED_JUMP
-                 (ref-label end-of-else)
-                 begin-of-else)
-          (let1 else-size (pass3/rec cb ($if.else iform) locals frees can-frees sets tail depth display-count)
-            (cput! cb end-of-else)
-            (+ x then-size else-size))])))))
-
-(define (pass3/branch-on-asm2 insn cb iform locals frees can-frees sets tail depth display-count)
-  (let ([end-of-else   (make-label)]
-        [begin-of-else (make-label)]
-        [args ($asm.args ($if.test iform))])
-    (let ([x (pass3/compile-arg cb (first args) locals frees can-frees sets #f depth display-count)]
-          [y (pass3/rec cb (second args) locals frees can-frees sets #f depth display-count)])
-      (code-builder-put-insn-arg1! cb insn (ref-label begin-of-else))
-      (let1 then-size (pass3/rec cb ($if.then iform) locals frees can-frees sets tail depth display-count)
-        (cond
-         ;; When else clause is $IT, we can omit the jump after then clause.
-         [(tag? ($if.else iform) $IT)
-          (cput! cb
-                 (ref-label begin-of-else))
-          (+ x y then-size)]
-         [else
-          (cput! cb
-                 'UNFIXED_JUMP
-                 (ref-label end-of-else)
-                 begin-of-else)
-          (let1 else-size (pass3/rec cb ($if.else iform) locals frees can-frees sets tail depth display-count)
-            (cput! cb end-of-else)
-            (+ x y then-size else-size))])))))
-
-(define (pass3/branch-on-false cb iform locals frees can-frees sets tail depth display-count)
+(define (pass3/emit-then-else insn test-size cb iform locals frees can-frees sets tail depth display-count)
   (let ([end-of-else   (make-label)]
         [begin-of-else (make-label)])
-    (let1 test-size (pass3/rec cb ($if.test iform) locals frees can-frees sets #f depth display-count)
-      (code-builder-put-insn-arg1! cb 'TEST (ref-label begin-of-else))
-      (let1 then-size (pass3/rec cb ($if.then iform) locals frees can-frees sets tail depth display-count)
-        (cond
-         ;; When else clause is $IT, we can omit the jump after then clause.
-         [(tag? ($if.else iform) $IT)
-          (cput! cb
-                 (ref-label begin-of-else))
-          (+ test-size then-size)]
-         [else
-          (cput! cb
-                 'UNFIXED_JUMP
-                 (ref-label end-of-else)
-                 begin-of-else)
-          (let1 else-size (pass3/rec cb ($if.else iform) locals frees can-frees sets tail depth display-count)
-            (cput! cb end-of-else)
-            (+ test-size then-size else-size))])))))
+    (code-builder-put-insn-arg1! cb insn (ref-label begin-of-else))
+    (let1 then-size (pass3/rec cb ($if.then iform) locals frees can-frees sets tail depth display-count)
+      (cond
+       ;; When else clause is $IT, we can omit the jump after then clause.
+       [(tag? ($if.else iform) $IT)
+        (cput! cb
+               (ref-label begin-of-else))
+        (+ test-size then-size)]
+       [else
+        (cput! cb
+               'UNFIXED_JUMP
+               (ref-label end-of-else)
+               begin-of-else)
+        (let1 else-size (pass3/rec cb ($if.else iform) locals frees can-frees sets tail depth display-count)
+          (cput! cb end-of-else)
+          (+ test-size then-size else-size))]))))
+
+(define (pass3/branch-on-asm1 insn cb iform locals frees can-frees sets tail depth display-count)
+  (let* ([args ($asm.args ($if.test iform))]
+         [arg-size (pass3/rec cb (first args) locals frees can-frees sets #f depth display-count)])
+    (pass3/emit-then-else insn arg-size cb iform  locals frees can-frees sets tail depth display-count)))
+
+(define (pass3/branch-on-asm2 insn cb iform locals frees can-frees sets tail depth display-count)
+  (let* ([args ($asm.args ($if.test iform))]
+         [arg1-size (pass3/compile-arg cb (first args) locals frees can-frees sets #f depth display-count)]
+         [arg2-size (pass3/rec cb (second args) locals frees can-frees sets #f depth display-count)])
+    (pass3/emit-then-else insn (+ arg1-size arg2-size) cb iform  locals frees can-frees sets tail depth display-count)))
+
+(define (pass3/branch-on-false cb iform locals frees can-frees sets tail depth display-count)
+  (let1 test-size (pass3/rec cb ($if.test iform) locals frees can-frees sets #f depth display-count)
+    (pass3/emit-then-else 'TEST test-size cb iform  locals frees can-frees sets tail depth display-count)))
 
 (define (pass3/$define cb iform locals frees can-frees sets tail depth display-count)
   (begin0
@@ -2804,10 +2773,7 @@
     (cput! cb 'DEFINE_GLOBAL ($define.sym iform))))
 
 (define (pass3/compile-arg cb arg locals frees can-frees sets tail depth display-count)
-;;   (display "pass3/compile-arg\n" (current-error-port))
-;;   (pp-iform arg)
   (let1 size (pass3/rec cb arg locals frees can-frees sets #f depth display-count)
-;  (format (current-error-port) "\nPUSH!\n")
     (code-builder-put-insn-arg0! cb 'PUSH)
     (+ size 1)))
 
@@ -2817,11 +2783,6 @@
 ;  (format (current-error-port) "\npass3/compile-args<~a>\n" (length args))
   (let loop ([size 0]
              [iform args])
-;;      (display "pass3/compile-args: loop body\n" (current-error-port))
-;;      (print-stack)
-;;     (if (not (null? iform))
-;;         (pp-iform (car iform))
-;;         '())
     (cond
      [(null? iform) size]
      [else
