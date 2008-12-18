@@ -635,6 +635,8 @@ Object pass4FixupLabelCollect(Object vec)
         Object::makeRaw(Instruction::REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_NUMBER_EQUAL);
     static const Object REFER_LOCAL_BRANCH_NOT_NULL =
         Object::makeRaw(Instruction::REFER_LOCAL_BRANCH_NOT_NULL);
+    static const Object REFER_LOCAL_BRANCH_NOT_LT =
+        Object::makeRaw(Instruction::REFER_LOCAL_BRANCH_NOT_LT);
 
     const Vector* const v = vec.toVector();
     const int length = v->length();
@@ -672,7 +674,8 @@ Object pass4FixupLabelCollect(Object vec)
             rv->set(j + 3, v->ref(i + 3));
             i += 4;
             j += 4;
-        } else if (insn == REFER_LOCAL_BRANCH_NOT_NULL) {
+        } else if (insn == REFER_LOCAL_BRANCH_NOT_NULL ||
+                   insn == REFER_LOCAL_BRANCH_NOT_LT) {
             rv->set(j, insn);
             rv->set(j + 1, v->ref(i + 1));
             rv->set(j + 2, v->ref(i + 2));
@@ -718,6 +721,9 @@ Object pass4FixupLabel(Object vec)
         Object::makeRaw(Instruction::REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_NUMBER_EQUAL);
     static const Object REFER_LOCAL_BRANCH_NOT_NULL =
         Object::makeRaw(Instruction::REFER_LOCAL_BRANCH_NOT_NULL);
+    static const Object REFER_LOCAL_BRANCH_NOT_LT =
+        Object::makeRaw(Instruction::REFER_LOCAL_BRANCH_NOT_LT);
+
     const Object collected = pass4FixupLabelCollect(vec);
     Vector* const code = collected.car().toVector();
     const Object labels = collected.cdr();
@@ -768,7 +774,8 @@ Object pass4FixupLabel(Object vec)
             } else {
                 i++;
             }
-        } else if (insn == REFER_LOCAL_BRANCH_NOT_NULL) {
+        } else if (insn == REFER_LOCAL_BRANCH_NOT_NULL ||
+                   insn == REFER_LOCAL_BRANCH_NOT_LT) {
             const Object label = table->ref(code->ref(i + 2), Object::False);
             if (!labels.isFalse()) {
                 code->set(i, insn);

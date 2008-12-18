@@ -1457,6 +1457,16 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             BRANCH_ON_FALSE;
             NEXT;
         }
+        // appears on tak
+        CASE(REFER_LOCAL_BRANCH_NOT_LT)
+        {
+            const Object i = fetchOperand();
+            MOSH_ASSERT(i.isFixnum());
+            ac_ = referLocal(i.toFixnum());
+            NUM_CMP_LOCAL(<, lt);
+            BRANCH_ON_FALSE;
+            NEXT;
+        }
         // appears on fib
         CASE(REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_LE)
         {
