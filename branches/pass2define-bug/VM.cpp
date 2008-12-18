@@ -125,7 +125,7 @@ using namespace scheme;
         pc_++;                                  \
     }
 
-#define NUM_CMP(op, func)                                       \
+#define NUM_CMP_LOCAL(op, func)                                 \
    const Object n = index(sp_, 0);                              \
    if (n.isFixnum() && ac_.isFixnum()) {                        \
        ac_ = Object::makeBool(n.toFixnum() op ac_.toFixnum());  \
@@ -133,6 +133,15 @@ using namespace scheme;
        ac_ = Object::makeBool(Arithmetic::func(n, ac_));        \
    }                                                            \
    sp_--;
+
+#define NUM_CMP(op, func, val)                                  \
+   const Object n = val;                                        \
+   if (n.isFixnum() && ac_.isFixnum()) {                        \
+       ac_ = Object::makeBool(n.toFixnum() op ac_.toFixnum());  \
+   } else {                                                     \
+       ac_ = Object::makeBool(Arithmetic::func(n, ac_));        \
+   }
+
 
 
 VM::VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool isProfiler) :
@@ -768,7 +777,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         }
         CASE(PUSH)
         {
-            TRACE_INSN0("PUSH");
             push(ac_);
             NEXT;
         }
@@ -783,18 +791,12 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         {
             const Object n = fetchOperand();
             VM_ASSERT(n.isFixnum());
-#ifdef DUMP_ALL_INSTRUCTIONS
-            const int m = n.toFixnum();
-            if (m <= DebugInstruction::OPERAND_MAX) logBuf[1] = m;
-#endif
-            TRACE_INSN1("ASSIGN_FREE", "(~d)\n", n);
             referFree(n).toBox()->set(ac_);
             NEXT;
         }
         CASE(ASSIGN_GLOBAL)
         {
             const Object id = fetchOperand();
-            TRACE_INSN1("ASSIGN_GLOBAL", "(~a)\n", id);
             nameSpace->set(id, ac_);
             ac_ = Object::Undef;
             NEXT1;
@@ -802,25 +804,13 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(ASSIGN_LOCAL)
         {
             const Object n = fetchOperand();
-#ifdef DUMP_ALL_INSTRUCTIONS
-            const int m = n.toFixnum();
-            if (m <= DebugInstruction::OPERAND_MAX) logBuf[1] = m;
-#endif
-            TRACE_INSN1("ASSIGN_LOCAL", "(~d)\n", n);
-//            index(fp_, n.toFixnum()).toBox()->set(ac_);
             VM_ASSERT(n.isFixnum());
             referLocal(n.toFixnum()).toBox()->set(ac_);
-//            index(fp_ + , n.toFixnum()).toBox()->set(ac_);
             NEXT;
         }
         CASE(BOX)
         {
             const Object n = fetchOperand();
-#ifdef DUMP_ALL_INSTRUCTIONS
-            const int m = n.toFixnum();
-            if (m <= DebugInstruction::OPERAND_MAX) logBuf[1] = m;
-#endif
-            TRACE_INSN1("BOX", "(~a)\n", n);
             VM_ASSERT(n.isFixnum());
             indexSet(sp_, n.toFixnum(), Object::makeBox(index(sp_, n.toFixnum())));
             NEXT;
@@ -864,7 +854,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         }
         CASE(CAR_PUSH)
         {
-            TRACE_INSN0("CAR_PUSH");
             if (ac_.isPair()) {
                 push(ac_.car());
             } else {
@@ -913,7 +902,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         }
         CASE(CDR_PUSH)
         {
-            TRACE_INSN0("CDR_PUSH");
             if (ac_.isPair()) {
                 push(ac_.cdr());
             } else {
@@ -944,7 +932,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
 
 //            LOG1("(CLOSURE) source=~a\n", sourceInfo);
 
-            TRACE_INSN1("CLOSURE", "(n => ~d)\n", Object::makeFixnum(freeVariablesNum));
             ac_ = Object::makeClosure(pc_, skipSize, argLength, isOptionalArg, (sp_ - freeVariablesNum), freeVariablesNum, maxStack, sourceInfo);
             sp_ -= freeVariablesNum;
             pc_ += skipSize - 6;
@@ -953,7 +940,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(CONS)
         {
             const Object n = index(sp_, 0);
-            TRACE_INSN0("CONS");
             ac_ = Object::cons(n, ac_);
             sp_--;
             NEXT1;
@@ -961,7 +947,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(CONSTANT)
         {
             const Object c = fetchOperand();
-            TRACE_INSN0("CONSTANT\n");
             ac_ = c;
             NEXT1;
         }
@@ -993,13 +978,11 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             const Object display = Object::makeClosure(NULL, 0, 0, false, sp_ - freeVariablesNum, freeVariablesNum, 0, Object::False);
             display.toClosure()->prev = dc_;
             dc_ = display;
-            TRACE_INSN0("DISPLAY");
             sp_ = sp_ - freeVariablesNum;
             NEXT;
         }
         CASE(ENTER)
         {
-            TRACE_INSN0("ENTER");
             const Object n = fetchOperand(); // not used
             VM_ASSERT(n.isFixnum());
             fp_ = sp_ - n.toFixnum();
@@ -1008,7 +991,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(PUSH_ENTER)
         {
             push(ac_);
-            TRACE_INSN0("ENTER");
             const Object n = fetchOperand(); // not used
             VM_ASSERT(n.isFixnum());
             fp_ = sp_ - n.toFixnum();
@@ -1017,7 +999,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(EQ)
         {
             const Object o = index(sp_, 0);
-            TRACE_INSN0("EQ");
             ac_ = Object::makeBool(o.eq(ac_));
             sp_--;
             NEXT1;
@@ -1025,7 +1006,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(EQV)
         {
             const Object o = index(sp_, 0);
-            TRACE_INSN0("EQV");
             ac_ = Object::makeBool(eqv(o, ac_));
             sp_--;
             NEXT1;
@@ -1046,11 +1026,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         {
         frame_entry:
             const Object n = fetchOperand();
-            TRACE_INSN1("FRAME", "(~d)\n", n);
-#ifdef DUMP_ALL_INSTRUCTIONS
-            const int m = n.toFixnum();
-            if (m <= DebugInstruction::OPERAND_MAX) logBuf[1] = m;
-#endif
             VM_ASSERT(n.isFixnum());
             const int skipSize = n.toFixnum();
             push(Object::makeObjectPointer(pc_ + skipSize - 1));
@@ -1071,7 +1046,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         }
         CASE(INDIRECT)
         {
-            TRACE_INSN0("INDIRECT");
         indirect_entry:
             ac_ = ac_.toBox()->value();
             NEXT1;
@@ -1104,7 +1078,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         }
         CASE(LET_FRAME)
         {
-            TRACE_INSN0("LET_FRAME");
             const Object maxStack = fetchOperand();
             if (maxStack.toFixnum() + sp_ >= stackEnd_) {
                 printf("LET_FRAME: stack expansion\n");
@@ -1130,7 +1103,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(LOCAL_JMP)
         {
             const Object n = fetchOperand();
-            TRACE_INSN1("LOCAL_JMP", "(~d)\n", n);
             VM_ASSERT(n.isFixnum());
             pc_ += n.toFixnum() - 1;
             NEXT;
@@ -1138,7 +1110,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(MAKE_CONTINUATION)
         {
             const Object n = fetchOperand();
-            TRACE_INSN1("MAKE_CONTINUATION", "(~d)\n", n);
             ac_ = makeContinuation(n);
             NEXT1;
         }
@@ -1153,31 +1124,26 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         }
         CASE(NOP)
         {
-            TRACE_INSN0("NOP");
             NEXT;
         }
         CASE(NOT)
         {
-            TRACE_INSN0("NOT");
             ac_ = ac_.isFalse() ? Object::True : Object::False;
             NEXT1;
         }
         CASE(NULL_P)
         {
-            TRACE_INSN0("NULL_P");
             ac_ = ac_.isNil() ? Object::True : Object::False;
             NEXT1;
         }
         CASE(APPEND2)
         {
-            TRACE_INSN0("APPEND2");
             ac_ = Pair::append2(index(sp_, 0), ac_);
             sp_--;
             NEXT1;
         }
         CASE(NUMBER_ADD)
         {
-            TRACE_INSN0("NUMBER_ADD");
             const Object n = index(sp_, 0);
             sp_--;
             // short cut for Fixnum. Benmarks tell me this is strongly required.
@@ -1192,7 +1158,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(NUMBER_EQUAL)
         {
             const Object n = index(sp_, 0);
-            TRACE_INSN0("NUMBER_EQUAL");
             sp_--;
             // short cut for Fixnum. Benmarks tell me this is strongly required.
             if (n.isFixnum() && ac_.isFixnum()) {
@@ -1205,7 +1170,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(NUMBER_GE)
         {
             const Object n = index(sp_, 0);
-            TRACE_INSN0("NUMBER_GE");
             sp_--;
             // short cut for Fixnum. Benmarks tell me this is strongly required.
             if (n.isFixnum() && ac_.isFixnum()) {
@@ -1218,7 +1182,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(NUMBER_GT)
         {
             const Object n = index(sp_, 0);
-            TRACE_INSN0("NUMBER_GT");
             sp_--;
             // short cut for Fixnum. Benmarks tell me this is strongly required.
             if (n.isFixnum() && ac_.isFixnum()) {
@@ -1231,7 +1194,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(NUMBER_LE)
         {
             const Object n = index(sp_, 0);
-            TRACE_INSN0("NUMBER_LE");
             sp_--;
             // short cut for Fixnum. Benmarks tell me this is strongly required.
             if (n.isFixnum() && ac_.isFixnum()) {
@@ -1244,7 +1206,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(NUMBER_LT)
         {
             const Object n = index(sp_, 0);
-            TRACE_INSN0("NUMBER_GE");
             sp_--;
             // short cut for Fixnum. Benmarks tell me this is strongly required.
             if (n.isFixnum() && ac_.isFixnum()) {
@@ -1257,7 +1218,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(NUMBER_MUL)
         {
             const Object n = index(sp_, 0);
-            TRACE_INSN0("NUMBER_MUL");
             sp_--;
             ac_ = Arithmetic::mul(n, ac_);
             NEXT1;
@@ -1272,7 +1232,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(NUMBER_SUB)
         {
             const Object n = index(sp_, 0);
-            TRACE_INSN0("NUMBER_SUB");
             sp_--;
             // short cut for Fixnum. Benmarks tell me this is strongly required.
             if (n.isFixnum() && ac_.isFixnum()) {
@@ -1286,7 +1245,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(NUMBER_SUB_PUSH)
         {
             const Object n = index(sp_, 0);
-            TRACE_INSN0("NUMBER_SUB");
             sp_--;
             // short cut for Fixnum. Benmarks tell me this is strongly required.
             if (n.isFixnum() && ac_.isFixnum()) {
@@ -1320,7 +1278,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         }
         CASE(PAIR_P)
         {
-            TRACE_INSN0("PAIR_P");
             ac_ = Object::makeBool(ac_.isPair());
             NEXT1;
         }
@@ -1336,14 +1293,12 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         }
         CASE(READ_CHAR)
         {
-            TRACE_INSN0("READ_CHAR");
             const ucs4char c = ac_.isNil() ? inputPort_.toTextualInputPort()->getChar() : ac_.toTextualInputPort()->getChar();
             ac_= c == EOF ? Object::Eof : Object::makeChar(c);
             NEXT1;
         }
         CASE(REDUCE)
         {
-            TRACE_INSN0("REDUCE");
             const Object n = fetchOperand();
             VM_ASSERT(n.isFixnum());
             sp_ = fp_ + n.toFixnum();;
@@ -1360,7 +1315,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
 
             VM_ASSERT(operand.isFixnum());
             ac_ = referFree(operand);
-            TRACE_INSN1("REFER_FREE", "(~d)\n", operand);
             NEXT1;
         }
         CASE(REFER_FREE_PUSH)
@@ -1443,7 +1397,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
 
             VM_ASSERT(operand.isFixnum());
             ac_ = referLocal(operand.toFixnum());
-            TRACE_INSN1("REFER_LOCAL", "(~d)\n", operand);
             NEXT1;
         }
         CASE(REFER_LOCAL0)
@@ -1471,7 +1424,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             push(referLocal(0));
             const Object n = fetchOperand();
             ac_ = n;
-            TRACE_INSN0("REFER_LOCAL_PUSH0");
             NEXT1;
         }
         CASE(REFER_LOCAL1_PUSH_CONSTANT)
@@ -1479,7 +1431,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             push(referLocal(1));
             const Object n = fetchOperand();
             ac_ = n;
-            TRACE_INSN0("REFER_LOCAL_PUSH0");
             NEXT1;
         }
         CASE(REFER_LOCAL2_PUSH_CONSTANT)
@@ -1489,30 +1440,66 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             ac_ = n;
             NEXT1;
         }
+        CASE(REFER_LOCAL_PUSH_CONSTANT)
+        {
+            const Object index = fetchOperand();
+            MOSH_ASSERT(index.isFixnum());
+            push(referLocal(index.toFixnum()));
+            ac_= fetchOperand();
+            NEXT1;
+        }
+        // appears on fib
+        CASE(REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_LE)
+        {
+            const Object i = fetchOperand();
+            MOSH_ASSERT(i.isFixnum());
+            // we can omit "PUSH" insruction
+            ac_ = fetchOperand();
+            NUM_CMP(<=, le, referLocal(i.toFixnum()));
+            BRANCH_ON_FALSE;
+            NEXT;
+        }
+        CASE(REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_GE)
+        {
+            const Object i = fetchOperand();
+            MOSH_ASSERT(i.isFixnum());
+            // we can omit "PUSH" insruction
+            ac_ = fetchOperand();
+            NUM_CMP(>=, ge, referLocal(i.toFixnum()));
+            BRANCH_ON_FALSE;
+            NEXT;
+        }
+        // appears on named let loop
+        CASE(REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_NUMBER_EQUAL)
+        {
+            const Object i = fetchOperand();
+            MOSH_ASSERT(i.isFixnum());
+            // we can omit "PUSH" insruction
+            ac_ = fetchOperand();
+            NUM_CMP(==, eq, referLocal(i.toFixnum()));
+            BRANCH_ON_FALSE;
+            NEXT;
+        }
         CASE(REFER_LOCAL_PUSH)
         {
             const Object n = fetchOperand();
             VM_ASSERT(n.isFixnum());
             push(referLocal(n.toFixnum()));
-            TRACE_INSN0("REFER_LOCAL_PUSH0");
             NEXT;
         }
         CASE(REFER_LOCAL0_PUSH)
         {
             push(referLocal(0));
-            TRACE_INSN0("REFER_LOCAL_PUSH0");
             NEXT;
         }
         CASE(REFER_LOCAL1_PUSH)
         {
             push(referLocal(1));
-            TRACE_INSN0("REFER_LOCAL_PUSH1");
             NEXT;
         }
         CASE(REFER_LOCAL2_PUSH)
         {
             push(referLocal(2));
-            TRACE_INSN0("REFER_LOCAL_PUSH1");
             NEXT;
         }
         CASE(RESTORE_CONTINUATION)
@@ -1570,7 +1557,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         }
         CASE(SET_CAR)
         {
-            TRACE_INSN0("SET_CAR");
             const Object p = index(sp_, 0);
             p.car() = ac_;
             ac_ = Object::Undef;
@@ -1579,7 +1565,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         }
         CASE(SET_CDR)
         {
-            TRACE_INSN0("SET_CDR");
             const Object p = index(sp_, 0);
             p.cdr() = ac_;
             ac_ = Object::Undef;
@@ -1630,11 +1615,7 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             const Object diffObject = fetchOperand();
             VM_ASSERT(diffObject.isFixnum());
             const int diff  = diffObject.toFixnum();
-#ifdef DUMP_ALL_INSTRUCTIONS
-            if (depth <= DebugInstruction::OPERAND_MAX) logBuf[1] = depth;
-#endif
             sp_ = shiftArgsToBottom(sp_, depth, diff);
-            TRACE_INSN3("SHIFT", "(~d, ~d, sp=>~a)\n", Object::makeFixnum(depth), Object::makeFixnum(diff), Object::makeFixnum(stackSize_ - (stackEnd_ - sp_)));
             NEXT;
         }
         CASE(SHIFT_CALL)
@@ -1652,13 +1633,11 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         }
         CASE(SYMBOL_P)
         {
-            TRACE_INSN0("SYMBOL_P");
             ac_ = Object::makeBool(ac_.isSymbol());
             NEXT1;
         }
         CASE(TEST)
         {
-            TRACE_INSN0("TEST");
         test_entry:
             if (ac_.isFalse()) {
                 const Object skipSize = fetchOperand();
@@ -1704,35 +1683,35 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         // Branch on not less than or equal
         CASE(BRANCH_NOT_LE)
         {
-            NUM_CMP(<=, le);
+            NUM_CMP_LOCAL(<=, le);
             BRANCH_ON_FALSE;
             NEXT;
         }
         // Branch on not less than
         CASE(BRANCH_NOT_LT)
         {
-            NUM_CMP(<, lt);
+            NUM_CMP_LOCAL(<, lt);
             BRANCH_ON_FALSE;
             NEXT;
         }
         // Branch on not greater than or equal
         CASE(BRANCH_NOT_GE)
         {
-            NUM_CMP(>=, ge);
+            NUM_CMP_LOCAL(>=, ge);
             BRANCH_ON_FALSE;
             NEXT;
         }
         // Branch on not greater than
         CASE(BRANCH_NOT_GT)
         {
-            NUM_CMP(>, gt);
+            NUM_CMP_LOCAL(>, gt);
             BRANCH_ON_FALSE;
             NEXT;
         }
         // Branch on not number equal
         CASE(BRANCH_NOT_NUMBER_EQUAL)
         {
-            NUM_CMP(==, eq);
+            NUM_CMP_LOCAL(==, eq);
             BRANCH_ON_FALSE;
             NEXT;
         }
@@ -1752,19 +1731,16 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
 //         }
         CASE(UNDEF)
         {
-            TRACE_INSN0("UNDEF");
             ac_ = Object::Undef;
             NEXT1;
         }
         CASE(VECTOR_LENGTH)
         {
-            TRACE_INSN0("VECTOR_LENGTH");
             ac_ = Object::makeFixnum(ac_.toVector()->length());
             NEXT1;
         }
         CASE(VECTOR_P)
         {
-            TRACE_INSN0("VECTOR_P");
             ac_ = Object::makeBool(ac_.isVector());
             NEXT1;
         }
@@ -1835,7 +1811,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         }
         CASE(VALUES)
         {
-            TRACE_INSN0("VALUES");
             //  values stack layout
             //    (value 'a 'b 'c 'd)
             //    ==>

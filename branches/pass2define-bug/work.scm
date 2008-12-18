@@ -1,2 +1,5 @@
 
-(display (if (null? 3) 'NG 'OK))
+(let loop ([ret '(a b c)])
+  (if (null? ret)
+      '()
+      (loop (cdr ret))))
