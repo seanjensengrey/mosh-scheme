@@ -3161,18 +3161,6 @@
        [(null? s) '()]
        [else
         (match s
-          [('REFER_LOCAL0_PUSH 'CONSTANT . rest) ;; done
-           (iter `(REFER_LOCAL0_PUSH_CONSTANT ,@rest))]
-          [('REFER_LOCAL1_PUSH 'CONSTANT . rest);;done
-           (iter `(REFER_LOCAL1_PUSH_CONSTANT ,@rest))]
-          [('REFER_LOCAL2_PUSH 'CONSTANT . rest);;done
-           (iter `(REFER_LOCAL2_PUSH_CONSTANT ,@rest))]
-          [('REFER_LOCAL 1 'PUSH . rest) ;; done
-           (iter `(REFER_LOCAL1_PUSH ,@rest))]
-          [('REFER_LOCAL 0 'PUSH . rest) ;; done
-           (iter `(REFER_LOCAL0_PUSH ,@rest))] ;; done
-          [('REFER_LOCAL 0 . rest)
-           (iter `(REFER_LOCAL0 ,@rest))] ;; done
           ;; N.B.
           ;; compiled pass3/$asm code has list '(CONSTANT NUMBER_SUB PUSH), ignore it.
           [((and x (not 'CONSTANT)) 'NUMBER_SUB 'PUSH . rest)
@@ -3181,40 +3169,12 @@
            (iter (cons 'PUSH_ENTER rest))]
           [('CONSTANT v 'PUSH . rest) ;; done
            (iter `(CONSTANT_PUSH ,v ,@rest))]
-          [('REFER_FREE 0 'PUSH . rest) ;; done
-           (iter `(REFER_FREE0_PUSH ,@rest))]
-          [('REFER_FREE 1 'PUSH . rest) ;; done
-           (iter `(REFER_FREE1_PUSH ,@rest))]
-          [('REFER_FREE 2 'PUSH . rest) ;; done
-           (iter `(REFER_FREE2_PUSH ,@rest))]
           [('REFER_FREE n 'PUSH . rest) ;; done
            (iter `(REFER_FREE_PUSH ,n ,@rest))]
           [('REFER_FREE_PUSH n 'REFER_FREE_PUSH . rest) ;; done
            (iter `(REFER_FREE_PUSH_REFER_FREE_PUSH ,n ,@rest))]
-          [('REFER_FREE 0 . rest);; done
-           (iter `(REFER_FREE0 ,@rest))]
-          [('REFER_FREE 1 . rest);;done
-           (iter `(REFER_FREE1 ,@rest))]
-          [('REFER_FREE 2 . rest);; done
-           (iter `(REFER_FREE2 ,@rest))]
-          [('REFER_LOCAL 1 . rest);;done
-           (iter `(REFER_LOCAL1 ,@rest))]
-          [('REFER_LOCAL 2 . rest);;done
-           (iter `(REFER_LOCAL2 ,@rest))]
-          [('LEAVE 1 . rest)
-           (iter `(LEAVE1 ,@rest))]
-;;           [('NUMBER_LE 'TEST . rest)
-;;            (iter `(NUMBER_LE_TEST ,@rest))]
           [('NUMBER_ADD 'PUSH . rest)
            (iter `(NUMBER_ADD_PUSH ,@rest))]
-          [('RETURN 1 . rest) ;; done
-           (iter `(RETURN1 ,@rest))]
-          [('RETURN 2 . rest) ;;done
-           (iter `(RETURN2 ,@rest))]
-          [('RETURN 3 . rest) ;;done
-           (iter `(RETURN3 ,@rest))]
-;;           [('REFER_LOCAL0 'EQV 'TEST . rest)
-;;            (iter `(REFER_LOCAL0_EQV_TEST ,@rest))]
           [('PUSH 'CONSTANT . rest)
            (iter `(PUSH_CONSTANT ,@rest))]
           [('PUSH 'FRAME . rest)
@@ -3223,38 +3183,16 @@
           ;; compiled pass3/$asm code has list '(CONSTANT_PUSH PUSH FRAME), ignore it.
           [((and x (not 'CONSTANT_PUSH)) 'PUSH 'FRAME . rest)
            (iter `(, x PUSH_FRAME ,@rest))]
-          ;;           [('PUSH 'FRAME . rest)
-          ;;            (iter `(PUSH_FRAME ,@rest))]
-          [('REFER_FREE 3 . rest) ;; done
-           (iter `(REFER_FREE3 ,@rest))]
-          [('REFER_LOCAL 3 . rest) ;; done
-           (iter `(REFER_LOCAL3 ,@rest))]
           [('CAR 'PUSH . rest);;done
            (iter `(CAR_PUSH ,@rest))]
           [('CDR 'PUSH . rest);;done
            (iter `(CDR_PUSH ,@rest))]
-          [('REFER_FREE0 'INDIRECT . rest)
-           (iter `(REFER_FREE0_INDIRECT ,@rest))]
-          [('REFER_LOCAL2 'PUSH . rest)
-           (iter `(REFER_LOCAL2_PUSH ,@rest))]
           [('SHIFT m n 'CALL o . rest)
            (iter `(SHIFT_CALL ,m ,n ,o ,@rest))]
-          [('CALL 3 . rest)
-           (iter `(CALL3 ,@rest))]
-          [('REFER_FREE1 'INDIRECT . rest)
-           (iter `(REFER_FREE1_INDIRECT ,@rest))]
           [('NOT 'TEST . rest)
            (iter `(NOT_TEST ,@rest))]
           [('REFER_GLOBAL lib-id 'CALL n . rest)
            (iter `(REFER_GLOBAL_CALL ,lib-id ,n ,@rest))]
-          [('CALL 2 . rest)
-           (iter `(CALL2 ,@rest))]
-          [('REFER_LOCAL0 'NUMBER_ADD_PUSH . rest)
-           (iter (cons 'REFER_LOCAL0_NUMBER_ADD_PUSH rest))]
-          [('REFER_LOCAL0 'VECTOR_SET . rest)
-           (iter (cons 'REFER_LOCAL0_VECTOR_SET rest))]
-          [('REFER_LOCAL0 'VECTOR_REF . rest)
-           (iter (cons 'REFER_LOCAL0_VECTOR_REF rest))]
           [('REFER_LOCAL n 'PUSH . rest) ;; done
            (iter `(REFER_LOCAL_PUSH ,n ,@rest))]
           [else

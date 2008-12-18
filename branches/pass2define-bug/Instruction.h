@@ -11,138 +11,136 @@ class Instruction EXTEND_GC
 public:
     enum {
         COMPILE_ERROR = 14,
-        APPEND2 = 46,
-        CALL = 78,
-        APPLY = 110,
-        PUSH = 142,
-        ASSIGN_FREE = 174,
-        ASSIGN_GLOBAL = 206,
-        ASSIGN_LOCAL = 238,
-        BOX = 270,
-        CAAR = 302,
-        CADR = 334,
-        CAR = 366,
-        CDAR = 398,
-        CDDR = 430,
-        CDR = 462,
-        CLOSURE = 494,
-        CONS = 526,
-        CONSTANT = 558,
-        DEFINE_GLOBAL = 590,
-        DISPLAY = 622,
-        ENTER = 654,
-        EQ = 686,
-        EQV = 718,
-        EQUAL = 750,
-        FRAME = 782,
-        INDIRECT = 814,
-        LEAVE = 846,
-        LET_FRAME = 878,
-        LIST = 910,
-        LOCAL_JMP = 942,
-        MAKE_CONTINUATION = 974,
-        MAKE_VECTOR = 1006,
-        NOP = 1038,
-        NOT = 1070,
-        NULL_P = 1102,
-        NUMBER_ADD = 1134,
-        NUMBER_EQUAL = 1166,
-        NUMBER_GE = 1198,
-        NUMBER_GT = 1230,
-        NUMBER_LE = 1262,
-        NUMBER_LT = 1294,
-        NUMBER_MUL = 1326,
-        NUMBER_DIV = 1358,
-        NUMBER_SUB = 1390,
-        PAIR_P = 1422,
-        READ = 1454,
-        READ_CHAR = 1486,
-        REDUCE = 1518,
-        REFER_FREE = 1550,
-        REFER_GLOBAL = 1582,
-        REFER_LOCAL = 1614,
-        RESTORE_CONTINUATION = 1646,
-        RETURN = 1678,
-        SET_CAR = 1710,
-        SET_CDR = 1742,
-        SHIFT = 1774,
-        SYMBOL_P = 1806,
-        TEST = 1838,
-        UNDEF = 1870,
-        VECTOR_LENGTH = 1902,
-        VECTOR_P = 1934,
-        VECTOR_REF = 1966,
-        VECTOR_SET = 1998,
-        CONSTANT_PUSH = 2030,
-        REFER_LOCAL0 = 2062,
-        REFER_LOCAL1 = 2094,
-        REFER_LOCAL2 = 2126,
-        REFER_LOCAL3 = 2158,
-        REFER_FREE0 = 2190,
-        REFER_FREE1 = 2222,
-        REFER_FREE2 = 2254,
-        REFER_FREE3 = 2286,
-        REFER_LOCAL0_PUSH = 2318,
-        REFER_LOCAL0_PUSH_CONSTANT = 2350,
-        REFER_LOCAL1_PUSH_CONSTANT = 2382,
-        REFER_LOCAL2_PUSH_CONSTANT = 2414,
-        REFER_LOCAL1_PUSH = 2446,
-        NUMBER_SUB_PUSH = 2478,
+        BRANCH_NOT_LE = 46,
+        BRANCH_NOT_GE = 78,
+        BRANCH_NOT_LT = 110,
+        BRANCH_NOT_GT = 142,
+        BRANCH_NOT_NULL = 174,
+        BRANCH_NOT_NUMBER_EQUAL = 206,
+        BRANCH_NOT_EQ = 238,
+        BRANCH_NOT_EQV = 270,
+        BRANCH_NOT_EQUAL = 302,
+        APPEND2 = 334,
+        CALL = 366,
+        APPLY = 398,
+        PUSH = 430,
+        ASSIGN_FREE = 462,
+        ASSIGN_GLOBAL = 494,
+        ASSIGN_LOCAL = 526,
+        BOX = 558,
+        CAAR = 590,
+        CADR = 622,
+        CAR = 654,
+        CDAR = 686,
+        CDDR = 718,
+        CDR = 750,
+        CLOSURE = 782,
+        CONS = 814,
+        CONSTANT = 846,
+        DEFINE_GLOBAL = 878,
+        DISPLAY = 910,
+        ENTER = 942,
+        EQ = 974,
+        EQV = 1006,
+        EQUAL = 1038,
+        FRAME = 1070,
+        INDIRECT = 1102,
+        LEAVE = 1134,
+        LET_FRAME = 1166,
+        LIST = 1198,
+        LOCAL_JMP = 1230,
+        MAKE_CONTINUATION = 1262,
+        MAKE_VECTOR = 1294,
+        NOP = 1326,
+        NOT = 1358,
+        NULL_P = 1390,
+        NUMBER_ADD = 1422,
+        NUMBER_EQUAL = 1454,
+        NUMBER_GE = 1486,
+        NUMBER_GT = 1518,
+        NUMBER_LE = 1550,
+        NUMBER_LT = 1582,
+        NUMBER_MUL = 1614,
+        NUMBER_DIV = 1646,
+        NUMBER_SUB = 1678,
+        PAIR_P = 1710,
+        READ = 1742,
+        READ_CHAR = 1774,
+        REDUCE = 1806,
+        REFER_FREE = 1838,
+        REFER_GLOBAL = 1870,
+        REFER_LOCAL = 1902,
+        RESTORE_CONTINUATION = 1934,
+        RETURN = 1966,
+        SET_CAR = 1998,
+        SET_CDR = 2030,
+        SHIFT = 2062,
+        SYMBOL_P = 2094,
+        TEST = 2126,
+        VALUES = 2158,
+        RECEIVE = 2190,
+        UNFIXED_JUMP = 2222,
+        STOP = 2254,
+        CONTINUATION_VALUES = 2286,
+        SHIFTJ = 2318,
+        UNDEF = 2350,
+        VECTOR_LENGTH = 2382,
+        VECTOR_P = 2414,
+        VECTOR_REF = 2446,
+        VECTOR_SET = 2478,
         PUSH_ENTER = 2510,
         HALT = 2542,
-        LEAVE1 = 2574,
-        CALL1 = 2606,
+        CONSTANT_PUSH = 2574,
+        NUMBER_SUB_PUSH = 2606,
         NUMBER_ADD_PUSH = 2638,
-        RETURN1 = 2670,
-        RETURN2 = 2702,
-        RETURN3 = 2734,
-        CALL2 = 2766,
-        PUSH_CONSTANT = 2798,
-        PUSH_FRAME = 2830,
-        REFER_FREE0_PUSH = 2862,
-        REFER_FREE1_PUSH = 2894,
-        REFER_FREE2_PUSH = 2926,
-        CAR_PUSH = 2958,
-        CDR_PUSH = 2990,
-        REFER_FREE0_INDIRECT = 3022,
-        REFER_FREE1_INDIRECT = 3054,
-        REFER_LOCAL2_PUSH = 3086,
-        SHIFT_CALL = 3118,
-        CALL3 = 3150,
-        NOT_TEST = 3182,
-        REFER_GLOBAL_CALL = 3214,
-        REFER_LOCAL0_NUMBER_ADD_PUSH = 3246,
-        REFER_LOCAL0_VECTOR_SET = 3278,
-        REFER_LOCAL0_VECTOR_REF = 3310,
-        REFER_FREE_PUSH = 3342,
-        REFER_LOCAL_PUSH = 3374,
-        VALUES = 3406,
-        RECEIVE = 3438,
-        UNFIXED_JUMP = 3470,
-        STOP = 3502,
-        CONTINUATION_VALUES = 3534,
-        SHIFTJ = 3566,
-        BRANCH_NOT_LE = 3598,
-        BRANCH_NOT_GE = 3630,
-        BRANCH_NOT_LT = 3662,
-        BRANCH_NOT_GT = 3694,
-        BRANCH_NOT_NULL = 3726,
-        BRANCH_NOT_NUMBER_EQUAL = 3758,
-        BRANCH_NOT_EQ = 3790,
-        BRANCH_NOT_EQV = 3822,
-        BRANCH_NOT_EQUAL = 3854,
-        REFER_LOCAL_PUSH_CONSTANT = 3886,
-        REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_LE = 3918,
-        REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_GE = 3950,
-        REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_NUMBER_EQUAL = 3982,
-        REFER_LOCAL_BRANCH_NOT_NULL = 4014,
-        REFER_LOCAL_BRANCH_NOT_LT = 4046,
-        INSTRUCTION_COUNT = 127,
+        PUSH_CONSTANT = 2670,
+        PUSH_FRAME = 2702,
+        CAR_PUSH = 2734,
+        CDR_PUSH = 2766,
+        SHIFT_CALL = 2798,
+        NOT_TEST = 2830,
+        REFER_GLOBAL_CALL = 2862,
+        REFER_FREE_PUSH = 2894,
+        REFER_LOCAL_PUSH = 2926,
+        REFER_LOCAL_PUSH_CONSTANT = 2958,
+        REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_LE = 2990,
+        REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_GE = 3022,
+        REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_NUMBER_EQUAL = 3054,
+        REFER_LOCAL_BRANCH_NOT_NULL = 3086,
+        REFER_LOCAL_BRANCH_NOT_LT = 3118,
+        INSTRUCTION_COUNT = 98,
     };
     static const ucs4char* toString(int val) {
         switch(val) {
         case COMPILE_ERROR:
            return UC("COMPILE_ERROR");
+           break;
+        case BRANCH_NOT_LE:
+           return UC("BRANCH_NOT_LE");
+           break;
+        case BRANCH_NOT_GE:
+           return UC("BRANCH_NOT_GE");
+           break;
+        case BRANCH_NOT_LT:
+           return UC("BRANCH_NOT_LT");
+           break;
+        case BRANCH_NOT_GT:
+           return UC("BRANCH_NOT_GT");
+           break;
+        case BRANCH_NOT_NULL:
+           return UC("BRANCH_NOT_NULL");
+           break;
+        case BRANCH_NOT_NUMBER_EQUAL:
+           return UC("BRANCH_NOT_NUMBER_EQUAL");
+           break;
+        case BRANCH_NOT_EQ:
+           return UC("BRANCH_NOT_EQ");
+           break;
+        case BRANCH_NOT_EQV:
+           return UC("BRANCH_NOT_EQV");
+           break;
+        case BRANCH_NOT_EQUAL:
+           return UC("BRANCH_NOT_EQUAL");
            break;
         case APPEND2:
            return UC("APPEND2");
@@ -315,150 +313,6 @@ public:
         case TEST:
            return UC("TEST");
            break;
-        case UNDEF:
-           return UC("UNDEF");
-           break;
-        case VECTOR_LENGTH:
-           return UC("VECTOR_LENGTH");
-           break;
-        case VECTOR_P:
-           return UC("VECTOR_P");
-           break;
-        case VECTOR_REF:
-           return UC("VECTOR_REF");
-           break;
-        case VECTOR_SET:
-           return UC("VECTOR_SET");
-           break;
-        case CONSTANT_PUSH:
-           return UC("CONSTANT_PUSH");
-           break;
-        case REFER_LOCAL0:
-           return UC("REFER_LOCAL0");
-           break;
-        case REFER_LOCAL1:
-           return UC("REFER_LOCAL1");
-           break;
-        case REFER_LOCAL2:
-           return UC("REFER_LOCAL2");
-           break;
-        case REFER_LOCAL3:
-           return UC("REFER_LOCAL3");
-           break;
-        case REFER_FREE0:
-           return UC("REFER_FREE0");
-           break;
-        case REFER_FREE1:
-           return UC("REFER_FREE1");
-           break;
-        case REFER_FREE2:
-           return UC("REFER_FREE2");
-           break;
-        case REFER_FREE3:
-           return UC("REFER_FREE3");
-           break;
-        case REFER_LOCAL0_PUSH:
-           return UC("REFER_LOCAL0_PUSH");
-           break;
-        case REFER_LOCAL0_PUSH_CONSTANT:
-           return UC("REFER_LOCAL0_PUSH_CONSTANT");
-           break;
-        case REFER_LOCAL1_PUSH_CONSTANT:
-           return UC("REFER_LOCAL1_PUSH_CONSTANT");
-           break;
-        case REFER_LOCAL2_PUSH_CONSTANT:
-           return UC("REFER_LOCAL2_PUSH_CONSTANT");
-           break;
-        case REFER_LOCAL1_PUSH:
-           return UC("REFER_LOCAL1_PUSH");
-           break;
-        case NUMBER_SUB_PUSH:
-           return UC("NUMBER_SUB_PUSH");
-           break;
-        case PUSH_ENTER:
-           return UC("PUSH_ENTER");
-           break;
-        case HALT:
-           return UC("HALT");
-           break;
-        case LEAVE1:
-           return UC("LEAVE1");
-           break;
-        case CALL1:
-           return UC("CALL1");
-           break;
-        case NUMBER_ADD_PUSH:
-           return UC("NUMBER_ADD_PUSH");
-           break;
-        case RETURN1:
-           return UC("RETURN1");
-           break;
-        case RETURN2:
-           return UC("RETURN2");
-           break;
-        case RETURN3:
-           return UC("RETURN3");
-           break;
-        case CALL2:
-           return UC("CALL2");
-           break;
-        case PUSH_CONSTANT:
-           return UC("PUSH_CONSTANT");
-           break;
-        case PUSH_FRAME:
-           return UC("PUSH_FRAME");
-           break;
-        case REFER_FREE0_PUSH:
-           return UC("REFER_FREE0_PUSH");
-           break;
-        case REFER_FREE1_PUSH:
-           return UC("REFER_FREE1_PUSH");
-           break;
-        case REFER_FREE2_PUSH:
-           return UC("REFER_FREE2_PUSH");
-           break;
-        case CAR_PUSH:
-           return UC("CAR_PUSH");
-           break;
-        case CDR_PUSH:
-           return UC("CDR_PUSH");
-           break;
-        case REFER_FREE0_INDIRECT:
-           return UC("REFER_FREE0_INDIRECT");
-           break;
-        case REFER_FREE1_INDIRECT:
-           return UC("REFER_FREE1_INDIRECT");
-           break;
-        case REFER_LOCAL2_PUSH:
-           return UC("REFER_LOCAL2_PUSH");
-           break;
-        case SHIFT_CALL:
-           return UC("SHIFT_CALL");
-           break;
-        case CALL3:
-           return UC("CALL3");
-           break;
-        case NOT_TEST:
-           return UC("NOT_TEST");
-           break;
-        case REFER_GLOBAL_CALL:
-           return UC("REFER_GLOBAL_CALL");
-           break;
-        case REFER_LOCAL0_NUMBER_ADD_PUSH:
-           return UC("REFER_LOCAL0_NUMBER_ADD_PUSH");
-           break;
-        case REFER_LOCAL0_VECTOR_SET:
-           return UC("REFER_LOCAL0_VECTOR_SET");
-           break;
-        case REFER_LOCAL0_VECTOR_REF:
-           return UC("REFER_LOCAL0_VECTOR_REF");
-           break;
-        case REFER_FREE_PUSH:
-           return UC("REFER_FREE_PUSH");
-           break;
-        case REFER_LOCAL_PUSH:
-           return UC("REFER_LOCAL_PUSH");
-           break;
         case VALUES:
            return UC("VALUES");
            break;
@@ -477,32 +331,62 @@ public:
         case SHIFTJ:
            return UC("SHIFTJ");
            break;
-        case BRANCH_NOT_LE:
-           return UC("BRANCH_NOT_LE");
+        case UNDEF:
+           return UC("UNDEF");
            break;
-        case BRANCH_NOT_GE:
-           return UC("BRANCH_NOT_GE");
+        case VECTOR_LENGTH:
+           return UC("VECTOR_LENGTH");
            break;
-        case BRANCH_NOT_LT:
-           return UC("BRANCH_NOT_LT");
+        case VECTOR_P:
+           return UC("VECTOR_P");
            break;
-        case BRANCH_NOT_GT:
-           return UC("BRANCH_NOT_GT");
+        case VECTOR_REF:
+           return UC("VECTOR_REF");
            break;
-        case BRANCH_NOT_NULL:
-           return UC("BRANCH_NOT_NULL");
+        case VECTOR_SET:
+           return UC("VECTOR_SET");
            break;
-        case BRANCH_NOT_NUMBER_EQUAL:
-           return UC("BRANCH_NOT_NUMBER_EQUAL");
+        case PUSH_ENTER:
+           return UC("PUSH_ENTER");
            break;
-        case BRANCH_NOT_EQ:
-           return UC("BRANCH_NOT_EQ");
+        case HALT:
+           return UC("HALT");
            break;
-        case BRANCH_NOT_EQV:
-           return UC("BRANCH_NOT_EQV");
+        case CONSTANT_PUSH:
+           return UC("CONSTANT_PUSH");
            break;
-        case BRANCH_NOT_EQUAL:
-           return UC("BRANCH_NOT_EQUAL");
+        case NUMBER_SUB_PUSH:
+           return UC("NUMBER_SUB_PUSH");
+           break;
+        case NUMBER_ADD_PUSH:
+           return UC("NUMBER_ADD_PUSH");
+           break;
+        case PUSH_CONSTANT:
+           return UC("PUSH_CONSTANT");
+           break;
+        case PUSH_FRAME:
+           return UC("PUSH_FRAME");
+           break;
+        case CAR_PUSH:
+           return UC("CAR_PUSH");
+           break;
+        case CDR_PUSH:
+           return UC("CDR_PUSH");
+           break;
+        case SHIFT_CALL:
+           return UC("SHIFT_CALL");
+           break;
+        case NOT_TEST:
+           return UC("NOT_TEST");
+           break;
+        case REFER_GLOBAL_CALL:
+           return UC("REFER_GLOBAL_CALL");
+           break;
+        case REFER_FREE_PUSH:
+           return UC("REFER_FREE_PUSH");
+           break;
+        case REFER_LOCAL_PUSH:
+           return UC("REFER_LOCAL_PUSH");
            break;
         case REFER_LOCAL_PUSH_CONSTANT:
            return UC("REFER_LOCAL_PUSH_CONSTANT");

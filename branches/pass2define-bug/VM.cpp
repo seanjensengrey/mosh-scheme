@@ -219,7 +219,7 @@ void VM::loadFile(const ucs4string& file)
                 callLexicalViolationImmidiaImmediately("read", p->error());
             }
             const Object compiled = compile(o);
-//            dumpCompiledCode(compiled);
+            dumpCompiledCode(compiled);
             evaluate(compiled);
         }
 
@@ -613,21 +613,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             fwrite(logBuf, 1, 2, stream);
 #endif
             return ac_;
-        }
-        CASE(CALL1)
-        {
-            operand = Object::makeFixnum(1);
-            goto call_entry;
-        }
-        CASE(CALL2)
-        {
-            operand = Object::makeFixnum(2);
-            goto call_entry;
-        }
-        CASE(CALL3)
-        {
-            operand = Object::makeFixnum(3);
-            goto call_entry;
         }
         CASE(CALL)
         {
@@ -1034,34 +1019,14 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             push(Object::makeObjectPointer(fp_));
             NEXT;
         }
-        CASE(REFER_FREE0_INDIRECT)
-        {
-            ac_ = referFree(0);
-            goto indirect_entry;
-        }
-        CASE(REFER_FREE1_INDIRECT)
-        {
-            ac_ = referFree(1);
-            goto indirect_entry;
-        }
         CASE(INDIRECT)
         {
-        indirect_entry:
             ac_ = ac_.toBox()->value();
             NEXT1;
-        }
-        CASE(LEAVE1)
-        {
-            operand = Object::makeFixnum(1);
-            goto leave_entry;
         }
         CASE(LEAVE)
         {
             operand= fetchOperand();
-        leave_entry:
-#ifdef DUMP_ALL_INSTRUCTIONS
-            if (operand.toFixnum() <= DebugInstruction::OPERAND_MAX) logBuf[1] = operand.toFixnum();
-#endif
             TRACE_INSN1("LEAVE", "(~d)\n", operand);
             VM_ASSERT(operand.isFixnum());
             Object* const sp = sp_ - operand.toFixnum();
@@ -1256,14 +1221,8 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             push(ac_);
             NEXT1;
         }
-        CASE(REFER_LOCAL0_NUMBER_ADD_PUSH)
-        {
-            ac_ = referLocal(0);
-            goto number_add_push_entry;
-        }
         CASE(NUMBER_ADD_PUSH)
         {
-        number_add_push_entry:
             const Object n = index(sp_, 0);
             sp_--;
             // short cut for Fixnum. Benmarks tell me this is strongly required.
@@ -1307,12 +1266,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(REFER_FREE)
         {
             operand = fetchOperand();
-        refer_free_entry:
-#ifdef DUMP_ALL_INSTRUCTIONS
-            const int m = operand.toFixnum();
-            if (m <= DebugInstruction::OPERAND_MAX) logBuf[1] = m;
-#endif
-
             VM_ASSERT(operand.isFixnum());
             ac_ = referFree(operand);
             NEXT1;
@@ -1321,41 +1274,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         {
             push(referFree(fetchOperand()));
             NEXT;
-        }
-        CASE(REFER_FREE0_PUSH)
-        {
-            push(referFree(0));
-            NEXT;
-        }
-        CASE(REFER_FREE1_PUSH)
-        {
-            push(referFree(1));
-            NEXT;
-        }
-        CASE(REFER_FREE2_PUSH)
-        {
-            push(referFree(2));
-            NEXT;
-        }
-        CASE(REFER_FREE0)
-        {
-            operand = Object::makeFixnum(0);
-            goto refer_free_entry;
-        }
-        CASE(REFER_FREE1)
-        {
-            operand = Object::makeFixnum(1);
-            goto refer_free_entry;
-        }
-        CASE(REFER_FREE2)
-        {
-            operand = Object::makeFixnum(2);
-            goto refer_free_entry;
-        }
-        CASE(REFER_FREE3)
-        {
-            operand = Object::makeFixnum(3);
-            goto refer_free_entry;
         }
         CASE(REFER_GLOBAL)
         {
@@ -1389,55 +1307,8 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(REFER_LOCAL)
         {
             operand = fetchOperand();
-        refer_local_entry:
-#ifdef DUMP_ALL_INSTRUCTIONS
-            const int m = operand.toFixnum();
-            if (m <= DebugInstruction::OPERAND_MAX) logBuf[1] = m;
-#endif
-
             VM_ASSERT(operand.isFixnum());
             ac_ = referLocal(operand.toFixnum());
-            NEXT1;
-        }
-        CASE(REFER_LOCAL0)
-        {
-            operand = Object::makeFixnum(0);
-            goto refer_local_entry;
-        }
-        CASE(REFER_LOCAL1)
-        {
-            operand = Object::makeFixnum(1);
-            goto refer_local_entry;
-        }
-        CASE(REFER_LOCAL2)
-        {
-            operand = Object::makeFixnum(2);
-            goto refer_local_entry;
-        }
-        CASE(REFER_LOCAL3)
-        {
-            operand = Object::makeFixnum(3);
-            goto refer_local_entry;
-        }
-        CASE(REFER_LOCAL0_PUSH_CONSTANT)
-        {
-            push(referLocal(0));
-            const Object n = fetchOperand();
-            ac_ = n;
-            NEXT1;
-        }
-        CASE(REFER_LOCAL1_PUSH_CONSTANT)
-        {
-            push(referLocal(1));
-            const Object n = fetchOperand();
-            ac_ = n;
-            NEXT1;
-        }
-        CASE(REFER_LOCAL2_PUSH_CONSTANT)
-        {
-            push(referLocal(2));
-            const Object n = fetchOperand();
-            ac_ = n;
             NEXT1;
         }
         CASE(REFER_LOCAL_PUSH_CONSTANT)
@@ -1506,41 +1377,11 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             push(referLocal(n.toFixnum()));
             NEXT;
         }
-        CASE(REFER_LOCAL0_PUSH)
-        {
-            push(referLocal(0));
-            NEXT;
-        }
-        CASE(REFER_LOCAL1_PUSH)
-        {
-            push(referLocal(1));
-            NEXT;
-        }
-        CASE(REFER_LOCAL2_PUSH)
-        {
-            push(referLocal(2));
-            NEXT;
-        }
         CASE(RESTORE_CONTINUATION)
         {
             const Object s = fetchOperand();
             sp_ = stack_ + s.toStack()->restore(stack_);
             NEXT;
-        }
-        CASE(RETURN1)
-        {
-            operand = Object::makeFixnum(1);
-            goto return_entry;
-        }
-        CASE(RETURN2)
-        {
-            operand = Object::makeFixnum(2);
-            goto return_entry;
-        }
-        CASE(RETURN3)
-        {
-            operand = Object::makeFixnum(3);
-            goto return_entry;
         }
         CASE(RETURN)
         {
@@ -1741,13 +1582,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             BRANCH_ON_FALSE;
             NEXT;
         }
-//         CASE(REFER_LOCAL0_EQV_TEST)
-//         {
-//             printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-//             ac_ = Object::makeBool(eqv(index(sp_, 0), referLocal(0)));
-//             sp_--;
-//             goto test_entry;
-//         }
         CASE(UNDEF)
         {
             ac_ = Object::Undef;
@@ -1763,19 +1597,8 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             ac_ = Object::makeBool(ac_.isVector());
             NEXT1;
         }
-        CASE(REFER_LOCAL0_VECTOR_REF)
-        {
-            ac_ = referLocal(0);
-            goto vector_ref_entry;
-        }
-        CASE(REFER_LOCAL0_VECTOR_SET)
-        {
-            ac_ = referLocal(0);
-            goto vector_set_entry;
-        }
         CASE(VECTOR_REF)
         {
-        vector_ref_entry:
             const Object v = index(sp_, 0);
             MOSH_ASSERT(ac_.isFixnum());
             if (v.isVector()) {
@@ -1790,7 +1613,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         }
         CASE(VECTOR_SET)
         {
-        vector_set_entry:
             const Object v = index(sp_, 1);
             const Object n = index(sp_, 0);
             MOSH_ASSERT(n.isFixnum());

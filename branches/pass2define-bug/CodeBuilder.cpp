@@ -90,48 +90,48 @@ void CodeBuilder::putInstructionArgument2(Object instruction, Object argument1, 
 void CodeBuilder::combineInstructionsArgument0(CodePacket codePacket)
 {
     switch(codePacket.instructionImmediate()) {
-    case Instruction::INDIRECT:
-    {
-        switch(previousCodePacket_.instructionImmediate()) {
-        case Instruction::REFER_FREE0:
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_FREE0_INDIRECT);
-            break;
-        case Instruction::REFER_FREE1:
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_FREE1_INDIRECT);
-            break;
-        default:
-            flush();
-            previousCodePacket_ = codePacket;
-            break;
-        }
-        break;
-    }
-    case Instruction::VECTOR_REF:
-    {
-        switch(previousCodePacket_.instructionImmediate()) {
-        case Instruction::REFER_LOCAL0:
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL0_VECTOR_REF);
-            break;
-        default:
-            flush();
-            previousCodePacket_ = codePacket;
-            break;
-        }
-        break;
-    }
-    case Instruction::VECTOR_SET:
-    {
-        switch(previousCodePacket_.instructionImmediate()) {
-        case Instruction::REFER_LOCAL0:
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL0_VECTOR_SET);
-            break;
-        default:
-            flush();
-            previousCodePacket_ = codePacket;
-            break;
-        }
-        break;
-    }
+//     case Instruction::INDIRECT:
+//     {
+//         switch(previousCodePacket_.instructionImmediate()) {
+//         case Instruction::REFER_FREE0:
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_FREE0_INDIRECT);
+//             break;
+//         case Instruction::REFER_FREE1:
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_FREE1_INDIRECT);
+//             break;
+//         default:
+//             flush();
+//             previousCodePacket_ = codePacket;
+//             break;
+//         }
+//         break;
+//     }
+//     case Instruction::VECTOR_REF:
+//     {
+//         switch(previousCodePacket_.instructionImmediate()) {
+//         case Instruction::REFER_LOCAL0:
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL0_VECTOR_REF);
+//             break;
+//         default:
+//             flush();
+//             previousCodePacket_ = codePacket;
+//             break;
+//         }
+//         break;
+//     }
+//     case Instruction::VECTOR_SET:
+//     {
+//         switch(previousCodePacket_.instructionImmediate()) {
+//         case Instruction::REFER_LOCAL0:
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL0_VECTOR_SET);
+//             break;
+//         default:
+//             flush();
+//             previousCodePacket_ = codePacket;
+//             break;
+//         }
+//         break;
+//     }
     case Instruction::PUSH:
         switch(previousCodePacket_.instructionImmediate()) {
         case Instruction::NUMBER_ADD:
@@ -152,24 +152,24 @@ void CodeBuilder::combineInstructionsArgument0(CodePacket codePacket)
         case Instruction::REFER_LOCAL:
             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_PUSH);
             break;
-        case Instruction::REFER_LOCAL0:
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL0_PUSH);
-            break;
-        case Instruction::REFER_LOCAL1:
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL1_PUSH);
-            break;
-        case Instruction::REFER_LOCAL2:
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL2_PUSH);
-            break;
-        case Instruction::REFER_FREE0:
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_FREE0_PUSH);
-            break;
-        case Instruction::REFER_FREE1:
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_FREE1_PUSH);
-            break;
-        case Instruction::REFER_FREE2:
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_FREE2_PUSH);
-            break;
+//         case Instruction::REFER_LOCAL0:
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL0_PUSH);
+//             break;
+//         case Instruction::REFER_LOCAL1:
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL1_PUSH);
+//             break;
+//         case Instruction::REFER_LOCAL2:
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL2_PUSH);
+//             break;
+//         case Instruction::REFER_FREE0:
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_FREE0_PUSH);
+//             break;
+//         case Instruction::REFER_FREE1:
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_FREE1_PUSH);
+//             break;
+//         case Instruction::REFER_FREE2:
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_FREE2_PUSH);
+//             break;
         case Instruction::REFER_FREE:
             previousCodePacket_.setInstructionImmediate(Instruction::REFER_FREE_PUSH);
             break;
@@ -317,21 +317,21 @@ void CodeBuilder::combineInstructionsArgument1(CodePacket codePacket)
             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_PUSH_CONSTANT);
             previousCodePacket_.setArgument2(codePacket.argument1());
             break;
-        case Instruction::REFER_LOCAL0_PUSH:
-            previousCodePacket_.setType(CodePacket::ARGUMENT1);
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL0_PUSH_CONSTANT);
-            previousCodePacket_.setArgument1(codePacket.argument1());
-            break;
-        case Instruction::REFER_LOCAL1_PUSH:
-            previousCodePacket_.setType(CodePacket::ARGUMENT1);
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL1_PUSH_CONSTANT);
-            previousCodePacket_.setArgument1(codePacket.argument1());
-            break;
-        case Instruction::REFER_LOCAL2_PUSH:
-            previousCodePacket_.setType(CodePacket::ARGUMENT1);
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL2_PUSH_CONSTANT);
-            previousCodePacket_.setArgument1(codePacket.argument1());
-            break;
+//         case Instruction::REFER_LOCAL0_PUSH:
+//             previousCodePacket_.setType(CodePacket::ARGUMENT1);
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL0_PUSH_CONSTANT);
+//             previousCodePacket_.setArgument1(codePacket.argument1());
+//             break;
+//         case Instruction::REFER_LOCAL1_PUSH:
+//             previousCodePacket_.setType(CodePacket::ARGUMENT1);
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL1_PUSH_CONSTANT);
+//             previousCodePacket_.setArgument1(codePacket.argument1());
+//             break;
+//         case Instruction::REFER_LOCAL2_PUSH:
+//             previousCodePacket_.setType(CodePacket::ARGUMENT1);
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL2_PUSH_CONSTANT);
+//             previousCodePacket_.setArgument1(codePacket.argument1());
+//             break;
         case Instruction::PUSH:
             previousCodePacket_.setType(CodePacket::ARGUMENT1);
             previousCodePacket_.setInstructionImmediate(Instruction::PUSH_CONSTANT);
@@ -344,20 +344,20 @@ void CodeBuilder::combineInstructionsArgument1(CodePacket codePacket)
         }
         break;
     }
-    case Instruction::LEAVE:
-    {
-        flush();
-        MOSH_ASSERT(argument1.isFixnum());
-        const int index = argument1.toFixnum();
-        if (1 == index) {
-            codePacket.setType(CodePacket::ARGUMENT0);
-            codePacket.setInstructionImmediate(Instruction::LEAVE1);
-        } else {
-            // do nothing
-        }
-        previousCodePacket_ = codePacket;
-        break;
-    }
+//     case Instruction::LEAVE:
+//     {
+//         flush();
+//         MOSH_ASSERT(argument1.isFixnum());
+//         const int index = argument1.toFixnum();
+//         if (1 == index) {
+//             codePacket.setType(CodePacket::ARGUMENT0);
+//             codePacket.setInstructionImmediate(Instruction::LEAVE1);
+//         } else {
+//             // do nothing
+//         }
+//         previousCodePacket_ = codePacket;
+//         break;
+//     }
 //     case Instruction::REFER_LOCAL:
 //     {
 //         flush();
@@ -426,54 +426,54 @@ void CodeBuilder::combineInstructionsArgument1(CodePacket codePacket)
         }
         break;
     }
-    case Instruction::REFER_FREE:
-    {
-        flush();
-        MOSH_ASSERT(argument1.isFixnum());
-        const int index = argument1.toFixnum();
-        if (0 == index) {
-            codePacket.setType(CodePacket::ARGUMENT0);
-            codePacket.setInstructionImmediate(Instruction::REFER_FREE0);
-        } else if (1 == index) {
-            codePacket.setType(CodePacket::ARGUMENT0);
-            codePacket.setInstructionImmediate(Instruction::REFER_FREE1);
-        } else if (2 == index) {
-            codePacket.setType(CodePacket::ARGUMENT0);
-            codePacket.setInstructionImmediate(Instruction::REFER_FREE2);
-        } else if (3 == index) {
-            codePacket.setType(CodePacket::ARGUMENT0);
-            codePacket.setInstructionImmediate(Instruction::REFER_FREE3);
+//     case Instruction::REFER_FREE:
+//     {
+//         flush();
+//         MOSH_ASSERT(argument1.isFixnum());
+//         const int index = argument1.toFixnum();
+//         if (0 == index) {
+//             codePacket.setType(CodePacket::ARGUMENT0);
+//             codePacket.setInstructionImmediate(Instruction::REFER_FREE0);
+//         } else if (1 == index) {
+//             codePacket.setType(CodePacket::ARGUMENT0);
+//             codePacket.setInstructionImmediate(Instruction::REFER_FREE1);
+//         } else if (2 == index) {
+//             codePacket.setType(CodePacket::ARGUMENT0);
+//             codePacket.setInstructionImmediate(Instruction::REFER_FREE2);
+//         } else if (3 == index) {
+//             codePacket.setType(CodePacket::ARGUMENT0);
+//             codePacket.setInstructionImmediate(Instruction::REFER_FREE3);
 
-        } else {
-            // do nothing
-        }
-        previousCodePacket_ = codePacket;
-        break;
-    }
-    case Instruction::RETURN:
-    {
-        flush();
-        MOSH_ASSERT(argument1.isFixnum());
-        const int index = argument1.toFixnum();
-        switch(index) {
-        case 1:
-            codePacket.setType(CodePacket::ARGUMENT0);
-            codePacket.setInstructionImmediate(Instruction::RETURN1);
-            break;
-        case 2:
-            codePacket.setType(CodePacket::ARGUMENT0);
-            codePacket.setInstructionImmediate(Instruction::RETURN2);
-            break;
-        case 3:
-            codePacket.setType(CodePacket::ARGUMENT0);
-            codePacket.setInstructionImmediate(Instruction::RETURN3);
-            break;
-        default:
-            break;
-        }
-        previousCodePacket_ = codePacket;
-        break;
-    }
+//         } else {
+//             // do nothing
+//         }
+//         previousCodePacket_ = codePacket;
+//         break;
+//     }
+//     case Instruction::RETURN:
+//     {
+//         flush();
+//         MOSH_ASSERT(argument1.isFixnum());
+//         const int index = argument1.toFixnum();
+//         switch(index) {
+//         case 1:
+//             codePacket.setType(CodePacket::ARGUMENT0);
+//             codePacket.setInstructionImmediate(Instruction::RETURN1);
+//             break;
+//         case 2:
+//             codePacket.setType(CodePacket::ARGUMENT0);
+//             codePacket.setInstructionImmediate(Instruction::RETURN2);
+//             break;
+//         case 3:
+//             codePacket.setType(CodePacket::ARGUMENT0);
+//             codePacket.setInstructionImmediate(Instruction::RETURN3);
+//             break;
+//         default:
+//             break;
+//         }
+//         previousCodePacket_ = codePacket;
+//         break;
+//     }
     default:
         flush();
         previousCodePacket_ = codePacket;

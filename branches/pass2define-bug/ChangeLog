@@ -1,5 +1,7 @@
 2008-12-18  higepon  <higepon@users.sourceforge.jp>
 
+        * Removed some compound instructions.
+
         * Added (define-insn REFER_LOCAL_BRANCH_NOT_LT 2).
 
         * Added (define-insn REFER_LOCAL_BRANCH_NOT_NULL 2).
