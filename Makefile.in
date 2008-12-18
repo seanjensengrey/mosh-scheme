@@ -91,7 +91,8 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
 	mosh-Vector.$(OBJEXT) mosh-Fasl.$(OBJEXT) \
 	mosh-Arithmetic.$(OBJEXT) mosh-Ratnum.$(OBJEXT) \
 	mosh-Bignum.$(OBJEXT) mosh-Flonum.$(OBJEXT) \
-	mosh-CodeBuilder.$(OBJEXT) mosh-FixnumProcedures.$(OBJEXT)
+	mosh-CodeBuilder.$(OBJEXT) mosh-FixnumProcedures.$(OBJEXT) \
+	mosh-Latin1Codec.$(OBJEXT)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
 mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB)
 mosh_LINK = $(CXXLD) $(mosh_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
@@ -346,7 +347,8 @@ Ratnum.h                      Ratnum.cpp                          \
 Bignum.h                      Bignum.cpp                          \
 Flonum.h                      Flonum.cpp                          \
 CodeBuilder.h                 CodeBuilder.cpp                     \
-FinxumProcedures.h            FixnumProcedures.cpp
+FinxumProcedures.h            FixnumProcedures.cpp                \
+Latin1Codec.h                 Latin1Codec.cpp
 
 mosh_OPTS = -D MONA_SCHEME -D USE_BOEHM_GC -Wall -D MOSH_LIB_PATH="\"@MOSH_LIB_PATH@\""
 mosh_CFLAGS = -O2 $(mosh_OPTS) -fomit-frame-pointer -g -D_FILE_OFFSET_BITS=64 -Wall # -DDEBUG_VERSION 
@@ -486,6 +488,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-FlonumProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-GenericHashTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-HashTableProceduures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Latin1Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ListProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-NumberReader.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-NumberReader.tab.Po@am__quote@
@@ -1375,6 +1378,20 @@ mosh-FixnumProcedures.obj: FixnumProcedures.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='FixnumProcedures.cpp' object='mosh-FixnumProcedures.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-FixnumProcedures.obj `if test -f 'FixnumProcedures.cpp'; then $(CYGPATH_W) 'FixnumProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/FixnumProcedures.cpp'; fi`
+
+mosh-Latin1Codec.o: Latin1Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Latin1Codec.o -MD -MP -MF $(DEPDIR)/mosh-Latin1Codec.Tpo -c -o mosh-Latin1Codec.o `test -f 'Latin1Codec.cpp' || echo '$(srcdir)/'`Latin1Codec.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Latin1Codec.Tpo $(DEPDIR)/mosh-Latin1Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Latin1Codec.cpp' object='mosh-Latin1Codec.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Latin1Codec.o `test -f 'Latin1Codec.cpp' || echo '$(srcdir)/'`Latin1Codec.cpp
+
+mosh-Latin1Codec.obj: Latin1Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Latin1Codec.obj -MD -MP -MF $(DEPDIR)/mosh-Latin1Codec.Tpo -c -o mosh-Latin1Codec.obj `if test -f 'Latin1Codec.cpp'; then $(CYGPATH_W) 'Latin1Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/Latin1Codec.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Latin1Codec.Tpo $(DEPDIR)/mosh-Latin1Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Latin1Codec.cpp' object='mosh-Latin1Codec.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Latin1Codec.obj `if test -f 'Latin1Codec.cpp'; then $(CYGPATH_W) 'Latin1Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/Latin1Codec.cpp'; fi`
 install-dataDATA: $(data_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(datadir)" || $(MKDIR_P) "$(DESTDIR)$(datadir)"
