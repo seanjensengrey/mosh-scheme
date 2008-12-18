@@ -1,5 +1,7 @@
 2008-12-18  higepon  <higepon@users.sourceforge.jp>
 
+        * Added (define-insn REFER_LOCAL_BRANCH_NOT_NULL 2).
+
         * Added (define-insn REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_LE 3)
                 (define-insn REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_GE 3)
                 (define-insn REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_NUMBER_EQUAL 3)

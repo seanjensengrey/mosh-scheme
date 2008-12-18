@@ -1448,6 +1448,15 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             ac_= fetchOperand();
             NEXT1;
         }
+        // appears on typical named let loop
+        CASE(REFER_LOCAL_BRANCH_NOT_NULL)
+        {
+            const Object i = fetchOperand();
+            MOSH_ASSERT(i.isFixnum());
+            ac_ = Object::makeBool(referLocal(i.toFixnum()).isNil());
+            BRANCH_ON_FALSE;
+            NEXT;
+        }
         // appears on fib
         CASE(REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_LE)
         {

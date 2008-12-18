@@ -204,6 +204,21 @@ void CodeBuilder::combineInstructionsArgument1(CodePacket codePacket)
         }
         break;
     }
+    case Instruction::BRANCH_NOT_NULL:
+    {
+        switch(previousCodePacket_.instructionImmediate()) {
+        case Instruction::REFER_LOCAL:
+            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_BRANCH_NOT_NULL);
+            previousCodePacket_.setType(CodePacket::ARGUMENT2);
+            previousCodePacket_.setArgument2(codePacket.argument1());
+            break;
+        default:
+            flush();
+            previousCodePacket_ = codePacket;
+            break;
+        }
+        break;
+    }
     case Instruction::BRANCH_NOT_LE:
     {
         switch(previousCodePacket_.instructionImmediate()) {
