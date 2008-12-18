@@ -82,6 +82,11 @@ void CodeBuilder::putInstructionArgument1(Object instruction, Object argument)
     put(CodePacket(CodePacket::ARGUMENT1, instruction, argument, Object::Undef, Object::Undef));
 }
 
+void CodeBuilder::putInstructionArgument2(Object instruction, Object argument1, Object argument2)
+{
+    put(CodePacket(CodePacket::ARGUMENT1, instruction, argument1, argument2, Object::Undef));
+}
+
 void CodeBuilder::combineInstructionsArgument0(CodePacket codePacket)
 {
     switch(codePacket.instructionImmediate()) {
@@ -389,31 +394,35 @@ void CodeBuilder::combineInstructionsArgument1(CodePacket codePacket)
             previousCodePacket_.setInstructionImmediate(Instruction::REFER_GLOBAL_CALL);
             previousCodePacket_.setType(CodePacket::ARGUMENT2);
             previousCodePacket_.setArgument2(codePacket.argument1());
+        } else if (previousCodePacket_.instructionImmediate() == Instruction::SHIFT) {
+            previousCodePacket_.setInstructionImmediate(Instruction::SHIFT_CALL);
+            previousCodePacket_.setType(CodePacket::ARGUMENT3);
+            previousCodePacket_.setArgument3(codePacket.argument1());
         } else {
-            const int index = argument1.toFixnum();
-            if (index <= 3) {
+//             const int index = argument1.toFixnum();
+//             if (index <= 3) {
+//                 flush();
+//                 switch(index) {
+//                 case 1:
+//                     codePacket.setType(CodePacket::ARGUMENT0);
+//                     codePacket.setInstructionImmediate(Instruction::CALL1);
+//                     break;
+//                 case 2:
+//                     codePacket.setType(CodePacket::ARGUMENT0);
+//                     codePacket.setInstructionImmediate(Instruction::CALL2);
+//                     break;
+//                 case 3:
+//                     codePacket.setType(CodePacket::ARGUMENT0);
+//                     codePacket.setInstructionImmediate(Instruction::CALL3);
+//                     break;
+//                 default:
+//                     break;
+//                 }
+//                 previousCodePacket_ = codePacket;
+//             } else {
                 flush();
-                switch(index) {
-                case 1:
-                    codePacket.setType(CodePacket::ARGUMENT0);
-                    codePacket.setInstructionImmediate(Instruction::CALL1);
-                    break;
-                case 2:
-                    codePacket.setType(CodePacket::ARGUMENT0);
-                    codePacket.setInstructionImmediate(Instruction::CALL2);
-                    break;
-                case 3:
-                    codePacket.setType(CodePacket::ARGUMENT0);
-                    codePacket.setInstructionImmediate(Instruction::CALL3);
-                    break;
-                default:
-                    break;
-                }
                 previousCodePacket_ = codePacket;
-            } else {
-                flush();
-                previousCodePacket_ = codePacket;
-            }
+//            }
         }
         break;
     }

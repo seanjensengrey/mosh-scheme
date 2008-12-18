@@ -64,6 +64,7 @@ namespace scheme {
     Object codeBuilderEmitEx(int argc, const Object* argv);
     Object codeBuilderPutInsnArg0DEx(int argc, const Object* argv);
     Object codeBuilderPutInsnArg1DEx(int argc, const Object* argv);
+    Object codeBuilderPutInsnArg2DEx(int argc, const Object* argv);
 
 }; // namespace scheme
 

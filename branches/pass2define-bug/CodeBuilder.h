@@ -78,6 +78,7 @@ class CodeBuilder EXTEND_GC
 public:
     CodeBuilder();
     void putExtra(Object object);
+    void putInstructionArgument2(Object instruction, Object argument1, Object argument2);
     void putInstructionArgument1(Object instruction, Object argument1);
     void putInstructionArgument0(Object instruction);
     Object emit();

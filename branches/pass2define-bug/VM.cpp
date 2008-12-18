@@ -235,7 +235,7 @@ void VM::loadFile(const ucs4string& file)
 Object VM::eval(Object obj, Object env)
 {
     const Object code = compile(obj);
-
+//            dumpCompiledCode(code);
     // (CALL) -> evalEx -> eval -> evaluate
     // evaluate が pc_ を壊してしまい evalEx の呼び出し元に戻れない。
     SAVE_REGISTERS();

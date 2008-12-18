@@ -2438,6 +2438,7 @@
   (define (code-builder-emit cb)
     (array->list cb))
 
+  (define code-builder-put-insn-arg2! code-builder-put-extra3!)
   (define code-builder-put-insn-arg1! code-builder-put-extra2!)
   (define code-builder-put-insn-arg0! code-builder-put-extra1!)
   ;; moved to freeproc.cpp end
@@ -2465,7 +2466,7 @@
 
 (define-macro (cput-shift! cb n m)
   `(when (> ,m 0)
-    (cput! ,cb 'SHIFT ,n ,m)))
+    (code-builder-put-insn-arg2! ,cb 'SHIFT ,n ,m)))
 
 (define-macro (pass3/add-sets! sets new-sets)
   `(if (null? ,new-sets)

@@ -583,6 +583,20 @@ Object scheme::codeBuilderEmitEx(int argc, const Object* argv)
     return codeBuilder->emit();
 }
 
+Object scheme::codeBuilderPutInsnArg2DEx(int argc, const Object* argv)
+{
+    DeclareProcedureName("code-builder-put-insn-arg2!");
+    checkArgumentLength(4);
+
+    argumentAsCodeBuilder(0, codeBuilder);
+    const Object instruction = argv[1];
+    const Object argument1 = argv[2];
+    const Object argument2 = argv[3];
+
+    codeBuilder->putInstructionArgument2(instruction, argument1, argument2);
+    return Object::Undef;
+}
+
 Object scheme::codeBuilderPutInsnArg1DEx(int argc, const Object* argv)
 {
     DeclareProcedureName("code-builder-put-insn-arg1!");
