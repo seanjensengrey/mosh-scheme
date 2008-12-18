@@ -219,7 +219,7 @@ void VM::loadFile(const ucs4string& file)
                 callLexicalViolationImmidiaImmediately("read", p->error());
             }
             const Object compiled = compile(o);
-            dumpCompiledCode(compiled);
+//            dumpCompiledCode(compiled);
             evaluate(compiled);
         }
 

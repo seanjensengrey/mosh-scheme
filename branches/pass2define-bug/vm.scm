@@ -537,6 +537,7 @@
                     ]
                    [else
                     '()])
+;             (format (current-error-port) "~a\n" code)
              (debug-case code
                ;;---------------------------- HALT -------------------------------
                [(HALT) a]
@@ -721,116 +722,65 @@
                       stack
                       sp
                       ))]
-               [(LEAVE1)
-                (let ([sp (- sp 1)])
-                  (VM codes
-                      (skip 0)
-                      a
-                      (index stack sp 1) ;; fp
-                      (index stack sp 0) ;; display
-                      stack
-                      (- sp 2) ;; size of "let frame"
-                      ))]
+;;                [(LEAVE1)
+;;                 (let ([sp (- sp 1)])
+;;                   (VM codes
+;;                       (skip 0)
+;;                       a
+;;                       (index stack sp 1) ;; fp
+;;                       (index stack sp 0) ;; display
+;;                       stack
+;;                       (- sp 2) ;; size of "let frame"
+;;                       ))]
                ;;---------------------------- REFER_LOCAL ----------------------
                [(REFER_LOCAL)
                 (check-vm-paranoia (number? (next 1)))
                 (val1)
                 (VM codes (skip 1) (refer-local (next 1)) fp c stack sp)]
-               ;;---------------------------- REFER_LOCAL0 ----------------------
-               [(REFER_LOCAL0)
-                (val1)
-                (VM codes (skip 0) (refer-local 0) fp c stack sp)]
-               [(REFER_LOCAL1)
-                (val1)
-                (VM codes (skip 0) (refer-local 1) fp c stack sp)]
-               [(REFER_LOCAL2)
-                (val1)
-                (VM codes (skip 0) (refer-local 2) fp c stack sp)]
-               [(REFER_LOCAL3)
-                (val1)
-                (VM codes (skip 0) (refer-local 3) fp c stack sp)]
-;;                [(REFER_LOCAL0_EQV_TEST)
+;;                ;;---------------------------- REFER_LOCAL0 ----------------------
+;;                [(REFER_LOCAL0)
 ;;                 (val1)
-;;                 (if (eqv? (index stack sp 0) (refer-local 0))
-;;                     (VM codes (skip 1) a fp c stack (- sp 1))
-;;                     (VM codes (skip (next 1)) a fp c stack (- sp 1)))]
-                [(REFER_LOCAL0_PUSH)
-                 (val1)
-                 (VM codes (skip 0) a fp c stack (push stack sp (refer-local 0)))]
-
-;;                 [(REFER_LOCAL0_PUSH_DISPLAY)
-;;                  (let1 sp (push stack sp (index stack fp 0))
-;;                  (VM codes (skip 1) a fp (make-display (next 1) stack sp) stack (- sp (next 1))))]
-;;                ;;---------------------------- REFER_LOCAL1 ---------------------
+;;                 (VM codes (skip 0) (refer-local 0) fp c stack sp)]
 ;;                [(REFER_LOCAL1)
-;;                 (VM codes (skip 0) (index stack fp 1) fp c stack sp)]
-;;                ;;---------------------------- REFER_LOCAL2 ---------------------
+;;                 (val1)
+;;                 (VM codes (skip 0) (refer-local 1) fp c stack sp)]
 ;;                [(REFER_LOCAL2)
-;;                 (VM codes (skip 0) (index stack fp 2) fp c stack sp)]
-;;                ;;---------------------------- REFER_LOCAL_PUSH -----------------
+;;                 (val1)
+;;                 (VM codes (skip 0) (refer-local 2) fp c stack sp)]
+;;                [(REFER_LOCAL3)
+;;                 (val1)
+;;                 (VM codes (skip 0) (refer-local 3) fp c stack sp)]
+;; ;;                [(REFER_LOCAL0_EQV_TEST)
+;; ;;                 (val1)
+;; ;;                 (if (eqv? (index stack sp 0) (refer-local 0))
+;; ;;                     (VM codes (skip 1) a fp c stack (- sp 1))
+;; ;;                     (VM codes (skip (next 1)) a fp c stack (- sp 1)))]
+;;                 [(REFER_LOCAL0_PUSH)
+;;                  (val1)
+;;                  (VM codes (skip 0) a fp c stack (push stack sp (refer-local 0)))]
+
+;; ;;                 [(REFER_LOCAL0_PUSH_DISPLAY)
+;; ;;                  (let1 sp (push stack sp (index stack fp 0))
+;; ;;                  (VM codes (skip 1) a fp (make-display (next 1) stack sp) stack (- sp (next 1))))]
+;; ;;                ;;---------------------------- REFER_LOCAL1 ---------------------
+;; ;;                [(REFER_LOCAL1)
+;; ;;                 (VM codes (skip 0) (index stack fp 1) fp c stack sp)]
+;; ;;                ;;---------------------------- REFER_LOCAL2 ---------------------
+;; ;;                [(REFER_LOCAL2)
+;; ;;                 (VM codes (skip 0) (index stack fp 2) fp c stack sp)]
+;; ;;                ;;---------------------------- REFER_LOCAL_PUSH -----------------
                [(REFER_LOCAL_PUSH)
                 (val1)
                 (VM codes (skip 1) a fp c stack (push stack sp (refer-local (next 1))))]
-;;                ;;---------------------------- REFER_LOCAL0_PUSH ----------------
-;;                [(REFER_LOCAL0_PUSH)
-;;                 (VM codes (skip 0) a fp c stack (push stack sp (index stack fp 0)))]
-               [(REFER_LOCAL0_PUSH_CONSTANT)
-                (val1)
-                (VM codes (skip 1) (next 1) fp c stack (push stack sp (refer-local 0)))]
-               [(REFER_LOCAL1_PUSH_CONSTANT)
-                (val1)
-                (VM codes (skip 1) (next 1) fp c stack (push stack sp (refer-local 1)))]
-               [(REFER_LOCAL2_PUSH_CONSTANT)
-                (val1)
-                (VM codes (skip 1) (next 1) fp c stack (push stack sp (refer-local 2)))]
-
-;;                ;;---------------------------- REFER_LOCAL1_PUSH ----------------
-               [(REFER_LOCAL1_PUSH)
-                (val1)
-                (VM codes (skip 0) a fp c stack (push stack sp (refer-local 1)))]
-               [(REFER_LOCAL2_PUSH)
-                (val1)
-                (VM codes (skip 0) a fp c stack (push stack sp (refer-local 2)))]
-
-;;                ;;---------------------------- REFER_LOCAL2_PUSH ----------------
-;;                [(REFER_LOCAL2_PUSH)
-;;                 (VM codes (skip 0) a fp c stack (push stack sp (index stack fp 2)))]
-               ;;---------------------------- REFER_FREE -----------------------
                [(REFER_FREE)
                 (val1)
                 (check-vm-paranoia (vector? c))
                 (check-vm-paranoia (number? (next 1)))
-;                (format #t "refer free ~a\n" (next 1))
                 (VM codes (skip 1) (index-closure c (next 1)) fp c stack sp)]
-               [(REFER_FREE0)
-                (val1)
-                (VM codes (skip 0) (index-closure c 0) fp c stack sp)]
-               [(REFER_FREE1)
-                (val1)
-                (VM codes (skip 0) (index-closure c 1) fp c stack sp)]
-               [(REFER_FREE2)
-                (val1)
-                (VM codes (skip 0) (index-closure c 2) fp c stack sp)]
-               [(REFER_FREE3)
-                (val1)
-                (VM codes (skip 0) (index-closure c 3) fp c stack sp)]
-               [(PUSH_REFER_FREE0)
-                (val1)
-                (VM codes (skip 0) (index-closure c 0) fp c stack (push stack sp (index-closure c 0)))]
                ;;---------------------------- REFER_FREE_PUSH ------------------
                [(REFER_FREE_PUSH)
                 (val1)
                 (VM codes (skip 1) a fp c stack (push stack sp (index-closure c (next 1))))]
-               [(REFER_FREE0_PUSH)
-                (val1)
-                (VM codes (skip 0) a fp c stack (push stack sp (index-closure c 0)))]
-               [(REFER_FREE1_PUSH)
-                (val1)
-                (VM codes (skip 0) a fp c stack (push stack sp (index-closure c 1)))]
-               [(REFER_FREE2_PUSH)
-                (val1)
-                (VM codes (skip 0) a fp c stack (push stack sp (index-closure c 2)))]
-
                ;;---------------------------- NOP ------------------------------
                [(NOP)
                 (VM codes (skip 0) a fp c stack sp)]
@@ -842,24 +792,6 @@
                [(CALL)
                 (val1)
                 (apply-body a (next 1) sp)]
-               [(CALL1)
-                (val1)
-                (apply-body a 1 sp)]
-               [(CALL2)
-                (val1)
-                (apply-body a 2 sp)]
-               [(CALL3)
-                (val1)
-                (apply-body a 3 sp)]
-               [(PUSH_REFER_GLOBAL_CALL1)
-                (val1)
-                (let* ([lib (next 1)]
-                       [new-sp (push stack sp a)]
-                       [v (refer-global lib)])
-                  (apply-body v 1 new-sp))]
-               [(REFER_GLOBAL_CALL1)
-                (val1)
-                (apply-body (refer-global (next 1)) 1 sp)]
                [(REFER_GLOBAL_CALL)
                 (val1)
                 (apply-body (refer-global (next 1)) (next 2) sp)]
@@ -915,12 +847,12 @@
 ;;                       (index stack sp 3)                 ;; c
 ;;                       stack
 ;;                       (- sp 4)))]
-               [(RETURN1)
-                (return 1)]
-               [(RETURN2)
-                (return 2)]
-               [(RETURN3)
-                (return 3)]
+;;                [(RETURN1)
+;;                 (return 1)]
+;;                [(RETURN2)
+;;                 (return 2)]
+;;                [(RETURN3)
+;;                 (return 3)]
 
                ;;---------------------------- SHIFT ------------------------------
                [(SHIFT)
@@ -969,6 +901,34 @@
                 (if a
                     (VM codes (skip 1) a fp c stack sp)
                     (VM codes (skip (next 1)) a fp c stack sp))]
+               [(REFER_LOCAL_PUSH_CONSTANT)
+                (val1)
+                (VM codes (skip 2) (next 2) fp c stack (push stack sp (refer-local (next 1))))]
+               [(REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_LE)
+                (let1 val (<= (refer-local (next 1)) (next 2))
+                  (if val
+                      (VM codes (skip 3) val fp c stack sp)
+                      (VM codes (skip (next 3)) val fp c stack sp)))]
+               [(REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_NUMBER_EQUAL)
+                (let1 val (= (refer-local (next 1)) (next 2))
+                  (if val
+                      (VM codes (skip 3) val fp c stack sp)
+                      (VM codes (skip (next 3)) val fp c stack sp)))]
+               [(REFER_LOCAL_BRANCH_NOT_NULL)
+                (let1 val (null? (refer-local (next 1)))
+                  (if val
+                      (VM codes (skip 2) val fp c stack sp)
+                      (VM codes (skip (+ 1 (next 2))) val fp c stack sp)))]
+               [(REFER_LOCAL_BRANCH_NOT_LT)
+                (let1 val (<  (index stack sp 0) (refer-local (next 1)))
+                  (if val
+                      (VM codes (skip 2) val fp c stack (- sp 1))
+                      (VM codes (skip (+ 1 (next 2))) val fp c stack (- sp 1))))]
+               [(REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_GE)
+                (let1 val (>= (refer-local (next 1)) (next 2))
+                  (if val
+                      (VM codes (skip 3) val fp c stack sp)
+                      (VM codes (skip (next 3)) val fp c stack sp)))]
                [(BRANCH_NOT_NULL)
                 (val1)
                 (let1 val (null? a)
@@ -1038,46 +998,6 @@
                     (VM codes (skip (next 1)) val fp c stack sp)))]
 
 
-;;                ;;---------------------------- BRANCH_NULLP  ----------------------
-;;                [(BRANCH_NULLP)
-;;                 (if (null? a)
-;;                     (VM codes (skip 1) a fp c stack sp)
-;;                     (VM codes (skip (+ (next 1) 1)) a fp c stack sp))]
-;;                ;;---------------------------- BRANCH_PAIRP  ----------------------
-;;                [(BRANCH_PAIRP)
-;;                 (if (pair? a)
-;;                     (VM codes (skip 1) a fp c stack sp)
-;;                     (VM codes (skip (+ (next 1) 1)) a fp c stack sp))]
-;;                ;;---------------------------- BRANCH_EQ  -------------------------
-;;                [(BRANCH_EQ)
-;;                 (if (eq? (index stack sp 0) a)
-;;                     (VM codes (skip 1) a fp c stack (- sp 1))
-;;                     (VM codes (skip (+ (next 1) 1)) a fp c stack (- sp 1)))]
-;;                ;;---------------------------- BRANCH_NUMBER_EQUAL  ---------------
-;;                [(BRANCH_NUMBER_EQUAL)
-;;                 (if (= (index stack sp 0) a)
-;;                     (VM codes (skip 1) a fp c stack (- sp 1))
-;;                     (VM codes (skip (+ (next 1) 1)) a fp c stack (- sp 1)))]
-;;                ;;---------------------------- BRANCH_NUMBER_GT  ------------------
-;;                [(BRANCH_NUMBER_GT)
-;;                 (if (> (index stack sp 0) a)
-;;                     (VM codes (skip 1) a fp c stack (- sp 1))
-;;                     (VM codes (skip (+ (next 1) 1)) a fp c stack (- sp 1)))]
-;;                ;;---------------------------- BRANCH_NUMBER_GE  ------------------
-;;                [(BRANCH_NUMBER_GE)
-;;                 (if (>= (index stack sp 0) a)
-;;                     (VM codes (skip 1) a fp c stack (- sp 1))
-;;                     (VM codes (skip (+ (next 1) 1)) a fp c stack (- sp 1)))]
-;;                ;;---------------------------- BRANCH_NUMBER_LT  ------------------
-;;                [(BRANCH_NUMBER_LT)
-;;                 (if (< (index stack sp 0) a)
-;;                     (VM codes (skip 1) a fp c stack (- sp 1))
-;;                     (VM codes (skip (+ (next 1) 1)) a fp c stack (- sp 1)))]
-;;                ;;---------------------------- BRANCH_NUMBER_LE  ------------------
-;;                [(BRANCH_NUMBER_LE)
-;;                 (if (<= (index stack sp 0) a)
-;;                     (VM codes (skip 1) a fp c stack (- sp 1))
-;;                     (VM codes (skip (+ (next 1) 1)) a fp c stack (- sp 1)))]
                ;;---------------------------- LOCAL_JMP  -------------------------
                [(LOCAL_JMP)
                 (VM codes (+ pc (next 1) 1) a fp c stack sp)]
@@ -1089,12 +1009,12 @@
                [(INDIRECT)
                 (val1)
                 (VM codes (skip 0) (unbox a) fp c stack sp)]
-               [(REFER_FREE0_INDIRECT)
-                (val1)
-                (VM codes (skip 0) (unbox (index-closure c 0)) fp c stack sp)]
-               [(REFER_FREE1_INDIRECT)
-                (val1)
-                (VM codes (skip 0) (unbox (index-closure c 1)) fp c stack sp)]
+;;                [(REFER_FREE0_INDIRECT)
+;;                 (val1)
+;;                 (VM codes (skip 0) (unbox (index-closure c 0)) fp c stack sp)]
+;;                [(REFER_FREE1_INDIRECT)
+;;                 (val1)
+;;                 (VM codes (skip 0) (unbox (index-closure c 1)) fp c stack sp)]
                ;;---------------------------- ASSIGN_BIND  -----------------------
                [(ASSIGN_LOCAL)
                 (set-box! (refer-local (next 1)) a)
@@ -1107,22 +1027,6 @@
                [(DEFINE_GLOBAL)
                 (define-global (next 1) a)
                 (VM codes (skip 1) a fp c stack sp)]
-               ;;---------------------------- LIBRARY --------------------------
-;;                [(LIBRARY)
-;;                 (hashtable-set! vm-libraries (next 1) (next 2))
-;;                 (VM codes (skip 2) a fp c stack sp)]
-               ;;---------------------------- IMPORT -----------------------------
-;;                [(IMPORT)
-;;                 (cond
-;;                  [(fetch-instance (next 1))
-;;                   (VM `#(RETURN 0 HALT) 0 a fp c stack sp)]
-;;                  [else
-;;                   (vm-import (next 1))
-;;                   (let1 lib (hash-table-get vm-libraries (next 1))
-;; ;                    ($library.set-macro! lib (make-hash-table 'eq?))
-;;                     (unless ($library.compiled-body lib)
-;;                       (compile-library-body! lib))
-;;                     (VM ($library.compiled-body lib) 0 a fp c stack sp))])]
                ;;---------------------------- REFER_GLOBAL  ----------------------
                [(REFER_GLOBAL)
                 (val1)
@@ -1143,7 +1047,7 @@
                [(NUMBER_SUB)   (apply-native-2arg -)]
                [(NUMBER_SUB_PUSH) (apply-native-2arg-push -)]
                [(NUMBER_ADD_PUSH) (apply-native-2arg-push +)]
-               [(REFER_LOCAL0_NUMBER_ADD_PUSH) (apply-native-2arg-push-a + (refer-local 0))]
+;               [(REFER_LOCAL0_NUMBER_ADD_PUSH) (apply-native-2arg-push-a + (refer-local 0))]
                [(NUMBER_MUL)   (apply-native-2arg *)]
                ;;---------------------------- Pair  ------------------------------
                [(APPEND2) (apply-native-2arg append)]
@@ -1167,8 +1071,8 @@
                [(VECTOR_LENGTH) (apply-native-1arg vector-length)]
                [(VECTOR_REF)    (apply-native-2arg vector-ref)]
                [(VECTOR_SET)    (apply-native-3arg vector-set!)]
-               [(REFER_LOCAL0_VECTOR_SET (apply-native-3arg-ac (index fp 0) vector-ref))]
-               [(REFER_LOCAL0_VECTOR_REF (apply-native-2arg-ac (index fp 0) vector-ref))]
+;;                [(REFER_LOCAL0_VECTOR_SET (apply-native-3arg-ac (index fp 0) vector-ref))]
+;;                [(REFER_LOCAL0_VECTOR_REF (apply-native-2arg-ac (index fp 0) vector-ref))]
                ;;---------------------------- Port  ------------------------------
                [(READ)            (apply-native-1arg-optional read)]
                [(READ_CHAR)       (apply-native-1arg-optional read-char)]
@@ -1683,19 +1587,19 @@
   (cond
    ;; test
    [(= (length args) 1)
-    (vm-init '())
-     (load-file "./library.scm")
+;    (vm-init '())
+;     (load-file "./library.scm")
 
-;    (load-file "./work.scm")
-    (load-file "./match.scm")
-    (vm-test)
-    (set! optimize? (not optimize?))
-    (vm-init '())
-    (load-file "./library.scm")
-    (load-file "./match.scm")
+    (load-file "./work.scm")
+;;     (load-file "./match.scm")
+;;     (vm-test)
+;;     (set! optimize? (not optimize?))
+;;     (vm-init '())
+;;     (load-file "./library.scm")
+;;     (load-file "./match.scm")
 
-    (vm-test)
-    (test-end)
+;;     (vm-test)
+;;     (test-end)
 
     ]
    ;; compile string

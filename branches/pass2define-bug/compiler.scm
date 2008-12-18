@@ -3161,6 +3161,18 @@
        [(null? s) '()]
        [else
         (match s
+          [('REFER_LOCAL_PUSH n 'CONSTANT . more)
+           (iter `(REFER_LOCAL_PUSH_CONSTANT ,n ,@more))]
+          [('REFER_LOCAL_PUSH_CONSTANT a b 'BRANCH_NOT_LE . more)
+           (iter `(REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_LE ,a ,b ,@more))]
+          [('REFER_LOCAL_PUSH_CONSTANT a b 'BRANCH_NOT_GE . more)
+           (iter `(REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_GE ,a ,b ,@more))]
+          [((and x (not 'CONSTANT)) 'REFER_LOCAL_PUSH_CONSTANT a b 'BRANCH_NOT_NUMBER_EQUAL . more)
+           (iter `(,x REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_NUMBER_EQUAL ,a ,b ,@more))]
+          [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'BRANCH_NOT_NULL . more)
+           (iter `(,x REFER_LOCAL_BRANCH_NOT_NULL ,n ,@more))]
+          [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'BRANCH_NOT_LT . more)
+           (iter `(,x REFER_LOCAL_BRANCH_NOT_LT ,n ,@more))]
           ;; N.B.
           ;; compiled pass3/$asm code has list '(CONSTANT NUMBER_SUB PUSH), ignore it.
           [((and x (not 'CONSTANT)) 'NUMBER_SUB 'PUSH . rest)
@@ -3216,6 +3228,24 @@
      (vector-set! ret (+ j 1) (vector-ref v (+ i 1)))
      (loop (+ i 2) (+ j 2))))
 
+(define-macro (pass4/fixup-labels-clollect2 insn)
+  `(begin
+     (vector-set! ret j ,insn)
+     (vector-set! ret (+ j 1) (vector-ref v (+ i 1)))
+     (vector-set! ret (+ j 2) (vector-ref v (+ i 2)))
+     (loop (+ i 3) (+ j 3))))
+
+
+
+(define-macro (pass4/fixup-labels-clollect3 insn)
+  `(begin
+     (vector-set! ret j ,insn)
+     (vector-set! ret (+ j 1) (vector-ref v (+ i 1)))
+     (vector-set! ret (+ j 2) (vector-ref v (+ i 2)))
+     (vector-set! ret (+ j 3) (vector-ref v (+ i 3)))
+     (loop (+ i 4) (+ j 4))))
+
+
 (define-macro (pass4/fixup-labels-insn insn)
   `(let1 label (hashtable-ref labels(vector-ref code (+ i 1)) #f)
      (cond
@@ -3225,6 +3255,28 @@
        (loop (+ i 2))]
       [else
        (loop (+ i 1))])))
+
+(define-macro (pass4/fixup-labels-insn2 insn)
+  `(let1 label (hashtable-ref labels(vector-ref code (+ i 2)) #f)
+     (cond
+      [label
+       (vector-set! code i ,insn)
+       (vector-set! code (+ i 2) (- label i 2)) ;; jump point
+       (loop (+ i 3))]
+      [else
+       (loop (+ i 1))])))
+
+
+(define-macro (pass4/fixup-labels-insn3 insn)
+  `(let1 label (hashtable-ref labels(vector-ref code (+ i 3)) #f)
+     (cond
+      [label
+       (vector-set! code i ,insn)
+       (vector-set! code (+ i 3) (- label i 3)) ;; jump point
+       (loop (+ i 4))]
+      [else
+       (loop (+ i 1))])))
+
 
 (cond-expand
  [vm?
@@ -3283,7 +3335,11 @@
                [(eq? insn 'BRANCH_NOT_EQV)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_EQV)]
                [(eq? insn 'BRANCH_NOT_EQUAL)                  (pass4/fixup-labels-clollect 'BRANCH_NOT_EQUAL)]
                [(eq? insn 'NOT_TEST)              (pass4/fixup-labels-clollect 'NOT_TEST)]
-;;                [(eq? insn 'REFER_LOCAL0_EQV_TEST) (pass4/fixup-labels-clollect 'REFER_LOCAL0_EQV_TEST)]
+               [(eq? insn 'REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_LE) (pass4/fixup-labels-clollect3 'REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_LE)]
+               [(eq? insn 'REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_GE) (pass4/fixup-labels-clollect3 'REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_GE)]
+               [(eq? insn 'REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_NUMBER_EQUAL) (pass4/fixup-labels-clollect3 'REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_NUMBER_EQUAL)]
+               [(eq? insn 'REFER_LOCAL_BRANCH_NOT_LT) (pass4/fixup-labels-clollect2 'REFER_LOCAL_BRANCH_NOT_LT)]
+               [(eq? insn 'REFER_LOCAL_BRANCH_NOT_NULL) (pass4/fixup-labels-clollect2 'REFER_LOCAL_BRANCH_NOT_NULL)]
                [(eq? insn 'FRAME)                 (pass4/fixup-labels-clollect 'FRAME)]
                [(eq? insn 'PUSH_FRAME)            (pass4/fixup-labels-clollect 'PUSH_FRAME)]
                [(eq? insn 'CLOSURE)               (pass4/fixup-labels-clollect 'CLOSURE)]
@@ -3315,7 +3371,11 @@
                [(eq? insn 'BRANCH_NOT_EQV)                  (pass4/fixup-labels-insn 'BRANCH_NOT_EQV)]
                [(eq? insn 'BRANCH_NOT_EQUAL)                  (pass4/fixup-labels-insn 'BRANCH_NOT_EQUAL)]
                [(eq? insn 'NOT_TEST)              (pass4/fixup-labels-insn 'NOT_TEST)]
-;;                [(eq? insn 'REFER_LOCAL0_EQV_TEST) (pass4/fixup-labels-insn 'REFER_LOCAL0_EQV_TEST)]
+               [(eq? insn 'REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_LE) (pass4/fixup-labels-insn3 'REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_LE)]
+               [(eq? insn 'REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_GE) (pass4/fixup-labels-insn3 'REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_GE)]
+               [(eq? insn 'REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_NUMBER_EQUAL) (pass4/fixup-labels-insn3 'REFER_LOCAL_PUSH_CONSTANT_BRANCH_NOT_NUMBER_EQUAL)]
+               [(eq? insn 'REFER_LOCAL_BRANCH_NOT_NULL) (pass4/fixup-labels-insn2 'REFER_LOCAL_BRANCH_NOT_NULL)]
+               [(eq? insn 'REFER_LOCAL_BRANCH_NOT_LT) (pass4/fixup-labels-insn2 'REFER_LOCAL_BRANCH_NOT_LT)]
                [(eq? insn 'FRAME)                 (pass4/fixup-labels-insn 'FRAME)]
                [(eq? insn 'PUSH_FRAME)            (pass4/fixup-labels-insn 'PUSH_FRAME)]
                [else (loop (+ i 1))]))])))

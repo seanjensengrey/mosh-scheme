@@ -1,5 +1,9 @@
+(define a 3)
 
-(let loop ([ret '(a b c)])
-  (if (null? ret)
-      '()
-      (loop (cdr ret))))
+(display
+;(disasm (lambda ()
+(let1 x a
+  (if (null? x)
+      'hoge
+      'hige))))
+;)
