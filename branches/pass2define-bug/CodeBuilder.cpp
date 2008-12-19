@@ -90,22 +90,6 @@ void CodeBuilder::putInstructionArgument2(Object instruction, Object argument1, 
 void CodeBuilder::combineInstructionsArgument0(CodePacket codePacket)
 {
     switch(codePacket.instructionImmediate()) {
-//     case Instruction::INDIRECT:
-//     {
-//         switch(previousCodePacket_.instructionImmediate()) {
-//         case Instruction::REFER_FREE0:
-//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_FREE0_INDIRECT);
-//             break;
-//         case Instruction::REFER_FREE1:
-//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_FREE1_INDIRECT);
-//             break;
-//         default:
-//             flush();
-//             previousCodePacket_ = codePacket;
-//             break;
-//         }
-//         break;
-//     }
     case Instruction::VECTOR_REF:
     {
         switch(previousCodePacket_.instructionImmediate()) {

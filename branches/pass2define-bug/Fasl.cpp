@@ -228,8 +228,14 @@ void FaslWriter::putDatum(Object obj)
         return;
     }
     if (obj.isFixnum()) {
-        emitU8(Fasl::TAG_FIXNUM);
-        emitU32(obj.toFixnum());
+        const int n = obj.toFixnum();
+        if (n >= 0 && n <= 255) {
+            emitU8(Fasl::TAG_SMALL_FIXNUM);
+            emitU8(n);
+        } else {
+            emitU8(Fasl::TAG_FIXNUM);
+            emitU32(obj.toFixnum());
+        }
         return;
     }
     if (obj.isInstruction()) {

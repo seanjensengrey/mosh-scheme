@@ -61,6 +61,7 @@ public:
         TAG_INSTRUCTION,
         TAG_COMPILER_INSTRUCTION,
         TAG_FLONUM,
+        TAG_SMALL_FIXNUM,
         forbidden_comma
     };
 };
@@ -105,6 +106,10 @@ private:
         case Fasl::TAG_LOOKUP: {
             const uint32_t uid = fetchU32();
             return symbolsAndStringsArray_[uid];
+        }
+        case Fasl::TAG_SMALL_FIXNUM: {
+            const int value = fetchU8();
+            return Object::makeFixnum(value);
         }
         case Fasl::TAG_FIXNUM: {
             const int value = fetchU32();
