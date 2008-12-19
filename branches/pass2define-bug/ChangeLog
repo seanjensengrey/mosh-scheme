@@ -1,5 +1,10 @@
 2008-12-19  higepon  <higepon@users.sourceforge.jp>
 
+        * (define-insn VECTOR_REF_PUSH 0)
+        * (define-insn REFER_LOCAL_CALL 2)
+
+        * tools/psyntax-r6rs/rev10_to_10/psyntax/library-manager.ss (psyntax): Added fast-equal?.
+
         * Fasl.h (scheme): Changed Fasl for Instruction. It fits 8 bit.
 
         * Added (define-insn REFER_FREE_CALL 2)

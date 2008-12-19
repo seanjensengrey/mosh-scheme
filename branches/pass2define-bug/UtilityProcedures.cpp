@@ -210,6 +210,14 @@ Object scheme::equalPEx(int argc, const Object* argv)
 //    return argv[0].equal(argv[1]);
 }
 
+Object scheme::fastEqualPEx(int argc, const Object* argv)
+{
+    DeclareProcedureName("fast-equal?");
+    checkArgumentLength(2);
+    return Object::makeBool(fastEqual(argv[0], argv[1]));
+}
+
+
 // todo from gauche
 Object scheme::digitTointegerEx(int argc, const Object* argv)
 {

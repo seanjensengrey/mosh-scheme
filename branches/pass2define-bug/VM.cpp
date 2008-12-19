@@ -1339,6 +1339,14 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             ac_ = referLocal(operand.toFixnum());
             NEXT1;
         }
+        CASE(REFER_LOCAL_CALL)
+        {
+            operand = fetchOperand();
+            VM_ASSERT(operand.isFixnum());
+            ac_ = referLocal(operand.toFixnum());
+            operand = fetchOperand();
+            goto call_entry;
+        }
         CASE(REFER_LOCAL_PUSH_CONSTANT)
         {
             const Object index = fetchOperand();
@@ -1658,6 +1666,21 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
                                             "vector required",
                                             L1(v));
             }
+            NEXT1;
+        }
+        CASE(VECTOR_REF_PUSH)
+        {
+            const Object v = index(sp_, 0);
+            MOSH_ASSERT(ac_.isFixnum());
+            if (v.isVector()) {
+                ac_ = v.toVector()->ref(ac_.toFixnum());
+                sp_--;
+            } else {
+                callAssertionViolationAfter("vector-ref",
+                                            "vector required",
+                                            L1(v));
+            }
+            push(ac_);
             NEXT1;
         }
         CASE(PUSH_CONSTANT_VECTOR_SET)

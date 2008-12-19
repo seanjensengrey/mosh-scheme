@@ -102,4 +102,6 @@
 (define-insn REFER_LOCAL_VECTOR_REF 1)
 (define-insn REFER_LOCAL_VECTOR_SET 1)
 (define-insn PUSH_CONSTANT_VECTOR_SET 1)
+(define-insn VECTOR_REF_PUSH 0)
+(define-insn REFER_LOCAL_CALL 2)
 

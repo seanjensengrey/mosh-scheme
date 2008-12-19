@@ -798,6 +798,9 @@
                [(REFER_FREE_CALL)
                 (val1)
                 (apply-body (index-closure c (next 1)) (next 2) sp)]
+               [(REFER_LOCAL_CALL)
+                (val1)
+                (apply-body (refer-local (next 1)) (next 2) sp)]
                ;;---------------------------- APPLY ----------------------------
                [(APPLY) ;; (apply proc args)
                 (val1)

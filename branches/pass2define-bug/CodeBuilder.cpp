@@ -138,6 +138,9 @@ void CodeBuilder::combineInstructionsArgument0(CodePacket codePacket)
     }
     case Instruction::PUSH:
         switch(previousCodePacket_.instructionImmediate()) {
+        case Instruction::VECTOR_REF:
+            previousCodePacket_.setInstructionImmediate(Instruction::VECTOR_REF_PUSH);
+            break;
         case Instruction::NUMBER_ADD:
             previousCodePacket_.setInstructionImmediate(Instruction::NUMBER_ADD_PUSH);
             break;
@@ -400,6 +403,11 @@ void CodeBuilder::combineInstructionsArgument1(CodePacket codePacket)
         case Instruction::REFER_GLOBAL:
             previousCodePacket_.setType(CodePacket::ARGUMENT2);
             previousCodePacket_.setInstructionImmediate(Instruction::REFER_GLOBAL_CALL);
+            previousCodePacket_.setArgument2(argument1);
+            break;
+        case Instruction::REFER_LOCAL:
+            previousCodePacket_.setType(CodePacket::ARGUMENT2);
+            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_CALL);
             previousCodePacket_.setArgument2(argument1);
             break;
         case Instruction::REFER_FREE:

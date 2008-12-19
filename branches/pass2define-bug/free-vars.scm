@@ -434,4 +434,5 @@
 ;;                  (format #t "~a " c))
 ;;               (vector->list (vector-ref closure 0)))))
     print-stack
+    fast-equal?
     )

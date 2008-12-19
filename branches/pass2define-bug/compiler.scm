@@ -1619,7 +1619,49 @@
   iform)
 
 (define-pass2/tracable (pass2/$call iform closures)
-  (pass2/collect-call iform closures))
+  (cond
+   [($call.type iform) iform]
+   [else
+    (let ([proc ($call.proc iform)]
+          [args ($call.args iform)])
+      ;; scan OP first to give an opportunity of variable renaming
+      ($call.set-proc! iform (pass2/optimize ($call.proc iform) closures))
+      (cond [(tag? proc $LAMBDA)
+             (pass2/optimize (pass2/expand-inlined-procedure proc args)
+                             closures)]
+            [(and (tag? proc $LOCAL-REF)
+                  (pass2/classify-local-ref-call proc closures ($call.tail? iform)))
+             => (lambda (type)
+                  (cond
+                   ;; Directly inline
+                   [(vector? type)
+                    ($call.set-proc! iform type)
+                    ;; Directly inlinable case.  NB: this only happens if the $LREF
+                    ;; node is the lvar's single reference, so we know the inlined
+                    ;; procedure is never called recursively.  Thus we can safely
+                    ;; traverse the inlined body without going into infinite loop.
+                    ;;                ($call-proc-set! iform result)
+                    (let1 o (pass2/expand-inlined-procedure type args)
+                      (pass2/optimize o closures)
+                    )
+                    ;;                           penv tail?))
+                    ]
+                   [(not type)
+                    iform]
+                   [else
+                    (let1 lambda-iform ($lvar.init-val ($local-ref.lvar proc))
+                      ($call.set-type! iform type)
+                      ($lambda.set-calls! lambda-iform
+                                          (cons (cons iform closures)
+                                                ($lambda.calls lambda-iform)))
+                      ;; todo
+                      ;; args の最適化 see Gauche
+                      ($call.set-args! iform (imap (lambda (x) (pass2/optimize x closures)) args))
+                      iform)]))]
+            [else
+             ($call.set-args! iform (imap (lambda (x) (pass2/optimize x closures)) args))
+             iform]))]))
+;  (pass2/collect-call iform closures))
 
 (define (pass2/empty iform closures)
   iform)
@@ -2092,49 +2134,49 @@
           ((null? rest) (error "given list is too short:" args))
           (else (loop (- i 1) (cdr rest) (cons (car rest) r))))))
 
-(define (pass2/collect-call iform closures)
-  (cond
-   [($call.type iform) iform]
-   [else
-    (let ([proc ($call.proc iform)]
-          [args ($call.args iform)])
-      ;; scan OP first to give an opportunity of variable renaming
-      ($call.set-proc! iform (pass2/optimize ($call.proc iform) closures))
-      (cond [(tag? proc $LAMBDA)
-             (pass2/optimize (pass2/expand-inlined-procedure proc args)
-                             closures)]
-            [(and (tag? proc $LOCAL-REF)
-                  (pass2/classify-local-ref-call proc closures ($call.tail? iform)))
-             => (lambda (type)
-                  (cond
-                   ;; Directly inline
-                   [(vector? type)
-                    ($call.set-proc! iform type)
-                    ;; Directly inlinable case.  NB: this only happens if the $LREF
-                    ;; node is the lvar's single reference, so we know the inlined
-                    ;; procedure is never called recursively.  Thus we can safely
-                    ;; traverse the inlined body without going into infinite loop.
-                    ;;                ($call-proc-set! iform result)
-                    (let1 o (pass2/expand-inlined-procedure type args)
-                      (pass2/optimize o closures)
-                    )
-                    ;;                           penv tail?))
-                    ]
-                   [(not type)
-                    iform]
-                   [else
-                    (let1 lambda-iform ($lvar.init-val ($local-ref.lvar proc))
-                      ($call.set-type! iform type)
-                      ($lambda.set-calls! lambda-iform
-                                          (cons (cons iform closures)
-                                                ($lambda.calls lambda-iform)))
-                      ;; todo
-                      ;; args の最適化 see Gauche
-                      ($call.set-args! iform (imap (lambda (x) (pass2/optimize x closures)) args))
-                      iform)]))]
-            [else
-             ($call.set-args! iform (imap (lambda (x) (pass2/optimize x closures)) args))
-             iform]))]))
+;; (define (pass2/collect-call iform closures)
+;;   (cond
+;;    [($call.type iform) iform]
+;;    [else
+;;     (let ([proc ($call.proc iform)]
+;;           [args ($call.args iform)])
+;;       ;; scan OP first to give an opportunity of variable renaming
+;;       ($call.set-proc! iform (pass2/optimize ($call.proc iform) closures))
+;;       (cond [(tag? proc $LAMBDA)
+;;              (pass2/optimize (pass2/expand-inlined-procedure proc args)
+;;                              closures)]
+;;             [(and (tag? proc $LOCAL-REF)
+;;                   (pass2/classify-local-ref-call proc closures ($call.tail? iform)))
+;;              => (lambda (type)
+;;                   (cond
+;;                    ;; Directly inline
+;;                    [(vector? type)
+;;                     ($call.set-proc! iform type)
+;;                     ;; Directly inlinable case.  NB: this only happens if the $LREF
+;;                     ;; node is the lvar's single reference, so we know the inlined
+;;                     ;; procedure is never called recursively.  Thus we can safely
+;;                     ;; traverse the inlined body without going into infinite loop.
+;;                     ;;                ($call-proc-set! iform result)
+;;                     (let1 o (pass2/expand-inlined-procedure type args)
+;;                       (pass2/optimize o closures)
+;;                     )
+;;                     ;;                           penv tail?))
+;;                     ]
+;;                    [(not type)
+;;                     iform]
+;;                    [else
+;;                     (let1 lambda-iform ($lvar.init-val ($local-ref.lvar proc))
+;;                       ($call.set-type! iform type)
+;;                       ($lambda.set-calls! lambda-iform
+;;                                           (cons (cons iform closures)
+;;                                                 ($lambda.calls lambda-iform)))
+;;                       ;; todo
+;;                       ;; args の最適化 see Gauche
+;;                       ($call.set-args! iform (imap (lambda (x) (pass2/optimize x closures)) args))
+;;                       iform)]))]
+;;             [else
+;;              ($call.set-args! iform (imap (lambda (x) (pass2/optimize x closures)) args))
+;;              iform]))]))
 
 ;;--------------------------------------------------------------------
 ;;
@@ -3175,6 +3217,8 @@
            (iter `(,x REFER_LOCAL_BRANCH_NOT_LT ,n ,@more))]
           [((and x (not 'CONSTANT)) 'REFER_FREE n 'CALL . more)
            (iter `(,x REFER_FREE_CALL ,n ,@more))]
+          [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'CALL . more)
+           (iter `(,x REFER_LOCAL_CALL ,n ,@more))]
           [((and x (not 'CONSTANT)) 'REFER_GLOBAL n 'PUSH . more)
            (iter `(,x REFER_GLOBAL_PUSH ,n ,@more))]
           [((and x (not 'CONSTANT)) 'PUSH_CONSTANT n 'VECTOR_SET . more)
@@ -3183,6 +3227,8 @@
            (iter `(,x REFER_LOCAL_VECTOR_SET ,n ,@more))]
           [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'VECTOR_REF . more)
            (iter `(,x REFER_LOCAL_VECTOR_REF ,n ,@more))]
+          [((and x (not 'CONSTANT)) 'VECTOR_REF 'PUSH . more)
+           (iter `(,x VECTOR_REF_PUSH ,@more))]
           ;; N.B.
           ;; compiled pass3/$asm code has list '(CONSTANT NUMBER_SUB PUSH), ignore it.
           [((and x (not 'CONSTANT)) 'NUMBER_SUB 'PUSH . rest)
