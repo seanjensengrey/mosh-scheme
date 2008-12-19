@@ -737,6 +737,18 @@
                 (check-vm-paranoia (number? (next 1)))
                 (val1)
                 (VM codes (skip 1) (refer-local (next 1)) fp c stack sp)]
+               [(REFER_LOCAL_CAR)
+                (check-vm-paranoia (number? (next 1)))
+                (val1)
+                (VM codes (skip 1) (car (refer-local (next 1))) fp c stack sp)]
+               [(REFER_LOCAL_CDR)
+                (check-vm-paranoia (number? (next 1)))
+                (val1)
+                (VM codes (skip 1) (cdr (refer-local (next 1))) fp c stack sp)]
+               [(REFER_LOCAL_CONS)
+                (check-vm-paranoia (number? (next 1)))
+                (val1)
+                (VM codes (skip 1) (cons (index stack sp 0) (refer-local (next 1))) fp c stack (- sp 1))]
 ;;                ;;---------------------------- REFER_LOCAL0 ----------------------
 ;;                [(REFER_LOCAL0)
 ;;                 (val1)

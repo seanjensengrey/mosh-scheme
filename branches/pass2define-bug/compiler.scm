@@ -3229,6 +3229,12 @@
            (iter `(,x REFER_LOCAL_VECTOR_REF ,n ,@more))]
           [((and x (not 'CONSTANT)) 'VECTOR_REF 'PUSH . more)
            (iter `(,x VECTOR_REF_PUSH ,@more))]
+          [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'CAR . more)
+           (iter `(,x REFER_LOCAL_CAR ,n ,@more))]
+          [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'CDR . more)
+           (iter `(,x REFER_LOCAL_CDR ,n ,@more))]
+          [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'CONS . more)
+           (iter `(,x REFER_LOCAL_CONS ,n ,@more))]
           ;; N.B.
           ;; compiled pass3/$asm code has list '(CONSTANT NUMBER_SUB PUSH), ignore it.
           [((and x (not 'CONSTANT)) 'NUMBER_SUB 'PUSH . rest)

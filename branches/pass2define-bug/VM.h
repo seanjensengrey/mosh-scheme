@@ -144,6 +144,7 @@ protected:
     Object* shiftArgsToBottom(Object* sp, int depth, int diff);
     Object* unShiftArgs(Object* sp, int diff);
     Object index(Object* sp, int n) const;
+    Object pop();
     Object referLocal(int n) const;
     Object referFree(Object n);
     Object referFree(int n);

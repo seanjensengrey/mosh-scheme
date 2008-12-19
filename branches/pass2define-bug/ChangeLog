@@ -1,5 +1,7 @@
 2008-12-19  higepon  <higepon@users.sourceforge.jp>
 
+        * VM-inl.h (pop): Added pop();
+
         * (define-insn VECTOR_REF_PUSH 0)
         * (define-insn REFER_LOCAL_CALL 2)
 

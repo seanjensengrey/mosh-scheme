@@ -1,1 +1,1 @@
-(disasm map)
+(disasm pass1/call)

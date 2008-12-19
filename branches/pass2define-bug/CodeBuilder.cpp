@@ -136,6 +136,39 @@ void CodeBuilder::combineInstructionsArgument0(CodePacket codePacket)
         }
         break;
     }
+    case Instruction::CAR:
+        switch(previousCodePacket_.instructionImmediate()) {
+        case Instruction::REFER_LOCAL:
+            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_CAR);
+            break;
+        default:
+            flush();
+            previousCodePacket_ = codePacket;
+            break;
+        }
+        break;
+    case Instruction::CDR:
+        switch(previousCodePacket_.instructionImmediate()) {
+        case Instruction::REFER_LOCAL:
+            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_CDR);
+            break;
+        default:
+            flush();
+            previousCodePacket_ = codePacket;
+            break;
+        }
+        break;
+    case Instruction::CONS:
+        switch(previousCodePacket_.instructionImmediate()) {
+        case Instruction::REFER_LOCAL:
+            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_CONS);
+            break;
+        default:
+            flush();
+            previousCodePacket_ = codePacket;
+            break;
+        }
+        break;
     case Instruction::PUSH:
         switch(previousCodePacket_.instructionImmediate()) {
         case Instruction::VECTOR_REF:

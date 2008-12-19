@@ -115,7 +115,10 @@ public:
         PUSH_CONSTANT_VECTOR_SET = 3278,
         VECTOR_REF_PUSH = 3310,
         REFER_LOCAL_CALL = 3342,
-        INSTRUCTION_COUNT = 105,
+        REFER_LOCAL_CAR = 3374,
+        REFER_LOCAL_CDR = 3406,
+        REFER_LOCAL_CONS = 3438,
+        INSTRUCTION_COUNT = 108,
     };
     static const ucs4char* toString(int val) {
         switch(val) {
@@ -433,6 +436,15 @@ public:
            break;
         case REFER_LOCAL_CALL:
            return UC("REFER_LOCAL_CALL");
+           break;
+        case REFER_LOCAL_CAR:
+           return UC("REFER_LOCAL_CAR");
+           break;
+        case REFER_LOCAL_CDR:
+           return UC("REFER_LOCAL_CDR");
+           break;
+        case REFER_LOCAL_CONS:
+           return UC("REFER_LOCAL_CONS");
            break;
         default:
            return UC("Unkown Instruction");
