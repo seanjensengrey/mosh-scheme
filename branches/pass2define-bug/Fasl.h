@@ -62,6 +62,8 @@ public:
         TAG_COMPILER_INSTRUCTION,
         TAG_FLONUM,
         TAG_SMALL_FIXNUM,
+        TAG_ASCII_STRING,
+        TAG_ASCII_SYMBOL,
         forbidden_comma
     };
 };
@@ -210,6 +212,7 @@ private:
     void emitU32(uint32_t value);
     void emitU64(uint64_t value);
     void emitString(const ucs4string& string);
+    void emitAsciiString(const ucs4string& string);
     void putDatum(Object obj);
 
     EqHashTable* symbolsAndStringsTable_;

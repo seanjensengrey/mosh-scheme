@@ -56,9 +56,9 @@
      0 0 0  1))
 
 (define (make-matrix a b c)
-  (vector (point-x a) (point-y a) (point-y a) (point-w a)
-          (point-x b) (point-y b) (point-y b) (point-w b)
-          (point-x c) (point-y c) (point-y c) (point-w c)))
+  (vector (point-x a) (point-y a) (point-y a)
+          (point-x b) (point-y b) (point-y b)
+          (point-x c) (point-y c) (point-y c)))
 
 (define (print-matrix m)
   (format #t "|~a ~a ~a ~a|\n" (vector-ref m 0)  (vector-ref m 1)  (vector-ref m 2) (vector-ref m 3))
@@ -164,13 +164,63 @@
 (display (cross-product (make-point 1 0 0 0) (make-point 0 1 0 0)))
 (display (normalize (orthonormal-axis (make-point 1 0 0 0))))
 
+
+;これがおちる。
+;(print-matrix mm)
+
+; 3x3 の matrix が欲しい
+; printer
+
+
+(define (make-matrix3 a b c d e f g h i)
+  (vector a b c
+          d e f
+          g h i))
+
+(define (points->matrix3 a b c)
+  (make-matrix3 (point-x a) (point-y a) (point-y a)
+                (point-x b) (point-y b) (point-y b)
+                (point-x c) (point-y c) (point-y c)))
+
+(define (matrix3-ref m i j)
+  (vector-ref  m (+ (* 3 j) i)))
+
+(define (print-matrix3 m)
+  (format #t "|~a ~a ~a|\n" (matrix3-ref m 0 0) (matrix3-ref m 1 0) (matrix3-ref m 2 0)
+  (format #t "|~a ~a ~a|\n" (matrix3-ref m 0 1) (matrix3-ref m 1 1) (matrix3-ref m 2 1)
+  (format #t "|~a ~a ~a|\n" (matrix3-ref m 0 2) (matrix3-ref m 1 2) (matrix3-ref m 2 2)))))
+
+(define (transpose-matrix3 m)
+  (make-matrix3 (matrix3-ref m 0 0) (matrix3-ref m 0 1) (matrix3-ref m 0 2)
+                (matrix3-ref m 1 0) (matrix3-ref m 1 1) (matrix3-ref m 1 2)
+                (matrix3-ref m 2 0) (matrix3-ref m 2 1) (matrix3-ref m 2 2)))
+
+(define (make-rotate-x-matrix3 phi)
+  (make-matrix3 1 0 0
+                0 (cos phi) (negate (sin phi))
+                0 (sin phi) (cos phi)))
+
+(define (multiply-matrix3 m1 m2)
+  (make-matrix3 (+ (* (matrix3-ref m1 0 0) (matrix3-ref m2 0 0)) (* (matrix3-ref m1 1 0) (matrix3-ref m2 0 1)) (* (matrix3-ref m1 2 0) (matrix3-ref m2 0 2)))
+                (+ (* (matrix3-ref m1 0 0) (matrix3-ref m2 1 0)) (* (matrix3-ref m1 1 0) (matrix3-ref m2 1 1)) (* (matrix3-ref m1 2 0) (matrix3-ref m2 1 2)))
+                (+ (* (matrix3-ref m1 0 0) (matrix3-ref m2 2 0)) (* (matrix3-ref m1 1 0) (matrix3-ref m2 2 1)) (* (matrix3-ref m1 2 0) (matrix3-ref m2 2 2)))
+                (+ (* (matrix3-ref m1 0 1) (matrix3-ref m2 0 0)) (* (matrix3-ref m1 1 1) (matrix3-ref m2 0 1)) (* (matrix3-ref m1 2 1) (matrix3-ref m2 0 2)))
+                (+ (* (matrix3-ref m1 0 1) (matrix3-ref m2 1 0)) (* (matrix3-ref m1 1 1) (matrix3-ref m2 1 1)) (* (matrix3-ref m1 2 1) (matrix3-ref m2 1 2)))
+                (+ (* (matrix3-ref m1 0 1) (matrix3-ref m2 2 0)) (* (matrix3-ref m1 1 1) (matrix3-ref m2 2 1)) (* (matrix3-ref m1 2 1) (matrix3-ref m2 2 2)))
+                (+ (* (matrix3-ref m1 0 2) (matrix3-ref m2 0 0)) (* (matrix3-ref m1 1 2) (matrix3-ref m2 0 1)) (* (matrix3-ref m1 2 2) (matrix3-ref m2 0 2)))
+                (+ (* (matrix3-ref m1 0 2) (matrix3-ref m2 1 0)) (* (matrix3-ref m1 1 2) (matrix3-ref m2 1 1)) (* (matrix3-ref m1 2 2) (matrix3-ref m2 1 2)))
+                (+ (* (matrix3-ref m1 0 2) (matrix3-ref m2 2 0)) (* (matrix3-ref m1 1 2) (matrix3-ref m2 2 1)) (* (matrix3-ref m1 2 2) (matrix3-ref m2 2 2)))))
+
+
 ;; r (1 1 1 1) を基準に pi/4 回す
+(define org (make-point 2 0 0 1))
 (define rm (make-point 1 1 1 1))
 (define sm (orthonormal-axis rm))
 (define tm (cross-product rm sm))
 
-(define mm (make-matrix rm sm tm))
+(define mm (points->matrix3 rm sm tm))
 
-これがおちる。
-;;(print-matrix mm)
+(print-matrix3 (multiply-matrix3 (transpose-matrix3 mm) (multiply-matrix3 (make-rotate-x-matrix3 (/ pi 4)) mm)))
 
+
+;ここで回転。
