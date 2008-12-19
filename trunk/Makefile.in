@@ -54,12 +54,12 @@ am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)" \
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
 am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
-	mosh-Compnum.$(OBJEXT) mosh-Fixnum.$(OBJEXT) \
-	mosh-Closure.$(OBJEXT) mosh-UtilityProcedures.$(OBJEXT) \
-	mosh-Reader.$(OBJEXT) mosh-NumberReader.$(OBJEXT) \
-	mosh-scheme.$(OBJEXT) mosh-Regexp.$(OBJEXT) \
-	mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) mosh-Scanner.$(OBJEXT) \
-	mosh-NumberScanner.$(OBJEXT) \
+	mosh-Transcoder.$(OBJEXT) mosh-Compnum.$(OBJEXT) \
+	mosh-Fixnum.$(OBJEXT) mosh-Closure.$(OBJEXT) \
+	mosh-UtilityProcedures.$(OBJEXT) mosh-Reader.$(OBJEXT) \
+	mosh-NumberReader.$(OBJEXT) mosh-scheme.$(OBJEXT) \
+	mosh-Regexp.$(OBJEXT) mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
+	mosh-Scanner.$(OBJEXT) mosh-NumberScanner.$(OBJEXT) \
 	mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
 	mosh-ScannerHelper.$(OBJEXT) mosh-Reader.tab.$(OBJEXT) \
 	mosh-NumberReader.tab.$(OBJEXT) \
@@ -288,7 +288,7 @@ Pair.h                                                            \
 Stack.h                                                           \
 Box.h                                                             \
 Codec.h                                                           \
-Transcoder.h                                                      \
+Transcoder.h                  Transcoder.cpp                      \
 ProcedureMacro.h                                                  \
 Compnum.h                     Compnum.cpp                         \
 Fixnum.h                      Fixnum.cpp                          \
@@ -514,6 +514,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-TextualByteVectorOutputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-TextualInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-TextualOutputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Transcoder.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-UTF16Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-UTF32Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-UTF8Codec.Po@am__quote@
@@ -566,6 +567,20 @@ mosh-read.obj: read.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='read.cpp' object='mosh-read.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-read.obj `if test -f 'read.cpp'; then $(CYGPATH_W) 'read.cpp'; else $(CYGPATH_W) '$(srcdir)/read.cpp'; fi`
+
+mosh-Transcoder.o: Transcoder.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Transcoder.o -MD -MP -MF $(DEPDIR)/mosh-Transcoder.Tpo -c -o mosh-Transcoder.o `test -f 'Transcoder.cpp' || echo '$(srcdir)/'`Transcoder.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Transcoder.Tpo $(DEPDIR)/mosh-Transcoder.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Transcoder.cpp' object='mosh-Transcoder.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Transcoder.o `test -f 'Transcoder.cpp' || echo '$(srcdir)/'`Transcoder.cpp
+
+mosh-Transcoder.obj: Transcoder.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Transcoder.obj -MD -MP -MF $(DEPDIR)/mosh-Transcoder.Tpo -c -o mosh-Transcoder.obj `if test -f 'Transcoder.cpp'; then $(CYGPATH_W) 'Transcoder.cpp'; else $(CYGPATH_W) '$(srcdir)/Transcoder.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-Transcoder.Tpo $(DEPDIR)/mosh-Transcoder.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Transcoder.cpp' object='mosh-Transcoder.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Transcoder.obj `if test -f 'Transcoder.cpp'; then $(CYGPATH_W) 'Transcoder.cpp'; else $(CYGPATH_W) '$(srcdir)/Transcoder.cpp'; fi`
 
 mosh-Compnum.o: Compnum.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Compnum.o -MD -MP -MF $(DEPDIR)/mosh-Compnum.Tpo -c -o mosh-Compnum.o `test -f 'Compnum.cpp' || echo '$(srcdir)/'`Compnum.cpp
