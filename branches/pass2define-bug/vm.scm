@@ -795,6 +795,9 @@
                [(REFER_GLOBAL_CALL)
                 (val1)
                 (apply-body (refer-global (next 1)) (next 2) sp)]
+               [(REFER_FREE_CALL)
+                (val1)
+                (apply-body (index-closure c (next 1)) (next 2) sp)]
                ;;---------------------------- APPLY ----------------------------
                [(APPLY) ;; (apply proc args)
                 (val1)
@@ -1030,8 +1033,11 @@
                ;;---------------------------- REFER_GLOBAL  ----------------------
                [(REFER_GLOBAL)
                 (val1)
-;                (format #t "refer-global ~a\n" (next 1))
                 (VM codes (skip 1) (refer-global (next 1)) fp c stack sp)]
+               [(REFER_GLOBAL_PUSH)
+                (val1)
+                (let1 val (refer-global (next 1))
+                (VM codes (skip 1) val fp c stack (push stack sp val)))]
                ;;---------------------------- ASSIGN_GLOBAL  ---------------------
                [(ASSIGN_GLOBAL)
                 (assign-global (next 1) a)

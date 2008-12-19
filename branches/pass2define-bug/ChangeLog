@@ -1,3 +1,11 @@
+2008-12-19  higepon  <higepon@users.sourceforge.jp>
+
+        * Added (define-insn REFER_FREE_CALL 2)
+        * Added (define-insn REFER_GLOBAL_PUSH 1)
+        * Added (define-insn REFER_LOCAL_VECTOR_REF 1)
+        * Added (define-insn REFER_LOCAL_VECTOR_SET 1)
+        * Added (define-insn PUSH_CONSTANT_VECTOR_SET 1)
+
 2008-12-18  higepon  <higepon@users.sourceforge.jp>
 
         * Removed some compound instructions.

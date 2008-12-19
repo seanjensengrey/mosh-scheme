@@ -3173,6 +3173,16 @@
            (iter `(,x REFER_LOCAL_BRANCH_NOT_NULL ,n ,@more))]
           [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'BRANCH_NOT_LT . more)
            (iter `(,x REFER_LOCAL_BRANCH_NOT_LT ,n ,@more))]
+          [((and x (not 'CONSTANT)) 'REFER_FREE n 'CALL . more)
+           (iter `(,x REFER_FREE_CALL ,n ,@more))]
+          [((and x (not 'CONSTANT)) 'REFER_GLOBAL n 'PUSH . more)
+           (iter `(,x REFER_GLOBAL_PUSH ,n ,@more))]
+          [((and x (not 'CONSTANT)) 'PUSH_CONSTANT n 'VECTOR_SET . more)
+           (iter `(,x PUSH_CONSTANT_VECTOR_SET ,n ,@more))]
+          [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'VECTOR_SET . more)
+           (iter `(,x REFER_LOCAL_VECTOR_SET ,n ,@more))]
+          [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'VECTOR_REF . more)
+           (iter `(,x REFER_LOCAL_VECTOR_REF ,n ,@more))]
           ;; N.B.
           ;; compiled pass3/$asm code has list '(CONSTANT NUMBER_SUB PUSH), ignore it.
           [((and x (not 'CONSTANT)) 'NUMBER_SUB 'PUSH . rest)

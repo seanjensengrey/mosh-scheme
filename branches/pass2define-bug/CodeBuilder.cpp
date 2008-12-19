@@ -106,32 +106,36 @@ void CodeBuilder::combineInstructionsArgument0(CodePacket codePacket)
 //         }
 //         break;
 //     }
-//     case Instruction::VECTOR_REF:
-//     {
-//         switch(previousCodePacket_.instructionImmediate()) {
-//         case Instruction::REFER_LOCAL0:
-//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL0_VECTOR_REF);
-//             break;
-//         default:
-//             flush();
-//             previousCodePacket_ = codePacket;
-//             break;
-//         }
-//         break;
-//     }
-//     case Instruction::VECTOR_SET:
-//     {
-//         switch(previousCodePacket_.instructionImmediate()) {
-//         case Instruction::REFER_LOCAL0:
-//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL0_VECTOR_SET);
-//             break;
-//         default:
-//             flush();
-//             previousCodePacket_ = codePacket;
-//             break;
-//         }
-//         break;
-//     }
+    case Instruction::VECTOR_REF:
+    {
+        switch(previousCodePacket_.instructionImmediate()) {
+        case Instruction::REFER_LOCAL:
+            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_VECTOR_REF);
+            break;
+        default:
+            flush();
+            previousCodePacket_ = codePacket;
+            break;
+        }
+        break;
+    }
+    case Instruction::VECTOR_SET:
+    {
+        switch(previousCodePacket_.instructionImmediate()) {
+        case Instruction::REFER_LOCAL:
+            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_VECTOR_SET);
+            break;
+        case Instruction::PUSH_CONSTANT:
+            previousCodePacket_.setInstructionImmediate(Instruction::PUSH_CONSTANT_VECTOR_SET);
+            break;
+
+        default:
+            flush();
+            previousCodePacket_ = codePacket;
+            break;
+        }
+        break;
+    }
     case Instruction::PUSH:
         switch(previousCodePacket_.instructionImmediate()) {
         case Instruction::NUMBER_ADD:
@@ -152,6 +156,10 @@ void CodeBuilder::combineInstructionsArgument0(CodePacket codePacket)
         case Instruction::REFER_LOCAL:
             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_PUSH);
             break;
+        case Instruction::REFER_GLOBAL:
+            previousCodePacket_.setInstructionImmediate(Instruction::REFER_GLOBAL_PUSH);
+            break;
+
 //         case Instruction::REFER_LOCAL0:
 //             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL0_PUSH);
 //             break;
@@ -388,17 +396,33 @@ void CodeBuilder::combineInstructionsArgument1(CodePacket codePacket)
 //     }
     case Instruction::CALL:
     {
-        MOSH_ASSERT(argument1.isFixnum());
-
-        if (previousCodePacket_.instructionImmediate() == Instruction::REFER_GLOBAL) {
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_GLOBAL_CALL);
+        switch(previousCodePacket_.instructionImmediate()) {
+        case Instruction::REFER_GLOBAL:
             previousCodePacket_.setType(CodePacket::ARGUMENT2);
-            previousCodePacket_.setArgument2(codePacket.argument1());
-        } else if (previousCodePacket_.instructionImmediate() == Instruction::SHIFT) {
-            previousCodePacket_.setInstructionImmediate(Instruction::SHIFT_CALL);
+            previousCodePacket_.setInstructionImmediate(Instruction::REFER_GLOBAL_CALL);
+            previousCodePacket_.setArgument2(argument1);
+            break;
+        case Instruction::REFER_FREE:
+            previousCodePacket_.setType(CodePacket::ARGUMENT2);
+            previousCodePacket_.setInstructionImmediate(Instruction::REFER_FREE_CALL);
+            previousCodePacket_.setArgument2(argument1);
+            break;
+        case Instruction::SHIFT:
             previousCodePacket_.setType(CodePacket::ARGUMENT3);
-            previousCodePacket_.setArgument3(codePacket.argument1());
-        } else {
+            previousCodePacket_.setInstructionImmediate(Instruction::SHIFT_CALL);
+            previousCodePacket_.setArgument3(argument1);
+            break;
+
+        default:
+//         if (previousCodePacket_.instructionImmediate() == Instruction::REFER_GLOBAL) {
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_GLOBAL_CALL);
+//             previousCodePacket_.setType(CodePacket::ARGUMENT2);
+//             previousCodePacket_.setArgument2(codePacket.argument1());
+//         } else if (previousCodePacket_.instructionImmediate() == Instruction::SHIFT) {
+//             previousCodePacket_.setInstructionImmediate(Instruction::SHIFT_CALL);
+//             previousCodePacket_.setType(CodePacket::ARGUMENT3);
+//             previousCodePacket_.setArgument3(codePacket.argument1());
+//         } else {
 //             const int index = argument1.toFixnum();
 //             if (index <= 3) {
 //                 flush();
@@ -422,10 +446,28 @@ void CodeBuilder::combineInstructionsArgument1(CodePacket codePacket)
 //             } else {
                 flush();
                 previousCodePacket_ = codePacket;
+                break;
 //            }
         }
         break;
     }
+// N.B. This doesn't work. Because of code-builder-append!
+//     case Instruction::RETURN:
+//     {
+//         switch(previousCodePacket_.instructionImmediate()) {
+//         case Instruction::NUMBER_ADD:
+//             previousCodePacket_.setType(CodePacket::ARGUMENT1);
+//             previousCodePacket_.setInstructionImmediate(Instruction::NUMBER_ADD_RETURN);
+//             previousCodePacket_.setArgument1(argument1);
+//             break;
+//         default:
+//             flush();
+//             previousCodePacket_ = codePacket;
+//             break;
+//         }
+//         break;
+//     }
+
 //     case Instruction::REFER_FREE:
 //     {
 //         flush();
