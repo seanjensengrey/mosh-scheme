@@ -262,6 +262,9 @@ void FaslWriter::putDatum(Object obj)
         if (n >= 0 && n <= 255) {
             emitU8(Fasl::TAG_SMALL_FIXNUM);
             emitU8(n);
+        } else if (n >= 256 && n <= 65535) {
+            emitU8(Fasl::TAG_MEDIUM_FIXNUM);
+            emitU16(n);
         } else {
             emitU8(Fasl::TAG_FIXNUM);
             emitU32(obj.toFixnum());
@@ -320,6 +323,12 @@ void FaslWriter::putDatum(Object obj)
 void FaslWriter::emitU8(uint8_t value)
 {
     outputPort_->putU8(value);
+}
+
+void FaslWriter::emitU16(uint16_t value)
+{
+    outputPort_->putU8(value);
+    outputPort_->putU8(value >> 8);
 }
 
 void FaslWriter::emitU32(uint32_t value)

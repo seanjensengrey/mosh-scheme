@@ -1,6 +1,6 @@
 2008-12-19  higepon  <higepon@users.sourceforge.jp>
 
-        * Fasl.h (scheme): Changed tag format for Fixnum.
+        * Fasl.h (scheme): Changed data structure for better performance.
 
         * VM-inl.h (pop): Added pop();
 

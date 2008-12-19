@@ -64,6 +64,7 @@ public:
         TAG_SMALL_FIXNUM,
         TAG_ASCII_STRING,
         TAG_ASCII_SYMBOL,
+        TAG_MEDIUM_FIXNUM,
         forbidden_comma
     };
 };
@@ -85,6 +86,14 @@ private:
             inputPort_->getU8() << 8  |
             inputPort_->getU8() << 16 |
             inputPort_->getU8() << 24;
+    }
+
+    // profiler tells that this should be inlined
+    uint16_t fetchU16()
+    {
+        return
+            inputPort_->getU8() |
+            inputPort_->getU8() << 8;
     }
 
     uint64_t fetchU64()
@@ -111,6 +120,10 @@ private:
         }
         case Fasl::TAG_SMALL_FIXNUM: {
             const int value = fetchU8();
+            return Object::makeFixnum(value);
+        }
+        case Fasl::TAG_MEDIUM_FIXNUM: {
+            const int value = fetchU16();
             return Object::makeFixnum(value);
         }
         case Fasl::TAG_FIXNUM: {
@@ -209,6 +222,7 @@ private:
     void putSymbolsAndStrings();
     void putList(Object list);
     void emitU8(uint8_t value);
+    void emitU16(uint16_t value);
     void emitU32(uint32_t value);
     void emitU64(uint64_t value);
     void emitString(const ucs4string& string);
