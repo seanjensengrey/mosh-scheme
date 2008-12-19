@@ -119,7 +119,7 @@ private:
             return Object::makeFlonum(n.f64);
         }
         case Fasl::TAG_INSTRUCTION: {
-            const int value = fetchU32();
+            const int value = fetchU8();
             return Object::makeInstruction(value);
         }
         case Fasl::TAG_COMPILER_INSTRUCTION: {

@@ -234,7 +234,13 @@ void FaslWriter::putDatum(Object obj)
     }
     if (obj.isInstruction()) {
         emitU8(Fasl::TAG_INSTRUCTION);
-        emitU32(obj.toInstruction());
+        const int val = obj.toInstruction();
+        if (0 <= val && val <= 255) {
+            emitU8((uint8_t)val);
+        } else {
+            fprintf(stderr, "instruction out of range");
+            exit(-1);
+        }
         return;
     }
     if (obj.isCompilerInstruction()) {

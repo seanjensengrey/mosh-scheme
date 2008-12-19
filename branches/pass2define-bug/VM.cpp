@@ -885,6 +885,13 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             }
             NEXT1;
         }
+//         CASE(REFER_LOCAL_CDR_PUSH)
+//         {
+//             Object n = fetchOperand();
+//             VM_ASSERT(n.isFixnum());
+//             ac_ = referLocal(n.toFixnum());
+//             // Fall Through
+//         }
         CASE(CDR_PUSH)
         {
             if (ac_.isPair()) {

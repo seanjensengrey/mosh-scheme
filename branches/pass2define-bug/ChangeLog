@@ -1,5 +1,7 @@
 2008-12-19  higepon  <higepon@users.sourceforge.jp>
 
+        * Fasl.h (scheme): Changed Fasl for Instruction. It fits 8 bit.
+
         * Added (define-insn REFER_FREE_CALL 2)
         * Added (define-insn REFER_GLOBAL_PUSH 1)
         * Added (define-insn REFER_LOCAL_VECTOR_REF 1)
