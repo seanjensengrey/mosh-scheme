@@ -19,6 +19,7 @@
   (define foldr2 fold-right)
   (define source-info debug-source-info)
   (define syntax-error error)
+  (define for-all every)
   (define (set-source-info! a b) a)]
  [vm?
   (define (ungensym x) x)
@@ -35,6 +36,7 @@
   (define hashtable-for-each (lambda (proc ht) (hash-table-for-each ht proc)))
   (define dd (lambda a '()))
   (define pp (lambda a '()))
+  (define for-all every)
   (define syntax-error error)
   (define find10 find)
   (define append2 append)
@@ -1098,6 +1100,17 @@
   (let1 arg2 (if (null? rest) '() (car rest))
     ($asm tag (list (pass1/s->i-non-tail arg1) (pass1/s->i-non-tail arg2)))))
 
+(define (sub->add form)
+  (let* ([args (cdr form)]
+         [len (length (cdr form))])
+    (cond
+     ;; this is error so return
+     [(zero? len) form]
+     [(= 1 len)
+      `(+ ,(* -1 (car args)))]
+     [else
+      `(+ ,(car args) ,@(imap - (cdr args)))])))
+
 (define (pass1/asm-n-args tag operator args lvars)
   (let1 len (length args)
     (cond
@@ -1201,7 +1214,10 @@
        ($const (second sexp))]
       [(append)           (pass1/asm-n-args         'APPEND2      'dummy (cdr sexp) lvars)]
       [(+)                (pass1/asm-n-args         'NUMBER_ADD   '+  (cdr sexp)    lvars)]
-      [(-)                (pass1/asm-n-args         'NUMBER_SUB   '-  (cdr sexp)    lvars)]
+      [(-)
+       (if (for-all number? (cdr sexp))
+           (pass1/asm-n-args 'NUMBER_ADD   '+  (cdr (sub->add sexp))    lvars)
+           (pass1/asm-n-args 'NUMBER_SUB   '-  (cdr sexp)    lvars))]
       [(*)                (pass1/asm-n-args         'NUMBER_MUL   '*  (cdr sexp)    lvars)]
       [(/)                (pass1/asm-n-args         'NUMBER_DIV   '/  (cdr sexp)    lvars)]
       [(=)                (pass1/asm-numcmp         'NUMBER_EQUAL '=  (cdr sexp)    lvars)]
@@ -3221,20 +3237,20 @@
            (iter `(,x REFER_LOCAL_CALL ,n ,@more))]
           [((and x (not 'CONSTANT)) 'REFER_GLOBAL n 'PUSH . more)
            (iter `(,x REFER_GLOBAL_PUSH ,n ,@more))]
-          [((and x (not 'CONSTANT)) 'PUSH_CONSTANT n 'VECTOR_SET . more)
-           (iter `(,x PUSH_CONSTANT_VECTOR_SET ,n ,@more))]
-          [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'VECTOR_SET . more)
-           (iter `(,x REFER_LOCAL_VECTOR_SET ,n ,@more))]
-          [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'VECTOR_REF . more)
-           (iter `(,x REFER_LOCAL_VECTOR_REF ,n ,@more))]
-          [((and x (not 'CONSTANT)) 'VECTOR_REF 'PUSH . more)
-           (iter `(,x VECTOR_REF_PUSH ,@more))]
-          [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'CAR . more)
-           (iter `(,x REFER_LOCAL_CAR ,n ,@more))]
-          [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'CDR . more)
-           (iter `(,x REFER_LOCAL_CDR ,n ,@more))]
-          [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'CONS . more)
-           (iter `(,x REFER_LOCAL_CONS ,n ,@more))]
+;;           [((and x (not 'CONSTANT)) 'PUSH_CONSTANT n 'VECTOR_SET . more)
+;;            (iter `(,x PUSH_CONSTANT_VECTOR_SET ,n ,@more))]
+;;           [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'VECTOR_SET . more)
+;;            (iter `(,x REFER_LOCAL_VECTOR_SET ,n ,@more))]
+;;           [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'VECTOR_REF . more)
+;;            (iter `(,x REFER_LOCAL_VECTOR_REF ,n ,@more))]
+;;           [((and x (not 'CONSTANT)) 'VECTOR_REF 'PUSH . more)
+;;            (iter `(,x VECTOR_REF_PUSH ,@more))]
+;;           [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'CAR . more)
+;;            (iter `(,x REFER_LOCAL_CAR ,n ,@more))]
+;;           [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'CDR . more)
+;;            (iter `(,x REFER_LOCAL_CDR ,n ,@more))]
+;;           [((and x (not 'CONSTANT)) 'REFER_LOCAL n 'CONS . more)
+;;            (iter `(,x REFER_LOCAL_CONS ,n ,@more))]
           ;; N.B.
           ;; compiled pass3/$asm code has list '(CONSTANT NUMBER_SUB PUSH), ignore it.
           [((and x (not 'CONSTANT)) 'NUMBER_SUB 'PUSH . rest)

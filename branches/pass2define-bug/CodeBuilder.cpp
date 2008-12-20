@@ -90,74 +90,74 @@ void CodeBuilder::putInstructionArgument2(Object instruction, Object argument1, 
 void CodeBuilder::combineInstructionsArgument0(CodePacket codePacket)
 {
     switch(codePacket.instructionImmediate()) {
-    case Instruction::VECTOR_REF:
-    {
-        switch(previousCodePacket_.instructionImmediate()) {
-        case Instruction::REFER_LOCAL:
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_VECTOR_REF);
-            break;
-        default:
-            flush();
-            previousCodePacket_ = codePacket;
-            break;
-        }
-        break;
-    }
-    case Instruction::VECTOR_SET:
-    {
-        switch(previousCodePacket_.instructionImmediate()) {
-        case Instruction::REFER_LOCAL:
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_VECTOR_SET);
-            break;
-        case Instruction::PUSH_CONSTANT:
-            previousCodePacket_.setInstructionImmediate(Instruction::PUSH_CONSTANT_VECTOR_SET);
-            break;
+//     case Instruction::VECTOR_REF:
+//     {
+//         switch(previousCodePacket_.instructionImmediate()) {
+//         case Instruction::REFER_LOCAL:
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_VECTOR_REF);
+//             break;
+//         default:
+//             flush();
+//             previousCodePacket_ = codePacket;
+//             break;
+//         }
+//         break;
+//     }
+//     case Instruction::VECTOR_SET:
+//     {
+//         switch(previousCodePacket_.instructionImmediate()) {
+//         case Instruction::REFER_LOCAL:
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_VECTOR_SET);
+//             break;
+//         case Instruction::PUSH_CONSTANT:
+//             previousCodePacket_.setInstructionImmediate(Instruction::PUSH_CONSTANT_VECTOR_SET);
+//             break;
 
-        default:
-            flush();
-            previousCodePacket_ = codePacket;
-            break;
-        }
-        break;
-    }
-    case Instruction::CAR:
-        switch(previousCodePacket_.instructionImmediate()) {
-        case Instruction::REFER_LOCAL:
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_CAR);
-            break;
-        default:
-            flush();
-            previousCodePacket_ = codePacket;
-            break;
-        }
-        break;
-    case Instruction::CDR:
-        switch(previousCodePacket_.instructionImmediate()) {
-        case Instruction::REFER_LOCAL:
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_CDR);
-            break;
-        default:
-            flush();
-            previousCodePacket_ = codePacket;
-            break;
-        }
-        break;
-    case Instruction::CONS:
-        switch(previousCodePacket_.instructionImmediate()) {
-        case Instruction::REFER_LOCAL:
-            previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_CONS);
-            break;
-        default:
-            flush();
-            previousCodePacket_ = codePacket;
-            break;
-        }
-        break;
+//         default:
+//             flush();
+//             previousCodePacket_ = codePacket;
+//             break;
+//         }
+//         break;
+//     }
+//     case Instruction::CAR:
+//         switch(previousCodePacket_.instructionImmediate()) {
+//         case Instruction::REFER_LOCAL:
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_CAR);
+//             break;
+//         default:
+//             flush();
+//             previousCodePacket_ = codePacket;
+//             break;
+//         }
+//         break;
+//     case Instruction::CDR:
+//         switch(previousCodePacket_.instructionImmediate()) {
+//         case Instruction::REFER_LOCAL:
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_CDR);
+//             break;
+//         default:
+//             flush();
+//             previousCodePacket_ = codePacket;
+//             break;
+//         }
+//         break;
+//     case Instruction::CONS:
+//         switch(previousCodePacket_.instructionImmediate()) {
+//         case Instruction::REFER_LOCAL:
+//             previousCodePacket_.setInstructionImmediate(Instruction::REFER_LOCAL_CONS);
+//             break;
+//         default:
+//             flush();
+//             previousCodePacket_ = codePacket;
+//             break;
+//         }
+//         break;
     case Instruction::PUSH:
         switch(previousCodePacket_.instructionImmediate()) {
-        case Instruction::VECTOR_REF:
-            previousCodePacket_.setInstructionImmediate(Instruction::VECTOR_REF_PUSH);
-            break;
+//         case Instruction::VECTOR_REF:
+//             previousCodePacket_.setInstructionImmediate(Instruction::VECTOR_REF_PUSH);
+//             break;
         case Instruction::NUMBER_ADD:
             previousCodePacket_.setInstructionImmediate(Instruction::NUMBER_ADD_PUSH);
             break;

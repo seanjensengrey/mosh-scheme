@@ -787,37 +787,37 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             }
             NEXT1;
         }
-        CASE(REFER_LOCAL_CAR)
-        {
-            const Object n = fetchOperand();
-            VM_ASSERT(n.isFixnum());
-            ac_ = referLocal(n.toFixnum());
-            if (ac_.isPair()) {
-                ac_ = ac_.car();
-            } else {
-                callAssertionViolationAfter("car", "pair required", Pair::list1(ac_));
-            }
-            NEXT1;
-        }
-        CASE(REFER_LOCAL_CDR)
-        {
-            const Object n = fetchOperand();
-            VM_ASSERT(n.isFixnum());
-            ac_ = referLocal(n.toFixnum());
-            if (ac_.isPair()) {
-                ac_ = ac_.cdr();
-            } else {
-                callAssertionViolationAfter("cdr", "pair required", Pair::list1(ac_));
-            }
-            NEXT1;
-        }
-        CASE(REFER_LOCAL_CONS)
-        {
-            const Object n = fetchOperand();
-            VM_ASSERT(n.isFixnum());
-            ac_ = Object::cons(pop(), referLocal(n.toFixnum()));
-            NEXT1;
-        }
+//         CASE(REFER_LOCAL_CAR)
+//         {
+//             const Object n = fetchOperand();
+//             VM_ASSERT(n.isFixnum());
+//             ac_ = referLocal(n.toFixnum());
+//             if (ac_.isPair()) {
+//                 ac_ = ac_.car();
+//             } else {
+//                 callAssertionViolationAfter("car", "pair required", Pair::list1(ac_));
+//             }
+//             NEXT1;
+//         }
+//         CASE(REFER_LOCAL_CDR)
+//         {
+//             const Object n = fetchOperand();
+//             VM_ASSERT(n.isFixnum());
+//             ac_ = referLocal(n.toFixnum());
+//             if (ac_.isPair()) {
+//                 ac_ = ac_.cdr();
+//             } else {
+//                 callAssertionViolationAfter("cdr", "pair required", Pair::list1(ac_));
+//             }
+//             NEXT1;
+//         }
+//         CASE(REFER_LOCAL_CONS)
+//         {
+//             const Object n = fetchOperand();
+//             VM_ASSERT(n.isFixnum());
+//             ac_ = Object::cons(pop(), referLocal(n.toFixnum()));
+//             NEXT1;
+//         }
 
         CASE(CAR)
         {
@@ -1386,19 +1386,19 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             sp_ = stack_ + s.toStack()->restore(stack_);
             NEXT;
         }
-        CASE(NUMBER_ADD_RETURN)
-        {
-            const Object n = pop();
-            // short cut for Fixnum. Benmarks tell me this is strongly required.
-            if (n.isFixnum() && ac_.isFixnum()) {
-                const int32_t val = n.toFixnum() + ac_.toFixnum();
-                ac_ = Bignum::makeInteger(val);
-            } else {
-                ac_ = Arithmetic::add(n, ac_);
-            }
-            operand = fetchOperand();
-            goto return_entry;
-        }
+//         CASE(NUMBER_ADD_RETURN)
+//         {
+//             const Object n = pop();
+//             // short cut for Fixnum. Benmarks tell me this is strongly required.
+//             if (n.isFixnum() && ac_.isFixnum()) {
+//                 const int32_t val = n.toFixnum() + ac_.toFixnum();
+//                 ac_ = Bignum::makeInteger(val);
+//             } else {
+//                 ac_ = Arithmetic::add(n, ac_);
+//             }
+//             operand = fetchOperand();
+//             goto return_entry;
+//         }
         CASE(RETURN)
         {
             operand = fetchOperand();
@@ -1597,13 +1597,13 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             ac_ = Object::makeBool(ac_.isVector());
             NEXT1;
         }
-        CASE(REFER_LOCAL_VECTOR_REF)
-        {
-            const Object n = fetchOperand();
-            MOSH_ASSERT(n.isFixnum());
-            ac_ = referLocal(n.toFixnum());
-            // *** Fall Through ***
-        }
+//         CASE(REFER_LOCAL_VECTOR_REF)
+//         {
+//             const Object n = fetchOperand();
+//             MOSH_ASSERT(n.isFixnum());
+//             ac_ = referLocal(n.toFixnum());
+//             // *** Fall Through ***
+//         }
         CASE(VECTOR_REF)
         {
             const Object v = pop();
@@ -1617,36 +1617,35 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             }
             NEXT1;
         }
-        CASE(VECTOR_REF_PUSH)
-        {
-            const Object v = pop();
-            MOSH_ASSERT(ac_.isFixnum());
-            if (v.isVector()) {
-                ac_ = v.toVector()->ref(ac_.toFixnum());
-            } else {
-                callAssertionViolationAfter("vector-ref",
-                                            "vector required",
-                                            L1(v));
-            }
-            push(ac_);
-            NEXT1;
-        }
-        CASE(PUSH_CONSTANT_VECTOR_SET)
-        {
-            push(ac_);
-            ac_ = fetchOperand();
-            goto vector_set_entry;
-        }
-        CASE(REFER_LOCAL_VECTOR_SET)
-        {
-            const Object n = fetchOperand();
-            MOSH_ASSERT(n.isFixnum());
-            ac_ = referLocal(n.toFixnum());
-            // *** Fall Through ***
-        }
+//         CASE(VECTOR_REF_PUSH)
+//         {
+//             const Object v = pop();
+//             MOSH_ASSERT(ac_.isFixnum());
+//             if (v.isVector()) {
+//                 ac_ = v.toVector()->ref(ac_.toFixnum());
+//             } else {
+//                 callAssertionViolationAfter("vector-ref",
+//                                             "vector required",
+//                                             L1(v));
+//             }
+//             push(ac_);
+//             NEXT1;
+//         }
+//         CASE(PUSH_CONSTANT_VECTOR_SET)
+//         {
+//             push(ac_);
+//             ac_ = fetchOperand();
+//             goto vector_set_entry;
+//         }
+//         CASE(REFER_LOCAL_VECTOR_SET)
+//         {
+//             const Object n = fetchOperand();
+//             MOSH_ASSERT(n.isFixnum());
+//             ac_ = referLocal(n.toFixnum());
+//             // *** Fall Through ***
+//         }
         CASE(VECTOR_SET)
         {
-        vector_set_entry:
             const Object n = pop();
             const Object v = pop();
             MOSH_ASSERT(n.isFixnum());

@@ -110,15 +110,8 @@ public:
         REFER_LOCAL_BRANCH_NOT_LT = 3118,
         REFER_FREE_CALL = 3150,
         REFER_GLOBAL_PUSH = 3182,
-        REFER_LOCAL_VECTOR_REF = 3214,
-        REFER_LOCAL_VECTOR_SET = 3246,
-        PUSH_CONSTANT_VECTOR_SET = 3278,
-        VECTOR_REF_PUSH = 3310,
-        REFER_LOCAL_CALL = 3342,
-        REFER_LOCAL_CAR = 3374,
-        REFER_LOCAL_CDR = 3406,
-        REFER_LOCAL_CONS = 3438,
-        INSTRUCTION_COUNT = 108,
+        REFER_LOCAL_CALL = 3214,
+        INSTRUCTION_COUNT = 101,
     };
     static const ucs4char* toString(int val) {
         switch(val) {
@@ -422,29 +415,8 @@ public:
         case REFER_GLOBAL_PUSH:
            return UC("REFER_GLOBAL_PUSH");
            break;
-        case REFER_LOCAL_VECTOR_REF:
-           return UC("REFER_LOCAL_VECTOR_REF");
-           break;
-        case REFER_LOCAL_VECTOR_SET:
-           return UC("REFER_LOCAL_VECTOR_SET");
-           break;
-        case PUSH_CONSTANT_VECTOR_SET:
-           return UC("PUSH_CONSTANT_VECTOR_SET");
-           break;
-        case VECTOR_REF_PUSH:
-           return UC("VECTOR_REF_PUSH");
-           break;
         case REFER_LOCAL_CALL:
            return UC("REFER_LOCAL_CALL");
-           break;
-        case REFER_LOCAL_CAR:
-           return UC("REFER_LOCAL_CAR");
-           break;
-        case REFER_LOCAL_CDR:
-           return UC("REFER_LOCAL_CDR");
-           break;
-        case REFER_LOCAL_CONS:
-           return UC("REFER_LOCAL_CONS");
            break;
         default:
            return UC("Unkown Instruction");
