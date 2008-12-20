@@ -3243,6 +3243,8 @@
  (let ([x 3])
    (define a 4)
    (+ x a))]
+[error (vector-ref '#(1) 300)]
+[error (vector-set! '#(1) 300 #f)]
 
 
 (todo "VM.cpp の callAssertionViolationAfter で dc_.sourceString() を出力するとうれしいよね。")

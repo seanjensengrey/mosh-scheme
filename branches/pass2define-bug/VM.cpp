@@ -1606,14 +1606,22 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
 //         }
         CASE(VECTOR_REF)
         {
-            const Object v = pop();
-            MOSH_ASSERT(ac_.isFixnum());
-            if (v.isVector()) {
-                ac_ = v.toVector()->ref(ac_.toFixnum());
+            const Object obj = pop();
+            if (obj.isVector()) {
+                MOSH_ASSERT(ac_.isFixnum());
+                const int index = ac_.toFixnum();
+                Vector* const v = obj.toVector();
+                if (v->isValidIndex(index)) {
+                    ac_ = v->ref(index);
+                } else {
+                    callAssertionViolationAfter("vector-ref",
+                                                "index out of range",
+                                                L1(ac_));
+                }
             } else {
                 callAssertionViolationAfter("vector-ref",
                                             "vector required",
-                                            L1(v));
+                                            L1(obj));
             }
             NEXT1;
         }
@@ -1647,15 +1655,23 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(VECTOR_SET)
         {
             const Object n = pop();
-            const Object v = pop();
-            MOSH_ASSERT(n.isFixnum());
-            if (v.isVector()) {
-                v.toVector()->set(n.toFixnum(), ac_);
-                ac_ = Object::Undef;
+            const Object obj = pop();
+            if (obj.isVector()) {
+                MOSH_ASSERT(n.isFixnum());
+                const int index = n.toFixnum();
+                Vector* const v = obj.toVector();
+                if (v->isValidIndex(index)) {
+                    v->set(index, ac_);
+                    ac_ = Object::Undef;
+                } else {
+                    callAssertionViolationAfter("vector-set!",
+                                                "index out of range",
+                                                L1(n));
+                }
             } else {
-                callAssertionViolationAfter("vector-set",
+                callAssertionViolationAfter("vector-set!",
                                             "vector required",
-                                            L1(v));
+                                            L1(obj));
             }
             NEXT1;
         }

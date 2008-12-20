@@ -1,5 +1,7 @@
 2008-12-20  higepon  <higepon@users.sourceforge.jp>
 
+        * Added checking index out of range vector-set! and vector-ref.
+
         * Use NUMBER_ADD instead of NUMBER_SUB on some situation.
 
         * instruction.scm: Removed some compound instruction.
