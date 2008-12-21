@@ -1253,7 +1253,9 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         {
             ac_ = referFree(fetchOperand());
             operand = fetchOperand();
-            goto call_entry;
+            #include "call.inc.cpp"
+            NEXT;
+//            goto call_entry;
         }
         CASE(REFER_GLOBAL)
         {
@@ -1297,7 +1299,9 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
                 ac_ = val;
             }
             operand = fetchOperand();
-            goto call_entry;
+//            goto call_entry;
+            #include "call.inc.cpp"
+            NEXT;
         }
         CASE(REFER_LOCAL)
         {
@@ -1312,7 +1316,9 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             VM_ASSERT(operand.isFixnum());
             ac_ = referLocal(operand.toFixnum());
             operand = fetchOperand();
-            goto call_entry;
+            #include "call.inc.cpp"
+            NEXT;
+//            goto call_entry;
         }
         CASE(REFER_LOCAL_PUSH_CONSTANT)
         {
@@ -1495,7 +1501,9 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
             const int diff  = diffObject.toFixnum();
             sp_ = shiftArgsToBottom(sp_, depth, diff);
             operand = fetchOperand();
-            goto call_entry;
+            #include "call.inc.cpp"
+            NEXT;
+//            goto call_entry;
         }
         CASE(SYMBOL_P)
         {
@@ -1604,6 +1612,7 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
 //             ac_ = referLocal(n.toFixnum());
 //             // *** Fall Through ***
 //         }
+       
         CASE(VECTOR_REF)
         {
             const Object obj = pop();

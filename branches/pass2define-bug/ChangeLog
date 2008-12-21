@@ -1,3 +1,7 @@
+2008-12-21  higepon  <higepon@users.sourceforge.jp>
+
+        * call.inc.cpp: Added for better performance. (L1 cache miss)
+
 2008-12-20  higepon  <higepon@users.sourceforge.jp>
 
         * Added checking index out of range vector-set! and vector-ref.
