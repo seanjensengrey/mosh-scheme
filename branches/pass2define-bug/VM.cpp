@@ -584,7 +584,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         CASE(CALL)
         {
             operand = fetchOperand();
-        call_entry:
             if (ac_.isCProcedure()) {
                 COUNT_CALL(ac_);
                 cl_ = ac_;
@@ -1844,6 +1843,8 @@ Object VM::getStackTrace()
                 }
                 i++;
             }
+            cl = cl->toClosure()->prev;
+            continue;
         } else if (cl->isCProcedure()) {
             port->format(UC("<subr>: ~a\n"), L1(getClosureName(*cl)));
             i++;
@@ -1879,6 +1880,61 @@ Object VM::getStackTrace()
         }
     }
     return sysGetOutputStringEx(1, &sport);
+
+//     const int MAX_DEPTH = 20;
+
+//     const Object sport = Object::makeStringOutputPort();
+//     TextualOutputPort* port = sport.toTextualOutputPort();
+//     Object* fp = fp_;
+//     Object* cl = &dc_;
+//     for (int i = 1;;) {
+//         port->format(UC("    ~d. "), L1(Object::makeFixnum(i)));
+//         if (cl->isClosure()) {
+//             Object src = cl->toClosure()->sourceInfo;
+//             if (src.isPair()) {
+//                 if (src.car().isFalse()) {
+//                     port->format(UC("<unknown location>: ~a \n"), L1(src.cdr()));
+//                 } else {
+//                     const Object lineno = src.car().cdr().car();
+//                     port->format(UC("~a:~a: ~a \n"), L3(src.car().car(), lineno, src.cdr()));
+//                 }
+//                 i++;
+//             }
+//         } else if (cl->isCProcedure()) {
+//             port->format(UC("<subr>: ~a\n"), L1(getClosureName(*cl)));
+//             i++;
+//         } else if (cl->isRegMatch()) {
+//             port->format(UC("<reg-match>: ~a\n"), L1(*cl));
+//             i++;
+//         } else if (cl->isRegexp()) {
+//             port->format(UC("<regexp>: ~a\n"), L1(*cl));
+//             i++;
+//         } else {
+//             // this case is very rare and may be bug of VM.
+// //             LOG1("cl = ~a\n", *cl);
+// //             fprintf(stderr, "fatal: stack corrupt!\n");
+//             break;//            exit(-1);
+//         }
+//         if (i > MAX_DEPTH) {
+//             port->display(UC("      ... (more stack dump truncated)\n"));
+//             break;
+//         }
+
+//         if (fp->isString()) {
+//             // tail call?
+//             break;
+//         }
+//         cl = fp - 2;
+//         if (cl->isObjectPointer() && !cl->isClosure() && !cl->isCProcedure() && !cl->isRegexp() && !cl->isRegexp()) {
+//             break;
+//         }
+//         if (fp > stack_) {
+//             fp = (fp - 1)->toObjectPointer();
+//         } else {
+//             break;
+//         }
+//     }
+//     return sysGetOutputStringEx(1, &sport);
 }
 
 void VM::throwException(Object exception)
