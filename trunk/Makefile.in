@@ -34,7 +34,9 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 target_triplet = @target@
+TESTS = test_vector$(EXEEXT)
 bin_PROGRAMS = mosh$(EXEEXT)
+check_PROGRAMS = test_vector$(EXEEXT)
 subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
@@ -53,14 +55,13 @@ am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)" \
 	"$(DESTDIR)$(datadir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
-am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
-	mosh-Transcoder.$(OBJEXT) mosh-EqvHashTable.$(OBJEXT) \
-	mosh-Compnum.$(OBJEXT) mosh-Fixnum.$(OBJEXT) \
-	mosh-Closure.$(OBJEXT) mosh-UtilityProcedures.$(OBJEXT) \
-	mosh-Reader.$(OBJEXT) mosh-NumberReader.$(OBJEXT) \
-	mosh-scheme.$(OBJEXT) mosh-Regexp.$(OBJEXT) \
-	mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) mosh-Scanner.$(OBJEXT) \
-	mosh-NumberScanner.$(OBJEXT) \
+am__objects_1 = mosh-read.$(OBJEXT) mosh-Transcoder.$(OBJEXT) \
+	mosh-EqvHashTable.$(OBJEXT) mosh-Compnum.$(OBJEXT) \
+	mosh-Fixnum.$(OBJEXT) mosh-Closure.$(OBJEXT) \
+	mosh-UtilityProcedures.$(OBJEXT) mosh-Reader.$(OBJEXT) \
+	mosh-NumberReader.$(OBJEXT) mosh-scheme.$(OBJEXT) \
+	mosh-Regexp.$(OBJEXT) mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
+	mosh-Scanner.$(OBJEXT) mosh-NumberScanner.$(OBJEXT) \
 	mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
 	mosh-ScannerHelper.$(OBJEXT) mosh-Reader.tab.$(OBJEXT) \
 	mosh-NumberReader.tab.$(OBJEXT) \
@@ -94,10 +95,72 @@ am_mosh_OBJECTS = mosh-main.$(OBJEXT) mosh-read.$(OBJEXT) \
 	mosh-Bignum.$(OBJEXT) mosh-Flonum.$(OBJEXT) \
 	mosh-CodeBuilder.$(OBJEXT) mosh-FixnumProcedures.$(OBJEXT) \
 	mosh-Latin1Codec.$(OBJEXT)
+am_mosh_OBJECTS = mosh-main.$(OBJEXT) $(am__objects_1)
 mosh_OBJECTS = $(am_mosh_OBJECTS)
 mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB)
 mosh_LINK = $(CXXLD) $(mosh_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
+am__objects_2 = test_vector-read.$(OBJEXT) \
+	test_vector-Transcoder.$(OBJEXT) \
+	test_vector-EqvHashTable.$(OBJEXT) \
+	test_vector-Compnum.$(OBJEXT) test_vector-Fixnum.$(OBJEXT) \
+	test_vector-Closure.$(OBJEXT) \
+	test_vector-UtilityProcedures.$(OBJEXT) \
+	test_vector-Reader.$(OBJEXT) \
+	test_vector-NumberReader.$(OBJEXT) \
+	test_vector-scheme.$(OBJEXT) test_vector-Regexp.$(OBJEXT) \
+	test_vector-Symbol.$(OBJEXT) test_vector-VM.$(OBJEXT) \
+	test_vector-Scanner.$(OBJEXT) \
+	test_vector-NumberScanner.$(OBJEXT) \
+	test_vector-ByteArrayBinaryInputPort.$(OBJEXT) \
+	test_vector-ScannerHelper.$(OBJEXT) \
+	test_vector-Reader.tab.$(OBJEXT) \
+	test_vector-NumberReader.tab.$(OBJEXT) \
+	test_vector-FileBinaryInputPort.$(OBJEXT) \
+	test_vector-FileBinaryOutputPort.$(OBJEXT) \
+	test_vector-CustomBinaryInputPort.$(OBJEXT) \
+	test_vector-TextualOutputPort.$(OBJEXT) \
+	test_vector-TextualByteVectorOutputPort.$(OBJEXT) \
+	test_vector-TextualInputPort.$(OBJEXT) \
+	test_vector-StringTextualOutputPort.$(OBJEXT) \
+	test_vector-StringTextualInputPort.$(OBJEXT) \
+	test_vector-UTF8Codec.$(OBJEXT) \
+	test_vector-UTF16Codec.$(OBJEXT) \
+	test_vector-UTF32Codec.$(OBJEXT) \
+	test_vector-EqHashTable.$(OBJEXT) \
+	test_vector-SString.$(OBJEXT) \
+	test_vector-GenericHashTable.$(OBJEXT) \
+	test_vector-Object.$(OBJEXT) \
+	test_vector-RecordTypeDescriptor.$(OBJEXT) \
+	test_vector-RecordConstructorDescriptor.$(OBJEXT) \
+	test_vector-Record.$(OBJEXT) \
+	test_vector-RecordProcedures.$(OBJEXT) \
+	test_vector-ConditionProcedures.$(OBJEXT) \
+	test_vector-CompilerProcedures.$(OBJEXT) \
+	test_vector-HashTableProceduures.$(OBJEXT) \
+	test_vector-RegexpProcedures.$(OBJEXT) \
+	test_vector-StringProcedures.$(OBJEXT) \
+	test_vector-PortProcedures.$(OBJEXT) \
+	test_vector-ListProcedures.$(OBJEXT) \
+	test_vector-ErrorProcedures.$(OBJEXT) \
+	test_vector-ArithmeticProcedures.$(OBJEXT) \
+	test_vector-FlonumProcedures.$(OBJEXT) \
+	test_vector-BitwiseProcedures.$(OBJEXT) \
+	test_vector-ByteVectorProcedures.$(OBJEXT) \
+	test_vector-Equivalent.$(OBJEXT) \
+	test_vector-CompoundCondition.$(OBJEXT) \
+	test_vector-ucs4string.$(OBJEXT) test_vector-Vector.$(OBJEXT) \
+	test_vector-Fasl.$(OBJEXT) test_vector-Arithmetic.$(OBJEXT) \
+	test_vector-Ratnum.$(OBJEXT) test_vector-Bignum.$(OBJEXT) \
+	test_vector-Flonum.$(OBJEXT) test_vector-CodeBuilder.$(OBJEXT) \
+	test_vector-FixnumProcedures.$(OBJEXT) \
+	test_vector-Latin1Codec.$(OBJEXT)
+am_test_vector_OBJECTS = test_vector-TestVector.$(OBJEXT) \
+	$(am__objects_2)
+test_vector_OBJECTS = $(am_test_vector_OBJECTS)
+test_vector_DEPENDENCIES = gtest_main.a $(GC_LIB) $(REGEXP_LIB)
+test_vector_LINK = $(CXXLD) $(test_vector_CXXFLAGS) $(CXXFLAGS) \
+	$(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -110,8 +173,8 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(mosh_SOURCES)
-DIST_SOURCES = $(mosh_SOURCES)
+SOURCES = $(mosh_SOURCES) $(test_vector_SOURCES)
+DIST_SOURCES = $(mosh_SOURCES) $(test_vector_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
 	html-recursive info-recursive install-data-recursive \
 	install-dvi-recursive install-exec-recursive \
@@ -264,9 +327,16 @@ GC_LIB = $(BOEHM_GC_DIR)/.libs/libgc.a
 # Regexp library oniguruma
 ONIG_DIR = ./onig-5.7.0
 REGEXP_LIB = $(ONIG_DIR)/.libs/libonig.a
+
+# for GTEST
+GTEST_DIR = gtest-1.2.1
+USER_DIR = .
+GTEST_HEADERS_ = $(GTEST_DIR)/include/gtest/*.h \
+                $(GTEST_DIR)/include/gtest/internal/*.h
+
+GTEST_CPPFLAGS_ = -I$(GTEST_DIR) -I$(GTEST_DIR)/include
 SUBDIRS = $(BOEHM_GC_DIR) $(ONIG_DIR) .
-mosh_SOURCES = \
-main.cpp                                                          \
+COMMON_SOURCES_ = \
 HeapObject.h                                                      \
 Object-inl.h                                                      \
 Pair-inl.h                                                        \
@@ -352,6 +422,7 @@ CodeBuilder.h                 CodeBuilder.cpp                     \
 FinxumProcedures.h            FixnumProcedures.cpp                \
 Latin1Codec.h                 Latin1Codec.cpp
 
+mosh_SOURCES = main.cpp $(COMMON_SOURCES_)
 mosh_OPTS = -D MONA_SCHEME -D USE_BOEHM_GC -Wall -D MOSH_LIB_PATH="\"@MOSH_LIB_PATH@\""
 mosh_CFLAGS = -O3 $(mosh_OPTS)  -g -D_FILE_OFFSET_BITS=64 -Wall -momit-leaf-frame-pointer -fomit-frame-pointer -DDEBUG_VERSION
 # -O3 causes miss compile of NumberReader.tab.cpp. see http://d.hatena.ne.jp/higepon/20081114/1226645373
@@ -374,7 +445,7 @@ compiler-vm.scm compiler-with-library.scm Instruction.h    \
 psyntax.h psyntax.fasl match.h match.fasl                  \
 compiler-with-library.h compiler-with-library.fasl
 
-CLEANFILES = 
+CLEANFILES = gtest.a gtest_main.a
 MAINTAINERCLEANFILES = $(GENERATED)
 CORE_LIBS = \
     lib/core/fixnum.scm     \
@@ -385,6 +456,15 @@ CORE_LIBS = \
     lib/core/r5rs.scm       \
     lib/core/hashtable.scm
 
+
+# Builds gtest.a and gtest_main.a.
+
+# Usually you shouldn't tweak such internal variables, indicated by a
+# trailing _.
+GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS_)
+test_vector_CXXFLAGS = -I $(BOEHM_GC_DIR)/include -I $(ONIG_DIR) $(mosh_OPTS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include
+test_vector_SOURCES = TestVector.cpp $(COMMON_SOURCES_)
+test_vector_LDADD = gtest_main.a $(GC_LIB) $(REGEXP_LIB)
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -463,9 +543,15 @@ uninstall-binPROGRAMS:
 
 clean-binPROGRAMS:
 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
+
+clean-checkPROGRAMS:
+	-test -z "$(check_PROGRAMS)" || rm -f $(check_PROGRAMS)
 mosh$(EXEEXT): $(mosh_OBJECTS) $(mosh_DEPENDENCIES) 
 	@rm -f mosh$(EXEEXT)
 	$(mosh_LINK) $(mosh_OBJECTS) $(mosh_LDADD) $(LIBS)
+test_vector$(EXEEXT): $(test_vector_OBJECTS) $(test_vector_DEPENDENCIES) 
+	@rm -f test_vector$(EXEEXT)
+	$(test_vector_LINK) $(test_vector_OBJECTS) $(test_vector_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -536,6 +622,69 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-read.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-scheme.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-ucs4string.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Arithmetic.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-ArithmeticProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Bignum.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-BitwiseProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-ByteArrayBinaryInputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-ByteVectorProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Closure.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-CodeBuilder.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-CompilerProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Compnum.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-CompoundCondition.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-ConditionProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-CustomBinaryInputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-EqHashTable.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Equivalent.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-EqvHashTable.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-ErrorProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Fasl.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-FileBinaryInputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-FileBinaryOutputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Fixnum.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-FixnumProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Flonum.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-FlonumProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-GenericHashTable.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-HashTableProceduures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Latin1Codec.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-ListProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-NumberReader.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-NumberReader.tab.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-NumberScanner.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Object.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-PortProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Ratnum.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Reader.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Reader.tab.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Record.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-RecordConstructorDescriptor.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-RecordProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-RecordTypeDescriptor.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Regexp.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-RegexpProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-SString.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Scanner.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-ScannerHelper.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-StringProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-StringTextualInputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-StringTextualOutputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Symbol.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-TestVector.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-TextualByteVectorOutputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-TextualInputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-TextualOutputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Transcoder.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-UTF16Codec.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-UTF32Codec.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-UTF8Codec.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-UtilityProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-VM.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Vector.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-read.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-scheme.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-ucs4string.Po@am__quote@
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -1432,6 +1581,888 @@ mosh-Latin1Codec.obj: Latin1Codec.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Latin1Codec.cpp' object='mosh-Latin1Codec.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-Latin1Codec.obj `if test -f 'Latin1Codec.cpp'; then $(CYGPATH_W) 'Latin1Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/Latin1Codec.cpp'; fi`
+
+test_vector-TestVector.o: TestVector.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-TestVector.o -MD -MP -MF $(DEPDIR)/test_vector-TestVector.Tpo -c -o test_vector-TestVector.o `test -f 'TestVector.cpp' || echo '$(srcdir)/'`TestVector.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-TestVector.Tpo $(DEPDIR)/test_vector-TestVector.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TestVector.cpp' object='test_vector-TestVector.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-TestVector.o `test -f 'TestVector.cpp' || echo '$(srcdir)/'`TestVector.cpp
+
+test_vector-TestVector.obj: TestVector.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-TestVector.obj -MD -MP -MF $(DEPDIR)/test_vector-TestVector.Tpo -c -o test_vector-TestVector.obj `if test -f 'TestVector.cpp'; then $(CYGPATH_W) 'TestVector.cpp'; else $(CYGPATH_W) '$(srcdir)/TestVector.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-TestVector.Tpo $(DEPDIR)/test_vector-TestVector.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TestVector.cpp' object='test_vector-TestVector.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-TestVector.obj `if test -f 'TestVector.cpp'; then $(CYGPATH_W) 'TestVector.cpp'; else $(CYGPATH_W) '$(srcdir)/TestVector.cpp'; fi`
+
+test_vector-read.o: read.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-read.o -MD -MP -MF $(DEPDIR)/test_vector-read.Tpo -c -o test_vector-read.o `test -f 'read.cpp' || echo '$(srcdir)/'`read.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-read.Tpo $(DEPDIR)/test_vector-read.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='read.cpp' object='test_vector-read.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-read.o `test -f 'read.cpp' || echo '$(srcdir)/'`read.cpp
+
+test_vector-read.obj: read.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-read.obj -MD -MP -MF $(DEPDIR)/test_vector-read.Tpo -c -o test_vector-read.obj `if test -f 'read.cpp'; then $(CYGPATH_W) 'read.cpp'; else $(CYGPATH_W) '$(srcdir)/read.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-read.Tpo $(DEPDIR)/test_vector-read.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='read.cpp' object='test_vector-read.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-read.obj `if test -f 'read.cpp'; then $(CYGPATH_W) 'read.cpp'; else $(CYGPATH_W) '$(srcdir)/read.cpp'; fi`
+
+test_vector-Transcoder.o: Transcoder.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Transcoder.o -MD -MP -MF $(DEPDIR)/test_vector-Transcoder.Tpo -c -o test_vector-Transcoder.o `test -f 'Transcoder.cpp' || echo '$(srcdir)/'`Transcoder.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Transcoder.Tpo $(DEPDIR)/test_vector-Transcoder.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Transcoder.cpp' object='test_vector-Transcoder.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Transcoder.o `test -f 'Transcoder.cpp' || echo '$(srcdir)/'`Transcoder.cpp
+
+test_vector-Transcoder.obj: Transcoder.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Transcoder.obj -MD -MP -MF $(DEPDIR)/test_vector-Transcoder.Tpo -c -o test_vector-Transcoder.obj `if test -f 'Transcoder.cpp'; then $(CYGPATH_W) 'Transcoder.cpp'; else $(CYGPATH_W) '$(srcdir)/Transcoder.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Transcoder.Tpo $(DEPDIR)/test_vector-Transcoder.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Transcoder.cpp' object='test_vector-Transcoder.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Transcoder.obj `if test -f 'Transcoder.cpp'; then $(CYGPATH_W) 'Transcoder.cpp'; else $(CYGPATH_W) '$(srcdir)/Transcoder.cpp'; fi`
+
+test_vector-EqvHashTable.o: EqvHashTable.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-EqvHashTable.o -MD -MP -MF $(DEPDIR)/test_vector-EqvHashTable.Tpo -c -o test_vector-EqvHashTable.o `test -f 'EqvHashTable.cpp' || echo '$(srcdir)/'`EqvHashTable.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-EqvHashTable.Tpo $(DEPDIR)/test_vector-EqvHashTable.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='EqvHashTable.cpp' object='test_vector-EqvHashTable.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-EqvHashTable.o `test -f 'EqvHashTable.cpp' || echo '$(srcdir)/'`EqvHashTable.cpp
+
+test_vector-EqvHashTable.obj: EqvHashTable.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-EqvHashTable.obj -MD -MP -MF $(DEPDIR)/test_vector-EqvHashTable.Tpo -c -o test_vector-EqvHashTable.obj `if test -f 'EqvHashTable.cpp'; then $(CYGPATH_W) 'EqvHashTable.cpp'; else $(CYGPATH_W) '$(srcdir)/EqvHashTable.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-EqvHashTable.Tpo $(DEPDIR)/test_vector-EqvHashTable.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='EqvHashTable.cpp' object='test_vector-EqvHashTable.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-EqvHashTable.obj `if test -f 'EqvHashTable.cpp'; then $(CYGPATH_W) 'EqvHashTable.cpp'; else $(CYGPATH_W) '$(srcdir)/EqvHashTable.cpp'; fi`
+
+test_vector-Compnum.o: Compnum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Compnum.o -MD -MP -MF $(DEPDIR)/test_vector-Compnum.Tpo -c -o test_vector-Compnum.o `test -f 'Compnum.cpp' || echo '$(srcdir)/'`Compnum.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Compnum.Tpo $(DEPDIR)/test_vector-Compnum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Compnum.cpp' object='test_vector-Compnum.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Compnum.o `test -f 'Compnum.cpp' || echo '$(srcdir)/'`Compnum.cpp
+
+test_vector-Compnum.obj: Compnum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Compnum.obj -MD -MP -MF $(DEPDIR)/test_vector-Compnum.Tpo -c -o test_vector-Compnum.obj `if test -f 'Compnum.cpp'; then $(CYGPATH_W) 'Compnum.cpp'; else $(CYGPATH_W) '$(srcdir)/Compnum.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Compnum.Tpo $(DEPDIR)/test_vector-Compnum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Compnum.cpp' object='test_vector-Compnum.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Compnum.obj `if test -f 'Compnum.cpp'; then $(CYGPATH_W) 'Compnum.cpp'; else $(CYGPATH_W) '$(srcdir)/Compnum.cpp'; fi`
+
+test_vector-Fixnum.o: Fixnum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Fixnum.o -MD -MP -MF $(DEPDIR)/test_vector-Fixnum.Tpo -c -o test_vector-Fixnum.o `test -f 'Fixnum.cpp' || echo '$(srcdir)/'`Fixnum.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Fixnum.Tpo $(DEPDIR)/test_vector-Fixnum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Fixnum.cpp' object='test_vector-Fixnum.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Fixnum.o `test -f 'Fixnum.cpp' || echo '$(srcdir)/'`Fixnum.cpp
+
+test_vector-Fixnum.obj: Fixnum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Fixnum.obj -MD -MP -MF $(DEPDIR)/test_vector-Fixnum.Tpo -c -o test_vector-Fixnum.obj `if test -f 'Fixnum.cpp'; then $(CYGPATH_W) 'Fixnum.cpp'; else $(CYGPATH_W) '$(srcdir)/Fixnum.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Fixnum.Tpo $(DEPDIR)/test_vector-Fixnum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Fixnum.cpp' object='test_vector-Fixnum.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Fixnum.obj `if test -f 'Fixnum.cpp'; then $(CYGPATH_W) 'Fixnum.cpp'; else $(CYGPATH_W) '$(srcdir)/Fixnum.cpp'; fi`
+
+test_vector-Closure.o: Closure.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Closure.o -MD -MP -MF $(DEPDIR)/test_vector-Closure.Tpo -c -o test_vector-Closure.o `test -f 'Closure.cpp' || echo '$(srcdir)/'`Closure.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Closure.Tpo $(DEPDIR)/test_vector-Closure.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Closure.cpp' object='test_vector-Closure.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Closure.o `test -f 'Closure.cpp' || echo '$(srcdir)/'`Closure.cpp
+
+test_vector-Closure.obj: Closure.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Closure.obj -MD -MP -MF $(DEPDIR)/test_vector-Closure.Tpo -c -o test_vector-Closure.obj `if test -f 'Closure.cpp'; then $(CYGPATH_W) 'Closure.cpp'; else $(CYGPATH_W) '$(srcdir)/Closure.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Closure.Tpo $(DEPDIR)/test_vector-Closure.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Closure.cpp' object='test_vector-Closure.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Closure.obj `if test -f 'Closure.cpp'; then $(CYGPATH_W) 'Closure.cpp'; else $(CYGPATH_W) '$(srcdir)/Closure.cpp'; fi`
+
+test_vector-UtilityProcedures.o: UtilityProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-UtilityProcedures.o -MD -MP -MF $(DEPDIR)/test_vector-UtilityProcedures.Tpo -c -o test_vector-UtilityProcedures.o `test -f 'UtilityProcedures.cpp' || echo '$(srcdir)/'`UtilityProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-UtilityProcedures.Tpo $(DEPDIR)/test_vector-UtilityProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UtilityProcedures.cpp' object='test_vector-UtilityProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-UtilityProcedures.o `test -f 'UtilityProcedures.cpp' || echo '$(srcdir)/'`UtilityProcedures.cpp
+
+test_vector-UtilityProcedures.obj: UtilityProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-UtilityProcedures.obj -MD -MP -MF $(DEPDIR)/test_vector-UtilityProcedures.Tpo -c -o test_vector-UtilityProcedures.obj `if test -f 'UtilityProcedures.cpp'; then $(CYGPATH_W) 'UtilityProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/UtilityProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-UtilityProcedures.Tpo $(DEPDIR)/test_vector-UtilityProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UtilityProcedures.cpp' object='test_vector-UtilityProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-UtilityProcedures.obj `if test -f 'UtilityProcedures.cpp'; then $(CYGPATH_W) 'UtilityProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/UtilityProcedures.cpp'; fi`
+
+test_vector-Reader.o: Reader.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Reader.o -MD -MP -MF $(DEPDIR)/test_vector-Reader.Tpo -c -o test_vector-Reader.o `test -f 'Reader.cpp' || echo '$(srcdir)/'`Reader.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Reader.Tpo $(DEPDIR)/test_vector-Reader.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Reader.cpp' object='test_vector-Reader.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Reader.o `test -f 'Reader.cpp' || echo '$(srcdir)/'`Reader.cpp
+
+test_vector-Reader.obj: Reader.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Reader.obj -MD -MP -MF $(DEPDIR)/test_vector-Reader.Tpo -c -o test_vector-Reader.obj `if test -f 'Reader.cpp'; then $(CYGPATH_W) 'Reader.cpp'; else $(CYGPATH_W) '$(srcdir)/Reader.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Reader.Tpo $(DEPDIR)/test_vector-Reader.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Reader.cpp' object='test_vector-Reader.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Reader.obj `if test -f 'Reader.cpp'; then $(CYGPATH_W) 'Reader.cpp'; else $(CYGPATH_W) '$(srcdir)/Reader.cpp'; fi`
+
+test_vector-NumberReader.o: NumberReader.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-NumberReader.o -MD -MP -MF $(DEPDIR)/test_vector-NumberReader.Tpo -c -o test_vector-NumberReader.o `test -f 'NumberReader.cpp' || echo '$(srcdir)/'`NumberReader.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-NumberReader.Tpo $(DEPDIR)/test_vector-NumberReader.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='NumberReader.cpp' object='test_vector-NumberReader.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-NumberReader.o `test -f 'NumberReader.cpp' || echo '$(srcdir)/'`NumberReader.cpp
+
+test_vector-NumberReader.obj: NumberReader.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-NumberReader.obj -MD -MP -MF $(DEPDIR)/test_vector-NumberReader.Tpo -c -o test_vector-NumberReader.obj `if test -f 'NumberReader.cpp'; then $(CYGPATH_W) 'NumberReader.cpp'; else $(CYGPATH_W) '$(srcdir)/NumberReader.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-NumberReader.Tpo $(DEPDIR)/test_vector-NumberReader.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='NumberReader.cpp' object='test_vector-NumberReader.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-NumberReader.obj `if test -f 'NumberReader.cpp'; then $(CYGPATH_W) 'NumberReader.cpp'; else $(CYGPATH_W) '$(srcdir)/NumberReader.cpp'; fi`
+
+test_vector-scheme.o: scheme.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-scheme.o -MD -MP -MF $(DEPDIR)/test_vector-scheme.Tpo -c -o test_vector-scheme.o `test -f 'scheme.cpp' || echo '$(srcdir)/'`scheme.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-scheme.Tpo $(DEPDIR)/test_vector-scheme.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scheme.cpp' object='test_vector-scheme.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-scheme.o `test -f 'scheme.cpp' || echo '$(srcdir)/'`scheme.cpp
+
+test_vector-scheme.obj: scheme.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-scheme.obj -MD -MP -MF $(DEPDIR)/test_vector-scheme.Tpo -c -o test_vector-scheme.obj `if test -f 'scheme.cpp'; then $(CYGPATH_W) 'scheme.cpp'; else $(CYGPATH_W) '$(srcdir)/scheme.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-scheme.Tpo $(DEPDIR)/test_vector-scheme.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scheme.cpp' object='test_vector-scheme.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-scheme.obj `if test -f 'scheme.cpp'; then $(CYGPATH_W) 'scheme.cpp'; else $(CYGPATH_W) '$(srcdir)/scheme.cpp'; fi`
+
+test_vector-Regexp.o: Regexp.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Regexp.o -MD -MP -MF $(DEPDIR)/test_vector-Regexp.Tpo -c -o test_vector-Regexp.o `test -f 'Regexp.cpp' || echo '$(srcdir)/'`Regexp.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Regexp.Tpo $(DEPDIR)/test_vector-Regexp.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Regexp.cpp' object='test_vector-Regexp.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Regexp.o `test -f 'Regexp.cpp' || echo '$(srcdir)/'`Regexp.cpp
+
+test_vector-Regexp.obj: Regexp.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Regexp.obj -MD -MP -MF $(DEPDIR)/test_vector-Regexp.Tpo -c -o test_vector-Regexp.obj `if test -f 'Regexp.cpp'; then $(CYGPATH_W) 'Regexp.cpp'; else $(CYGPATH_W) '$(srcdir)/Regexp.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Regexp.Tpo $(DEPDIR)/test_vector-Regexp.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Regexp.cpp' object='test_vector-Regexp.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Regexp.obj `if test -f 'Regexp.cpp'; then $(CYGPATH_W) 'Regexp.cpp'; else $(CYGPATH_W) '$(srcdir)/Regexp.cpp'; fi`
+
+test_vector-Symbol.o: Symbol.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Symbol.o -MD -MP -MF $(DEPDIR)/test_vector-Symbol.Tpo -c -o test_vector-Symbol.o `test -f 'Symbol.cpp' || echo '$(srcdir)/'`Symbol.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Symbol.Tpo $(DEPDIR)/test_vector-Symbol.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Symbol.cpp' object='test_vector-Symbol.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Symbol.o `test -f 'Symbol.cpp' || echo '$(srcdir)/'`Symbol.cpp
+
+test_vector-Symbol.obj: Symbol.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Symbol.obj -MD -MP -MF $(DEPDIR)/test_vector-Symbol.Tpo -c -o test_vector-Symbol.obj `if test -f 'Symbol.cpp'; then $(CYGPATH_W) 'Symbol.cpp'; else $(CYGPATH_W) '$(srcdir)/Symbol.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Symbol.Tpo $(DEPDIR)/test_vector-Symbol.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Symbol.cpp' object='test_vector-Symbol.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Symbol.obj `if test -f 'Symbol.cpp'; then $(CYGPATH_W) 'Symbol.cpp'; else $(CYGPATH_W) '$(srcdir)/Symbol.cpp'; fi`
+
+test_vector-VM.o: VM.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-VM.o -MD -MP -MF $(DEPDIR)/test_vector-VM.Tpo -c -o test_vector-VM.o `test -f 'VM.cpp' || echo '$(srcdir)/'`VM.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-VM.Tpo $(DEPDIR)/test_vector-VM.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='VM.cpp' object='test_vector-VM.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-VM.o `test -f 'VM.cpp' || echo '$(srcdir)/'`VM.cpp
+
+test_vector-VM.obj: VM.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-VM.obj -MD -MP -MF $(DEPDIR)/test_vector-VM.Tpo -c -o test_vector-VM.obj `if test -f 'VM.cpp'; then $(CYGPATH_W) 'VM.cpp'; else $(CYGPATH_W) '$(srcdir)/VM.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-VM.Tpo $(DEPDIR)/test_vector-VM.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='VM.cpp' object='test_vector-VM.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-VM.obj `if test -f 'VM.cpp'; then $(CYGPATH_W) 'VM.cpp'; else $(CYGPATH_W) '$(srcdir)/VM.cpp'; fi`
+
+test_vector-Scanner.o: Scanner.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Scanner.o -MD -MP -MF $(DEPDIR)/test_vector-Scanner.Tpo -c -o test_vector-Scanner.o `test -f 'Scanner.cpp' || echo '$(srcdir)/'`Scanner.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Scanner.Tpo $(DEPDIR)/test_vector-Scanner.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Scanner.cpp' object='test_vector-Scanner.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Scanner.o `test -f 'Scanner.cpp' || echo '$(srcdir)/'`Scanner.cpp
+
+test_vector-Scanner.obj: Scanner.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Scanner.obj -MD -MP -MF $(DEPDIR)/test_vector-Scanner.Tpo -c -o test_vector-Scanner.obj `if test -f 'Scanner.cpp'; then $(CYGPATH_W) 'Scanner.cpp'; else $(CYGPATH_W) '$(srcdir)/Scanner.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Scanner.Tpo $(DEPDIR)/test_vector-Scanner.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Scanner.cpp' object='test_vector-Scanner.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Scanner.obj `if test -f 'Scanner.cpp'; then $(CYGPATH_W) 'Scanner.cpp'; else $(CYGPATH_W) '$(srcdir)/Scanner.cpp'; fi`
+
+test_vector-NumberScanner.o: NumberScanner.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-NumberScanner.o -MD -MP -MF $(DEPDIR)/test_vector-NumberScanner.Tpo -c -o test_vector-NumberScanner.o `test -f 'NumberScanner.cpp' || echo '$(srcdir)/'`NumberScanner.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-NumberScanner.Tpo $(DEPDIR)/test_vector-NumberScanner.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='NumberScanner.cpp' object='test_vector-NumberScanner.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-NumberScanner.o `test -f 'NumberScanner.cpp' || echo '$(srcdir)/'`NumberScanner.cpp
+
+test_vector-NumberScanner.obj: NumberScanner.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-NumberScanner.obj -MD -MP -MF $(DEPDIR)/test_vector-NumberScanner.Tpo -c -o test_vector-NumberScanner.obj `if test -f 'NumberScanner.cpp'; then $(CYGPATH_W) 'NumberScanner.cpp'; else $(CYGPATH_W) '$(srcdir)/NumberScanner.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-NumberScanner.Tpo $(DEPDIR)/test_vector-NumberScanner.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='NumberScanner.cpp' object='test_vector-NumberScanner.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-NumberScanner.obj `if test -f 'NumberScanner.cpp'; then $(CYGPATH_W) 'NumberScanner.cpp'; else $(CYGPATH_W) '$(srcdir)/NumberScanner.cpp'; fi`
+
+test_vector-ByteArrayBinaryInputPort.o: ByteArrayBinaryInputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-ByteArrayBinaryInputPort.o -MD -MP -MF $(DEPDIR)/test_vector-ByteArrayBinaryInputPort.Tpo -c -o test_vector-ByteArrayBinaryInputPort.o `test -f 'ByteArrayBinaryInputPort.cpp' || echo '$(srcdir)/'`ByteArrayBinaryInputPort.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-ByteArrayBinaryInputPort.Tpo $(DEPDIR)/test_vector-ByteArrayBinaryInputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ByteArrayBinaryInputPort.cpp' object='test_vector-ByteArrayBinaryInputPort.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-ByteArrayBinaryInputPort.o `test -f 'ByteArrayBinaryInputPort.cpp' || echo '$(srcdir)/'`ByteArrayBinaryInputPort.cpp
+
+test_vector-ByteArrayBinaryInputPort.obj: ByteArrayBinaryInputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-ByteArrayBinaryInputPort.obj -MD -MP -MF $(DEPDIR)/test_vector-ByteArrayBinaryInputPort.Tpo -c -o test_vector-ByteArrayBinaryInputPort.obj `if test -f 'ByteArrayBinaryInputPort.cpp'; then $(CYGPATH_W) 'ByteArrayBinaryInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/ByteArrayBinaryInputPort.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-ByteArrayBinaryInputPort.Tpo $(DEPDIR)/test_vector-ByteArrayBinaryInputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ByteArrayBinaryInputPort.cpp' object='test_vector-ByteArrayBinaryInputPort.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-ByteArrayBinaryInputPort.obj `if test -f 'ByteArrayBinaryInputPort.cpp'; then $(CYGPATH_W) 'ByteArrayBinaryInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/ByteArrayBinaryInputPort.cpp'; fi`
+
+test_vector-ScannerHelper.o: ScannerHelper.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-ScannerHelper.o -MD -MP -MF $(DEPDIR)/test_vector-ScannerHelper.Tpo -c -o test_vector-ScannerHelper.o `test -f 'ScannerHelper.cpp' || echo '$(srcdir)/'`ScannerHelper.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-ScannerHelper.Tpo $(DEPDIR)/test_vector-ScannerHelper.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ScannerHelper.cpp' object='test_vector-ScannerHelper.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-ScannerHelper.o `test -f 'ScannerHelper.cpp' || echo '$(srcdir)/'`ScannerHelper.cpp
+
+test_vector-ScannerHelper.obj: ScannerHelper.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-ScannerHelper.obj -MD -MP -MF $(DEPDIR)/test_vector-ScannerHelper.Tpo -c -o test_vector-ScannerHelper.obj `if test -f 'ScannerHelper.cpp'; then $(CYGPATH_W) 'ScannerHelper.cpp'; else $(CYGPATH_W) '$(srcdir)/ScannerHelper.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-ScannerHelper.Tpo $(DEPDIR)/test_vector-ScannerHelper.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ScannerHelper.cpp' object='test_vector-ScannerHelper.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-ScannerHelper.obj `if test -f 'ScannerHelper.cpp'; then $(CYGPATH_W) 'ScannerHelper.cpp'; else $(CYGPATH_W) '$(srcdir)/ScannerHelper.cpp'; fi`
+
+test_vector-Reader.tab.o: Reader.tab.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Reader.tab.o -MD -MP -MF $(DEPDIR)/test_vector-Reader.tab.Tpo -c -o test_vector-Reader.tab.o `test -f 'Reader.tab.cpp' || echo '$(srcdir)/'`Reader.tab.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Reader.tab.Tpo $(DEPDIR)/test_vector-Reader.tab.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Reader.tab.cpp' object='test_vector-Reader.tab.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Reader.tab.o `test -f 'Reader.tab.cpp' || echo '$(srcdir)/'`Reader.tab.cpp
+
+test_vector-Reader.tab.obj: Reader.tab.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Reader.tab.obj -MD -MP -MF $(DEPDIR)/test_vector-Reader.tab.Tpo -c -o test_vector-Reader.tab.obj `if test -f 'Reader.tab.cpp'; then $(CYGPATH_W) 'Reader.tab.cpp'; else $(CYGPATH_W) '$(srcdir)/Reader.tab.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Reader.tab.Tpo $(DEPDIR)/test_vector-Reader.tab.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Reader.tab.cpp' object='test_vector-Reader.tab.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Reader.tab.obj `if test -f 'Reader.tab.cpp'; then $(CYGPATH_W) 'Reader.tab.cpp'; else $(CYGPATH_W) '$(srcdir)/Reader.tab.cpp'; fi`
+
+test_vector-NumberReader.tab.o: NumberReader.tab.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-NumberReader.tab.o -MD -MP -MF $(DEPDIR)/test_vector-NumberReader.tab.Tpo -c -o test_vector-NumberReader.tab.o `test -f 'NumberReader.tab.cpp' || echo '$(srcdir)/'`NumberReader.tab.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-NumberReader.tab.Tpo $(DEPDIR)/test_vector-NumberReader.tab.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='NumberReader.tab.cpp' object='test_vector-NumberReader.tab.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-NumberReader.tab.o `test -f 'NumberReader.tab.cpp' || echo '$(srcdir)/'`NumberReader.tab.cpp
+
+test_vector-NumberReader.tab.obj: NumberReader.tab.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-NumberReader.tab.obj -MD -MP -MF $(DEPDIR)/test_vector-NumberReader.tab.Tpo -c -o test_vector-NumberReader.tab.obj `if test -f 'NumberReader.tab.cpp'; then $(CYGPATH_W) 'NumberReader.tab.cpp'; else $(CYGPATH_W) '$(srcdir)/NumberReader.tab.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-NumberReader.tab.Tpo $(DEPDIR)/test_vector-NumberReader.tab.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='NumberReader.tab.cpp' object='test_vector-NumberReader.tab.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-NumberReader.tab.obj `if test -f 'NumberReader.tab.cpp'; then $(CYGPATH_W) 'NumberReader.tab.cpp'; else $(CYGPATH_W) '$(srcdir)/NumberReader.tab.cpp'; fi`
+
+test_vector-FileBinaryInputPort.o: FileBinaryInputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-FileBinaryInputPort.o -MD -MP -MF $(DEPDIR)/test_vector-FileBinaryInputPort.Tpo -c -o test_vector-FileBinaryInputPort.o `test -f 'FileBinaryInputPort.cpp' || echo '$(srcdir)/'`FileBinaryInputPort.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-FileBinaryInputPort.Tpo $(DEPDIR)/test_vector-FileBinaryInputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='FileBinaryInputPort.cpp' object='test_vector-FileBinaryInputPort.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-FileBinaryInputPort.o `test -f 'FileBinaryInputPort.cpp' || echo '$(srcdir)/'`FileBinaryInputPort.cpp
+
+test_vector-FileBinaryInputPort.obj: FileBinaryInputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-FileBinaryInputPort.obj -MD -MP -MF $(DEPDIR)/test_vector-FileBinaryInputPort.Tpo -c -o test_vector-FileBinaryInputPort.obj `if test -f 'FileBinaryInputPort.cpp'; then $(CYGPATH_W) 'FileBinaryInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/FileBinaryInputPort.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-FileBinaryInputPort.Tpo $(DEPDIR)/test_vector-FileBinaryInputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='FileBinaryInputPort.cpp' object='test_vector-FileBinaryInputPort.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-FileBinaryInputPort.obj `if test -f 'FileBinaryInputPort.cpp'; then $(CYGPATH_W) 'FileBinaryInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/FileBinaryInputPort.cpp'; fi`
+
+test_vector-FileBinaryOutputPort.o: FileBinaryOutputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-FileBinaryOutputPort.o -MD -MP -MF $(DEPDIR)/test_vector-FileBinaryOutputPort.Tpo -c -o test_vector-FileBinaryOutputPort.o `test -f 'FileBinaryOutputPort.cpp' || echo '$(srcdir)/'`FileBinaryOutputPort.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-FileBinaryOutputPort.Tpo $(DEPDIR)/test_vector-FileBinaryOutputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='FileBinaryOutputPort.cpp' object='test_vector-FileBinaryOutputPort.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-FileBinaryOutputPort.o `test -f 'FileBinaryOutputPort.cpp' || echo '$(srcdir)/'`FileBinaryOutputPort.cpp
+
+test_vector-FileBinaryOutputPort.obj: FileBinaryOutputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-FileBinaryOutputPort.obj -MD -MP -MF $(DEPDIR)/test_vector-FileBinaryOutputPort.Tpo -c -o test_vector-FileBinaryOutputPort.obj `if test -f 'FileBinaryOutputPort.cpp'; then $(CYGPATH_W) 'FileBinaryOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/FileBinaryOutputPort.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-FileBinaryOutputPort.Tpo $(DEPDIR)/test_vector-FileBinaryOutputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='FileBinaryOutputPort.cpp' object='test_vector-FileBinaryOutputPort.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-FileBinaryOutputPort.obj `if test -f 'FileBinaryOutputPort.cpp'; then $(CYGPATH_W) 'FileBinaryOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/FileBinaryOutputPort.cpp'; fi`
+
+test_vector-CustomBinaryInputPort.o: CustomBinaryInputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-CustomBinaryInputPort.o -MD -MP -MF $(DEPDIR)/test_vector-CustomBinaryInputPort.Tpo -c -o test_vector-CustomBinaryInputPort.o `test -f 'CustomBinaryInputPort.cpp' || echo '$(srcdir)/'`CustomBinaryInputPort.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-CustomBinaryInputPort.Tpo $(DEPDIR)/test_vector-CustomBinaryInputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CustomBinaryInputPort.cpp' object='test_vector-CustomBinaryInputPort.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-CustomBinaryInputPort.o `test -f 'CustomBinaryInputPort.cpp' || echo '$(srcdir)/'`CustomBinaryInputPort.cpp
+
+test_vector-CustomBinaryInputPort.obj: CustomBinaryInputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-CustomBinaryInputPort.obj -MD -MP -MF $(DEPDIR)/test_vector-CustomBinaryInputPort.Tpo -c -o test_vector-CustomBinaryInputPort.obj `if test -f 'CustomBinaryInputPort.cpp'; then $(CYGPATH_W) 'CustomBinaryInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/CustomBinaryInputPort.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-CustomBinaryInputPort.Tpo $(DEPDIR)/test_vector-CustomBinaryInputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CustomBinaryInputPort.cpp' object='test_vector-CustomBinaryInputPort.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-CustomBinaryInputPort.obj `if test -f 'CustomBinaryInputPort.cpp'; then $(CYGPATH_W) 'CustomBinaryInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/CustomBinaryInputPort.cpp'; fi`
+
+test_vector-TextualOutputPort.o: TextualOutputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-TextualOutputPort.o -MD -MP -MF $(DEPDIR)/test_vector-TextualOutputPort.Tpo -c -o test_vector-TextualOutputPort.o `test -f 'TextualOutputPort.cpp' || echo '$(srcdir)/'`TextualOutputPort.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-TextualOutputPort.Tpo $(DEPDIR)/test_vector-TextualOutputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TextualOutputPort.cpp' object='test_vector-TextualOutputPort.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-TextualOutputPort.o `test -f 'TextualOutputPort.cpp' || echo '$(srcdir)/'`TextualOutputPort.cpp
+
+test_vector-TextualOutputPort.obj: TextualOutputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-TextualOutputPort.obj -MD -MP -MF $(DEPDIR)/test_vector-TextualOutputPort.Tpo -c -o test_vector-TextualOutputPort.obj `if test -f 'TextualOutputPort.cpp'; then $(CYGPATH_W) 'TextualOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TextualOutputPort.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-TextualOutputPort.Tpo $(DEPDIR)/test_vector-TextualOutputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TextualOutputPort.cpp' object='test_vector-TextualOutputPort.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-TextualOutputPort.obj `if test -f 'TextualOutputPort.cpp'; then $(CYGPATH_W) 'TextualOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TextualOutputPort.cpp'; fi`
+
+test_vector-TextualByteVectorOutputPort.o: TextualByteVectorOutputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-TextualByteVectorOutputPort.o -MD -MP -MF $(DEPDIR)/test_vector-TextualByteVectorOutputPort.Tpo -c -o test_vector-TextualByteVectorOutputPort.o `test -f 'TextualByteVectorOutputPort.cpp' || echo '$(srcdir)/'`TextualByteVectorOutputPort.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-TextualByteVectorOutputPort.Tpo $(DEPDIR)/test_vector-TextualByteVectorOutputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TextualByteVectorOutputPort.cpp' object='test_vector-TextualByteVectorOutputPort.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-TextualByteVectorOutputPort.o `test -f 'TextualByteVectorOutputPort.cpp' || echo '$(srcdir)/'`TextualByteVectorOutputPort.cpp
+
+test_vector-TextualByteVectorOutputPort.obj: TextualByteVectorOutputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-TextualByteVectorOutputPort.obj -MD -MP -MF $(DEPDIR)/test_vector-TextualByteVectorOutputPort.Tpo -c -o test_vector-TextualByteVectorOutputPort.obj `if test -f 'TextualByteVectorOutputPort.cpp'; then $(CYGPATH_W) 'TextualByteVectorOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TextualByteVectorOutputPort.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-TextualByteVectorOutputPort.Tpo $(DEPDIR)/test_vector-TextualByteVectorOutputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TextualByteVectorOutputPort.cpp' object='test_vector-TextualByteVectorOutputPort.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-TextualByteVectorOutputPort.obj `if test -f 'TextualByteVectorOutputPort.cpp'; then $(CYGPATH_W) 'TextualByteVectorOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TextualByteVectorOutputPort.cpp'; fi`
+
+test_vector-TextualInputPort.o: TextualInputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-TextualInputPort.o -MD -MP -MF $(DEPDIR)/test_vector-TextualInputPort.Tpo -c -o test_vector-TextualInputPort.o `test -f 'TextualInputPort.cpp' || echo '$(srcdir)/'`TextualInputPort.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-TextualInputPort.Tpo $(DEPDIR)/test_vector-TextualInputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TextualInputPort.cpp' object='test_vector-TextualInputPort.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-TextualInputPort.o `test -f 'TextualInputPort.cpp' || echo '$(srcdir)/'`TextualInputPort.cpp
+
+test_vector-TextualInputPort.obj: TextualInputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-TextualInputPort.obj -MD -MP -MF $(DEPDIR)/test_vector-TextualInputPort.Tpo -c -o test_vector-TextualInputPort.obj `if test -f 'TextualInputPort.cpp'; then $(CYGPATH_W) 'TextualInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TextualInputPort.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-TextualInputPort.Tpo $(DEPDIR)/test_vector-TextualInputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TextualInputPort.cpp' object='test_vector-TextualInputPort.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-TextualInputPort.obj `if test -f 'TextualInputPort.cpp'; then $(CYGPATH_W) 'TextualInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TextualInputPort.cpp'; fi`
+
+test_vector-StringTextualOutputPort.o: StringTextualOutputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-StringTextualOutputPort.o -MD -MP -MF $(DEPDIR)/test_vector-StringTextualOutputPort.Tpo -c -o test_vector-StringTextualOutputPort.o `test -f 'StringTextualOutputPort.cpp' || echo '$(srcdir)/'`StringTextualOutputPort.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-StringTextualOutputPort.Tpo $(DEPDIR)/test_vector-StringTextualOutputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='StringTextualOutputPort.cpp' object='test_vector-StringTextualOutputPort.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-StringTextualOutputPort.o `test -f 'StringTextualOutputPort.cpp' || echo '$(srcdir)/'`StringTextualOutputPort.cpp
+
+test_vector-StringTextualOutputPort.obj: StringTextualOutputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-StringTextualOutputPort.obj -MD -MP -MF $(DEPDIR)/test_vector-StringTextualOutputPort.Tpo -c -o test_vector-StringTextualOutputPort.obj `if test -f 'StringTextualOutputPort.cpp'; then $(CYGPATH_W) 'StringTextualOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/StringTextualOutputPort.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-StringTextualOutputPort.Tpo $(DEPDIR)/test_vector-StringTextualOutputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='StringTextualOutputPort.cpp' object='test_vector-StringTextualOutputPort.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-StringTextualOutputPort.obj `if test -f 'StringTextualOutputPort.cpp'; then $(CYGPATH_W) 'StringTextualOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/StringTextualOutputPort.cpp'; fi`
+
+test_vector-StringTextualInputPort.o: StringTextualInputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-StringTextualInputPort.o -MD -MP -MF $(DEPDIR)/test_vector-StringTextualInputPort.Tpo -c -o test_vector-StringTextualInputPort.o `test -f 'StringTextualInputPort.cpp' || echo '$(srcdir)/'`StringTextualInputPort.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-StringTextualInputPort.Tpo $(DEPDIR)/test_vector-StringTextualInputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='StringTextualInputPort.cpp' object='test_vector-StringTextualInputPort.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-StringTextualInputPort.o `test -f 'StringTextualInputPort.cpp' || echo '$(srcdir)/'`StringTextualInputPort.cpp
+
+test_vector-StringTextualInputPort.obj: StringTextualInputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-StringTextualInputPort.obj -MD -MP -MF $(DEPDIR)/test_vector-StringTextualInputPort.Tpo -c -o test_vector-StringTextualInputPort.obj `if test -f 'StringTextualInputPort.cpp'; then $(CYGPATH_W) 'StringTextualInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/StringTextualInputPort.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-StringTextualInputPort.Tpo $(DEPDIR)/test_vector-StringTextualInputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='StringTextualInputPort.cpp' object='test_vector-StringTextualInputPort.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-StringTextualInputPort.obj `if test -f 'StringTextualInputPort.cpp'; then $(CYGPATH_W) 'StringTextualInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/StringTextualInputPort.cpp'; fi`
+
+test_vector-UTF8Codec.o: UTF8Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-UTF8Codec.o -MD -MP -MF $(DEPDIR)/test_vector-UTF8Codec.Tpo -c -o test_vector-UTF8Codec.o `test -f 'UTF8Codec.cpp' || echo '$(srcdir)/'`UTF8Codec.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-UTF8Codec.Tpo $(DEPDIR)/test_vector-UTF8Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UTF8Codec.cpp' object='test_vector-UTF8Codec.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-UTF8Codec.o `test -f 'UTF8Codec.cpp' || echo '$(srcdir)/'`UTF8Codec.cpp
+
+test_vector-UTF8Codec.obj: UTF8Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-UTF8Codec.obj -MD -MP -MF $(DEPDIR)/test_vector-UTF8Codec.Tpo -c -o test_vector-UTF8Codec.obj `if test -f 'UTF8Codec.cpp'; then $(CYGPATH_W) 'UTF8Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/UTF8Codec.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-UTF8Codec.Tpo $(DEPDIR)/test_vector-UTF8Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UTF8Codec.cpp' object='test_vector-UTF8Codec.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-UTF8Codec.obj `if test -f 'UTF8Codec.cpp'; then $(CYGPATH_W) 'UTF8Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/UTF8Codec.cpp'; fi`
+
+test_vector-UTF16Codec.o: UTF16Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-UTF16Codec.o -MD -MP -MF $(DEPDIR)/test_vector-UTF16Codec.Tpo -c -o test_vector-UTF16Codec.o `test -f 'UTF16Codec.cpp' || echo '$(srcdir)/'`UTF16Codec.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-UTF16Codec.Tpo $(DEPDIR)/test_vector-UTF16Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UTF16Codec.cpp' object='test_vector-UTF16Codec.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-UTF16Codec.o `test -f 'UTF16Codec.cpp' || echo '$(srcdir)/'`UTF16Codec.cpp
+
+test_vector-UTF16Codec.obj: UTF16Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-UTF16Codec.obj -MD -MP -MF $(DEPDIR)/test_vector-UTF16Codec.Tpo -c -o test_vector-UTF16Codec.obj `if test -f 'UTF16Codec.cpp'; then $(CYGPATH_W) 'UTF16Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/UTF16Codec.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-UTF16Codec.Tpo $(DEPDIR)/test_vector-UTF16Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UTF16Codec.cpp' object='test_vector-UTF16Codec.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-UTF16Codec.obj `if test -f 'UTF16Codec.cpp'; then $(CYGPATH_W) 'UTF16Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/UTF16Codec.cpp'; fi`
+
+test_vector-UTF32Codec.o: UTF32Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-UTF32Codec.o -MD -MP -MF $(DEPDIR)/test_vector-UTF32Codec.Tpo -c -o test_vector-UTF32Codec.o `test -f 'UTF32Codec.cpp' || echo '$(srcdir)/'`UTF32Codec.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-UTF32Codec.Tpo $(DEPDIR)/test_vector-UTF32Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UTF32Codec.cpp' object='test_vector-UTF32Codec.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-UTF32Codec.o `test -f 'UTF32Codec.cpp' || echo '$(srcdir)/'`UTF32Codec.cpp
+
+test_vector-UTF32Codec.obj: UTF32Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-UTF32Codec.obj -MD -MP -MF $(DEPDIR)/test_vector-UTF32Codec.Tpo -c -o test_vector-UTF32Codec.obj `if test -f 'UTF32Codec.cpp'; then $(CYGPATH_W) 'UTF32Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/UTF32Codec.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-UTF32Codec.Tpo $(DEPDIR)/test_vector-UTF32Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UTF32Codec.cpp' object='test_vector-UTF32Codec.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-UTF32Codec.obj `if test -f 'UTF32Codec.cpp'; then $(CYGPATH_W) 'UTF32Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/UTF32Codec.cpp'; fi`
+
+test_vector-EqHashTable.o: EqHashTable.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-EqHashTable.o -MD -MP -MF $(DEPDIR)/test_vector-EqHashTable.Tpo -c -o test_vector-EqHashTable.o `test -f 'EqHashTable.cpp' || echo '$(srcdir)/'`EqHashTable.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-EqHashTable.Tpo $(DEPDIR)/test_vector-EqHashTable.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='EqHashTable.cpp' object='test_vector-EqHashTable.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-EqHashTable.o `test -f 'EqHashTable.cpp' || echo '$(srcdir)/'`EqHashTable.cpp
+
+test_vector-EqHashTable.obj: EqHashTable.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-EqHashTable.obj -MD -MP -MF $(DEPDIR)/test_vector-EqHashTable.Tpo -c -o test_vector-EqHashTable.obj `if test -f 'EqHashTable.cpp'; then $(CYGPATH_W) 'EqHashTable.cpp'; else $(CYGPATH_W) '$(srcdir)/EqHashTable.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-EqHashTable.Tpo $(DEPDIR)/test_vector-EqHashTable.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='EqHashTable.cpp' object='test_vector-EqHashTable.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-EqHashTable.obj `if test -f 'EqHashTable.cpp'; then $(CYGPATH_W) 'EqHashTable.cpp'; else $(CYGPATH_W) '$(srcdir)/EqHashTable.cpp'; fi`
+
+test_vector-SString.o: SString.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-SString.o -MD -MP -MF $(DEPDIR)/test_vector-SString.Tpo -c -o test_vector-SString.o `test -f 'SString.cpp' || echo '$(srcdir)/'`SString.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-SString.Tpo $(DEPDIR)/test_vector-SString.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='SString.cpp' object='test_vector-SString.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-SString.o `test -f 'SString.cpp' || echo '$(srcdir)/'`SString.cpp
+
+test_vector-SString.obj: SString.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-SString.obj -MD -MP -MF $(DEPDIR)/test_vector-SString.Tpo -c -o test_vector-SString.obj `if test -f 'SString.cpp'; then $(CYGPATH_W) 'SString.cpp'; else $(CYGPATH_W) '$(srcdir)/SString.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-SString.Tpo $(DEPDIR)/test_vector-SString.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='SString.cpp' object='test_vector-SString.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-SString.obj `if test -f 'SString.cpp'; then $(CYGPATH_W) 'SString.cpp'; else $(CYGPATH_W) '$(srcdir)/SString.cpp'; fi`
+
+test_vector-GenericHashTable.o: GenericHashTable.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-GenericHashTable.o -MD -MP -MF $(DEPDIR)/test_vector-GenericHashTable.Tpo -c -o test_vector-GenericHashTable.o `test -f 'GenericHashTable.cpp' || echo '$(srcdir)/'`GenericHashTable.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-GenericHashTable.Tpo $(DEPDIR)/test_vector-GenericHashTable.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='GenericHashTable.cpp' object='test_vector-GenericHashTable.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-GenericHashTable.o `test -f 'GenericHashTable.cpp' || echo '$(srcdir)/'`GenericHashTable.cpp
+
+test_vector-GenericHashTable.obj: GenericHashTable.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-GenericHashTable.obj -MD -MP -MF $(DEPDIR)/test_vector-GenericHashTable.Tpo -c -o test_vector-GenericHashTable.obj `if test -f 'GenericHashTable.cpp'; then $(CYGPATH_W) 'GenericHashTable.cpp'; else $(CYGPATH_W) '$(srcdir)/GenericHashTable.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-GenericHashTable.Tpo $(DEPDIR)/test_vector-GenericHashTable.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='GenericHashTable.cpp' object='test_vector-GenericHashTable.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-GenericHashTable.obj `if test -f 'GenericHashTable.cpp'; then $(CYGPATH_W) 'GenericHashTable.cpp'; else $(CYGPATH_W) '$(srcdir)/GenericHashTable.cpp'; fi`
+
+test_vector-Object.o: Object.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Object.o -MD -MP -MF $(DEPDIR)/test_vector-Object.Tpo -c -o test_vector-Object.o `test -f 'Object.cpp' || echo '$(srcdir)/'`Object.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Object.Tpo $(DEPDIR)/test_vector-Object.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Object.cpp' object='test_vector-Object.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Object.o `test -f 'Object.cpp' || echo '$(srcdir)/'`Object.cpp
+
+test_vector-Object.obj: Object.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Object.obj -MD -MP -MF $(DEPDIR)/test_vector-Object.Tpo -c -o test_vector-Object.obj `if test -f 'Object.cpp'; then $(CYGPATH_W) 'Object.cpp'; else $(CYGPATH_W) '$(srcdir)/Object.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Object.Tpo $(DEPDIR)/test_vector-Object.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Object.cpp' object='test_vector-Object.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Object.obj `if test -f 'Object.cpp'; then $(CYGPATH_W) 'Object.cpp'; else $(CYGPATH_W) '$(srcdir)/Object.cpp'; fi`
+
+test_vector-RecordTypeDescriptor.o: RecordTypeDescriptor.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-RecordTypeDescriptor.o -MD -MP -MF $(DEPDIR)/test_vector-RecordTypeDescriptor.Tpo -c -o test_vector-RecordTypeDescriptor.o `test -f 'RecordTypeDescriptor.cpp' || echo '$(srcdir)/'`RecordTypeDescriptor.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-RecordTypeDescriptor.Tpo $(DEPDIR)/test_vector-RecordTypeDescriptor.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RecordTypeDescriptor.cpp' object='test_vector-RecordTypeDescriptor.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-RecordTypeDescriptor.o `test -f 'RecordTypeDescriptor.cpp' || echo '$(srcdir)/'`RecordTypeDescriptor.cpp
+
+test_vector-RecordTypeDescriptor.obj: RecordTypeDescriptor.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-RecordTypeDescriptor.obj -MD -MP -MF $(DEPDIR)/test_vector-RecordTypeDescriptor.Tpo -c -o test_vector-RecordTypeDescriptor.obj `if test -f 'RecordTypeDescriptor.cpp'; then $(CYGPATH_W) 'RecordTypeDescriptor.cpp'; else $(CYGPATH_W) '$(srcdir)/RecordTypeDescriptor.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-RecordTypeDescriptor.Tpo $(DEPDIR)/test_vector-RecordTypeDescriptor.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RecordTypeDescriptor.cpp' object='test_vector-RecordTypeDescriptor.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-RecordTypeDescriptor.obj `if test -f 'RecordTypeDescriptor.cpp'; then $(CYGPATH_W) 'RecordTypeDescriptor.cpp'; else $(CYGPATH_W) '$(srcdir)/RecordTypeDescriptor.cpp'; fi`
+
+test_vector-RecordConstructorDescriptor.o: RecordConstructorDescriptor.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-RecordConstructorDescriptor.o -MD -MP -MF $(DEPDIR)/test_vector-RecordConstructorDescriptor.Tpo -c -o test_vector-RecordConstructorDescriptor.o `test -f 'RecordConstructorDescriptor.cpp' || echo '$(srcdir)/'`RecordConstructorDescriptor.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-RecordConstructorDescriptor.Tpo $(DEPDIR)/test_vector-RecordConstructorDescriptor.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RecordConstructorDescriptor.cpp' object='test_vector-RecordConstructorDescriptor.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-RecordConstructorDescriptor.o `test -f 'RecordConstructorDescriptor.cpp' || echo '$(srcdir)/'`RecordConstructorDescriptor.cpp
+
+test_vector-RecordConstructorDescriptor.obj: RecordConstructorDescriptor.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-RecordConstructorDescriptor.obj -MD -MP -MF $(DEPDIR)/test_vector-RecordConstructorDescriptor.Tpo -c -o test_vector-RecordConstructorDescriptor.obj `if test -f 'RecordConstructorDescriptor.cpp'; then $(CYGPATH_W) 'RecordConstructorDescriptor.cpp'; else $(CYGPATH_W) '$(srcdir)/RecordConstructorDescriptor.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-RecordConstructorDescriptor.Tpo $(DEPDIR)/test_vector-RecordConstructorDescriptor.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RecordConstructorDescriptor.cpp' object='test_vector-RecordConstructorDescriptor.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-RecordConstructorDescriptor.obj `if test -f 'RecordConstructorDescriptor.cpp'; then $(CYGPATH_W) 'RecordConstructorDescriptor.cpp'; else $(CYGPATH_W) '$(srcdir)/RecordConstructorDescriptor.cpp'; fi`
+
+test_vector-Record.o: Record.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Record.o -MD -MP -MF $(DEPDIR)/test_vector-Record.Tpo -c -o test_vector-Record.o `test -f 'Record.cpp' || echo '$(srcdir)/'`Record.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Record.Tpo $(DEPDIR)/test_vector-Record.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Record.cpp' object='test_vector-Record.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Record.o `test -f 'Record.cpp' || echo '$(srcdir)/'`Record.cpp
+
+test_vector-Record.obj: Record.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Record.obj -MD -MP -MF $(DEPDIR)/test_vector-Record.Tpo -c -o test_vector-Record.obj `if test -f 'Record.cpp'; then $(CYGPATH_W) 'Record.cpp'; else $(CYGPATH_W) '$(srcdir)/Record.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Record.Tpo $(DEPDIR)/test_vector-Record.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Record.cpp' object='test_vector-Record.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Record.obj `if test -f 'Record.cpp'; then $(CYGPATH_W) 'Record.cpp'; else $(CYGPATH_W) '$(srcdir)/Record.cpp'; fi`
+
+test_vector-RecordProcedures.o: RecordProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-RecordProcedures.o -MD -MP -MF $(DEPDIR)/test_vector-RecordProcedures.Tpo -c -o test_vector-RecordProcedures.o `test -f 'RecordProcedures.cpp' || echo '$(srcdir)/'`RecordProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-RecordProcedures.Tpo $(DEPDIR)/test_vector-RecordProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RecordProcedures.cpp' object='test_vector-RecordProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-RecordProcedures.o `test -f 'RecordProcedures.cpp' || echo '$(srcdir)/'`RecordProcedures.cpp
+
+test_vector-RecordProcedures.obj: RecordProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-RecordProcedures.obj -MD -MP -MF $(DEPDIR)/test_vector-RecordProcedures.Tpo -c -o test_vector-RecordProcedures.obj `if test -f 'RecordProcedures.cpp'; then $(CYGPATH_W) 'RecordProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/RecordProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-RecordProcedures.Tpo $(DEPDIR)/test_vector-RecordProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RecordProcedures.cpp' object='test_vector-RecordProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-RecordProcedures.obj `if test -f 'RecordProcedures.cpp'; then $(CYGPATH_W) 'RecordProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/RecordProcedures.cpp'; fi`
+
+test_vector-ConditionProcedures.o: ConditionProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-ConditionProcedures.o -MD -MP -MF $(DEPDIR)/test_vector-ConditionProcedures.Tpo -c -o test_vector-ConditionProcedures.o `test -f 'ConditionProcedures.cpp' || echo '$(srcdir)/'`ConditionProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-ConditionProcedures.Tpo $(DEPDIR)/test_vector-ConditionProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ConditionProcedures.cpp' object='test_vector-ConditionProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-ConditionProcedures.o `test -f 'ConditionProcedures.cpp' || echo '$(srcdir)/'`ConditionProcedures.cpp
+
+test_vector-ConditionProcedures.obj: ConditionProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-ConditionProcedures.obj -MD -MP -MF $(DEPDIR)/test_vector-ConditionProcedures.Tpo -c -o test_vector-ConditionProcedures.obj `if test -f 'ConditionProcedures.cpp'; then $(CYGPATH_W) 'ConditionProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ConditionProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-ConditionProcedures.Tpo $(DEPDIR)/test_vector-ConditionProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ConditionProcedures.cpp' object='test_vector-ConditionProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-ConditionProcedures.obj `if test -f 'ConditionProcedures.cpp'; then $(CYGPATH_W) 'ConditionProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ConditionProcedures.cpp'; fi`
+
+test_vector-CompilerProcedures.o: CompilerProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-CompilerProcedures.o -MD -MP -MF $(DEPDIR)/test_vector-CompilerProcedures.Tpo -c -o test_vector-CompilerProcedures.o `test -f 'CompilerProcedures.cpp' || echo '$(srcdir)/'`CompilerProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-CompilerProcedures.Tpo $(DEPDIR)/test_vector-CompilerProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CompilerProcedures.cpp' object='test_vector-CompilerProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-CompilerProcedures.o `test -f 'CompilerProcedures.cpp' || echo '$(srcdir)/'`CompilerProcedures.cpp
+
+test_vector-CompilerProcedures.obj: CompilerProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-CompilerProcedures.obj -MD -MP -MF $(DEPDIR)/test_vector-CompilerProcedures.Tpo -c -o test_vector-CompilerProcedures.obj `if test -f 'CompilerProcedures.cpp'; then $(CYGPATH_W) 'CompilerProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/CompilerProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-CompilerProcedures.Tpo $(DEPDIR)/test_vector-CompilerProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CompilerProcedures.cpp' object='test_vector-CompilerProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-CompilerProcedures.obj `if test -f 'CompilerProcedures.cpp'; then $(CYGPATH_W) 'CompilerProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/CompilerProcedures.cpp'; fi`
+
+test_vector-HashTableProceduures.o: HashTableProceduures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-HashTableProceduures.o -MD -MP -MF $(DEPDIR)/test_vector-HashTableProceduures.Tpo -c -o test_vector-HashTableProceduures.o `test -f 'HashTableProceduures.cpp' || echo '$(srcdir)/'`HashTableProceduures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-HashTableProceduures.Tpo $(DEPDIR)/test_vector-HashTableProceduures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='HashTableProceduures.cpp' object='test_vector-HashTableProceduures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-HashTableProceduures.o `test -f 'HashTableProceduures.cpp' || echo '$(srcdir)/'`HashTableProceduures.cpp
+
+test_vector-HashTableProceduures.obj: HashTableProceduures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-HashTableProceduures.obj -MD -MP -MF $(DEPDIR)/test_vector-HashTableProceduures.Tpo -c -o test_vector-HashTableProceduures.obj `if test -f 'HashTableProceduures.cpp'; then $(CYGPATH_W) 'HashTableProceduures.cpp'; else $(CYGPATH_W) '$(srcdir)/HashTableProceduures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-HashTableProceduures.Tpo $(DEPDIR)/test_vector-HashTableProceduures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='HashTableProceduures.cpp' object='test_vector-HashTableProceduures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-HashTableProceduures.obj `if test -f 'HashTableProceduures.cpp'; then $(CYGPATH_W) 'HashTableProceduures.cpp'; else $(CYGPATH_W) '$(srcdir)/HashTableProceduures.cpp'; fi`
+
+test_vector-RegexpProcedures.o: RegexpProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-RegexpProcedures.o -MD -MP -MF $(DEPDIR)/test_vector-RegexpProcedures.Tpo -c -o test_vector-RegexpProcedures.o `test -f 'RegexpProcedures.cpp' || echo '$(srcdir)/'`RegexpProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-RegexpProcedures.Tpo $(DEPDIR)/test_vector-RegexpProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RegexpProcedures.cpp' object='test_vector-RegexpProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-RegexpProcedures.o `test -f 'RegexpProcedures.cpp' || echo '$(srcdir)/'`RegexpProcedures.cpp
+
+test_vector-RegexpProcedures.obj: RegexpProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-RegexpProcedures.obj -MD -MP -MF $(DEPDIR)/test_vector-RegexpProcedures.Tpo -c -o test_vector-RegexpProcedures.obj `if test -f 'RegexpProcedures.cpp'; then $(CYGPATH_W) 'RegexpProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/RegexpProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-RegexpProcedures.Tpo $(DEPDIR)/test_vector-RegexpProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RegexpProcedures.cpp' object='test_vector-RegexpProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-RegexpProcedures.obj `if test -f 'RegexpProcedures.cpp'; then $(CYGPATH_W) 'RegexpProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/RegexpProcedures.cpp'; fi`
+
+test_vector-StringProcedures.o: StringProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-StringProcedures.o -MD -MP -MF $(DEPDIR)/test_vector-StringProcedures.Tpo -c -o test_vector-StringProcedures.o `test -f 'StringProcedures.cpp' || echo '$(srcdir)/'`StringProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-StringProcedures.Tpo $(DEPDIR)/test_vector-StringProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='StringProcedures.cpp' object='test_vector-StringProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-StringProcedures.o `test -f 'StringProcedures.cpp' || echo '$(srcdir)/'`StringProcedures.cpp
+
+test_vector-StringProcedures.obj: StringProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-StringProcedures.obj -MD -MP -MF $(DEPDIR)/test_vector-StringProcedures.Tpo -c -o test_vector-StringProcedures.obj `if test -f 'StringProcedures.cpp'; then $(CYGPATH_W) 'StringProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/StringProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-StringProcedures.Tpo $(DEPDIR)/test_vector-StringProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='StringProcedures.cpp' object='test_vector-StringProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-StringProcedures.obj `if test -f 'StringProcedures.cpp'; then $(CYGPATH_W) 'StringProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/StringProcedures.cpp'; fi`
+
+test_vector-PortProcedures.o: PortProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-PortProcedures.o -MD -MP -MF $(DEPDIR)/test_vector-PortProcedures.Tpo -c -o test_vector-PortProcedures.o `test -f 'PortProcedures.cpp' || echo '$(srcdir)/'`PortProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-PortProcedures.Tpo $(DEPDIR)/test_vector-PortProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='PortProcedures.cpp' object='test_vector-PortProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-PortProcedures.o `test -f 'PortProcedures.cpp' || echo '$(srcdir)/'`PortProcedures.cpp
+
+test_vector-PortProcedures.obj: PortProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-PortProcedures.obj -MD -MP -MF $(DEPDIR)/test_vector-PortProcedures.Tpo -c -o test_vector-PortProcedures.obj `if test -f 'PortProcedures.cpp'; then $(CYGPATH_W) 'PortProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/PortProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-PortProcedures.Tpo $(DEPDIR)/test_vector-PortProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='PortProcedures.cpp' object='test_vector-PortProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-PortProcedures.obj `if test -f 'PortProcedures.cpp'; then $(CYGPATH_W) 'PortProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/PortProcedures.cpp'; fi`
+
+test_vector-ListProcedures.o: ListProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-ListProcedures.o -MD -MP -MF $(DEPDIR)/test_vector-ListProcedures.Tpo -c -o test_vector-ListProcedures.o `test -f 'ListProcedures.cpp' || echo '$(srcdir)/'`ListProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-ListProcedures.Tpo $(DEPDIR)/test_vector-ListProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ListProcedures.cpp' object='test_vector-ListProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-ListProcedures.o `test -f 'ListProcedures.cpp' || echo '$(srcdir)/'`ListProcedures.cpp
+
+test_vector-ListProcedures.obj: ListProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-ListProcedures.obj -MD -MP -MF $(DEPDIR)/test_vector-ListProcedures.Tpo -c -o test_vector-ListProcedures.obj `if test -f 'ListProcedures.cpp'; then $(CYGPATH_W) 'ListProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ListProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-ListProcedures.Tpo $(DEPDIR)/test_vector-ListProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ListProcedures.cpp' object='test_vector-ListProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-ListProcedures.obj `if test -f 'ListProcedures.cpp'; then $(CYGPATH_W) 'ListProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ListProcedures.cpp'; fi`
+
+test_vector-ErrorProcedures.o: ErrorProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-ErrorProcedures.o -MD -MP -MF $(DEPDIR)/test_vector-ErrorProcedures.Tpo -c -o test_vector-ErrorProcedures.o `test -f 'ErrorProcedures.cpp' || echo '$(srcdir)/'`ErrorProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-ErrorProcedures.Tpo $(DEPDIR)/test_vector-ErrorProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ErrorProcedures.cpp' object='test_vector-ErrorProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-ErrorProcedures.o `test -f 'ErrorProcedures.cpp' || echo '$(srcdir)/'`ErrorProcedures.cpp
+
+test_vector-ErrorProcedures.obj: ErrorProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-ErrorProcedures.obj -MD -MP -MF $(DEPDIR)/test_vector-ErrorProcedures.Tpo -c -o test_vector-ErrorProcedures.obj `if test -f 'ErrorProcedures.cpp'; then $(CYGPATH_W) 'ErrorProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ErrorProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-ErrorProcedures.Tpo $(DEPDIR)/test_vector-ErrorProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ErrorProcedures.cpp' object='test_vector-ErrorProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-ErrorProcedures.obj `if test -f 'ErrorProcedures.cpp'; then $(CYGPATH_W) 'ErrorProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ErrorProcedures.cpp'; fi`
+
+test_vector-ArithmeticProcedures.o: ArithmeticProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-ArithmeticProcedures.o -MD -MP -MF $(DEPDIR)/test_vector-ArithmeticProcedures.Tpo -c -o test_vector-ArithmeticProcedures.o `test -f 'ArithmeticProcedures.cpp' || echo '$(srcdir)/'`ArithmeticProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-ArithmeticProcedures.Tpo $(DEPDIR)/test_vector-ArithmeticProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ArithmeticProcedures.cpp' object='test_vector-ArithmeticProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-ArithmeticProcedures.o `test -f 'ArithmeticProcedures.cpp' || echo '$(srcdir)/'`ArithmeticProcedures.cpp
+
+test_vector-ArithmeticProcedures.obj: ArithmeticProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-ArithmeticProcedures.obj -MD -MP -MF $(DEPDIR)/test_vector-ArithmeticProcedures.Tpo -c -o test_vector-ArithmeticProcedures.obj `if test -f 'ArithmeticProcedures.cpp'; then $(CYGPATH_W) 'ArithmeticProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ArithmeticProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-ArithmeticProcedures.Tpo $(DEPDIR)/test_vector-ArithmeticProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ArithmeticProcedures.cpp' object='test_vector-ArithmeticProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-ArithmeticProcedures.obj `if test -f 'ArithmeticProcedures.cpp'; then $(CYGPATH_W) 'ArithmeticProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ArithmeticProcedures.cpp'; fi`
+
+test_vector-FlonumProcedures.o: FlonumProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-FlonumProcedures.o -MD -MP -MF $(DEPDIR)/test_vector-FlonumProcedures.Tpo -c -o test_vector-FlonumProcedures.o `test -f 'FlonumProcedures.cpp' || echo '$(srcdir)/'`FlonumProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-FlonumProcedures.Tpo $(DEPDIR)/test_vector-FlonumProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='FlonumProcedures.cpp' object='test_vector-FlonumProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-FlonumProcedures.o `test -f 'FlonumProcedures.cpp' || echo '$(srcdir)/'`FlonumProcedures.cpp
+
+test_vector-FlonumProcedures.obj: FlonumProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-FlonumProcedures.obj -MD -MP -MF $(DEPDIR)/test_vector-FlonumProcedures.Tpo -c -o test_vector-FlonumProcedures.obj `if test -f 'FlonumProcedures.cpp'; then $(CYGPATH_W) 'FlonumProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/FlonumProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-FlonumProcedures.Tpo $(DEPDIR)/test_vector-FlonumProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='FlonumProcedures.cpp' object='test_vector-FlonumProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-FlonumProcedures.obj `if test -f 'FlonumProcedures.cpp'; then $(CYGPATH_W) 'FlonumProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/FlonumProcedures.cpp'; fi`
+
+test_vector-BitwiseProcedures.o: BitwiseProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-BitwiseProcedures.o -MD -MP -MF $(DEPDIR)/test_vector-BitwiseProcedures.Tpo -c -o test_vector-BitwiseProcedures.o `test -f 'BitwiseProcedures.cpp' || echo '$(srcdir)/'`BitwiseProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-BitwiseProcedures.Tpo $(DEPDIR)/test_vector-BitwiseProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='BitwiseProcedures.cpp' object='test_vector-BitwiseProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-BitwiseProcedures.o `test -f 'BitwiseProcedures.cpp' || echo '$(srcdir)/'`BitwiseProcedures.cpp
+
+test_vector-BitwiseProcedures.obj: BitwiseProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-BitwiseProcedures.obj -MD -MP -MF $(DEPDIR)/test_vector-BitwiseProcedures.Tpo -c -o test_vector-BitwiseProcedures.obj `if test -f 'BitwiseProcedures.cpp'; then $(CYGPATH_W) 'BitwiseProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/BitwiseProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-BitwiseProcedures.Tpo $(DEPDIR)/test_vector-BitwiseProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='BitwiseProcedures.cpp' object='test_vector-BitwiseProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-BitwiseProcedures.obj `if test -f 'BitwiseProcedures.cpp'; then $(CYGPATH_W) 'BitwiseProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/BitwiseProcedures.cpp'; fi`
+
+test_vector-ByteVectorProcedures.o: ByteVectorProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-ByteVectorProcedures.o -MD -MP -MF $(DEPDIR)/test_vector-ByteVectorProcedures.Tpo -c -o test_vector-ByteVectorProcedures.o `test -f 'ByteVectorProcedures.cpp' || echo '$(srcdir)/'`ByteVectorProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-ByteVectorProcedures.Tpo $(DEPDIR)/test_vector-ByteVectorProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ByteVectorProcedures.cpp' object='test_vector-ByteVectorProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-ByteVectorProcedures.o `test -f 'ByteVectorProcedures.cpp' || echo '$(srcdir)/'`ByteVectorProcedures.cpp
+
+test_vector-ByteVectorProcedures.obj: ByteVectorProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-ByteVectorProcedures.obj -MD -MP -MF $(DEPDIR)/test_vector-ByteVectorProcedures.Tpo -c -o test_vector-ByteVectorProcedures.obj `if test -f 'ByteVectorProcedures.cpp'; then $(CYGPATH_W) 'ByteVectorProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ByteVectorProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-ByteVectorProcedures.Tpo $(DEPDIR)/test_vector-ByteVectorProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ByteVectorProcedures.cpp' object='test_vector-ByteVectorProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-ByteVectorProcedures.obj `if test -f 'ByteVectorProcedures.cpp'; then $(CYGPATH_W) 'ByteVectorProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ByteVectorProcedures.cpp'; fi`
+
+test_vector-Equivalent.o: Equivalent.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Equivalent.o -MD -MP -MF $(DEPDIR)/test_vector-Equivalent.Tpo -c -o test_vector-Equivalent.o `test -f 'Equivalent.cpp' || echo '$(srcdir)/'`Equivalent.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Equivalent.Tpo $(DEPDIR)/test_vector-Equivalent.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Equivalent.cpp' object='test_vector-Equivalent.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Equivalent.o `test -f 'Equivalent.cpp' || echo '$(srcdir)/'`Equivalent.cpp
+
+test_vector-Equivalent.obj: Equivalent.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Equivalent.obj -MD -MP -MF $(DEPDIR)/test_vector-Equivalent.Tpo -c -o test_vector-Equivalent.obj `if test -f 'Equivalent.cpp'; then $(CYGPATH_W) 'Equivalent.cpp'; else $(CYGPATH_W) '$(srcdir)/Equivalent.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Equivalent.Tpo $(DEPDIR)/test_vector-Equivalent.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Equivalent.cpp' object='test_vector-Equivalent.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Equivalent.obj `if test -f 'Equivalent.cpp'; then $(CYGPATH_W) 'Equivalent.cpp'; else $(CYGPATH_W) '$(srcdir)/Equivalent.cpp'; fi`
+
+test_vector-CompoundCondition.o: CompoundCondition.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-CompoundCondition.o -MD -MP -MF $(DEPDIR)/test_vector-CompoundCondition.Tpo -c -o test_vector-CompoundCondition.o `test -f 'CompoundCondition.cpp' || echo '$(srcdir)/'`CompoundCondition.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-CompoundCondition.Tpo $(DEPDIR)/test_vector-CompoundCondition.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CompoundCondition.cpp' object='test_vector-CompoundCondition.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-CompoundCondition.o `test -f 'CompoundCondition.cpp' || echo '$(srcdir)/'`CompoundCondition.cpp
+
+test_vector-CompoundCondition.obj: CompoundCondition.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-CompoundCondition.obj -MD -MP -MF $(DEPDIR)/test_vector-CompoundCondition.Tpo -c -o test_vector-CompoundCondition.obj `if test -f 'CompoundCondition.cpp'; then $(CYGPATH_W) 'CompoundCondition.cpp'; else $(CYGPATH_W) '$(srcdir)/CompoundCondition.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-CompoundCondition.Tpo $(DEPDIR)/test_vector-CompoundCondition.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CompoundCondition.cpp' object='test_vector-CompoundCondition.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-CompoundCondition.obj `if test -f 'CompoundCondition.cpp'; then $(CYGPATH_W) 'CompoundCondition.cpp'; else $(CYGPATH_W) '$(srcdir)/CompoundCondition.cpp'; fi`
+
+test_vector-ucs4string.o: ucs4string.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-ucs4string.o -MD -MP -MF $(DEPDIR)/test_vector-ucs4string.Tpo -c -o test_vector-ucs4string.o `test -f 'ucs4string.cpp' || echo '$(srcdir)/'`ucs4string.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-ucs4string.Tpo $(DEPDIR)/test_vector-ucs4string.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ucs4string.cpp' object='test_vector-ucs4string.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-ucs4string.o `test -f 'ucs4string.cpp' || echo '$(srcdir)/'`ucs4string.cpp
+
+test_vector-ucs4string.obj: ucs4string.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-ucs4string.obj -MD -MP -MF $(DEPDIR)/test_vector-ucs4string.Tpo -c -o test_vector-ucs4string.obj `if test -f 'ucs4string.cpp'; then $(CYGPATH_W) 'ucs4string.cpp'; else $(CYGPATH_W) '$(srcdir)/ucs4string.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-ucs4string.Tpo $(DEPDIR)/test_vector-ucs4string.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ucs4string.cpp' object='test_vector-ucs4string.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-ucs4string.obj `if test -f 'ucs4string.cpp'; then $(CYGPATH_W) 'ucs4string.cpp'; else $(CYGPATH_W) '$(srcdir)/ucs4string.cpp'; fi`
+
+test_vector-Vector.o: Vector.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Vector.o -MD -MP -MF $(DEPDIR)/test_vector-Vector.Tpo -c -o test_vector-Vector.o `test -f 'Vector.cpp' || echo '$(srcdir)/'`Vector.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Vector.Tpo $(DEPDIR)/test_vector-Vector.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Vector.cpp' object='test_vector-Vector.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Vector.o `test -f 'Vector.cpp' || echo '$(srcdir)/'`Vector.cpp
+
+test_vector-Vector.obj: Vector.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Vector.obj -MD -MP -MF $(DEPDIR)/test_vector-Vector.Tpo -c -o test_vector-Vector.obj `if test -f 'Vector.cpp'; then $(CYGPATH_W) 'Vector.cpp'; else $(CYGPATH_W) '$(srcdir)/Vector.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Vector.Tpo $(DEPDIR)/test_vector-Vector.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Vector.cpp' object='test_vector-Vector.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Vector.obj `if test -f 'Vector.cpp'; then $(CYGPATH_W) 'Vector.cpp'; else $(CYGPATH_W) '$(srcdir)/Vector.cpp'; fi`
+
+test_vector-Fasl.o: Fasl.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Fasl.o -MD -MP -MF $(DEPDIR)/test_vector-Fasl.Tpo -c -o test_vector-Fasl.o `test -f 'Fasl.cpp' || echo '$(srcdir)/'`Fasl.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Fasl.Tpo $(DEPDIR)/test_vector-Fasl.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Fasl.cpp' object='test_vector-Fasl.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Fasl.o `test -f 'Fasl.cpp' || echo '$(srcdir)/'`Fasl.cpp
+
+test_vector-Fasl.obj: Fasl.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Fasl.obj -MD -MP -MF $(DEPDIR)/test_vector-Fasl.Tpo -c -o test_vector-Fasl.obj `if test -f 'Fasl.cpp'; then $(CYGPATH_W) 'Fasl.cpp'; else $(CYGPATH_W) '$(srcdir)/Fasl.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Fasl.Tpo $(DEPDIR)/test_vector-Fasl.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Fasl.cpp' object='test_vector-Fasl.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Fasl.obj `if test -f 'Fasl.cpp'; then $(CYGPATH_W) 'Fasl.cpp'; else $(CYGPATH_W) '$(srcdir)/Fasl.cpp'; fi`
+
+test_vector-Arithmetic.o: Arithmetic.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Arithmetic.o -MD -MP -MF $(DEPDIR)/test_vector-Arithmetic.Tpo -c -o test_vector-Arithmetic.o `test -f 'Arithmetic.cpp' || echo '$(srcdir)/'`Arithmetic.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Arithmetic.Tpo $(DEPDIR)/test_vector-Arithmetic.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Arithmetic.cpp' object='test_vector-Arithmetic.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Arithmetic.o `test -f 'Arithmetic.cpp' || echo '$(srcdir)/'`Arithmetic.cpp
+
+test_vector-Arithmetic.obj: Arithmetic.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Arithmetic.obj -MD -MP -MF $(DEPDIR)/test_vector-Arithmetic.Tpo -c -o test_vector-Arithmetic.obj `if test -f 'Arithmetic.cpp'; then $(CYGPATH_W) 'Arithmetic.cpp'; else $(CYGPATH_W) '$(srcdir)/Arithmetic.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Arithmetic.Tpo $(DEPDIR)/test_vector-Arithmetic.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Arithmetic.cpp' object='test_vector-Arithmetic.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Arithmetic.obj `if test -f 'Arithmetic.cpp'; then $(CYGPATH_W) 'Arithmetic.cpp'; else $(CYGPATH_W) '$(srcdir)/Arithmetic.cpp'; fi`
+
+test_vector-Ratnum.o: Ratnum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Ratnum.o -MD -MP -MF $(DEPDIR)/test_vector-Ratnum.Tpo -c -o test_vector-Ratnum.o `test -f 'Ratnum.cpp' || echo '$(srcdir)/'`Ratnum.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Ratnum.Tpo $(DEPDIR)/test_vector-Ratnum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Ratnum.cpp' object='test_vector-Ratnum.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Ratnum.o `test -f 'Ratnum.cpp' || echo '$(srcdir)/'`Ratnum.cpp
+
+test_vector-Ratnum.obj: Ratnum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Ratnum.obj -MD -MP -MF $(DEPDIR)/test_vector-Ratnum.Tpo -c -o test_vector-Ratnum.obj `if test -f 'Ratnum.cpp'; then $(CYGPATH_W) 'Ratnum.cpp'; else $(CYGPATH_W) '$(srcdir)/Ratnum.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Ratnum.Tpo $(DEPDIR)/test_vector-Ratnum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Ratnum.cpp' object='test_vector-Ratnum.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Ratnum.obj `if test -f 'Ratnum.cpp'; then $(CYGPATH_W) 'Ratnum.cpp'; else $(CYGPATH_W) '$(srcdir)/Ratnum.cpp'; fi`
+
+test_vector-Bignum.o: Bignum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Bignum.o -MD -MP -MF $(DEPDIR)/test_vector-Bignum.Tpo -c -o test_vector-Bignum.o `test -f 'Bignum.cpp' || echo '$(srcdir)/'`Bignum.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Bignum.Tpo $(DEPDIR)/test_vector-Bignum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Bignum.cpp' object='test_vector-Bignum.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Bignum.o `test -f 'Bignum.cpp' || echo '$(srcdir)/'`Bignum.cpp
+
+test_vector-Bignum.obj: Bignum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Bignum.obj -MD -MP -MF $(DEPDIR)/test_vector-Bignum.Tpo -c -o test_vector-Bignum.obj `if test -f 'Bignum.cpp'; then $(CYGPATH_W) 'Bignum.cpp'; else $(CYGPATH_W) '$(srcdir)/Bignum.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Bignum.Tpo $(DEPDIR)/test_vector-Bignum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Bignum.cpp' object='test_vector-Bignum.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Bignum.obj `if test -f 'Bignum.cpp'; then $(CYGPATH_W) 'Bignum.cpp'; else $(CYGPATH_W) '$(srcdir)/Bignum.cpp'; fi`
+
+test_vector-Flonum.o: Flonum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Flonum.o -MD -MP -MF $(DEPDIR)/test_vector-Flonum.Tpo -c -o test_vector-Flonum.o `test -f 'Flonum.cpp' || echo '$(srcdir)/'`Flonum.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Flonum.Tpo $(DEPDIR)/test_vector-Flonum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Flonum.cpp' object='test_vector-Flonum.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Flonum.o `test -f 'Flonum.cpp' || echo '$(srcdir)/'`Flonum.cpp
+
+test_vector-Flonum.obj: Flonum.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Flonum.obj -MD -MP -MF $(DEPDIR)/test_vector-Flonum.Tpo -c -o test_vector-Flonum.obj `if test -f 'Flonum.cpp'; then $(CYGPATH_W) 'Flonum.cpp'; else $(CYGPATH_W) '$(srcdir)/Flonum.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Flonum.Tpo $(DEPDIR)/test_vector-Flonum.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Flonum.cpp' object='test_vector-Flonum.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Flonum.obj `if test -f 'Flonum.cpp'; then $(CYGPATH_W) 'Flonum.cpp'; else $(CYGPATH_W) '$(srcdir)/Flonum.cpp'; fi`
+
+test_vector-CodeBuilder.o: CodeBuilder.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-CodeBuilder.o -MD -MP -MF $(DEPDIR)/test_vector-CodeBuilder.Tpo -c -o test_vector-CodeBuilder.o `test -f 'CodeBuilder.cpp' || echo '$(srcdir)/'`CodeBuilder.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-CodeBuilder.Tpo $(DEPDIR)/test_vector-CodeBuilder.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CodeBuilder.cpp' object='test_vector-CodeBuilder.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-CodeBuilder.o `test -f 'CodeBuilder.cpp' || echo '$(srcdir)/'`CodeBuilder.cpp
+
+test_vector-CodeBuilder.obj: CodeBuilder.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-CodeBuilder.obj -MD -MP -MF $(DEPDIR)/test_vector-CodeBuilder.Tpo -c -o test_vector-CodeBuilder.obj `if test -f 'CodeBuilder.cpp'; then $(CYGPATH_W) 'CodeBuilder.cpp'; else $(CYGPATH_W) '$(srcdir)/CodeBuilder.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-CodeBuilder.Tpo $(DEPDIR)/test_vector-CodeBuilder.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CodeBuilder.cpp' object='test_vector-CodeBuilder.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-CodeBuilder.obj `if test -f 'CodeBuilder.cpp'; then $(CYGPATH_W) 'CodeBuilder.cpp'; else $(CYGPATH_W) '$(srcdir)/CodeBuilder.cpp'; fi`
+
+test_vector-FixnumProcedures.o: FixnumProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-FixnumProcedures.o -MD -MP -MF $(DEPDIR)/test_vector-FixnumProcedures.Tpo -c -o test_vector-FixnumProcedures.o `test -f 'FixnumProcedures.cpp' || echo '$(srcdir)/'`FixnumProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-FixnumProcedures.Tpo $(DEPDIR)/test_vector-FixnumProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='FixnumProcedures.cpp' object='test_vector-FixnumProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-FixnumProcedures.o `test -f 'FixnumProcedures.cpp' || echo '$(srcdir)/'`FixnumProcedures.cpp
+
+test_vector-FixnumProcedures.obj: FixnumProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-FixnumProcedures.obj -MD -MP -MF $(DEPDIR)/test_vector-FixnumProcedures.Tpo -c -o test_vector-FixnumProcedures.obj `if test -f 'FixnumProcedures.cpp'; then $(CYGPATH_W) 'FixnumProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/FixnumProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-FixnumProcedures.Tpo $(DEPDIR)/test_vector-FixnumProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='FixnumProcedures.cpp' object='test_vector-FixnumProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-FixnumProcedures.obj `if test -f 'FixnumProcedures.cpp'; then $(CYGPATH_W) 'FixnumProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/FixnumProcedures.cpp'; fi`
+
+test_vector-Latin1Codec.o: Latin1Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Latin1Codec.o -MD -MP -MF $(DEPDIR)/test_vector-Latin1Codec.Tpo -c -o test_vector-Latin1Codec.o `test -f 'Latin1Codec.cpp' || echo '$(srcdir)/'`Latin1Codec.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Latin1Codec.Tpo $(DEPDIR)/test_vector-Latin1Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Latin1Codec.cpp' object='test_vector-Latin1Codec.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Latin1Codec.o `test -f 'Latin1Codec.cpp' || echo '$(srcdir)/'`Latin1Codec.cpp
+
+test_vector-Latin1Codec.obj: Latin1Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Latin1Codec.obj -MD -MP -MF $(DEPDIR)/test_vector-Latin1Codec.Tpo -c -o test_vector-Latin1Codec.obj `if test -f 'Latin1Codec.cpp'; then $(CYGPATH_W) 'Latin1Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/Latin1Codec.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-Latin1Codec.Tpo $(DEPDIR)/test_vector-Latin1Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Latin1Codec.cpp' object='test_vector-Latin1Codec.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-Latin1Codec.obj `if test -f 'Latin1Codec.cpp'; then $(CYGPATH_W) 'Latin1Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/Latin1Codec.cpp'; fi`
 install-dataDATA: $(data_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(datadir)" || $(MKDIR_P) "$(DESTDIR)$(datadir)"
@@ -1599,6 +2630,79 @@ GTAGS:
 distclean-tags:
 	-rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
 
+check-TESTS: $(TESTS)
+	@failed=0; all=0; xfail=0; xpass=0; skip=0; ws='[	 ]'; \
+	srcdir=$(srcdir); export srcdir; \
+	list=' $(TESTS) '; \
+	if test -n "$$list"; then \
+	  for tst in $$list; do \
+	    if test -f ./$$tst; then dir=./; \
+	    elif test -f $$tst; then dir=; \
+	    else dir="$(srcdir)/"; fi; \
+	    if $(TESTS_ENVIRONMENT) $${dir}$$tst; then \
+	      all=`expr $$all + 1`; \
+	      case " $(XFAIL_TESTS) " in \
+	      *$$ws$$tst$$ws*) \
+		xpass=`expr $$xpass + 1`; \
+		failed=`expr $$failed + 1`; \
+		echo "XPASS: $$tst"; \
+	      ;; \
+	      *) \
+		echo "PASS: $$tst"; \
+	      ;; \
+	      esac; \
+	    elif test $$? -ne 77; then \
+	      all=`expr $$all + 1`; \
+	      case " $(XFAIL_TESTS) " in \
+	      *$$ws$$tst$$ws*) \
+		xfail=`expr $$xfail + 1`; \
+		echo "XFAIL: $$tst"; \
+	      ;; \
+	      *) \
+		failed=`expr $$failed + 1`; \
+		echo "FAIL: $$tst"; \
+	      ;; \
+	      esac; \
+	    else \
+	      skip=`expr $$skip + 1`; \
+	      echo "SKIP: $$tst"; \
+	    fi; \
+	  done; \
+	  if test "$$failed" -eq 0; then \
+	    if test "$$xfail" -eq 0; then \
+	      banner="All $$all tests passed"; \
+	    else \
+	      banner="All $$all tests behaved as expected ($$xfail expected failures)"; \
+	    fi; \
+	  else \
+	    if test "$$xpass" -eq 0; then \
+	      banner="$$failed of $$all tests failed"; \
+	    else \
+	      banner="$$failed of $$all tests did not behave as expected ($$xpass unexpected passes)"; \
+	    fi; \
+	  fi; \
+	  dashes="$$banner"; \
+	  skipped=""; \
+	  if test "$$skip" -ne 0; then \
+	    skipped="($$skip tests were not run)"; \
+	    test `echo "$$skipped" | wc -c` -le `echo "$$banner" | wc -c` || \
+	      dashes="$$skipped"; \
+	  fi; \
+	  report=""; \
+	  if test "$$failed" -ne 0 && test -n "$(PACKAGE_BUGREPORT)"; then \
+	    report="Please report to $(PACKAGE_BUGREPORT)"; \
+	    test `echo "$$report" | wc -c` -le `echo "$$banner" | wc -c` || \
+	      dashes="$$report"; \
+	  fi; \
+	  dashes=`echo "$$dashes" | sed s/./=/g`; \
+	  echo "$$dashes"; \
+	  echo "$$banner"; \
+	  test -z "$$skipped" || echo "$$skipped"; \
+	  test -z "$$report" || echo "$$report"; \
+	  echo "$$dashes"; \
+	  test "$$failed" -eq 0; \
+	else :; fi
+
 distdir: $(DISTFILES)
 	$(am__remove_distdir)
 	test -d $(distdir) || mkdir $(distdir)
@@ -1748,6 +2852,8 @@ distcleancheck: distclean
 	       $(distcleancheck_listfiles) ; \
 	       exit 1; } >&2
 check-am: all-am
+	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS)
+	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: check-recursive
 all-am: Makefile $(PROGRAMS) $(DATA) config.h
 installdirs: installdirs-recursive
@@ -1783,7 +2889,8 @@ maintainer-clean-generic:
 	-test -z "$(MAINTAINERCLEANFILES)" || rm -f $(MAINTAINERCLEANFILES)
 clean: clean-recursive
 
-clean-am: clean-binPROGRAMS clean-generic mostlyclean-am
+clean-am: clean-binPROGRAMS clean-checkPROGRAMS clean-generic \
+	mostlyclean-am
 
 distclean: distclean-recursive
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
@@ -1846,10 +2953,11 @@ uninstall-am: uninstall-binPROGRAMS uninstall-dataDATA \
 	install-strip
 
 .PHONY: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) CTAGS GTAGS \
-	all all-am am--refresh check check-am clean clean-binPROGRAMS \
-	clean-generic ctags ctags-recursive dist dist-all dist-bzip2 \
-	dist-gzip dist-lzma dist-shar dist-tarZ dist-zip distcheck \
-	distclean distclean-compile distclean-generic distclean-hdr \
+	all all-am am--refresh check check-TESTS check-am clean \
+	clean-binPROGRAMS clean-checkPROGRAMS clean-generic ctags \
+	ctags-recursive dist dist-all dist-bzip2 dist-gzip dist-lzma \
+	dist-shar dist-tarZ dist-zip distcheck distclean \
+	distclean-compile distclean-generic distclean-hdr \
 	distclean-tags distcleancheck distdir distuninstallcheck dvi \
 	dvi-am html html-am info info-am install install-am \
 	install-binPROGRAMS install-data install-data-am \
@@ -1955,7 +3063,7 @@ bench:
 	LANG=C @GOSH@ ./scripts/bench2.scm
 
 #### test
-check:test
+check: test
 
 test:./mosh all-tests.scm 
 	./mosh -r5 test/reader.scm
@@ -1966,6 +3074,22 @@ test:./mosh all-tests.scm
 	./mosh r6rs-examples/exception-test.ss
 	./mosh r6rs-examples/unicode-test.ss
 	(cd r6rs-test-suite && $(MAKE) $@)
+
+# For simplicity and to avoid depending on Google Test's
+# implementation details, the dependencies specified below are
+# conservative and not optimized.  This is fine as Google Test
+# compiles fast and for ordinary users its source rarely changes.
+gtest-all.o : $(GTEST_SRCS_)
+	$(CXX) $(GTEST_CPPFLAGS_) $(CXXFLAGS) -c $(GTEST_DIR)/src/gtest-all.cc
+
+gtest_main.o : $(GTEST_SRCS_)
+	$(CXX) $(GTEST_CPPFLAGS_) $(CXXFLAGS) -c $(GTEST_DIR)/src/gtest_main.cc
+
+gtest.a : gtest-all.o
+	$(AR) $(ARFLAGS) $@ $^
+
+gtest_main.a : gtest-all.o gtest_main.o
+	$(AR) $(ARFLAGS) $@ $^
 
 # doc:
 # 	@GOSH@ ./scripts/gen-doc.scm "manual" "doc/"
