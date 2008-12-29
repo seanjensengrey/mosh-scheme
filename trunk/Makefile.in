@@ -35,7 +35,7 @@ build_triplet = @build@
 host_triplet = @host@
 target_triplet = @target@
 TESTS = test_vector$(EXEEXT)
-bin_PROGRAMS = mosh$(EXEEXT)
+bin_PROGRAMS = mosh$(EXEEXT) test_vector$(EXEEXT)
 check_PROGRAMS = test_vector$(EXEEXT)
 subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
@@ -61,6 +61,7 @@ am__objects_1 = mosh-read.$(OBJEXT) mosh-Transcoder.$(OBJEXT) \
 	mosh-UtilityProcedures.$(OBJEXT) mosh-Reader.$(OBJEXT) \
 	mosh-NumberReader.$(OBJEXT) mosh-scheme.$(OBJEXT) \
 	mosh-Regexp.$(OBJEXT) mosh-Symbol.$(OBJEXT) mosh-VM.$(OBJEXT) \
+	mosh-VM-Profiler.$(OBJEXT) mosh-VM-Run.$(OBJEXT) \
 	mosh-Scanner.$(OBJEXT) mosh-NumberScanner.$(OBJEXT) \
 	mosh-ByteArrayBinaryInputPort.$(OBJEXT) \
 	mosh-ScannerHelper.$(OBJEXT) mosh-Reader.tab.$(OBJEXT) \
@@ -110,6 +111,7 @@ am__objects_2 = test_vector-read.$(OBJEXT) \
 	test_vector-NumberReader.$(OBJEXT) \
 	test_vector-scheme.$(OBJEXT) test_vector-Regexp.$(OBJEXT) \
 	test_vector-Symbol.$(OBJEXT) test_vector-VM.$(OBJEXT) \
+	test_vector-VM-Profiler.$(OBJEXT) test_vector-VM-Run.$(OBJEXT) \
 	test_vector-Scanner.$(OBJEXT) \
 	test_vector-NumberScanner.$(OBJEXT) \
 	test_vector-ByteArrayBinaryInputPort.$(OBJEXT) \
@@ -156,7 +158,7 @@ am__objects_2 = test_vector-read.$(OBJEXT) \
 	test_vector-FixnumProcedures.$(OBJEXT) \
 	test_vector-Latin1Codec.$(OBJEXT)
 am_test_vector_OBJECTS = test_vector-TestVector.$(OBJEXT) \
-	$(am__objects_2)
+	test_vector-TestingVM.$(OBJEXT) $(am__objects_2)
 test_vector_OBJECTS = $(am_test_vector_OBJECTS)
 test_vector_DEPENDENCIES = gtest_main.a $(GC_LIB) $(REGEXP_LIB)
 test_vector_LINK = $(CXXLD) $(test_vector_CXXFLAGS) $(CXXFLAGS) \
@@ -372,6 +374,7 @@ scheme.h                      scheme.cpp                          \
 Regexp.h                      Regexp.cpp                          \
 Symbol.h                      Symbol.cpp                          \
 VM.h                          VM.cpp                              \
+VM-Profiler.cpp               VM-Run.cpp                          \
 Scanner.h                     Scanner.cpp                         \
 NumberScanner.h               NumberScanner.cpp                   \
 ByteArrayBinaryInputPort.h    ByteArrayBinaryInputPort.cpp        \
@@ -462,8 +465,8 @@ CORE_LIBS = \
 # Usually you shouldn't tweak such internal variables, indicated by a
 # trailing _.
 GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS_)
-test_vector_CXXFLAGS = -I $(BOEHM_GC_DIR)/include -I $(ONIG_DIR) $(mosh_OPTS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include
-test_vector_SOURCES = TestVector.cpp $(COMMON_SOURCES_)
+test_vector_CXXFLAGS = $(mosh_CFLAGS) $(mosh_OPTS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include
+test_vector_SOURCES = TestVector.cpp TestingVM.cpp $(COMMON_SOURCES_)
 test_vector_LDADD = gtest_main.a $(GC_LIB) $(REGEXP_LIB)
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
@@ -616,6 +619,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-UTF32Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-UTF8Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-UtilityProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-VM-Profiler.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-VM-Run.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-VM.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-Vector.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-main.Po@am__quote@
@@ -672,6 +677,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-StringTextualOutputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Symbol.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-TestVector.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-TestingVM.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-TextualByteVectorOutputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-TextualInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-TextualOutputPort.Po@am__quote@
@@ -680,6 +686,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-UTF32Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-UTF8Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-UtilityProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-VM-Profiler.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-VM-Run.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-VM.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-Vector.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-read.Po@am__quote@
@@ -895,6 +903,34 @@ mosh-VM.obj: VM.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='VM.cpp' object='mosh-VM.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-VM.obj `if test -f 'VM.cpp'; then $(CYGPATH_W) 'VM.cpp'; else $(CYGPATH_W) '$(srcdir)/VM.cpp'; fi`
+
+mosh-VM-Profiler.o: VM-Profiler.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-VM-Profiler.o -MD -MP -MF $(DEPDIR)/mosh-VM-Profiler.Tpo -c -o mosh-VM-Profiler.o `test -f 'VM-Profiler.cpp' || echo '$(srcdir)/'`VM-Profiler.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-VM-Profiler.Tpo $(DEPDIR)/mosh-VM-Profiler.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='VM-Profiler.cpp' object='mosh-VM-Profiler.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-VM-Profiler.o `test -f 'VM-Profiler.cpp' || echo '$(srcdir)/'`VM-Profiler.cpp
+
+mosh-VM-Profiler.obj: VM-Profiler.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-VM-Profiler.obj -MD -MP -MF $(DEPDIR)/mosh-VM-Profiler.Tpo -c -o mosh-VM-Profiler.obj `if test -f 'VM-Profiler.cpp'; then $(CYGPATH_W) 'VM-Profiler.cpp'; else $(CYGPATH_W) '$(srcdir)/VM-Profiler.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-VM-Profiler.Tpo $(DEPDIR)/mosh-VM-Profiler.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='VM-Profiler.cpp' object='mosh-VM-Profiler.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-VM-Profiler.obj `if test -f 'VM-Profiler.cpp'; then $(CYGPATH_W) 'VM-Profiler.cpp'; else $(CYGPATH_W) '$(srcdir)/VM-Profiler.cpp'; fi`
+
+mosh-VM-Run.o: VM-Run.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-VM-Run.o -MD -MP -MF $(DEPDIR)/mosh-VM-Run.Tpo -c -o mosh-VM-Run.o `test -f 'VM-Run.cpp' || echo '$(srcdir)/'`VM-Run.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-VM-Run.Tpo $(DEPDIR)/mosh-VM-Run.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='VM-Run.cpp' object='mosh-VM-Run.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-VM-Run.o `test -f 'VM-Run.cpp' || echo '$(srcdir)/'`VM-Run.cpp
+
+mosh-VM-Run.obj: VM-Run.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-VM-Run.obj -MD -MP -MF $(DEPDIR)/mosh-VM-Run.Tpo -c -o mosh-VM-Run.obj `if test -f 'VM-Run.cpp'; then $(CYGPATH_W) 'VM-Run.cpp'; else $(CYGPATH_W) '$(srcdir)/VM-Run.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/mosh-VM-Run.Tpo $(DEPDIR)/mosh-VM-Run.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='VM-Run.cpp' object='mosh-VM-Run.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-VM-Run.obj `if test -f 'VM-Run.cpp'; then $(CYGPATH_W) 'VM-Run.cpp'; else $(CYGPATH_W) '$(srcdir)/VM-Run.cpp'; fi`
 
 mosh-Scanner.o: Scanner.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-Scanner.o -MD -MP -MF $(DEPDIR)/mosh-Scanner.Tpo -c -o mosh-Scanner.o `test -f 'Scanner.cpp' || echo '$(srcdir)/'`Scanner.cpp
@@ -1596,6 +1632,20 @@ test_vector-TestVector.obj: TestVector.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-TestVector.obj `if test -f 'TestVector.cpp'; then $(CYGPATH_W) 'TestVector.cpp'; else $(CYGPATH_W) '$(srcdir)/TestVector.cpp'; fi`
 
+test_vector-TestingVM.o: TestingVM.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-TestingVM.o -MD -MP -MF $(DEPDIR)/test_vector-TestingVM.Tpo -c -o test_vector-TestingVM.o `test -f 'TestingVM.cpp' || echo '$(srcdir)/'`TestingVM.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-TestingVM.Tpo $(DEPDIR)/test_vector-TestingVM.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TestingVM.cpp' object='test_vector-TestingVM.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-TestingVM.o `test -f 'TestingVM.cpp' || echo '$(srcdir)/'`TestingVM.cpp
+
+test_vector-TestingVM.obj: TestingVM.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-TestingVM.obj -MD -MP -MF $(DEPDIR)/test_vector-TestingVM.Tpo -c -o test_vector-TestingVM.obj `if test -f 'TestingVM.cpp'; then $(CYGPATH_W) 'TestingVM.cpp'; else $(CYGPATH_W) '$(srcdir)/TestingVM.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-TestingVM.Tpo $(DEPDIR)/test_vector-TestingVM.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TestingVM.cpp' object='test_vector-TestingVM.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-TestingVM.obj `if test -f 'TestingVM.cpp'; then $(CYGPATH_W) 'TestingVM.cpp'; else $(CYGPATH_W) '$(srcdir)/TestingVM.cpp'; fi`
+
 test_vector-read.o: read.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-read.o -MD -MP -MF $(DEPDIR)/test_vector-read.Tpo -c -o test_vector-read.o `test -f 'read.cpp' || echo '$(srcdir)/'`read.cpp
 @am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-read.Tpo $(DEPDIR)/test_vector-read.Po
@@ -1777,6 +1827,34 @@ test_vector-VM.obj: VM.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='VM.cpp' object='test_vector-VM.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-VM.obj `if test -f 'VM.cpp'; then $(CYGPATH_W) 'VM.cpp'; else $(CYGPATH_W) '$(srcdir)/VM.cpp'; fi`
+
+test_vector-VM-Profiler.o: VM-Profiler.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-VM-Profiler.o -MD -MP -MF $(DEPDIR)/test_vector-VM-Profiler.Tpo -c -o test_vector-VM-Profiler.o `test -f 'VM-Profiler.cpp' || echo '$(srcdir)/'`VM-Profiler.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-VM-Profiler.Tpo $(DEPDIR)/test_vector-VM-Profiler.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='VM-Profiler.cpp' object='test_vector-VM-Profiler.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-VM-Profiler.o `test -f 'VM-Profiler.cpp' || echo '$(srcdir)/'`VM-Profiler.cpp
+
+test_vector-VM-Profiler.obj: VM-Profiler.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-VM-Profiler.obj -MD -MP -MF $(DEPDIR)/test_vector-VM-Profiler.Tpo -c -o test_vector-VM-Profiler.obj `if test -f 'VM-Profiler.cpp'; then $(CYGPATH_W) 'VM-Profiler.cpp'; else $(CYGPATH_W) '$(srcdir)/VM-Profiler.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-VM-Profiler.Tpo $(DEPDIR)/test_vector-VM-Profiler.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='VM-Profiler.cpp' object='test_vector-VM-Profiler.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-VM-Profiler.obj `if test -f 'VM-Profiler.cpp'; then $(CYGPATH_W) 'VM-Profiler.cpp'; else $(CYGPATH_W) '$(srcdir)/VM-Profiler.cpp'; fi`
+
+test_vector-VM-Run.o: VM-Run.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-VM-Run.o -MD -MP -MF $(DEPDIR)/test_vector-VM-Run.Tpo -c -o test_vector-VM-Run.o `test -f 'VM-Run.cpp' || echo '$(srcdir)/'`VM-Run.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-VM-Run.Tpo $(DEPDIR)/test_vector-VM-Run.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='VM-Run.cpp' object='test_vector-VM-Run.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-VM-Run.o `test -f 'VM-Run.cpp' || echo '$(srcdir)/'`VM-Run.cpp
+
+test_vector-VM-Run.obj: VM-Run.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-VM-Run.obj -MD -MP -MF $(DEPDIR)/test_vector-VM-Run.Tpo -c -o test_vector-VM-Run.obj `if test -f 'VM-Run.cpp'; then $(CYGPATH_W) 'VM-Run.cpp'; else $(CYGPATH_W) '$(srcdir)/VM-Run.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_vector-VM-Run.Tpo $(DEPDIR)/test_vector-VM-Run.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='VM-Run.cpp' object='test_vector-VM-Run.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -c -o test_vector-VM-Run.obj `if test -f 'VM-Run.cpp'; then $(CYGPATH_W) 'VM-Run.cpp'; else $(CYGPATH_W) '$(srcdir)/VM-Run.cpp'; fi`
 
 test_vector-Scanner.o: Scanner.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vector_CXXFLAGS) $(CXXFLAGS) -MT test_vector-Scanner.o -MD -MP -MF $(DEPDIR)/test_vector-Scanner.Tpo -c -o test_vector-Scanner.o `test -f 'Scanner.cpp' || echo '$(srcdir)/'`Scanner.cpp
@@ -3094,11 +3172,6 @@ gtest_main.a : gtest-all.o gtest_main.o
 # doc:
 # 	@GOSH@ ./scripts/gen-doc.scm "manual" "doc/"
 # 	@GOSH@ ./scripts/gen-doc-index.scm "top" "doc/"
-
-fulltest:
-	./mosh -t
-	./vm.scm
-	./scripts/test-compiler.scm
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
