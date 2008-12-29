@@ -1244,7 +1244,7 @@ install:
 clean:
 
 # mosh
-#check:
+check:
 
 test:
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
