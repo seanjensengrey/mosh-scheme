@@ -35,9 +35,9 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 target_triplet = @target@
-TESTS = test_vm$(EXEEXT)
-bin_PROGRAMS = mosh$(EXEEXT) test_vm$(EXEEXT)
-check_PROGRAMS = test_vm$(EXEEXT)
+TESTS = test_vm$(EXEEXT) test_port$(EXEEXT)
+bin_PROGRAMS = mosh$(EXEEXT) test_vm$(EXEEXT) test_port$(EXEEXT)
+check_PROGRAMS = test_vm$(EXEEXT) test_port$(EXEEXT)
 subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
@@ -118,6 +118,12 @@ mosh_OBJECTS = $(am_mosh_OBJECTS)
 mosh_DEPENDENCIES = $(GC_LIB) $(REGEXP_LIB) libmosh.a
 mosh_LINK = $(CXXLD) $(mosh_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
+am_test_port_OBJECTS = test_port-TestPort.$(OBJEXT)
+test_port_OBJECTS = $(am_test_port_OBJECTS)
+test_port_DEPENDENCIES = libmosh.a gtest_main.a $(GC_LIB) \
+	$(REGEXP_LIB)
+test_port_LINK = $(CXXLD) $(test_port_CXXFLAGS) $(CXXFLAGS) \
+	$(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_test_vm_OBJECTS = test_vm-TestVM.$(OBJEXT) \
 	test_vm-TestingVM.$(OBJEXT)
 test_vm_OBJECTS = $(am_test_vm_OBJECTS)
@@ -136,8 +142,10 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libmosh_a_SOURCES) $(mosh_SOURCES) $(test_vm_SOURCES)
-DIST_SOURCES = $(libmosh_a_SOURCES) $(mosh_SOURCES) $(test_vm_SOURCES)
+SOURCES = $(libmosh_a_SOURCES) $(mosh_SOURCES) $(test_port_SOURCES) \
+	$(test_vm_SOURCES)
+DIST_SOURCES = $(libmosh_a_SOURCES) $(mosh_SOURCES) \
+	$(test_port_SOURCES) $(test_vm_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
 	html-recursive info-recursive install-data-recursive \
 	install-dvi-recursive install-exec-recursive \
@@ -431,6 +439,9 @@ GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS_)
 test_vm_CXXFLAGS = $(mosh_CFLAGS) $(mosh_OPTS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include -DGTEST_HAS_CLONE=0
 test_vm_SOURCES = TestVM.cpp TestingVM.cpp
 test_vm_LDADD = libmosh.a gtest_main.a $(GC_LIB) $(REGEXP_LIB)
+test_port_CXXFLAGS = $(mosh_CFLAGS) $(mosh_OPTS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include -DGTEST_HAS_CLONE=0
+test_port_SOURCES = TestPort.cpp
+test_port_LDADD = libmosh.a gtest_main.a $(GC_LIB) $(REGEXP_LIB)
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -522,6 +533,9 @@ clean-checkPROGRAMS:
 mosh$(EXEEXT): $(mosh_OBJECTS) $(mosh_DEPENDENCIES) 
 	@rm -f mosh$(EXEEXT)
 	$(mosh_LINK) $(mosh_OBJECTS) $(mosh_LDADD) $(LIBS)
+test_port$(EXEEXT): $(test_port_OBJECTS) $(test_port_DEPENDENCIES) 
+	@rm -f test_port$(EXEEXT)
+	$(test_port_LINK) $(test_port_OBJECTS) $(test_port_LDADD) $(LIBS)
 test_vm$(EXEEXT): $(test_vm_OBJECTS) $(test_vm_DEPENDENCIES) 
 	@rm -f test_vm$(EXEEXT)
 	$(test_vm_LINK) $(test_vm_OBJECTS) $(test_vm_LDADD) $(LIBS)
@@ -597,6 +611,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-scheme.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-ucs4string.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-main.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_port-TestPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vm-TestVM.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vm-TestingVM.Po@am__quote@
 
@@ -1523,6 +1538,20 @@ mosh-main.obj: main.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='main.cpp' object='mosh-main.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-main.obj `if test -f 'main.cpp'; then $(CYGPATH_W) 'main.cpp'; else $(CYGPATH_W) '$(srcdir)/main.cpp'; fi`
+
+test_port-TestPort.o: TestPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_port_CXXFLAGS) $(CXXFLAGS) -MT test_port-TestPort.o -MD -MP -MF $(DEPDIR)/test_port-TestPort.Tpo -c -o test_port-TestPort.o `test -f 'TestPort.cpp' || echo '$(srcdir)/'`TestPort.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_port-TestPort.Tpo $(DEPDIR)/test_port-TestPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TestPort.cpp' object='test_port-TestPort.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_port_CXXFLAGS) $(CXXFLAGS) -c -o test_port-TestPort.o `test -f 'TestPort.cpp' || echo '$(srcdir)/'`TestPort.cpp
+
+test_port-TestPort.obj: TestPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_port_CXXFLAGS) $(CXXFLAGS) -MT test_port-TestPort.obj -MD -MP -MF $(DEPDIR)/test_port-TestPort.Tpo -c -o test_port-TestPort.obj `if test -f 'TestPort.cpp'; then $(CYGPATH_W) 'TestPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TestPort.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_port-TestPort.Tpo $(DEPDIR)/test_port-TestPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TestPort.cpp' object='test_port-TestPort.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_port_CXXFLAGS) $(CXXFLAGS) -c -o test_port-TestPort.obj `if test -f 'TestPort.cpp'; then $(CYGPATH_W) 'TestPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TestPort.cpp'; fi`
 
 test_vm-TestVM.o: TestVM.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vm_CXXFLAGS) $(CXXFLAGS) -MT test_vm-TestVM.o -MD -MP -MF $(DEPDIR)/test_vm-TestVM.Tpo -c -o test_vm-TestVM.o `test -f 'TestVM.cpp' || echo '$(srcdir)/'`TestVM.cpp
