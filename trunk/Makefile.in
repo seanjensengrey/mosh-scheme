@@ -35,9 +35,11 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 target_triplet = @target@
-TESTS = test_vm$(EXEEXT) test_port$(EXEEXT)
-bin_PROGRAMS = mosh$(EXEEXT) test_vm$(EXEEXT) test_port$(EXEEXT)
-check_PROGRAMS = test_vm$(EXEEXT) test_port$(EXEEXT)
+TESTS = test_vm$(EXEEXT) test_port$(EXEEXT) test_fasl$(EXEEXT)
+bin_PROGRAMS = mosh$(EXEEXT) test_vm$(EXEEXT) test_port$(EXEEXT) \
+	test_fasl$(EXEEXT)
+check_PROGRAMS = test_vm$(EXEEXT) test_port$(EXEEXT) \
+	test_fasl$(EXEEXT)
 subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
@@ -118,6 +120,14 @@ mosh_OBJECTS = $(am_mosh_OBJECTS)
 mosh_DEPENDENCIES = libmosh.a $(GC_LIB) $(REGEXP_LIB)
 mosh_LINK = $(CXXLD) $(mosh_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
+am_test_fasl_OBJECTS = test_fasl-FaslTest.$(OBJEXT) \
+	test_fasl-TestingSignalHandler.$(OBJEXT) \
+	test_fasl-TestingVM.$(OBJEXT)
+test_fasl_OBJECTS = $(am_test_fasl_OBJECTS)
+test_fasl_DEPENDENCIES = libmosh.a gtest_main.a $(GC_LIB) \
+	$(REGEXP_LIB)
+test_fasl_LINK = $(CXXLD) $(test_fasl_CXXFLAGS) $(CXXFLAGS) \
+	$(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_test_port_OBJECTS = test_port-PortTest.$(OBJEXT) \
 	test_port-TestingSignalHandler.$(OBJEXT)
 test_port_OBJECTS = $(am_test_port_OBJECTS)
@@ -144,10 +154,10 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libmosh_a_SOURCES) $(mosh_SOURCES) $(test_port_SOURCES) \
-	$(test_vm_SOURCES)
-DIST_SOURCES = $(libmosh_a_SOURCES) $(mosh_SOURCES) \
+SOURCES = $(libmosh_a_SOURCES) $(mosh_SOURCES) $(test_fasl_SOURCES) \
 	$(test_port_SOURCES) $(test_vm_SOURCES)
+DIST_SOURCES = $(libmosh_a_SOURCES) $(mosh_SOURCES) \
+	$(test_fasl_SOURCES) $(test_port_SOURCES) $(test_vm_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
 	html-recursive info-recursive install-data-recursive \
 	install-dvi-recursive install-exec-recursive \
@@ -444,6 +454,9 @@ test_vm_LDADD = libmosh.a gtest_main.a $(GC_LIB) $(REGEXP_LIB)
 test_port_CXXFLAGS = $(mosh_CFLAGS) $(mosh_OPTS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include -DGTEST_HAS_CLONE=0
 test_port_SOURCES = PortTest.cpp TestingSignalHandler.cpp
 test_port_LDADD = libmosh.a gtest_main.a $(GC_LIB) $(REGEXP_LIB)
+test_fasl_CXXFLAGS = $(mosh_CFLAGS) $(mosh_OPTS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include -DGTEST_HAS_CLONE=0
+test_fasl_SOURCES = FaslTest.cpp TestingSignalHandler.cpp TestingVM.cpp
+test_fasl_LDADD = libmosh.a gtest_main.a $(GC_LIB) $(REGEXP_LIB)
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -535,6 +548,9 @@ clean-checkPROGRAMS:
 mosh$(EXEEXT): $(mosh_OBJECTS) $(mosh_DEPENDENCIES) 
 	@rm -f mosh$(EXEEXT)
 	$(mosh_LINK) $(mosh_OBJECTS) $(mosh_LDADD) $(LIBS)
+test_fasl$(EXEEXT): $(test_fasl_OBJECTS) $(test_fasl_DEPENDENCIES) 
+	@rm -f test_fasl$(EXEEXT)
+	$(test_fasl_LINK) $(test_fasl_OBJECTS) $(test_fasl_LDADD) $(LIBS)
 test_port$(EXEEXT): $(test_port_OBJECTS) $(test_port_DEPENDENCIES) 
 	@rm -f test_port$(EXEEXT)
 	$(test_port_LINK) $(test_port_OBJECTS) $(test_port_LDADD) $(LIBS)
@@ -613,6 +629,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-scheme.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-ucs4string.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mosh-main.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_fasl-FaslTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_fasl-TestingSignalHandler.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_fasl-TestingVM.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_port-PortTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_port-TestingSignalHandler.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vm-TestingSignalHandler.Po@am__quote@
@@ -1542,6 +1561,48 @@ mosh-main.obj: main.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='main.cpp' object='mosh-main.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -c -o mosh-main.obj `if test -f 'main.cpp'; then $(CYGPATH_W) 'main.cpp'; else $(CYGPATH_W) '$(srcdir)/main.cpp'; fi`
+
+test_fasl-FaslTest.o: FaslTest.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_fasl_CXXFLAGS) $(CXXFLAGS) -MT test_fasl-FaslTest.o -MD -MP -MF $(DEPDIR)/test_fasl-FaslTest.Tpo -c -o test_fasl-FaslTest.o `test -f 'FaslTest.cpp' || echo '$(srcdir)/'`FaslTest.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_fasl-FaslTest.Tpo $(DEPDIR)/test_fasl-FaslTest.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='FaslTest.cpp' object='test_fasl-FaslTest.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_fasl_CXXFLAGS) $(CXXFLAGS) -c -o test_fasl-FaslTest.o `test -f 'FaslTest.cpp' || echo '$(srcdir)/'`FaslTest.cpp
+
+test_fasl-FaslTest.obj: FaslTest.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_fasl_CXXFLAGS) $(CXXFLAGS) -MT test_fasl-FaslTest.obj -MD -MP -MF $(DEPDIR)/test_fasl-FaslTest.Tpo -c -o test_fasl-FaslTest.obj `if test -f 'FaslTest.cpp'; then $(CYGPATH_W) 'FaslTest.cpp'; else $(CYGPATH_W) '$(srcdir)/FaslTest.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_fasl-FaslTest.Tpo $(DEPDIR)/test_fasl-FaslTest.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='FaslTest.cpp' object='test_fasl-FaslTest.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_fasl_CXXFLAGS) $(CXXFLAGS) -c -o test_fasl-FaslTest.obj `if test -f 'FaslTest.cpp'; then $(CYGPATH_W) 'FaslTest.cpp'; else $(CYGPATH_W) '$(srcdir)/FaslTest.cpp'; fi`
+
+test_fasl-TestingSignalHandler.o: TestingSignalHandler.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_fasl_CXXFLAGS) $(CXXFLAGS) -MT test_fasl-TestingSignalHandler.o -MD -MP -MF $(DEPDIR)/test_fasl-TestingSignalHandler.Tpo -c -o test_fasl-TestingSignalHandler.o `test -f 'TestingSignalHandler.cpp' || echo '$(srcdir)/'`TestingSignalHandler.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_fasl-TestingSignalHandler.Tpo $(DEPDIR)/test_fasl-TestingSignalHandler.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TestingSignalHandler.cpp' object='test_fasl-TestingSignalHandler.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_fasl_CXXFLAGS) $(CXXFLAGS) -c -o test_fasl-TestingSignalHandler.o `test -f 'TestingSignalHandler.cpp' || echo '$(srcdir)/'`TestingSignalHandler.cpp
+
+test_fasl-TestingSignalHandler.obj: TestingSignalHandler.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_fasl_CXXFLAGS) $(CXXFLAGS) -MT test_fasl-TestingSignalHandler.obj -MD -MP -MF $(DEPDIR)/test_fasl-TestingSignalHandler.Tpo -c -o test_fasl-TestingSignalHandler.obj `if test -f 'TestingSignalHandler.cpp'; then $(CYGPATH_W) 'TestingSignalHandler.cpp'; else $(CYGPATH_W) '$(srcdir)/TestingSignalHandler.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_fasl-TestingSignalHandler.Tpo $(DEPDIR)/test_fasl-TestingSignalHandler.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TestingSignalHandler.cpp' object='test_fasl-TestingSignalHandler.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_fasl_CXXFLAGS) $(CXXFLAGS) -c -o test_fasl-TestingSignalHandler.obj `if test -f 'TestingSignalHandler.cpp'; then $(CYGPATH_W) 'TestingSignalHandler.cpp'; else $(CYGPATH_W) '$(srcdir)/TestingSignalHandler.cpp'; fi`
+
+test_fasl-TestingVM.o: TestingVM.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_fasl_CXXFLAGS) $(CXXFLAGS) -MT test_fasl-TestingVM.o -MD -MP -MF $(DEPDIR)/test_fasl-TestingVM.Tpo -c -o test_fasl-TestingVM.o `test -f 'TestingVM.cpp' || echo '$(srcdir)/'`TestingVM.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_fasl-TestingVM.Tpo $(DEPDIR)/test_fasl-TestingVM.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TestingVM.cpp' object='test_fasl-TestingVM.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_fasl_CXXFLAGS) $(CXXFLAGS) -c -o test_fasl-TestingVM.o `test -f 'TestingVM.cpp' || echo '$(srcdir)/'`TestingVM.cpp
+
+test_fasl-TestingVM.obj: TestingVM.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_fasl_CXXFLAGS) $(CXXFLAGS) -MT test_fasl-TestingVM.obj -MD -MP -MF $(DEPDIR)/test_fasl-TestingVM.Tpo -c -o test_fasl-TestingVM.obj `if test -f 'TestingVM.cpp'; then $(CYGPATH_W) 'TestingVM.cpp'; else $(CYGPATH_W) '$(srcdir)/TestingVM.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_fasl-TestingVM.Tpo $(DEPDIR)/test_fasl-TestingVM.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TestingVM.cpp' object='test_fasl-TestingVM.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_fasl_CXXFLAGS) $(CXXFLAGS) -c -o test_fasl-TestingVM.obj `if test -f 'TestingVM.cpp'; then $(CYGPATH_W) 'TestingVM.cpp'; else $(CYGPATH_W) '$(srcdir)/TestingVM.cpp'; fi`
 
 test_port-PortTest.o: PortTest.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_port_CXXFLAGS) $(CXXFLAGS) -MT test_port-PortTest.o -MD -MP -MF $(DEPDIR)/test_port-PortTest.Tpo -c -o test_port-PortTest.o `test -f 'PortTest.cpp' || echo '$(srcdir)/'`PortTest.cpp
