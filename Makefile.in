@@ -295,7 +295,6 @@ target_alias = @target_alias@
 target_cpu = @target_cpu@
 target_os = @target_os@
 target_vendor = @target_vendor@
-top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 
@@ -2196,10 +2195,10 @@ NumberReader.tab.cpp: NumberReader.y
 	bison -p "number_yy" -d $< -o $@
 
 Scanner.cpp : scanner.re
-	/usr/local/bin/re2c -u $< > $@ # -d is debug option
+	re2c -u $< > $@ # -d is debug option
 
 NumberScanner.cpp : NumberScanner.re
-	/usr/local/bin/re2c -cu $< > $@ # -d is debug option
+	re2c -cu $< > $@ # -d is debug option
 
 r6rs-test:
 	(cd r6rs-examples && ../mosh hello.ss)
