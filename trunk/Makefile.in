@@ -64,6 +64,7 @@ am_libmosh_a_OBJECTS = libmosh_a-read.$(OBJEXT) \
 	libmosh_a-EqvHashTable.$(OBJEXT) libmosh_a-Compnum.$(OBJEXT) \
 	libmosh_a-Fixnum.$(OBJEXT) libmosh_a-Closure.$(OBJEXT) \
 	libmosh_a-UtilityProcedures.$(OBJEXT) \
+	libmosh_a-ProcessProcedures.$(OBJEXT) \
 	libmosh_a-Reader.$(OBJEXT) libmosh_a-NumberReader.$(OBJEXT) \
 	libmosh_a-scheme.$(OBJEXT) libmosh_a-Regexp.$(OBJEXT) \
 	libmosh_a-Symbol.$(OBJEXT) libmosh_a-VM.$(OBJEXT) \
@@ -295,6 +296,7 @@ target_alias = @target_alias@
 target_cpu = @target_cpu@
 target_os = @target_os@
 target_vendor = @target_vendor@
+top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 
@@ -359,6 +361,7 @@ Compnum.h                     Compnum.cpp                         \
 Fixnum.h                      Fixnum.cpp                          \
 Closure.h                     Closure.cpp                         \
 UtilityProcedures.h           UtilityProcedures.cpp               \
+ProcessProcedures.h           ProcessProcedures.cpp               \
 Reader.h                      Reader.cpp                          \
 NumberReader.h                NumberReader.cpp                    \
 scheme.h                      scheme.cpp                          \
@@ -596,6 +599,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-NumberScanner.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-Object.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-PortProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-ProcessProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-Ratnum.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-Reader.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-Reader.tab.Po@am__quote@
@@ -748,6 +752,20 @@ libmosh_a-UtilityProcedures.obj: UtilityProcedures.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='UtilityProcedures.cpp' object='libmosh_a-UtilityProcedures.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-UtilityProcedures.obj `if test -f 'UtilityProcedures.cpp'; then $(CYGPATH_W) 'UtilityProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/UtilityProcedures.cpp'; fi`
+
+libmosh_a-ProcessProcedures.o: ProcessProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-ProcessProcedures.o -MD -MP -MF $(DEPDIR)/libmosh_a-ProcessProcedures.Tpo -c -o libmosh_a-ProcessProcedures.o `test -f 'ProcessProcedures.cpp' || echo '$(srcdir)/'`ProcessProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-ProcessProcedures.Tpo $(DEPDIR)/libmosh_a-ProcessProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ProcessProcedures.cpp' object='libmosh_a-ProcessProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-ProcessProcedures.o `test -f 'ProcessProcedures.cpp' || echo '$(srcdir)/'`ProcessProcedures.cpp
+
+libmosh_a-ProcessProcedures.obj: ProcessProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-ProcessProcedures.obj -MD -MP -MF $(DEPDIR)/libmosh_a-ProcessProcedures.Tpo -c -o libmosh_a-ProcessProcedures.obj `if test -f 'ProcessProcedures.cpp'; then $(CYGPATH_W) 'ProcessProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ProcessProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-ProcessProcedures.Tpo $(DEPDIR)/libmosh_a-ProcessProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ProcessProcedures.cpp' object='libmosh_a-ProcessProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-ProcessProcedures.obj `if test -f 'ProcessProcedures.cpp'; then $(CYGPATH_W) 'ProcessProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ProcessProcedures.cpp'; fi`
 
 libmosh_a-Reader.o: Reader.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-Reader.o -MD -MP -MF $(DEPDIR)/libmosh_a-Reader.Tpo -c -o libmosh_a-Reader.o `test -f 'Reader.cpp' || echo '$(srcdir)/'`Reader.cpp
