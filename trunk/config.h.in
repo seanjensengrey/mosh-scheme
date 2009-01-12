@@ -21,9 +21,6 @@
    */
 #undef HAVE_ALLOCA_H
 
-/* Define to 1 if you have the <dlfcn.h> header file. */
-#undef HAVE_DLFCN_H
-
 /* Do we have __gnu_cxx:: hashes? */
 #undef HAVE_EXT_HASHES
 
@@ -104,10 +101,6 @@
 
 /* system line feed code is LF */
 #undef LINE_FEED_CODE_LF
-
-/* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
-#undef LT_OBJDIR
 
 /* Name of package */
 #undef PACKAGE
