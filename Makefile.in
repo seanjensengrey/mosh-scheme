@@ -45,7 +45,7 @@ subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
 	$(top_srcdir)/configure AUTHORS COPYING ChangeLog INSTALL NEWS \
-	config.guess config.sub depcomp install-sh ltmain.sh missing
+	config.guess config.sub depcomp install-sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -127,8 +127,6 @@ am_test_fasl_OBJECTS = test_fasl-FaslTest.$(OBJEXT) \
 	test_fasl-TestingSignalHandler.$(OBJEXT) \
 	test_fasl-TestingVM.$(OBJEXT)
 test_fasl_OBJECTS = $(am_test_fasl_OBJECTS)
-test_fasl_DEPENDENCIES = libmosh.a gtest_main.a $(GC_LIB) \
-	$(REGEXP_LIB)
 test_fasl_LINK = $(CXXLD) $(test_fasl_CXXFLAGS) $(CXXFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_test_ffi_OBJECTS = test_ffi-FFITest.$(OBJEXT) \
@@ -140,15 +138,12 @@ test_ffi_LINK = $(CXXLD) $(test_ffi_CXXFLAGS) $(CXXFLAGS) \
 am_test_port_OBJECTS = test_port-PortTest.$(OBJEXT) \
 	test_port-TestingSignalHandler.$(OBJEXT)
 test_port_OBJECTS = $(am_test_port_OBJECTS)
-test_port_DEPENDENCIES = libmosh.a gtest_main.a $(GC_LIB) \
-	$(REGEXP_LIB)
 test_port_LINK = $(CXXLD) $(test_port_CXXFLAGS) $(CXXFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_test_vm_OBJECTS = test_vm-VMTest.$(OBJEXT) \
 	test_vm-TestingVM.$(OBJEXT) \
 	test_vm-TestingSignalHandler.$(OBJEXT)
 test_vm_OBJECTS = $(am_test_vm_OBJECTS)
-test_vm_DEPENDENCIES = libmosh.a gtest_main.a $(GC_LIB) $(REGEXP_LIB)
 test_vm_LINK = $(CXXLD) $(test_vm_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@
@@ -250,6 +245,7 @@ PATH_SEPARATOR = @PATH_SEPARATOR@
 RANLIB = @RANLIB@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
+SHLIB_SO_LDFLAGS = @SHLIB_SO_LDFLAGS@
 STRIP = @STRIP@
 VERSION = @VERSION@
 abs_builddir = @abs_builddir@
@@ -461,16 +457,19 @@ CORE_LIBS = \
 # Usually you shouldn't tweak such internal variables, indicated by a
 # trailing _.
 GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS_)
+test_vm_DEPENDENCIES = libmosh.a gtest_main.a
 test_vm_CXXFLAGS = $(mosh_CFLAGS) $(mosh_OPTS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include -DGTEST_HAS_CLONE=0
 test_vm_SOURCES = VMTest.cpp TestingVM.cpp TestingSignalHandler.cpp
 test_vm_LDADD = libmosh.a gtest_main.a $(GC_LIB) $(REGEXP_LIB)  -ldl
+test_port_DEPENDENCIES = libmosh.a gtest_main.a
 test_port_CXXFLAGS = $(mosh_CFLAGS) $(mosh_OPTS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include -DGTEST_HAS_CLONE=0
 test_port_SOURCES = PortTest.cpp TestingSignalHandler.cpp
 test_port_LDADD = libmosh.a gtest_main.a $(GC_LIB) $(REGEXP_LIB) -ldl
+test_fasl_DEPENDENCIES = libmosh.a gtest_main.a
 test_fasl_CXXFLAGS = $(mosh_CFLAGS) $(mosh_OPTS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include -DGTEST_HAS_CLONE=0
 test_fasl_SOURCES = FaslTest.cpp TestingSignalHandler.cpp TestingVM.cpp
 test_fasl_LDADD = libmosh.a gtest_main.a $(GC_LIB) $(REGEXP_LIB) -ldl
-test_ffi_DEPENDENCIES = libffitest.so.1.0
+test_ffi_DEPENDENCIES = libffitest.so.1.0 libmosh.a gtest_main.a
 test_ffi_CXXFLAGS = $(mosh_CFLAGS) $(mosh_OPTS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include -DGTEST_HAS_CLONE=0
 test_ffi_SOURCES = FFITest.cpp TestingSignalHandler.cpp TestingVM.cpp 
 test_ffi_LDADD = libmosh.a gtest_main.a $(GC_LIB) $(REGEXP_LIB) -ldl
@@ -2296,7 +2295,7 @@ uninstall-am: uninstall-binPROGRAMS uninstall-dataDATA \
 # for FFI test
 libffitest.so.1.0: ffitest.c
 	gcc -fPIC -c $<
-	gcc -shared -Wl -o $@ ffitest.o
+	gcc -Wl @SHLIB_SO_LDFLAGS@ -o $@ ffitest.o
 
 update:
 	(find . -name "*.ss.fasl" | xargs rm) ; true

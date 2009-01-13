@@ -647,6 +647,7 @@ GREP
 CXXCPP
 HAVE_EXT_HASHES
 HAVE_TR1_HASHES
+SHLIB_SO_LDFLAGS
 GOSH
 RANLIB
 am__fastdepCC_FALSE
@@ -4342,6 +4343,16 @@ cat >>confdefs.h <<\_ACEOF
 _ACEOF
 
 fi
+
+case $host in
+  *darwin*)
+  SHLIB_SO_LDFLAGS="-dynamiclib"
+  ;;
+  *)
+  SHLIB_SO_LDFLAGS="-shared"
+  ;;
+esac
+
 
 # Checks for libraries.
 have_tr1_hashes=0
