@@ -2,7 +2,7 @@
 const int cProcNum = 426;
 static const Object cProcs[] = {
      Object::makeCProcedure(internalFfiPointerRefEx),
-     Object::makeCProcedure(internalFfiVoidMulTostringEx),
+     Object::makeCProcedure(internalFfiPointerTostringEx),
      Object::makeCProcedure(internalFfiCallTovoidMulEx),
      Object::makeCProcedure(internalFfiCallTovoidEx),
      Object::makeCProcedure(internalFfiCallTointEx),
@@ -431,7 +431,7 @@ static const Object cProcs[] = {
 #ifdef ENABLE_PROFILER
 static const ucs4char* cProcNames[] = {
      UC("%ffi-pointer-ref"),
-     UC("%ffi-void*->string"),
+     UC("%ffi-pointer->string"),
      UC("%ffi-call->void*"),
      UC("%ffi-call->void"),
      UC("%ffi-call->int"),
