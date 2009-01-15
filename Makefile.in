@@ -427,7 +427,7 @@ FFI.h                         FFI.cpp                             \
 FFIProcedures.h               FFIProcedures.cpp
 
 data_DATA = all-tests.scm repl.scm tools/psyntax-r6rs/rev10_to_10/psyntax.scm
-nobase_data_DATA = lib/srfi/%3A8.ss lib/srfi/%3A98.ss lib/srfi/%3A26.ss lib/mosh/test.ss
+nobase_data_DATA = lib/srfi/%3A8.ss lib/srfi/%3A98.ss lib/srfi/%3A26.ss lib/mosh/test.ss lib/mosh/pp.ss
 PRECOMPILE_SRC = compiler-with-library.scmc match.scmc psyntax.scmc
 INCLUDES = -I $(BOEHM_GC_DIR)/include -I $(ONIG_DIR)
 EXTRA_DIST = instruction.scm vm.scm library.scm compiler.scm free-vars.scm scripts match.scm test-data.scm doc repl.scm tools/psyntax-r6rs/rev10_to_10/psyntax.scm r6rs-examples tools/psyntax-r6rs RELNOTE r6rs-test-suite example lib cprocedures.cpp labels.cpp all-tests.scm test
@@ -451,7 +451,6 @@ CORE_LIBS = \
     lib/core/r5rs.scm       \
     lib/core/hashtable.scm
 
-#	(cd r6rs-test-suite && $(MAKE) $@)
 
 # Builds gtest.a and gtest_main.a.
 
@@ -2392,7 +2391,6 @@ check: test update
 
 test: ./mosh all-tests.scm
 	./mosh test/shell.scm
-#	./mosh -5 all-tests.scm
 	./mosh test/record.scm
 	./mosh test/condition.scm
 	./mosh test/exception.scm
@@ -2400,6 +2398,8 @@ test: ./mosh all-tests.scm
 	./mosh test/srfi8.scm
 	./mosh test/srfi19.scm
 	./mosh test/ffi.scm
+	./mosh -5 all-tests.scm
+	(cd r6rs-test-suite && $(MAKE) $@)
 
 # For simplicity and to avoid depending on Google Test's
 # implementation details, the dependencies specified below are
