@@ -45,7 +45,7 @@ subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
 	$(top_srcdir)/configure AUTHORS COPYING ChangeLog INSTALL NEWS \
-	config.guess config.sub depcomp install-sh missing
+	config.guess config.sub depcomp install-sh ltmain.sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -457,6 +457,7 @@ CORE_LIBS = \
 # Usually you shouldn't tweak such internal variables, indicated by a
 # trailing _.
 GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS_)
+TEST_CXXFLAGS_ = $(mosh_CFLAGS) $(mosh_OPTS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include -DGTEST_HAS_CLONE=0
 test_vm_DEPENDENCIES = libmosh.a gtest_main.a
 test_vm_CXXFLAGS = $(mosh_CFLAGS) $(mosh_OPTS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include -DGTEST_HAS_CLONE=0
 test_vm_SOURCES = VMTest.cpp TestingVM.cpp TestingSignalHandler.cpp
@@ -2398,7 +2399,6 @@ test: ./mosh all-tests.scm
 	./mosh test/srfi8.scm
 	./mosh test/srfi19.scm
 	./mosh test/ffi.scm
-	./mosh -5 all-tests.scm
 	(cd r6rs-test-suite && $(MAKE) $@)
 
 # For simplicity and to avoid depending on Google Test's
