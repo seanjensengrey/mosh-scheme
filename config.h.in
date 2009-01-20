@@ -3,6 +3,15 @@
 /* Define if building universal (internal helper macro) */
 #undef AC_APPLE_UNIVERSAL_BUILD
 
+/* Define for the IA32 architecture. */
+#undef ARCH_IA32
+
+/* Define for the AMD x86-64 architecture. */
+#undef ARCH_UNKNOWN
+
+/* Define for the AMD x86-64 architecture. */
+#undef ARCH_X86_64
+
 /* Define to one of `_getb67', `GETB67', `getb67' for Cray-2 and Cray-YMP
    systems. This function is required for `alloca.c' support on those systems.
    */
