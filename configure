@@ -645,6 +645,7 @@ ALLOCA
 EGREP
 GREP
 CXXCPP
+PATH_TO_MYSQLCLIENT
 HAVE_EXT_HASHES
 HAVE_TR1_HASHES
 SHLIB_SO_LDFLAGS
@@ -750,6 +751,7 @@ ac_user_opts='
 enable_option_checking
 enable_dependency_tracking
 enable_profiler
+with_mysql
 '
       ac_precious_vars='build_alias
 host_alias
@@ -1397,6 +1399,12 @@ Optional Features:
   --disable-dependency-tracking  speeds up one-time build
   --enable-dependency-tracking   do not reject slow dependency extractors
   --disable-profiler trun off profiler default no
+
+Optional Packages:
+  --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
+  --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
+  --with-mysql=FULL_PATH_TO_libmysqlclient
+
 
 Some influential environment variables:
   CXX         C++ compiler command
@@ -4495,75 +4503,20 @@ _ACEOF
         ;;
 esac
 
-{ $as_echo "$as_me:$LINENO: checking for mysql_real_connect in -lmysqlclient" >&5
-$as_echo_n "checking for mysql_real_connect in -lmysqlclient... " >&6; }
-if test "${ac_cv_lib_mysqlclient_mysql_real_connect+set}" = set; then
-  $as_echo_n "(cached) " >&6
+
+# Check whether --with-mysql was given.
+if test "${with_mysql+set}" = set; then
+  withval=$with_mysql;
+  PATH_TO_MYSQLCLIENT="$withval"
+
+
 else
-  ac_check_lib_save_LIBS=$LIBS
-LIBS="-lmysqlclient  $LIBS"
-cat >conftest.$ac_ext <<_ACEOF
-/* confdefs.h.  */
-_ACEOF
-cat confdefs.h >>conftest.$ac_ext
-cat >>conftest.$ac_ext <<_ACEOF
-/* end confdefs.h.  */
 
-/* Override any GCC internal prototype to avoid an error.
-   Use char because int might match the return type of a GCC
-   builtin and then its argument prototype would still apply.  */
-#ifdef __cplusplus
-extern "C"
-#endif
-char mysql_real_connect ();
-int
-main ()
-{
-return mysql_real_connect ();
-  ;
-  return 0;
-}
-_ACEOF
-rm -f conftest.$ac_objext conftest$ac_exeext
-if { (ac_try="$ac_link"
-case "(($ac_try" in
-  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
-  *) ac_try_echo=$ac_try;;
-esac
-eval ac_try_echo="\"\$as_me:$LINENO: $ac_try_echo\""
-$as_echo "$ac_try_echo") >&5
-  (eval "$ac_link") 2>conftest.er1
-  ac_status=$?
-  grep -v '^ *+' conftest.er1 >conftest.err
-  rm -f conftest.er1
-  cat conftest.err >&5
-  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
-  (exit $ac_status); } && {
-	 test -z "$ac_cxx_werror_flag" ||
-	 test ! -s conftest.err
-       } && test -s conftest$ac_exeext && {
-	 test "$cross_compiling" = yes ||
-	 $as_test_x conftest$ac_exeext
-       }; then
-  ac_cv_lib_mysqlclient_mysql_real_connect=yes
-else
-  $as_echo "$as_me: failed program was:" >&5
-sed 's/^/| /' conftest.$ac_ext >&5
+  PATH_TO_MYSQLCLIENT="libmysqlclient.15.so"
 
-	ac_cv_lib_mysqlclient_mysql_real_connect=no
+
+
 fi
-
-rm -rf conftest.dSYM
-rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
-      conftest$ac_exeext conftest.$ac_ext
-LIBS=$ac_check_lib_save_LIBS
-fi
-{ $as_echo "$as_me:$LINENO: result: $ac_cv_lib_mysqlclient_mysql_real_connect" >&5
-$as_echo "$ac_cv_lib_mysqlclient_mysql_real_connect" >&6; }
-if test "x$ac_cv_lib_mysqlclient_mysql_real_connect" = x""yes; then
-  LDFLAGS="$LDFLAGS -lmysqlclient"
-fi
-
 
 
 # Checks for header files.
@@ -7325,6 +7278,8 @@ ac_config_files="$ac_config_files Makefile"
 
 subdirs="$subdirs gc-7.1alpha3 onig-5.7.0"
 
+ac_config_files="$ac_config_files lib/mysql.ss"
+
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
 # tests run on this system so they can be shared between configure
@@ -7955,6 +7910,7 @@ do
     "config.h") CONFIG_HEADERS="$CONFIG_HEADERS config.h" ;;
     "depfiles") CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
+    "lib/mysql.ss") CONFIG_FILES="$CONFIG_FILES lib/mysql.ss" ;;
 
   *) { { $as_echo "$as_me:$LINENO: error: invalid argument: $ac_config_target" >&5
 $as_echo "$as_me: error: invalid argument: $ac_config_target" >&2;}
