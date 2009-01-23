@@ -4512,7 +4512,7 @@ if test "${with_mysql+set}" = set; then
 
 else
 
-  PATH_TO_MYSQLCLIENT="libmysqlclient.15.so"
+  PATH_TO_MYSQLCLIENT="libmysqlclient.so.15"
 
 
 
