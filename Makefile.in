@@ -46,7 +46,7 @@ DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
 	$(top_srcdir)/configure $(top_srcdir)/lib/mysql.ss.in AUTHORS \
 	COPYING ChangeLog INSTALL NEWS config.guess config.sub depcomp \
-	install-sh missing
+	install-sh ltmain.sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -2451,6 +2451,7 @@ test: ./mosh all-tests.scm update
 	./mosh test/ffi.scm
 	./mosh test/mysql.scm
 	./mosh test/clos.scm
+	./mosh test/dbi.scm
 	./mosh -5 all-tests.scm
 	(cd r6rs-test-suite && $(MAKE) $@)
 
