@@ -44,9 +44,9 @@ check_PROGRAMS = test_object$(EXEEXT) test_vm$(EXEEXT) \
 subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
-	$(top_srcdir)/configure $(top_srcdir)/lib/mysql.ss.in AUTHORS \
-	COPYING ChangeLog INSTALL NEWS config.guess config.sub depcomp \
-	install-sh ltmain.sh missing
+	$(top_srcdir)/configure $(top_srcdir)/lib/mosh/mysql.ss.in \
+	AUTHORS COPYING ChangeLog INSTALL NEWS config.guess config.sub \
+	depcomp install-sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -55,7 +55,7 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = config.h
-CONFIG_CLEAN_FILES = lib/mysql.ss
+CONFIG_CLEAN_FILES = lib/mosh/mysql.ss
 LIBRARIES = $(noinst_LIBRARIES)
 AR = ar
 ARFLAGS = cru
@@ -544,7 +544,7 @@ $(srcdir)/config.h.in:  $(am__configure_deps)
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
-lib/mysql.ss: $(top_builddir)/config.status $(top_srcdir)/lib/mysql.ss.in
+lib/mosh/mysql.ss: $(top_builddir)/config.status $(top_srcdir)/lib/mosh/mysql.ss.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 
 clean-noinstLIBRARIES:
