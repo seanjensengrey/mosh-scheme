@@ -2476,7 +2476,7 @@ gtest_main.a : gtest-all.o gtest_main.o
 
 doc:
 	./mosh scripts/gen-doc-from-r6rs.scm
-	perl ~/NaturalDocs-1.4/NaturalDocs -i . -o HTML doc/html -p doc/config -s red -xi tools
+	perl ~/NaturalDocs-1.4/NaturalDocs -i . -o HTML doc/html -p doc/config -s pink -xi tools
 # 	@GOSH@ ./scripts/gen-doc.scm "manual" "doc/"
 # 	@GOSH@ ./scripts/gen-doc-index.scm "top" "doc/"
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
