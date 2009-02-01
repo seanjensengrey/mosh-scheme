@@ -2487,7 +2487,8 @@ am__tar='${AMTAR} chof - "$$tardir"'; am__untar='${AMTAR} xf -'
 ac_config_headers="$ac_config_headers config.h"
 
 
-MOSH_LIB_PATH="${datadir}/mosh"
+
+MOSH_LIB_PATH="${datadir}/mosh/$PACKAGE_VERSION"
 
 
 
@@ -7278,7 +7279,7 @@ ac_config_files="$ac_config_files Makefile"
 
 subdirs="$subdirs gc-7.1alpha3 onig-5.7.0"
 
-ac_config_files="$ac_config_files lib/mosh/mysql.ss doc/text/Download.txt"
+ac_config_files="$ac_config_files mosh_config lib/mosh/mysql.ss lib/mosh/config.ss doc/text/Download.txt"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -7910,7 +7911,9 @@ do
     "config.h") CONFIG_HEADERS="$CONFIG_HEADERS config.h" ;;
     "depfiles") CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
+    "mosh_config") CONFIG_FILES="$CONFIG_FILES mosh_config" ;;
     "lib/mosh/mysql.ss") CONFIG_FILES="$CONFIG_FILES lib/mosh/mysql.ss" ;;
+    "lib/mosh/config.ss") CONFIG_FILES="$CONFIG_FILES lib/mosh/config.ss" ;;
     "doc/text/Download.txt") CONFIG_FILES="$CONFIG_FILES doc/text/Download.txt" ;;
 
   *) { { $as_echo "$as_me:$LINENO: error: invalid argument: $ac_config_target" >&5
