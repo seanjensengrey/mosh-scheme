@@ -645,6 +645,8 @@ ALLOCA
 EGREP
 GREP
 CXXCPP
+DEVELOPER_FALSE
+DEVELOPER_TRUE
 PATH_TO_MYSQLCLIENT
 HAVE_EXT_HASHES
 HAVE_TR1_HASHES
@@ -752,6 +754,7 @@ enable_option_checking
 enable_dependency_tracking
 enable_profiler
 with_mysql
+enable_developer
 '
       ac_precious_vars='build_alias
 host_alias
@@ -1399,6 +1402,8 @@ Optional Features:
   --disable-dependency-tracking  speeds up one-time build
   --enable-dependency-tracking   do not reject slow dependency extractors
   --disable-profiler trun off profiler default no
+  --enable-developer      Flags are enabled for Mosh Developer
+
 
 Optional Packages:
   --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
@@ -4520,6 +4525,23 @@ else
 fi
 
 
+# Check whether --enable-developer was given.
+if test "${enable_developer+set}" = set; then
+  enableval=$enable_developer; enable_developer=true
+else
+  enable_developer=false
+fi
+
+ if test x$enable_developer = xtrue; then
+  DEVELOPER_TRUE=
+  DEVELOPER_FALSE='#'
+else
+  DEVELOPER_TRUE='#'
+  DEVELOPER_FALSE=
+fi
+
+
+
 # Checks for header files.
 ac_ext=cpp
 ac_cpp='$CXXCPP $CPPFLAGS'
@@ -7396,6 +7418,13 @@ if test -z "${am__fastdepCC_TRUE}" && test -z "${am__fastdepCC_FALSE}"; then
   { { $as_echo "$as_me:$LINENO: error: conditional \"am__fastdepCC\" was never defined.
 Usually this means the macro was only invoked conditionally." >&5
 $as_echo "$as_me: error: conditional \"am__fastdepCC\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${DEVELOPER_TRUE}" && test -z "${DEVELOPER_FALSE}"; then
+  { { $as_echo "$as_me:$LINENO: error: conditional \"DEVELOPER\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+$as_echo "$as_me: error: conditional \"DEVELOPER\" was never defined.
 Usually this means the macro was only invoked conditionally." >&2;}
    { (exit 1); exit 1; }; }
 fi
