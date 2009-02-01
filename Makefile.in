@@ -490,14 +490,14 @@ compiler-with-library.h compiler-with-library.fasl
 
 CLEANFILES = gtest.a gtest_main.a
 MAINTAINERCLEANFILES = $(GENERATED)
-CORE_LIBS = \
-    lib/core/fixnum.scm     \
-    lib/core/flonum.scm     \
-    lib/core/bitwise.scm    \
-    lib/core/bytevector.scm \
-    lib/core/base.scm       \
-    lib/core/r5rs.scm       \
-    lib/core/hashtable.scm
+@DEVELOPER_TRUE@CORE_LIBS = \
+@DEVELOPER_TRUE@    lib/core/fixnum.scm     \
+@DEVELOPER_TRUE@    lib/core/flonum.scm     \
+@DEVELOPER_TRUE@    lib/core/bitwise.scm    \
+@DEVELOPER_TRUE@    lib/core/bytevector.scm \
+@DEVELOPER_TRUE@    lib/core/base.scm       \
+@DEVELOPER_TRUE@    lib/core/r5rs.scm       \
+@DEVELOPER_TRUE@    lib/core/hashtable.scm
 
 
 # Builds gtest.a and gtest_main.a.
@@ -2420,82 +2420,82 @@ update:
 	./mosh scripts/pre-compile-r6rs.scm scripts/pre-compile-target.scm
 
 # when you release comment out start
+@DEVELOPER_TRUE@Reader.tab.cpp: Reader.y
+@DEVELOPER_TRUE@	bison -d $< -o $@
 
-Reader.tab.cpp: Reader.y
-	bison -d $< -o $@
+@DEVELOPER_TRUE@NumberReader.tab.cpp: NumberReader.y
+@DEVELOPER_TRUE@	bison -p "number_yy" -d $< -o $@
 
-NumberReader.tab.cpp: NumberReader.y
-	bison -p "number_yy" -d $< -o $@
+@DEVELOPER_TRUE@Scanner.cpp : scanner.re
+@DEVELOPER_TRUE@	re2c -u $< > $@ # -d is debug option
 
-Scanner.cpp : scanner.re
-	re2c -u $< > $@ # -d is debug option
+@DEVELOPER_TRUE@NumberScanner.cpp : NumberScanner.re
+@DEVELOPER_TRUE@	re2c -cu $< > $@ # -d is debug option
 
-NumberScanner.cpp : NumberScanner.re
-	re2c -cu $< > $@ # -d is debug option
-
-r6rs-test:
-	(cd r6rs-examples && ../mosh hello.ss)
-	(cd r6rs-examples && ../mosh let-syntax.ss)
-	(cd r6rs-examples && ../mosh env.ss)
+@DEVELOPER_TRUE@r6rs-test:
+@DEVELOPER_TRUE@	(cd r6rs-examples && ../mosh hello.ss)
+@DEVELOPER_TRUE@	(cd r6rs-examples && ../mosh let-syntax.ss)
+@DEVELOPER_TRUE@	(cd r6rs-examples && ../mosh env.ss)
 
 #### Instruction.h
-Instruction.h: ./instruction.scm
-	@GOSH@ ./scripts/gen-insn.scm $(PWD)/$< > $(PWD)/$@
+@DEVELOPER_TRUE@Instruction.h: ./instruction.scm
+@DEVELOPER_TRUE@	@GOSH@ ./scripts/gen-insn.scm $(PWD)/$< > $(PWD)/$@
 
-main.cpp: psyntax.h compiler-with-library.h match.h
+@DEVELOPER_TRUE@main.cpp: psyntax.h compiler-with-library.h match.h
 
-./compiler-vm-cpp.scm: ./compiler.scm free-vars-decl.scm
-	@GOSH@ ./scripts/gen-compiler.scm $(PWD)/$< "mosh" > $(PWD)/$@
+@DEVELOPER_TRUE@./compiler-vm-cpp.scm: ./compiler.scm free-vars-decl.scm
+@DEVELOPER_TRUE@	@GOSH@ ./scripts/gen-compiler.scm $(PWD)/$< "mosh" > $(PWD)/$@
 
-compiler-with-library.scmc: ./compiler-with-library.scm ./compiler-vm.scm
-	@GOSH@ ./vm.scm compile-file-with-macro $(PWD)/$< > $(PWD)/$@
+@DEVELOPER_TRUE@compiler-with-library.scmc: ./compiler-with-library.scm ./compiler-vm.scm
+@DEVELOPER_TRUE@	@GOSH@ ./vm.scm compile-file-with-macro $(PWD)/$< > $(PWD)/$@
 
-SUFFIXES: .scmc .h
+@DEVELOPER_TRUE@SUFFIXES: .scmc .h
 
-.scmc.h:
-	mosh scripts/scmc2fasl.scm $(PWD)/$< $(PWD)/$<.fasl
-	mosh scripts/binary2c.scm $(PWD)/$<.fasl $(PWD)/$@
+@DEVELOPER_TRUE@.scmc.h:
+@DEVELOPER_TRUE@	mosh scripts/scmc2fasl.scm $(PWD)/$< $(PWD)/$<.fasl
+@DEVELOPER_TRUE@	mosh scripts/binary2c.scm $(PWD)/$<.fasl $(PWD)/$@
 
-match.scmc: ./match.scm ./compiler-vm.scm
-	@GOSH@ ./vm.scm compile-file-without-macro $(PWD)/$< > $(PWD)/$@
+@DEVELOPER_TRUE@match.scmc: ./match.scm ./compiler-vm.scm
+@DEVELOPER_TRUE@	@GOSH@ ./vm.scm compile-file-without-macro $(PWD)/$< > $(PWD)/$@
 
 # we need to replace #\null => #\nul and |...| => ...
 # It is the difference between gauche and mosh.
-psyntax.scmc: tools/psyntax-r6rs/rev10_to_10/psyntax.scm ./compiler-vm.scm
-	@GOSH@ ./vm.scm compile-file-without-macro $(PWD)/$< > $(PWD)/$@
-	sed -i -e "s/#\\\\null/#\\\\nul/g;s/|\.\.\.|/\.\.\./g" $(PWD)/$@
+@DEVELOPER_TRUE@psyntax.scmc: tools/psyntax-r6rs/rev10_to_10/psyntax.scm ./compiler-vm.scm
+@DEVELOPER_TRUE@	@GOSH@ ./vm.scm compile-file-without-macro $(PWD)/$< > $(PWD)/$@
+@DEVELOPER_TRUE@	sed -i -e "s/#\\\\null/#\\\\nul/g;s/|\.\.\.|/\.\.\./g" $(PWD)/$@
 
-./compiler-with-library.scm: ./library.scm ./compiler-vm-cpp.scm $(CORE_LIBS)
-	cat $^ > $(PWD)/$@
+@DEVELOPER_TRUE@./compiler-with-library.scm: ./library.scm ./compiler-vm-cpp.scm $(CORE_LIBS)
+@DEVELOPER_TRUE@	cat $^ > $(PWD)/$@
 
-./free-vars-decl.scm: ./free-vars.scm
-	@GOSH@ ./scripts/gen-free-vars-decl.scm $(PWD)/$< > $(PWD)/$@
+@DEVELOPER_TRUE@./free-vars-decl.scm: ./free-vars.scm
+@DEVELOPER_TRUE@	@GOSH@ ./scripts/gen-free-vars-decl.scm $(PWD)/$< > $(PWD)/$@
 
-./compiler-vm.scm: ./compiler.scm free-vars-decl.scm
-	./scripts/gen-compiler.scm $(PWD)/$< "vm?" > $(PWD)/$@
+@DEVELOPER_TRUE@./compiler-vm.scm: ./compiler.scm free-vars-decl.scm
+@DEVELOPER_TRUE@	./scripts/gen-compiler.scm $(PWD)/$< "vm?" > $(PWD)/$@
 
-./compiler-vm-outer.scm: ./compiler.scm free-vars-decl.scm
-	./scripts/gen-compiler.scm $(PWD)/$< "vm-outer?" > $(PWD)/$@  || (rm -f $(PWD)/$@ && false)
+@DEVELOPER_TRUE@./compiler-vm-outer.scm: ./compiler.scm free-vars-decl.scm
+@DEVELOPER_TRUE@	./scripts/gen-compiler.scm $(PWD)/$< "vm-outer?" > $(PWD)/$@  || (rm -f $(PWD)/$@ && false)
 
-./compiler-gauche.scm: ./compiler.scm free-vars-decl.scm
-	./scripts/gen-compiler.scm $(PWD)/$< "gauche" > $(PWD)/$@  || (rm -f $(PWD)/$@ && false)
+@DEVELOPER_TRUE@./compiler-gauche.scm: ./compiler.scm free-vars-decl.scm
+@DEVELOPER_TRUE@	./scripts/gen-compiler.scm $(PWD)/$< "gauche" > $(PWD)/$@  || (rm -f $(PWD)/$@ && false)
 
-labels.cpp: ./instruction.scm
-	@GOSH@ ./scripts/gen-label.scm $< > $(PWD)/$@
+@DEVELOPER_TRUE@labels.cpp: ./instruction.scm
+@DEVELOPER_TRUE@	@GOSH@ ./scripts/gen-label.scm $< > $(PWD)/$@
 
-DebugInstruction.h: instruction.scm
-	@GOSH@ ./scripts/gen-short-insn.scm $(PWD)/$< > $(PWD)/$@
+@DEVELOPER_TRUE@DebugInstruction.h: instruction.scm
+@DEVELOPER_TRUE@	@GOSH@ ./scripts/gen-short-insn.scm $(PWD)/$< > $(PWD)/$@
 
-VM.cpp: cprocedures.cpp labels.cpp
+@DEVELOPER_TRUE@VM.cpp: cprocedures.cpp labels.cpp
 
-./cprocedures.cpp: ./free-vars-decl.scm ./scripts/gen-cproc.scm
-	@GOSH@ ./scripts/gen-cproc.scm > $@
+@DEVELOPER_TRUE@./cprocedures.cpp: ./free-vars-decl.scm ./scripts/gen-cproc.scm
+@DEVELOPER_TRUE@	@GOSH@ ./scripts/gen-cproc.scm > $@
 
-all-tests.scm: ./test-data.scm
-	mosh -5 ./scripts/gen-test.scm $< $@
+@DEVELOPER_TRUE@all-tests.scm: ./test-data.scm
+@DEVELOPER_TRUE@	mosh -5 ./scripts/gen-test.scm $< $@
 #	echo 'run -5 scripts/gen-test.scm test-data.scm all-tests.scm ' | gdb ./mosh
 
 # when you release comment out end
+@DEVELOPER_TRUE@	echo "dev"
 
 .PHONY: bench doc test install
 
