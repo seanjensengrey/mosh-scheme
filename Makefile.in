@@ -16,6 +16,7 @@
 
 
 
+
 VPATH = @srcdir@
 pkgdatadir = $(datadir)/@PACKAGE@
 pkglibdir = $(libdir)/@PACKAGE@
@@ -44,7 +45,9 @@ check_PROGRAMS = test_object$(EXEEXT) test_vm$(EXEEXT) \
 subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
-	$(top_srcdir)/configure $(top_srcdir)/doc/text/Download.txt.in \
+	$(srcdir)/mosh_config.in $(top_srcdir)/configure \
+	$(top_srcdir)/doc/text/Download.txt.in \
+	$(top_srcdir)/lib/mosh/config.ss.in \
 	$(top_srcdir)/lib/mosh/mysql.ss.in AUTHORS COPYING ChangeLog \
 	INSTALL NEWS config.guess config.sub depcomp install-sh \
 	ltmain.sh missing
@@ -56,7 +59,8 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = config.h
-CONFIG_CLEAN_FILES = lib/mosh/mysql.ss doc/text/Download.txt
+CONFIG_CLEAN_FILES = mosh_config lib/mosh/mysql.ss lib/mosh/config.ss \
+	doc/text/Download.txt
 LIBRARIES = $(noinst_LIBRARIES)
 AR = ar
 ARFLAGS = cru
@@ -116,8 +120,8 @@ am_libmosh_a_OBJECTS = libmosh_a-read.$(OBJEXT) \
 	libmosh_a-Latin1Codec.$(OBJEXT) libmosh_a-FFI.$(OBJEXT) \
 	libmosh_a-FFIProcedures.$(OBJEXT)
 libmosh_a_OBJECTS = $(am_libmosh_a_OBJECTS)
-am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)" \
-	"$(DESTDIR)$(datadir)"
+am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(bindir)" \
+	"$(DESTDIR)$(datadir)" "$(DESTDIR)$(datadir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
 am_mosh_OBJECTS = mosh-main.$(OBJEXT)
@@ -154,6 +158,8 @@ am_test_vm_OBJECTS = test_vm-VMTest.$(OBJEXT) \
 test_vm_OBJECTS = $(am_test_vm_OBJECTS)
 test_vm_LINK = $(CXXLD) $(test_vm_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
+binSCRIPT_INSTALL = $(INSTALL_SCRIPT)
+SCRIPTS = $(bin_SCRIPTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -276,6 +282,8 @@ build_cpu = @build_cpu@
 build_os = @build_os@
 build_vendor = @build_vendor@
 builddir = @builddir@
+
+#mosh_core_fasl_libraries = $(mosh_core_libraries:.ss=.ss.fasl)
 datadir = @MOSH_LIB_PATH@
 datarootdir = @datarootdir@
 docdir = @docdir@
@@ -335,6 +343,7 @@ GTEST_HEADERS_ = $(GTEST_DIR)/include/gtest/*.h \
 
 GTEST_CPPFLAGS_ = -I$(GTEST_DIR) -I$(GTEST_DIR)/include
 SUBDIRS = $(BOEHM_GC_DIR) $(ONIG_DIR) .
+bin_SCRIPTS = mosh_config
 
 # mosh
 # -O3 causes miss compile of NumberReader.tab.cpp. (newest gcc?)
@@ -436,8 +445,37 @@ Latin1Codec.h                 Latin1Codec.cpp                     \
 FFI.h                         FFI.cpp                             \
 FFIProcedures.h               FFIProcedures.cpp
 
-data_DATA = all-tests.scm repl.scm tools/psyntax-r6rs/rev10_to_10/psyntax.scm
-nobase_data_DATA = lib/srfi/%3A8.ss lib/srfi/%3A98.ss lib/srfi/%3A26.ss lib/mosh/test.ss lib/mosh/pp.ss
+mosh_core_libraries = lib/srfi/%3A8.ss   \
+lib/srfi/%3A19.ss   \
+lib/srfi/%3A26.ss  \
+lib/srfi/%3A98.ss  \
+lib/mosh/cgi.ss    \
+lib/lambda/wiki.ss    \
+lib/mosh/ffi.ss    \
+lib/mosh/dbi.ss    \
+lib/mosh/mysql.ss    \
+lib/mosh/process.ss \
+lib/mosh/shell.ss \
+lib/mosh/shell/repl.ss \
+lib/mosh/dbd/mysql.ss  \
+lib/mosh/test.ss   \
+lib/mosh/pp.ss     \
+lib/mosh/config.ss \
+lib/clos/core.ss  lib/clos/helpers.ss  lib/clos/introspection.ss  lib/clos/slot-access.ss  lib/clos/user.ss \
+lib/clos/bootstrap/generic-functions.ss  lib/clos/bootstrap/standard-classes.ss \
+lib/clos/private/allocation.ikarus.ss         lib/clos/private/method-cache.ikarus.ss \
+lib/clos/private/allocation.ss                lib/clos/private/method-cache.ss \
+lib/clos/private/compat.ss                    lib/clos/private/rrfast-method-cache.mosh.ss \
+lib/clos/private/core-class-layout.ss         lib/clos/private/slow-method-cache.ss \
+lib/clos/private/dddmethod-cache.mosh.ss      lib/clos/private/top-sort.ss \
+lib/clos/private/fast-method-cache.ikarus.ss \
+lib/clos/std-protocols/add-method.ss            lib/clos/std-protocols/initialize.ss \
+lib/clos/std-protocols/allocate-instance.ss     lib/clos/std-protocols/make.ss \
+lib/clos/std-protocols/class-initialization.ss  lib/clos/std-protocols/print-object.ss \
+lib/clos/std-protocols/generic-invocation.ss
+
+data_DATA = all-tests.scm #repl.scm #tools/psyntax-r6rs/rev10_to_10/psyntax.scm
+nobase_data_DATA = ${mosh_core_libraries} #${mosh_core_fasl_libraries}
 PRECOMPILE_SRC = compiler-with-library.scmc match.scmc psyntax.scmc
 INCLUDES = -I $(BOEHM_GC_DIR)/include -I $(ONIG_DIR)
 EXTRA_DIST = instruction.scm vm.scm library.scm compiler.scm free-vars.scm scripts match.scm test-data.scm doc repl.scm tools/psyntax-r6rs/rev10_to_10/psyntax.scm r6rs-examples tools/psyntax-r6rs RELNOTE r6rs-test-suite example lib cprocedures.cpp labels.cpp all-tests.scm test
@@ -545,7 +583,11 @@ $(srcdir)/config.h.in:  $(am__configure_deps)
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
+mosh_config: $(top_builddir)/config.status $(srcdir)/mosh_config.in
+	cd $(top_builddir) && $(SHELL) ./config.status $@
 lib/mosh/mysql.ss: $(top_builddir)/config.status $(top_srcdir)/lib/mosh/mysql.ss.in
+	cd $(top_builddir) && $(SHELL) ./config.status $@
+lib/mosh/config.ss: $(top_builddir)/config.status $(top_srcdir)/lib/mosh/config.ss.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 doc/text/Download.txt: $(top_builddir)/config.status $(top_srcdir)/doc/text/Download.txt.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
@@ -600,6 +642,25 @@ test_port$(EXEEXT): $(test_port_OBJECTS) $(test_port_DEPENDENCIES)
 test_vm$(EXEEXT): $(test_vm_OBJECTS) $(test_vm_DEPENDENCIES) 
 	@rm -f test_vm$(EXEEXT)
 	$(test_vm_LINK) $(test_vm_OBJECTS) $(test_vm_LDADD) $(LIBS)
+install-binSCRIPTS: $(bin_SCRIPTS)
+	@$(NORMAL_INSTALL)
+	test -z "$(bindir)" || $(MKDIR_P) "$(DESTDIR)$(bindir)"
+	@list='$(bin_SCRIPTS)'; for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  if test -f $$d$$p; then \
+	    f=`echo "$$p" | sed 's|^.*/||;$(transform)'`; \
+	    echo " $(binSCRIPT_INSTALL) '$$d$$p' '$(DESTDIR)$(bindir)/$$f'"; \
+	    $(binSCRIPT_INSTALL) "$$d$$p" "$(DESTDIR)$(bindir)/$$f"; \
+	  else :; fi; \
+	done
+
+uninstall-binSCRIPTS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(bin_SCRIPTS)'; for p in $$list; do \
+	  f=`echo "$$p" | sed 's|^.*/||;$(transform)'`; \
+	  echo " rm -f '$(DESTDIR)$(bindir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(bindir)/$$f"; \
+	done
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -2228,10 +2289,10 @@ check-am: all-am
 	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS)
 	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: check-recursive
-all-am: Makefile $(LIBRARIES) $(PROGRAMS) $(DATA) config.h
+all-am: Makefile $(LIBRARIES) $(PROGRAMS) $(SCRIPTS) $(DATA) config.h
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)" "$(DESTDIR)$(datadir)"; do \
+	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(bindir)" "$(DESTDIR)$(datadir)" "$(DESTDIR)$(datadir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-recursive
@@ -2283,10 +2344,12 @@ info: info-recursive
 info-am:
 
 install-data-am: install-dataDATA install-nobase_dataDATA
+	@$(NORMAL_INSTALL)
+	$(MAKE) $(AM_MAKEFLAGS) install-data-hook
 
 install-dvi: install-dvi-recursive
 
-install-exec-am: install-binPROGRAMS
+install-exec-am: install-binPROGRAMS install-binSCRIPTS
 
 install-html: install-html-recursive
 
@@ -2319,11 +2382,11 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am: uninstall-binPROGRAMS uninstall-dataDATA \
-	uninstall-nobase_dataDATA
+uninstall-am: uninstall-binPROGRAMS uninstall-binSCRIPTS \
+	uninstall-dataDATA uninstall-nobase_dataDATA
 
 .MAKE: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) install-am \
-	install-strip
+	install-data-am install-strip
 
 .PHONY: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) CTAGS GTAGS \
 	all all-am am--refresh check check-TESTS check-am clean \
@@ -2333,17 +2396,18 @@ uninstall-am: uninstall-binPROGRAMS uninstall-dataDATA \
 	distcheck distclean distclean-compile distclean-generic \
 	distclean-hdr distclean-tags distcleancheck distdir \
 	distuninstallcheck dvi dvi-am html html-am info info-am \
-	install install-am install-binPROGRAMS install-data \
-	install-data-am install-dataDATA install-dvi install-dvi-am \
-	install-exec install-exec-am install-html install-html-am \
-	install-info install-info-am install-man \
-	install-nobase_dataDATA install-pdf install-pdf-am install-ps \
-	install-ps-am install-strip installcheck installcheck-am \
-	installdirs installdirs-am maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic pdf pdf-am ps ps-am tags tags-recursive \
-	uninstall uninstall-am uninstall-binPROGRAMS \
-	uninstall-dataDATA uninstall-nobase_dataDATA
+	install install-am install-binPROGRAMS install-binSCRIPTS \
+	install-data install-data-am install-data-hook \
+	install-dataDATA install-dvi install-dvi-am install-exec \
+	install-exec-am install-html install-html-am install-info \
+	install-info-am install-man install-nobase_dataDATA \
+	install-pdf install-pdf-am install-ps install-ps-am \
+	install-strip installcheck installcheck-am installdirs \
+	installdirs-am maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic pdf pdf-am \
+	ps ps-am tags tags-recursive uninstall uninstall-am \
+	uninstall-binPROGRAMS uninstall-binSCRIPTS uninstall-dataDATA \
+	uninstall-nobase_dataDATA
 
 
 # for FFI test
@@ -2433,8 +2497,7 @@ all-tests.scm: ./test-data.scm
 
 # when you release comment out end
 
-#### benchmark
-.PHONY: bench doc test
+.PHONY: bench doc test install
 
 bench:
 #	@GOSH@ ./scripts/bench.scm > /dev/null
@@ -2479,6 +2542,9 @@ doc:
 	perl ~/NaturalDocs-1.4/NaturalDocs -i . -o HTML doc/html -p doc/config -s pink -xi tools
 # 	@GOSH@ ./scripts/gen-doc.scm "manual" "doc/"
 # 	@GOSH@ ./scripts/gen-doc-index.scm "top" "doc/"
+
+install-data-hook :
+	(cd doc &&  ../mosh ~/mosh/scripts/pre-compile-r6rs.scm ~/mosh/scripts/pre-compile-target.scm)
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
