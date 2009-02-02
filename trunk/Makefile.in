@@ -2494,8 +2494,13 @@ update:
 @DEVELOPER_TRUE@	mosh -5 ./scripts/gen-test.scm $< $@
 #	echo 'run -5 scripts/gen-test.scm test-data.scm all-tests.scm ' | gdb ./mosh
 
+@DEVELOPER_TRUE@doc:
+@DEVELOPER_TRUE@	./mosh scripts/gen-doc-from-r6rs.scm
+@DEVELOPER_TRUE@	perl ~/NaturalDocs-1.4/NaturalDocs -i . -o HTML doc/html -p doc/config -s pink -xi tools
+# 	@GOSH@ ./scripts/gen-doc.scm "manual" "doc/"
+# 	@GOSH@ ./scripts/gen-doc-index.scm "top" "doc/"
+
 # when you release comment out end
-@DEVELOPER_TRUE@	echo "dev"
 
 .PHONY: bench doc test install
 
@@ -2537,14 +2542,8 @@ gtest.a : gtest-all.o
 gtest_main.a : gtest-all.o gtest_main.o
 	$(AR) $(ARFLAGS) $@ $^
 
-doc:
-	./mosh scripts/gen-doc-from-r6rs.scm
-	perl ~/NaturalDocs-1.4/NaturalDocs -i . -o HTML doc/html -p doc/config -s pink -xi tools
-# 	@GOSH@ ./scripts/gen-doc.scm "manual" "doc/"
-# 	@GOSH@ ./scripts/gen-doc-index.scm "top" "doc/"
-
 install-data-hook :
-	(cd doc &&  ../mosh ~/mosh/scripts/pre-compile-r6rs.scm ~/mosh/scripts/pre-compile-target.scm)
+	(cd doc &&  ../mosh ../scripts/pre-compile-r6rs.scm ../scripts/pre-compile-target.scm)
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
