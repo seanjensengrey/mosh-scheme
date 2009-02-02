@@ -50,7 +50,7 @@ DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(top_srcdir)/lib/mosh/config.ss.in \
 	$(top_srcdir)/lib/mosh/mysql.ss.in AUTHORS COPYING ChangeLog \
 	INSTALL NEWS config.guess config.sub depcomp install-sh \
-	missing
+	ltmain.sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -460,6 +460,7 @@ lib/mosh/shell/repl.ss \
 lib/mosh/dbd/mysql.ss  \
 lib/mosh/test.ss   \
 lib/mosh/pp.ss     \
+lib/mosh/control.ss     \
 lib/mosh/config.ss \
 lib/clos/core.ss  lib/clos/helpers.ss  lib/clos/introspection.ss  lib/clos/slot-access.ss  lib/clos/user.ss \
 lib/clos/bootstrap/generic-functions.ss  lib/clos/bootstrap/standard-classes.ss \
