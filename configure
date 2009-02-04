@@ -648,6 +648,7 @@ CXXCPP
 DEVELOPER_FALSE
 DEVELOPER_TRUE
 PATH_TO_MYSQLCLIENT
+MOSH_OPTS
 HAVE_EXT_HASHES
 HAVE_TR1_HASHES
 SHLIB_SO_LDFLAGS
@@ -4478,6 +4479,7 @@ $as_echo_n "checking for supported architecture... " >&6; }
 case "$host_cpu" in
 i[3456]86|pentium)
         arch=i386
+        MOSH_OPTS="-03 -momit-leaf-frame-pointer -fomit-frame-pointer"
         { $as_echo "$as_me:$LINENO: result: $host_cpu" >&5
 $as_echo "$host_cpu" >&6; }
 
@@ -4488,6 +4490,7 @@ _ACEOF
         ;;
 x86?64*)
         arch=x86_64
+        MOSH_OPTS="-03 -momit-leaf-frame-pointer -fomit-frame-pointer"
         { $as_echo "$as_me:$LINENO: result: x86_64" >&5
 $as_echo "x86_64" >&6; }
 
@@ -4499,6 +4502,7 @@ _ACEOF
 *)
         { $as_echo "$as_me:$LINENO: result: $host_cpu" >&5
 $as_echo "$host_cpu" >&6; }
+        MOSH_OPTS="-O3"
         { $as_echo "$as_me:$LINENO: WARNING: architecture $host_cpu is not supported, but may work other than FFI" >&5
 $as_echo "$as_me: WARNING: architecture $host_cpu is not supported, but may work other than FFI" >&2;}
 
@@ -4508,6 +4512,7 @@ _ACEOF
 
         ;;
 esac
+
 
 
 # Check whether --with-mysql was given.
