@@ -111,6 +111,9 @@
 /* system line feed code is LF */
 #undef LINE_FEED_CODE_LF
 
+/* define operating-system */
+#undef MOSH_HOST_OS
+
 /* Name of package */
 #undef PACKAGE
 
