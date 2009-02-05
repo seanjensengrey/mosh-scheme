@@ -4473,6 +4473,39 @@ _ACEOF
 
 
 
+# Checks for OS
+case "$target_os" in
+  *linux*)
+
+cat >>confdefs.h <<\_ACEOF
+#define MOSH_HOST_OS "linux"
+_ACEOF
+
+    ;;
+  *bsd*)
+
+cat >>confdefs.h <<\_ACEOF
+#define MOSH_HOST_OS "bsd"
+_ACEOF
+
+    ;;
+  *darwin*)
+
+cat >>confdefs.h <<\_ACEOF
+#define MOSH_HOST_OS "darwin"
+_ACEOF
+
+    ;;
+  *)
+
+cat >>confdefs.h <<\_ACEOF
+#define MOSH_HOST_OS "unknown"
+_ACEOF
+
+    ;;
+esac
+
+
 # Checks for cpu
 { $as_echo "$as_me:$LINENO: checking for supported architecture" >&5
 $as_echo_n "checking for supported architecture... " >&6; }
