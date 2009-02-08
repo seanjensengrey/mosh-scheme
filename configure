@@ -4509,10 +4509,11 @@ esac
 # Checks for cpu
 { $as_echo "$as_me:$LINENO: checking for supported architecture" >&5
 $as_echo_n "checking for supported architecture... " >&6; }
+
 case "$host_cpu" in
 i[3456]86|pentium)
         arch=i386
-        MOSH_OPTS="-O3 -momit-leaf-frame-pointer -fomit-frame-pointer"
+        MOSH_OPTS="-O3 -momit-leaf-frame-pointer -fomit-frame-pointer -march=$host_cpu -mtune=$host_cpu"
         { $as_echo "$as_me:$LINENO: result: $host_cpu" >&5
 $as_echo "$host_cpu" >&6; }
 
@@ -4545,6 +4546,8 @@ _ACEOF
 
         ;;
 esac
+
+
 
 
 
