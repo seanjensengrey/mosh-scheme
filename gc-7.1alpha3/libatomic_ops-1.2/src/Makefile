@@ -94,21 +94,12 @@ ETAGS = etags
 CTAGS = ctags
 DIST_SUBDIRS = $(SUBDIRS)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-<<<<<<< .mine
-ACLOCAL = ${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run aclocal-1.10
-AMTAR = ${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run tar
-AUTOCONF = ${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run automake-1.10
-AWK = mawk
-=======
-ACLOCAL = ${SHELL} /home/miura/Repos/mosh-scheme/gc-7.1alpha3/libatomic_ops/missing --run aclocal-1.10
-AMTAR = ${SHELL} /home/miura/Repos/mosh-scheme/gc-7.1alpha3/libatomic_ops/missing --run tar
-AUTOCONF = ${SHELL} /home/miura/Repos/mosh-scheme/gc-7.1alpha3/libatomic_ops/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/miura/Repos/mosh-scheme/gc-7.1alpha3/libatomic_ops/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/miura/Repos/mosh-scheme/gc-7.1alpha3/libatomic_ops/missing --run automake-1.10
+ACLOCAL = ${SHELL} /home/miura/Repos/mosh/gc-7.1alpha3/libatomic_ops/missing --run aclocal-1.10
+AMTAR = ${SHELL} /home/miura/Repos/mosh/gc-7.1alpha3/libatomic_ops/missing --run tar
+AUTOCONF = ${SHELL} /home/miura/Repos/mosh/gc-7.1alpha3/libatomic_ops/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/miura/Repos/mosh/gc-7.1alpha3/libatomic_ops/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/miura/Repos/mosh/gc-7.1alpha3/libatomic_ops/missing --run automake-1.10
 AWK = gawk
->>>>>>> .r1159
 CC = gcc
 CCAS = gcc
 CCASDEPMODE = depmode=gcc3
@@ -135,13 +126,8 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-<<<<<<< .mine
-MAKEINFO = ${SHELL} /home/taro/mosh/gc-7.1alpha3/libatomic_ops/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/miura/Repos/mosh/gc-7.1alpha3/libatomic_ops/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
-=======
-MAKEINFO = ${SHELL} /home/miura/Repos/mosh-scheme/gc-7.1alpha3/libatomic_ops/missing --run makeinfo
-MKDIR_P = /bin/mkdir -p
->>>>>>> .r1159
 OBJEXT = o
 PACKAGE = libatomic_ops
 PACKAGE_BUGREPORT = 
@@ -156,17 +142,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = 
 VERSION = 1.2
-<<<<<<< .mine
-abs_builddir = /home/taro/mosh/gc-7.1alpha3/libatomic_ops/src
-abs_srcdir = /home/taro/mosh/gc-7.1alpha3/libatomic_ops/src
-abs_top_builddir = /home/taro/mosh/gc-7.1alpha3/libatomic_ops
-abs_top_srcdir = /home/taro/mosh/gc-7.1alpha3/libatomic_ops
-=======
-abs_builddir = /home/miura/Repos/mosh-scheme/gc-7.1alpha3/libatomic_ops/src
-abs_srcdir = /home/miura/Repos/mosh-scheme/gc-7.1alpha3/libatomic_ops/src
-abs_top_builddir = /home/miura/Repos/mosh-scheme/gc-7.1alpha3/libatomic_ops
-abs_top_srcdir = /home/miura/Repos/mosh-scheme/gc-7.1alpha3/libatomic_ops
->>>>>>> .r1159
+abs_builddir = /home/miura/Repos/mosh/gc-7.1alpha3/libatomic_ops/src
+abs_srcdir = /home/miura/Repos/mosh/gc-7.1alpha3/libatomic_ops/src
+abs_top_builddir = /home/miura/Repos/mosh/gc-7.1alpha3/libatomic_ops
+abs_top_srcdir = /home/miura/Repos/mosh/gc-7.1alpha3/libatomic_ops
 ac_ct_CC = gcc
 am__include = include
 am__leading_dot = .
@@ -193,11 +172,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-<<<<<<< .mine
-install_sh = $(SHELL) /home/taro/mosh/gc-7.1alpha3/libatomic_ops/install-sh
-=======
-install_sh = $(SHELL) /home/miura/Repos/mosh-scheme/gc-7.1alpha3/libatomic_ops/install-sh
->>>>>>> .r1159
+install_sh = $(SHELL) /home/miura/Repos/mosh/gc-7.1alpha3/libatomic_ops/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
