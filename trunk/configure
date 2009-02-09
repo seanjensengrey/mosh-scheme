@@ -4456,6 +4456,163 @@ sed 's/^/| /' conftest.$ac_ext >&5
 fi
 
 rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+{ $as_echo "$as_me:$LINENO: result: $have_ext_hashes" >&5
+$as_echo "$have_ext_hashes" >&6; }
+
+{ $as_echo "$as_me:$LINENO: checking sse" >&5
+$as_echo_n "checking sse... " >&6; }
+cat >conftest.$ac_ext <<_ACEOF
+
+#include <xmmintrin.h>
+int main(int, char **)
+{
+    __m128 v;v=_mm_sub_ss(v,v);
+}
+
+_ACEOF
+rm -f conftest.$ac_objext
+if { (ac_try="$ac_compile"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval ac_try_echo="\"\$as_me:$LINENO: $ac_try_echo\""
+$as_echo "$ac_try_echo") >&5
+  (eval "$ac_compile") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_cxx_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest.$ac_objext; then
+  have_sse=1
+else
+  $as_echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	have_sse=0
+fi
+
+rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+
+if test x$have_sse = x1; then
+  { $as_echo "$as_me:$LINENO: result: yes" >&5
+$as_echo "yes" >&6; }
+else
+  { $as_echo "$as_me:$LINENO: result: no" >&5
+$as_echo "no" >&6; }
+fi
+
+{ $as_echo "$as_me:$LINENO: checking sse2" >&5
+$as_echo_n "checking sse2... " >&6; }
+cat >conftest.$ac_ext <<_ACEOF
+
+#include <emmintrin.h>
+int main(int, char **)
+{
+   __m128i v;v=_mm_add_epi32(v,v);
+}
+
+_ACEOF
+rm -f conftest.$ac_objext
+if { (ac_try="$ac_compile"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval ac_try_echo="\"\$as_me:$LINENO: $ac_try_echo\""
+$as_echo "$ac_try_echo") >&5
+  (eval "$ac_compile") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_cxx_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest.$ac_objext; then
+  have_sse2=1
+else
+  $as_echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	have_sse2=0
+fi
+
+rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+
+if test x$have_sse2 = x1; then
+  { $as_echo "$as_me:$LINENO: result: yes" >&5
+$as_echo "yes" >&6; }
+else
+  { $as_echo "$as_me:$LINENO: result: no" >&5
+$as_echo "no" >&6; }
+fi
+
+{ $as_echo "$as_me:$LINENO: checking sse3" >&5
+$as_echo_n "checking sse3... " >&6; }
+cat >conftest.$ac_ext <<_ACEOF
+
+#include <emmintrin.h>
+int main(int, char **)
+{
+    __m128d v;v=_mm_addsub_pd(v,v);
+}
+
+_ACEOF
+rm -f conftest.$ac_objext
+if { (ac_try="$ac_compile"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval ac_try_echo="\"\$as_me:$LINENO: $ac_try_echo\""
+$as_echo "$ac_try_echo") >&5
+  (eval "$ac_compile") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_cxx_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest.$ac_objext; then
+  have_sse3=1
+else
+  $as_echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	have_sse3=0
+fi
+
+rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+
+if test x$have_sse3 = x1; then
+  { $as_echo "$as_me:$LINENO: result: yes" >&5
+$as_echo "yes" >&6; }
+else
+  { $as_echo "$as_me:$LINENO: result: no" >&5
+$as_echo "no" >&6; }
+fi
+
+if test x$have_sse3 = x1; then
+    MOSH_SSE_OPTS=" -msse3"
+else
+if test x$have_sse2 = x1; then
+    MOSH_SSE_OPTS=" -msse2"
+else
+if test x$have_sse = x1; then
+    MOSH_SSE_OPTS=" -msse"
+else
+    MOSH_SSE_OPTS=""
+fi
+fi
+fi
 
 
 HAVE_TR1_HASHES=$have_tr1_hashes
@@ -4505,11 +4662,11 @@ _ACEOF
     ;;
 esac
 
+MOSH_OPTS+="$MOSH_SSE_OPTS"
 
 # Checks for cpu
 { $as_echo "$as_me:$LINENO: checking for supported architecture" >&5
 $as_echo_n "checking for supported architecture... " >&6; }
-
 case "$host_cpu" in
 i[3456]86|pentium)
         arch=i386
