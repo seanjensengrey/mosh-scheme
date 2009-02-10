@@ -4359,6 +4359,13 @@ _ACEOF
 
 fi
 
+{ $as_echo "$as_me:$LINENO: result: $host_os" >&5
+$as_echo "$host_os" >&6; }
+{ $as_echo "$as_me:$LINENO: result: $host" >&5
+$as_echo "$host" >&6; }
+{ $as_echo "$as_me:$LINENO: result: $target" >&5
+$as_echo "$target" >&6; }
+
 case $host in
   *darwin*)
   SHLIB_SO_LDFLAGS="-dynamiclib"
@@ -4521,8 +4528,19 @@ $as_echo_n "checking for supported architecture... " >&6; }
 case "$host_cpu" in
 i[3456]86|pentium)
         arch=i386
-        MOSH_OPTS="-O3 -momit-leaf-frame-pointer -fomit-frame-pointer -march=$host_cpu" # -mfpmath=sse -msse3 -march=$host_cpu
-#        MOSH_OPTS="-O3 -momit-leaf-frame-pointer -march=$host_cpu -pg"
+        case "$target_os" in
+        *darwin*)
+          if test -n "`system_profiler |grep 'Intel Core 2'`" ; then
+             MOSH_OPTS="-O3 -momit-leaf-frame-pointer -fomit-frame-pointer -march=pentium-m -msse2 -mfpmath=sse"
+          else
+             MOSH_OPTS="-O3 -momit-leaf-frame-pointer -fomit-frame-pointer -march=$host_cpu" # -mfpmath=sse -msse3 -march=$host_cpu
+          fi
+          ;;
+        *)
+          MOSH_OPTS="-O3 -momit-leaf-frame-pointer -fomit-frame-pointer -march=$host_cpu" # -mfpmath=sse -msse3 -march=$host_cpu
+          ;;
+        esac
+
         { $as_echo "$as_me:$LINENO: result: $host_cpu" >&5
 $as_echo "$host_cpu" >&6; }
 
@@ -8648,16 +8666,7 @@ $as_echo "$as_me: executing $ac_file commands" >&6;}
 
 
   case $ac_file$ac_mode in
-    "depfiles":C) test x"$AMDEP_TRUE" != x"" || # Autoconf 2.62 quotes --file arguments for eval, but not when files
-# are listed without --file.  Let's play safe and only enable the eval
-# if we detect the quoting.
-case $CONFIG_FILES in
-*\'*) eval set x "$CONFIG_FILES" ;;
-*)   set x $CONFIG_FILES ;;
-esac
-shift
-for mf
-do
+    "depfiles":C) test x"$AMDEP_TRUE" != x"" || for mf in $CONFIG_FILES; do
   # Strip MF so we end up with the name of the file.
   mf=`echo "$mf" | sed -e 's/:.*$//'`
   # Check whether this is an Automake generated Makefile or not.
