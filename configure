@@ -2500,14 +2500,8 @@ MOSH_LIB_PATH="${datadir}/mosh/$PACKAGE_VERSION"
 
 # we don't like default CFLAGS(-O2 -g).
 
-if test "" = "$CFLAGS"; then
-    CFLAGS=" "
-fi
 
 
-if test "" = "$CXXFLAGS"; then
-    CXXFLAGS=" "
-fi
 
 # Checks for programs.
 ac_ext=cpp
