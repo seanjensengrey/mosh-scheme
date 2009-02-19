@@ -118,7 +118,8 @@ am_libmosh_a_OBJECTS = libmosh_a-read.$(OBJEXT) \
 	libmosh_a-Flonum.$(OBJEXT) libmosh_a-CodeBuilder.$(OBJEXT) \
 	libmosh_a-FixnumProcedures.$(OBJEXT) \
 	libmosh_a-Latin1Codec.$(OBJEXT) libmosh_a-FFI.$(OBJEXT) \
-	libmosh_a-FFIProcedures.$(OBJEXT)
+	libmosh_a-FFIProcedures.$(OBJEXT) \
+	libmosh_a-CustomBinaryOutputPort.$(OBJEXT)
 libmosh_a_OBJECTS = $(am_libmosh_a_OBJECTS)
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(bindir)" \
 	"$(DESTDIR)$(datadir)" "$(DESTDIR)$(datadir)"
@@ -444,7 +445,8 @@ CodeBuilder.h                 CodeBuilder.cpp                     \
 FinxumProcedures.h            FixnumProcedures.cpp                \
 Latin1Codec.h                 Latin1Codec.cpp                     \
 FFI.h                         FFI.cpp                             \
-FFIProcedures.h               FFIProcedures.cpp
+FFIProcedures.h               FFIProcedures.cpp                   \
+CustomBinaryOutputPort.h      CustomBinaryOutputPort.cpp
 
 mosh_core_libraries = \
 lib/lambda/wiki.ss    \
@@ -756,6 +758,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-CompoundCondition.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-ConditionProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-CustomBinaryInputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-CustomBinaryOutputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-EqHashTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-Equivalent.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-EqvHashTable.Po@am__quote@
@@ -1776,6 +1779,20 @@ libmosh_a-FFIProcedures.obj: FFIProcedures.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='FFIProcedures.cpp' object='libmosh_a-FFIProcedures.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-FFIProcedures.obj `if test -f 'FFIProcedures.cpp'; then $(CYGPATH_W) 'FFIProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/FFIProcedures.cpp'; fi`
+
+libmosh_a-CustomBinaryOutputPort.o: CustomBinaryOutputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-CustomBinaryOutputPort.o -MD -MP -MF $(DEPDIR)/libmosh_a-CustomBinaryOutputPort.Tpo -c -o libmosh_a-CustomBinaryOutputPort.o `test -f 'CustomBinaryOutputPort.cpp' || echo '$(srcdir)/'`CustomBinaryOutputPort.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-CustomBinaryOutputPort.Tpo $(DEPDIR)/libmosh_a-CustomBinaryOutputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CustomBinaryOutputPort.cpp' object='libmosh_a-CustomBinaryOutputPort.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-CustomBinaryOutputPort.o `test -f 'CustomBinaryOutputPort.cpp' || echo '$(srcdir)/'`CustomBinaryOutputPort.cpp
+
+libmosh_a-CustomBinaryOutputPort.obj: CustomBinaryOutputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-CustomBinaryOutputPort.obj -MD -MP -MF $(DEPDIR)/libmosh_a-CustomBinaryOutputPort.Tpo -c -o libmosh_a-CustomBinaryOutputPort.obj `if test -f 'CustomBinaryOutputPort.cpp'; then $(CYGPATH_W) 'CustomBinaryOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/CustomBinaryOutputPort.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-CustomBinaryOutputPort.Tpo $(DEPDIR)/libmosh_a-CustomBinaryOutputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='CustomBinaryOutputPort.cpp' object='libmosh_a-CustomBinaryOutputPort.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-CustomBinaryOutputPort.obj `if test -f 'CustomBinaryOutputPort.cpp'; then $(CYGPATH_W) 'CustomBinaryOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/CustomBinaryOutputPort.cpp'; fi`
 
 mosh-main.o: main.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mosh_CXXFLAGS) $(CXXFLAGS) -MT mosh-main.o -MD -MP -MF $(DEPDIR)/mosh-main.Tpo -c -o mosh-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp
