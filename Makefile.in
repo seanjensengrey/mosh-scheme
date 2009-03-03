@@ -89,6 +89,7 @@ am_libmosh_a_OBJECTS = libmosh_a-read.$(OBJEXT) \
 	libmosh_a-TextualOutputPort.$(OBJEXT) \
 	libmosh_a-TextualByteVectorOutputPort.$(OBJEXT) \
 	libmosh_a-TextualInputPort.$(OBJEXT) \
+	libmosh_a-TranscodedTextualInputPort.$(OBJEXT) \
 	libmosh_a-StringTextualOutputPort.$(OBJEXT) \
 	libmosh_a-StringTextualInputPort.$(OBJEXT) \
 	libmosh_a-UTF8Codec.$(OBJEXT) libmosh_a-UTF16Codec.$(OBJEXT) \
@@ -413,6 +414,7 @@ CustomBinaryInputPort.h        CustomBinaryInputPort.cpp           \
 TextualOutputPort.h            TextualOutputPort.cpp               \
 TextualByteVectorOutputPort.h  TextualByteVectorOutputPort.cpp     \
 TextualInputPort.cpp           TextualInputPort.h                  \
+TranscodedTextualInputPort.cpp TranscodedTextualInputPort.h        \
 StringTextualOutputPort.h      StringTextualOutputPort.cpp         \
 StringTextualInputPort.h       StringTextualInputPort.cpp          \
 UTF8Codec.cpp                  UTF8Codec.h                         \
@@ -813,6 +815,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-TextualByteVectorOutputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-TextualInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-TextualOutputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-TranscodedTextualInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-Transcoder.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-UTF16Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-UTF32Codec.Po@am__quote@
@@ -1273,6 +1276,20 @@ libmosh_a-TextualInputPort.obj: TextualInputPort.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TextualInputPort.cpp' object='libmosh_a-TextualInputPort.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-TextualInputPort.obj `if test -f 'TextualInputPort.cpp'; then $(CYGPATH_W) 'TextualInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TextualInputPort.cpp'; fi`
+
+libmosh_a-TranscodedTextualInputPort.o: TranscodedTextualInputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-TranscodedTextualInputPort.o -MD -MP -MF $(DEPDIR)/libmosh_a-TranscodedTextualInputPort.Tpo -c -o libmosh_a-TranscodedTextualInputPort.o `test -f 'TranscodedTextualInputPort.cpp' || echo '$(srcdir)/'`TranscodedTextualInputPort.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-TranscodedTextualInputPort.Tpo $(DEPDIR)/libmosh_a-TranscodedTextualInputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TranscodedTextualInputPort.cpp' object='libmosh_a-TranscodedTextualInputPort.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-TranscodedTextualInputPort.o `test -f 'TranscodedTextualInputPort.cpp' || echo '$(srcdir)/'`TranscodedTextualInputPort.cpp
+
+libmosh_a-TranscodedTextualInputPort.obj: TranscodedTextualInputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-TranscodedTextualInputPort.obj -MD -MP -MF $(DEPDIR)/libmosh_a-TranscodedTextualInputPort.Tpo -c -o libmosh_a-TranscodedTextualInputPort.obj `if test -f 'TranscodedTextualInputPort.cpp'; then $(CYGPATH_W) 'TranscodedTextualInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TranscodedTextualInputPort.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-TranscodedTextualInputPort.Tpo $(DEPDIR)/libmosh_a-TranscodedTextualInputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TranscodedTextualInputPort.cpp' object='libmosh_a-TranscodedTextualInputPort.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-TranscodedTextualInputPort.obj `if test -f 'TranscodedTextualInputPort.cpp'; then $(CYGPATH_W) 'TranscodedTextualInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TranscodedTextualInputPort.cpp'; fi`
 
 libmosh_a-StringTextualOutputPort.o: StringTextualOutputPort.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-StringTextualOutputPort.o -MD -MP -MF $(DEPDIR)/libmosh_a-StringTextualOutputPort.Tpo -c -o libmosh_a-StringTextualOutputPort.o `test -f 'StringTextualOutputPort.cpp' || echo '$(srcdir)/'`StringTextualOutputPort.cpp
