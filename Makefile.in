@@ -93,9 +93,9 @@ am_libmosh_a_OBJECTS = libmosh_a-read.$(OBJEXT) \
 	libmosh_a-TranscodedTextualOutputPort.$(OBJEXT) \
 	libmosh_a-StringTextualOutputPort.$(OBJEXT) \
 	libmosh_a-StringTextualInputPort.$(OBJEXT) \
-	libmosh_a-UTF8Codec.$(OBJEXT) libmosh_a-UTF16Codec.$(OBJEXT) \
-	libmosh_a-UTF32Codec.$(OBJEXT) libmosh_a-EqHashTable.$(OBJEXT) \
-	libmosh_a-SString.$(OBJEXT) \
+	libmosh_a-Codec.$(OBJEXT) libmosh_a-UTF8Codec.$(OBJEXT) \
+	libmosh_a-UTF16Codec.$(OBJEXT) libmosh_a-UTF32Codec.$(OBJEXT) \
+	libmosh_a-EqHashTable.$(OBJEXT) libmosh_a-SString.$(OBJEXT) \
 	libmosh_a-GenericHashTable.$(OBJEXT) \
 	libmosh_a-Object.$(OBJEXT) \
 	libmosh_a-RecordTypeDescriptor.$(OBJEXT) \
@@ -420,6 +420,7 @@ TranscodedTextualInputPort.cpp TranscodedTextualInputPort.h        \
 TranscodedTextualOutputPort.cpp TranscodedTextualOutputPort.h      \
 StringTextualOutputPort.h      StringTextualOutputPort.cpp         \
 StringTextualInputPort.h       StringTextualInputPort.cpp          \
+Codec.cpp                      Codec.h                             \
 UTF8Codec.cpp                  UTF8Codec.h                         \
 UTF16Codec.cpp                 UTF16Codec.h                        \
 UTF32Codec.cpp                 UTF32Codec.h                        \
@@ -770,6 +771,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-ByteVectorProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-Closure.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-CodeBuilder.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-CompilerProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-Compnum.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-CompoundCondition.Po@am__quote@
@@ -1338,6 +1340,20 @@ libmosh_a-StringTextualInputPort.obj: StringTextualInputPort.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='StringTextualInputPort.cpp' object='libmosh_a-StringTextualInputPort.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-StringTextualInputPort.obj `if test -f 'StringTextualInputPort.cpp'; then $(CYGPATH_W) 'StringTextualInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/StringTextualInputPort.cpp'; fi`
+
+libmosh_a-Codec.o: Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-Codec.o -MD -MP -MF $(DEPDIR)/libmosh_a-Codec.Tpo -c -o libmosh_a-Codec.o `test -f 'Codec.cpp' || echo '$(srcdir)/'`Codec.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-Codec.Tpo $(DEPDIR)/libmosh_a-Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Codec.cpp' object='libmosh_a-Codec.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-Codec.o `test -f 'Codec.cpp' || echo '$(srcdir)/'`Codec.cpp
+
+libmosh_a-Codec.obj: Codec.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-Codec.obj -MD -MP -MF $(DEPDIR)/libmosh_a-Codec.Tpo -c -o libmosh_a-Codec.obj `if test -f 'Codec.cpp'; then $(CYGPATH_W) 'Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/Codec.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-Codec.Tpo $(DEPDIR)/libmosh_a-Codec.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Codec.cpp' object='libmosh_a-Codec.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-Codec.obj `if test -f 'Codec.cpp'; then $(CYGPATH_W) 'Codec.cpp'; else $(CYGPATH_W) '$(srcdir)/Codec.cpp'; fi`
 
 libmosh_a-UTF8Codec.o: UTF8Codec.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-UTF8Codec.o -MD -MP -MF $(DEPDIR)/libmosh_a-UTF8Codec.Tpo -c -o libmosh_a-UTF8Codec.o `test -f 'UTF8Codec.cpp' || echo '$(srcdir)/'`UTF8Codec.cpp
