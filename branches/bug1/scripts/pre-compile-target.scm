@@ -35,7 +35,7 @@
         (mosh test)
         (mosh ffi)
         (mosh shell)
-       (mosh shell repl)
+        (mosh shell repl)
         (mosh mysql)
         (mosh dbi)
         (mosh dbd mysql)

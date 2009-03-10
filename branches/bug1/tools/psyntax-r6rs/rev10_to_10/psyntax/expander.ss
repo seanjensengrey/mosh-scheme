@@ -1336,28 +1336,28 @@
 
 (define guard-macro
     (lambda (x)
-      (define (gen-clauses con outerk clause*) 
-        (define (f x k) 
-          (syntax-match x (=>) 
-            ((e => p) 
+      (define (gen-clauses con outerk clause*)
+        (define (f x k)
+          (syntax-match x (=>)
+            ((e => p)
              (let ((t (gensym)))
-               `(let ((,t ,e)) 
+               `(let ((,t ,e))
                   (if ,t (,p ,t) ,k))))
-            ((e) 
+            ((e)
              (let ((t (gensym)))
                `(let ((,t ,e))
                   (if ,t ,t ,k))))
-            ((e v v* ...) 
+            ((e v v* ...)
              `(if ,e (begin ,v ,@v*) ,k))
             (_ (stx-error x "invalid guard clause"))))
         (define (f* x*)
           (syntax-match x* (else)
-            (() 
+            (()
              (let ((g (gensym)))
                (values `(,g (lambda () (raise-continuable ,con))) g)))
             (((else e e* ...))
              (values `(begin ,e ,@e*) #f))
-            ((cls . cls*) 
+            ((cls . cls*)
              (let-values (((e g) (f* cls*)))
                (values (f cls e) g)))
             (others (stx-error others "invalid guard clause"))))
@@ -1365,7 +1365,7 @@
           (if raisek
               `((call/cc
                   (lambda (,raisek)
-                    (,outerk 
+                    (,outerk
                       (lambda () ,code)))))
               `(,outerk (lambda () ,code)))))
       (syntax-match x ()
@@ -1946,7 +1946,9 @@
                ,uid-code ,sealed? ,opaque? ,fields))))
       (define (parent-rtd-code clause*)
         (syntax-match (get-clause 'parent clause*) ()
-          [(_ name) `(record-type-descriptor ,name)]
+          [(_ name)
+
+           `(record-type-descriptor ,name)]
           [#f (syntax-match (get-clause 'parent-rtd clause*) ()
                 [(_ rtd rcd) rtd]
                 [#f #f])]))
@@ -3567,6 +3569,9 @@
   (define library-body-expander
     (lambda (name main-exp* imp* b* top?)
       (define itc (make-collector))
+      (when (symbol-value 'debug-expand)
+        (format #t "library-body-expander=~a\n" b*))
+
       (parameterize ((imp-collector itc)
                      (top-level-context #f))
           (let-values (((subst-names subst-labels)
@@ -3695,7 +3700,7 @@
   (define (environment-symbols x)
     (cond
       ((env? x) (vector->list (env-names x)))
-      ((interaction-env? x) 
+      ((interaction-env? x)
        (map values (rib-sym* (interaction-env-rib x))))
       (else
        (assertion-violation 'environment-symbols "not an environment" x))))
@@ -4033,10 +4038,16 @@
 
   (define compile-r6rs-top-level
     (lambda (x*)
+          (when (symbol-value 'debug-expand)
+            (format #t "x*=~a\n" x*))
+
       (let-values (((lib* invoke-code) (top-level-expander x*)))
         (lambda ()
+          (when (symbol-value 'debug-expand)
+            (format #t "before invoke-code=~a\n" invoke-code))
           (for-each invoke-library lib*)
           (when (symbol-value 'debug-expand)
+            (format #t "invoke-code=~a\n" invoke-code)
             (format #t "psyntax expanded=~a\n" (expanded->core invoke-code)))
           (eval-core (expanded->core invoke-code))))))
 
@@ -4071,6 +4082,3 @@
 
   ;;; register the expander with the library manager
   (current-library-expander library-expander))
-
-
-
