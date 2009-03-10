@@ -21,6 +21,7 @@
 (library (psyntax internal)
   (export current-primitive-locations compile-core-expr-to-port expanded->core compile-core-expr)
   (import (rnrs) (psyntax compat)
+          (only (mosh) format)
           ; comment out for mosh
           ;(ironscheme pretty-print)
           )
@@ -52,6 +53,8 @@
 
   (define (rewriter quote-hack?)
     (define (f x)
+;;       (when (symbol-value 'debug-expand)
+;;         (format #t "rewrite before=~a\n" x))
       (cond
         ((pair? x)
          (case (car x)

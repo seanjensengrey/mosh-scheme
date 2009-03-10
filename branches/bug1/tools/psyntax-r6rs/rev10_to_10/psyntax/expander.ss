@@ -1011,9 +1011,13 @@
          (let* ((lab (id->label id))
                 (b (label->binding lab r))
                 (type (binding-type b)))
+          (when (symbol-value 'debug-expand)
+            (format #t "id=~a lab=~a b=~a <~a ~a>\n" (stx-expr id) lab b (stx-expr (cadr b)) (stx-expr (caddr b))))
            (unless lab (raise-unbound-error id))
            (unless (and (eq? type '$rtd) (list? (binding-value b)))
              (stx-error e "not a record type"))
+          (when (symbol-value 'debug-expand)
+            (format #t "(car (binding-value b))=~a \n" (stx-expr (car (binding-value b)))))
            (chi-expr (car (binding-value b)) r mr))))))
 
   (define record-constructor-descriptor-transformer
@@ -1947,8 +1951,10 @@
       (define (parent-rtd-code clause*)
         (syntax-match (get-clause 'parent clause*) ()
           [(_ name)
-
-           `(record-type-descriptor ,name)]
+           (begin
+             (if (stx? name)
+                 (format (current-error-port) "name=~a\n" (stx-expr name)))
+           `(record-type-descriptor ,name))]
           [#f (syntax-match (get-clause 'parent-rtd clause*) ()
                 [(_ rtd rcd) rtd]
                 [#f #f])]))
@@ -3582,15 +3588,26 @@
                     (main-exp* (map wrap main-exp*))
                     (rtc (make-collector))
                     (vtc (make-collector)))
+                (when (symbol-value 'debug-expand)
+                  (format #t "b[i]=~a\n" (stx-expr (car b*))))
+
                 (parameterize ((inv-collector rtc)
                                (vis-collector vtc))
                   (let-values (((init* r mr lex* rhs* internal-exp*)
                                 (chi-library-internal b* rib top?)))
+                (when (symbol-value 'debug-expand)
+                  (format #t "b[j]=~a init*=~a r=~a mr=~a lex=~a rhs*=~a internal-exp~a\n" (stx-expr (car b*)) init* r mr lex* (stx-expr (cdar rhs*)) internal-exp*))
+
                     (let-values (((exp-name* exp-id*)
                                   (parse-exports (append main-exp* internal-exp*))))
                     (seal-rib! rib)
+          (when (symbol-value 'debug-expand)
+            (format #t "before rhs*=~a\n" rhs*))
                     (let* ((init* (chi-expr* init* r mr))
                            (rhs* (chi-rhs* rhs* r mr)))
+          (when (symbol-value 'debug-expand)
+            (format #t "after rhs*=~a\n" rhs*))
+
                       (unseal-rib! rib)
                       (let ((loc* (map gen-global lex*))
                             (export-subst (make-export-subst exp-name* exp-id*)))
@@ -3609,6 +3626,9 @@
                                           (syntax-violation 'export
                                             errstr name))))))))
                             export-subst)
+          (when (symbol-value 'debug-expand)
+            (format #t "global*=~a init*=~a \nlex*=~a \nrhs*=~a\n" global* init* lex* rhs*))
+
                           (let ((invoke-body
                                  (if-wants-library-letrec*
                                    (build-library-letrec* no-source
@@ -3620,6 +3640,9 @@
                                      (build-exports global* init*))))
                                 (invoke-definitions
                                   (map build-global-define (map cdr global*))))
+          (when (symbol-value 'debug-expand)
+            (format #t "invoke-body=~a \n" invoke-body))
+
                             (values
                               (itc) (rtc) (vtc)
                               (build-sequence no-source
