@@ -32,10 +32,10 @@
         (mosh pp)
 ; Avoid Bugs : See Mona wiki
 ; http://wiki.monaos.org/pukiwiki.php?Mosh%2FBugs%2Fserialize-library
-;        (mosh test)
+        (mosh test)
         (mosh ffi)
         (mosh shell)
-        (mosh shell repl)
+       (mosh shell repl)
         (mosh mysql)
         (mosh dbi)
         (mosh dbd mysql)

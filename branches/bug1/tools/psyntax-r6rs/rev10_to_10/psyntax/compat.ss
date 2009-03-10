@@ -105,11 +105,32 @@
   (let ([fasl-file (scm->fasl filename)])
     (when (file-exists? fasl-file)
       (delete-file fasl-file))
-    (guard [c (#t (format #t "Warning:serialize-library failed " filename)
+    (guard [c (#t (format #t "Warning:serialize-library failed ~a" filename c)
                   (when (file-exists? fasl-file)
                     (delete-file fasl-file))
                   #f)]
            (fasl-save fasl-file obj)
+           #;(let ([restored (fasl-load fasl-file)])
+             (unless (equal? obj restored)
+                 (let loop ([x obj]
+                            [y restored])
+                   (cond
+                    [(or (null? x) (null? y)) '()]
+                    [else
+                     (if (equal? (car x) (car y))
+                         (loop (cdr x) (cdr y))
+                         (begin
+                           (unless (and (flonum? (car x)) (flonum? (car y)))
+                             (format #t "fasl read/write have inconsistent state : wrong ~a : ~a\n"
+                                                          (car x)
+                                                          (car y))
+                             (assertion-violation 'scmc2fasl
+                                                  (format "fasl read/write have inconsistent state : wrong ~a : ~a\n"
+                                                          (car x)
+                                                          (car y))))
+                           (loop (cdr x) (cdr y))))]
+                       ))
+                 ))
            (display "OK\n"))))
 
 (define (load-serialized-library filename obj)

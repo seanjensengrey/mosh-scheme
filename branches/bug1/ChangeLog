@@ -1,5 +1,11 @@
 2009-03-10  higepon  <higepon@users.sourceforge.jp>
 
+        * tools/psyntax-r6rs/rev10_to_10/psyntax/compat.ss (serialize-library): Added check sanity.
+
+        * scripts/scmc2fasl.scm : Added check sanity (flonum things).
+
+        * We are debugging!
+
         * <string-port> returns native-transcoder.
 
 2009-03-09  higepon  <higepon@users.sourceforge.jp>

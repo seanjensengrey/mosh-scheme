@@ -26,7 +26,22 @@
            (lambda (port)
              (let ([restored (fasl-read port)])
                (unless (equal? obj restored)
-                 (assertion-violation 'scmc2fasl "fasl read/write have inconsistent state"))))))))
+                 (let loop ([i 0])
+                   (cond
+                    [(= (vector-length obj) i) '()]
+                    [
+                     (if (equal? (vector-ref obj i) (vector-ref restored i))
+                         (loop (+ i 1))
+                         (begin
+                           (unless (and (flonum? (vector-ref obj i)) (flonum? (vector-ref restored i)))
+                             (assertion-violation 'scmc2fasl
+                                                  (format "fasl read/write have inconsistent state : ~d is wrong ~a : ~a\n"
+                                                          i
+                                                          (vector-ref obj i)
+                                                          (vector-ref restored i))))
+                           (loop (+ i 1))))]
+                       ))
+                 )))))))
 
 
   0)
