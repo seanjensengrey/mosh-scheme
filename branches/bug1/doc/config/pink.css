@@ -1,0 +1,231 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*Basic Definitions */
+
+html{
+	marign:0;
+	padding:0;
+}
+
+
+body{
+	margin: 0;
+  padding: 0;
+  font-family: Verdana, Arial, sans-serif;
+  color: #000000;
+	font-size:90%;
+  background: #FBF8E4 url(../images/logo.png) no-repeat;
+	}
+
+h1{
+	margin:25px 0;
+	padding:0.25em 0.3em;
+	font-size:120%;
+	background:#DAEFFC url(../images/h1_bg.png) repeat-x left bottom;
+	border:1px solid #BDCCDF;
+	border-bottom:none;
+	color:#4578DB;
+}
+
+
+h4{
+	font-size:105%;
+	color:#4578DB;
+	border-bottom:2px dotted #BDCCDF;
+	padding:0.25em 0;
+	margin:0.5em 0;
+}
+
+a:link , a:visited{
+	color:#0033CC;
+}
+
+a:active , a:hover{
+	color: #9933CC;
+}
+
+
+/* ID(#)*/
+#Content{
+	padding: 0px 0 0 15px !important;
+	margin: 75px 30px 0 260px;
+  background: #FFFFFF url(../images8/content_bg_left.png) left top no-repeat;
+	border:1px solid #CCCCCC;
+    }
+
+#Menu {
+  padding:0;
+	position: absolute;
+	top: 0px !important;
+	left: 0px !important;
+	margin: 75px 10px 0 30px;
+	width: 210px ;
+ 	border:1px solid #CCCCCC;
+  background: #F5FEFC;
+
+   }
+#Footer {
+	margin:5px 34px 0 262px;
+	padding:10px 0;
+	height:50px;
+}
+
+
+#MSearchPanel{
+	margin:0 0 5px 0;
+	padding:15px 5px 0 5px;
+  background: #F5FEFC;
+	}
+
+
+.CSection{
+	margin:0;
+	padding:0 15px 0 0;
+  background: #FFFFFF;
+}
+
+.CTopic{
+	margin:0 0 0 0;
+	padding:0 10px;
+}
+
+.MTitle{
+	display:none;
+	height:0;
+	line-height:0;
+}
+
+.MGroup{
+	margin:0;
+	padding:5px;
+  background: #F5FEFC url(../images/MGroup_bg.png) repeat-x;
+	font-size:110%;
+	font-weight:bold;
+}
+
+.MGroupContent , .MEntry .MFile , .MFile {
+	margin:10px -5px 0 -5px;
+	padding:5px;
+  background: #F5FEFC;
+	font-size:90%;
+	font-weight:normal;
+}
+
+.MEntry .MFile  {
+	margin:0 ;
+	padding:5px 5px 5px 7px;
+  background: #F5FEFC;
+}
+
+.MGroupContent .MEntry .MFile  , .MGroupContent .MEntry .MIndex  {
+	margin:0 ;
+	padding:5px;
+  background: #F5FEFC;
+}
+
+
+.MGroup a:link , .MGroup a:visited{
+	color: #666666;
+}
+.MGroup a:hover ,.MGroup a:active {
+	color: #0066FF;
+}
+
+
+.MGroupContent .MEntry .MFile a:link , .MGroupContent .MEntry .MFile a:visited{
+	color: #0066FF;
+}
+.MGroupContent .MEntry .MFile a:hover{
+	color: #993399;
+}
+
+.MGroupContent .MEntry .MIndex a:link , .MGroupContent .MEntry .MIndex a:visited{
+	color: #0066FF;
+}
+.MGroupContent .MEntry .MIndex a:hover{
+	color: #993399;
+}
+
+.MEntry .MFile a:link , .MEntry .MFile a:visited{
+	color: #0066FF;
+}
+.MEntry .MFile a:hover{
+	color: #993399;
+}
+
+
+#MSelected{
+	font-weight:bold;
+	margin:5px 0 0 0;
+	padding:5px 5px 5px 23px;
+  background: #FFFFFF url(../images/MSeleected_bg.png) no-repeat center left;
+	color:#9966CC;
+	border:2px solid #DDCEEC;
+	font-size:110%;
+}
+
+
+/* search */
+
+
+#MSearchResultsWindow{
+	margin: 0;
+	padding:0;
+	width: 60ex ;
+ 	border:1px solid #CCCCCC;
+  background: #F5FEFC;
+}
+
+
+#MSearchResults {
+}
+
+#MSearchResultsWindowClose {
+	display:block;
+	font-weight:bold;
+	margin:5px 0 0 0;
+	padding:5px 5px 5px 25px;
+	background:#FFFFFF url(../images/close_frame.png) center left no-repeat;
+	font-size:80%;
+	border-top:1px solid #CCCCCC;
+	border-bottom:1px solid #CCCCCC;
+}
+
+
+iframe{
+	border:none;
+	margin:7px 5px 5px!important;
+	padding:0 !important;
+	height:10em; 
+	width:96%;
+	background:#FFFFFF;
+ 	border:2px solid #D2C3DB !important;
+	text-align:center;
+}
+
+
+.PopupSearchResultsPage{
+	margin:0 !important;
+	padding:0.5em !important;
+  background: #FFFFFF !important;
+	}
+
+.PopupSearchResultsPage a:link , .PopupSearchResultsPage a:visited{
+	color: #6633CC;
+	font-weight:bold;
+}
+.PopupSearchResultsPage a:hover , .PopupSearchResultsPage a:active {
+	color: #0066FF;
+	font-weight:bold;
+}
+
+#MSearchResultsWindowClose:link, #MSearchResultsWindowClose:visited {
+	color:#333333 !important;
+	text-decoration:none;
+}
+
+#MSearchResultsWindowClose:hover, #MSearchResultsWindowClose:active {
+	color: #0066FF !important;
+	text-decoration:none;
+}
