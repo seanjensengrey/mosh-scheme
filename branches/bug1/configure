@@ -1402,7 +1402,7 @@ Optional Features:
   --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
   --disable-dependency-tracking  speeds up one-time build
   --enable-dependency-tracking   do not reject slow dependency extractors
-  --disable-profiler trun off profiler default no
+  --disable-profiler turn off profiler default no
   --enable-developer      Flags are enabled for Mosh Developer
 
 

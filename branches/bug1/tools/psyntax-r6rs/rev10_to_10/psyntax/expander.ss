@@ -2786,12 +2786,27 @@
 
   (define chi-expr
     (lambda (e r mr)
+#;(define (pp text o)
+  (define (p obj)
+    (cond
+     [(pair? obj)
+      (if (null? (cdr obj))
+          (format "(~a)" (p (car obj)))
+          (format "(~a ~a)" (p (car obj)) (p (cdr obj))))]
+     [(stx? obj)
+      (format "~a" (stx-expr obj))]
+     [else
+      (format "~a" obj)]))
+  (when (symbol-value 'debug-expand)
+    (format (current-error-port) "~a~a\n" text (p o))))
       (let-values (((type value kwd) (syntax-type e r)))
         (case type
           ((core-macro)
            (let ((transformer (core-macro-transformer value)))
              (transformer e r mr)))
           ((global)
+           (when (symbol-value 'debug-expand)
+             (format #t "global=~a name=~a\n" (library-name (car value)) value))
            (let* ((lib (car value))
                   (loc (cdr value)))
              ((inv-collector) lib)
