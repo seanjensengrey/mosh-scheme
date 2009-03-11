@@ -2806,7 +2806,7 @@
              (transformer e r mr)))
           ((global)
            (when (symbol-value 'debug-expand)
-             (format #t "global=~a name=~a\n" (library-name (car value)) value))
+             (format #t "kwd=~a global=~a name=~a\n" (stx-expr kwd) (library-name (car value)) value))
            (let* ((lib (car value))
                   (loc (cdr value)))
              ((inv-collector) lib)
