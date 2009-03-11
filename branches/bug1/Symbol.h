@@ -68,6 +68,11 @@ public:
             return (*it).second;
         }
     }
+    static bool isInterned(const ucs4char* name)
+    {
+        Symbols::const_iterator it = symbols.find(name);
+        return it != symbols.end();
+    }
     static Object add(const ucs4char* name)
     {
         return (symbols[name] = Object::makeSymbol(name));

@@ -717,6 +717,9 @@
            (let* ((label (id->label id))
                   (b (label->binding label r))
                   (type (binding-type b)))
+          (when (symbol-value 'debug-expand)
+            (format #t "id->label=~a label->binding=~a\n"  label b))
+
              (unless label ;;; fail early.
                (raise-unbound-error id))
              (case type
@@ -2806,6 +2809,7 @@
              (transformer e r mr)))
           ((global)
            (when (symbol-value 'debug-expand)
+             (format #t "global e=~a id?=~a r=~a ~a\n" (stx-expr e) (id? e) (stx-expr (caddr (cadddr r))) (stx-expr (cadddr (cadddr r))))
              (format #t "kwd=~a global=~a name=~a\n" (stx-expr kwd) (library-name (car value)) value))
            (let* ((lib (car value))
                   (loc (cdr value)))
