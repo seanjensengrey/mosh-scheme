@@ -3620,8 +3620,8 @@
             (format #t "before rhs*=~a\n" rhs*))
                     (let* ((init* (chi-expr* init* r mr))
                            (rhs* (chi-rhs* rhs* r mr)))
-          (when (symbol-value 'debug-expand)
-            (format #t "after rhs*=~a\n" rhs*))
+;;           (when (symbol-value 'debug-expand)
+;;             (format #t "after rhs*=~a\n" rhs*))
 
                       (unseal-rib! rib)
                       (let ((loc* (map gen-global lex*))
@@ -3641,8 +3641,8 @@
                                           (syntax-violation 'export
                                             errstr name))))))))
                             export-subst)
-          (when (symbol-value 'debug-expand)
-            (format #t "global*=~a init*=~a \nlex*=~a \nrhs*=~a\n" global* init* lex* rhs*))
+;          (when (symbol-value 'debug-expand)
+;            (format #t "global*=~a init*=~a \nlex*=~a \nrhs*=~a\n" global* init* lex* rhs*))
 
                           (let ((invoke-body
                                  (if-wants-library-letrec*
@@ -3655,8 +3655,8 @@
                                      (build-exports global* init*))))
                                 (invoke-definitions
                                   (map build-global-define (map cdr global*))))
-          (when (symbol-value 'debug-expand)
-            (format #t "invoke-body=~a \n" invoke-body))
+ ;;          (when (symbol-value 'debug-expand)
+;;             (format #t "invoke-body=~a \n" invoke-body))
 
                             (values
                               (itc) (rtc) (vtc)
@@ -4081,11 +4081,11 @@
 
       (let-values (((lib* invoke-code) (top-level-expander x*)))
         (lambda ()
-          (when (symbol-value 'debug-expand)
-            (format #t "before invoke-code=~a\n" invoke-code))
+;          (when (symbol-value 'debug-expand)
+;            (format #t "before invoke-code=~a\n" invoke-code))
           (for-each invoke-library lib*)
           (when (symbol-value 'debug-expand)
-            (format #t "invoke-code=~a\n" invoke-code)
+;            (format #t "invoke-code=~a\n" invoke-code)
             (format #t "psyntax expanded=~a\n" (expanded->core invoke-code)))
           (eval-core (expanded->core invoke-code))))))
 
