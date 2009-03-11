@@ -352,6 +352,8 @@
                      ((global-macro!)
                       (cons 'global-macro! (cons lib (cdr binding))))
                      (else binding))))
+              (when (hashtable-ref label->binding-table label #f)
+                (format (current-error-port) "FATAL overwrite !! key=~a value=~a to ~a\n" label (hashtable-ref label->binding-table label #f) binding))
               (hashtable-set! label->binding-table label binding))))
         exp-env))
     ((current-library-collection) lib))
