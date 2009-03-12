@@ -271,7 +271,7 @@ MAINTAINERCLEANFILES = $(GENERATED)
 update:
 	(find . -name "*.ss.fasl" | xargs rm) ; true
 	(find . -name "*.sls.fasl" | xargs rm) ; true
-	./mosh scripts/pre-compile-r6rs.scm scripts/pre-compile-target.scm
+	MOSH_GENSYM_START=50000 ./mosh scripts/pre-compile-r6rs.scm scripts/pre-compile-target.scm
 
 # when you release comment out start
 if DEVELOPER
@@ -467,5 +467,5 @@ test_ffi_SOURCES = FFITest.cpp TestingSignalHandler.cpp TestingVM.cpp
 test_ffi_LDADD = $(TEST_LDADD_)
 
 install-data-hook :
-	(cd doc &&  ../mosh ../scripts/pre-compile-r6rs.scm ../scripts/pre-compile-target.scm)
+	(cd doc &&  MOSH_GENSYM_START=1000 ../mosh ../scripts/pre-compile-r6rs.scm ../scripts/pre-compile-target.scm)
 

@@ -27,20 +27,27 @@
   (import
     (rnrs)
     (rnrs mutable-pairs)
+    (only (system) get-environment-variable)
     (except (mosh) make-parameter parameterize)
     (only (psyntax system $bootstrap)
-          void gensym eval-core set-symbol-value! symbol-value)) ;; removed compile-core for mosh
+          void #;gensym eval-core set-symbol-value! symbol-value)) ;; removed compile-core for mosh
 
 
-#;(define (make-gensym-counter i)
+(define (make-gensym-counter i)
   (define (inc)
     (set! i (+ i 1))
     i)
   inc)
 
-#;(define gen-sym-counter (make-gensym-counter 0))
+(define gen-sym-start
+  (let ([v (get-environment-variable "MOSH_GENSYM_START")])
+    (if v
+        (string->number v)
+        0)))
 
-#;(define (gensym . x)
+(define gen-sym-counter (make-gensym-counter gen-sym-start))
+
+(define (gensym . x)
   (string->symbol
   (if (null? x)
       (format "K~a" (gen-sym-counter))
