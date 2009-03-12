@@ -337,7 +337,13 @@ Object scheme::gensymEx(VM* theVM, int argc, const Object* argv)
             return Object::makeSymbol(ibuf);
         }
     } else {
-        return Object::makeSymbol(ibuf);
+    const Object ret = Object::makeSymbol(ibuf);
+    if (strcmp("G4706", ubuf) == 0) {
+        printf("*********come 4706\n");
+//        printf("interned? <%d>\n", Symbol::isInterned(ibuf));
+    }
+
+    return ret;
     }
 }
 

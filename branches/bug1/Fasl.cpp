@@ -233,7 +233,7 @@ void FaslWriter::putSymbolsAndStrings()
         if (obj.isSymbol()) {
             Symbol* const symbol = obj.toSymbol();
             ucs4string text = symbol->c_str();
-//             if (Symbol::isInterned(text.data())) {
+            if (Symbol::isInterned(obj)) {
                 if (text.is_ascii()) {
                     emitU8(Fasl::TAG_ASCII_SYMBOL);
                     emitU32(i);
@@ -244,17 +244,17 @@ void FaslWriter::putSymbolsAndStrings()
                     emitString(text);
                 }
 
-//             } else {
-//                 if (text.is_ascii()) {
-//                     emitU8(Fasl::TAG_ASCII_UNINTERNED_SYMBOL);
-//                     emitU32(i);
-//                     emitAsciiString(text);
-//                 } else {
-//                     emitU8(Fasl::TAG_UNINTERNED_SYMBOL);
-//                     emitU32(i);
-//                     emitString(text);
-//                 }
-//            }
+            } else {
+                if (text.is_ascii()) {
+                    emitU8(Fasl::TAG_ASCII_UNINTERNED_SYMBOL);
+                    emitU32(i);
+                    emitAsciiString(text);
+                } else {
+                    emitU8(Fasl::TAG_UNINTERNED_SYMBOL);
+                    emitU32(i);
+                    emitString(text);
+                }
+           }
         } else if (obj.isString()) {
             String* const string = obj.toString();
             ucs4string text = string->data();

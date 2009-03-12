@@ -68,10 +68,10 @@ public:
             return (*it).second;
         }
     }
-    static bool isInterned(const ucs4char* name)
+    static bool isInterned(Object symbol)
     {
-        Symbols::const_iterator it = symbols.find(name);
-        return it != symbols.end();
+        MOSH_ASSERT(symbol.isSymbol());
+        return symbol == Symbol::intern(symbol.toSymbol()->c_str());
     }
     static Object add(const ucs4char* name)
     {
