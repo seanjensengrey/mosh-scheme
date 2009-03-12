@@ -32,6 +32,20 @@
           void gensym eval-core set-symbol-value! symbol-value)) ;; removed compile-core for mosh
 
 
+#;(define (make-gensym-counter i)
+  (define (inc)
+    (set! i (+ i 1))
+    i)
+  inc)
+
+#;(define gen-sym-counter (make-gensym-counter 0))
+
+#;(define (gensym . x)
+  (string->symbol
+  (if (null? x)
+      (format "K~a" (gen-sym-counter))
+      (format "K~a@~a" (gen-sym-counter) (car x)))))
+
 
   ;; defined for mosh
   (define read-annotated read)
