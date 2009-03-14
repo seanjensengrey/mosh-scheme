@@ -473,7 +473,6 @@ static const Object cProcs[] = {
      Object::makeCProcedure(consEx),
      Object::makeCProcedure(numberPEx),
 };
-#ifdef ENABLE_PROFILER
 static const ucs4char* cProcNames[] = {
      UC("time-usage"),
      UC("make-custom-textual-input/output-port"),
@@ -947,4 +946,3 @@ static const ucs4char* cProcNames[] = {
      UC("cons"),
      UC("number?"),
 };
-#endif
