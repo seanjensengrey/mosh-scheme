@@ -78,6 +78,7 @@ am_libmosh_a_OBJECTS = libmosh_a-read.$(OBJEXT) \
 	libmosh_a-VM-Profiler.$(OBJEXT) libmosh_a-VM-Run.$(OBJEXT) \
 	libmosh_a-Scanner.$(OBJEXT) libmosh_a-NumberScanner.$(OBJEXT) \
 	libmosh_a-ByteArrayBinaryInputPort.$(OBJEXT) \
+	libmosh_a-ByteArrayBinaryOutputPort.$(OBJEXT) \
 	libmosh_a-ScannerHelper.$(OBJEXT) \
 	libmosh_a-Reader.tab.$(OBJEXT) \
 	libmosh_a-NumberReader.tab.$(OBJEXT) \
@@ -403,6 +404,7 @@ VM-Profiler.cpp                VM-Run.cpp                          \
 Scanner.h                      Scanner.cpp                         \
 NumberScanner.h                NumberScanner.cpp                   \
 ByteArrayBinaryInputPort.h     ByteArrayBinaryInputPort.cpp        \
+ByteArrayBinaryOutputPort.h    ByteArrayBinaryOutputPort.cpp       \
 ScannerHelper.h                ScannerHelper.cpp                   \
 Reader.tab.hpp                 Reader.tab.cpp                      \
 NumberReader.tab.hpp           NumberReader.tab.cpp                \
@@ -763,6 +765,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-BufferedFileBinaryInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-BufferedFileBinaryOutputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-ByteArrayBinaryInputPort.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-ByteArrayBinaryOutputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-ByteVectorProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-Closure.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-CodeBuilder.Po@am__quote@
@@ -1126,6 +1129,20 @@ libmosh_a-ByteArrayBinaryInputPort.obj: ByteArrayBinaryInputPort.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ByteArrayBinaryInputPort.cpp' object='libmosh_a-ByteArrayBinaryInputPort.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-ByteArrayBinaryInputPort.obj `if test -f 'ByteArrayBinaryInputPort.cpp'; then $(CYGPATH_W) 'ByteArrayBinaryInputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/ByteArrayBinaryInputPort.cpp'; fi`
+
+libmosh_a-ByteArrayBinaryOutputPort.o: ByteArrayBinaryOutputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-ByteArrayBinaryOutputPort.o -MD -MP -MF $(DEPDIR)/libmosh_a-ByteArrayBinaryOutputPort.Tpo -c -o libmosh_a-ByteArrayBinaryOutputPort.o `test -f 'ByteArrayBinaryOutputPort.cpp' || echo '$(srcdir)/'`ByteArrayBinaryOutputPort.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-ByteArrayBinaryOutputPort.Tpo $(DEPDIR)/libmosh_a-ByteArrayBinaryOutputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ByteArrayBinaryOutputPort.cpp' object='libmosh_a-ByteArrayBinaryOutputPort.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-ByteArrayBinaryOutputPort.o `test -f 'ByteArrayBinaryOutputPort.cpp' || echo '$(srcdir)/'`ByteArrayBinaryOutputPort.cpp
+
+libmosh_a-ByteArrayBinaryOutputPort.obj: ByteArrayBinaryOutputPort.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-ByteArrayBinaryOutputPort.obj -MD -MP -MF $(DEPDIR)/libmosh_a-ByteArrayBinaryOutputPort.Tpo -c -o libmosh_a-ByteArrayBinaryOutputPort.obj `if test -f 'ByteArrayBinaryOutputPort.cpp'; then $(CYGPATH_W) 'ByteArrayBinaryOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/ByteArrayBinaryOutputPort.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-ByteArrayBinaryOutputPort.Tpo $(DEPDIR)/libmosh_a-ByteArrayBinaryOutputPort.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ByteArrayBinaryOutputPort.cpp' object='libmosh_a-ByteArrayBinaryOutputPort.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-ByteArrayBinaryOutputPort.obj `if test -f 'ByteArrayBinaryOutputPort.cpp'; then $(CYGPATH_W) 'ByteArrayBinaryOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/ByteArrayBinaryOutputPort.cpp'; fi`
 
 libmosh_a-ScannerHelper.o: ScannerHelper.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-ScannerHelper.o -MD -MP -MF $(DEPDIR)/libmosh_a-ScannerHelper.Tpo -c -o libmosh_a-ScannerHelper.o `test -f 'ScannerHelper.cpp' || echo '$(srcdir)/'`ScannerHelper.cpp
