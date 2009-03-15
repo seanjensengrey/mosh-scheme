@@ -92,7 +92,6 @@ am_libmosh_a_OBJECTS = libmosh_a-read.$(OBJEXT) \
 	libmosh_a-CustomTextualInputOutputPort.$(OBJEXT) \
 	libmosh_a-CustomBinaryInputOutputPort.$(OBJEXT) \
 	libmosh_a-TextualOutputPort.$(OBJEXT) \
-	libmosh_a-TextualByteVectorOutputPort.$(OBJEXT) \
 	libmosh_a-TextualInputPort.$(OBJEXT) \
 	libmosh_a-TranscodedTextualInputPort.$(OBJEXT) \
 	libmosh_a-TranscodedTextualOutputPort.$(OBJEXT) \
@@ -418,7 +417,6 @@ CustomTextualOutputPort.h      CustomTextualOutputPort.cpp         \
 CustomTextualInputOutputPort.h CustomTextualInputOutputPort.cpp    \
 CustomBinaryInputOutputPort.h  CustomBinaryInputOutputPort.cpp     \
 TextualOutputPort.h            TextualOutputPort.cpp               \
-TextualByteVectorOutputPort.h  TextualByteVectorOutputPort.cpp     \
 TextualInputPort.cpp           TextualInputPort.h                  \
 TranscodedTextualInputPort.cpp TranscodedTextualInputPort.h        \
 TranscodedTextualOutputPort.cpp TranscodedTextualOutputPort.h      \
@@ -820,7 +818,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-StringTextualInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-StringTextualOutputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-Symbol.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-TextualByteVectorOutputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-TextualInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-TextualOutputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-TranscodedTextualInputOutputPort.Po@am__quote@
@@ -1325,20 +1322,6 @@ libmosh_a-TextualOutputPort.obj: TextualOutputPort.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TextualOutputPort.cpp' object='libmosh_a-TextualOutputPort.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-TextualOutputPort.obj `if test -f 'TextualOutputPort.cpp'; then $(CYGPATH_W) 'TextualOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TextualOutputPort.cpp'; fi`
-
-libmosh_a-TextualByteVectorOutputPort.o: TextualByteVectorOutputPort.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-TextualByteVectorOutputPort.o -MD -MP -MF $(DEPDIR)/libmosh_a-TextualByteVectorOutputPort.Tpo -c -o libmosh_a-TextualByteVectorOutputPort.o `test -f 'TextualByteVectorOutputPort.cpp' || echo '$(srcdir)/'`TextualByteVectorOutputPort.cpp
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-TextualByteVectorOutputPort.Tpo $(DEPDIR)/libmosh_a-TextualByteVectorOutputPort.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TextualByteVectorOutputPort.cpp' object='libmosh_a-TextualByteVectorOutputPort.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-TextualByteVectorOutputPort.o `test -f 'TextualByteVectorOutputPort.cpp' || echo '$(srcdir)/'`TextualByteVectorOutputPort.cpp
-
-libmosh_a-TextualByteVectorOutputPort.obj: TextualByteVectorOutputPort.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-TextualByteVectorOutputPort.obj -MD -MP -MF $(DEPDIR)/libmosh_a-TextualByteVectorOutputPort.Tpo -c -o libmosh_a-TextualByteVectorOutputPort.obj `if test -f 'TextualByteVectorOutputPort.cpp'; then $(CYGPATH_W) 'TextualByteVectorOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TextualByteVectorOutputPort.cpp'; fi`
-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-TextualByteVectorOutputPort.Tpo $(DEPDIR)/libmosh_a-TextualByteVectorOutputPort.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TextualByteVectorOutputPort.cpp' object='libmosh_a-TextualByteVectorOutputPort.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-TextualByteVectorOutputPort.obj `if test -f 'TextualByteVectorOutputPort.cpp'; then $(CYGPATH_W) 'TextualByteVectorOutputPort.cpp'; else $(CYGPATH_W) '$(srcdir)/TextualByteVectorOutputPort.cpp'; fi`
 
 libmosh_a-TextualInputPort.o: TextualInputPort.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-TextualInputPort.o -MD -MP -MF $(DEPDIR)/libmosh_a-TextualInputPort.Tpo -c -o libmosh_a-TextualInputPort.o `test -f 'TextualInputPort.cpp' || echo '$(srcdir)/'`TextualInputPort.cpp
