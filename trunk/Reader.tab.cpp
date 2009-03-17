@@ -1489,7 +1489,7 @@ yyreduce:
 /* Line 1455 of yacc.c  */
 #line 101 "Reader.y"
     {
-                    (yyval.object) = Symbol::intern((yyvsp[(1) - (1)].stringValue).strdup());
+                   (yyval.object) = Symbol::intern(Reader::readSymbol((yyvsp[(1) - (1)].stringValue)).strdup());
                }
     break;
 
