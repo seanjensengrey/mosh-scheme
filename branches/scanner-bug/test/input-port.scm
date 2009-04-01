@@ -49,6 +49,7 @@
    (let ([port (open-file-input-port "./test/utf16.txt" (file-options) mode (make-transcoder (utf-16-codec)))])
      (test-true (input-port? port))
      (test-equal (read port) "あいう")
+     (test-equal (read-char port) #\newline)
      (test-true (port-eof? port))
      (close-port port))))
 
