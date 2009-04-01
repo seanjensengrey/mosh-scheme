@@ -79,8 +79,22 @@ void Scanner::emptyBuffer()
 {
     TextualInputPort* const inputPort = Reader::port();
     for (ucs4char* p = limit_ - 1; p >= cursor_; p--) {
-        inputPort->unGetChar(*p);
+//         if (*p == '\0') {
+//             printf("[nul]");
+//         } else {
+//             printf("[%c]", *p);
+//         }
+        // this should be removed
+        if (eofP_ && p == limit_ - 1 && *p == '\0') {
+
+        } else {
+            inputPort->unGetChar(*p);
+        }
     }
+    fflush(stdout);
+    // even if port reached EOF, we turned off this flag.
+    // fill will detect EOF.
+    eofP_ = false;
     cursor_ = buffer_;
     limit_ = buffer_;
     token_ = buffer_;

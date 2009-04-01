@@ -53,6 +53,7 @@ Object Reader::read(TextualInputPort* port, bool& errorOccured)
     for (;;) {
         const bool isParseError = yyparse() == 1;
         port->scanner()->emptyBuffer();
+//        LOG1("parsed=~a\n", parsed);
         if (isParseError) {
             errorOccured = true;
             return Object::Undef;
