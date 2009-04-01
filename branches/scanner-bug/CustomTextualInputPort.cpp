@@ -93,7 +93,7 @@ int CustomTextualInputPort::getLineNo() const
 
 void CustomTextualInputPort::unGetChar(ucs4char c)
 {
-    if (EOF == c) return;
+    MOSH_ASSERT(c != EOF);
     buffer_ += c;
 }
 

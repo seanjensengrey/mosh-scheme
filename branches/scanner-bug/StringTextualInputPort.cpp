@@ -74,7 +74,7 @@ ucs4char StringTextualInputPort::getChar()
 
 void StringTextualInputPort::unGetChar(ucs4char c)
 {
-    if (EOF == c) return;
+    MOSH_ASSERT(c != EOF);
     index_--;
 }
 

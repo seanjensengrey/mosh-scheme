@@ -73,6 +73,7 @@ ucs4char TranscodedTextualInputPort::getChar()
 
 void TranscodedTextualInputPort::unGetChar(ucs4char c)
 {
+    MOSH_ASSERT(c != EOF);
     return transcoder_->unGetChar(c);
 }
 

@@ -193,7 +193,7 @@ void Transcoder::putChar(BinaryOutputPort* port, ucs4char c)
 
 void Transcoder::unGetChar(ucs4char c)
 {
-    if (EOF == c) return;
+    MOSH_ASSERT(c != EOF);
     buffer_ += c;
 }
 
