@@ -195,6 +195,10 @@ void Transcoder::unGetChar(ucs4char c)
 {
     MOSH_ASSERT(c != EOF);
     buffer_ += c;
+    if (c == EolStyle(LF)) {
+        lineNo_--;
+    }
+
 }
 
 ucs4char Transcoder::getCharInternal(BinaryInputPort* port)
