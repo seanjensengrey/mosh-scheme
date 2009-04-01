@@ -77,8 +77,9 @@ Scanner::~Scanner()
 
 void Scanner::emptyBuffer()
 {
+    TextualInputPort* const inputPort = Reader::port();
     for (ucs4char* p = limit_ - 1; p >= cursor_; p--) {
-        unGetChar(*p);
+        inputPort->unGetChar(*p);
     }
     cursor_ = buffer_;
     limit_ = buffer_;

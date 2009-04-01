@@ -38,6 +38,7 @@
 #include "TextualOutputPort.h"
 #include "Reader.h"
 #include "ProcedureMacro.h"
+#include "Scanner.h"
 
 using namespace scheme;
 
@@ -51,6 +52,7 @@ Object Reader::read(TextualInputPort* port, bool& errorOccured)
     in_ = port;
     for (;;) {
         const bool isParseError = yyparse() == 1;
+        port->scanner()->emptyBuffer();
         if (isParseError) {
             errorOccured = true;
             return Object::Undef;
