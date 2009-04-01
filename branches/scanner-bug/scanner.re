@@ -75,6 +75,16 @@ Scanner::~Scanner()
 // //    printf("state=%d ch=[%c] ch=%x\n", state, ch, ch);
 // }
 
+void Scanner::emptyBuffer()
+{
+    for (ucs4char* p = limit_ - 1; p >= cursor_; p--) {
+        unGetChar(*p);
+    }
+    cursor_ = buffer_;
+    limit_ = buffer_;
+    token_ = buffer_;
+    marker_ = buffer_;
+}
 
 void Scanner::fill(int n)
 {

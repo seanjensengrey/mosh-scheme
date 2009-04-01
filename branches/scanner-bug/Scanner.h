@@ -42,6 +42,7 @@ public:
     virtual ~Scanner();
 
     void fill(int n);
+    void emptyBuffer();
     int scan();
     ucs4char* currentToken() const;
 
