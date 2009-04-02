@@ -1,3 +1,7 @@
+2009-04-02  higepon  <higepon@users.sourceforge.jp>
+
+        * test/input-port.scm: Added tests for greedy bug.
+
 2009-04-01  higepon  <higepon@users.sourceforge.jp>
 
         * TextualInputPort.cpp (TextualInputPort::lookaheadChar): don't unGetChar(Eof).

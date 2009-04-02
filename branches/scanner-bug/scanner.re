@@ -69,31 +69,23 @@ Scanner::~Scanner()
 {
 }
 
-
-// static void yydebug(int state, ucs4char ch)
-// {
-// //    printf("state=%d ch=[%c] ch=%x\n", state, ch, ch);
-// }
-
+// Since re2c greedy look-aheads,
+// we need to give back read buffer to input-port.
 void Scanner::emptyBuffer()
 {
     TextualInputPort* const inputPort = Reader::port();
-    for (ucs4char* p = limit_ - 1; p >= cursor_; p--) {
-//         if (*p == '\0') {
-//             printf("[nul]");
-//         } else {
-//             printf("[%c]", *p);
-//         }
-        // this should be removed
-        if (eofP_ && p == limit_ - 1 && *p == '\0') {
 
+    for (ucs4char* p = limit_ - 1; p >= cursor_; p--) {
+        // special case
+        if (eofP_ && p == limit_ - 1 && *p == '\0') {
+            continue;
         } else {
             inputPort->unGetChar(*p);
         }
     }
-    fflush(stdout);
-    // even if port reached EOF, we turned off this flag.
-    // fill will detect EOF.
+
+    // even if port reaches EOF, we turns off this flag.
+    // fill() will detect EOF.
     eofP_ = false;
     cursor_ = buffer_;
     limit_ = buffer_;
