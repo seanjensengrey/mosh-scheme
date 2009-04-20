@@ -961,6 +961,7 @@
     ;;; string->regexp のように型を変換するものは source の string の型に合わせたライブラリに
     ;;; => (mosh string)
     ;;;  操作の中心的な対象が何であるか？で所属のライブラリを決める
+    (make-socket                             sys) ;; todo
     (make-parameter                          sys)
     (parameterize                            sys)
     (os-constant                             mosh)

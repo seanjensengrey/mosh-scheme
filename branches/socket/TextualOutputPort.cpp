@@ -373,6 +373,8 @@ void TextualOutputPort::putDatum(Object o, bool inList /* = false */)
         putChar('/');
         putString(o.toRegexp()->pattern());
         putChar('/');
+    } else if (o.isSocket()) {
+        putString("<socket>");
     } else if (o.isRegMatch()) {
         putString(UC("#<reg-match>"));
     } else if (o.isEqHashTable()) {
@@ -549,6 +551,8 @@ void TextualOutputPort::display(Object o, bool inList /* = false */)
         putChar('/');
         putString(o.toRegexp()->pattern());
         putChar('/');
+    } else if (o.isSocket()) {
+        putString("<socket>");
     } else if (o.isRegMatch()) {
         putString(UC("#<reg-match>"));
     } else if (o.isEqHashTable()) {

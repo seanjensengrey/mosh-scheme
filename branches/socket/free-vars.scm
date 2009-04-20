@@ -511,5 +511,6 @@
     mosh-executable-path
 
     ;; socket
+    make-socket
     os-constant
     )

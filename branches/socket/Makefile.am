@@ -128,6 +128,7 @@ ArithmeticProcedures.cpp       ArithmeticProcedures.h              \
 FlonumProcedures.cpp           FlonumProcedures.h                  \
 BitwiseProcedures.cpp          BitwiseProcedures.h                 \
 ByteVectorProcedures.cpp       ByteVectorProcedures.h              \
+SocketProcedures.cpp           SocketProcedures.h                  \
 Equivalent.h                   Equivalent.cpp                      \
 CompoundCondition.h            CompoundCondition.cpp               \
 ucs4string.h                   ucs4string.cpp                      \
@@ -147,7 +148,7 @@ FileBinaryInputOutputPort.h    FileBinaryInputOutputPort.cpp       \
 TranscodedTextualInputOutputPort.h  TranscodedTextualInputOutputPort.cpp  \
 BufferedFileBinaryInputOutputPort.h  BufferedFileBinaryInputOutputPort.cpp \
 TestingFileBinaryOutputPort.h TestingFileBinaryInputPort.h \
-TestingVM.h \
+TestingVM.h OSConstants.h \
 getoptU.h getoptU.cpp                                                      \
 StandardOutputPort.h \
 StandardErrorPort.h \
@@ -402,6 +403,9 @@ all-tests.scm: ./test-data.scm
 
 Object-accessors.h: ./accessors.scm
 	./mosh ./scripts/gen-accessors.scm > $@
+
+OSConstants.h: ./os-constants.scm
+	./mosh ./scripts/gen-os-constants.scm > $@
 
 doc:
 	./mosh scripts/gen-doc-from-r6rs.scm

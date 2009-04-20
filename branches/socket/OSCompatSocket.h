@@ -1,5 +1,5 @@
 /*
- * OSCompatSocket.h - 
+ * OSCompatSocket.h -
  *
  *   Copyright (c) 2009  Higepon(Taro Minowa)  <higepon@users.sourceforge.jp>
  *
@@ -41,7 +41,9 @@ namespace scheme {
     {
     public:
         Socket(int domain, int type, int protocol);
-        
+
+        bool isOpen() const;
+        ucs4string getLastErrorMessage() const;
 
     private:
         int socket_;

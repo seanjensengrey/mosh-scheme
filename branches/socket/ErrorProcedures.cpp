@@ -104,6 +104,18 @@ Object scheme::callIOPortErrorAfter(VM* theVM, Object port, Object who, Object m
 }
 
 
+Object scheme::callIOErrorAfter(VM* theVM, Object who, Object message, Object irritants)
+{
+    return raiseAfter(theVM, UC("&i/o-rcd"), UC("&i/o-error"), 0, who, message, irritants);
+}
+
+
+// Alias for callIOErrorAfter now.
+Object scheme::callSocketErrorAfter(VM* theVM, Object who, Object message, Object irritants)
+{
+    return callIOErrorAfter(theVM, who, message, irritants);
+}
+
 Object scheme::callIOErrorAfter(VM* theVM, IOError e)
 {
     switch(e.type) {

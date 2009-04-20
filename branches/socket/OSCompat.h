@@ -68,7 +68,9 @@ namespace scheme {
     Transcoder* nativeConsoleTranscoder();
     Transcoder* nativeTranscoder();
 
-    void initOSCompat();
+    ucs4string getLastErrorMessageInternal(int e);
+
+    void initOSConstants();
     Object getOSConstant(Object key, bool& found);
 
     class File EXTEND_GC

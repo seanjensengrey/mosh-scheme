@@ -49,6 +49,7 @@ extern int main(int argc, char *argv[]);
 #include <stdlib.h>
 #include "scheme.h"
 #include "Object.h"
+#include "Object-inl.h"
 #include "Pair.h"
 #include "Pair-inl.h"
 #include "Transcoder.h"
@@ -85,10 +86,10 @@ using namespace scheme;
 
 static EqHashTable* osConstants = NULL;
 
-void scheme::initOSCompat()
+void scheme::initOSConstants()
 {
     osConstants = new EqHashTable;
-    osConstants->set(Symbol::intern(UC("AF_INET")), Bignum::makeInteger(AF_INET));
+#include "OSConstants.h"
 }
 
 Object scheme::getOSConstant(Object key, bool& found)
@@ -159,7 +160,7 @@ ucs4string my_utf16ToUtf32(const std::wstring& s)
 #endif // _WIN32
 
 #ifdef _WIN32
-static ucs4string getLastErrorMessageInternal(DWORD e)
+ucs4string scheme::getLastErrorMessageInternal(DWORD e)
 {
     const int msgSize = 128;
     wchar_t msg[msgSize];
@@ -180,7 +181,7 @@ static ucs4string getLastErrorMessageInternal(DWORD e)
     return my_utf16ToUtf32(msg);
 }
 #else
-static ucs4string getLastErrorMessageInternal(int e)
+ucs4string scheme::getLastErrorMessageInternal(int e)
 {
     const char* message = strerror(e);
     return ucs4string::from_c_str(message, strlen(message));

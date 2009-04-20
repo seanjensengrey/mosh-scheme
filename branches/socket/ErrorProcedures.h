@@ -86,6 +86,8 @@ extern bool isErrorBufInitialized;
 
     Object throwIOError2(int type, Object message, Object irritants = Object::Nil);
     Object callIOErrorAfter(VM* theVM, IOError e);
+    Object callIOErrorAfter(VM* theVM, Object who, Object message, Object irritants = Object::Nil);
+    Object callSocketErrorAfter(VM* theVM, Object who, Object message, Object irritants = Object::Nil);
     Object callIOInvalidPositionAfter(VM* theVM, Object who, Object message, Object irritants, Object position);
     Object callIOPortErrorAfter(VM* theVM, Object port, Object who, Object message);
 //    Object throwIOError(Object message);

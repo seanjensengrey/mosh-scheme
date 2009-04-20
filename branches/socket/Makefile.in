@@ -120,6 +120,7 @@ am_libmosh_a_OBJECTS = libmosh_a-Transcoder.$(OBJEXT) \
 	libmosh_a-FlonumProcedures.$(OBJEXT) \
 	libmosh_a-BitwiseProcedures.$(OBJEXT) \
 	libmosh_a-ByteVectorProcedures.$(OBJEXT) \
+	libmosh_a-SocketProcedures.$(OBJEXT) \
 	libmosh_a-Equivalent.$(OBJEXT) \
 	libmosh_a-CompoundCondition.$(OBJEXT) \
 	libmosh_a-ucs4string.$(OBJEXT) libmosh_a-Vector.$(OBJEXT) \
@@ -475,6 +476,7 @@ ArithmeticProcedures.cpp       ArithmeticProcedures.h              \
 FlonumProcedures.cpp           FlonumProcedures.h                  \
 BitwiseProcedures.cpp          BitwiseProcedures.h                 \
 ByteVectorProcedures.cpp       ByteVectorProcedures.h              \
+SocketProcedures.cpp           SocketProcedures.h                  \
 Equivalent.h                   Equivalent.cpp                      \
 CompoundCondition.h            CompoundCondition.cpp               \
 ucs4string.h                   ucs4string.cpp                      \
@@ -494,7 +496,7 @@ FileBinaryInputOutputPort.h    FileBinaryInputOutputPort.cpp       \
 TranscodedTextualInputOutputPort.h  TranscodedTextualInputOutputPort.cpp  \
 BufferedFileBinaryInputOutputPort.h  BufferedFileBinaryInputOutputPort.cpp \
 TestingFileBinaryOutputPort.h TestingFileBinaryInputPort.h \
-TestingVM.h \
+TestingVM.h OSConstants.h \
 getoptU.h getoptU.cpp                                                      \
 StandardOutputPort.h \
 StandardErrorPort.h \
@@ -885,6 +887,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-SString.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-Scanner.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-ScannerHelper.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-SocketProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-StringProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-StringTextualInputPort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-StringTextualOutputPort.Po@am__quote@
@@ -1792,6 +1795,20 @@ libmosh_a-ByteVectorProcedures.obj: ByteVectorProcedures.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='ByteVectorProcedures.cpp' object='libmosh_a-ByteVectorProcedures.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-ByteVectorProcedures.obj `if test -f 'ByteVectorProcedures.cpp'; then $(CYGPATH_W) 'ByteVectorProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/ByteVectorProcedures.cpp'; fi`
+
+libmosh_a-SocketProcedures.o: SocketProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-SocketProcedures.o -MD -MP -MF $(DEPDIR)/libmosh_a-SocketProcedures.Tpo -c -o libmosh_a-SocketProcedures.o `test -f 'SocketProcedures.cpp' || echo '$(srcdir)/'`SocketProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-SocketProcedures.Tpo $(DEPDIR)/libmosh_a-SocketProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='SocketProcedures.cpp' object='libmosh_a-SocketProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-SocketProcedures.o `test -f 'SocketProcedures.cpp' || echo '$(srcdir)/'`SocketProcedures.cpp
+
+libmosh_a-SocketProcedures.obj: SocketProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-SocketProcedures.obj -MD -MP -MF $(DEPDIR)/libmosh_a-SocketProcedures.Tpo -c -o libmosh_a-SocketProcedures.obj `if test -f 'SocketProcedures.cpp'; then $(CYGPATH_W) 'SocketProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/SocketProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-SocketProcedures.Tpo $(DEPDIR)/libmosh_a-SocketProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='SocketProcedures.cpp' object='libmosh_a-SocketProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-SocketProcedures.obj `if test -f 'SocketProcedures.cpp'; then $(CYGPATH_W) 'SocketProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/SocketProcedures.cpp'; fi`
 
 libmosh_a-Equivalent.o: Equivalent.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-Equivalent.o -MD -MP -MF $(DEPDIR)/libmosh_a-Equivalent.Tpo -c -o libmosh_a-Equivalent.o `test -f 'Equivalent.cpp' || echo '$(srcdir)/'`Equivalent.cpp
@@ -2951,6 +2968,9 @@ update:
 
 @DEVELOPER_TRUE@Object-accessors.h: ./accessors.scm
 @DEVELOPER_TRUE@	./mosh ./scripts/gen-accessors.scm > $@
+
+@DEVELOPER_TRUE@OSConstants.h: ./os-constants.scm
+@DEVELOPER_TRUE@	./mosh ./scripts/gen-os-constants.scm > $@
 
 @DEVELOPER_TRUE@doc:
 @DEVELOPER_TRUE@	./mosh scripts/gen-doc-from-r6rs.scm

@@ -50,7 +50,7 @@ void mosh_init()
     initCprocedures();
     Flonum::initialize();
     Symbol::initBuitinSymbols();
-    initOSCompat();
+    initOSConstants();
 }
 
 void* my_realloc(void *ptr, size_t oldSize, size_t newSize)

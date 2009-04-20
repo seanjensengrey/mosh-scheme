@@ -1,5 +1,5 @@
 /*
- * OSCompatSocket.cpp - 
+ * SocketProcedures.h - <port> procedures.
  *
  *   Copyright (c) 2009  Higepon(Taro Minowa)  <higepon@users.sourceforge.jp>
  *
@@ -26,36 +26,18 @@
  *   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  *   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- *  $Id: OSCompatSocket.cpp 183 2008-07-04 06:19:28Z higepon $
+ *  $Id: SocketProcedures.h 261 2008-07-25 06:16:44Z higepon $
  */
 
-#include <sys/types.h>
-#include <sys/socket.h>
+#ifndef SCHEME_SOCKET_PROCEDURES_
+#define SCHEME_SOCKET_PROCEDURES_
 
 #include "scheme.h"
-#include "Object.h"
-#include "Object-inl.h"
-#include "Pair.h"
-#include "Pair-inl.h"
-#include "UTF8Codec.h"
-#include "Transcoder.h"
-#include "OSCompat.h"
-#include "OSCompatSocket.h"
 
-using namespace scheme;
+namespace scheme {
 
-Socket::Socket(int domain, int type, int protocol) :
-    socket_(socket(domain, type, protocol)),
-    lastError_(errno)
-{
-}
+    Object makeSocketEx(VM* theVM, int argc, const Object* argv);
 
-bool Socket::isOpen() const
-{
-    return socket_ != -1;
-}
+} // namespace scheme
 
-ucs4string Socket::getLastErrorMessage() const
-{
-    return getLastErrorMessageInternal(lastError_);
-}
+#endif // SCHEME_SOCKET_PROCEDURES_
