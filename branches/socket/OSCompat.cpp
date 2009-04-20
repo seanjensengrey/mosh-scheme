@@ -32,6 +32,7 @@
 
 #ifndef _MSC_VER
 #include <dirent.h>
+#include <sys/socket.h>
 #endif
 #ifdef __APPLE__
 #include <sys/param.h>
@@ -59,6 +60,9 @@ extern int main(int argc, char *argv[]);
 #include "OSCompat.h"
 #include "SString.h"
 #include "ByteVector.h"
+#include "EqHashTable.h"
+#include "Symbol.h"
+#include "Bignum.h"
 #include "PortProcedures.h"
 
 #ifdef _WIN32
@@ -74,11 +78,33 @@ extern int main(int argc, char *argv[]);
     #endif
 #endif
 
-
 using namespace scheme;
 //
 // N.B Dont't forget to add tests to OScompatTest.cpp.
 //
+
+static EqHashTable* osConstants = NULL;
+
+void scheme::initOSCompat()
+{
+    osConstants = new EqHashTable;
+    osConstants->set(Symbol::intern(UC("AF_INET")), Bignum::makeInteger(AF_INET));
+}
+
+Object scheme::getOSConstant(Object key, bool& found)
+{
+    static const Object NOT_FOUND = Symbol::intern(UC("*not-found*"));
+    MOSH_ASSERT(osConstants);
+    const Object value = osConstants->ref(key, NOT_FOUND);
+    if (value == NOT_FOUND) {
+        found = false;
+        return Object::False;
+    } else {
+        found = true;
+        return value;
+    }
+}
+
 
 #ifdef _WIN32
 File File::STANDARD_IN  = File(GetStdHandle(STD_INPUT_HANDLE));

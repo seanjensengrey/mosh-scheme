@@ -1,3 +1,7 @@
+2009-04-20  higepon  <higepon@users.sourceforge.jp>
+
+        * OSCompatSocket.h: Added.
+
 2009-04-18  higepon  <higepon@users.sourceforge.jp>
 
         * COPYING: Added author of SRFI.

@@ -1,7 +1,7 @@
 /*
- * scheme.cpp - Scheme system objects and functions.
+ * OSCompatSocket.h - 
  *
- *   Copyright (c) 2008  Higepon(Taro Minowa)  <higepon@users.sourceforge.jp>
+ *   Copyright (c) 2009  Higepon(Taro Minowa)  <higepon@users.sourceforge.jp>
  *
  *   Redistribution and use in source and binary forms, with or without
  *   modification, are permitted provided that the following conditions
@@ -26,38 +26,29 @@
  *   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  *   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- *  $Id$
+ *  $Id: OSCompatSocket.h 261 2008-07-25 06:16:44Z higepon $
  */
 
+#ifndef SCHEME_OSCOMPATSOCKET_
+#define SCHEME_OSCOMPATSOCKET_
+
 #include "scheme.h"
-#include "Object.h"
-#include "Object-inl.h"
-#include "Symbol.h"
-#include "Ratnum.h"
-#include "Flonum.h"
-#include "OSCompat.h"
-#include <gc.h>
-#include <gmp.h>
 
-using namespace scheme;
-extern void initCprocedures();
-void mosh_init()
-{
-#ifdef USE_BOEHM_GC
-    GC_INIT();
-    mp_set_memory_functions(GC_malloc, my_realloc, my_dont_free);
-#endif
-    initCprocedures();
-    Flonum::initialize();
-    Symbol::initBuitinSymbols();
-    initOSCompat();
-}
+namespace scheme {
 
-void* my_realloc(void *ptr, size_t oldSize, size_t newSize)
-{
-    return GC_REALLOC(ptr, newSize);
-}
 
-void my_dont_free(void *ptr, size_t size)
-{
-}
+    class Socket EXTEND_GC
+    {
+    public:
+        Socket(int domain, int type, int protocol);
+        
+
+    private:
+        int socket_;
+        int lastError_;
+    };
+
+
+}; // namespace scheme
+
+#endif // SCHEME_OSCOMPATSOCKET_

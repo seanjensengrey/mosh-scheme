@@ -68,6 +68,9 @@ namespace scheme {
     Transcoder* nativeConsoleTranscoder();
     Transcoder* nativeTranscoder();
 
+    void initOSCompat();
+    Object getOSConstant(Object key, bool& found);
+
     class File EXTEND_GC
     {
     public:

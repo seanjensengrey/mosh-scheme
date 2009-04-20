@@ -155,6 +155,7 @@ StandardInputPort.h \
 BlockBufferedFileBinaryOutputPort.h \
 BlockBufferedFileBinaryInputOutputPort.h \
 LineBufferedFileBinaryInputOutputPort.h \
+OSCompatSocket.h OSCompatSocket.cpp \
 OSCompat.h OSCompat.cpp
 
 mosh_core_libraries = \

@@ -509,4 +509,7 @@
     put-datum
     time-usage
     mosh-executable-path
+
+    ;; socket
+    os-constant
     )

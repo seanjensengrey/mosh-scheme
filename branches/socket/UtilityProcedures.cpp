@@ -83,6 +83,11 @@
 #endif
 using namespace scheme;
 
+Object scheme::osConstantEx(VM* theVM, int argc, const Object* argv)
+{
+
+}
+
 Object scheme::moshExecutablePathEx(VM* theVM, int argc, const Object* argv)
 {
     DeclareProcedureName("mosh-executable-path");

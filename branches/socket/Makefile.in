@@ -133,7 +133,8 @@ am_libmosh_a_OBJECTS = libmosh_a-Transcoder.$(OBJEXT) \
 	libmosh_a-FileBinaryInputOutputPort.$(OBJEXT) \
 	libmosh_a-TranscodedTextualInputOutputPort.$(OBJEXT) \
 	libmosh_a-BufferedFileBinaryInputOutputPort.$(OBJEXT) \
-	libmosh_a-getoptU.$(OBJEXT) libmosh_a-OSCompat.$(OBJEXT)
+	libmosh_a-getoptU.$(OBJEXT) libmosh_a-OSCompatSocket.$(OBJEXT) \
+	libmosh_a-OSCompat.$(OBJEXT)
 libmosh_a_OBJECTS = $(am_libmosh_a_OBJECTS)
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(bindir)" \
 	"$(DESTDIR)$(datadir)" "$(DESTDIR)$(datadir)"
@@ -501,6 +502,7 @@ StandardInputPort.h \
 BlockBufferedFileBinaryOutputPort.h \
 BlockBufferedFileBinaryInputOutputPort.h \
 LineBufferedFileBinaryInputOutputPort.h \
+OSCompatSocket.h OSCompatSocket.cpp \
 OSCompat.h OSCompat.cpp
 
 mosh_core_libraries = \
@@ -867,6 +869,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-NumberReader.tab.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-NumberScanner.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-OSCompat.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-OSCompatSocket.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-Object.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-PortProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-ProcessProcedures.Po@am__quote@
@@ -2055,6 +2058,20 @@ libmosh_a-getoptU.obj: getoptU.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='getoptU.cpp' object='libmosh_a-getoptU.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-getoptU.obj `if test -f 'getoptU.cpp'; then $(CYGPATH_W) 'getoptU.cpp'; else $(CYGPATH_W) '$(srcdir)/getoptU.cpp'; fi`
+
+libmosh_a-OSCompatSocket.o: OSCompatSocket.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-OSCompatSocket.o -MD -MP -MF $(DEPDIR)/libmosh_a-OSCompatSocket.Tpo -c -o libmosh_a-OSCompatSocket.o `test -f 'OSCompatSocket.cpp' || echo '$(srcdir)/'`OSCompatSocket.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-OSCompatSocket.Tpo $(DEPDIR)/libmosh_a-OSCompatSocket.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='OSCompatSocket.cpp' object='libmosh_a-OSCompatSocket.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-OSCompatSocket.o `test -f 'OSCompatSocket.cpp' || echo '$(srcdir)/'`OSCompatSocket.cpp
+
+libmosh_a-OSCompatSocket.obj: OSCompatSocket.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-OSCompatSocket.obj -MD -MP -MF $(DEPDIR)/libmosh_a-OSCompatSocket.Tpo -c -o libmosh_a-OSCompatSocket.obj `if test -f 'OSCompatSocket.cpp'; then $(CYGPATH_W) 'OSCompatSocket.cpp'; else $(CYGPATH_W) '$(srcdir)/OSCompatSocket.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-OSCompatSocket.Tpo $(DEPDIR)/libmosh_a-OSCompatSocket.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='OSCompatSocket.cpp' object='libmosh_a-OSCompatSocket.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-OSCompatSocket.obj `if test -f 'OSCompatSocket.cpp'; then $(CYGPATH_W) 'OSCompatSocket.cpp'; else $(CYGPATH_W) '$(srcdir)/OSCompatSocket.cpp'; fi`
 
 libmosh_a-OSCompat.o: OSCompat.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-OSCompat.o -MD -MP -MF $(DEPDIR)/libmosh_a-OSCompat.Tpo -c -o libmosh_a-OSCompat.o `test -f 'OSCompat.cpp' || echo '$(srcdir)/'`OSCompat.cpp
