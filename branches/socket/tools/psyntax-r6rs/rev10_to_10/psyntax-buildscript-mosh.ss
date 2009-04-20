@@ -963,6 +963,7 @@
     ;;;  操作の中心的な対象が何であるか？で所属のライブラリを決める
     (make-parameter                          sys)
     (parameterize                            sys)
+    (os-constant                             mosh)
     (time-usage                              mosh)
     (time                                    mosh)
     (fasl-write                              mosh)

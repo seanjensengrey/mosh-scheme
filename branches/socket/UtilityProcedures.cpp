@@ -85,7 +85,17 @@ using namespace scheme;
 
 Object scheme::osConstantEx(VM* theVM, int argc, const Object* argv)
 {
-
+    DeclareProcedureName("os-constant");
+    checkArgumentLength(1);
+    argumentCheckSymbol(0, key);
+    bool isFound = false;
+    const Object ret = getOSConstant(key, isFound);
+    if (isFound) {
+        return ret;
+    } else {
+        callAssertionViolationAfter(theVM, procedureName, "os-constants not found", L1(argv[0]));
+        return Object::Undef;
+    }
 }
 
 Object scheme::moshExecutablePathEx(VM* theVM, int argc, const Object* argv)
