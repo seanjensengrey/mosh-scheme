@@ -517,4 +517,5 @@
     socket-recv
     socket-recv!
     socket-send
+    socket-close
     )

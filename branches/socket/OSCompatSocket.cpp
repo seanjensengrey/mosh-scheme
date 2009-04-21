@@ -32,6 +32,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netdb.h>
+#include <unistd.h>
 
 #include "scheme.h"
 #include "Object.h"
@@ -65,6 +66,15 @@ bool Socket::isOpen() const
     return socket_ != -1;
 }
 
+void Socket::close()
+{
+    if (!isOpen()) {
+        return;
+    }
+    ::close(socket_);
+    socket_ = -1;
+}
+
 ucs4string Socket::getLastErrorMessage() const
 {
     return getLastErrorMessageInternal(lastError_);
@@ -93,9 +103,15 @@ ucs4string Socket::toString() const
 int Socket::receive(uint8_t* data, int size, int flags)
 {
     MOSH_ASSERT(isOpen());
-    const int ret = recv(socket_, data, size, flags);
-    setLastError();
-    return ret;
+
+    for (;;) {
+        const int ret = recv(socket_, data, size, flags);
+        if (ret == -1 && errno == EINTR) {
+            continue;
+        }
+        setLastError();
+        return ret;
+    }
 }
 
 /**
@@ -109,8 +125,18 @@ int Socket::receive(uint8_t* data, int size, int flags)
 int Socket::send(uint8_t* data, int size, int flags)
 {
     MOSH_ASSERT(isOpen());
-    const int ret = ::send(socket_, data, size, flags);
-    setLastError();
+    int rest = size;
+    int ret = 0;
+    while (rest > 0) {
+        ret = ::send(socket_, data, size, flags);
+        if (ret == -1) {
+            setLastError();
+            return ret;
+        }
+        rest -= ret;
+        data += ret;
+        size -= ret;
+    }
     return ret;
 }
 
@@ -176,7 +202,7 @@ Socket* Socket::createClientSocket(const char* node,
             return new Socket(fd, ucs4string::from_c_str(name));
         } else {
             lastError = errno;
-            close(fd);
+            ::close(fd);
         }
     }
     freeaddrinfo(result);

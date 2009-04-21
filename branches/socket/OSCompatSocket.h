@@ -36,7 +36,6 @@
 
 namespace scheme {
 
-
     class Socket EXTEND_GC
     {
     public:
@@ -45,6 +44,7 @@ namespace scheme {
 
         int receive(uint8_t* data, int size, int flags);
         int send(uint8_t* data, int size, int flags);
+        void close();
 
         bool isOpen() const;
         ucs4string getLastErrorMessage() const;

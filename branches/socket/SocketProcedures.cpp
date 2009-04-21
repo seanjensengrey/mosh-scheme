@@ -42,6 +42,16 @@
 
 using namespace scheme;
 
+// (socket-close socket)
+Object scheme::socketCloseEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("socket-close");
+    checkArgumentLength(1);
+    argumentAsSocket(0, socket);
+    socket->close();
+    return Object::Undef;
+}
+
 // (socket-send socket bytevector flags)
 Object scheme::socketSendEx(VM* theVM, int argc, const Object* argv)
 {
@@ -58,19 +68,20 @@ Object scheme::socketSendEx(VM* theVM, int argc, const Object* argv)
     }
 }
 
-// (socket-recv! socket bytevector len flags)
+// (socket-recv! socket bytevector start len flags)
 Object scheme::socketRecvDEx(VM* theVM, int argc, const Object* argv)
 {
     DeclareProcedureName("socket-recv!");
-    checkArgumentLength(4);
+    checkArgumentLength(5);
     argumentAsSocket(0, socket);
     argumentAsByteVector(1, bv);
-    argumentAsFixnum(2, len);
-    argumentAsFixnum(3, flags);
-    if (bv->length() <= len) {
+    argumentAsFixnum(2, start);
+    argumentAsFixnum(3, len);
+    argumentAsFixnum(4, flags);
+    if (bv->length() <= start + len) {
         return callAssertionViolationAfter(theVM, procedureName, "bytevector size is not enough", L1(argv[0]));
     }
-    const int result = socket->receive(bv->data(), len, flags);
+    const int result = socket->receive(bv->data() + start, len, flags);
     if (-1 == result) {
         return callIOErrorAfter(theVM, procedureName, socket->getLastErrorMessage(), L3(argv[0], argv[1], argv[2]));
     } else {

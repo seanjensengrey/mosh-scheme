@@ -1,5 +1,7 @@
 2009-04-21  higepon  <higepon@users.sourceforge.jp>
 
+        * Added socket-close.
+
         * SocketProcedures.cpp : Added (make-client-socket ...) and (socket-recv ...).
 
         * OSCompatSocket.cpp (createClientSocket): Added.
