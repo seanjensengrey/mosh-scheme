@@ -42,6 +42,22 @@
 
 using namespace scheme;
 
+// (socket-send socket bytevector flags)
+Object scheme::socketSendEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("socket-send");
+    checkArgumentLength(3);
+    argumentAsSocket(0, socket);
+    argumentAsByteVector(1, bv);
+    argumentAsFixnum(2, flags);
+    const int result = socket->send(bv->data(), bv->length(), flags);
+    if (-1 == result) {
+        return callIOErrorAfter(theVM, procedureName, socket->getLastErrorMessage(), L3(argv[0], argv[1], argv[2]));
+    } else {
+        return Bignum::makeInteger(result);
+    }
+}
+
 // (socket-recv! socket bytevector len flags)
 Object scheme::socketRecvDEx(VM* theVM, int argc, const Object* argv)
 {
@@ -61,7 +77,6 @@ Object scheme::socketRecvDEx(VM* theVM, int argc, const Object* argv)
         return Bignum::makeInteger(result);
     }
 }
-
 
 // (socket-recv socket len flags)
 Object scheme::socketRecvEx(VM* theVM, int argc, const Object* argv)

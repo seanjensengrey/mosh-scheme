@@ -39,6 +39,7 @@ namespace scheme {
     Object makeClientSocketEx(VM* theVM, int argc, const Object* argv);
     Object socketRecvEx(VM* theVM, int argc, const Object* argv);
     Object socketRecvDEx(VM* theVM, int argc, const Object* argv);
+    Object socketSendEx(VM* theVM, int argc, const Object* argv);
     Object makeSocketEx(VM* theVM, int argc, const Object* argv);
 
 } // namespace scheme

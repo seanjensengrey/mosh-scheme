@@ -516,4 +516,5 @@
     os-constant
     socket-recv
     socket-recv!
+    socket-send
     )

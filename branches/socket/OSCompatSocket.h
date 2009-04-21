@@ -44,6 +44,7 @@ namespace scheme {
         Socket(int domain, int type, int protocol);
 
         int receive(uint8_t* data, int size, int flags);
+        int send(uint8_t* data, int size, int flags);
 
         bool isOpen() const;
         ucs4string getLastErrorMessage() const;
@@ -59,6 +60,7 @@ namespace scheme {
                                           ucs4string& errorMessage);
 
     private:
+        void setLastError();
         int socket_;
         int lastError_;
         ucs4string address_;

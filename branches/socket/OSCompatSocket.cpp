@@ -93,7 +93,25 @@ ucs4string Socket::toString() const
 int Socket::receive(uint8_t* data, int size, int flags)
 {
     MOSH_ASSERT(isOpen());
-    return recv(socket_, data, size, flags);
+    const int ret = recv(socket_, data, size, flags);
+    setLastError();
+    return ret;
+}
+
+/**
+   write to socket
+   @param data [in] buffer to read
+   @param size [in] size to read
+   @param flags [in] flags
+   @retval >=0 written size
+   @retval -1 error
+*/
+int Socket::send(uint8_t* data, int size, int flags)
+{
+    MOSH_ASSERT(isOpen());
+    const int ret = ::send(socket_, data, size, flags);
+    setLastError();
+    return ret;
 }
 
 // Factories
@@ -165,4 +183,9 @@ Socket* Socket::createClientSocket(const char* node,
     isErrorOccured = true;
     errorMessage = getLastErrorMessageInternal(lastError);
     return NULL;
+}
+
+void Socket::setLastError()
+{
+    lastError_ = errno;
 }
