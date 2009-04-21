@@ -514,4 +514,6 @@
     make-socket ;; unnecessary?
     make-client-socket
     os-constant
+    socket-recv
+    socket-recv!
     )

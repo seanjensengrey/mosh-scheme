@@ -34,11 +34,53 @@
 #include "Pair.h"
 #include "Pair-inl.h"
 #include "SString.h"
+#include "ByteVector.h"
+#include "Bignum.h"
 #include "ProcedureMacro.h"
 #include "OSCompatSocket.h"
 #include "SocketProcedures.h"
 
 using namespace scheme;
+
+// (socket-recv! socket bytevector len flags)
+Object scheme::socketRecvDEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("socket-recv!");
+    checkArgumentLength(4);
+    argumentAsSocket(0, socket);
+    argumentAsByteVector(1, bv);
+    argumentAsFixnum(2, len);
+    argumentAsFixnum(3, flags);
+    if (bv->length() <= len) {
+        return callAssertionViolationAfter(theVM, procedureName, "bytevector size is not enough", L1(argv[0]));
+    }
+    const int result = socket->receive(bv->data(), len, flags);
+    if (-1 == result) {
+        return callIOErrorAfter(theVM, procedureName, socket->getLastErrorMessage(), L3(argv[0], argv[1], argv[2]));
+    } else {
+        return Bignum::makeInteger(result);
+    }
+}
+
+
+// (socket-recv socket len flags)
+Object scheme::socketRecvEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("socket-recv");
+    checkArgumentLength(3);
+    argumentAsSocket(0, socket);
+    argumentAsFixnum(1, len);
+    argumentAsFixnum(2, flags);
+    uint8_t* data = allocatePointerFreeU8Array(len);
+    MOSH_ASSERT(data != NULL);
+    const int result = socket->receive(data, len, flags);
+    if (-1 == result) {
+        return callIOErrorAfter(theVM, procedureName, socket->getLastErrorMessage(), L3(argv[0], argv[1], argv[2]));
+    } else {
+        ByteVector* bv = new ByteVector(result, data);
+        return Object::makeByteVector(bv);
+    }
+}
 
 // (make-client-socket node service ai-family ai-socktype ai-flags ai-protocol)
 Object scheme::makeClientSocketEx(VM* theVM, int argc, const Object* argv)

@@ -1,5 +1,5 @@
 /*
- * OSCompatSocket.cpp - 
+ * OSCompatSocket.cpp -
  *
  *   Copyright (c) 2009  Higepon(Taro Minowa)  <higepon@users.sourceforge.jp>
  *
@@ -82,6 +82,20 @@ ucs4string Socket::toString() const
     }
 }
 
+/**
+   read from socket
+   @param data [in] buffer to read
+   @param size [in] size to read
+   @param flags [in] flags
+   @retval >=0 read size
+   @retval -1 error
+*/
+int Socket::receive(uint8_t* data, int size, int flags)
+{
+    MOSH_ASSERT(isOpen());
+    return recv(socket_, data, size, flags);
+}
+
 // Factories
 Socket* Socket::createClientSocket(const char* node,
                                    const char* service,
@@ -152,4 +166,3 @@ Socket* Socket::createClientSocket(const char* node,
     errorMessage = getLastErrorMessageInternal(lastError);
     return NULL;
 }
-

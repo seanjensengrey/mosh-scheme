@@ -155,6 +155,7 @@
 #define argumentAsCodeBuilder(index, variableName) castArgument(index, variableName, isCodeBuilder, code-builder, CodeBuilder*, toCodeBuilder)
 
 
+#define argumentAsSocket(index, variableName) castArgument(index, variableName, isSocket, socket, Socket*, toSocket)
 #define argumentAsFlonum(index, variableName) castArgument(index, variableName, isFlonum, flonum, Flonum*, toFlonum)
 #define argumentAsFixnum(index, variableName) castArgument(index, variableName, isFixnum, fixnum, int, toFixnum)
 #define argumentAsOctet(index, variableName) castArgument(index, variableName, isOctet, octet, uint8_t, toFixnum)

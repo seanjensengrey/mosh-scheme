@@ -43,6 +43,8 @@ namespace scheme {
         Socket(int fd, const ucs4string& address);
         Socket(int domain, int type, int protocol);
 
+        int receive(uint8_t* data, int size, int flags);
+
         bool isOpen() const;
         ucs4string getLastErrorMessage() const;
         ucs4string toString() const;

@@ -100,7 +100,7 @@ extern bool isErrorBufInitialized;
     Object callIoFileAlreadyExistAfter(VM* theVM, Object filname, Object who, Object message, Object irritants = Object::Nil);
     Object callLexicalAndIOReadAfter(VM* theVM, Object who, Object message, Object irritants = Object::Nil);
     Object callIoFileNameErrorAfter(VM* theVM, Object filename, Object who, Object message, Object irritants = Object::Nil);
-    void callAssertionViolationAfter(VM* theVM, Object who, Object message, Object irritants = Object::Nil);
+    Object callAssertionViolationAfter(VM* theVM, Object who, Object message, Object irritants = Object::Nil);
     void callUndefinedViolationAfter(VM* theVM, Object who, Object message, Object irritants = Object::Nil);
     void callErrorAfter(VM* theVM, Object who, Object message, Object irritants = Object::Nil);
     void callAssertionViolationImmidiaImmediately(VM* theVM, Object who, Object message, Object irritants = Object::Nil);
