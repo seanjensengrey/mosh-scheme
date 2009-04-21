@@ -150,7 +150,7 @@ ucs4string my_utf16ToUtf32(const std::wstring& s)
                 const ucs4char offset = (0xd800 << 10UL) + 0xdc00 - 0x10000;
                 c0 = (c0 << 10) + c1 - offset;
             } else {
-                return ucs4string::from_c_str("bad char", 8);
+                return ucs4string::from_c_str("bad char");
             }
         }
         out.push_back(c0);
@@ -184,7 +184,7 @@ ucs4string scheme::getLastErrorMessageInternal(DWORD e)
 ucs4string scheme::getLastErrorMessageInternal(int e)
 {
     const char* message = strerror(e);
-    return ucs4string::from_c_str(message, strlen(message));
+    return ucs4string::from_c_str(message);
 }
 #endif
 
@@ -577,7 +577,7 @@ ucs4string scheme::getMoshExecutablePath(bool& isErrorOccured)
         int pos = chop.find_last_of('/');
         if (pos > 0) {
             const char* v = chop.substr(0, pos + 1).c_str();
-            return ucs4string::from_c_str(v, strlen(v));
+            return ucs4string::from_c_str(v);
         }
     }
     isErrorOccured = true;
@@ -602,7 +602,7 @@ ucs4string scheme::getMoshExecutablePath(bool& isErrorOccured)
     int pos = p.find_last_of('/');
     if (pos > 0) {
         const char* ret = p.substr(0, pos + 1).c_str();
-        return ucs4string::from_c_str(ret, strlen(ret));
+        return ucs4string::from_c_str(ret);
     }
     isErrorOccured = true;
     return UC("");
@@ -614,7 +614,7 @@ ucs4string scheme::getMoshExecutablePath(bool& isErrorOccured)
         int pos = chop.find_last_of('/');
         if (pos > 0) {
             const char* execPath = chop.substr(0, pos + 1).c_str();
-            return ucs4string::from_c_str(execPath, strlen(execPath));
+            return ucs4string::from_c_str(execPath);
         }
     }
     isErrorOccured = true;

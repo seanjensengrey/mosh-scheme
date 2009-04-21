@@ -1,9 +1,11 @@
 (define-constant AF_INET)
+(define-constant AF_INET6)
+;(define-constant AF_UNSPEC)
 (define-constant SOCK_STREAM)
 (define-constant AF_UNIX)
 (define-constant AF_LOCAL)
 (define-constant AF_INET)
-(define-constant AF_INET6)
+
 (define-constant AF_IPX)
 (define-constant AF_NETLINK)
 (define-constant AF_X25)

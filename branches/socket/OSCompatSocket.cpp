@@ -31,6 +31,7 @@
 
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <netdb.h>
 
 #include "scheme.h"
 #include "Object.h"
@@ -44,9 +45,18 @@
 
 using namespace scheme;
 
+Socket::Socket(int fd, const ucs4string& address) :
+    socket_(fd),
+    lastError_(0),
+    address_(address)
+{
+
+}
+
 Socket::Socket(int domain, int type, int protocol) :
     socket_(socket(domain, type, protocol)),
-    lastError_(errno)
+    lastError_(errno),
+    address_(UC(""))
 {
 }
 
@@ -59,3 +69,87 @@ ucs4string Socket::getLastErrorMessage() const
 {
     return getLastErrorMessageInternal(lastError_);
 }
+
+ucs4string Socket::toString() const
+{
+    if (address_.empty()) {
+        return UC("<socket>");
+    } else {
+        ucs4string ret = UC("<socket ");
+        ret += address_;
+        ret += UC(">");
+        return ret;
+    }
+}
+
+// Factories
+Socket* Socket::createClientSocket(const char* node,
+                                   const char* service,
+                                   int ai_family,
+                                   int ai_socktype,
+                                   int ai_flags,
+                                   int ai_protocol,
+                                   bool& isErrorOccured,
+                                   ucs4string& errorMessage)
+{
+    struct addrinfo hints;
+    memset(&hints, 0, sizeof(struct addrinfo));
+    hints.ai_family = ai_family;
+    hints.ai_socktype = ai_socktype;
+    hints.ai_flags = ai_flags;
+    hints.ai_protocol = ai_protocol;
+    hints.ai_canonname = NULL;
+    hints.ai_addr = NULL;
+    hints.ai_next = NULL;
+    struct addrinfo* result;
+    int ret;
+
+    // TODO server socket?
+    MOSH_ASSERT(!((ai_flags & AI_PASSIVE) && node == NULL));
+
+    // check temporary failure
+    do {
+        ret = getaddrinfo(node, service, &hints, &result);
+    } while (EAI_AGAIN == ret);
+
+
+    if (ret != 0) {
+        isErrorOccured = true;
+        errorMessage = ucs4string::from_c_str(gai_strerror(ret));
+        return NULL;
+    }
+
+    // there may be many addresses for one host
+    int lastError = 0;
+    for (struct addrinfo* p = result; p != NULL; p = p->ai_next) {
+        const int fd = socket(p->ai_family, p->ai_socktype, p->ai_protocol);
+        if (-1 == fd) {
+            lastError = errno;
+            continue;
+        }
+        if (connect(fd, p->ai_addr, p->ai_addrlen) == 0) {
+            // address => name
+            int ret;
+            char host[NI_MAXHOST];
+            char serv[NI_MAXSERV];
+            do {
+                ret = getnameinfo(p->ai_addr,
+                                  p->ai_addrlen,
+                                  host, sizeof(host),
+                                  serv, sizeof(serv), NI_NAMEREQD);
+            } while (EAI_AGAIN == ret);
+            char name[NI_MAXSERV + NI_MAXHOST + 1];
+            snprintf(name, sizeof(name), "%s:%s", host, serv);
+            freeaddrinfo(result);
+            return new Socket(fd, ucs4string::from_c_str(name));
+        } else {
+            lastError = errno;
+            close(fd);
+        }
+    }
+    freeaddrinfo(result);
+    isErrorOccured = true;
+    errorMessage = getLastErrorMessageInternal(lastError);
+    return NULL;
+}
+

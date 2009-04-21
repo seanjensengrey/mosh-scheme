@@ -56,6 +56,7 @@
 #include "CompoundCondition.h"
 #include "BinaryOutputPort.h"
 #include "BinaryInputOutputPort.h"
+#include "OSCompatSocket.h"
 
 #ifdef _WIN32
     #define snprintf _snprintf
@@ -374,7 +375,7 @@ void TextualOutputPort::putDatum(Object o, bool inList /* = false */)
         putString(o.toRegexp()->pattern());
         putChar('/');
     } else if (o.isSocket()) {
-        putString("<socket>");
+        putString(o.toSocket()->toString());
     } else if (o.isRegMatch()) {
         putString(UC("#<reg-match>"));
     } else if (o.isEqHashTable()) {
@@ -552,7 +553,7 @@ void TextualOutputPort::display(Object o, bool inList /* = false */)
         putString(o.toRegexp()->pattern());
         putChar('/');
     } else if (o.isSocket()) {
-        putString("<socket>");
+        putString(o.toSocket()->toString());
     } else if (o.isRegMatch()) {
         putString(UC("#<reg-match>"));
     } else if (o.isEqHashTable()) {

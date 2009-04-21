@@ -511,6 +511,7 @@
     mosh-executable-path
 
     ;; socket
-    make-socket
+    make-socket ;; unnecessary?
+    make-client-socket
     os-constant
     )

@@ -40,14 +40,26 @@ namespace scheme {
     class Socket EXTEND_GC
     {
     public:
+        Socket(int fd, const ucs4string& address);
         Socket(int domain, int type, int protocol);
 
         bool isOpen() const;
         ucs4string getLastErrorMessage() const;
+        ucs4string toString() const;
+
+        static Socket* createClientSocket(const char* node,
+                                          const char* service,
+                                          int ai_family,
+                                          int ai_socktype,
+                                          int ai_flags,
+                                          int ai_protocol,
+                                          bool& isErrorOccured,
+                                          ucs4string& errorMessage);
 
     private:
         int socket_;
         int lastError_;
+        ucs4string address_;
     };
 
 

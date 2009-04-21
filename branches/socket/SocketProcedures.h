@@ -36,6 +36,7 @@
 
 namespace scheme {
 
+    Object makeClientSocketEx(VM* theVM, int argc, const Object* argv);
     Object makeSocketEx(VM* theVM, int argc, const Object* argv);
 
 } // namespace scheme

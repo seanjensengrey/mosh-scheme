@@ -33,11 +33,52 @@
 #include "Object-inl.h"
 #include "Pair.h"
 #include "Pair-inl.h"
+#include "SString.h"
 #include "ProcedureMacro.h"
 #include "OSCompatSocket.h"
 #include "SocketProcedures.h"
 
 using namespace scheme;
+
+// (make-client-socket node service ai-family ai-socktype ai-flags ai-protocol)
+Object scheme::makeClientSocketEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("make-client-socket");
+    checkArgumentLength(6);
+    argumentCheckStringOrFalse(0, nodeOrFalse);
+    argumentCheckStringOrFalse(1, serviceOrFalse);
+    argumentAsFixnum(2, ai_family);
+    argumentAsFixnum(3, ai_socktype);
+    argumentAsFixnum(4, ai_flags);
+    argumentAsFixnum(5, ai_protocol);
+    const char* node = NULL;
+    const char* service = NULL;
+    if (nodeOrFalse.isString()) {
+        node = nodeOrFalse.toString()->data().ascii_c_str();
+    }
+    if (serviceOrFalse.isString()) {
+        service = serviceOrFalse.toString()->data().ascii_c_str();
+    }
+    bool isErrorOccured = false;
+    ucs4string errorMessage;
+    Socket* socket = Socket::createClientSocket(node,
+                                                service,
+                                                ai_family,
+                                                ai_socktype,
+                                                ai_flags,
+                                                ai_protocol,
+                                                isErrorOccured,
+                                                errorMessage);
+    if (isErrorOccured) {
+        return callIOErrorAfter(theVM, procedureName, errorMessage, L2(argv[0], argv[1]));
+    }
+
+    if (socket->isOpen()) {
+        return Object::makeSocket(socket);
+    } else {
+        return callIOErrorAfter(theVM, procedureName, socket->getLastErrorMessage(), L2(argv[0], argv[1]));
+    }
+}
 
 Object scheme::makeSocketEx(VM* theVM, int argc, const Object* argv)
 {

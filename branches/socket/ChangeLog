@@ -1,3 +1,9 @@
+2009-04-21  higepon  <higepon@users.sourceforge.jp>
+
+        * OSCompatSocket.cpp (createClientSocket): Added.
+
+        * ucs4string.cpp (from_c_str): Added from_c_str.
+
 2009-04-20  higepon  <higepon@users.sourceforge.jp>
 
         * Object.h : Added accessors for Socket Object.
