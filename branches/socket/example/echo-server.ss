@@ -25,7 +25,7 @@
 ;   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 ;   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ;
-;  $Id$
+;  $Id: socket.ss 621 2008-11-09 06:22:47Z higepon $
 
 (import (rnrs)
         (mosh)

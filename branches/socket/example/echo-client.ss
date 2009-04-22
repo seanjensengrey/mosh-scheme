@@ -1,4 +1,4 @@
-; echo-server.ss - Sample of Echo server.
+; echo-client.ss - Sample of Echo client
 ;
 ;   Copyright (c) 2009  Higepon(Taro Minowa)  <higepon@users.sourceforge.jp>
 ;
@@ -25,22 +25,19 @@
 ;   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 ;   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ;
-;  $Id$
+;  $Id: socket.ss 621 2008-11-09 06:22:47Z higepon $
 
 (import (rnrs)
         (mosh)
         (mosh socket))
 
-(let ([server (make-server-socket "4649")])
-  (display "Echo server: START\n")
-  (let ([conn (socket-accept server)])
-    (socket-close server)
-    (let loop ([data (socket-recv conn 100 0)])
-      (cond
-       [(zero? (bytevector-length data))
-        (socket-close conn)
-        (display "Echo server: STOP\n")]
-       [else
-        (format #t "received ~s\n" (utf8->string data))
-        (socket-send conn data 0)
-        (loop (socket-recv conn 100 0))]))))
+(let ([socket (make-client-socket "127.0.0.1" "4649")])
+  (display "Echo client: write message and hit Enter key\n")
+  (let loop ([line (get-line (current-input-port))])
+    (cond
+     [(eof-object? line) '()]
+     [else
+      (socket-send socket (string->utf8 line) 0)
+      (format #t "Reply from Server: ~a\n" (utf8->string (socket-recv socket 100 0)))
+      (loop (get-line (current-input-port)))])
+    (socket-close socket)))

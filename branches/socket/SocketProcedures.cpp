@@ -42,6 +42,39 @@
 
 using namespace scheme;
 
+// (socket? obj)
+Object scheme::socketPEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("socket?");
+    checkArgumentLength(1);
+    return Object::makeBool(argv[0].isSocket());
+}
+
+// (socket-accept socket)
+Object scheme::socketAcceptEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("socket-accept");
+    checkArgumentLength(1);
+    argumentAsSocket(0, socket);
+    Socket* ret = socket->accept();
+    if (NULL == ret) {
+        return callIOErrorAfter(theVM, procedureName, socket->getLastErrorMessage(), L3(argv[0], argv[1], argv[2]));
+    } else {
+        return Object::makeSocket(ret);
+    }
+}
+
+// (socket-shutdown socket how)
+Object scheme::socketShutdownEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("socket-shutdown");
+    checkArgumentLength(2);
+    argumentAsSocket(0, socket);
+    argumentAsFixnum(1, how);
+    socket->shutdown(how);
+    return Object::Undef;
+}
+
 // (socket-close socket)
 Object scheme::socketCloseEx(VM* theVM, int argc, const Object* argv)
 {
@@ -78,7 +111,7 @@ Object scheme::socketRecvDEx(VM* theVM, int argc, const Object* argv)
     argumentAsFixnum(2, start);
     argumentAsFixnum(3, len);
     argumentAsFixnum(4, flags);
-    if (bv->length() <= start + len) {
+    if (bv->length() <= (size_t)start + len) {
         return callAssertionViolationAfter(theVM, procedureName, "bytevector size is not enough", L1(argv[0]));
     }
     const int result = socket->receive(bv->data() + start, len, flags);
@@ -148,17 +181,34 @@ Object scheme::makeClientSocketEx(VM* theVM, int argc, const Object* argv)
     }
 }
 
-Object scheme::makeSocketEx(VM* theVM, int argc, const Object* argv)
+// (make-server-socket service ai-family ai-socktype ai-protocol)
+Object scheme::makeServerSocketEx(VM* theVM, int argc, const Object* argv)
 {
-    DeclareProcedureName("make-socket");
-    checkArgumentLength(3);
-    argumentAsFixnum(0, domain);
-    argumentAsFixnum(1, type);
-    argumentAsFixnum(2, protocol);
-    Socket* socket = new Socket(domain, type, protocol);
+    DeclareProcedureName("make-server-socket");
+    checkArgumentLength(4);
+    argumentCheckStringOrFalse(0, serviceOrFalse);
+    argumentAsFixnum(1, ai_family);
+    argumentAsFixnum(2, ai_socktype);
+    argumentAsFixnum(3, ai_protocol);
+    const char* service = NULL;
+    if (serviceOrFalse.isString()) {
+        service = serviceOrFalse.toString()->data().ascii_c_str();
+    }
+    bool isErrorOccured = false;
+    ucs4string errorMessage;
+    Socket* socket = Socket::createServerSocket(service,
+                                                ai_family,
+                                                ai_socktype,
+                                                ai_protocol,
+                                                isErrorOccured,
+                                                errorMessage);
+    if (isErrorOccured) {
+        return callIOErrorAfter(theVM, procedureName, errorMessage, L1(argv[0]));
+    }
+
     if (socket->isOpen()) {
         return Object::makeSocket(socket);
     } else {
-        return callIOErrorAfter(theVM, procedureName, socket->getLastErrorMessage(), L3(argv[0], argv[1], argv[2]));
+        return callIOErrorAfter(theVM, procedureName, socket->getLastErrorMessage(), L1(argv[0]));
     }
 }

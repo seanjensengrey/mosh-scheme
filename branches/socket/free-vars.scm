@@ -511,11 +511,14 @@
     mosh-executable-path
 
     ;; socket
-    make-socket ;; unnecessary?
+    socket?
+    socket-accept
     make-client-socket
+    make-server-socket
     os-constant
     socket-recv
     socket-recv!
     socket-send
     socket-close
+    socket-shutdown
     )

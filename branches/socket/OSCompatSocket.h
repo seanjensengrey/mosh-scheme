@@ -32,6 +32,10 @@
 #ifndef SCHEME_OSCOMPATSOCKET_
 #define SCHEME_OSCOMPATSOCKET_
 
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netdb.h>
+#include <unistd.h>
 #include "scheme.h"
 
 namespace scheme {
@@ -39,11 +43,16 @@ namespace scheme {
     class Socket EXTEND_GC
     {
     public:
-        Socket(int fd, const ucs4string& address);
-        Socket(int domain, int type, int protocol);
+        enum Type {
+            CLIENT,
+            SERVER,
+        };
+        Socket(int fd, enum Type type, const ucs4string& address);
 
         int receive(uint8_t* data, int size, int flags);
         int send(uint8_t* data, int size, int flags);
+        Socket* accept();
+        void shutdown(int how);
         void close();
 
         bool isOpen() const;
@@ -58,15 +67,22 @@ namespace scheme {
                                           int ai_protocol,
                                           bool& isErrorOccured,
                                           ucs4string& errorMessage);
+        static Socket* createServerSocket(const char* service,
+                                          int ai_family,
+                                          int ai_socktype,
+                                          int ai_protocol,
+                                          bool& isErrorOccured,
+                                          ucs4string& errorMessage);
 
     private:
+        static ucs4string getAddressString(const struct addrinfo* addr);
+        static ucs4string getAddressString(const struct sockaddr* addr, socklen_t addrlen);
         void setLastError();
         int socket_;
         int lastError_;
         ucs4string address_;
+        enum Type type_;
     };
-
-
 }; // namespace scheme
 
 #endif // SCHEME_OSCOMPATSOCKET_

@@ -36,12 +36,15 @@
 
 namespace scheme {
 
+    Object socketPEx(VM* theVM, int argc, const Object* argv);
+    Object socketAcceptEx(VM* theVM, int argc, const Object* argv);
     Object makeClientSocketEx(VM* theVM, int argc, const Object* argv);
+    Object makeServerSocketEx(VM* theVM, int argc, const Object* argv);
     Object socketRecvEx(VM* theVM, int argc, const Object* argv);
     Object socketRecvDEx(VM* theVM, int argc, const Object* argv);
     Object socketSendEx(VM* theVM, int argc, const Object* argv);
     Object socketCloseEx(VM* theVM, int argc, const Object* argv);
-    Object makeSocketEx(VM* theVM, int argc, const Object* argv);
+    Object socketShutdownEx(VM* theVM, int argc, const Object* argv);
 
 } // namespace scheme
 

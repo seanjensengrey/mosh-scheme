@@ -1,5 +1,5 @@
 /*
- * OSCompatSocket.cpp -
+ * OSCompatSocket.cpp - socket interfaces.
  *
  *   Copyright (c) 2009  Higepon(Taro Minowa)  <higepon@users.sourceforge.jp>
  *
@@ -29,11 +29,6 @@
  *  $Id: OSCompatSocket.cpp 183 2008-07-04 06:19:28Z higepon $
  */
 
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netdb.h>
-#include <unistd.h>
-
 #include "scheme.h"
 #include "Object.h"
 #include "Object-inl.h"
@@ -46,24 +41,48 @@
 
 using namespace scheme;
 
-Socket::Socket(int fd, const ucs4string& address) :
+Socket::Socket(int fd, enum Type type, const ucs4string& address) :
     socket_(fd),
     lastError_(0),
-    address_(address)
+    address_(address),
+    type_(type)
 {
-
 }
 
-Socket::Socket(int domain, int type, int protocol) :
-    socket_(socket(domain, type, protocol)),
-    lastError_(errno),
-    address_(UC(""))
+Socket* Socket::accept()
 {
+    MOSH_ASSERT(isOpen());
+    struct sockaddr_storage addr;
+    socklen_t addrlen = sizeof(addr);
+
+    int fd = -1;
+    for (;;) {
+        fd = ::accept(socket_, (sockaddr*)&addr, &addrlen);
+        if (-1 == fd) {
+            if (errno == EINTR) {
+                continue;
+            } else {
+                setLastError();
+                return NULL;
+            }
+        } else {
+            break;
+        }
+    }
+    return new Socket(fd, Socket::SERVER, getAddressString((sockaddr*)&addr, addrlen));
 }
 
 bool Socket::isOpen() const
 {
     return socket_ != -1;
+}
+
+void Socket::shutdown(int how)
+{
+    if (!isOpen()) {
+        return;
+    }
+    ::shutdown(socket_, how);
 }
 
 void Socket::close()
@@ -86,6 +105,11 @@ ucs4string Socket::toString() const
         return UC("<socket>");
     } else {
         ucs4string ret = UC("<socket ");
+        if (type_ == CLIENT) {
+            ret += UC("client ");
+        } else {
+            ret += UC("server ");
+        }
         ret += address_;
         ret += UC(">");
         return ret;
@@ -186,20 +210,10 @@ Socket* Socket::createClientSocket(const char* node,
             continue;
         }
         if (connect(fd, p->ai_addr, p->ai_addrlen) == 0) {
-            // address => name
-            int ret;
-            char host[NI_MAXHOST];
-            char serv[NI_MAXSERV];
-            do {
-                ret = getnameinfo(p->ai_addr,
-                                  p->ai_addrlen,
-                                  host, sizeof(host),
-                                  serv, sizeof(serv), NI_NAMEREQD);
-            } while (EAI_AGAIN == ret);
-            char name[NI_MAXSERV + NI_MAXHOST + 1];
-            snprintf(name, sizeof(name), "%s:%s", host, serv);
+
+            ucs4string addressString = getAddressString(p);
             freeaddrinfo(result);
-            return new Socket(fd, ucs4string::from_c_str(name));
+            return new Socket(fd, Socket::CLIENT, addressString);
         } else {
             lastError = errno;
             ::close(fd);
@@ -209,6 +223,97 @@ Socket* Socket::createClientSocket(const char* node,
     isErrorOccured = true;
     errorMessage = getLastErrorMessageInternal(lastError);
     return NULL;
+}
+
+Socket* Socket::createServerSocket(const char* service,
+                                   int ai_family,
+                                   int ai_socktype,
+                                   int ai_protocol,
+                                   bool& isErrorOccured,
+                                   ucs4string& errorMessage)
+{
+    struct addrinfo hints;
+    memset(&hints, 0, sizeof(struct addrinfo));
+    hints.ai_family = ai_family;
+    hints.ai_socktype = ai_socktype;
+    hints.ai_flags = AI_PASSIVE;
+    hints.ai_protocol = ai_protocol;
+    hints.ai_canonname = NULL;
+    hints.ai_addr = NULL;
+    hints.ai_next = NULL;
+    struct addrinfo* result;
+    int ret;
+
+    // check temporary failure
+    do {
+        ret = getaddrinfo(NULL, service, &hints, &result);
+    } while (EAI_AGAIN == ret);
+
+
+    if (ret != 0) {
+        isErrorOccured = true;
+        errorMessage = ucs4string::from_c_str(gai_strerror(ret));
+        return NULL;
+    }
+
+    // there may be many addresses for one host
+    int lastError = 0;
+    for (struct addrinfo* p = result; p != NULL; p = p->ai_next) {
+        const int fd = socket(p->ai_family, p->ai_socktype, p->ai_protocol);
+        if (-1 == fd) {
+            lastError = errno;
+            continue;
+        }
+        int optValue = 1;
+        if(setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, &optValue, sizeof(optValue)) == -1) {
+            ::close(fd);
+            lastError = errno;
+            continue;
+        }
+
+        if (bind(fd, p->ai_addr, p->ai_addrlen) == -1) {
+            ::close(fd);
+            lastError = errno;
+            continue;
+        }
+
+        const int TRADITIONAL_BACKLOG = 5;
+        if (p->ai_socktype == SOCK_STREAM ) {
+            if (listen(fd, TRADITIONAL_BACKLOG) == -1) {
+                ::close(fd);
+                lastError = errno;
+                continue;
+            }
+        }
+
+        ucs4string addressString = getAddressString(p);
+        freeaddrinfo(result);
+        return new Socket(fd, Socket::SERVER, addressString);
+    }
+    freeaddrinfo(result);
+    isErrorOccured = true;
+    errorMessage = getLastErrorMessageInternal(lastError);
+    return NULL;
+}
+
+ucs4string Socket::getAddressString(const struct sockaddr* addr, socklen_t addrlen)
+{
+    int ret;
+    char host[NI_MAXHOST];
+    char serv[NI_MAXSERV];
+    do {
+        ret = getnameinfo(addr,
+                          addrlen,
+                          host, sizeof(host),
+                          serv, sizeof(serv), NI_NUMERICSERV);
+    } while (EAI_AGAIN == ret);
+    char name[NI_MAXSERV + NI_MAXHOST + 1];
+    snprintf(name, sizeof(name), "%s:%s", host, serv);
+    return ucs4string::from_c_str(name);
+}
+ucs4string Socket::getAddressString(const struct addrinfo* addr)
+{
+    return getAddressString(addr->ai_addr, addr->ai_addrlen);
 }
 
 void Socket::setLastError()

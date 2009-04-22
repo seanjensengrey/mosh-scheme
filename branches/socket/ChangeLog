@@ -1,3 +1,17 @@
+2009-04-22  higepon  <higepon@users.sourceforge.jp>
+
+        * example/echo-server.ss: Added.
+
+        * example/echo-client.ss: Added.
+
+        * lib/mosh/socket.ss : Added (mosh socket) library.
+
+        * lib/mosh/control.ss (mosh): Added let-optionals and :optional.
+
+        * Added (socket? obj) and (socket-accept socket).
+
+        * Added (socket-shutdown socket how). 
+
 2009-04-21  higepon  <higepon@users.sourceforge.jp>
 
         * Added socket-close.
