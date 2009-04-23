@@ -521,4 +521,5 @@
     socket-send
     socket-close
     socket-shutdown
+    socket-port
     )

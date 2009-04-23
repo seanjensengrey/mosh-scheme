@@ -969,6 +969,7 @@
     (socket-send sys)
     (socket-close sys)
     (socket-shutdown sys)
+    (socket-port sys)
     (make-parameter                           sys)
     (parameterize                            sys)
     (os-constant                             mosh)

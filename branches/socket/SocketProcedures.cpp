@@ -39,8 +39,18 @@
 #include "ProcedureMacro.h"
 #include "OSCompatSocket.h"
 #include "SocketProcedures.h"
+#include "SocketBinaryInputOutputPort.h"
 
 using namespace scheme;
+
+// (socket-port socket)
+Object scheme::socketPortEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("socket-port");
+    checkArgumentLength(1);
+    argumentAsSocket(0, socket);
+    return Object::makeBinaryInputOutputPort(new SocketBinaryInputOutputPort(socket));
+}
 
 // (socket? obj)
 Object scheme::socketPEx(VM* theVM, int argc, const Object* argv)

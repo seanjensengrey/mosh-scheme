@@ -36,6 +36,7 @@
 
 namespace scheme {
 
+    Object socketPortEx(VM* theVM, int argc, const Object* argv);
     Object socketPEx(VM* theVM, int argc, const Object* argv);
     Object socketAcceptEx(VM* theVM, int argc, const Object* argv);
     Object makeClientSocketEx(VM* theVM, int argc, const Object* argv);

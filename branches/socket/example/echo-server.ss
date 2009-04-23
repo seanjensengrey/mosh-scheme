@@ -35,7 +35,7 @@
   (display "Echo server: START\n")
   (let ([conn (socket-accept server)])
     (socket-close server)
-    (let loop ([data (socket-recv conn 100 0)])
+    (let loop ([data (socket-recv conn 100)])
       (cond
        [(zero? (bytevector-length data))
         (socket-close conn)
@@ -43,4 +43,4 @@
        [else
         (format #t "received ~s\n" (utf8->string data))
         (socket-send conn data 0)
-        (loop (socket-recv conn 100 0))]))))
+        (loop (socket-recv conn 100))]))))

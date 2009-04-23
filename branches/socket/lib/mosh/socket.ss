@@ -37,12 +37,15 @@
     socket-send
     socket-close
     socket-shutdown
+    socket-port
     call-with-socket)
   (import (only (rnrs) ... _ define define-syntax syntax-case cond lambda if syntax->datum syntax => quasiquote quasisyntax
                 else unsyntax call-with-values apply values)
           (only (mosh control) let-optionals*)
           (only (mosh) os-constant)
           (rename (system)
+                  (socket-recv %socket-recv)
+                  (socket-send %socket-send)
                   (make-client-socket %make-client-socket)
                   (make-server-socket %make-server-socket)))
 
@@ -77,4 +80,13 @@
       (lambda args
         (socket-close socket)
         (apply values args))))
+
+  (define (socket-recv socket size . options)
+    (let-optionals* options ([flags 0])
+      (%socket-recv socket size flags)))
+
+  (define (socket-send socket data . options)
+    (let-optionals* options ([flags 0])
+      (%socket-send socket data flags)))
+
 )

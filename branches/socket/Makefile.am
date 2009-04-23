@@ -145,6 +145,7 @@ FFI.h                          FFI.cpp                             \
 FFIProcedures.h                FFIProcedures.cpp                   \
 CustomBinaryOutputPort.h       CustomBinaryOutputPort.cpp          \
 FileBinaryInputOutputPort.h    FileBinaryInputOutputPort.cpp       \
+SocketBinaryInputOutputPort.h  SocketBinaryInputOutputPort.cpp     \
 TranscodedTextualInputOutputPort.h  TranscodedTextualInputOutputPort.cpp  \
 BufferedFileBinaryInputOutputPort.h  BufferedFileBinaryInputOutputPort.cpp \
 TestingFileBinaryOutputPort.h TestingFileBinaryInputPort.h \

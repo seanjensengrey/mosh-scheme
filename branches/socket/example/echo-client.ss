@@ -37,7 +37,7 @@
     (cond
      [(eof-object? line) '()]
      [else
-      (socket-send socket (string->utf8 line) 0)
-      (format #t "Reply from Server: ~a\n" (utf8->string (socket-recv socket 100 0)))
+      (socket-send socket (string->utf8 line))
+      (format #t "Reply from Server: ~a\n" (utf8->string (socket-recv socket 100)))
       (loop (get-line (current-input-port)))])
     (socket-close socket)))
