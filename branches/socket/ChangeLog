@@ -1,5 +1,7 @@
 2009-04-23  higepon  <higepon@users.sourceforge.jp>
 
+        * Added irc-client and markov sample.
+
         * SocketProcedures.cpp : Added (socket-port socket).
 
 2009-04-22  higepon  <higepon@users.sourceforge.jp>
