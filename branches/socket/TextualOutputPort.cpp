@@ -336,7 +336,35 @@ void TextualOutputPort::putDatum(Object o, bool inList /* = false */)
         }
         putChar(DOUBLE_QUOTE);
     } else if (o.isPair()) {
-        putPair(o, inList);
+        bool abbreviated = o.cdr().isPair() && o.cdr().cdr().isNil() && writeAbbreviated(o.car());
+        if (abbreviated) {
+            o = o.cdr();
+        } else {
+            putChar('(');
+        }
+        bool head = true;
+        for (Object e = o; e != Object::Nil; e = e.cdr()) {
+            if (head) head = false;
+            else putChar(' ');
+            if (e.isPair()) {
+                if (e.car() == Symbol::UNQUOTE) {
+                    if (e.cdr().isPair() && e.cdr().cdr().isNil()) {
+                        putString(". ,");
+                        putDatum(e.cdr().car());
+                        break;
+                    }
+                }
+                putDatum(e.car());
+            } else {
+                putString(". ");
+                putDatum(e);
+                break;
+            }
+        }
+        if (!abbreviated) {
+            putChar(')');
+        }
+        return;
     } else if (o.isVector()) {
         Vector* v = o.toVector();
         putString(UC("#("));
@@ -484,6 +512,28 @@ void TextualOutputPort::putDatum(Object o, bool inList /* = false */)
 //     fflush(stderr);
 }
 
+// borrwed from Ypsilon
+bool TextualOutputPort::writeAbbreviated(Object obj)
+{
+    if (obj.isSymbol()) {
+        if (obj == Symbol::QUOTE) {
+            putChar('\'');
+            return true;
+        } else if (obj == Symbol::UNQUOTE) {
+            putChar(',');
+            return true;
+        } else if (obj == Symbol::UNQUOTE_SPLICING) {
+            putString(",@");
+            return true;
+        } else if (obj == Symbol::QUASIQUOTE) {
+            putChar('`');
+            return true;
+        }
+    }
+    return false;
+}
+
+
 void TextualOutputPort::display(Object o, bool inList /* = false */)
 {
     // todo more faster code
@@ -534,7 +584,35 @@ void TextualOutputPort::display(Object o, bool inList /* = false */)
     } else if (o.isString()) {
         putString(o.toString());
     } else if (o.isPair()) {
-        putPair(o, inList);
+        bool abbreviated = o.cdr().isPair() && o.cdr().cdr().isNil() && writeAbbreviated(o.car());
+        if (abbreviated) {
+            o = o.cdr();
+        } else {
+            putChar('(');
+        }
+        bool head = true;
+        for (Object e = o; e != Object::Nil; e = e.cdr()) {
+            if (head) head = false;
+            else putChar(' ');
+            if (e.isPair()) {
+                if (e.car() == Symbol::UNQUOTE) {
+                    if (e.cdr().isPair() && e.cdr().cdr().isNil()) {
+                        putString(". ,");
+                        display(e.cdr().car());
+                        break;
+                    }
+                }
+                display(e.car());
+            } else {
+                putString(". ");
+                display(e);
+                break;
+            }
+        }
+        if (!abbreviated) {
+            putChar(')');
+        }
+        return;
     } else if (o.isVector()) {
         Vector* v = o.toVector();
         putString(UC("#("));

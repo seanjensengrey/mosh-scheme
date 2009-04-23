@@ -1,3 +1,7 @@
+2009-04-24  higepon  <higepon@users.sourceforge.jp>
+
+        * Fixed the bug of write/display causes native stack overflow.
+
 2009-04-23  higepon  <higepon@users.sourceforge.jp>
 
         * Added irc-client and markov sample.
