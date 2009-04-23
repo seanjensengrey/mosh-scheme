@@ -93,7 +93,8 @@
         (let loop ([line (get-line in)])
           (cond
            [(eof-object? line)
-            (make-sentence dic "勉強" "方法")]
+            (make-sentence dic "SICP" "は")
+            (fasl-write dic (open-file-output-port "hige"))]
            [else
             (let ([words (string-split line #\space)])
               (when (> (length words) 2)
