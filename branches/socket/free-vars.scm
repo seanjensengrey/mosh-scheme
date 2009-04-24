@@ -507,6 +507,8 @@
     make-custom-textual-input/output-port
     ;;
     put-datum
+    (list-ref list-ref)
+    (list-tail list-tail)
     time-usage
     mosh-executable-path
 
