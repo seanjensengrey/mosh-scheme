@@ -4,18 +4,26 @@
         (only (srfi :13) string-tokenize)
         (only (srfi :27) random-integer random-source-randomize! default-random-source)
         (mosh process)
+        (mosh socket)
         (mosh control))
 
+;; todo
+;; 深さを考える。（無限ループにならないように）
+
 (define (make-sentence dic first second)
-  (cond
-   [(hashtable-ref dic (cons first second) #f)
-    => (lambda (v)
-         (write first)
-         (newline)
-         (display (length v))
-         (make-sentence dic second (list-ref v (random-integer (length v)))))]
-   [else
-    (display "\ndone\n")]))
+  (define (rec first second depth)
+    (cond
+     [(= depth 25) '()]
+     [(hashtable-ref dic (cons first second) #f)
+      => (lambda (v)
+           (let ([selected (list-ref v (random-integer (length v)))])
+             (cons first (rec second selected (+ depth 1)))))]
+     [else '()]))
+  (let ([lst (rec first second 0)])
+    (if (null? lst)
+        #f
+        (apply string-append lst))))
+
 
 ;; space seprated file => list of string
 (define (file->sexp file)
@@ -74,6 +82,8 @@
               (loop (get-line in) (+ i 1)))]))))))
 
 (define (collect-verb+noun text)
+  (when (file-exists? "./mecab.tmp")
+    (delete-file "./mecab.tmp"))
   (call-with-port (open-output-file "./mecab.tmp")
     (lambda (out) (display text out)))
   (call-with-port (open-string-input-port (spawn->string "mecab" '("./mecab.tmp")))
@@ -83,26 +93,84 @@
          [(eof-object? line) (values verb noun)]
          [(#/([^\s]+)\s+動詞/ line)
           => (lambda (m)
-               (let ([next-line (get-line in)])
+               (let* ([next-line (get-line in)]
+                      [match (#/([^\s]+)\s/ next-line)])
                  (cond
-                  [(eof-object? next-line)
+                  [(or (eof-object? next-line) (not match))
                    (loop next-line verb noun)]
                   [else
                    (loop (get-line in)
-                         (cons (cons (m 1) ((#/([^\s]+)\s/ next-line) 1)) verb)
+                         (cons (cons (m 1) (match 1)) verb)
                          noun)])))]
          [(#/([^\s]+)\s+名詞/ line)
           => (lambda (m)
-               (let ([next-line (get-line in)])
+               (let* ([next-line (get-line in)]
+                      [match (#/([^\s]+)\s/ next-line)])
                  (cond
-                  [(eof-object? next-line)
+                  [(or (eof-object? next-line) (not match))
                    (loop next-line verb noun)]
                   [else
                    (loop (get-line in)
                          verb
-                         (cons (cons (m 1) ((#/([^\s]+)\s/ next-line) 1)) noun))])))]
+                         (cons (cons (m 1) (match 1)) noun))])))]
          [else
           (loop (get-line in) verb noun)])))))
+
+(define (irc-bot dic server port nick channel)
+  (let ([socket (make-client-socket server port)])
+    (define (send text)
+      (assert (<= (string-length text) 510))
+      (socket-send socket (string->utf8 (string-append text "\r\n"))))
+    (define (recv)
+      (utf8->string (socket-recv socket 512)))
+    (define (say text)
+      (send (format "PRIVMSG ~a :~a" channel text)))
+    (send (format "NICK ~a" nick))
+    (send (format "USER ~a 0 * :~a" nick nick))
+    (send (format "JOIN ~a" channel))
+    (let loop ([data (recv)]
+               [accum ""])
+      (format #t "IRC:~s\n"  data)
+      (cond
+       [(#/:([^!]+).*PRIVMSG[^:]+:(.*)/ data) =>
+        (lambda (m)
+          (cond
+           [(or (#/^こんにちは/ (m 2))
+                (#/^こんばんは/ (m 2))
+                (#/^ちは/ (m 2))
+                (#/^はじめまして/ (m 2))
+                (#/^こんばんわ/ (m 2))
+                (#/^お初です/ (m 2))
+                (#/^おはつです/ (m 2)))
+              (let* ([x '("こんにちは" "ちは" "こにゃにゃちは" "ノシ" "こんばんは" "こんばんわ")]
+                     [hello (list-ref x (random-integer (length x)))])
+              (say hello)
+              (loop (recv) accum))]
+           [(> (random-integer 10) 7)
+            (format #t "LOG: take a rest \n" )
+            (loop (recv) (string-append accum (m 2)))]
+           [else
+          (let-values (([verb noun] (collect-verb+noun accum)))
+            (format #t "LOG: verb=~a noun=~a\n" verb noun)
+            (when (> (length noun) 0)
+              (let* ([selected (list-ref noun (random-integer (length noun)))]
+                     [sentence (make-sentence dic (car selected) (cdr selected))])
+                (format #t "LOG: selected=~a sentence=~a\n" selected sentence)
+                (cond
+                 [sentence
+                  (say sentence)
+                  (loop (recv) (m 2))]
+                 [else
+                  (loop (recv) (append accum (m 2)))]))))]))]
+       [(#/^ERROR.*/ data)
+        (error 'IRC data)]
+       [(#/^PING/ data)
+        (send "PONG 0")]
+       [(#/:.*433.*Nickname is already in use.*/ data)
+        (error 'irc "Nickname is already in use")])
+      (loop (recv) accum))
+    (socket-close socket)))
+
 
 
 (define (main2 args)
@@ -110,13 +178,20 @@
   (call-with-input-file (second args)
     (lambda (in)
       (let ([dic (read-dic in)])
-        (let loop ([line (get-line (current-input-port))])
-          (call-with-port (open-output-file "./hige")
-            (lambda (out) (display line out)))
-          (call-with-port (open-string-input-port (spawn->string "mecab" '("hige")))
-            (lambda (in)
-              (make-sentence dic ((#/([^\s]+)\s/ (get-line in)) 1) ((#/([^\s]+)\s/ (get-line in)) 1))))
-          (loop (get-line (current-input-port))))))))
+        (irc-bot dic "irc.nara.wide.ad.jp" "6668" "nzpkun" "#osdev-j")))))
+
+;;         (let loop ([line (get-line (current-input-port))])
+;;           (let-values (([verb noun] (collect-verb+noun line)))
+;;             (when (> (length noun) 0)
+;;               (let ([selected (list-ref noun (random-integer (length noun)))])
+;;                 (format #t "line=~a selected=~a verb=~a noun\n" line selected verb noun)
+;;                 (make-sentence dic (car selected) (cdr selected))))
+;;           (call-with-port (open-output-file "./hige")
+;;             (lambda (out) (display line out)))
+;;           (call-with-port (open-string-input-port (spawn->string "mecab" '("hige")))
+;;             (lambda (in)
+;;               (make-sentence dic ((#/([^\s]+)\s/ (get-line in)) 1) ((#/([^\s]+)\s/ (get-line in)) 1))))
+;          (loop (get-line (current-input-port)))))))))
 
 (define (spawn->string command args)
   (let-values ([(in out) (pipe)])
@@ -133,7 +208,7 @@
         (list->string (reverse ret))
         (loop (cons c ret) (read-char p)))))
 
-;(main2 (command-line))
+(main2 (command-line))
 
-(let-values (([verb noun] (collect-verb+noun "こんにちは今日は散歩に行きましょう")))
-  (format #t "verb = ~a noun=~a\n" verb noun))
+;; (let-values (([verb noun] (collect-verb+noun "こんにちは今日は散歩に行きましょう")))
+;;   (format #t "verb = ~a noun=~a\n" verb noun))
