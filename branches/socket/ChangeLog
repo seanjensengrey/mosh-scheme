@@ -1,3 +1,13 @@
+2009-04-25  higepon  <higepon@users.sourceforge.jp>
+
+        * test/socket.scm: Added tests for socket.
+
+        * main.cpp (main): Added SIGPIPE.
+
+        * os-constants.scm : Defined necessary OS constants related to Socket.
+
+        * lib/mosh/socket.ss : Added a document for Socket API.
+
 2009-04-24  higepon  <higepon@users.sourceforge.jp>
 
         * Fixed the bug of write/display causes native stack overflow.

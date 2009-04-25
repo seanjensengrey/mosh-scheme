@@ -31,6 +31,9 @@ Supported build on Windows with Visual C++ by herumi.
 
 Supported build on Mingw by .mjt.
 
+Added Socket API.
+  See Manual and example/irc-client.ss
+
 Added FFI (Foreign Function Interface). 
   See test/ffi.scm or reference manual.
 

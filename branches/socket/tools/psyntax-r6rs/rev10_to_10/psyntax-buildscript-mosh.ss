@@ -966,6 +966,7 @@
     (make-client-socket sys)
     (make-server-socket sys)
     (socket-recv sys)
+    (socket-recv! sys)
     (socket-send sys)
     (socket-close sys)
     (socket-shutdown sys)

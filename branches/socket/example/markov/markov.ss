@@ -81,6 +81,38 @@
               (format #t "learning ~d\r" i)
               (loop (get-line in) (+ i 1)))]))))))
 
+(define (euc->string bv)
+  (when (file-exists? "./nkf.tmp")
+    (delete-file "./nkf.tmp"))
+  (call-with-port (open-file-output-port "./nkf.tmp" (file-options no-fail))
+    (lambda (out)
+      (put-bytevector out bv)))
+  (let-values ([(in out) (pipe)])
+    (let-values ([(pid cin cout cerr) (spawn "nkf" '("-J" "-w" "./nkf.tmp") (list #f out #f))])
+      (close-port out)
+      (begin0
+        (port->string (transcoded-port in (make-transcoder (utf-8-codec))))
+        (close-port in)
+        (waitpid pid)))))
+
+(define (string->euc string)
+  (when (file-exists? "./nkf.tmp2")
+    (delete-file "./nkf.tmp2"))
+  (call-with-port (transcoded-port (open-file-output-port "./nkf.tmp2" (file-options no-fail)) (native-transcoder))
+    (lambda (out)
+      (display string out)))
+  (let-values ([(in out) (pipe)])
+    (let-values ([(pid cin cout cerr) (spawn "nkf" '("-j" "-W" "./nkf.tmp2") (list #f out #f))])
+      (close-port out)
+      (begin0
+        (let loop ([b (get-u8 in)]
+                   [ret '()])
+          (if (eof-object? b)
+              (u8-list->bytevector (reverse ret))
+              (loop (get-u8 in) (cons b ret))))
+        (close-port in)
+        (waitpid pid)))))
+
 (define (collect-verb+noun text)
   (when (file-exists? "./mecab.tmp")
     (delete-file "./mecab.tmp"))
@@ -120,11 +152,11 @@
   (let ([socket (make-client-socket server port)])
     (define (send text)
       (assert (<= (string-length text) 510))
-      (socket-send socket (string->utf8 (string-append text "\r\n"))))
+      (socket-send socket (string->euc (string-append text "\r\n"))))
     (define (recv)
-      (utf8->string (socket-recv socket 512)))
+      (euc->string (socket-recv socket 512)))
     (define (say text)
-      (send (format "PRIVMSG ~a :~a" channel text)))
+      (send (format "NOTICE ~a :~a" channel text)))
     (send (format "NICK ~a" nick))
     (send (format "USER ~a 0 * :~a" nick nick))
     (send (format "JOIN ~a" channel))
@@ -146,7 +178,7 @@
                      [hello (list-ref x (random-integer (length x)))])
               (say hello)
               (loop (recv) accum))]
-           [(> (random-integer 10) 7)
+           [(> (random-integer 10) 2)
             (format #t "LOG: take a rest \n" )
             (loop (recv) (string-append accum (m 2)))]
            [else
@@ -178,7 +210,7 @@
   (call-with-input-file (second args)
     (lambda (in)
       (let ([dic (read-dic in)])
-        (irc-bot dic "irc.nara.wide.ad.jp" "6668" "nzpkun" "#osdev-j")))))
+        (irc-bot dic "irc.nara.wide.ad.jp" "6668" "yuki-bot" "#osdev-j")))))
 
 ;;         (let loop ([line (get-line (current-input-port))])
 ;;           (let-values (([verb noun] (collect-verb+noun line)))
@@ -209,6 +241,10 @@
         (loop (cons c ret) (read-char p)))))
 
 (main2 (command-line))
+
+;(put-bytevector (standard-error-port) (string->euc "あいう") 0)
+;(put-bytevector (standard-output-port) (string->euc "あいう"))
+
 
 ;; (let-values (([verb noun] (collect-verb+noun "こんにちは今日は散歩に行きましょう")))
 ;;   (format #t "verb = ~a noun=~a\n" verb noun))

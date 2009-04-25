@@ -29,7 +29,7 @@
  *  $Id: OScompat.cpp 183 2008-07-04 06:19:28Z higepon $
  */
 
-
+#include <netdb.h> // necesary for os-constant procedure.
 #ifndef _MSC_VER
 #include <dirent.h>
 #include <sys/socket.h>

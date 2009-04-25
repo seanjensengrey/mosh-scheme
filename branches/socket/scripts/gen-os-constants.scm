@@ -15,7 +15,7 @@
   (for-each
    (lambda (constant)
     (format #t "#ifdef ~a\n" constant)
-    (format #t "osConstants->set(Symbol::intern(UC(\"~a\")), Bignum::makeInteger(~a));\n" constant constant)
+    (format #t "osConstants->set(Symbol::intern(UC(\"~a\")), Bignum::makeInteger((long int)~a));\n" constant constant)
     (format #t "#endif\n"))
   (map cadr (file->sexp-list "./os-constants.scm"))))
 

@@ -24,7 +24,6 @@
         (send "PONG 0")]
        [(#/:.*433.*Nickname is already in use.*/ data)
         (error 'irc "Nickname is already in use")])
-;      (display data)
       (loop (recv)))
     (socket-close socket)))
 

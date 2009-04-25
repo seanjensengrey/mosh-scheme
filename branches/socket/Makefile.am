@@ -428,6 +428,7 @@ bench:
 check: test
 
 test: ./mosh all-tests.scm update
+	./mosh -5 all-tests.scm
 	./mosh test/testing.scm
 	./mosh test/io-error.scm
 	./mosh test/input-output-port.scm
@@ -446,7 +447,7 @@ test: ./mosh all-tests.scm update
 	./mosh test/dbi.scm
 	./mosh test/srfi-misc.scm
 	./mosh test/lists.scm
-	./mosh -5 all-tests.scm
+	./mosh test/socket.scm
 	(cd r6rs-test-suite && $(MAKE) $@)
 
 

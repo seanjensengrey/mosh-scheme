@@ -45,11 +45,7 @@ Don't Index: Files
 # --------------------------------------------------------------------------
 
 
-Group: Mosh  {
-
-   File: About  (no auto-title, doc/text/About.txt)
-   File: Download  (doc/text/Download.txt)
-   }  # Group: Mosh
+File: About  (no auto-title, doc/text/About.txt)
 
 Group: Mosh Library  {
 
@@ -60,6 +56,7 @@ Group: Mosh Library  {
    File: Foreign Function Interface  (lib/mosh/ffi.ss)
    File: Pretty Printing  (lib/mosh/pp.ss)
    File: Process  (lib/mosh/process.ss)
+   File: Socket  (lib/mosh/socket.ss)
    File: Unit Testing  (lib/mosh/test.ss)
    }  # Group: Mosh Library
 
@@ -94,6 +91,7 @@ Group: R6RS  {
 Group: Index  {
 
    Index: Everything
+   Constant Index: Constants
    Function Index: Functions
    Library Index: Libraries
    Variable Index: Variables

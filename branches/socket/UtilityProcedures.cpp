@@ -29,6 +29,7 @@
  *  $Id$
  */
 
+
 #ifdef _WIN32
 #include <windows.h>
 #include <shlwapi.h>
@@ -93,8 +94,7 @@ Object scheme::osConstantEx(VM* theVM, int argc, const Object* argv)
     if (isFound) {
         return ret;
     } else {
-        callAssertionViolationAfter(theVM, procedureName, "os-constants not found", L1(argv[0]));
-        return Object::Undef;
+        return Object::False;
     }
 }
 
