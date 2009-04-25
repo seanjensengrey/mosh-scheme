@@ -91,7 +91,7 @@
     AF_UNSPEC
     SOCK_STREAM
     SOCK_DGRAM
-    SOCK_RAW
+;    SOCK_RAW
     AI_ADDRCONFIG
     AI_ALL
     AI_CANONNAME
@@ -157,7 +157,7 @@
         node - a network address. (examples: "www.w3.org", "localhost", "128.30.52.45")
         service - a network service. (examples: "http", "ssh", "80", "22")
         ai-family(optional) - an address family specifier. <AF_INET> (default), <AF_INET6> or <AF_UNSPEC>.
-        ai-socktype(optional) - a socket type specifier. <SOCK_STREAM> (default), <SOCK_DGRAM> or <SOCK_RAW>.
+        ai-socktype(optional) - a socket type specifier. <SOCK_STREAM> (default) or <SOCK_DGRAM>.
         ai-flags - an additional options specifier. <AI_ADDRCONFIG>, <AI_ALL>, <AI_CANONNAME>, <AI_NUMERICHOST>, <AI_NUMERICSERV>, <AI_PASSIVE>, <AI_V4MAPPED> or 0(default).
         ai-protocol - a protocol specifier. <IPPROTO_TCP>, <IPPROTO_UDP>, <IPPROTO_RAW> or 0(default).
 
@@ -188,7 +188,7 @@
 
         service - a network service. (examples: "http", "ssh", "80", "22")
         ai-family(optional) - an address family specifier. <AF_INET> (default), <AF_INET6> or <AF_UNSPEC>.
-        ai-socktype(optional) - a socket type specifier. <SOCK_STREAM> (default), <SOCK_DGRAM> or <SOCK_RAW>.
+        ai-socktype(optional) - a socket type specifier. <SOCK_STREAM> (default) or <SOCK_DGRAM>.
         ai-protocol(optional) - a protocol specifier. <IPPROTO_TCP>, <IPPROTO_UDP>, <IPPROTO_RAW> or 0(default).
 
       Returns:
@@ -247,7 +247,7 @@
 
       Returns:
 
-        binary data as bytevector
+        data size
   |#
   (define (socket-recv! socket bv start size . options)
     (let-optionals* options ([flags 0])
@@ -275,7 +275,7 @@
 
       Returns:
 
-        binary data as bytevector
+        sent data size.
   |#
   (define (socket-send socket data . options)
     (let-optionals* options ([flags 0])
@@ -383,11 +383,11 @@
   |#
   (define-const SOCK_DGRAM)
 
-  #|
-      Constant: SOCK_RAW
-      ai-socktype:
-  |#
-  (define-const SOCK_RAW)
+;;   #|
+;;       Constant: SOCK_RAW
+;;       ai-socktype:
+;;   |#
+;;   (define-const SOCK_RAW)
 
   #|
       Constant: AI_ADDRCONFIG
