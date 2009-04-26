@@ -30,7 +30,7 @@
  */
 
 
-#ifndef _MSC_VER
+#ifndef _WIN32
 #include <dirent.h>
 #include <sys/socket.h>
 #include <netdb.h> // necesary for os-constant procedure.
@@ -75,7 +75,9 @@ extern int main(int argc, char *argv[]);
     #include <shellapi.h>
 	#include <winsock2.h> // for OSConstants
 	#include <ws2tcpip.h> // for OSConstants
-    #include <Ws2def.h>
+#ifndef MOSH_MINGW32
+    #include <Ws2def.h> // FIXME: it's winsdk's internal header. do not use.
+#endif
 
 	#define SHUT_RD SD_RECEIVE
 	#define SHUT_WR SD_SEND
