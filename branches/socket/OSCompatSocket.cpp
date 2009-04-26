@@ -90,8 +90,14 @@ void Socket::close()
     if (!isOpen()) {
         return;
     }
+#ifdef _WIN32
+	::shutdown(socket_, SD_SEND);
+	::closesocket(socket_);
+#else
     ::close(socket_);
+#endif
     socket_ = -1;
+
 }
 
 ucs4string Socket::getLastErrorMessage() const
@@ -129,7 +135,7 @@ int Socket::receive(uint8_t* data, int size, int flags)
     MOSH_ASSERT(isOpen());
 
     for (;;) {
-        const int ret = recv(socket_, data, size, flags);
+        const int ret = recv(socket_, (char*)data, size, flags);
         if (ret == -1 && errno == EINTR) {
             continue;
         }
@@ -152,7 +158,7 @@ int Socket::send(uint8_t* data, int size, int flags)
     int rest = size;
     int ret = 0;
     while (rest > 0) {
-        ret = ::send(socket_, data, size, flags);
+        ret = ::send(socket_, (char*)data, size, flags);
         if (ret == -1) {
             setLastError();
             return ret;
@@ -197,7 +203,11 @@ Socket* Socket::createClientSocket(const char* node,
 
     if (ret != 0) {
         isErrorOccured = true;
+#ifdef _WIN32
+		errorMessage = getLastErrorMessageInternal(GetLastError());
+#else
         errorMessage = ucs4string::from_c_str(gai_strerror(ret));
+#endif
         return NULL;
     }
 
@@ -216,7 +226,12 @@ Socket* Socket::createClientSocket(const char* node,
             return new Socket(fd, Socket::CLIENT, addressString);
         } else {
             lastError = errno;
+#ifdef _WIN32
+			::shutdown(fd, SD_SEND);
+			::closesocket(fd);
+#else
             ::close(fd);
+#endif;
         }
     }
     freeaddrinfo(result);
@@ -224,7 +239,7 @@ Socket* Socket::createClientSocket(const char* node,
     errorMessage = getLastErrorMessageInternal(lastError);
     return NULL;
 }
-
+extern ucs4string my_utf16ToUtf32(const std::wstring& s);
 Socket* Socket::createServerSocket(const char* service,
                                    int ai_family,
                                    int ai_socktype,
@@ -252,7 +267,12 @@ Socket* Socket::createServerSocket(const char* service,
 
     if (ret != 0) {
         isErrorOccured = true;
+#ifdef _WIN32
+		errorMessage = my_utf16ToUtf32(gai_strerror(ret));
+#else
         errorMessage = ucs4string::from_c_str(gai_strerror(ret));
+#endif
+			printf("here%d", __LINE__);
         return NULL;
     }
 
@@ -265,23 +285,44 @@ Socket* Socket::createServerSocket(const char* service,
             continue;
         }
         int optValue = 1;
-        if(setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, &optValue, sizeof(optValue)) == -1) {
+        if(setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, (char*)&optValue, sizeof(optValue)) == -1) {
+#ifdef _WIN32
+			::shutdown(fd, SD_SEND);
+			::closesocket(fd);
+			lastError = WSAGetLastError();
+#else
             ::close(fd);
             lastError = errno;
+#endif;
+
             continue;
         }
 
         if (bind(fd, p->ai_addr, p->ai_addrlen) == -1) {
+#ifdef _WIN32
+			::shutdown(fd, SD_SEND);
+			::closesocket(fd);
+			lastError = WSAGetLastError();
+#else
             ::close(fd);
             lastError = errno;
+#endif;
+
             continue;
         }
 
         const int TRADITIONAL_BACKLOG = 5;
         if (p->ai_socktype == SOCK_STREAM ) {
             if (listen(fd, TRADITIONAL_BACKLOG) == -1) {
+#ifdef _WIN32
+				::shutdown(fd, SD_SEND);
+			    ::closesocket(fd);
+				lastError = WSAGetLastError();
+#else
                 ::close(fd);
                 lastError = errno;
+#endif
+
                 continue;
             }
         }
@@ -292,6 +333,7 @@ Socket* Socket::createServerSocket(const char* service,
     }
     freeaddrinfo(result);
     isErrorOccured = true;
+	printf("here%d", __LINE__);
     errorMessage = getLastErrorMessageInternal(lastError);
     return NULL;
 }

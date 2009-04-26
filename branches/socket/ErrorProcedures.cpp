@@ -216,6 +216,7 @@ Object scheme::callIOInvalidPositionAfter(VM* theVM, Object who, Object message,
 Object scheme::callAssertionViolationAfter(VM* theVM, Object who, Object message, Object irritants /* = Object::Nil */)
 {
     raiseAfter(theVM, UC("&assertion-rcd"), UC("&assertion"), 0, who, message, irritants);
+	return Object::Undef;
 }
 
 void scheme::callUndefinedViolationAfter(VM* theVM, Object who, Object message, Object irritants /* = Object::Nil */)

@@ -33,9 +33,18 @@
 #define SCHEME_OSCOMPATSOCKET_
 
 #include <sys/types.h>
+#ifdef _WIN32
+	#include <winsock2.h>
+	#include <ws2tcpip.h> // for socklen_t
+	#pragma comment(lib, "ws2_32.lib")
+	#pragma comment(lib, "iphlpapi.lib")
+	#define snprintf _snprintf
+#else
 #include <sys/socket.h>
 #include <netdb.h>
 #include <unistd.h>
+#endif
+
 #include "scheme.h"
 
 namespace scheme {

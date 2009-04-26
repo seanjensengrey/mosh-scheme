@@ -29,10 +29,11 @@
  *  $Id: OScompat.cpp 183 2008-07-04 06:19:28Z higepon $
  */
 
-#include <netdb.h> // necesary for os-constant procedure.
+
 #ifndef _MSC_VER
 #include <dirent.h>
 #include <sys/socket.h>
+#include <netdb.h> // necesary for os-constant procedure.
 #endif
 #ifdef __APPLE__
 #include <sys/param.h>
@@ -72,6 +73,13 @@ extern int main(int argc, char *argv[]);
     #include <direct.h>
     #include <process.h>
     #include <shellapi.h>
+	#include <winsock2.h> // for OSConstants
+	#include <ws2tcpip.h> // for OSConstants
+    #include <Ws2def.h>
+
+	#define SHUT_RD SD_RECEIVE
+	#define SHUT_WR SD_SEND
+    #define SHUT_RDWR SD_BOTH
     #define PATH_MAX _MAX_PATH
     #define dup2 _dup2
     #ifdef _MSC_VER

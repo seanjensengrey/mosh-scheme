@@ -29,6 +29,10 @@
  *  $Id$
  */
 
+#ifdef _WIN32
+#include <winsock2.h>
+#include <ws2tcpip.h> // for socklen_t
+#endif
 #include "scheme.h"
 #include "Object.h"
 #include "Object-inl.h"
@@ -50,6 +54,10 @@ void mosh_init()
     initCprocedures();
     Flonum::initialize();
     Symbol::initBuitinSymbols();
+#ifdef _WIN32
+	WSADATA data;
+	WSAStartup(MAKEWORD(2, 2), &data);
+#endif
     initOSConstants();
 }
 
