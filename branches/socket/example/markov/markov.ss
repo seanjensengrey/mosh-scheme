@@ -20,7 +20,7 @@
              (cons first (rec second selected (+ depth 1)))))]
      [else '()]))
   (let ([lst (rec first second 0)])
-    (if (null? lst)
+    (if (< (length lst) 3)
         #f
         (apply string-append lst))))
 
@@ -241,6 +241,9 @@
         (loop (cons c ret) (read-char p)))))
 
 (main2 (command-line))
+
+;(main (command-line))
+
 
 ;(put-bytevector (standard-error-port) (string->euc "あいう") 0)
 ;(put-bytevector (standard-output-port) (string->euc "あいう"))
