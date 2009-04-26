@@ -85,6 +85,9 @@ extern int main(int argc, char *argv[]);
     #define PATH_MAX _MAX_PATH
     #define dup2 _dup2
     #ifdef _MSC_VER
+#define IPPROTO_UDP 17
+#define IPPROTO_TCP 6
+#define IPPROTO_RAW 255
         #pragma comment(lib, "shell32.lib")
     #endif
 #endif
