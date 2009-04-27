@@ -166,6 +166,7 @@ lib/lambda/wiki.ss    \
 lib/mosh/ffi.ss    \
 lib/mosh/dbi.ss    \
 lib/mosh/mysql.ss    \
+lib/mosh/socket.ss    \
 lib/mosh/process.ss \
 lib/mosh/shell.ss \
 lib/mosh/shell/repl.ss \
@@ -346,8 +347,8 @@ compiler-with-library.scmc: ./compiler-with-library.scm ./compiler-vm.scm
 SUFFIXES: .scmc .h
 
 .scmc.h:
-	./mosh ./scripts/scmc2fasl.scm $(PWD)/$< $(PWD)/$<.fasl
-	./mosh ./scripts/binary2c.scm $(PWD)/$<.fasl $(PWD)/$@
+	mosh ./scripts/scmc2fasl.scm $(PWD)/$< $(PWD)/$<.fasl
+	mosh ./scripts/binary2c.scm $(PWD)/$<.fasl $(PWD)/$@
 # 	(cd doc && mosh ../scripts/scmc2fasl.scm $(PWD)/$< $(PWD)/$<.fasl)
 # 	(cd doc && mosh ../scripts/binary2c.scm $(PWD)/$<.fasl $(PWD)/$@)
 
@@ -449,6 +450,7 @@ test: ./mosh all-tests.scm update
 	./mosh test/srfi-misc.scm
 	./mosh test/lists.scm
 	./mosh test/socket.scm
+	./mosh test/match.scm
 	(cd r6rs-test-suite && $(MAKE) $@)
 
 

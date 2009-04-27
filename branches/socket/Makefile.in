@@ -510,10 +510,12 @@ OSCompatSocket.h OSCompatSocket.cpp \
 OSCompat.h OSCompat.cpp
 
 mosh_core_libraries = \
+lib/match.ss \
 lib/lambda/wiki.ss    \
 lib/mosh/ffi.ss    \
 lib/mosh/dbi.ss    \
 lib/mosh/mysql.ss    \
+lib/mosh/socket.ss    \
 lib/mosh/process.ss \
 lib/mosh/shell.ss \
 lib/mosh/shell/repl.ss \
@@ -2936,8 +2938,8 @@ update:
 @DEVELOPER_TRUE@SUFFIXES: .scmc .h
 
 @DEVELOPER_TRUE@.scmc.h:
-@DEVELOPER_TRUE@	./mosh ./scripts/scmc2fasl.scm $(PWD)/$< $(PWD)/$<.fasl
-@DEVELOPER_TRUE@	./mosh ./scripts/binary2c.scm $(PWD)/$<.fasl $(PWD)/$@
+@DEVELOPER_TRUE@	mosh ./scripts/scmc2fasl.scm $(PWD)/$< $(PWD)/$<.fasl
+@DEVELOPER_TRUE@	mosh ./scripts/binary2c.scm $(PWD)/$<.fasl $(PWD)/$@
 # 	(cd doc && mosh ../scripts/scmc2fasl.scm $(PWD)/$< $(PWD)/$<.fasl)
 # 	(cd doc && mosh ../scripts/binary2c.scm $(PWD)/$<.fasl $(PWD)/$@)
 

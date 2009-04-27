@@ -1,5 +1,7 @@
 2009-04-27  higepon  <higepon@users.sourceforge.jp>
 
+        * UtilityProcedures.cpp (gensymEx): Rewrote gensym in C++.
+
         * lib/match.ss Added Alex Shinn's match library.
 
 2009-04-25  higepon  <higepon@users.sourceforge.jp>
