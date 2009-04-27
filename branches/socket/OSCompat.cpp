@@ -33,6 +33,7 @@
 #ifndef _WIN32
 #include <dirent.h>
 #include <sys/socket.h>
+#include <netinet/in.h>
 #include <netdb.h> // necesary for os-constant procedure.
 #endif
 #ifdef __APPLE__

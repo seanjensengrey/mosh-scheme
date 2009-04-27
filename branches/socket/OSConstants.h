@@ -46,7 +46,6 @@ osConstants->set(Symbol::intern(UC("IPPROTO_UDP")), Bignum::makeInteger((long in
 #endif
 #ifdef IPPROTO_RAW
 osConstants->set(Symbol::intern(UC("IPPROTO_RAW")), Bignum::makeInteger((long int)IPPROTO_RAW));
-#else
 #endif
 #ifdef SHUT_RD
 osConstants->set(Symbol::intern(UC("SHUT_RD")), Bignum::makeInteger((long int)SHUT_RD));

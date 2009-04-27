@@ -3029,6 +3029,7 @@ test: ./mosh all-tests.scm update
 	./mosh test/srfi-misc.scm
 	./mosh test/lists.scm
 	./mosh test/socket.scm
+	./mosh test/match.scm
 	(cd r6rs-test-suite && $(MAKE) $@)
 
 # For simplicity and to avoid depending on Google Test's

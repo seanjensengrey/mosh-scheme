@@ -11,7 +11,7 @@
 (define-constant AI_NUMERICSERV)
 (define-constant AI_PASSIVE)
 (define-constant AI_V4MAPPED)
-(define-constant IPPROTO_TCP)
+(define-constant IPPROTO_TCP enum _MSC_VER)
 (define-constant IPPROTO_UDP)
 (define-constant IPPROTO_RAW)
 (define-constant SHUT_RD)
