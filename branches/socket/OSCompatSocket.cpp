@@ -138,8 +138,10 @@ int Socket::receive(uint8_t* data, int size, int flags)
         printf("recv size=%d flags=%d\n", size, flags);
         const int ret = recv(socket_, (char*)data, size, flags);
         if (ret == -1 && errno == EINTR) {
+            printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
             continue;
         }
+        printf("ret = %d\n", ret);
         setLastError();
         return ret;
     }
