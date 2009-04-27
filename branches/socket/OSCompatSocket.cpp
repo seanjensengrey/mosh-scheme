@@ -91,8 +91,8 @@ void Socket::close()
         return;
     }
 #ifdef _WIN32
-	::shutdown(socket_, SD_SEND);
-	::closesocket(socket_);
+    ::shutdown(socket_, SD_SEND);
+    ::closesocket(socket_);
 #else
     ::close(socket_);
 #endif
@@ -204,7 +204,7 @@ Socket* Socket::createClientSocket(const char* node,
     if (ret != 0) {
         isErrorOccured = true;
 #ifdef _WIN32
-		errorMessage = getLastErrorMessageInternal(GetLastError());
+        errorMessage = getLastErrorMessageInternal(WSAGetLastError());
 #else
         errorMessage = ucs4string::from_c_str(gai_strerror(ret));
 #endif
@@ -227,8 +227,8 @@ Socket* Socket::createClientSocket(const char* node,
         } else {
             lastError = errno;
 #ifdef _WIN32
-			::shutdown(fd, SD_SEND);
-			::closesocket(fd);
+            ::shutdown(fd, SD_SEND);
+            ::closesocket(fd);
 #else
             ::close(fd);
 #endif;
@@ -268,11 +268,11 @@ Socket* Socket::createServerSocket(const char* service,
     if (ret != 0) {
         isErrorOccured = true;
 #ifdef _WIN32
-		errorMessage = my_utf16ToUtf32(gai_strerror(ret));
+        errorMessage = my_utf16ToUtf32(gai_strerror(ret));
 #else
         errorMessage = ucs4string::from_c_str(gai_strerror(ret));
 #endif
-			printf("here%d", __LINE__);
+            printf("here%d", __LINE__);
         return NULL;
     }
 
@@ -287,9 +287,9 @@ Socket* Socket::createServerSocket(const char* service,
         int optValue = 1;
         if(setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, (char*)&optValue, sizeof(optValue)) == -1) {
 #ifdef _WIN32
-			::shutdown(fd, SD_SEND);
-			::closesocket(fd);
-			lastError = WSAGetLastError();
+            ::shutdown(fd, SD_SEND);
+            ::closesocket(fd);
+            lastError = WSAGetLastError();
 #else
             ::close(fd);
             lastError = errno;
@@ -300,9 +300,9 @@ Socket* Socket::createServerSocket(const char* service,
 
         if (bind(fd, p->ai_addr, p->ai_addrlen) == -1) {
 #ifdef _WIN32
-			::shutdown(fd, SD_SEND);
-			::closesocket(fd);
-			lastError = WSAGetLastError();
+            ::shutdown(fd, SD_SEND);
+            ::closesocket(fd);
+            lastError = WSAGetLastError();
 #else
             ::close(fd);
             lastError = errno;
@@ -315,9 +315,9 @@ Socket* Socket::createServerSocket(const char* service,
         if (p->ai_socktype == SOCK_STREAM ) {
             if (listen(fd, TRADITIONAL_BACKLOG) == -1) {
 #ifdef _WIN32
-				::shutdown(fd, SD_SEND);
-			    ::closesocket(fd);
-				lastError = WSAGetLastError();
+                ::shutdown(fd, SD_SEND);
+                ::closesocket(fd);
+                lastError = WSAGetLastError();
 #else
                 ::close(fd);
                 lastError = errno;
@@ -333,7 +333,6 @@ Socket* Socket::createServerSocket(const char* service,
     }
     freeaddrinfo(result);
     isErrorOccured = true;
-	printf("here%d", __LINE__);
     errorMessage = getLastErrorMessageInternal(lastError);
     return NULL;
 }
@@ -360,5 +359,9 @@ ucs4string Socket::getAddressString(const struct addrinfo* addr)
 
 void Socket::setLastError()
 {
+#ifdef _WIN32
+    lastError_ = WSAGetLastError();
+#else
     lastError_ = errno;
+#endif
 }
