@@ -39,11 +39,12 @@
          (test-assert (and "Can't connected to Google, not connected to the Internet?" #f))]
         [else
          (raise ex)])
-       (let ([client (make-client-socket "www.google.com" "http")])
+       (let ([client (make-client-socket "wiki.monaos.org" "http")])
          (test-true (socket? client))
-         (test-true (> (socket-send client(string->utf8 "GET / HTTP/1.1\r\nHOST: www.google.com\r\n\r\n")) 0))
+         (test-true (> (socket-send client(string->utf8 "GET / HTTP/1.1\r\nHOST: wiki.monaos.org\r\n\r\n")) 0))
          (socket-shutdown client SHUT_WR)
-         (test-assert (string-contains (utf8->string (socket-recv client 100)) "HTTP/1.1"))))
+         (test-assert (string-contains (utf8->string (socket-recv client 100)) "HTTP/1.1"))
+         ))
 (test-end) ;; basic-client
 
 (test-end)

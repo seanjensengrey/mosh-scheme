@@ -135,13 +135,10 @@ int Socket::receive(uint8_t* data, int size, int flags)
     MOSH_ASSERT(isOpen());
 
     for (;;) {
-        printf("recv size=%d flags=%d\n", size, flags);
         const int ret = recv(socket_, (char*)data, size, flags);
         if (ret == -1 && errno == EINTR) {
-            printf("%s:%d\n", __FILE__, __LINE__);fflush(stdout);// debug
             continue;
         }
-        printf("ret = %d\n", ret);
         setLastError();
         return ret;
     }
@@ -239,7 +236,7 @@ Socket* Socket::createClientSocket(const char* node,
             ::closesocket(fd);
 #else
             ::close(fd);
-#endif;
+#endif
         }
     }
     freeaddrinfo(result);
@@ -301,7 +298,7 @@ Socket* Socket::createServerSocket(const char* service,
 #else
             ::close(fd);
             lastError = errno;
-#endif;
+#endif
 
             continue;
         }
@@ -314,7 +311,7 @@ Socket* Socket::createServerSocket(const char* service,
 #else
             ::close(fd);
             lastError = errno;
-#endif;
+#endif
 
             continue;
         }
