@@ -1,5 +1,7 @@
 2009-04-27  higepon  <higepon@users.sourceforge.jp>
 
+        * lib/srfi/%3a19/time/compat.mosh.sls (srfi): Fixed the bug.
+
         * UtilityProcedures.cpp (gensymEx): Rewrote gensym in C++.
 
         * lib/match.ss Added Alex Shinn's match library.
