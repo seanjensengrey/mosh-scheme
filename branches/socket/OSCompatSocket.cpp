@@ -160,8 +160,12 @@ int Socket::send(uint8_t* data, int size, int flags)
     while (rest > 0) {
         ret = ::send(socket_, (char*)data, size, flags);
         if (ret == -1) {
-            setLastError();
-            return ret;
+            if (errno == EINTR) {
+                continue;
+            } else {
+                setLastError();
+                return ret;
+            }
         }
         rest -= ret;
         data += ret;
