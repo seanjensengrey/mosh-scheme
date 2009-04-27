@@ -42,4 +42,5 @@
         (mosh process)
         (mosh control)
         (mosh socket)
+        (match)
         )

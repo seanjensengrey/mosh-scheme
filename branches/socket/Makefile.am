@@ -161,6 +161,7 @@ OSCompatSocket.h OSCompatSocket.cpp \
 OSCompat.h OSCompat.cpp
 
 mosh_core_libraries = \
+lib/match.ss \
 lib/lambda/wiki.ss    \
 lib/mosh/ffi.ss    \
 lib/mosh/dbi.ss    \
@@ -278,16 +279,16 @@ data_DATA = all-tests.scm #repl.scm #tools/psyntax-r6rs/rev10_to_10/psyntax.scm
 nobase_data_DATA = ${mosh_core_libraries} #${mosh_core_fasl_libraries}
 
 
-PRECOMPILE_SRC   = compiler-with-library.scmc match.scmc psyntax.scmc
+PRECOMPILE_SRC   = compiler-with-library.scmc pmatch.scmc psyntax.scmc
 
 INCLUDES       = -I $(BOEHM_GC_DIR)/include -I $(ONIG_DIR)
-EXTRA_DIST     = instruction.scm vm.scm library.scm compiler.scm free-vars.scm scripts match.scm test-data.scm doc repl.scm tools/psyntax-r6rs/rev10_to_10/psyntax.scm r6rs-examples tools/psyntax-r6rs RELNOTE r6rs-test-suite example lib cprocedures.cpp labels.cpp all-tests.scm test call.inc.cpp ${GTEST_DIR} ffitest.c bench win mosh.vcproj mosh.sln logo
+EXTRA_DIST     = instruction.scm vm.scm library.scm compiler.scm free-vars.scm scripts pmatch.scm test-data.scm doc repl.scm tools/psyntax-r6rs/rev10_to_10/psyntax.scm r6rs-examples tools/psyntax-r6rs RELNOTE r6rs-test-suite example lib cprocedures.cpp labels.cpp all-tests.scm test call.inc.cpp ${GTEST_DIR} ffitest.c bench win mosh.vcproj mosh.sln logo
 
 GENERATED = \
 all-tests.scm Scanner.cpp NumberScanner.cpp psyntax.cpp  compiler-gauche.scm \
 DebugInstruction.h cprocedures.cpp      \
 labels.cpp match.cpp compiler.cpp psyntax.scmc             \
-match.scmc compiler-with-library.scmc compiler-vm-cpp.scm  \
+pmatch.scmc compiler-with-library.scmc compiler-vm-cpp.scm  \
 compiler-vm.scm compiler-with-library.scm Instruction.h    \
 psyntax.h psyntax.fasl match.h match.fasl                  \
 compiler-with-library.h compiler-with-library.fasl
@@ -350,7 +351,7 @@ SUFFIXES: .scmc .h
 # 	(cd doc && mosh ../scripts/scmc2fasl.scm $(PWD)/$< $(PWD)/$<.fasl)
 # 	(cd doc && mosh ../scripts/binary2c.scm $(PWD)/$<.fasl $(PWD)/$@)
 
-match.scmc: ./match.scm ./compiler-vm.scm
+pmatch.scmc: ./pmatch.scm ./compiler-vm.scm
 	@GOSH@ ./vm.scm compile-file-without-macro $(PWD)/$< > $(PWD)/$@
 	sed -i -e "s/#\\\\null/#\\\\nul/g;s/|\.\.\.|/\.\.\./g" $(PWD)/$@
 

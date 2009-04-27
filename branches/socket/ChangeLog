@@ -1,3 +1,7 @@
+2009-04-27  higepon  <higepon@users.sourceforge.jp>
+
+        * lib/match.ss Added Alex Shinn's match library.
+
 2009-04-25  higepon  <higepon@users.sourceforge.jp>
 
         * test/socket.scm: Added tests for socket.

@@ -45,6 +45,8 @@ Implemented R6RS Simple I/O.
 
 Imroved reader and scanner.
 
+Added Alex Shinn's match library.
+
 Added SRFIs written by Derick Eddington.
   (srfi :0 cond-expand)
   (srfi :1 lists)
