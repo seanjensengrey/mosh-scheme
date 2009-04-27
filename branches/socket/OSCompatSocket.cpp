@@ -135,6 +135,7 @@ int Socket::receive(uint8_t* data, int size, int flags)
     MOSH_ASSERT(isOpen());
 
     for (;;) {
+        printf("recv size=%d flags=%d\n", size, flags);
         const int ret = recv(socket_, (char*)data, size, flags);
         if (ret == -1 && errno == EINTR) {
             continue;
@@ -156,9 +157,9 @@ int Socket::send(uint8_t* data, int size, int flags)
 {
     MOSH_ASSERT(isOpen());
     int rest = size;
-    int ret = 0;
+    int sizeSent = 0;
     while (rest > 0) {
-        ret = ::send(socket_, (char*)data, size, flags);
+        const int ret = ::send(socket_, (char*)data, size, flags);
         if (ret == -1) {
             if (errno == EINTR) {
                 continue;
@@ -167,11 +168,12 @@ int Socket::send(uint8_t* data, int size, int flags)
                 return ret;
             }
         }
+        sizeSent += ret;
         rest -= ret;
         data += ret;
         size -= ret;
     }
-    return ret;
+    return sizeSent;
 }
 
 // Factories
