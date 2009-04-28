@@ -1,3 +1,7 @@
+2009-04-28  higepon  <higepon@users.sourceforge.jp>
+
+        * Fiexd (mosh-executable-path) on FreeBSD.
+
 2009-04-27  higepon  <higepon@users.sourceforge.jp>
 
         * OSCompat.cpp: Added #include <netinet/in.h> for FreeBSD.
