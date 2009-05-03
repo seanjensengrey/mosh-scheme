@@ -1,16 +1,9 @@
-#summary Features of Mosh 0.0.5
+#summary Features of Mosh 0.1.0
 
 = Features of Mosh 0.0.5 =
- * Core Scheme
- * R6RS libyrary system. (psyntax)
- * UTF-8 input/ouput
- * Quasiquote
- * Apply
- * Regexp
- * Traditional macro
- * 30bit fixnum
- * Simple port
- * Simple CGI
- * Format
- * [Exception]
+ * R6RS complient
+ * Socket
+ * Database Interface
+ * FFI
  * Pattern matching library
+ * SRFIs
