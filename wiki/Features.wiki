@@ -1,6 +1,6 @@
 #summary Features of Mosh 0.1.0
 
-= Features of Mosh 0.0.5 =
+= Features of Mosh 0.1.0 =
  * R6RS complient
  * Socket
  * Database Interface
