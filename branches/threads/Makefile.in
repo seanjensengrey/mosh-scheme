@@ -38,16 +38,17 @@ host_triplet = @host@
 target_triplet = @target@
 TESTS = test_object$(EXEEXT) test_vm$(EXEEXT) test_port$(EXEEXT) \
 	test_fasl$(EXEEXT) test_ffi$(EXEEXT) test_compat$(EXEEXT) \
-	test_getopt$(EXEEXT)
+	test_getopt$(EXEEXT) test_thread$(EXEEXT)
 @DEVELOPER_FALSE@bin_PROGRAMS = mosh$(EXEEXT)
 @DEVELOPER_TRUE@bin_PROGRAMS = mosh$(EXEEXT) test_port$(EXEEXT) \
 @DEVELOPER_TRUE@	test_fasl$(EXEEXT) test_ffi$(EXEEXT) \
 @DEVELOPER_TRUE@	test_object$(EXEEXT) test_vm$(EXEEXT) \
-@DEVELOPER_TRUE@	test_compat$(EXEEXT) test_getopt$(EXEEXT)
+@DEVELOPER_TRUE@	test_compat$(EXEEXT) test_getopt$(EXEEXT) \
+@DEVELOPER_TRUE@	test_thread$(EXEEXT)
 @MINGW32_TRUE@am__append_1 = mosh-icon.o
 check_PROGRAMS = test_object$(EXEEXT) test_vm$(EXEEXT) \
 	test_port$(EXEEXT) test_fasl$(EXEEXT) test_ffi$(EXEEXT) \
-	test_compat$(EXEEXT) test_getopt$(EXEEXT)
+	test_compat$(EXEEXT) test_getopt$(EXEEXT) test_thread$(EXEEXT)
 subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
@@ -184,6 +185,11 @@ am_test_port_OBJECTS = test_port-PortTest.$(OBJEXT) \
 test_port_OBJECTS = $(am_test_port_OBJECTS)
 test_port_LINK = $(CXXLD) $(test_port_CXXFLAGS) $(CXXFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_test_thread_OBJECTS = test_thread-OSCompatThreadTest.$(OBJEXT) \
+	test_thread-TestingSignalHandler.$(OBJEXT)
+test_thread_OBJECTS = $(am_test_thread_OBJECTS)
+test_thread_LINK = $(CXXLD) $(test_thread_CXXFLAGS) $(CXXFLAGS) \
+	$(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_test_vm_OBJECTS = test_vm-VMTest.$(OBJEXT) \
 	test_vm-TestingVM.$(OBJEXT) \
 	test_vm-TestingSignalHandler.$(OBJEXT)
@@ -207,11 +213,12 @@ LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 SOURCES = $(libmosh_a_SOURCES) $(mosh_SOURCES) $(test_compat_SOURCES) \
 	$(test_fasl_SOURCES) $(test_ffi_SOURCES) \
 	$(test_getopt_SOURCES) $(test_object_SOURCES) \
-	$(test_port_SOURCES) $(test_vm_SOURCES)
+	$(test_port_SOURCES) $(test_thread_SOURCES) $(test_vm_SOURCES)
 DIST_SOURCES = $(libmosh_a_SOURCES) $(mosh_SOURCES) \
 	$(test_compat_SOURCES) $(test_fasl_SOURCES) \
 	$(test_ffi_SOURCES) $(test_getopt_SOURCES) \
-	$(test_object_SOURCES) $(test_port_SOURCES) $(test_vm_SOURCES)
+	$(test_object_SOURCES) $(test_port_SOURCES) \
+	$(test_thread_SOURCES) $(test_vm_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
 	html-recursive info-recursive install-data-recursive \
 	install-dvi-recursive install-exec-recursive \
@@ -689,6 +696,10 @@ test_getopt_DEPENDENCIES = $(TEST_DEPENDENCIES_)
 test_getopt_CXXFLAGS = $(TEST_CXXFLAGS_)
 test_getopt_SOURCES = getoptUTest.cpp TestingSignalHandler.cpp
 test_getopt_LDADD = $(TEST_LDADD_)
+test_thread_DEPENDENCIES = $(TEST_DEPENDENCIES_)
+test_thread_CXXFLAGS = $(TEST_CXXFLAGS_)
+test_thread_SOURCES = OSCompatThreadTest.cpp TestingSignalHandler.cpp
+test_thread_LDADD = $(TEST_LDADD_)
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -806,6 +817,9 @@ test_object$(EXEEXT): $(test_object_OBJECTS) $(test_object_DEPENDENCIES)
 test_port$(EXEEXT): $(test_port_OBJECTS) $(test_port_DEPENDENCIES) 
 	@rm -f test_port$(EXEEXT)
 	$(test_port_LINK) $(test_port_OBJECTS) $(test_port_LDADD) $(LIBS)
+test_thread$(EXEEXT): $(test_thread_OBJECTS) $(test_thread_DEPENDENCIES) 
+	@rm -f test_thread$(EXEEXT)
+	$(test_thread_LINK) $(test_thread_OBJECTS) $(test_thread_LDADD) $(LIBS)
 test_vm$(EXEEXT): $(test_vm_OBJECTS) $(test_vm_DEPENDENCIES) 
 	@rm -f test_vm$(EXEEXT)
 	$(test_vm_LINK) $(test_vm_OBJECTS) $(test_vm_LDADD) $(LIBS)
@@ -935,6 +949,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_object-TestingSignalHandler.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_port-PortTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_port-TestingSignalHandler.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_thread-OSCompatThreadTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_thread-TestingSignalHandler.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vm-TestingSignalHandler.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vm-TestingVM.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vm-VMTest.Po@am__quote@
@@ -2352,6 +2368,34 @@ test_port-TestingSignalHandler.obj: TestingSignalHandler.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TestingSignalHandler.cpp' object='test_port-TestingSignalHandler.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_port_CXXFLAGS) $(CXXFLAGS) -c -o test_port-TestingSignalHandler.obj `if test -f 'TestingSignalHandler.cpp'; then $(CYGPATH_W) 'TestingSignalHandler.cpp'; else $(CYGPATH_W) '$(srcdir)/TestingSignalHandler.cpp'; fi`
+
+test_thread-OSCompatThreadTest.o: OSCompatThreadTest.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_thread_CXXFLAGS) $(CXXFLAGS) -MT test_thread-OSCompatThreadTest.o -MD -MP -MF $(DEPDIR)/test_thread-OSCompatThreadTest.Tpo -c -o test_thread-OSCompatThreadTest.o `test -f 'OSCompatThreadTest.cpp' || echo '$(srcdir)/'`OSCompatThreadTest.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_thread-OSCompatThreadTest.Tpo $(DEPDIR)/test_thread-OSCompatThreadTest.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='OSCompatThreadTest.cpp' object='test_thread-OSCompatThreadTest.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_thread_CXXFLAGS) $(CXXFLAGS) -c -o test_thread-OSCompatThreadTest.o `test -f 'OSCompatThreadTest.cpp' || echo '$(srcdir)/'`OSCompatThreadTest.cpp
+
+test_thread-OSCompatThreadTest.obj: OSCompatThreadTest.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_thread_CXXFLAGS) $(CXXFLAGS) -MT test_thread-OSCompatThreadTest.obj -MD -MP -MF $(DEPDIR)/test_thread-OSCompatThreadTest.Tpo -c -o test_thread-OSCompatThreadTest.obj `if test -f 'OSCompatThreadTest.cpp'; then $(CYGPATH_W) 'OSCompatThreadTest.cpp'; else $(CYGPATH_W) '$(srcdir)/OSCompatThreadTest.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_thread-OSCompatThreadTest.Tpo $(DEPDIR)/test_thread-OSCompatThreadTest.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='OSCompatThreadTest.cpp' object='test_thread-OSCompatThreadTest.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_thread_CXXFLAGS) $(CXXFLAGS) -c -o test_thread-OSCompatThreadTest.obj `if test -f 'OSCompatThreadTest.cpp'; then $(CYGPATH_W) 'OSCompatThreadTest.cpp'; else $(CYGPATH_W) '$(srcdir)/OSCompatThreadTest.cpp'; fi`
+
+test_thread-TestingSignalHandler.o: TestingSignalHandler.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_thread_CXXFLAGS) $(CXXFLAGS) -MT test_thread-TestingSignalHandler.o -MD -MP -MF $(DEPDIR)/test_thread-TestingSignalHandler.Tpo -c -o test_thread-TestingSignalHandler.o `test -f 'TestingSignalHandler.cpp' || echo '$(srcdir)/'`TestingSignalHandler.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_thread-TestingSignalHandler.Tpo $(DEPDIR)/test_thread-TestingSignalHandler.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TestingSignalHandler.cpp' object='test_thread-TestingSignalHandler.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_thread_CXXFLAGS) $(CXXFLAGS) -c -o test_thread-TestingSignalHandler.o `test -f 'TestingSignalHandler.cpp' || echo '$(srcdir)/'`TestingSignalHandler.cpp
+
+test_thread-TestingSignalHandler.obj: TestingSignalHandler.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_thread_CXXFLAGS) $(CXXFLAGS) -MT test_thread-TestingSignalHandler.obj -MD -MP -MF $(DEPDIR)/test_thread-TestingSignalHandler.Tpo -c -o test_thread-TestingSignalHandler.obj `if test -f 'TestingSignalHandler.cpp'; then $(CYGPATH_W) 'TestingSignalHandler.cpp'; else $(CYGPATH_W) '$(srcdir)/TestingSignalHandler.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/test_thread-TestingSignalHandler.Tpo $(DEPDIR)/test_thread-TestingSignalHandler.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='TestingSignalHandler.cpp' object='test_thread-TestingSignalHandler.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_thread_CXXFLAGS) $(CXXFLAGS) -c -o test_thread-TestingSignalHandler.obj `if test -f 'TestingSignalHandler.cpp'; then $(CYGPATH_W) 'TestingSignalHandler.cpp'; else $(CYGPATH_W) '$(srcdir)/TestingSignalHandler.cpp'; fi`
 
 test_vm-VMTest.o: VMTest.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_vm_CXXFLAGS) $(CXXFLAGS) -MT test_vm-VMTest.o -MD -MP -MF $(DEPDIR)/test_vm-VMTest.Tpo -c -o test_vm-VMTest.o `test -f 'VMTest.cpp' || echo '$(srcdir)/'`VMTest.cpp

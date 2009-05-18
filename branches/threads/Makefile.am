@@ -27,7 +27,7 @@ libffitest.so.1.0: ffitest.c
 SUBDIRS = $(BOEHM_GC_DIR) $(ONIG_DIR) .
 
 if DEVELOPER
-bin_PROGRAMS = mosh test_port test_fasl test_ffi test_object test_vm test_compat test_getopt
+bin_PROGRAMS = mosh test_port test_fasl test_ffi test_object test_vm test_compat test_getopt test_thread
 else
 bin_PROGRAMS = mosh
 endif
@@ -546,6 +546,13 @@ test_getopt_DEPENDENCIES = $(TEST_DEPENDENCIES_)
 test_getopt_CXXFLAGS = $(TEST_CXXFLAGS_)
 test_getopt_SOURCES = getoptUTest.cpp TestingSignalHandler.cpp
 test_getopt_LDADD = $(TEST_LDADD_)
+
+TESTS += test_thread
+check_PROGRAMS += test_thread
+test_thread_DEPENDENCIES = $(TEST_DEPENDENCIES_)
+test_thread_CXXFLAGS = $(TEST_CXXFLAGS_)
+test_thread_SOURCES = OSCompatThreadTest.cpp TestingSignalHandler.cpp
+test_thread_LDADD = $(TEST_LDADD_)
 
 
 
