@@ -49,15 +49,21 @@ protected:
     }
 };
 
-void* return1Func(void* param)
+static void* return1Func(void* param)
 {
     static int ret = 1;
     return &ret;
 }
 
-void* return2Func(void* param)
+static void* return2Func(void* param)
 {
     static int ret = 2;
+    return &ret;
+}
+
+static void* returnFixnum(void* param)
+{
+    static Object ret = Object::makeFixnum((int)param + 1234);
     return &ret;
 }
 
@@ -69,6 +75,15 @@ TEST_F(MoshTest, simple) {
     ASSERT_TRUE(thread.join((void**)&ret));
     EXPECT_EQ(1, *ret);
 }
+
+TEST_F(MoshTest, simpleObject) {
+    Thread thread;
+    ASSERT_TRUE(thread.create(returnFixnum, (void*)2));
+    Object* ret;
+    ASSERT_TRUE(thread.join((void**)&ret));
+    EXPECT_EQ(1236, (*ret).toFixnum());
+}
+
 
 TEST_F(MoshTest, twoThreads) {
     Thread thread1;
