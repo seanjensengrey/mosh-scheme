@@ -67,10 +67,15 @@ AC_ARG_ENABLE(threads,
 case "$host" in
  *-*-freebsd*)
    ;;
+ *-*-darwin*)
+   THREADS=posix
+   AC_MSG_RESULT([$THREADS])
+   ;;
  *)
    THREADS=no
    ;;
 esac
+
 ## MOSH end
 
 AC_ARG_ENABLE(parallel-mark,

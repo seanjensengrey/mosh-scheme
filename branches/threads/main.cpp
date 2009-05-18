@@ -127,6 +127,8 @@ void signal_handler(int signo)
 
 int main(int argc, char *argv[])
 {
+    // call this before any allocation.
+    mosh_init();
     ucs4char opt;
     int optionIndex = 0;
     bool isTestOption    = false;
@@ -193,7 +195,6 @@ int main(int argc, char *argv[])
         exit(EXIT_FAILURE);
     }
 
-    mosh_init();
 
     // for Shell mode.
     // VM(=parent) ignores SIGINT, but child use default handler. (See %fork)
