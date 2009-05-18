@@ -55,11 +55,43 @@ void* return1Func(void* param)
     return &ret;
 }
 
+void* return2Func(void* param)
+{
+    static int ret = 2;
+    return &ret;
+}
+
+
 TEST_F(MoshTest, simple) {
     Thread thread;
     ASSERT_TRUE(thread.create(return1Func, NULL));
     int* ret;
     ASSERT_TRUE(thread.join((void**)&ret));
+    EXPECT_EQ(1, *ret);
+}
+
+TEST_F(MoshTest, twoThreads) {
+    Thread thread1;
+    ASSERT_TRUE(thread1.create(return1Func, NULL));
+    int* ret;
+    ASSERT_TRUE(thread1.join((void**)&ret));
+
+    Thread thread2;
+    ASSERT_TRUE(thread2.create(return2Func, NULL));
+    ASSERT_TRUE(thread2.join((void**)&ret));
+    EXPECT_EQ(2, *ret);
+}
+
+TEST_F(MoshTest, twoThreads2) {
+    Thread thread1;
+    ASSERT_TRUE(thread1.create(return1Func, NULL));
+    int* ret;
+
+    Thread thread2;
+    ASSERT_TRUE(thread2.create(return2Func, NULL));
+    ASSERT_TRUE(thread2.join((void**)&ret));
+    EXPECT_EQ(2, *ret);
+    ASSERT_TRUE(thread1.join((void**)&ret));
     EXPECT_EQ(1, *ret);
 }
 
