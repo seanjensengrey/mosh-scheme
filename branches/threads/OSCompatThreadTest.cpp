@@ -157,6 +157,7 @@ static void hoge()
     int* value = (int*)Thread::getSpecific();
     EXPECT_EQ(1234, *value);
 }
+
 static void* checkSpecific(void* param)
 {
     int value = 1234;
@@ -165,9 +166,40 @@ static void* checkSpecific(void* param)
     return NULL;
 }
 
-
 TEST_F(MoshTest, checkSpecific) {
     Thread thread;
     ASSERT_TRUE(thread.create(checkSpecific, &thread));
+    thread.join(NULL);
+}
+
+Mutex* mutex = NULL;
+
+void* checkMutex(void* param)
+{
+    EXPECT_FALSE(mutex->tryLock());
+    return NULL;
+}
+
+TEST_F(MoshTest, checkMutex) {
+    Thread thread;
+    mutex = new Mutex;
+    mutex->lock();
+    ASSERT_TRUE(thread.create(checkMutex, &thread));
+    thread.join(NULL);
+    mutex->unlock();
+}
+
+Mutex* mutex2 = NULL;
+
+void* checkMutex2(void* param)
+{
+    EXPECT_TRUE(mutex->tryLock());
+    return NULL;
+}
+
+TEST_F(MoshTest, checkMutex2) {
+    Thread thread;
+    mutex2 = new Mutex;
+    ASSERT_TRUE(thread.create(checkMutex2, &thread));
     thread.join(NULL);
 }

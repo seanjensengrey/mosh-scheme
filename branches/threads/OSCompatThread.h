@@ -36,6 +36,42 @@
 
 namespace scheme {
 
+    class Mutex : public gc_cleanup
+    {
+    private:
+        pthread_mutex_t mutex_;
+
+    public:
+        Mutex()
+        {
+            pthread_mutexattr_t mattr;
+            pthread_mutexattr_init(&mattr);
+            pthread_mutexattr_settype(&mattr, PTHREAD_MUTEX_RECURSIVE);
+            pthread_mutex_init(&mutex_, &mattr);
+            pthread_mutexattr_destroy(&mattr);
+        }
+
+        ~Mutex()
+        {
+            pthread_mutex_destroy(&mutex_);
+        }
+
+        void lock()
+        {
+            pthread_mutex_lock(&mutex_);
+        }
+
+        void unlock()
+        {
+            pthread_mutex_unlock(&mutex_);
+        }
+
+        bool tryLock()
+        {
+            return pthread_mutex_trylock(&mutex_) == 0;
+        }
+    };
+
     class Thread EXTEND_GC
     {
     private:
