@@ -63,7 +63,7 @@ static void* return2Func(void* param)
 
 static void* returnFixnum(void* param)
 {
-    static Object ret = Object::makeFixnum((int)param + 1234);
+    static Object ret = Object::makeFixnum(*(int*)param + 1234);
     return &ret;
 }
 
@@ -78,7 +78,8 @@ TEST_F(MoshTest, simple) {
 
 TEST_F(MoshTest, simpleObject) {
     Thread thread;
-    ASSERT_TRUE(thread.create(returnFixnum, (void*)2));
+    int arg = 2;
+    ASSERT_TRUE(thread.create(returnFixnum, &arg));
     Object* ret;
     ASSERT_TRUE(thread.join((void**)&ret));
     EXPECT_EQ(1236, (*ret).toFixnum());
