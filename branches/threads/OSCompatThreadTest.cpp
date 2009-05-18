@@ -111,3 +111,63 @@ TEST_F(MoshTest, twoThreads2) {
     EXPECT_EQ(1, *ret);
 }
 
+static void* checkSelf(void* param)
+{
+    while (Thread::self() == NULL) {
+    }
+    EXPECT_EQ((Thread*)param, Thread::self());
+    return NULL;
+}
+
+TEST_F(MoshTest, self) {
+    Thread thread;
+    ASSERT_TRUE(thread.create(checkSelf, &thread));
+    thread.join(NULL);
+}
+
+static void* checkYield(void* param)
+{
+    Thread::yield();
+    return NULL;
+}
+
+TEST_F(MoshTest, yield) {
+    Thread thread;
+    ASSERT_TRUE(thread.create(checkYield, &thread));
+    thread.join(NULL);
+}
+
+static void* checkExit(void* param)
+{
+    static int ret = -1;
+    Thread::exit(&ret);
+    return NULL;
+}
+
+TEST_F(MoshTest, exit) {
+    Thread thread;
+    ASSERT_TRUE(thread.create(checkExit, &thread));
+    int* ret = 0;
+    thread.join((void**)&ret);
+    EXPECT_EQ(-1, *ret);
+}
+
+static void hoge()
+{
+    int* value = (int*)Thread::getSpecific();
+    EXPECT_EQ(1234, *value);
+}
+static void* checkSpecific(void* param)
+{
+    int value = 1234;
+    Thread::setSpecific(&value);
+    hoge();
+    return NULL;
+}
+
+
+TEST_F(MoshTest, checkSpecific) {
+    Thread thread;
+    ASSERT_TRUE(thread.create(checkSpecific, &thread));
+    thread.join(NULL);
+}

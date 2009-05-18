@@ -38,20 +38,49 @@ namespace scheme {
 
     class Thread EXTEND_GC
     {
+    private:
+        static pthread_key_t selfKey;
+        static pthread_key_t specficKey;
     public:
+        static void initialize()
+        {
+            if (pthread_key_create(&selfKey, NULL) != 0) {
+                fprintf(stderr, "fatal : Thread::init\n");
+                ::exit(-1);
+            }
+            if (pthread_key_create(&specficKey, NULL) != 0) {
+                fprintf(stderr, "fatal : Thread::init\n");
+                ::exit(-1);
+            }
+            // Add dummy
+            if (pthread_setspecific(selfKey, new Thread) != 0) {
+                fprintf(stderr, "fatal : Thread store self\n");
+                ::exit(-1);
+            }
+        }
+
+        static Thread* self()
+        {
+            volatile void* value = pthread_getspecific(selfKey);
+            MOSH_ASSERT(value != NULL);
+            return (Thread*)value;
+        }
+
+        static void setSpecific(void* value)
+        {
+            pthread_setspecific(specficKey, value);
+        }
+
+        static void* getSpecific()
+        {
+            return pthread_getspecific(specficKey);
+        }
+
         Thread() : lastError_(0)
         {
         }
 
-        bool create(void* (*start)(void*), void* arg)
-        {
-            if (pthread_create(&thread_, NULL , start , arg) == 0) {
-                return true;
-            } else {
-                setLastError();
-                return false;
-            }
-        }
+        bool create(void* (*start)(void*), void* arg);
 
         bool join(void** returnValue)
         {
@@ -63,6 +92,17 @@ namespace scheme {
             }
         }
 
+        static void yield()
+        {
+            pthread_yield();
+        }
+
+        static void exit(void* exitValue)
+        {
+            pthread_exit(exitValue);
+        }
+
+
     private:
         void setLastError()
         {
@@ -73,6 +113,7 @@ namespace scheme {
         int lastError_;
 
     };
+
 }; // namespace scheme
 
 #endif // SCHEME_OSCOMPAT_THREAD_

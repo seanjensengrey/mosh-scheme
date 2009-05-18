@@ -39,3 +39,40 @@
 #include "OSCompat.h"
 #include "OSCompatThread.h"
 
+using namespace scheme;
+
+pthread_key_t Thread::selfKey;
+pthread_key_t Thread::specficKey;
+
+struct StubInfo
+{
+    void* (*func)(void*);
+    void* argument;
+    Thread* thread;
+    pthread_key_t selfKey;
+};
+
+static void* stubFunction(void* param)
+{
+    StubInfo* info = (StubInfo*)param;
+    if (pthread_setspecific(info->selfKey, info->thread) != 0) {
+        fprintf(stderr, "fatal : Thread store self\n");
+        exit(-1);
+    }
+    return info->func(info->argument);
+}
+
+bool Thread::create(void* (*start)(void*), void* arg)
+{
+    StubInfo* info = new StubInfo;
+    info->func = start;
+    info->argument = arg;
+    info->thread = this;
+    info->selfKey = selfKey;
+    if (pthread_create(&thread_, NULL , stubFunction , info) == 0) {
+        return true;
+    } else {
+        setLastError();
+        return false;
+    }
+}

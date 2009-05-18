@@ -42,6 +42,7 @@
 #include "OSCompat.h"
 #include <gc.h>
 #include <gmp.h>
+#include "OSCompatThread.h"
 
 using namespace scheme;
 extern void initCprocedures();
@@ -102,7 +103,9 @@ void mosh_init()
 #endif
     initCprocedures();
     Flonum::initialize();
+    Thread::initialize();
     Symbol::initBuitinSymbols();
+
 #ifdef _WIN32
     WSADATA data;
     WSAStartup(MAKEWORD(2, 2), &data);

@@ -1,5 +1,7 @@
 2009-05-18  higepon  <higepon@users.sourceforge.jp>
 
+        * OSCompatThread.h: Added basic functionality.
+
         * OSCompatThreadTest.cpp : Added.
 
         * OSCompatThread.h : Added for threads. Not yet working.
