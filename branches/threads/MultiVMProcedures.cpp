@@ -49,6 +49,21 @@ using namespace scheme;
 
 static void* vmEntry(void* param);
 
+// TODO
+// 1. join all threads
+// 2. configure GC macros
+// 
+// # (current-vm) => #<vm>
+// # (vm? obj) => #t or #f
+// # (vm-specific vm) => obj
+// # (vm-specific-set! vm obj) => undef
+// # (vm-start! thread) => undef
+// # (vm-yield!) => undef
+// # (vm-sleep! timeout) => undef
+// # (vm-terminate! vm) => unef
+// # (vm-join! vm [timeout [timeout-val]])
+
+
 // (vm-start! vm) => undef
 Object scheme::vmStartDEx(VM* theVM, int argc, const Object* argv)
 {
