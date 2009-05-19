@@ -34,25 +34,16 @@
 
 #ifdef HAVE_CONFIG_H
 #  include "config.h"
+#else
+#  error "config.h not found"
 #endif
 
-// #include <iostream>
-// #include <stdint.h>
-// #include <stdarg.h>
-// #include <string.h>
 #ifdef _WIN32
 #else
 #include <unistd.h>
 #endif
-// #include <assert.h>
 #include <errno.h>
 
-
-// #include "dirent.h"
-// #include <setjmp.h>
-// #include <sys/time.h>
-// #include <stdio.h>
-// #include <signal.h>
 #ifdef _WIN32
     typedef unsigned char uint8_t;
     typedef unsigned short uint16_t;
@@ -81,16 +72,19 @@
 #include <vector>
 #include <set>
 #ifdef USE_BOEHM_GC
-//#define GC_PTHREADS 1
-#define GC_DARWIN_THREADS 1
-#define EXTEND_GC : public gc
-#include <gc.h>
-#include <gc_cpp.h>
-#include <gc_allocator.h>
-template <class T1, class T2>
-class gc_map : public std::map<T1, T2, std::less<T1>, gc_allocator<std::pair<const T1, T2> > >, public gc { };
-template <class T1>
-class gc_vector : public std::vector<T1, gc_allocator<T1> >, public gc { };
+#  define EXTEND_GC : public gc
+   // Boehm GC 7.1 lacks this prototype.
+   // http://article.gmane.org/gmane.comp.programming.garbage-collection.boehmgc/2581/match=gc_dlopen
+   extern "C" {
+       void* GC_dlopen(const char* path, int mode);
+   }
+#  include <gc.h>
+#  include <gc_cpp.h>
+#  include <gc_allocator.h>
+   template <class T1, class T2>
+   class gc_map : public std::map<T1, T2, std::less<T1>, gc_allocator<std::pair<const T1, T2> > >, public gc { };
+   template <class T1>
+   class gc_vector : public std::vector<T1, gc_allocator<T1> >, public gc { };
 #else
 #define EXTEND_GC
 template <class T1, class T2>
@@ -190,8 +184,8 @@ inline bool isInSize_t(int64_t size)
 */
 inline void moshMemcpy(void *dest, const void *src, int64_t size)
 {
-	MOSH_ASSERT(isInSize_t(size));
-	memcpy(dest, src, static_cast<size_t>(size));
+    MOSH_ASSERT(isInSize_t(size));
+    memcpy(dest, src, static_cast<size_t>(size));
 }
 
 #ifdef USE_BOEHM_GC
@@ -203,7 +197,7 @@ class gc_map2 : public std::map<const ucs4char* const, Object, ltstr, gc_allocat
 
 inline uint8_t* allocatePointerFreeU8Array(int64_t size)
 {
-	MOSH_ASSERT(scheme::isInSize_t(size));
+    MOSH_ASSERT(scheme::isInSize_t(size));
 #ifdef USE_BOEHM_GC
     return new(PointerFreeGC) uint8_t[static_cast<size_t>(size)];
 #else

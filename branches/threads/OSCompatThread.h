@@ -44,6 +44,24 @@
 #error "pthread_create redirect does not exist"
 #endif
 
+// Check sanity
+#ifdef __APPLE__
+#  ifndef GC_DARWIN_THREADS
+#    error "fatal"
+#  endif
+#elif defined(__FreeBSD__)
+#  ifndef GC_FREEBSD_THREADS
+#    error "fatal"
+#  endif
+#elif defined(__linux__)
+#  ifdef GC_DARWIN_THREADS
+#    error "fatal"
+#endif
+#  ifndef GC_LINUX_THREADS
+#    error "fatal"
+#  endif
+#endif
+
 // If you add new thread support for new operating system
 // See and adde some macro to scheme.h, just before include gc.h
 

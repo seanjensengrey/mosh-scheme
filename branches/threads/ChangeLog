@@ -1,5 +1,9 @@
 2009-05-19  higepon  <higepon@users.sourceforge.jp>
 
+        * scheme.h: Added prototype of GC_dlopen. (Boehm GC 7.1 lacks it).
+
+        * configure.ac: Added GC_XXX_THREADS.
+
         * MultiVMProcedures.cpp : Added (make-vm thunk-sexp import-spec-sexp . name) procedure.
 
 2009-05-18  higepon  <higepon@users.sourceforge.jp>
