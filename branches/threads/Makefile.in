@@ -139,7 +139,9 @@ am_libmosh_a_OBJECTS = libmosh_a-Transcoder.$(OBJEXT) \
 	libmosh_a-SocketBinaryInputOutputPort.$(OBJEXT) \
 	libmosh_a-TranscodedTextualInputOutputPort.$(OBJEXT) \
 	libmosh_a-BufferedFileBinaryInputOutputPort.$(OBJEXT) \
-	libmosh_a-getoptU.$(OBJEXT) libmosh_a-OSCompatSocket.$(OBJEXT) \
+	libmosh_a-getoptU.$(OBJEXT) \
+	libmosh_a-MultiVMProcedures.$(OBJEXT) \
+	libmosh_a-OSCompatSocket.$(OBJEXT) \
 	libmosh_a-OSCompatThread.$(OBJEXT) \
 	libmosh_a-OSCompat.$(OBJEXT)
 libmosh_a_OBJECTS = $(am_libmosh_a_OBJECTS)
@@ -517,6 +519,7 @@ StandardInputPort.h \
 BlockBufferedFileBinaryOutputPort.h \
 BlockBufferedFileBinaryInputOutputPort.h \
 LineBufferedFileBinaryInputOutputPort.h \
+MultiVMProcedures.h MultiVMProcedures.cpp \
 OSCompatSocket.h OSCompatSocket.cpp \
 OSCompatThread.h OSCompatThread.cpp \
 OSCompat.h OSCompat.cpp
@@ -890,6 +893,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-HashTableProceduures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-Latin1Codec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-ListProcedures.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-MultiVMProcedures.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-NumberReader.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-NumberReader.tab.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-NumberScanner.Po@am__quote@
@@ -2116,6 +2120,20 @@ libmosh_a-getoptU.obj: getoptU.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='getoptU.cpp' object='libmosh_a-getoptU.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-getoptU.obj `if test -f 'getoptU.cpp'; then $(CYGPATH_W) 'getoptU.cpp'; else $(CYGPATH_W) '$(srcdir)/getoptU.cpp'; fi`
+
+libmosh_a-MultiVMProcedures.o: MultiVMProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-MultiVMProcedures.o -MD -MP -MF $(DEPDIR)/libmosh_a-MultiVMProcedures.Tpo -c -o libmosh_a-MultiVMProcedures.o `test -f 'MultiVMProcedures.cpp' || echo '$(srcdir)/'`MultiVMProcedures.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-MultiVMProcedures.Tpo $(DEPDIR)/libmosh_a-MultiVMProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='MultiVMProcedures.cpp' object='libmosh_a-MultiVMProcedures.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-MultiVMProcedures.o `test -f 'MultiVMProcedures.cpp' || echo '$(srcdir)/'`MultiVMProcedures.cpp
+
+libmosh_a-MultiVMProcedures.obj: MultiVMProcedures.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-MultiVMProcedures.obj -MD -MP -MF $(DEPDIR)/libmosh_a-MultiVMProcedures.Tpo -c -o libmosh_a-MultiVMProcedures.obj `if test -f 'MultiVMProcedures.cpp'; then $(CYGPATH_W) 'MultiVMProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/MultiVMProcedures.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-MultiVMProcedures.Tpo $(DEPDIR)/libmosh_a-MultiVMProcedures.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='MultiVMProcedures.cpp' object='libmosh_a-MultiVMProcedures.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-MultiVMProcedures.obj `if test -f 'MultiVMProcedures.cpp'; then $(CYGPATH_W) 'MultiVMProcedures.cpp'; else $(CYGPATH_W) '$(srcdir)/MultiVMProcedures.cpp'; fi`
 
 libmosh_a-OSCompatSocket.o: OSCompatSocket.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-OSCompatSocket.o -MD -MP -MF $(DEPDIR)/libmosh_a-OSCompatSocket.Tpo -c -o libmosh_a-OSCompatSocket.o `test -f 'OSCompatSocket.cpp' || echo '$(srcdir)/'`OSCompatSocket.cpp

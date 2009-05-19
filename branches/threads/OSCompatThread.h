@@ -32,7 +32,20 @@
 #ifndef SCHEME_OSCOMPAT_THREAD_
 #define SCHEME_OSCOMPAT_THREAD_
 
+
+#ifdef __APPLE__
+#define pthread_yield sched_yield
+#endif
 #include "scheme.h"
+
+// Check sanity
+// Boehm GC redirects pthread_create => GC_pthread_create with C macro.
+#ifndef pthread_create
+#error "pthread_create redirect does not exist"
+#endif
+
+// If you add new thread support for new operating system
+// See and adde some macro to scheme.h, just before include gc.h
 
 namespace scheme {
 
@@ -120,7 +133,7 @@ namespace scheme {
 
         bool join(void** returnValue)
         {
-            if (pthread_join(thread_, returnValue) == 0) {
+            if (GC_pthread_join(thread_, returnValue) == 0) {
                 return true;
             } else {
                 setLastError();

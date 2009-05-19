@@ -31,3 +31,4 @@
 (define-accessor BinaryInputOutputPort)
 (define-accessor TextualInputOutputPort)
 (define-accessor Socket)
+(define-accessor VM)

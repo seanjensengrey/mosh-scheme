@@ -1,5 +1,5 @@
 /*
- * OSCompatThread.cpp - thread interfaces.
+ * MultiVMProcedures.h - 
  *
  *   Copyright (c) 2009  Higepon(Taro Minowa)  <higepon@users.sourceforge.jp>
  *
@@ -26,53 +26,19 @@
  *   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  *   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- *  $Id: OSCompatThread.cpp 183 2008-07-04 06:19:28Z higepon $
+ *  $Id: MultiVMProcedures.h 261 2008-07-25 06:16:44Z higepon $
  */
 
+#ifndef SCHEME_MULTI_VM_PROCEDURES_
+#define SCHEME_MULTI_VM_PROCEDURES_
+
 #include "scheme.h"
-#include "Object.h"
-#include "Object-inl.h"
-#include "Pair.h"
-#include "Pair-inl.h"
-#include "UTF8Codec.h"
-#include "Transcoder.h"
-#include "OSCompat.h"
-#include "OSCompatThread.h"
 
-using namespace scheme;
+namespace scheme {
 
-pthread_key_t Thread::selfKey;
-pthread_key_t Thread::specficKey;
+    Object makeVmEx(VM* theVM, int argc, const Object* argv);
+    Object vmStartDEx(VM* theVM, int argc, const Object* argv);
 
-struct StubInfo
-{
-    void* (*func)(void*);
-    void* argument;
-    Thread* thread;
-    pthread_key_t selfKey;
-};
+}; // namespace scheme
 
-static void* stubFunction(void* param)
-{
-    StubInfo* info = (StubInfo*)param;
-    if (pthread_setspecific(info->selfKey, info->thread) != 0) {
-        fprintf(stderr, "fatal : Thread store self\n");
-        exit(-1);
-    }
-    return info->func(info->argument);
-}
-
-bool Thread::create(void* (*start)(void*), void* arg)
-{
-    StubInfo* info = new StubInfo;
-    info->func = start;
-    info->argument = arg;
-    info->thread = this;
-    info->selfKey = selfKey;
-    if (GC_pthread_create(&thread_, NULL , stubFunction , info) == 0) {
-        return true;
-    } else {
-        setLastError();
-        return false;
-    }
-}
+#endif // SCHEME_MULTI_VM_PROCEDURES_

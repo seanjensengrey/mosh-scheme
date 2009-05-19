@@ -85,6 +85,7 @@ public:
         BinaryInputOutputPort       = Type<34>::VALUE,
         TextualInputOutputPort      = Type<35>::VALUE,
         Socket                      = Type<36>::VALUE,
+        VM                          = Type<37>::VALUE,
         forbidden_comma
     };
 };

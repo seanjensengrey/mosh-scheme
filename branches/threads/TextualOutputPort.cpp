@@ -523,6 +523,8 @@ template<bool isHumanReadable> void TextualOutputPort::print(Object o)
         putString(o.toRatnum()->toString());
     } else if (o.isBignum()) {
         putString(o.toBignum()->toString());
+    } else if (o.isVM()) {
+        putString(o.toVM()->toString());
     } else if (o.isCompnum()) {
         Compnum* const c = o.toCompnum();
         const Object real = c->real();

@@ -524,4 +524,7 @@
     socket-close
     socket-shutdown
     socket-port
+    ;; mutliple vm
+    make-vm
+    vm-start!
     )

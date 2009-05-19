@@ -40,7 +40,6 @@
 #include "Ratnum.h"
 #include "Flonum.h"
 #include "OSCompat.h"
-#include <gc.h>
 #include <gmp.h>
 #include "OSCompatThread.h"
 

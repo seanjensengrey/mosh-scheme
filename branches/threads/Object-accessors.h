@@ -395,3 +395,15 @@ bool isSocket() const
     && reinterpret_cast<HeapObject*>(val)->type == HeapObject::Socket;
 }
 
+VM* toVM() const
+{
+    MOSH_ASSERT(isVM());
+    return reinterpret_cast<VM*>(reinterpret_cast<HeapObject*>(val)->obj);
+}
+
+bool isVM() const
+{
+    return isHeapObject()
+    && reinterpret_cast<HeapObject*>(val)->type == HeapObject::VM;
+}
+

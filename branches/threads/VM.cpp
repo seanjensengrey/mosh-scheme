@@ -66,6 +66,7 @@
 #include "RegexpProcedures.h"
 #include "FixnumProcedures.h"
 #include "SocketProcedures.h"
+#include "MultiVMProcedures.h"
 #include "Bignum.h"
 #include "ByteArrayBinaryInputPort.h"
 #include "Symbol.h"
@@ -104,7 +105,8 @@ VM::VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool i
     isProfiler_(isProfiler),
     maxNumValues_(256),
     numValues_(0),
-    isR6RSMode_(false)
+    isR6RSMode_(false),
+    name_(UC(""))
 {
     stack_ = Object::makeObjectArray(stackSize);
     values_ = Object::makeObjectArray(maxNumValues_);

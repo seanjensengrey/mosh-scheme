@@ -84,6 +84,17 @@ public:
     VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool isProfiler = false);
     virtual ~VM();
 
+    ucs4string toString() const
+    {
+        ucs4string ret = UC("#<vm ");
+        ret += name_;
+        char buf[32];
+        snprintf(buf, sizeof(buf), " %lx", (uintptr_t)this);
+        ret += ucs4string::from_c_str(buf);
+        ret += UC(">");
+        return ret;
+    }
+    void setName(const ucs4string& name) { name_ = name; }
     Object getLastError() const { return errorObj_; }
     void loadCompiler();
     void dumpCompiledCode(Object code) const;
@@ -211,6 +222,7 @@ protected:
     jmp_buf returnPoint_;
     bool isR6RSMode_;
     Ports activePorts_;
+    ucs4string name_;
 };
 
 } // namespace scheme

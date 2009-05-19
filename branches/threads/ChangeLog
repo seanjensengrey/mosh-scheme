@@ -1,3 +1,7 @@
+2009-05-19  higepon  <higepon@users.sourceforge.jp>
+
+        * MultiVMProcedures.cpp : Added (make-vm thunk-sexp import-spec-sexp . name) procedure.
+
 2009-05-18  higepon  <higepon@users.sourceforge.jp>
 
         * Added Mutex.

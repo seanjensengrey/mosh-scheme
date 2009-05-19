@@ -172,6 +172,7 @@ public:
     bool equal(VM* theVM, Object o) const;
     bool eqv(VM* theVM, Object o) const;
 
+    static Object makeVM(VM* vm);
     static Object makeGloc(Object value);
     static Object makeSocket(const Socket* socket);
     static Object* makeObjectArray(int size);

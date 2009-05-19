@@ -461,6 +461,13 @@ Object Object::makeSocket(const Socket* socket)
                                                         reinterpret_cast<intptr_t>(socket))));
 }
 
+Object Object::makeVM(VM* vm)
+{
+    return Object(reinterpret_cast<intptr_t>(new HeapObject(HeapObject::VM,
+                                                        reinterpret_cast<intptr_t>(vm))));
+}
+
+
 bool Object::isIntegerValued() const
 {
     return Arithmetic::isIntegerValued(*this);

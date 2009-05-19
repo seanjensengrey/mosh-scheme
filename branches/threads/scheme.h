@@ -81,7 +81,10 @@
 #include <vector>
 #include <set>
 #ifdef USE_BOEHM_GC
+//#define GC_PTHREADS 1
+#define GC_DARWIN_THREADS 1
 #define EXTEND_GC : public gc
+#include <gc.h>
 #include <gc_cpp.h>
 #include <gc_allocator.h>
 template <class T1, class T2>

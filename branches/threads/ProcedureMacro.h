@@ -151,6 +151,7 @@
 
 #define argumentCheckList(index, variableName) checkType(index, variableName, isList, list)
 #define argumentAsSymbol(index, variableName) castArgument(index, variableName, isSymbol, symbol, Symbol*, toSymbol)
+#define argumentAsVM(index, variableName) castArgument(index, variableName, isVM, vm, VM*, toVM)
 #define argumentAsVector(index, variableName) castArgument(index, variableName, isVector, vector, Vector*, toVector)
 #define argumentAsCodeBuilder(index, variableName) castArgument(index, variableName, isCodeBuilder, code-builder, CodeBuilder*, toCodeBuilder)
 
