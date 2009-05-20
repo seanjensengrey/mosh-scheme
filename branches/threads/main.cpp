@@ -68,6 +68,8 @@
 #include "Flonum.h"
 #include "getoptU.h"
 #include "OSCompat.h"
+#include "OSCompatThread.h"
+#include "MultiVMProcedures.h"
 
 using namespace scheme;
 
@@ -251,7 +253,9 @@ int main(int argc, char *argv[])
         theVM->callClosureByName(Symbol::intern(UC("show-profile")), result);
     }
 #endif
-
     theVM->flushAllPorts();
+
+    // we wait all threads be done
+    getMultiVMManager()->joinAll();
     exit(EXIT_SUCCESS);
 }

@@ -191,7 +191,6 @@ AC_MSG_CHECKING([check threads])
 case "$target_os" in
 *darwin*)
   AC_DEFINE(GC_DARWIN_THREADS,1,[Define to use Darwin threads])
-  AC_DEFINE(GC_PTHREADS,1,[Define to use pthreads])
   ;;
 *linux*)
   AC_DEFINE(GC_LINUX_THREADS,1,[Define to use Linux threads])

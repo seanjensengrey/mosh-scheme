@@ -4543,11 +4543,6 @@ cat >>confdefs.h <<\_ACEOF
 #define GC_DARWIN_THREADS 1
 _ACEOF
 
-
-cat >>confdefs.h <<\_ACEOF
-#define GC_PTHREADS 1
-_ACEOF
-
   ;;
 *linux*)
 

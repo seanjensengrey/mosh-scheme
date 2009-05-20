@@ -692,14 +692,14 @@ bool VM::isR6RSMode() const
     return isR6RSMode_;
 }
 
-void VM::activateR6RSMode(bool isDebugExpand)
+Object VM::activateR6RSMode(bool isDebugExpand)
 {
 #   include "psyntax.h"
     isR6RSMode_ = true;
     setValueString(UC("debug-expand"), Object::makeBool(isDebugExpand));
     const Object libPsyntax = FASL_GET(psyntax_image);
     TRY_VM {
-    evaluateCodeVector(libPsyntax);
+        return evaluateCodeVector(libPsyntax);
     CATCH_VM
         // call default error handler
         defaultExceptionHandler(errorObj_);

@@ -49,6 +49,15 @@ using namespace scheme;
 
 static void* vmEntry(void* param);
 
+MultiVMManager* scheme::getMultiVMManager()
+{
+    static MultiVMManager* mn = NULL;
+    if (NULL == mn) {
+        mn = new MultiVMManager();
+    }
+    return mn;
+}
+
 // TODO
 // 1. join all threads
 // 2. configure GC macros
@@ -63,18 +72,21 @@ static void* vmEntry(void* param);
 // # (vm-terminate! vm) => unef
 // # (vm-join! vm [timeout [timeout-val]])
 
-
+Thread* thread;
 // (vm-start! vm) => undef
 Object scheme::vmStartDEx(VM* theVM, int argc, const Object* argv)
 {
     DeclareProcedureName("vm-start!");
     checkArgumentLength(1);
     argumentAsVM(0, vm);
-    Thread* thread = new Thread;
+    thread = new Thread;
+    // N.B.
+    // Add before thread run
+    getMultiVMManager()->add(thread);
     thread->create(vmEntry, vm);
 
     // todo
-    thread->join(NULL);
+//    thread->join(NULL);
     return Object::Undef;
 }
 
@@ -106,5 +118,7 @@ Object scheme::makeVmEx(VM* theVM, int argc, const Object* argv)
 void* vmEntry(void* param)
 {
     VM* vm = (VM*)param;
-    vm->activateR6RSMode(false);
+    const Object ret = vm->activateR6RSMode(false);
+    Thread::exit(new Object(ret));
+    return NULL;;
 }

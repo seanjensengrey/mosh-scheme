@@ -69,10 +69,15 @@ bool Thread::create(void* (*start)(void*), void* arg)
     info->argument = arg;
     info->thread = this;
     info->selfKey = selfKey;
-    if (GC_pthread_create(&thread_, NULL , stubFunction , info) == 0) {
+//    pthread_attr_t thattr;
+//    pthread_attr_init(&thattr);
+//    pthread_attr_setdetachstate(&thattr, PTHREAD_CREATE_DETACHED);
+    if (GC_pthread_create(&thread_, NULL, stubFunction , info) == 0) {
+//        pthread_attr_destroy(&thattr);
         return true;
     } else {
         setLastError();
+//        pthread_attr_destroy(&thattr);
         return false;
     }
 }
