@@ -71,8 +71,10 @@ namespace scheme {
         }
     };
 
+    Object vmPEx(VM* theVM, int argc, const Object* argv);
     Object makeVmEx(VM* theVM, int argc, const Object* argv);
     Object vmStartDEx(VM* theVM, int argc, const Object* argv);
+//    Object vmSpecificEx(VM* theVM, int argc, const Object* argv);
     MultiVMManager* getMultiVMManager();
 }; // namespace scheme
 

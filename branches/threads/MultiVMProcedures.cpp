@@ -58,6 +58,22 @@ MultiVMManager* scheme::getMultiVMManager()
     return mn;
 }
 
+// (vm? obj) => boolean
+Object scheme::vmPEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("vm?");
+    checkArgumentLength(1);
+    return Object::makeBool(argv[0].isVM());
+}
+
+// Object scheme::vmSpecificEx(VM* theVM, int argc, const Object* argv)
+// {
+//     DeclareProcedureName("vm?");
+//     checkArgumentLength(1);
+
+
+// }
+
 // TODO
 // 1. join all threads
 // 2. configure GC macros

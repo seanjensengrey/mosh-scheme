@@ -527,4 +527,5 @@
     ;; mutliple vm
     make-vm
     vm-start!
+    vm?
     )
