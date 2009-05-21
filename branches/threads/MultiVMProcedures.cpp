@@ -34,8 +34,12 @@
 #include "Pair.h"
 #include "Pair-inl.h"
 #include "SString.h"
+#include "Symbol.h"
 #include "scheme.h"
+#include "Closure.h"
+#include "EqHashTable.h"
 #include "VM.h"
+#include "VM-inl.h"
 #include "ProcedureMacro.h"
 #include "Transcoder.h"
 #include "OSCompat.h"
@@ -106,6 +110,26 @@ Object scheme::vmStartDEx(VM* theVM, int argc, const Object* argv)
     return Object::Undef;
 }
 
+// (vm-set-value! vm key value)
+Object scheme::vmSetValueDEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("vm-set-value!");
+    checkArgumentLength(3);
+    argumentAsVM(0, vm);
+    argumentCheckSymbol(1, key);
+    vm->setValueSymbol(key, argv[2]);
+    return Object::Undef;
+}
+
+// (vm-join! vm)
+Object scheme::vmJoinDEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("vm-join!");
+    checkArgumentLength(1);
+    argumentAsVM(0, vm);
+    return vm->thread()->join();
+}
+
 
 // (make-vm thunk-sexp import-spec-sexp . name) => #<vm>
 Object scheme::makeVmEx(VM* theVM, int argc, const Object* argv)
@@ -170,6 +194,8 @@ Object scheme::conditionVariableWaitDEx(VM* theVM, int argc, const Object* argv)
     argumentAsConditionVariable(0, c);
     return Object::makeBool(c->wait());
 }
+
+
 
 void* vmEntry(void* param)
 {

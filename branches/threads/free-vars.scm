@@ -528,9 +528,12 @@
     make-vm
     vm-start!
     vm?
+    vm-set-value!
+    vm-join!
     ;; condition-variable
     make-condition-variable
     condition-variable-wait!
     condition-variable-notify!
     condition-variable-notify-all!
+
     )

@@ -106,7 +106,8 @@ VM::VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool i
     maxNumValues_(256),
     numValues_(0),
     isR6RSMode_(false),
-    name_(UC(""))
+    name_(UC("")),
+    thread_(NULL)
 {
     stack_ = Object::makeObjectArray(stackSize);
     values_ = Object::makeObjectArray(maxNumValues_);
