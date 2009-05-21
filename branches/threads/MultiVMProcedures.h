@@ -38,44 +38,44 @@
 namespace scheme {
 
 
-    class MultiVMManager EXTEND_GC
-    {
-    private:
-        typedef gc_vector<Thread*> Threads;
-        Threads* threads_;
-    public:
-        MultiVMManager() : threads_(new gc_vector<Thread*>)
-        {
-        }
-        void add(Thread* thread)
-        {
-            threads_->push_back(thread);
-        }
-        void remove(Thread* thread)
-        {
-            Threads::iterator it = threads_->begin();
-            while (it != threads_->end()) {
-                if (thread == *it) {
-                    threads_->erase(it);
-                    return;
-                }
-                it++;
-            }
-            MOSH_ASSERT(false);
-        }
-        void joinAll()
-        {
-            for (Threads::iterator it = threads_->begin(); it != threads_->end(); ++it) {
-                (*it)->join(NULL);
-            }
-        }
-    };
+//     class MultiVMManager EXTEND_GC
+//     {
+//     private:
+//         typedef gc_vector<Thread*> Threads;
+//         Threads* threads_;
+//     public:
+//         MultiVMManager() : threads_(new gc_vector<Thread*>)
+//         {
+//         }
+//         void add(Thread* thread)
+//         {
+//             threads_->push_back(thread);
+//         }
+//         void remove(Thread* thread)
+//         {
+//             Threads::iterator it = threads_->begin();
+//             while (it != threads_->end()) {
+//                 if (thread == *it) {
+//                     threads_->erase(it);
+//                     return;
+//                 }
+//                 it++;
+//             }
+//             MOSH_ASSERT(false);
+//         }
+//         void joinAll()
+//         {
+//             for (Threads::iterator it = threads_->begin(); it != threads_->end(); ++it) {
+//                 (*it)->join(NULL);
+//             }
+//         }
+//     };
 
     Object vmPEx(VM* theVM, int argc, const Object* argv);
     Object makeVmEx(VM* theVM, int argc, const Object* argv);
     Object vmStartDEx(VM* theVM, int argc, const Object* argv);
 //    Object vmSpecificEx(VM* theVM, int argc, const Object* argv);
-    MultiVMManager* getMultiVMManager();
+//    MultiVMManager* getMultiVMManager();
 }; // namespace scheme
 
 #endif // SCHEME_MULTI_VM_PROCEDURES_

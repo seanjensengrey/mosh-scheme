@@ -256,6 +256,12 @@ int main(int argc, char *argv[])
     theVM->flushAllPorts();
 
     // we wait all threads be done
-    getMultiVMManager()->joinAll();
+//    getMultiVMManager()->joinAll();
+
+    // N.B.
+    // static destructor will be called.
+    // this means that static member *can be freed*.
+    // Don't rely on static initializer and destructor on multithreads.
+    // See Symbol::symbols for more detailed information.
     exit(EXIT_SUCCESS);
 }

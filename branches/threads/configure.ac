@@ -216,7 +216,6 @@ i[[3456]]86|pentium)
         case "$target_os" in
         *darwin*)
           AC_DEFINE(GC_DARWIN_THREADS,1,[Define to use Darwin threads])
-          AC_DEFINE(GC_PTHREADS,1,[Define to use pthreads])
           if test -n "`system_profiler |grep 'Intel Core 2'`" ; then
              MOSH_OPTS="$MOSH_INTEL_OPTS -march=pentium-m -msse2 -mfpmath=sse"
           else

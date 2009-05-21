@@ -1,3 +1,7 @@
+2009-05-21  higepon  <higepon@users.sourceforge.jp>
+
+        * Symbol.h (scheme): Fixed. Avoid from being called static destructor.
+
 2009-05-20  higepon  <higepon@users.sourceforge.jp>
 
         * main.cpp : wait all threads.

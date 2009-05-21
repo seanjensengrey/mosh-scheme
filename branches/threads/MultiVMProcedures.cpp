@@ -49,14 +49,14 @@ using namespace scheme;
 
 static void* vmEntry(void* param);
 
-MultiVMManager* scheme::getMultiVMManager()
-{
-    static MultiVMManager* mn = NULL;
-    if (NULL == mn) {
-        mn = new MultiVMManager();
-    }
-    return mn;
-}
+// MultiVMManager* scheme::getMultiVMManager()
+// {
+//     static MultiVMManager* mn = NULL;
+//     if (NULL == mn) {
+//         mn = new MultiVMManager();
+//     }
+//     return mn;
+// }
 
 // (vm? obj) => boolean
 Object scheme::vmPEx(VM* theVM, int argc, const Object* argv)
@@ -98,7 +98,7 @@ Object scheme::vmStartDEx(VM* theVM, int argc, const Object* argv)
     thread = new Thread;
     // N.B.
     // Add before thread run
-    getMultiVMManager()->add(thread);
+//    getMultiVMManager()->add(thread);
     thread->create(vmEntry, vm);
 
     // todo
