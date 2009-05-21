@@ -63,12 +63,13 @@
 #endif
 
 // If you add new thread support for new operating system
-// See and adde some macro to scheme.h, just before include gc.h
+// See and add some macro to scheme.h, just before include gc.h
 
 namespace scheme {
 
     class Mutex : public gc_cleanup
     {
+        friend class Condition;
     private:
         pthread_mutex_t mutex_;
 
@@ -102,6 +103,48 @@ namespace scheme {
             return pthread_mutex_trylock(&mutex_) == 0;
         }
     };
+
+    class Condition : public gc_cleanup
+    {
+    private:
+        Mutex mutex_;
+        pthread_cond_t cond_;
+    public:
+        Condition()
+        {
+            pthread_cond_init(&cond_, NULL);
+        }
+
+        virtual ~Condition()
+        {
+            pthread_cond_destroy(&cond_);
+        }
+
+        bool notify()
+        {
+            mutex_.lock();
+            int ret = pthread_cond_signal(&cond_);
+            mutex_.unlock();
+            return 0 == ret;
+        }
+
+        bool notifyAll()
+        {
+            mutex_.lock();
+            int ret = pthread_cond_broadcast(&cond_);
+            mutex_.unlock();
+            return 0 == ret;
+        }
+
+        bool wait()
+        {
+            mutex_.lock();
+            int ret = pthread_cond_wait(&cond_, &mutex_.mutex_);
+            mutex_.unlock();
+            return 0 == ret;
+        }
+    };
+
 
     class Thread EXTEND_GC
     {

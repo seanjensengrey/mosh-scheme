@@ -203,3 +203,48 @@ TEST_F(MoshTest, checkMutex2) {
     ASSERT_TRUE(thread.create(checkMutex2, &thread));
     thread.join(NULL);
 }
+
+static int value = 0;
+static bool valueOK = false;
+
+void* checkCondition(void* param)
+{
+    Condition* condition = (Condition*)param;
+    value = 2;
+    valueOK = true;
+    EXPECT_TRUE(condition->notify());
+    return NULL;
+}
+
+TEST_F(MoshTest, conditon) {
+    Condition condition;
+    Thread thread;
+    ASSERT_TRUE(thread.create(checkCondition, &condition));
+    while (!valueOK) {
+        ASSERT_TRUE(condition.wait());
+    }
+    EXPECT_EQ(2, value);
+}
+
+static int value2 = 0;
+static bool valueOK2 = false;
+
+void* checkCondition2(void* param)
+{
+    Condition* condition = (Condition*)param;
+    value2 = 2;
+    valueOK2 = true;
+    EXPECT_TRUE(condition->notifyAll());
+    return NULL;
+}
+
+TEST_F(MoshTest, conditon2) {
+    Condition condition;
+    Thread thread;
+    ASSERT_TRUE(thread.create(checkCondition2, &condition));
+    while (!valueOK2) {
+        ASSERT_TRUE(condition.wait());
+    }
+    EXPECT_EQ(2, value2);
+}
+
