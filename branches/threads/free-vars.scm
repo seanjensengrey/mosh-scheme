@@ -528,4 +528,9 @@
     make-vm
     vm-start!
     vm?
+    ;; condition-variable
+    make-condition-variable
+    condition-variable-wait!
+    condition-variable-notify!
+    condition-variable-notify-all!
     )

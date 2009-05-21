@@ -74,6 +74,13 @@ namespace scheme {
     Object vmPEx(VM* theVM, int argc, const Object* argv);
     Object makeVmEx(VM* theVM, int argc, const Object* argv);
     Object vmStartDEx(VM* theVM, int argc, const Object* argv);
+
+    Object makeConditionVariableEx(VM* theVM, int argc, const Object* argv);
+    Object conditionVariableNotifyAllDEx(VM* theVM, int argc, const Object* argv);
+    Object conditionVariableNotifyDEx(VM* theVM, int argc, const Object* argv);
+    Object conditionVariableWaitDEx(VM* theVM, int argc, const Object* argv);
+
+
 //    Object vmSpecificEx(VM* theVM, int argc, const Object* argv);
 //    MultiVMManager* getMultiVMManager();
 }; // namespace scheme

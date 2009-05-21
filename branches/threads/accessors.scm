@@ -32,3 +32,4 @@
 (define-accessor TextualInputOutputPort)
 (define-accessor Socket)
 (define-accessor VM)
+(define-accessor ConditionVariable)

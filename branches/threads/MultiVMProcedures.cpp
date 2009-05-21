@@ -131,6 +131,46 @@ Object scheme::makeVmEx(VM* theVM, int argc, const Object* argv)
     return Object::makeVM(vm);
 }
 
+// (make-condition-variable . name) => #<condition variable>
+Object scheme::makeConditionVariableEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("make-vm");
+    checkArgumentLengthBetween(0, 1);
+    if (argc == 0) {
+        return Object::makeConditionVariable(new ConditionVariable);
+    } else {
+        argumentAsString(0, name);
+        return Object::makeConditionVariable(new ConditionVariable(name->data()));
+    }
+}
+
+// (condition-variable-notify-all! c) => boolean
+Object scheme::conditionVariableNotifyAllDEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("condition-variable-notify-all!");
+    checkArgumentLength(1);
+    argumentAsConditionVariable(0, c);
+    return Object::makeBool(c->notifyAll());
+}
+
+// (condition-variable-notify! c) => boolean
+Object scheme::conditionVariableNotifyDEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("condition-variable-notify!");
+    checkArgumentLength(1);
+    argumentAsConditionVariable(0, c);
+    return Object::makeBool(c->notify());
+}
+
+// (condition-variable-wait c) => boolean
+Object scheme::conditionVariableWaitDEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("condition-variable-wait!");
+    checkArgumentLength(1);
+    argumentAsConditionVariable(0, c);
+    return Object::makeBool(c->wait());
+}
+
 void* vmEntry(void* param)
 {
     VM* vm = (VM*)param;

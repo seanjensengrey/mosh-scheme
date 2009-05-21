@@ -467,6 +467,12 @@ Object Object::makeVM(VM* vm)
                                                         reinterpret_cast<intptr_t>(vm))));
 }
 
+Object Object::makeConditionVariable(ConditionVariable* c)
+{
+    return Object(reinterpret_cast<intptr_t>(new HeapObject(HeapObject::ConditionVariable,
+                                                        reinterpret_cast<intptr_t>(c))));
+}
+
 
 bool Object::isIntegerValued() const
 {

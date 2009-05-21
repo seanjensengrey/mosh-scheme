@@ -207,21 +207,21 @@ TEST_F(MoshTest, checkMutex2) {
 static int value = 0;
 static bool valueOK = false;
 
-void* checkCondition(void* param)
+void* checkConditionVariable(void* param)
 {
-    Condition* condition = (Condition*)param;
+    ConditionVariable* conditionVariable = (ConditionVariable*)param;
     value = 2;
     valueOK = true;
-    EXPECT_TRUE(condition->notify());
+    EXPECT_TRUE(conditionVariable->notify());
     return NULL;
 }
 
-TEST_F(MoshTest, conditon) {
-    Condition condition;
+TEST_F(MoshTest, conditionVariable) {
+    ConditionVariable conditionVariable;
     Thread thread;
-    ASSERT_TRUE(thread.create(checkCondition, &condition));
+    ASSERT_TRUE(thread.create(checkConditionVariable, &conditionVariable));
     while (!valueOK) {
-        ASSERT_TRUE(condition.wait());
+        ASSERT_TRUE(conditionVariable.wait());
     }
     EXPECT_EQ(2, value);
 }
@@ -229,22 +229,34 @@ TEST_F(MoshTest, conditon) {
 static int value2 = 0;
 static bool valueOK2 = false;
 
-void* checkCondition2(void* param)
+void* checkConditionVariable2(void* param)
 {
-    Condition* condition = (Condition*)param;
+    ConditionVariable* conditionVariable = (ConditionVariable*)param;
     value2 = 2;
     valueOK2 = true;
-    EXPECT_TRUE(condition->notifyAll());
+    EXPECT_TRUE(conditionVariable->notifyAll());
     return NULL;
 }
 
 TEST_F(MoshTest, conditon2) {
-    Condition condition;
+    ConditionVariable conditionVariable;
     Thread thread;
-    ASSERT_TRUE(thread.create(checkCondition2, &condition));
+    ASSERT_TRUE(thread.create(checkConditionVariable2, &conditionVariable));
     while (!valueOK2) {
-        ASSERT_TRUE(condition.wait());
+        ASSERT_TRUE(conditionVariable.wait());
     }
     EXPECT_EQ(2, value2);
 }
+
+TEST_F(MoshTest, ConditionVariableName) {
+    ConditionVariable conditionVariable;
+    EXPECT_TRUE(UC("#<condition-variable>") == conditionVariable.toString());
+}
+
+TEST_F(MoshTest, ConditionVariableName2) {
+    ConditionVariable conditionVariable(UC("hige"));
+    EXPECT_TRUE(UC("#<condition-variable hige>") == conditionVariable.toString());
+}
+
+
 

@@ -86,6 +86,7 @@ public:
         TextualInputOutputPort      = Type<35>::VALUE,
         Socket                      = Type<36>::VALUE,
         VM                          = Type<37>::VALUE,
+        ConditionVariable           = Type<38>::VALUE,
         forbidden_comma
     };
 };

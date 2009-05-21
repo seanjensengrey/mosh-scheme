@@ -407,3 +407,15 @@ bool isVM() const
     && reinterpret_cast<HeapObject*>(val)->type == HeapObject::VM;
 }
 
+ConditionVariable* toConditionVariable() const
+{
+    MOSH_ASSERT(isConditionVariable());
+    return reinterpret_cast<ConditionVariable*>(reinterpret_cast<HeapObject*>(val)->obj);
+}
+
+bool isConditionVariable() const
+{
+    return isHeapObject()
+    && reinterpret_cast<HeapObject*>(val)->type == HeapObject::ConditionVariable;
+}
+

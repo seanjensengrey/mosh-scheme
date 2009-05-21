@@ -57,6 +57,7 @@
 #include "BinaryOutputPort.h"
 #include "BinaryInputOutputPort.h"
 #include "OSCompatSocket.h"
+#include "OSCompatThread.h"
 
 #ifdef _WIN32
     #define snprintf _snprintf
@@ -525,6 +526,8 @@ template<bool isHumanReadable> void TextualOutputPort::print(Object o)
         putString(o.toBignum()->toString());
     } else if (o.isVM()) {
         putString(o.toVM()->toString());
+    } else if (o.isConditionVariable()) {
+        putString(o.toConditionVariable()->toString());
     } else if (o.isCompnum()) {
         Compnum* const c = o.toCompnum();
         const Object real = c->real();

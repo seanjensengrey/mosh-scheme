@@ -4589,11 +4589,6 @@ cat >>confdefs.h <<\_ACEOF
 #define GC_DARWIN_THREADS 1
 _ACEOF
 
-
-cat >>confdefs.h <<\_ACEOF
-#define GC_PTHREADS 1
-_ACEOF
-
           if test -n "`system_profiler |grep 'Intel Core 2'`" ; then
              MOSH_OPTS="$MOSH_INTEL_OPTS -march=pentium-m -msse2 -mfpmath=sse"
           else

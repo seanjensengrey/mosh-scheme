@@ -69,7 +69,7 @@ namespace scheme {
 
     class Mutex : public gc_cleanup
     {
-        friend class Condition;
+        friend class ConditionVariable; // share the mutex_
     private:
         pthread_mutex_t mutex_;
 
@@ -104,20 +104,42 @@ namespace scheme {
         }
     };
 
-    class Condition : public gc_cleanup
+    class ConditionVariable : public gc_cleanup
     {
     private:
         Mutex mutex_;
         pthread_cond_t cond_;
-    public:
-        Condition()
+        ucs4string name_;
+
+        void initialize()
         {
             pthread_cond_init(&cond_, NULL);
         }
+    public:
+        ConditionVariable() : name_(UC(""))
+        {
+            initialize();
+        }
 
-        virtual ~Condition()
+        ConditionVariable(const ucs4string& name) : name_(name)
+        {
+            initialize();
+        }
+
+        virtual ~ConditionVariable()
         {
             pthread_cond_destroy(&cond_);
+        }
+
+        ucs4string toString() const
+        {
+            ucs4string ret = UC("#<condition-variable");
+            if (!name_.empty()) {
+                ret += UC(" ");
+                ret += name_;
+            }
+            ret += UC(">");
+            return ret;
         }
 
         bool notify()
