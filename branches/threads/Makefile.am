@@ -174,6 +174,7 @@ LineBufferedFileBinaryInputOutputPort.h \
 MultiVMProcedures.h MultiVMProcedures.cpp \
 OSCompatSocket.h OSCompatSocket.cpp \
 OSCompatThread.h OSCompatThread.cpp \
+VMFactory.cpp VMFactory.h \
 OSCompat.h OSCompat.cpp
 
 mosh_core_libraries = \

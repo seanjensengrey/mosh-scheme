@@ -243,7 +243,6 @@ namespace scheme {
 
         pthread_t thread_;
         int lastError_;
-
     };
 
 }; // namespace scheme

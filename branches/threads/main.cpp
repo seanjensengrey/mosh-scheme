@@ -37,39 +37,18 @@
 #include <sys/resource.h>
 #endif
 
-
 #include "Object.h"
 #include "Object-inl.h"
 #include "Pair.h"
 #include "Pair-inl.h"
 #include "scheme.h"
-#include "Vector.h"
 #include "VM.h"
-#include "Closure.h"
-#include "Symbol.h"
-#include "EqHashTable.h"
-#include "Gloc.h"
-#include "VM-inl.h"
-#include "ErrorProcedures.h"
-#include "BinaryOutputPort.h"
-#include "TextualOutputPort.h"
-#include "StandardOutputPort.h"
-#include "StandardErrorPort.h"
-#include "StandardInputPort.h"
-#include "TextualInputPort.h"
-#include "UTF8Codec.h"
-#include "Transcoder.h"
 #include "SString.h"
 #include "Symbol.h"
-#include "EqHashTable.h"
 #include "Record.h"
-#include "Equivalent.h"
-#include "Ratnum.h"
-#include "Flonum.h"
 #include "getoptU.h"
 #include "OSCompat.h"
-#include "OSCompatThread.h"
-#include "MultiVMProcedures.h"
+#include "VMFactory.h"
 
 using namespace scheme;
 
@@ -135,7 +114,7 @@ int main(int argc, char *argv[])
     int optionIndex = 0;
     bool isTestOption    = false;
     bool isCompileString = false;
-    bool isProfiler      = false;
+    bool isProfilerOn      = false;
     bool isR6RSBatchMode = true;
     bool isDebugExpand   = false; // show the result of psyntax expansion.
     ucs4char* initFile = NULL;
@@ -173,7 +152,7 @@ int main(int argc, char *argv[])
             isTestOption = true;
             break;
         case 'p':
-            isProfiler = true;
+            isProfilerOn = true;
             break;
         case 'c':
             isCompileString = true;
@@ -191,7 +170,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    if (isProfiler && argc == optindU) {
+    if (isProfilerOn && argc == optindU) {
         fprintf(stderr, "[file] not specified\n");
         showUsage();
         exit(EXIT_FAILURE);
@@ -206,20 +185,10 @@ int main(int argc, char *argv[])
     signal(SIGPIPE, SIG_IGN);
 #endif
 
-
-    Transcoder* transcoder = nativeConsoleTranscoder();
-    Transcoder* native = nativeTranscoder();
-    const Object inPort    = Object::makeTextualInputPort(new StandardInputPort(), File::STANDARD_IN.isUTF16Console() ? transcoder : native);
-    const Object outPort   = Object::makeTextualOutputPort(new StandardOutputPort(), File::STANDARD_OUT.isUTF16Console() ? transcoder : native);
-    const Object errorPort = Object::makeTextualOutputPort(new StandardErrorPort(), transcoder);
-
-    theVM = new VM(10000, outPort, errorPort, inPort, isProfiler);
-    theVM->registerPort(outPort);
-    theVM->loadCompiler();
+    VMFactory factory;
+    const int INITIAL_STACK_SIZE = 10000;
+    theVM = factory.create(INITIAL_STACK_SIZE, isProfilerOn);
     theVM->setValueString(UC("*command-line-args*"), argsToList(argc, optindU, argvU));
-//     if (initFile != NULL) {
-//         theVM->load(Object::makeString(initFile).toString()->data());
-//     }
 
     if (isTestOption) {
         theVM->loadFileWithGuard(UC("all-tests.scm"));
@@ -248,7 +217,7 @@ int main(int argc, char *argv[])
         showUsage();
     }
 #ifdef ENABLE_PROFILER
-    if (isProfiler) {
+    if (isProfilerOn) {
         const Object result = theVM->getProfileResult();
         theVM->callClosureByName(Symbol::intern(UC("show-profile")), result);
     }

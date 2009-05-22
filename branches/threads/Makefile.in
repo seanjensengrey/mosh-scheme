@@ -143,7 +143,7 @@ am_libmosh_a_OBJECTS = libmosh_a-Transcoder.$(OBJEXT) \
 	libmosh_a-MultiVMProcedures.$(OBJEXT) \
 	libmosh_a-OSCompatSocket.$(OBJEXT) \
 	libmosh_a-OSCompatThread.$(OBJEXT) \
-	libmosh_a-OSCompat.$(OBJEXT)
+	libmosh_a-VMFactory.$(OBJEXT) libmosh_a-OSCompat.$(OBJEXT)
 libmosh_a_OBJECTS = $(am_libmosh_a_OBJECTS)
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(bindir)" \
 	"$(DESTDIR)$(datadir)" "$(DESTDIR)$(datadir)"
@@ -522,6 +522,7 @@ LineBufferedFileBinaryInputOutputPort.h \
 MultiVMProcedures.h MultiVMProcedures.cpp \
 OSCompatSocket.h OSCompatSocket.cpp \
 OSCompatThread.h OSCompatThread.cpp \
+VMFactory.cpp VMFactory.h \
 OSCompat.h OSCompat.cpp
 
 mosh_core_libraries = \
@@ -934,6 +935,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-VM-Profiler.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-VM-Run.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-VM.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-VMFactory.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-Vector.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-getoptU.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmosh_a-scheme.Po@am__quote@
@@ -2162,6 +2164,20 @@ libmosh_a-OSCompatThread.obj: OSCompatThread.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='OSCompatThread.cpp' object='libmosh_a-OSCompatThread.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-OSCompatThread.obj `if test -f 'OSCompatThread.cpp'; then $(CYGPATH_W) 'OSCompatThread.cpp'; else $(CYGPATH_W) '$(srcdir)/OSCompatThread.cpp'; fi`
+
+libmosh_a-VMFactory.o: VMFactory.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-VMFactory.o -MD -MP -MF $(DEPDIR)/libmosh_a-VMFactory.Tpo -c -o libmosh_a-VMFactory.o `test -f 'VMFactory.cpp' || echo '$(srcdir)/'`VMFactory.cpp
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-VMFactory.Tpo $(DEPDIR)/libmosh_a-VMFactory.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='VMFactory.cpp' object='libmosh_a-VMFactory.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-VMFactory.o `test -f 'VMFactory.cpp' || echo '$(srcdir)/'`VMFactory.cpp
+
+libmosh_a-VMFactory.obj: VMFactory.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-VMFactory.obj -MD -MP -MF $(DEPDIR)/libmosh_a-VMFactory.Tpo -c -o libmosh_a-VMFactory.obj `if test -f 'VMFactory.cpp'; then $(CYGPATH_W) 'VMFactory.cpp'; else $(CYGPATH_W) '$(srcdir)/VMFactory.cpp'; fi`
+@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libmosh_a-VMFactory.Tpo $(DEPDIR)/libmosh_a-VMFactory.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='VMFactory.cpp' object='libmosh_a-VMFactory.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -c -o libmosh_a-VMFactory.obj `if test -f 'VMFactory.cpp'; then $(CYGPATH_W) 'VMFactory.cpp'; else $(CYGPATH_W) '$(srcdir)/VMFactory.cpp'; fi`
 
 libmosh_a-OSCompat.o: OSCompat.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmosh_a_CXXFLAGS) $(CXXFLAGS) -MT libmosh_a-OSCompat.o -MD -MP -MF $(DEPDIR)/libmosh_a-OSCompat.Tpo -c -o libmosh_a-OSCompat.o `test -f 'OSCompat.cpp' || echo '$(srcdir)/'`OSCompat.cpp

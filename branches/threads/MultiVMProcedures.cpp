@@ -40,12 +40,10 @@
 #include "EqHashTable.h"
 #include "VM.h"
 #include "VM-inl.h"
+#include "VMFactory.h"
 #include "ProcedureMacro.h"
 #include "Transcoder.h"
 #include "OSCompat.h"
-#include "StandardInputPort.h"
-#include "StandardOutputPort.h"
-#include "StandardErrorPort.h"
 #include "OSCompatThread.h"
 #include "MultiVMProcedures.h"
 
@@ -116,12 +114,10 @@ Object scheme::makeVmEx(VM* theVM, int argc, const Object* argv)
     checkArgumentLengthBetween(2, 3);
     argumentCheckPair(0, thunkSexp);
     argumentCheckPair(1, importSpecSexp);
-    Transcoder* transcoder = nativeTranscoder();
-    Object inPort    = Object::makeTextualInputPort(new StandardInputPort(), transcoder);
-    Object outPort   = Object::makeTextualOutputPort(new StandardOutputPort(), transcoder);
-    Object errorPort = Object::makeTextualOutputPort(new StandardErrorPort(), transcoder);
-    VM* vm = new VM(10000, outPort, errorPort, inPort, false /* isProfiler */);
-    vm->loadCompiler();
+    VMFactory factory;
+    const int INITIAL_STACK_SIZE = 5000;
+    const bool isProfilerON = false;
+    VM* vm = factory.create(INITIAL_STACK_SIZE, isProfilerON);
     vm->setValueString(UC("%loadpath"), Object::False);
     vm->setValueString(UC("*command-line-args*"), Pair::list1("./test/stack-trace2.scm"));
     vm->setValueString(UC("%vm-import-spec"), importSpecSexp);

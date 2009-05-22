@@ -284,7 +284,7 @@
   (define (load-r6rs-top-level-sexp import-spec thunk)
     (parameterize ([library-path (local-library-path "")])
       (parameterize ([command-line '()])
-        (display `((import ,@import-spec) (,thunk)))
+;        (display `((import ,@import-spec) (,thunk)))
         ((compile-r6rs-top-level `((import ,@import-spec) (,thunk)))))))
 
 
