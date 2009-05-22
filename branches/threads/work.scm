@@ -1,29 +1,30 @@
-(define value #f)
-(define value-is-ready? #f)
-
-;; todo mutex
-
 (define (make-mail-box)
-  (cons (make-condition-variable) '()))
+  (vector (make-condition-variable) '() (make-mutex)))
 
 (define (send mail-box obj)
-  (set-cdr! mail-box (cons obj (cdr mail-box)))
-  (condition-variable-notify! (car mail-box)))
+  (let ([mutex (vector-ref mail-box 2)])
+    (mutex-lock! mutex)
+    (vector-set! mail-box 1 (cons obj (vector-ref mail-box 1)))
+    (mutex-unlock! mutex)
+    (condition-variable-notify! (vector-ref mail-box 0))))
 
-(let ([vm (make-vm '
+(let* ([vm (make-vm '
            (lambda ()
-             (let ([mail-box (symbol-value 'mail-box)])
+             (let* ([mail-box (symbol-value 'mail-box)]
+                    [mutex (vector-ref mail-box 2)])
                (define (mail-exists?)
-                 (pair? (cdr mail-box)))
+                 (pair? (vector-ref mail-box 1)))
                (define (receive)
                  (let loop ()
                    (cond
                     [(mail-exists?)
-                     (let ([val (cadr mail-box)])
-                       (set-cdr! mail-box (cddr mail-box))
+                     (mutex-lock! mutex)
+                     (let ([val (car (vector-ref mail-box 1))])
+                       (vector-set! mail-box 1 (cdr (vector-ref mail-box 1)))
+                       (mutex-unlock! mutex)
                        val)]
                     [else
-                     (condition-variable-wait! (car mail-box))
+                     (condition-variable-wait! (vector-ref mail-box 0))
                      (loop)])))
                (display (receive))
                (newline)
@@ -43,4 +44,4 @@
   (send mail-box 'hello)
   (send mail-box 'world)
   (send mail-box 'world)
-  (display (vm-join! vm)))
+  #;(display (vm-join! vm)))

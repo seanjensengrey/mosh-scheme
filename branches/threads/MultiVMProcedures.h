@@ -81,6 +81,11 @@ namespace scheme {
     Object conditionVariableNotifyAllDEx(VM* theVM, int argc, const Object* argv);
     Object conditionVariableNotifyDEx(VM* theVM, int argc, const Object* argv);
     Object conditionVariableWaitDEx(VM* theVM, int argc, const Object* argv);
+    Object mutexPEx(VM* theVM, int argc, const Object* argv);
+    Object mutexUnlockDEx(VM* theVM, int argc, const Object* argv);
+    Object mutexTryLockDEx(VM* theVM, int argc, const Object* argv);
+    Object mutexLockDEx(VM* theVM, int argc, const Object* argv);
+    Object makeMutexEx(VM* theVM, int argc, const Object* argv);
 
 
 //    Object vmSpecificEx(VM* theVM, int argc, const Object* argv);

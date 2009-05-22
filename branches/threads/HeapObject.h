@@ -87,6 +87,7 @@ public:
         Socket                      = Type<36>::VALUE,
         VM                          = Type<37>::VALUE,
         ConditionVariable           = Type<38>::VALUE,
+        Mutex                       = Type<39>::VALUE,
         forbidden_comma
     };
 };

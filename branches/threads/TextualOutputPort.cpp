@@ -528,6 +528,8 @@ template<bool isHumanReadable> void TextualOutputPort::print(Object o)
         putString(o.toVM()->toString());
     } else if (o.isConditionVariable()) {
         putString(o.toConditionVariable()->toString());
+    } else if (o.isMutex()) {
+        putString(UC("#<mutex>"));
     } else if (o.isCompnum()) {
         Compnum* const c = o.toCompnum();
         const Object real = c->real();

@@ -473,6 +473,12 @@ Object Object::makeConditionVariable(ConditionVariable* c)
                                                         reinterpret_cast<intptr_t>(c))));
 }
 
+Object Object::makeMutex(Mutex* c)
+{
+    return Object(reinterpret_cast<intptr_t>(new HeapObject(HeapObject::Mutex,
+                                                        reinterpret_cast<intptr_t>(c))));
+}
+
 
 bool Object::isIntegerValued() const
 {

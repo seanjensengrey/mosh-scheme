@@ -535,5 +535,10 @@
     condition-variable-wait!
     condition-variable-notify!
     condition-variable-notify-all!
-
+    ;; mutex
+    mutex?
+    make-mutex
+    mutex-lock!
+    mutex-try-lock!
+    mutex-unlock!
     )

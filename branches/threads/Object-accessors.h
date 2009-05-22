@@ -419,3 +419,15 @@ bool isConditionVariable() const
     && reinterpret_cast<HeapObject*>(val)->type == HeapObject::ConditionVariable;
 }
 
+Mutex* toMutex() const
+{
+    MOSH_ASSERT(isMutex());
+    return reinterpret_cast<Mutex*>(reinterpret_cast<HeapObject*>(val)->obj);
+}
+
+bool isMutex() const
+{
+    return isHeapObject()
+    && reinterpret_cast<HeapObject*>(val)->type == HeapObject::Mutex;
+}
+

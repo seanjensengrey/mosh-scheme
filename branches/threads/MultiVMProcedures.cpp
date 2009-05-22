@@ -54,7 +54,7 @@ static void* vmEntry(void* param);
 // TODO
 // 1. join all threads
 // 2. configure GC macros
-// 
+//
 // # (current-vm) => #<vm>
 // # (vm? obj) => #t or #f
 // # (vm-specific vm) => obj
@@ -167,6 +167,51 @@ Object scheme::conditionVariableWaitDEx(VM* theVM, int argc, const Object* argv)
     checkArgumentLength(1);
     argumentAsConditionVariable(0, c);
     return Object::makeBool(c->wait());
+}
+
+// (mutex-unlock! mutex) => undef
+Object scheme::mutexUnlockDEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("mutex-unlock!");
+    checkArgumentLength(1);
+    argumentAsMutex(0, mutex);
+    mutex->unlock();
+    return Object::Undef;
+}
+
+// (mutex-try-lock! mutex) => boolean
+Object scheme::mutexTryLockDEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("mutex-try-lock!");
+    checkArgumentLength(1);
+    argumentAsMutex(0, mutex);
+    return Object::makeBool(mutex->tryLock());
+}
+
+// (mutex-lock! mutex) => undef
+Object scheme::mutexLockDEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("mutex-lock!");
+    checkArgumentLength(1);
+    argumentAsMutex(0, mutex);
+    mutex->lock();
+    return Object::Undef;
+}
+
+// (make-mutex) => #<mutex>
+Object scheme::makeMutexEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("make-mutex");
+    checkArgumentLength(0);
+    return Object::makeMutex(new Mutex);
+}
+
+// (mutex? obj) => boolean
+Object scheme::mutexPEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("mutex?");
+    checkArgumentLength(1);
+    return Object::makeBool(argv[0].isMutex());
 }
 
 // thread start stub

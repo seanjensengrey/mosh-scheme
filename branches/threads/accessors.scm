@@ -33,3 +33,4 @@
 (define-accessor Socket)
 (define-accessor VM)
 (define-accessor ConditionVariable)
+(define-accessor Mutex)
