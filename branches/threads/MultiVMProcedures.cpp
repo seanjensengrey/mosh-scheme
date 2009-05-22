@@ -1,5 +1,5 @@
 /*
- * MultiVMProcedures.cpp -
+ * MultiVMProcedures.cpp - Mulitple VM.
  *
  *   Copyright (c) 2009  Higepon(Taro Minowa)  <higepon@users.sourceforge.jp>
  *
@@ -53,31 +53,6 @@ using namespace scheme;
 
 static void* vmEntry(void* param);
 
-// MultiVMManager* scheme::getMultiVMManager()
-// {
-//     static MultiVMManager* mn = NULL;
-//     if (NULL == mn) {
-//         mn = new MultiVMManager();
-//     }
-//     return mn;
-// }
-
-// (vm? obj) => boolean
-Object scheme::vmPEx(VM* theVM, int argc, const Object* argv)
-{
-    DeclareProcedureName("vm?");
-    checkArgumentLength(1);
-    return Object::makeBool(argv[0].isVM());
-}
-
-// Object scheme::vmSpecificEx(VM* theVM, int argc, const Object* argv)
-// {
-//     DeclareProcedureName("vm?");
-//     checkArgumentLength(1);
-
-
-// }
-
 // TODO
 // 1. join all threads
 // 2. configure GC macros
@@ -92,21 +67,23 @@ Object scheme::vmPEx(VM* theVM, int argc, const Object* argv)
 // # (vm-terminate! vm) => unef
 // # (vm-join! vm [timeout [timeout-val]])
 
-Thread* thread;
+// (vm? obj) => boolean
+Object scheme::vmPEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("vm?");
+    checkArgumentLength(1);
+    return Object::makeBool(argv[0].isVM());
+}
+
 // (vm-start! vm) => undef
 Object scheme::vmStartDEx(VM* theVM, int argc, const Object* argv)
 {
     DeclareProcedureName("vm-start!");
     checkArgumentLength(1);
     argumentAsVM(0, vm);
-    thread = new Thread;
-    // N.B.
-    // Add before thread run
-//    getMultiVMManager()->add(thread);
+    Thread* thread = new Thread;
+    vm->setThread(thread);
     thread->create(vmEntry, vm);
-
-    // todo
-//    thread->join(NULL);
     return Object::Undef;
 }
 
@@ -121,15 +98,16 @@ Object scheme::vmSetValueDEx(VM* theVM, int argc, const Object* argv)
     return Object::Undef;
 }
 
-// (vm-join! vm)
+// (vm-join! vm) => return value of thread's exit value.
 Object scheme::vmJoinDEx(VM* theVM, int argc, const Object* argv)
 {
     DeclareProcedureName("vm-join!");
     checkArgumentLength(1);
     argumentAsVM(0, vm);
-    return vm->thread()->join();
+    Object* ret;
+    vm->thread()->join((void**)&ret);
+    return *ret;
 }
-
 
 // (make-vm thunk-sexp import-spec-sexp . name) => #<vm>
 Object scheme::makeVmEx(VM* theVM, int argc, const Object* argv)
@@ -195,12 +173,11 @@ Object scheme::conditionVariableWaitDEx(VM* theVM, int argc, const Object* argv)
     return Object::makeBool(c->wait());
 }
 
-
-
+// thread start stub
 void* vmEntry(void* param)
 {
     VM* vm = (VM*)param;
     const Object ret = vm->activateR6RSMode(false);
     Thread::exit(new Object(ret));
-    return NULL;;
+    return NULL;
 }

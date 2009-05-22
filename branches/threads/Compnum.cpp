@@ -37,7 +37,6 @@
 #include "Pair-inl.h"
 #include "Arithmetic.h"
 #include "Compnum.h"
-#include "VM.h"
 #include "TextualOutputPort.h"
 #include "ProcedureMacro.h"
 

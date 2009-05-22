@@ -1,3 +1,7 @@
+2009-05-22  higepon  <higepon@users.sourceforge.jp>
+
+        * MultiVMProcedures.cpp : vm-join! works.
+
 2009-05-21  higepon  <higepon@users.sourceforge.jp>
 
         * Added (make-condition-variable . name) (condition-variable-notify! c) etc.

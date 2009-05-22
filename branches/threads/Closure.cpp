@@ -35,6 +35,7 @@
 #include "Pair-inl.h"
 #include "SString.h"
 #include "Closure.h"
+#include "OSCompatThread.h"
 #include "VM.h"
 #include "StringProcedures.h"
 #include "TextualOutputPort.h"

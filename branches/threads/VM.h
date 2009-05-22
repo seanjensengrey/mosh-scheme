@@ -85,6 +85,11 @@ public:
     VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool isProfiler = false);
     virtual ~VM();
 
+    bool isMainThread() const
+    {
+        return NULL == thread_;
+    }
+
     ucs4string toString() const
     {
         ucs4string ret = UC("#<vm ");
@@ -102,8 +107,8 @@ public:
     void printStack() const;
     void copyJmpBuf(jmp_buf dst, jmp_buf src);
     void collectProfile();
-    void setThread(Thread* thread) { thread_ = thread; }
-    Thread* thread() const { return thread_; }
+    void setThread(Thread* thread);
+    Thread* thread();
 
     Object values(int num, const Object* v);
     Object values2(Object obj1, Object obj2);
@@ -226,7 +231,7 @@ protected:
     bool isR6RSMode_;
     Ports activePorts_;
     ucs4string name_;
-    Thread thread_;
+    Thread* thread_;
 };
 
 } // namespace scheme

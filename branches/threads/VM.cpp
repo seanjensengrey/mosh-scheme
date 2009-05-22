@@ -852,3 +852,13 @@ void VM::flushAllPorts()
         it = activePorts_.erase(it);
     }
 }
+
+void VM::setThread(Thread* thread)
+{
+    thread_ = thread;
+}
+
+Thread* VM::thread()
+{
+    return thread_;
+}
