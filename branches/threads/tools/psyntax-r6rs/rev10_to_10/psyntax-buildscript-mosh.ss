@@ -986,6 +986,11 @@
     (source-info                             mosh)
     (make-file-options                       mosh)
     (mosh-executable-path                    mosh)
+    (make-condition-variable                 mosh interaction)
+    (condition-variable-wait!                 mosh interaction)
+    (condition-variable-notify!               mosh interaction)
+    (condition-variable-notify-all!           mosh interaction)
+
     (sys-display mosh)
     (get-command-line mosh)
     (get-timeofday mosh)
