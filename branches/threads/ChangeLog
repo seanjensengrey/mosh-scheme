@@ -1,5 +1,7 @@
 2009-05-22  higepon  <higepon@users.sourceforge.jp>
 
+        * lib/mosh/concurrent.ss : Added.
+
         * MultiVMProcedures.cpp : Added mutex things.
 
         * VMFactory.cpp (create): Added.

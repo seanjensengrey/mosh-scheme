@@ -145,6 +145,7 @@ void* my_realloc(void *ptr, size_t oldSize, size_t newSize);
 void my_dont_free(void *ptr, size_t size);
 void mosh_init();
 
+
 namespace scheme {
 
 
@@ -155,6 +156,7 @@ typedef std::vector<Object, gc_allocator<Object> > ObjectVector;
 class Object;
 typedef std::vector<Object> ObjectVector;
 #endif
+
 
 //extern int strcmp99(const ucs4char *s1, const ucs4char *s2);
 struct ltstr EXTEND_GC

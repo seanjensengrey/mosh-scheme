@@ -50,9 +50,12 @@
 #include "OSCompat.h"
 #include "VMFactory.h"
 
+bool debug_on;
 using namespace scheme;
 
 static VM* theVM;
+
+
 
 Object argsToList(int argc, int optind, ucs4char** argvU)
 {
@@ -223,9 +226,6 @@ int main(int argc, char *argv[])
     }
 #endif
     theVM->flushAllPorts();
-
-    // we wait all threads be done
-//    getMultiVMManager()->joinAll();
 
     // N.B.
     // static destructor will be called.

@@ -210,19 +210,22 @@ bool TextualOutputPort::writeAbbreviated(Object obj)
         } else if (obj == Symbol::QUASIQUOTE || obj == Symbol::QUASIQUOTE_B) {
             putChar('`');
             return true;
-        } else if (obj == Symbol::SYNTAX || obj == Symbol::SYNTAX_B) {
-            putString(UC("#\'"));
-            return true;
-        } else if (obj == Symbol::UNSYNTAX || obj == Symbol::UNSYNTAX_B) {
-            putString(UC("#,"));
-            return true;
-        } else if (obj == Symbol::UNSYNTAX_SPLICING || obj == Symbol::UNSYNTAX_SPLICING_B) {
-            putString("#,@");
-            return true;
-        } else if (obj == Symbol::QUASISYNTAX || obj == Symbol::QUASISYNTAX_B) {
-            putString(UC("#`"));
-            return true;
         }
+
+        // Gauche Can't read this! (psyntax)
+//         } else if (obj == Symbol::SYNTAX || obj == Symbol::SYNTAX_B) {
+//             putString(UC("#\'"));
+//             return true;
+//         } else if (obj == Symbol::UNSYNTAX || obj == Symbol::UNSYNTAX_B) {
+//             putString(UC("#,"));
+//             return true;
+//         } else if (obj == Symbol::UNSYNTAX_SPLICING || obj == Symbol::UNSYNTAX_SPLICING_B) {
+//             putString("#,@");
+//             return true;
+//         } else if (obj == Symbol::QUASISYNTAX || obj == Symbol::QUASISYNTAX_B) {
+//             putString(UC("#`"));
+//             return true;
+//         }
 
     }
     return false;
