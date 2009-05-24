@@ -1,3 +1,9 @@
+2009-05-23  higepon  <higepon@users.sourceforge.jp>
+
+        * lib/mosh/queue.ss: Added simple queue library.
+
+        * test/queue.scm: Added tests for queue.
+
 2009-05-22  higepon  <higepon@users.sourceforge.jp>
 
         * lib/mosh/concurrent.ss : Added.

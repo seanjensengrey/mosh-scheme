@@ -1,14 +1,24 @@
  (import (rnrs)
         (mosh)
+        (rnrs mutable-pairs)
+        (mosh queue)
         (mosh concurrent))
 
-(define pid (spawn '(lambda () (display (receive! (self)))) '((rnrs) (mosh concurrent))))
+;; todo
+;; receive mail-box
+;; store-queue
+;; match
+;; time-out
+ pid (spawn '
+             (lambda ()
+               (display (receive!))
+
+               )
+             '((rnrs) (mosh concurrent))))
 
 (! pid '(1 2 3 4))
 
-(let loop ()
-  (loop))
-
+(join! pid)
 ;; (define-record-type mail-box
 ;;   (fields
 ;;    (immutable condition)
@@ -61,7 +71,7 @@
 ;;       [process (make-process vm)])
 ;;   (send! process '(1 2 3))
 ;;   (display process))
-  
+
 
 ;; (define (make-mail-box)
 ;;   (vector (make-condition-variable) '() (make-mutex)))

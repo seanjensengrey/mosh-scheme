@@ -1,4 +1,4 @@
-; concurrent.ss
+; queue.ss
 ;
 ;   Copyright (c) 2009  Higepon(Taro Minowa)  <higepon@users.sourceforge.jp>
 ;
@@ -27,61 +27,30 @@
 ;
 ;  $Id: concurrent.ss 621 2008-11-09 06:22:47Z higepon $
 
-(library (mosh concurrent)
-  (export ! receive! spawn self join!)
-  (import (mosh) (rnrs) (mosh queue))
+(library (mosh queue)
+  (export make-queue queue-empty? queue-push! queue-pop!)
+  (import (mosh) (rnrs) (rnrs mutable-pairs))
 
-(define-record-type mail-box
-  (fields
-   (immutable condition)
-   (immutable mutex)
-   (mutable mails))
-  (protocol
-   (lambda (c)
-     (lambda ()
-       (c (make-condition-variable) (make-mutex) (make-queue))))))
+(define (make-queue) (cons '() '()))
 
-(define-record-type process
-  (fields
-   (immutable vm)
-   (immutable mail-box))
-  (protocol
-   (lambda (c)
-     (lambda (vm)
-       (c vm (make-mail-box))))))
+(define (queue-empty? queue)
+  (null? (cdr queue)))
 
-(define (! process obj)
-  (let ([mb (process-mail-box process)])
-    (mutex-lock! (mail-box-mutex mb))
-    (queue-push! (mail-box-mails mb) obj)
-    (mutex-unlock! (mail-box-mutex mb))
-    (condition-variable-notify! (mail-box-condition mb))))
+(define (queue-push! queue obj)
+  (cond
+   [(queue-empty? queue)
+    (set-car! queue (list obj))
+    (set-cdr! queue (car queue))]
+   [else
+    (set-cdr! (cdr queue) (list obj))
+    (set-cdr! queue (cddr queue))]))
 
-(define (spawn expr import-spec)
-(let* ([vm (make-vm expr import-spec)]
-      [process (make-process vm)])
-  (vm-set-value! vm 'self process)
-  (vm-start! vm)
-  process))
-
-(define (self)
-  (symbol-value 'self))
-
-(define (receive!)
-  (let ([mb (process-mail-box (self))])
-  (let loop ()
-    (cond
-     [(queue-empty? (mail-box-mails mb))
-      (condition-variable-wait! (mail-box-condition mb))
-      (loop)]
-     [else
-      (mutex-lock! (mail-box-mutex mb))
-      (let ([val (queue-pop! (mail-box-mails mb))])
-        (mutex-unlock! (mail-box-mutex mb))
-        val)]))))
-
-(define (join! process)
-  (vm-join! (process-vm process)))
-
-
+(define (queue-pop! queue)
+  (when (queue-empty? queue)
+    (error 'queue-pop! "queue is empty"))
+  (let ([val (caar queue)])
+    (set-car! queue (cdar queue))
+    (when (null? (car queue))
+      (set-cdr! queue '()))
+    val))
 )
