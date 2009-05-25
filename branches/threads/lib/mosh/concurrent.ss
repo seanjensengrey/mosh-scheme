@@ -51,6 +51,8 @@
        (c vm (make-mail-box))))))
 
 (define (! process obj)
+  (display "start !")
+  (display (process-mail-box process))
   (let ([mb (process-mail-box process)])
     (mutex-lock! (mail-box-mutex mb))
     (queue-push! (mail-box-mails mb) obj)
@@ -77,14 +79,19 @@
                          (match (receive-internal! timeout)
                            ['%timeout
                             ;; restore!
+                              (mutex-lock! (mail-box-mutex (process-mail-box (self))))
                             (let ([mails (mail-box-mails (process-mail-box (self)))])
+
                               (queue-append! saved mails)
-                              (mail-box-mails-set! (process-mail-box (self)) saved))
+                              (mail-box-mails-set! (process-mail-box (self)) saved)
+                              (mutex-unlock! (mail-box-mutex (process-mail-box (self)))))
                             after-body0 after-body ...]
                            [match-expr
+                            (mutex-lock! (mail-box-mutex (process-mail-box (self))))
                             (let ([mails (mail-box-mails (process-mail-box (self)))])
                               (queue-append! saved mails)
                               (mail-box-mails-set! (process-mail-box (self)) saved)
+                              (mutex-unlock! (mail-box-mutex (process-mail-box (self))))
                               body0 body ...)] ...
                            [x
                             (queue-push! saved x)
@@ -95,9 +102,11 @@
          (letrec ([rec (lambda ()
                          (match (receive-internal!)
                            [match-expr
+                              (mutex-lock! (mail-box-mutex (process-mail-box (self))))
                             (let ([mails (mail-box-mails (process-mail-box (self)))])
                               (queue-append! saved mails)
                               (mail-box-mails-set! (process-mail-box (self)) saved)
+                              (mutex-unlock! (mail-box-mutex (process-mail-box (self))))
                               body0 body ...)] ...
                            [x
                             (queue-push! saved x)

@@ -44,7 +44,7 @@
                           [after 1000
                                  'time-out]))
                ;; doesn't work yet
-#;               (receive
+              (receive
                  [('register from name)
                   (! from `(ok ,name))])
 
