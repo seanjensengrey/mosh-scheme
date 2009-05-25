@@ -37,6 +37,7 @@
 #define pthread_yield sched_yield
 #endif
 #include "scheme.h"
+#include <sys/time.h> // gettimeofday
 
 // Check sanity
 // Boehm GC redirects pthread_create => GC_pthread_create with C macro.
@@ -164,6 +165,19 @@ namespace scheme {
             int ret = pthread_cond_wait(&cond_, &mutex_.mutex_);
             mutex_.unlock();
             return 0 == ret;
+        }
+
+        // returns false if timeout
+        bool waitWithTimeout(int msecs)
+        {
+            struct timespec timeout = { time(NULL), msecs * 1000L };
+            mutex_.lock();
+            int ret = 0;
+            do {
+                ret = pthread_cond_timedwait(&cond_, &mutex_.mutex_, &timeout);
+            } while (ret == EINTR);
+            mutex_.unlock();
+            return ETIMEDOUT != ret;
         }
     };
 

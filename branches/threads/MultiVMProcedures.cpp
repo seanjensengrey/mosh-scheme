@@ -65,6 +65,24 @@ static void* vmEntry(void* param);
 // # (vm-terminate! vm) => unef
 // # (vm-join! vm [timeout [timeout-val]])
 
+
+// (vm-self) => vm
+Object scheme::vmSelfEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("vm-self");
+    checkArgumentLength(0);
+    return Object::makeVM(theVM);
+}
+
+// (main-vm?) => boolean
+Object scheme::mainVmPEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("main-vm?");
+    checkArgumentLength(0);
+    return Object::makeBool(theVM->isMainThread());
+}
+
+
 // (vm? obj) => boolean
 Object scheme::vmPEx(VM* theVM, int argc, const Object* argv)
 {
@@ -160,13 +178,18 @@ Object scheme::conditionVariableNotifyDEx(VM* theVM, int argc, const Object* arg
     return Object::makeBool(c->notify());
 }
 
-// (condition-variable-wait c) => boolean
+// (condition-variable-wait c . timeout-msec) => boolean (returns false when timeout)
 Object scheme::conditionVariableWaitDEx(VM* theVM, int argc, const Object* argv)
 {
     DeclareProcedureName("condition-variable-wait!");
-    checkArgumentLength(1);
+    checkArgumentLengthBetween(1, 2);
     argumentAsConditionVariable(0, c);
-    return Object::makeBool(c->wait());
+    if (1 == argc) {
+        return Object::makeBool(c->wait());
+    } else {
+        argumentAsFixnum(1, timeout);
+        return Object::makeBool(c->waitWithTimeout(timeout));
+    }
 }
 
 // (mutex-unlock! mutex) => undef

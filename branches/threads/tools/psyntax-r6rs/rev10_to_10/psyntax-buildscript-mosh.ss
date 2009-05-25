@@ -997,6 +997,8 @@
     (mutex-try-lock!                         mosh interaction)
     (make-vm                                 mosh interaction)
     (vm-start!                               mosh interaction)
+    (vm-self                                 mosh interaction)
+    (main-vm?                                mosh interaction)
     (vm?                                     mosh interaction)
     (vm-set-value!                           mosh interaction)
     (vm-join!                                mosh interaction)

@@ -28,7 +28,7 @@
 ;  $Id: concurrent.ss 621 2008-11-09 06:22:47Z higepon $
 
 (library (mosh concurrent)
-  (export ! receive! spawn self join!)
+  (export ! receive spawn self join!)
   (import (mosh) (rnrs) (mosh queue) (match))
 
 (define-record-type mail-box
@@ -67,16 +67,20 @@
 (define (self)
   (symbol-value 'self))
 
-
-(define-syntax receive!
+(define-syntax receive
   (lambda (x)
   (syntax-case x (after)
     [(_ [match-expr body0 body ...] ... [after timeout after-body0 after-body ...])
      (integer? (syntax->datum #'timeout))
      #'(let ([saved (make-queue)])
          (letrec ([rec (lambda ()
-                         (display 'after)
-                         (match (receive-internal!)
+                         (match (receive-internal! timeout)
+                           ['%timeout
+                            ;; restore!
+                            (let ([mails (mail-box-mails (process-mail-box (self)))])
+                              (queue-append! saved mails)
+                              (mail-box-mails-set! (process-mail-box (self)) saved))
+                            after-body0 after-body ...]
                            [match-expr
                             (let ([mails (mail-box-mails (process-mail-box (self)))])
                               (queue-append! saved mails)
@@ -98,47 +102,33 @@
                            [x
                             (queue-push! saved x)
                             (rec)]))])
-           (rec)))]
-    
-)))
+           (rec)))])))
 
-;; (define-syntax receive!
-;;   (lambda (x)
-;;   (syntax-case x ()
-;;     [(_ [match-expr body0 body ...] ...)
-;;      #'(let ([saved (make-queue)])
-;;          (letrec ([rec (lambda ()
-;;                          (match (receive-internal!)
-;;                            [match-expr
-;;                             (let-values ([x ((lambda () body0 body ...))])
-;;                               (let ([mails (mail-box-mails (process-mail-box (self)))])
-;; ;                              (format #t "match! mails=~a saved=~a\n" mails saved)
-;;                                 (queue-append! saved mails)
-;;                                 (mail-box-mails-set! (process-mail-box (self)) saved)
-;; ;                              (format #t "mail-box ~a\n" (mail-box-mails (process-mail-box (self))))
-;;                                 (apply values x)))] ...
-;;                            [x #;(format #t "pushed ~a\n" x)
-;;                             (queue-push! saved x)
-;;                             (rec)]))])
-;;            (rec)))])))
-
-
-(define (receive-internal!)
+(define (receive-internal! . timeout)
   (let ([mb (process-mail-box (self))])
   (let loop ()
     (cond
      [(queue-empty? (mail-box-mails mb))
-      (condition-variable-wait! (mail-box-condition mb))
-      (loop)]
+      (cond
+       [(pair? timeout)
+        (let ([timeout? (not (condition-variable-wait! (mail-box-condition mb) (car timeout)))])
+          (if timeout?
+              '%timeout
+              (loop)))]
+       [else
+        (condition-variable-wait! (mail-box-condition mb))
+        (loop)])]
      [else
       (mutex-lock! (mail-box-mutex mb))
       (let ([val (queue-pop! (mail-box-mails mb))])
         (mutex-unlock! (mail-box-mutex mb))
-;        (format #t "recevie returns ~a\n" val)
         val)]))))
 
 (define (join! process)
   (vm-join! (process-vm process)))
 
+(when (main-vm?)
+  (let ([process (make-process (vm-self))])
+    (vm-set-value! (vm-self) 'self process)))
 
 )

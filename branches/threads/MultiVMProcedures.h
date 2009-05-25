@@ -71,6 +71,8 @@ namespace scheme {
 //         }
 //     };
 
+    Object vmSelfEx(VM* theVM, int argc, const Object* argv);
+    Object mainVmPEx(VM* theVM, int argc, const Object* argv);
     Object vmPEx(VM* theVM, int argc, const Object* argv);
     Object makeVmEx(VM* theVM, int argc, const Object* argv);
     Object vmStartDEx(VM* theVM, int argc, const Object* argv);

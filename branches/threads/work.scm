@@ -14,35 +14,39 @@
              (lambda ()
                (test-begin "receive")
                (test-eqv 'hello
-                         (receive!
+                         (receive
                           [('apple)
                            (test-false #t)]
                           [('greeting what)
                            what]))
                (test-equal '(some hello)
-                           (receive!
+                           (receive
                             [x x]))
                (test-equal 'good
-                           (receive!
+                           (receive
                             ['good 'good]))
                (test-eqv 'hello2
-                         (receive!
+                         (receive
                           [('greeting what)
                            what]))
                (test-eqv 'hello3
-                         (receive!
+                         (receive
                           [('greeting what)
                            what]))
                (test-equal '(a . pen)
-                           (let-values ([(x y) (receive!
+                           (let-values ([(x y) (receive
                                                 [('this 'is x y) (values x y)])])
                              (cons x y)))
                ;; timeout
                (test-eqv 'time-out
-                         (receive!
+                         (receive
                           [('greeting what) what]
                           [after 1000
-                                 'timeout]))
+                                 'time-out]))
+               ;; doesn't work yet
+#;               (receive
+                 [('register from name)
+                  (! from `(ok ,name))])
                (test-end)
 
                )
@@ -55,6 +59,9 @@
 (! pid 'good)
 (! pid '(this is a pen))
 
+(! pid `(register ,(self) "higepon"))
+(receive
+    [('ok name) (display name)])
 (join! pid))
 ;; (define-record-type mail-box
 ;;   (fields
@@ -83,7 +90,7 @@
 ;;     (mutex-unlock! (mail-box-mutex mb))
 ;;     (condition-variable-notify! (mail-box-condition mb))))
 
-;; (define (receive! process)
+;; (define (receive process)
 ;;   (let ([mb (process-mail-box process)])
 ;;   (define (mail-exists?)
 ;;     (pair? (mail-box-mail* mb)))

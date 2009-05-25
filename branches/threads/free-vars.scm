@@ -530,6 +530,8 @@
     vm?
     vm-set-value!
     vm-join!
+    main-vm?
+    vm-self
     ;; condition-variable
     make-condition-variable
     condition-variable-wait!
