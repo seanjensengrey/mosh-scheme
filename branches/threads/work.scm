@@ -47,6 +47,8 @@
 #;               (receive
                  [('register from name)
                   (! from `(ok ,name))])
+
+;; ああ。mail-box lock してないところあるね。
                (test-end)
 
                )
