@@ -12,12 +12,48 @@
 ;; time-out
 (let ([pid (spawn '
              (lambda ()
-               (display (receive!))
+               (test-begin "receive")
+               (test-eqv 'hello
+                         (receive!
+                          [('apple)
+                           (test-false #t)]
+                          [('greeting what)
+                           what]))
+               (test-equal '(some hello)
+                           (receive!
+                            [x x]))
+               (test-equal 'good
+                           (receive!
+                            ['good 'good]))
+               (test-eqv 'hello2
+                         (receive!
+                          [('greeting what)
+                           what]))
+               (test-eqv 'hello3
+                         (receive!
+                          [('greeting what)
+                           what]))
+               (test-equal '(a . pen)
+                           (let-values ([(x y) (receive!
+                                                [('this 'is x y) (values x y)])])
+                             (cons x y)))
+               ;; timeout
+               (test-eqv 'time-out
+                         (receive!
+                          [('greeting what) what]
+                          [after 1000
+                                 'timeout]))
+               (test-end)
 
                )
              '((rnrs) (mosh concurrent) (mosh test)))])
 
-(! pid '(1 2 3 4))
+(! pid '(some hello))
+(! pid '(greeting hello))
+(! pid '(greeting hello2))
+(! pid '(greeting hello3))
+(! pid 'good)
+(! pid '(this is a pen))
 
 (join! pid))
 ;; (define-record-type mail-box

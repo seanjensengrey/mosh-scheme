@@ -29,7 +29,7 @@
 
 (library (mosh concurrent)
   (export ! receive! spawn self join!)
-  (import (mosh) (rnrs) (mosh queue))
+  (import (mosh) (rnrs) (mosh queue) (match))
 
 (define-record-type mail-box
   (fields
@@ -67,7 +67,63 @@
 (define (self)
   (symbol-value 'self))
 
-(define (receive!)
+
+(define-syntax receive!
+  (lambda (x)
+  (syntax-case x (after)
+    [(_ [match-expr body0 body ...] ... [after timeout after-body0 after-body ...])
+     (integer? (syntax->datum #'timeout))
+     #'(let ([saved (make-queue)])
+         (letrec ([rec (lambda ()
+                         (display 'after)
+                         (match (receive-internal!)
+                           [match-expr
+                            (let ([mails (mail-box-mails (process-mail-box (self)))])
+                              (queue-append! saved mails)
+                              (mail-box-mails-set! (process-mail-box (self)) saved)
+                              body0 body ...)] ...
+                           [x
+                            (queue-push! saved x)
+                            (rec)]))])
+           (rec)))]
+    [(_ [match-expr body0 body ...] ...)
+     #'(let ([saved (make-queue)])
+         (letrec ([rec (lambda ()
+                         (match (receive-internal!)
+                           [match-expr
+                            (let ([mails (mail-box-mails (process-mail-box (self)))])
+                              (queue-append! saved mails)
+                              (mail-box-mails-set! (process-mail-box (self)) saved)
+                              body0 body ...)] ...
+                           [x
+                            (queue-push! saved x)
+                            (rec)]))])
+           (rec)))]
+    
+)))
+
+;; (define-syntax receive!
+;;   (lambda (x)
+;;   (syntax-case x ()
+;;     [(_ [match-expr body0 body ...] ...)
+;;      #'(let ([saved (make-queue)])
+;;          (letrec ([rec (lambda ()
+;;                          (match (receive-internal!)
+;;                            [match-expr
+;;                             (let-values ([x ((lambda () body0 body ...))])
+;;                               (let ([mails (mail-box-mails (process-mail-box (self)))])
+;; ;                              (format #t "match! mails=~a saved=~a\n" mails saved)
+;;                                 (queue-append! saved mails)
+;;                                 (mail-box-mails-set! (process-mail-box (self)) saved)
+;; ;                              (format #t "mail-box ~a\n" (mail-box-mails (process-mail-box (self))))
+;;                                 (apply values x)))] ...
+;;                            [x #;(format #t "pushed ~a\n" x)
+;;                             (queue-push! saved x)
+;;                             (rec)]))])
+;;            (rec)))])))
+
+
+(define (receive-internal!)
   (let ([mb (process-mail-box (self))])
   (let loop ()
     (cond
@@ -78,6 +134,7 @@
       (mutex-lock! (mail-box-mutex mb))
       (let ([val (queue-pop! (mail-box-mails mb))])
         (mutex-unlock! (mail-box-mutex mb))
+;        (format #t "recevie returns ~a\n" val)
         val)]))))
 
 (define (join! process)

@@ -28,7 +28,7 @@
 ;  $Id: concurrent.ss 621 2008-11-09 06:22:47Z higepon $
 
 (library (mosh queue)
-  (export make-queue queue-empty? queue-push! queue-pop!)
+  (export make-queue queue-empty? queue-push! queue-pop! queue-append!)
   (import (mosh) (rnrs) (rnrs mutable-pairs))
 
 (define (make-queue) (cons '() '()))
@@ -44,6 +44,16 @@
    [else
     (set-cdr! (cdr queue) (list obj))
     (set-cdr! queue (cddr queue))]))
+
+;; todo
+;; this is a naive implementation
+(define (queue-append! lhs rhs)
+  (let loop ([empty? (queue-empty? rhs)])
+    (cond
+     [empty? lhs]
+     [else
+      (queue-push! lhs (queue-pop! rhs))
+      (loop (queue-empty? rhs))])))
 
 (define (queue-pop! queue)
   (when (queue-empty? queue)

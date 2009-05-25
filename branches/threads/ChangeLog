@@ -1,5 +1,7 @@
 2009-05-25  higepon  <higepon@users.sourceforge.jp>
 
+        * Added recevie with pattern match.
+
         * RecordProcedures.cpp : Fixed. generative rtds were global.
 
 2009-05-23  higepon  <higepon@users.sourceforge.jp>
