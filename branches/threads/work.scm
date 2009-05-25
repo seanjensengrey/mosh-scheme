@@ -2,6 +2,7 @@
         (mosh)
         (rnrs mutable-pairs)
         (mosh queue)
+;        (mosh test)
         (mosh concurrent))
 
 ;; todo
@@ -9,16 +10,16 @@
 ;; store-queue
 ;; match
 ;; time-out
- pid (spawn '
+(let ([pid (spawn '
              (lambda ()
                (display (receive!))
 
                )
-             '((rnrs) (mosh concurrent))))
+             '((rnrs) (mosh concurrent) (mosh test)))])
 
 (! pid '(1 2 3 4))
 
-(join! pid)
+(join! pid))
 ;; (define-record-type mail-box
 ;;   (fields
 ;;    (immutable condition)

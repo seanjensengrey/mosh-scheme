@@ -33,6 +33,7 @@
 #include "Object-inl.h"
 #include "Pair.h"
 #include "Pair-inl.h"
+#include "EqHashTable.h"
 #include "VM.h"
 #include "Closure.h"
 #include "EqHashTable.h"
@@ -861,4 +862,20 @@ void VM::setThread(Thread* thread)
 Thread* VM::thread()
 {
     return thread_;
+}
+
+Object VM::findGenerativeRtd(Object uid)
+{
+    ObjectMap::const_iterator found = generativeRtds_.find(uid);
+    if (found == generativeRtds_.end()) {
+        return Object::False;
+    } else {
+        return found->second;
+
+    }
+}
+
+void VM::addGenerativeRtd(Object uid, Object rtd)
+{
+    generativeRtds_[uid] = rtd;
 }

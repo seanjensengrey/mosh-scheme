@@ -37,6 +37,7 @@
 #include "TextualInputPort.h"
 #include "TextualOutputPort.h"
 #include "Reader.h"
+#include "EqHashTable.h"
 #include "ProcedureMacro.h"
 #include "Scanner.h"
 

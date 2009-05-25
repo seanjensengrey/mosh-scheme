@@ -35,6 +35,7 @@
 #include "scheme.h"
 #include <setjmp.h>
 #include "Instruction.h"
+#include "EqHashTable.h"
 
 namespace scheme {
 
@@ -168,6 +169,9 @@ public:
     void unregisterPort(Object obj);
     virtual void flushAllPorts();
 
+    Object findGenerativeRtd(Object uid);
+    void addGenerativeRtd(Object uid, Object rtd);
+
 protected:
     virtual int exit(int status)
     {
@@ -232,6 +236,7 @@ protected:
     Ports activePorts_;
     ucs4string name_;
     Thread* thread_;
+    ObjectMap generativeRtds_;
 };
 
 } // namespace scheme

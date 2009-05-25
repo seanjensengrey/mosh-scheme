@@ -36,6 +36,7 @@
 #include "SString.h"
 #include "Closure.h"
 #include "OSCompatThread.h"
+#include "EqHashTable.h"
 #include "VM.h"
 #include "StringProcedures.h"
 #include "TextualOutputPort.h"

@@ -39,10 +39,10 @@
 #include "Pair.h"
 #include "Pair-inl.h"
 #include "SString.h"
+#include "EqHashTable.h"
 #include "VM.h"
 #include "ErrorProcedures.h"
 #include "TextualOutputPort.h"
-#include "EqHashTable.h"
 #include "StringProcedures.h"
 
 using namespace scheme;
