@@ -28,7 +28,7 @@
 ;  $Id: concurrent.ss 621 2008-11-09 06:22:47Z higepon $
 
 (library (mosh concurrent)
-  (export ! receive spawn self join! register whereis link process-exit)
+  (export ! receive spawn self join! register whereis link process-exit spawn-link)
   (import (mosh) (rnrs) (mosh queue) (match))
 
 (define-record-type mail-box
@@ -70,6 +70,15 @@
       (mutex-unlock! (mail-box-mutex mb))
       (condition-variable-notify! (mail-box-condition mb)))))
 
+(define (unlink pid)
+  (let* ([self (self)]
+         [links (pid-links pid)])
+    (when (memq pid links)
+      (pid-links-set! pid (remq pid links)))
+    (let ([links (pid-links self)])
+      (when (memq self links)
+        (pid-links-set! pid (remq self links))))))
+
 (define (link pid)
   (let* ([self (self)]
          [links (pid-links pid)])
@@ -84,6 +93,14 @@
     (syntax-case x ()
       [(_ expr import-spec)
        #'(spawn-internal 'expr import-spec)])))
+
+(define-syntax spawn-link
+  (lambda (x)
+    (syntax-case x ()
+      [(_ expr import-spec)
+       #'(let ([pid (spawn-internal 'expr import-spec)])
+           (link pid)
+           pid)])))
 
 (define (spawn-internal thunk import-spec)
   (let* ([vm (make-vm `(lambda () (guard (c [#t (process-exit c)]) (,thunk) (process-exit 'normal))) import-spec)]

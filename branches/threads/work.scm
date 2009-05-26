@@ -80,8 +80,7 @@
 (receive
     [('exit why) (test-equal 'normal why)])
 
-(let ([pid2 (spawn (lambda () (error 'unknown "hogehoge2")) '((rnrs) (mosh concurrent)))])
-  (link pid2)
+(let ([pid2 (spawn-link (lambda () (error 'unknown "hogehoge2")) '((rnrs) (mosh concurrent)))])
   (receive
       [('exit why) (test-true (error? why))
        #;(raise why)]))
