@@ -7,6 +7,7 @@
 
 ;; todo
 ;; spawn unquote
+;; mosh concurrent auto-import
 (let ([pid (spawn
              (lambda ()
                (test-begin "receive")
@@ -53,9 +54,12 @@
                   (! from `(ok ,name))])
 
                (test-end)
-
+;               (process-exit 'normal)
+;               (error 'hoge "hage")
                )
              '((rnrs) (mosh concurrent) (mosh test)))])
+
+(link pid)
 
 (! pid '(some hello))
 (! pid '(greeting hello))
@@ -72,7 +76,21 @@
 (! 'sub `(register ,(self) "higepon"))
 (receive
     [('ok name) (test-equal "higepon" name)])
+
+(receive
+    [('exit why) (test-equal 'normal why)])
+
+(let ([pid2 (spawn (lambda () (error 'unknown "hogehoge2")) '((rnrs) (mosh concurrent)))])
+  (link pid2)
+  (receive
+      [('exit why) (test-true (error? why))
+       #;(raise why)]))
+
+
+
 (test-end)
+
+
 (join! pid))
 ;; (define-record-type mail-box
 ;;   (fields

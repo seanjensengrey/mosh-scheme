@@ -28,7 +28,7 @@
 ;  $Id: concurrent.ss 621 2008-11-09 06:22:47Z higepon $
 
 (library (mosh concurrent)
-  (export ! receive spawn self join! register whereis)
+  (export ! receive spawn self join! register whereis link process-exit)
   (import (mosh) (rnrs) (mosh queue) (match))
 
 (define-record-type mail-box
@@ -41,11 +41,18 @@
      (lambda ()
        (c (make-condition-variable) (make-mutex) (make-queue))))))
 
+(define (process-exit status)
+  (for-each
+   (lambda (to)
+     (! to `(exit ,status)))
+   (pid-links (self)))
+  (exit status))
+
 (define-record-type pid
   (fields
    (immutable vm)
    (immutable mail-box)
-   (mutable outbound-links))
+   (mutable links))
   (protocol
    (lambda (c)
      (lambda (vm)
@@ -63,9 +70,14 @@
       (mutex-unlock! (mail-box-mutex mb))
       (condition-variable-notify! (mail-box-condition mb)))))
 
-(define (outbound-link pid)
-  (unless (memq pid (pid-outbound-links (self)))
-    (pid-outbound-links-set! (self) pid)))
+(define (link pid)
+  (let* ([self (self)]
+         [links (pid-links pid)])
+    (unless (memq pid links)
+      (pid-links-set! pid (cons pid links)))
+    (let ([links (pid-links self)])
+      (unless (memq self links)
+        (pid-links-set! pid (cons self links))))))
 
 (define-syntax spawn
   (lambda (x)
@@ -73,8 +85,8 @@
       [(_ expr import-spec)
        #'(spawn-internal 'expr import-spec)])))
 
-(define (spawn-internal expr import-spec)
-  (let* ([vm (make-vm expr import-spec)]
+(define (spawn-internal thunk import-spec)
+  (let* ([vm (make-vm `(lambda () (guard (c [#t (process-exit c)]) (,thunk) (process-exit 'normal))) import-spec)]
          [pid (make-pid vm)])
     (vm-set-value! vm 'self pid)
     (vm-start! vm)
