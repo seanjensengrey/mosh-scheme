@@ -41,26 +41,31 @@
      (lambda ()
        (c (make-condition-variable) (make-mutex) (make-queue))))))
 
-(define-record-type process
+(define-record-type pid
   (fields
    (immutable vm)
-   (immutable mail-box))
+   (immutable mail-box)
+   (mutable outbound-links))
   (protocol
    (lambda (c)
      (lambda (vm)
-       (c vm (make-mail-box))))))
+       (c vm (make-mail-box) '())))))
 
-(define (! process obj)
-  (let ([p (if (process? process)
-               process
-               (whereis process))])
+(define (! pid obj)
+  (let ([p (if (pid? pid)
+               pid
+               (whereis pid))])
     (unless p
-      (error '! "process not found" process))
-    (let ([mb (process-mail-box p)])
+      (error '! "pid not found" pid))
+    (let ([mb (pid-mail-box p)])
       (mutex-lock! (mail-box-mutex mb))
       (queue-push! (mail-box-mails mb) obj)
       (mutex-unlock! (mail-box-mutex mb))
       (condition-variable-notify! (mail-box-condition mb)))))
+
+(define (outbound-link pid)
+  (unless (memq pid (pid-outbound-links (self)))
+    (pid-outbound-links-set! (self) pid)))
 
 (define-syntax spawn
   (lambda (x)
@@ -70,10 +75,10 @@
 
 (define (spawn-internal expr import-spec)
   (let* ([vm (make-vm expr import-spec)]
-         [process (make-process vm)])
-    (vm-set-value! vm 'self process)
+         [pid (make-pid vm)])
+    (vm-set-value! vm 'self pid)
     (vm-start! vm)
-    process))
+    pid))
 
 (define (self)
   (symbol-value 'self))
@@ -88,19 +93,19 @@
                          (match (receive-internal! timeout)
                            ['%timeout
                             ;; restore!
-                              (mutex-lock! (mail-box-mutex (process-mail-box (self))))
-                            (let ([mails (mail-box-mails (process-mail-box (self)))])
+                              (mutex-lock! (mail-box-mutex (pid-mail-box (self))))
+                            (let ([mails (mail-box-mails (pid-mail-box (self)))])
 
                               (queue-append! saved mails)
-                              (mail-box-mails-set! (process-mail-box (self)) saved)
-                              (mutex-unlock! (mail-box-mutex (process-mail-box (self)))))
+                              (mail-box-mails-set! (pid-mail-box (self)) saved)
+                              (mutex-unlock! (mail-box-mutex (pid-mail-box (self)))))
                             after-body0 after-body ...]
                            [match-expr
-                            (mutex-lock! (mail-box-mutex (process-mail-box (self))))
-                            (let ([mails (mail-box-mails (process-mail-box (self)))])
+                            (mutex-lock! (mail-box-mutex (pid-mail-box (self))))
+                            (let ([mails (mail-box-mails (pid-mail-box (self)))])
                               (queue-append! saved mails)
-                              (mail-box-mails-set! (process-mail-box (self)) saved)
-                              (mutex-unlock! (mail-box-mutex (process-mail-box (self))))
+                              (mail-box-mails-set! (pid-mail-box (self)) saved)
+                              (mutex-unlock! (mail-box-mutex (pid-mail-box (self))))
                               body0 body ...)] ...
                            [x
                             (queue-push! saved x)
@@ -111,11 +116,11 @@
          (letrec ([rec (lambda ()
                          (match (receive-internal!)
                            [match-expr
-                              (mutex-lock! (mail-box-mutex (process-mail-box (self))))
-                            (let ([mails (mail-box-mails (process-mail-box (self)))])
+                              (mutex-lock! (mail-box-mutex (pid-mail-box (self))))
+                            (let ([mails (mail-box-mails (pid-mail-box (self)))])
                               (queue-append! saved mails)
-                              (mail-box-mails-set! (process-mail-box (self)) saved)
-                              (mutex-unlock! (mail-box-mutex (process-mail-box (self))))
+                              (mail-box-mails-set! (pid-mail-box (self)) saved)
+                              (mutex-unlock! (mail-box-mutex (pid-mail-box (self))))
                               body0 body ...)] ...
                            [x
                             (queue-push! saved x)
@@ -123,7 +128,7 @@
            (rec)))])))
 
 (define (receive-internal! . timeout)
-  (let ([mb (process-mail-box (self))])
+  (let ([mb (pid-mail-box (self))])
   (let loop ()
     (cond
      [(queue-empty? (mail-box-mails mb))
@@ -142,11 +147,11 @@
         (mutex-unlock! (mail-box-mutex mb))
         val)]))))
 
-(define (join! process)
-  (vm-join! (process-vm process)))
+(define (join! pid)
+  (vm-join! (pid-vm pid)))
 
 (when (main-vm?)
-  (let ([process (make-process (vm-self))])
-    (vm-set-value! (vm-self) 'self process)))
+  (let ([pid (make-pid (vm-self))])
+    (vm-set-value! (vm-self) 'self pid)))
 
 )
