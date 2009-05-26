@@ -29,7 +29,8 @@
 
 (library (mosh queue)
   (export make-queue queue-empty? queue-push! queue-pop! queue-append!)
-  (import (mosh) (rnrs) (rnrs mutable-pairs))
+  (import (only (rnrs) define cons quote null? cond list car cdr cddr when caar else let error cdar)
+          (only (rnrs mutable-pairs) set-car! set-cdr!))
 
 (define (make-queue) (cons '() '()))
 

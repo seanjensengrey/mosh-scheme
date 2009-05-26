@@ -39,7 +39,7 @@
                (test-eqv 'time-out
                          (receive
                           [('greeting what) what]
-                          [after 1000
+                          [after 1
                                  'time-out]))
 
                (register 'sub (self))

@@ -39,6 +39,8 @@
 ;        (mosh mysql)
 ;        (mosh dbi)
 ;        (mosh dbd mysql)
+        (mosh queue)
+        (except (mosh concurrent) spawn receive)
         (mosh process)
         (mosh control)
         (mosh socket)

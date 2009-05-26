@@ -1,3 +1,7 @@
+2009-05-27  higepon  <higepon@users.sourceforge.jp>
+
+        * First implementation of (mosh concurrent)
+
 2009-05-26  higepon  <higepon@users.sourceforge.jp>
 
         * lib/mosh/concurrent.ss: Added register and whereis procedure.
