@@ -532,6 +532,8 @@
     vm-join!
     main-vm?
     vm-self
+    register
+    whereis
     ;; condition-variable
     make-condition-variable
     condition-variable-wait!

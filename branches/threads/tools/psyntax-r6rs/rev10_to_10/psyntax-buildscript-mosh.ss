@@ -1002,6 +1002,8 @@
     (vm?                                     mosh interaction)
     (vm-set-value!                           mosh interaction)
     (vm-join!                                mosh interaction)
+    (register                                mosh interaction)
+    (whereis                                 mosh interaction)
     (sys-display mosh)
     (get-command-line mosh)
     (get-timeofday mosh)

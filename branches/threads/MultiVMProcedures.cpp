@@ -65,6 +65,36 @@ static void* vmEntry(void* param);
 // # (vm-terminate! vm) => unef
 // # (vm-join! vm [timeout [timeout-val]])
 
+// todo (network)
+// this should be global and shared between VM instances.
+static EqHashTable* processes = NULL;
+
+static EqHashTable* processesTable()
+{
+    if (NULL == processes) {
+        processes = new EqHashTable;
+    }
+    return processes;
+}
+
+// (register name #<process>)
+Object scheme::registerEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("register");
+    checkArgumentLength(2);
+    argumentCheckSymbol(0, name);
+    processesTable()->set(name, argv[1]);
+    return Object::Undef;
+}
+
+// (whereis name) => registered or false
+Object scheme::whereisEx(VM* theVM, int argc, const Object* argv)
+{
+    DeclareProcedureName("whereis");
+    checkArgumentLength(1);
+    argumentCheckSymbol(0, name);
+    return processesTable()->ref(name, Object::False);
+}
 
 // (vm-self) => vm
 Object scheme::vmSelfEx(VM* theVM, int argc, const Object* argv)

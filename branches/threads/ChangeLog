@@ -1,5 +1,7 @@
 2009-05-26  higepon  <higepon@users.sourceforge.jp>
 
+        * lib/mosh/concurrent.ss: Added register and whereis procedure.
+
         * VM.cpp : Fixed invalid share of CProcedure::returnCode.
                  : Made getCProcedureName function VM instance method.
 

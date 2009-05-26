@@ -28,7 +28,7 @@
 ;  $Id: concurrent.ss 621 2008-11-09 06:22:47Z higepon $
 
 (library (mosh concurrent)
-  (export ! receive spawn self join!)
+  (export ! receive spawn self join! register whereis)
   (import (mosh) (rnrs) (mosh queue) (match))
 
 (define-record-type mail-box
@@ -51,18 +51,29 @@
        (c vm (make-mail-box))))))
 
 (define (! process obj)
-  (let ([mb (process-mail-box process)])
-    (mutex-lock! (mail-box-mutex mb))
-    (queue-push! (mail-box-mails mb) obj)
-    (mutex-unlock! (mail-box-mutex mb))
-    (condition-variable-notify! (mail-box-condition mb))))
+  (let ([p (if (process? process)
+               process
+               (whereis process))])
+    (unless p
+      (error '! "process not found" process))
+    (let ([mb (process-mail-box p)])
+      (mutex-lock! (mail-box-mutex mb))
+      (queue-push! (mail-box-mails mb) obj)
+      (mutex-unlock! (mail-box-mutex mb))
+      (condition-variable-notify! (mail-box-condition mb)))))
 
-(define (spawn expr import-spec)
-(let* ([vm (make-vm expr import-spec)]
-      [process (make-process vm)])
-  (vm-set-value! vm 'self process)
-  (vm-start! vm)
-  process))
+(define-syntax spawn
+  (lambda (x)
+    (syntax-case x ()
+      [(_ expr import-spec)
+       #'(spawn-internal 'expr import-spec)])))
+
+(define (spawn-internal expr import-spec)
+  (let* ([vm (make-vm expr import-spec)]
+         [process (make-process vm)])
+    (vm-set-value! vm 'self process)
+    (vm-start! vm)
+    process))
 
 (define (self)
   (symbol-value 'self))

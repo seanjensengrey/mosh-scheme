@@ -1,16 +1,13 @@
  (import (rnrs)
         (mosh)
         (rnrs mutable-pairs)
-        (mosh queue)
-;        (mosh test)
+;        (mosh queue)
+        (mosh test)
         (mosh concurrent))
 
 ;; todo
-;; receive mail-box
-;; store-queue
-;; match
-;; time-out
-(let ([pid (spawn '
+;; spawn unquote
+(let ([pid (spawn
              (lambda ()
                (test-begin "receive")
                (test-eqv 'hello
@@ -43,12 +40,18 @@
                           [('greeting what) what]
                           [after 1000
                                  'time-out]))
+
+               (register 'sub (self))
                ;; doesn't work yet
               (receive
                  [('register from name)
                   (! from `(ok ,name))])
 
 ;; ああ。mail-box lock してないところあるね。
+              (receive
+                 [('register from name)
+                  (! from `(ok ,name))])
+
                (test-end)
 
                )
@@ -61,9 +64,15 @@
 (! pid 'good)
 (! pid '(this is a pen))
 
+(test-begin "main process")
 (! pid `(register ,(self) "higepon"))
 (receive
-    [('ok name) (format #t "reply=~a" name)])
+    [('ok name) (test-equal "higepon" name)])
+
+(! 'sub `(register ,(self) "higepon"))
+(receive
+    [('ok name) (test-equal "higepon" name)])
+(test-end)
 (join! pid))
 ;; (define-record-type mail-box
 ;;   (fields
