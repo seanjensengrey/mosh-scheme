@@ -245,6 +245,19 @@ protected:
     Object closureForEvaluate_;
     Object* applyCodeForCallClosure0_;
     int applyCodeForCallClosure0Length_;
+
+    Object* applyCodeForCallClosure1_;
+    int applyCodeForCallClosure1Length_;
+
+    Object* applyCodeForCallClosure2_;
+    int applyCodeForCallClosure2Length_;
+
+    Object* applyCodeForCallClosure3_;
+    int applyCodeForCallClosure3Length_;
+
+    Object* callCodeForSetAfterTrigger0_;
+    int callCodeForSetAfterTrigger0Length_;
+
 };
 
 } // namespace scheme

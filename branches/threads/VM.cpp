@@ -128,7 +128,7 @@ VM::VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool i
     closureForEvaluate_ = Object::makeClosure(NULL, 0, 0, false, cProcs_, cProcNum, 0, outerSourceInfo_);
 
     applyCodeForCallClosure0Length_ = 7;
-    applyCodeForCallClosure0_ = Object::makeObjectArray(applyCodeForCallClosure0_);
+    applyCodeForCallClosure0_ = Object::makeObjectArray(applyCodeForCallClosure0Length_);
     applyCodeForCallClosure0_[0] = Object::makeRaw(Instruction::FRAME);
     applyCodeForCallClosure0_[1] = Object::makeFixnum(5);
     applyCodeForCallClosure0_[2] = Object::makeRaw(Instruction::CONSTANT);
@@ -136,6 +136,55 @@ VM::VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool i
     applyCodeForCallClosure0_[4] = Object::makeRaw(Instruction::CALL);
     applyCodeForCallClosure0_[5] = Object::makeFixnum(0);
     applyCodeForCallClosure0_[6] = Object::makeRaw(Instruction::HALT);
+
+    applyCodeForCallClosure1Length_ = 10;
+    applyCodeForCallClosure1_ = Object::makeObjectArray(applyCodeForCallClosure1Length_);
+    applyCodeForCallClosure1_[0] = Object::makeRaw(Instruction::FRAME);
+    applyCodeForCallClosure1_[1] = Object::makeFixnum(8);
+    applyCodeForCallClosure1_[2] = Object::makeRaw(Instruction::CONSTANT);
+    applyCodeForCallClosure1_[3] = Object::Undef;
+    applyCodeForCallClosure1_[4] = Object::makeRaw(Instruction::PUSH);
+    applyCodeForCallClosure1_[5] = Object::makeRaw(Instruction::CONSTANT);
+    applyCodeForCallClosure1_[6] = Object::Undef;
+    applyCodeForCallClosure1_[7] = Object::makeRaw(Instruction::CALL);
+    applyCodeForCallClosure1_[8] = Object::makeFixnum(1);
+    applyCodeForCallClosure1_[9] = Object::makeRaw(Instruction::HALT);
+
+    applyCodeForCallClosure2Length_ = 13;
+    applyCodeForCallClosure2_ = Object::makeObjectArray(applyCodeForCallClosure2Length_);
+    applyCodeForCallClosure2_[0] = Object::makeRaw(Instruction::FRAME);
+    applyCodeForCallClosure2_[1] = Object::makeFixnum(11);
+    applyCodeForCallClosure2_[2] = Object::makeRaw(Instruction::CONSTANT);
+    applyCodeForCallClosure2_[3] = Object::Undef;
+    applyCodeForCallClosure2_[4] = Object::makeRaw(Instruction::PUSH);
+    applyCodeForCallClosure2_[5] = Object::makeRaw(Instruction::CONSTANT);
+    applyCodeForCallClosure2_[6] = Object::Undef;
+    applyCodeForCallClosure2_[7] = Object::makeRaw(Instruction::PUSH);
+    applyCodeForCallClosure2_[8] = Object::makeRaw(Instruction::CONSTANT);
+    applyCodeForCallClosure2_[9] = Object::Undef;
+    applyCodeForCallClosure2_[10] = Object::makeRaw(Instruction::CALL);
+    applyCodeForCallClosure2_[11] = Object::makeFixnum(2);
+    applyCodeForCallClosure2_[12] = Object::makeRaw(Instruction::HALT);
+
+    applyCodeForCallClosure3Length_ = 16;
+    applyCodeForCallClosure3_ = Object::makeObjectArray(applyCodeForCallClosure3Length_);
+    applyCodeForCallClosure3_[0] = Object::makeRaw(Instruction::FRAME);
+    applyCodeForCallClosure3_[1] = Object::makeFixnum(14);
+    applyCodeForCallClosure3_[2] = Object::makeRaw(Instruction::CONSTANT);
+    applyCodeForCallClosure3_[3] = Object::Undef;
+    applyCodeForCallClosure3_[4] = Object::makeRaw(Instruction::PUSH);
+    applyCodeForCallClosure3_[5] = Object::makeRaw(Instruction::CONSTANT);
+    applyCodeForCallClosure3_[6] = Object::Undef;
+    applyCodeForCallClosure3_[7] = Object::makeRaw(Instruction::PUSH);
+    applyCodeForCallClosure3_[8] = Object::makeRaw(Instruction::CONSTANT);
+    applyCodeForCallClosure3_[9] = Object::Undef;
+    applyCodeForCallClosure3_[10] = Object::makeRaw(Instruction::PUSH);
+    applyCodeForCallClosure3_[11] = Object::makeRaw(Instruction::CONSTANT);
+    applyCodeForCallClosure3_[12] = Object::Undef;
+    applyCodeForCallClosure3_[13] = Object::makeRaw(Instruction::CALL);
+    applyCodeForCallClosure3_[14] = Object::makeFixnum(3);
+    applyCodeForCallClosure3_[15] = Object::makeRaw(Instruction::HALT);
+
 }
 
 VM::~VM() {}
@@ -261,52 +310,24 @@ Object VM::callClosure0(Object closure)
 
 Object VM::callClosure1(Object closure, Object arg)
 {
-    static Object applyCode[] = {
-        Object::makeRaw(Instruction::FRAME),
-        Object::makeFixnum(8),
-        Object::makeRaw(Instruction::CONSTANT),
-        Object::Undef,
-        Object::makeRaw(Instruction::PUSH),
-        Object::makeRaw(Instruction::CONSTANT),
-        Object::Undef,
-        Object::makeRaw(Instruction::CALL),
-        Object::makeFixnum(1),
-        Object::makeRaw(Instruction::HALT),
-    };
-
-    applyCode[3] = arg;
-    applyCode[6] = closure;
+    applyCodeForCallClosure1_[3] = arg;
+    applyCodeForCallClosure1_[6] = closure;
 
     SAVE_REGISTERS();
-    const Object ret = evaluate(applyCode, sizeof(applyCode) / sizeof(Object));
+    const Object ret = evaluate(applyCodeForCallClosure1_, applyCodeForCallClosure1Length_);
     RESTORE_REGISTERS();
     return ret;
 }
 
 Object VM::callClosure2(Object closure, Object arg1, Object arg2)
 {
-    static Object applyCode[] = {
-        Object::makeRaw(Instruction::FRAME),
-        Object::makeFixnum(11),
-        Object::makeRaw(Instruction::CONSTANT),
-        Object::Undef,
-        Object::makeRaw(Instruction::PUSH),
-        Object::makeRaw(Instruction::CONSTANT),
-        Object::Undef,
-        Object::makeRaw(Instruction::PUSH),
-        Object::makeRaw(Instruction::CONSTANT),
-        Object::Undef,
-        Object::makeRaw(Instruction::CALL),
-        Object::makeFixnum(2),
-        Object::makeRaw(Instruction::HALT),
-    };
-    applyCode[3] = arg1;
-    applyCode[6] = arg2;
-    applyCode[9] = closure;
+    applyCodeForCallClosure2_[3] = arg1;
+    applyCodeForCallClosure2_[6] = arg2;
+    applyCodeForCallClosure2_[9] = closure;
     SAVE_REGISTERS();
     Object ret = Object::Undef;;
     TRY_VM {
-    ret = evaluate(applyCode, sizeof(applyCode) / sizeof(Object));
+        ret = evaluate(applyCodeForCallClosure2_, applyCodeForCallClosure2Length_);
     CATCH_VM
         // call default error handler
         defaultExceptionHandler(errorObj_);
@@ -320,30 +341,12 @@ Object VM::callClosure2(Object closure, Object arg1, Object arg2)
 
 Object VM::callClosure3(Object closure, Object arg1, Object arg2, Object arg3)
 {
-    static Object applyCode[] = {
-        Object::makeRaw(Instruction::FRAME),
-        Object::makeFixnum(14),
-        Object::makeRaw(Instruction::CONSTANT),
-        Object::Undef,
-        Object::makeRaw(Instruction::PUSH),
-        Object::makeRaw(Instruction::CONSTANT),
-        Object::Undef,
-        Object::makeRaw(Instruction::PUSH),
-        Object::makeRaw(Instruction::CONSTANT),
-        Object::Undef,
-        Object::makeRaw(Instruction::PUSH),
-        Object::makeRaw(Instruction::CONSTANT),
-        Object::Undef,
-        Object::makeRaw(Instruction::CALL),
-        Object::makeFixnum(3),
-        Object::makeRaw(Instruction::HALT),
-    };
-    applyCode[3] = arg1;
-    applyCode[6] = arg2;
-    applyCode[9] = arg3;
-    applyCode[12] = closure;
+    applyCodeForCallClosure3_[3] = arg1;
+    applyCodeForCallClosure3_[6] = arg2;
+    applyCodeForCallClosure3_[9] = arg3;
+    applyCodeForCallClosure3_[12] = closure;
     SAVE_REGISTERS();
-    const Object ret = evaluate(applyCode, sizeof(applyCode) / sizeof(Object));
+    const Object ret = evaluate(applyCodeForCallClosure3_, applyCodeForCallClosure3Length_);
     RESTORE_REGISTERS();
     return ret;
 }
