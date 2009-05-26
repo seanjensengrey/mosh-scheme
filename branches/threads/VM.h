@@ -67,7 +67,7 @@ typedef gc_vector<Object> Ports;
 #ifdef DEBUG_VERSION
 #define VM_ASSERT(condition) { if (!(condition)) { \
             fprintf(stderr, "*** ASSERT failure %s:%d: %s\n", __FILE__, __LINE__, #condition); \
-            LOG2("    dc_ = ~a\n    cl_=~a\n", \
+            VM_LOG2("    dc_ = ~a\n    cl_=~a\n", \
                  dc_.toClosure()->sourceInfoString(this), \
                  cl_.toClosure()->sourceInfoString(this)); \
                  ::exit(-1);}}
@@ -78,7 +78,7 @@ typedef gc_vector<Object> Ports;
 
 class TextualOutputPort;
 class Thread;
-Object getCProcedureName(Object proc);
+
 
 class VM EXTEND_GC
 {
@@ -165,6 +165,7 @@ public:
     void countCall(Object proc);
 #endif
     Object getClosureName(Object closure);
+    Object getCProcedureName(Object proc) const;
     void registerPort(Object obj);
     void unregisterPort(Object obj);
     virtual void flushAllPorts();
@@ -239,6 +240,11 @@ protected:
     Thread* thread_;
     ObjectMap generativeRtds_;
     Object* cProcs_;
+
+    // on the fly instructions array.
+    Object closureForEvaluate_;
+    Object* applyCodeForCallClosure0_;
+    int applyCodeForCallClosure0Length_;
 };
 
 } // namespace scheme

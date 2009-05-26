@@ -913,7 +913,7 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
 
             cl_ = index(sp, 1);
             if (!cl_.isProcedure()) {
-                LOG1("proc = ~a\n", cl_);
+                VM_LOG1("proc = ~a\n", cl_);
             }
             VM_ASSERT(cl_.isProcedure());
 

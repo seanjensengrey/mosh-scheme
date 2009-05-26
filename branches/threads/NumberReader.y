@@ -383,7 +383,7 @@ extern ucs4char* token;
 int number_yyerror(char const *str)
 {
     TextualInputPort* const port = Reader::port();
-    port->setError(format(UC("~a near [~a] at ~a:~d. "),
+    port->setError(format(NULL, UC("~a near [~a] at ~a:~d. "),
                           Pair::list4(str, Object::makeString(port->scanner()->currentToken()), port->toString(), Object::makeFixnum(port->getLineNo()))));
     return 0;
 }

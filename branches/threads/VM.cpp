@@ -91,20 +91,6 @@ using namespace scheme;
 
 #include "cprocedures.cpp"
 
-//static Object* cProcs_ = NULL;;
-
-// call this after gc_init
-// void initCprocedures()
-// {
-//     if (cProcs_ != NULL) return;
-//     cProcs_ = Object::makeObjectArray(cProcNum);
-//     for (int i = 0; i < cProcNum; i++) {
-//         cProcs_[i] = Object::makeCProcedure(cProcFunctions[i]);
-//     }
-// }
-
-
-
 VM::VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool isProfiler) :
     ac_(Object::Nil),
     dc_(Object::Nil),
@@ -137,6 +123,19 @@ VM::VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool i
     for (int i = 0; i < cProcNum; i++) {
         cProcs_[i] = Object::makeCProcedure(cProcFunctions[i]);
     }
+
+    // initialize "On the fly" instructions array
+    closureForEvaluate_ = Object::makeClosure(NULL, 0, 0, false, cProcs_, cProcNum, 0, outerSourceInfo_);
+
+    applyCodeForCallClosure0Length_ = 7;
+    applyCodeForCallClosure0_ = Object::makeObjectArray(applyCodeForCallClosure0_);
+    applyCodeForCallClosure0_[0] = Object::makeRaw(Instruction::FRAME);
+    applyCodeForCallClosure0_[1] = Object::makeFixnum(5);
+    applyCodeForCallClosure0_[2] = Object::makeRaw(Instruction::CONSTANT);
+    applyCodeForCallClosure0_[3] = Object::Undef;
+    applyCodeForCallClosure0_[4] = Object::makeRaw(Instruction::CALL);
+    applyCodeForCallClosure0_[5] = Object::makeFixnum(0);
+    applyCodeForCallClosure0_[6] = Object::makeRaw(Instruction::HALT);
 }
 
 VM::~VM() {}
@@ -176,7 +175,7 @@ Object VM::getTopLevelGlobalValue(Object id)
 
 void VM::defaultExceptionHandler(Object error)
 {
-    currentErrorPort_.toTextualOutputPort()->format(UC("\n Exception:\n~a\n"), L1(error));
+    currentErrorPort_.toTextualOutputPort()->format(this, UC("\n Exception:\n~a\n"), L1(error));
 }
 
 void VM::dumpCompiledCode(Object code) const
@@ -186,9 +185,9 @@ void VM::dumpCompiledCode(Object code) const
     for (int i = 0; i < v->length(); i++) {
         const Object c = v->ref(i);
         if (c.isInstruction()) {
-            LOG1("\n~a ", Instruction::toString(c.val));
+            VM_LOG1("\n~a ", Instruction::toString(c.val));
         } else {
-            LOG1("~a ", c);
+            VM_LOG1("~a ", c);
         }
     }
 }
@@ -242,15 +241,10 @@ Object VM::evaluateCodeVector(Object codeVector)
 
 Object VM::evaluate(Object* code, int codeSize)
 {
-    static Object closure = Object::Undef;
-    if (Object::Undef == closure) {
-
-        closure = Object::makeClosure(NULL, 0, 0, false, cProcs_, cProcNum, 0, outerSourceInfo_);
-    }
-    closure.toClosure()->pc = code;
-    ac_ = closure;
-    dc_ = closure;
-    cl_ = closure;
+    closureForEvaluate_.toClosure()->pc = code;
+    ac_ = closureForEvaluate_;
+    dc_ = closureForEvaluate_;
+    cl_ = closureForEvaluate_;
     fp_ = 0;
     Object* const direct = getDirectThreadedCode(code, codeSize);
     return run(direct, NULL);
@@ -258,20 +252,9 @@ Object VM::evaluate(Object* code, int codeSize)
 
 Object VM::callClosure0(Object closure)
 {
-    static Object applyCode[] = {
-        Object::makeRaw(Instruction::FRAME),
-        Object::makeFixnum(5),
-        Object::makeRaw(Instruction::CONSTANT),
-        Object::Undef,
-        Object::makeRaw(Instruction::CALL),
-        Object::makeFixnum(0),
-        Object::makeRaw(Instruction::HALT),
-    };
-
-    applyCode[3] = closure;
-
+    applyCodeForCallClosure0_[3] = closure;
     SAVE_REGISTERS();
-    const Object ret = evaluate(applyCode, sizeof(applyCode) / sizeof(Object));
+    const Object ret = evaluate(applyCodeForCallClosure0_, applyCodeForCallClosure0Length_);
     RESTORE_REGISTERS();
     return ret;
 }
@@ -574,11 +557,11 @@ Object VM::getStackTrace()
         if (cl->isClosure()) {
             Object src = cl->toClosure()->sourceInfo;
             if (src.isPair()) {
-                port->format(UC("    ~d. "), L1(Object::makeFixnum(i)));
+                port->format(this, UC("    ~d. "), L1(Object::makeFixnum(i)));
                 const Object procedure = src.cdr();
                 const Object location  = src.car();
                 if (location.isFalse()) {
-                    port->format(UC("~a: <unknown location>\n"), L1(unGenSyms(procedure)));
+                    port->format(this, UC("~a: <unknown location>\n"), L1(unGenSyms(procedure)));
                 } else {
                     const Object lineno = location.cdr().car();
                     const Object file   = location.car();
@@ -590,30 +573,30 @@ Object VM::getStackTrace()
                         // (lambda (arg1 arg2 arg3) ...)
                         Object args = unGenSyms(procedure.cdr());
                         const Object procedureSource = Pair::list3(procedureName, args, Symbol::intern(UC("...")));
-                        port->format(UC("~a:  ~a:~a\n"), L3(procedureSource, file, lineno));
+                        port->format(this, UC("~a:  ~a:~a\n"), L3(procedureSource, file, lineno));
                     } else {
-                        port->format(UC("~a:  ~a:~a\n"), L3(unGenSyms(procedure), file, lineno));
+                        port->format(this, UC("~a:  ~a:~a\n"), L3(unGenSyms(procedure), file, lineno));
                     }
                 }
                 i++;
             }
         } else if (cl->isCProcedure()) {
-            port->format(UC("    ~d. "), L1(Object::makeFixnum(i)));
-            port->format(UC("~a: <subr>\n"), L1(getClosureName(*cl)));
+            port->format(this, UC("    ~d. "), L1(Object::makeFixnum(i)));
+            port->format(this, UC("~a: <subr>\n"), L1(getClosureName(*cl)));
             i++;
         } else if (cl->isRegMatch()) {
-            port->format(UC("    ~d. "), L1(Object::makeFixnum(i)));
-            port->format(UC("<reg-match>: ~a\n"), L1(*cl));
+            port->format(this, UC("    ~d. "), L1(Object::makeFixnum(i)));
+            port->format(this, UC("<reg-match>: ~a\n"), L1(*cl));
             i++;
         } else if (cl->isRegexp()) {
-            port->format(UC("    ~d. "), L1(Object::makeFixnum(i)));
-            port->format(UC("<regexp>: ~a\n"), L1(*cl));
+            port->format(this, UC("    ~d. "), L1(Object::makeFixnum(i)));
+            port->format(this, UC("<regexp>: ~a\n"), L1(*cl));
             i++;
         } else {
             MOSH_ASSERT(false);
         }
         if (i > MAX_DEPTH) {
-            port->display(UC("      ... (more stack dump truncated)\n"));
+            port->display(this, UC("      ... (more stack dump truncated)\n"));
             break;
         }
 
@@ -676,7 +659,7 @@ void VM::throwException(Object exception)
     const Object stackTrace = getStackTrace();
     const Object stringOutputPort = Object::makeStringOutputPort();
     TextualOutputPort* const textualOutputPort = stringOutputPort.toTextualOutputPort();
-    textualOutputPort->format(UC("~a\n Stack trace:\n~a\n"), Pair::list2(exception, stackTrace));
+    textualOutputPort->format(this, UC("~a\n Stack trace:\n~a\n"), Pair::list2(exception, stackTrace));
     errorObj_ = getOutputStringEx(this, 1, &stringOutputPort);
 
     longjmp(returnPoint_, -1);
@@ -687,7 +670,7 @@ void VM::showStack(int count, const char* file, int line)
    printf("** STACK %s:%d\n", file, line);fflush(stdout);
 #ifdef DEBUG_VERSION
     for (int i = count - 1; i >= 0; i--) {
-        LOG2("============================================\n~d: ~a\n", Object::makeFixnum(i), index(sp_, i));
+        VM_LOG2("============================================\n~d: ~a\n", Object::makeFixnum(i), index(sp_, i));
     }
 #else
     callAssertionViolationImmidiaImmediately(this, "vm", "don't use showStack");
@@ -712,7 +695,7 @@ Object VM::activateR6RSMode(bool isDebugExpand)
         defaultExceptionHandler(errorObj_);
         this->exit(-1);
     }
-
+    return Object::Undef;
 }
 
 Object VM::getTopLevelGlobalValueOrFalse(Object id)
@@ -769,7 +752,7 @@ void VM::expandStack(int plusSize)
 
 void VM::printStack() const
 {
-    LOG2("==========dc=~a prev=~a \n", dc_, dc_.toClosure()->prev);
+    VM_LOG2("==========dc=~a prev=~a \n", dc_, dc_.toClosure()->prev);
     for (int i = 1; i>= 0; i--) {
         if (fp_ + i >= stackEnd_) {
             break;
@@ -777,7 +760,7 @@ void VM::printStack() const
         const Object obj = referLocal(i);
 
         if (!obj.isObjectPointer()) {
-            LOG2("~d: ~a\n", Object::makeFixnum(i), obj);
+            VM_LOG2("~d: ~a\n", Object::makeFixnum(i), obj);
         }
         fflush(stderr);
     }
@@ -807,18 +790,15 @@ Object VM::values2(Object obj1, Object obj2)
     return obj1; // set to ac_ later.
 }
 
-
-// Global
-Object scheme::getCProcedureName(Object proc)
+Object VM::getCProcedureName(Object proc) const
 {
-//     for (int k = 0; k < cProcNum; k++) {
-//         if (proc == cProcs_[k]) {
-//             return Symbol::intern(cProcNames[k]);
-//         }
-//     }
+    for (int k = 0; k < cProcNum; k++) {
+        if (proc == cProcs_[k]) {
+            return Symbol::intern(cProcNames[k]);
+        }
+    }
     return Symbol::intern(UC("<unknwon subr>"));
 }
-
 
 void VM::registerPort(Object obj)
 {

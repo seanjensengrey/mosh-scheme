@@ -47,12 +47,12 @@ using namespace scheme;
 
 static Object makeList(gc_vector<ucs4string>& v, gc_vector<ucs4string>::size_type i);
 
-Object scheme::format(const ucs4char* message, Object values)
+Object scheme::format(const VM* theVM, const ucs4char* message, Object values)
 {
     MOSH_ASSERT(values.isNil() || values.isPair());
     const Object sport = Object::makeStringOutputPort();
     TextualOutputPort* const port = sport.toTextualOutputPort();
-    port->format(message, values);
+    port->format(theVM, message, values);
     StringTextualOutputPort* p = reinterpret_cast<StringTextualOutputPort*>(port);
     return Object::makeString(p->getString());
 }

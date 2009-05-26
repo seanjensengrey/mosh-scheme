@@ -1,3 +1,8 @@
+2009-05-26  higepon  <higepon@users.sourceforge.jp>
+
+        * VM.cpp : Fixed invalid share of CProcedure::returnCode.
+                 : Made getCProcedureName function VM instance method.
+
 2009-05-25  higepon  <higepon@users.sourceforge.jp>
 
         * recevie with timeout works.
