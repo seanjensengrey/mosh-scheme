@@ -126,6 +126,7 @@ VM::VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool i
 
     // initialize "On the fly" instructions array
     closureForEvaluate_ = Object::makeClosure(NULL, 0, 0, false, cProcs_, cProcNum, 0, outerSourceInfo_);
+    closureForApply_ = Object::makeClosure(NULL, 0, 0, false, cProcs_, cProcNum, 1, outerSourceInfo_);;
 
     applyCodeForCallClosure0Length_ = 7;
     applyCodeForCallClosure0_ = Object::makeObjectArray(applyCodeForCallClosure0Length_);
@@ -185,6 +186,49 @@ VM::VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool i
     applyCodeForCallClosure3_[14] = Object::makeFixnum(3);
     applyCodeForCallClosure3_[15] = Object::makeRaw(Instruction::HALT);
 
+    callCodeForSetAfterTrigger0Length_ = 7;
+    callCodeForSetAfterTrigger0_ = Object::makeObjectArray(callCodeForSetAfterTrigger0Length_);
+    callCodeForSetAfterTrigger0_[0] = Object::makeRaw(Instruction::CONSTANT);
+    callCodeForSetAfterTrigger0_[1] = Object::Undef;
+    callCodeForSetAfterTrigger0_[2] = Object::makeRaw(Instruction::CALL);
+    callCodeForSetAfterTrigger0_[3] = Object::makeFixnum(0);
+    callCodeForSetAfterTrigger0_[4] = Object::makeRaw(Instruction::RETURN);
+    callCodeForSetAfterTrigger0_[5] = Object::makeFixnum(0);
+    callCodeForSetAfterTrigger0_[6] = Object::makeRaw(Instruction::HALT);
+
+    callCodeForSetAfterTrigger1Length_ = 10;
+    callCodeForSetAfterTrigger1_ = Object::makeObjectArray(callCodeForSetAfterTrigger1Length_);
+    callCodeForSetAfterTrigger1_[0] = Object::makeRaw(Instruction::CONSTANT);
+    callCodeForSetAfterTrigger1_[1] = Object::Undef;
+    callCodeForSetAfterTrigger1_[2] = Object::makeRaw(Instruction::PUSH);
+    callCodeForSetAfterTrigger1_[3] = Object::makeRaw(Instruction::CONSTANT);
+    callCodeForSetAfterTrigger1_[4] = Object::Undef;
+    callCodeForSetAfterTrigger1_[5] = Object::makeRaw(Instruction::CALL);
+    callCodeForSetAfterTrigger1_[6] = Object::makeFixnum(1);
+    callCodeForSetAfterTrigger1_[7] = Object::makeRaw(Instruction::RETURN);
+    callCodeForSetAfterTrigger1_[8] = Object::makeFixnum(0);
+    callCodeForSetAfterTrigger1_[9] = Object::makeRaw(Instruction::HALT);
+
+    applyCodeForApplyClosureLength_ = 5;
+    applyCodeForApplyClosure_ = Object::makeObjectArray(applyCodeForApplyClosureLength_);
+    applyCodeForApplyClosure_[0] = Object::makeRaw(Instruction::CALL);
+    applyCodeForApplyClosure_[1] = Object::makeFixnum(0);
+    applyCodeForApplyClosure_[2] = Object::makeRaw(Instruction::RETURN);
+    applyCodeForApplyClosure_[3] = Object::makeFixnum(0);
+    applyCodeForApplyClosure_[4] = Object::makeRaw(Instruction::HALT);
+
+    applyCodeForCallClosureByNameLength_ = 10;
+    applyCodeForCallClosureByName_ = Object::makeObjectArray(applyCodeForCallClosureByNameLength_);
+    applyCodeForCallClosureByName_[0] = Object::makeRaw(Instruction::FRAME);
+    applyCodeForCallClosureByName_[1] = Object::makeFixnum(8);
+    applyCodeForCallClosureByName_[2] = Object::makeRaw(Instruction::CONSTANT);
+    applyCodeForCallClosureByName_[3] = Object::Undef;
+    applyCodeForCallClosureByName_[4] = Object::makeRaw(Instruction::PUSH);
+    applyCodeForCallClosureByName_[5] = Object::makeRaw(Instruction::REFER_GLOBAL);
+    applyCodeForCallClosureByName_[6] = Object::Undef;
+    applyCodeForCallClosureByName_[7] = Object::makeRaw(Instruction::CALL);
+    applyCodeForCallClosureByName_[8] = Object::makeFixnum(1);
+    applyCodeForCallClosureByName_[9] = Object::makeRaw(Instruction::HALT);
 }
 
 VM::~VM() {}
@@ -430,10 +474,7 @@ Object VM::evalAfter(Object sexp)
 
 Object VM::setAfterTrigger0(Object closure)
 {
-    static Object callCode[] = {
-        MAKE_CALL_CODE(0)
-    };
-    MAKE_PUSH_FRAME(callCode, sizeof(callCode) / sizeof(Object));
+    MAKE_PUSH_FRAME(callCodeForSetAfterTrigger0_, callCodeForSetAfterTrigger0Length_);
     pc_[1]= closure;
     return ac_;
 }
@@ -441,30 +482,15 @@ Object VM::setAfterTrigger0(Object closure)
 
 Object VM::setAfterTrigger1(Object closure, Object arg1)
 {
-    static Object callCode[] = {
-        Object::makeRaw(Instruction::CONSTANT),
-        Object::Undef,
-        Object::makeRaw(Instruction::PUSH),
-        MAKE_CALL_CODE(1)
-    };
-    MAKE_PUSH_FRAME(callCode, sizeof(callCode) / sizeof(Object));
+    MAKE_PUSH_FRAME(callCodeForSetAfterTrigger1_, callCodeForSetAfterTrigger1Length_);
     pc_[4]= closure;
     pc_[1]= arg1;
-
     return ac_;
 }
 
 void VM::applyClosure(Object closure, Object args)
 {
-    static Object applyCode[] = {
-        Object::makeRaw(Instruction::CALL),
-        Object::makeFixnum(0),
-        Object::makeRaw(Instruction::RETURN), // return from applyClosure
-        Object::makeFixnum(0),
-        Object::makeRaw(Instruction::HALT)
-    };
-
-    applyCode[1] =Object::makeFixnum(Pair::length(args));
+    applyCodeForApplyClosure_[1] =Object::makeFixnum(Pair::length(args));
 
     // Same as Frame.
     // pc_ points where to return after applyClosure
@@ -478,30 +504,18 @@ void VM::applyClosure(Object closure, Object args)
         push(obj.car());
     }
     ac_ = closure;
-    pc_ = getDirectThreadedCode(applyCode, sizeof(applyCode) / sizeof(Object));
+    pc_ = getDirectThreadedCode(applyCodeForApplyClosure_, applyCodeForApplyClosureLength_);
 }
 
 // we need to save registers.
 Object VM::callClosureByName(Object procSymbol, Object arg)
 {
     MOSH_ASSERT(procSymbol.isSymbol());
-    static Object applyCode[] = {
-        Object::makeRaw(Instruction::FRAME),
-        Object::makeFixnum(8),
-        Object::makeRaw(Instruction::CONSTANT),
-        Object::Undef,
-        Object::makeRaw(Instruction::PUSH),
-        Object::makeRaw(Instruction::REFER_GLOBAL),
-        Object::Undef,
-        Object::makeRaw(Instruction::CALL),
-        Object::makeFixnum(1),
-        Object::makeRaw(Instruction::HALT),
-    };
-    applyCode[3] = arg;
-    applyCode[6] = procSymbol;
+    applyCodeForCallClosureByName_[3] = arg;
+    applyCodeForCallClosureByName_[6] = procSymbol;
 
     SAVE_REGISTERS();
-    const Object ret = evaluateCodeVector(Object::makeVector(sizeof(applyCode) / sizeof(Object), applyCode));
+    const Object ret = evaluateCodeVector(Object::makeVector(applyCodeForCallClosureByNameLength_, applyCodeForCallClosureByName_));
     RESTORE_REGISTERS();
     return ret;
 }
@@ -524,16 +538,11 @@ Object VM::apply(Object proc, Object args)
     code[5 + i] = Object::makeRaw(Instruction::APPLY);
     code[6 + i] = Object::makeRaw(Instruction::HALT);
 
-    static Object closure = Object::Undef;
-    if (Object::Undef == closure) {
-//#       include "cprocedures.cpp"
-        closure = Object::makeClosure(NULL, 0, 0, false, cProcs_, cProcNum, 1, outerSourceInfo_);
-    }
-    closure.toClosure()->pc = code;
+    closureForApply_.toClosure()->pc = code;
     SAVE_REGISTERS();
     Object* const direct = getDirectThreadedCode(code, length);
-    dc_ = closure;
-    cl_ = closure;
+    dc_ = closureForApply_;
+    cl_ = closureForApply_;
     const Object ret = run(direct, NULL);
     RESTORE_REGISTERS();
     return ret;

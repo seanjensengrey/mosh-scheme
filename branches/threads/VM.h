@@ -243,6 +243,8 @@ protected:
 
     // on the fly instructions array.
     Object closureForEvaluate_;
+    Object closureForApply_;
+
     Object* applyCodeForCallClosure0_;
     int applyCodeForCallClosure0Length_;
 
@@ -257,6 +259,15 @@ protected:
 
     Object* callCodeForSetAfterTrigger0_;
     int callCodeForSetAfterTrigger0Length_;
+
+    Object* callCodeForSetAfterTrigger1_;
+    int callCodeForSetAfterTrigger1Length_;
+
+    Object* applyCodeForApplyClosure_;
+    int applyCodeForApplyClosureLength_;
+
+    Object* applyCodeForCallClosureByName_;
+    int applyCodeForCallClosureByNameLength_;
 
 };
 
