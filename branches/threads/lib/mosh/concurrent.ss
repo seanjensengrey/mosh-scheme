@@ -51,8 +51,6 @@
        (c vm (make-mail-box))))))
 
 (define (! process obj)
-  (display "start !")
-  (display (process-mail-box process))
   (let ([mb (process-mail-box process)])
     (mutex-lock! (mail-box-mutex mb))
     (queue-push! (mail-box-mails mb) obj)

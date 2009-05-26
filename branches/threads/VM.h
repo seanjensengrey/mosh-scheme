@@ -172,6 +172,7 @@ public:
     Object findGenerativeRtd(Object uid);
     void addGenerativeRtd(Object uid, Object rtd);
 
+
 protected:
     virtual int exit(int status)
     {
@@ -237,6 +238,7 @@ protected:
     ucs4string name_;
     Thread* thread_;
     ObjectMap generativeRtds_;
+    Object* cProcs_;
 };
 
 } // namespace scheme

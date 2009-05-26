@@ -63,7 +63,7 @@
 
 (! pid `(register ,(self) "higepon"))
 (receive
-    [('ok name) (display name)])
+    [('ok name) (format #t "reply=~a" name)])
 (join! pid))
 ;; (define-record-type mail-box
 ;;   (fields

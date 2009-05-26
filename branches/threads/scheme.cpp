@@ -44,7 +44,6 @@
 #include "OSCompatThread.h"
 
 using namespace scheme;
-extern void initCprocedures();
 
 #define USE_GMP_WITH_GC 0
 
@@ -100,7 +99,8 @@ void mosh_init()
     // Allocated memory are freed on Bignum's destructor.
     mp_set_memory_functions(gmp_alloc, gmp_realloc, gmp_free);
 #endif
-    initCprocedures();
+// moved to VM constructor
+//    initCprocedures();
     Flonum::initialize();
     Thread::initialize();
     Symbol::initBuitinSymbols();

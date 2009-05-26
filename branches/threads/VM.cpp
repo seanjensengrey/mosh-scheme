@@ -89,6 +89,22 @@
 
 using namespace scheme;
 
+#include "cprocedures.cpp"
+
+//static Object* cProcs_ = NULL;;
+
+// call this after gc_init
+// void initCprocedures()
+// {
+//     if (cProcs_ != NULL) return;
+//     cProcs_ = Object::makeObjectArray(cProcNum);
+//     for (int i = 0; i < cProcNum; i++) {
+//         cProcs_[i] = Object::makeCProcedure(cProcFunctions[i]);
+//     }
+// }
+
+
+
 VM::VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool isProfiler) :
     ac_(Object::Nil),
     dc_(Object::Nil),
@@ -117,6 +133,10 @@ VM::VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool i
     fp_ = stack_;
     nameSpace_ = Object::makeEqHashTable();
     outerSourceInfo_   = L2(Object::False, Symbol::intern(UC("<top-level>")));
+    cProcs_ = Object::makeObjectArray(cProcNum);
+    for (int i = 0; i < cProcNum; i++) {
+        cProcs_[i] = Object::makeCProcedure(cProcFunctions[i]);
+    }
 }
 
 VM::~VM() {}
@@ -220,27 +240,12 @@ Object VM::evaluateCodeVector(Object codeVector)
     return evaluate(v->data(), v->length());
 }
 
-#include "cprocedures.cpp"
-
-static Object* cProcs = NULL;;
-
-// call this after gc_init
-void initCprocedures()
-{
-    if (cProcs != NULL) return;
-    cProcs = Object::makeObjectArray(cProcNum);
-    for (int i = 0; i < cProcNum; i++) {
-        cProcs[i] = Object::makeCProcedure(cProcFunctions[i]);
-    }
-}
-
-
 Object VM::evaluate(Object* code, int codeSize)
 {
     static Object closure = Object::Undef;
     if (Object::Undef == closure) {
 
-        closure = Object::makeClosure(NULL, 0, 0, false, cProcs, cProcNum, 0, outerSourceInfo_);
+        closure = Object::makeClosure(NULL, 0, 0, false, cProcs_, cProcNum, 0, outerSourceInfo_);
     }
     closure.toClosure()->pc = code;
     ac_ = closure;
@@ -386,7 +391,7 @@ Object VM::evalCompiledAfter(Object code)
                                          bodySize,                              // codeSize
                                          0,                                     // argLength
                                          false,                                 // isOptionalArg
-                                         cProcs,                                // freeVars
+                                         cProcs_,                                // freeVars
                                          cProcNum,                              // freeVariablesNum
                                          0,                                     // todo maxStack
                                          Object::False);                        // todo sourceInfo
@@ -414,7 +419,7 @@ Object VM::evalAfter(Object sexp)
                                          bodySize,                              // codeSize
                                          0,                                     // argLength
                                          false,                                 // isOptionalArg
-                                         cProcs,                                // freeVars
+                                         cProcs_,                                // freeVars
                                          cProcNum,                              // freeVariablesNum
                                          0,                                     // todo maxStack
                                          Object::False);                        // todo sourceInfo
@@ -536,7 +541,7 @@ Object VM::apply(Object proc, Object args)
     static Object closure = Object::Undef;
     if (Object::Undef == closure) {
 //#       include "cprocedures.cpp"
-        closure = Object::makeClosure(NULL, 0, 0, false, cProcs, cProcNum, 1, outerSourceInfo_);
+        closure = Object::makeClosure(NULL, 0, 0, false, cProcs_, cProcNum, 1, outerSourceInfo_);
     }
     closure.toClosure()->pc = code;
     SAVE_REGISTERS();
@@ -806,11 +811,11 @@ Object VM::values2(Object obj1, Object obj2)
 // Global
 Object scheme::getCProcedureName(Object proc)
 {
-    for (int k = 0; k < cProcNum; k++) {
-        if (proc == cProcs[k]) {
-            return Symbol::intern(cProcNames[k]);
-        }
-    }
+//     for (int k = 0; k < cProcNum; k++) {
+//         if (proc == cProcs_[k]) {
+//             return Symbol::intern(cProcNames[k]);
+//         }
+//     }
     return Symbol::intern(UC("<unknwon subr>"));
 }
 
