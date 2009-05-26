@@ -127,7 +127,7 @@ enum {
 typedef int32_t ucs4char; // use -1 for EOF
 typedef intptr_t fixedint;
 
-#ifdef _WIN32
+#if defined(_WIN32) || defined(__CYGWIN__)
 const ucs4char* UC(const char *str);
 #else
 #define UC_(x) L ## x

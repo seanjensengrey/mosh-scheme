@@ -50,6 +50,11 @@
 #include "OSCompat.h"
 #include "VMFactory.h"
 
+#ifdef __CYGWIN__ //gcc3?
+#include "Gloc.h"
+#include "Closure.h"
+#include "VM-inl.h"
+#endif
 bool debug_on;
 using namespace scheme;
 

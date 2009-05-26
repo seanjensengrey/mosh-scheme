@@ -199,6 +199,11 @@ case "$target_os" in
 freebsd*)
   AC_DEFINE(GC_FREEBSD_THREADS,1,[Define to use FreeBSD threads])
   ;;
+cygwin)
+  AC_DEFINE(GC_THREADS,1,[Define to use generic thread support])
+  AC_DEFINE(_REENTRANT,1,[Define to use reentrant libc])
+  ;;
+
 mingw*)
   AC_MSG_ERROR([Please modify configure.ac for mingw])
   ;;

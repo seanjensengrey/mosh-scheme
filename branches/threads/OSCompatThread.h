@@ -33,7 +33,7 @@
 #define SCHEME_OSCOMPAT_THREAD_
 
 
-#ifdef __APPLE__
+#if defined(__APPLE__) || defined(__CYGWIN__)
 #define pthread_yield sched_yield
 #endif
 #include "scheme.h"
