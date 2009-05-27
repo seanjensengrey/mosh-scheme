@@ -664,7 +664,7 @@ bool VM::mayBeStackPointer(Object* obj) const
 void VM::throwException(Object exception)
 {
 #ifdef DEBUG_VERSION
-//    LOG1("error~a\n", exception);
+    VM_LOG1("error~a\n", exception);
     fflush(stderr);
     fflush(stdout);
 #endif

@@ -36,54 +36,55 @@
                                                 [('this 'is x y) (values x y)])])
                              (cons x y)))
                ;; timeout
-               (test-eqv 'time-out
+               (time (test-eqv 'time-out
                          (receive
                           [('greeting what) what]
                           [after 1
-                                 'time-out]))
+                                 'time-out])))
+               (display "after")
 
-               (register 'sub (self))
+               (time (register 'sub (self)))
                ;; doesn't work yet
-              (receive
+              (time (receive
                  [('register from name)
-                  (! from `(ok ,name))])
+                  (! from `(ok ,name))]))
 
 ;; ああ。mail-box lock してないところあるね。
-              (receive
+              (time (receive
                  [('register from name)
-                  (! from `(ok ,name))])
+                  (! from `(ok ,name))]))
 
                (test-end)
 ;               (process-exit 'normal)
 ;               (error 'hoge "hage")
                )
-             '((rnrs) (mosh concurrent) (mosh test)))])
+             '((rnrs) (mosh concurrent) (mosh) (mosh test)))])
 
 (link pid)
 
-(! pid '(some hello))
-(! pid '(greeting hello))
-(! pid '(greeting hello2))
-(! pid '(greeting hello3))
-(! pid 'good)
-(! pid '(this is a pen))
+(time (! pid '(some hello)))
+(time (! pid '(greeting hello)))
+(time (! pid '(greeting hello2)))
+(time (! pid '(greeting hello3)))
+(time (! pid 'good))
+(time (! pid '(this is a pen)))
 
 (test-begin "main process")
-(! pid `(register ,(self) "higepon"))
-(receive
-    [('ok name) (test-equal "higepon" name)])
+(time (! pid `(register ,(self) "higepon")))
+(time (receive
+    [('ok name) (test-equal "higepon" name)]))
 
-(! 'sub `(register ,(self) "higepon"))
-(receive
-    [('ok name) (test-equal "higepon" name)])
+(time (time (! 'sub `(register ,(self) "higepon"))))
+(time (receive
+    [('ok name) (test-equal "higepon" name)]))
 
-(receive
-    [('exit why) (test-equal 'normal why)])
+(time (receive
+    [('exit why) (test-equal 'normal why)]))
 
-(let ([pid2 (spawn-link (lambda () (error 'unknown "hogehoge2")) '((rnrs) (mosh concurrent)))])
+(time (let ([pid2 (spawn-link (lambda () (error 'unknown "hogehoge2")) '((rnrs) (mosh concurrent)))])
   (receive
       [('exit why) (test-true (error? why))
-       #;(raise why)]))
+       #;(raise why)])))
 
 
 

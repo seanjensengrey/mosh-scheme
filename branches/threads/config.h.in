@@ -32,6 +32,9 @@
 /* Define to use Linux threads */
 #undef GC_LINUX_THREADS
 
+/* Define to use generic thread support */
+#undef GC_THREADS
+
 /* Define to 1 if you have `alloca', as a function or macro. */
 #undef HAVE_ALLOCA
 

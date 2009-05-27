@@ -4563,6 +4563,19 @@ cat >>confdefs.h <<\_ACEOF
 _ACEOF
 
   ;;
+cygwin)
+
+cat >>confdefs.h <<\_ACEOF
+#define GC_THREADS 1
+_ACEOF
+
+
+cat >>confdefs.h <<\_ACEOF
+#define _REENTRANT 1
+_ACEOF
+
+  ;;
+
 mingw*)
   { { $as_echo "$as_me:$LINENO: error: Please modify configure.ac for mingw" >&5
 $as_echo "$as_me: error: Please modify configure.ac for mingw" >&2;}

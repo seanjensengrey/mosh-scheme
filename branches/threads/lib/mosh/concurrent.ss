@@ -30,10 +30,10 @@
 (library (mosh concurrent)
   (export ! receive spawn self join! register whereis link process-exit spawn-link)
   (import (only (mosh) main-vm? vm-set-value! vm-self make-condition-variable make-mutex mutex-lock! mutex-unlock! condition-variable-notify!
-                whereis vm-start! make-vm symbol-value condition-variable-wait! vm-join! register)
+                whereis vm-start! make-vm symbol-value condition-variable-wait! vm-join! register time)
           (only (rnrs) define-record-type immutable mutable protocol lambda define for-each quote exit fields _ ... define-syntax
                 syntax-case syntax integer? syntax->datum when let quasiquote unless error if let* memq remq cons cond pair? not car
-                else letrec unquote)
+                else letrec unquote display)
           (only (mosh queue) make-queue queue-push! queue-empty? queue-pop! queue-append!)
           (only (match) match))
 
@@ -151,7 +151,7 @@
          (letrec ([rec (lambda ()
                          (match (receive-internal!)
                            [match-expr
-                              (mutex-lock! (mail-box-mutex (pid-mail-box (self))))
+                            (mutex-lock! (mail-box-mutex (pid-mail-box (self))))
                             (let ([mails (mail-box-mails (pid-mail-box (self)))])
                               (queue-append! saved mails)
                               (mail-box-mails-set! (pid-mail-box (self)) saved)
