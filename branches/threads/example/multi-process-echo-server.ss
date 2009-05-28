@@ -35,23 +35,22 @@
 (let ([server (make-server-socket "4649")])
   (display "Echo server: START\n")
   (let loop ([conn (socket-accept server)])
-    (let ([pid (spawn (lambda ()
-                        (display "child start\n")
-                        (guard [c (#t (display "***\n")(display c))]
-                      (receive
-                          [('connection conn)
-                           (let loop ([data (socket-recv conn 100)])
-                             (cond
-                              [(zero? (bytevector-length data))
-                               (socket-close conn)
-                               (display "Echo server: STOP\n")]
-                              [else
-                               (format #t "received ~s\n" (utf8->string data))
-                               (socket-send conn data 0)
-                               (loop (socket-recv conn 100))]))
-                           ]))
-                      ) '((rnrs) (mosh concurrent) (mosh) (mosh socket)))])
-    (! pid `(connection ,conn)))
+    (let ([pid (spawn
+                (lambda ()
+                  (display "child start\n")
+                  (guard [c (#t (display c))]
+                    (receive
+                      [('connection conn)
+                       (let loop ([data (socket-recv conn 100)])
+                         (cond
+                          [(zero? (bytevector-length data))
+                           (socket-close conn)
+                           (display "Echo server: STOP\n")]
+                          [else
+                           (format #t "received ~s\n" (utf8->string data))
+                           (socket-send conn data 0)
+                           (loop (socket-recv conn 100))]))]))
+                  ) '((rnrs) (mosh concurrent) (mosh) (mosh socket)))])
+      (! pid `(connection ,conn)))
     (loop (socket-accept server)))
-  (display "***************\n")
   (socket-close server))
