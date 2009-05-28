@@ -229,6 +229,9 @@ VM::VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool i
     applyCodeForCallClosureByName_[7] = Object::makeRaw(Instruction::CALL);
     applyCodeForCallClosureByName_[8] = Object::makeFixnum(1);
     applyCodeForCallClosureByName_[9] = Object::makeRaw(Instruction::HALT);
+
+    int callCodeLength_ = 3;
+    callCode_ = Object::makeObjectArray(callCodeLength_);
 }
 
 VM::~VM() {}

@@ -269,6 +269,8 @@ protected:
     Object* applyCodeForCallClosureByName_;
     int applyCodeForCallClosureByNameLength_;
 
+    Object* callCode_;
+    int callCodeLength_;
 };
 
 } // namespace scheme

@@ -248,12 +248,12 @@ template<bool isHumanReadable> void TextualOutputPort::print(const VM* theVM, Ob
     } else if (o.isCallable()) {
         putString(UC("callable"));
     } else if (o.isFixnum()) {
-        static char buf[32];
+        char buf[32];
         snprintf(buf, 32, "%ld", (long)o.toFixnum());
         putString(buf);
     } else if (o.isFlonum()) {
         Flonum* const flonum = o.toFlonum();
-        static char buf[512];
+        char buf[512];
         if (flonum->isNan()) {
             putString(UC("+nan.0"));
         } else if (flonum->isInfinite()) {
@@ -270,11 +270,11 @@ template<bool isHumanReadable> void TextualOutputPort::print(const VM* theVM, Ob
             putString(buf);
         }
     } else if (o.isInstruction()) {
-        static char buf[32];
+        char buf[32];
         snprintf(buf, 32, "[insn %d]", o.toInstruction());
         putString(buf);
     } else if (o.isCompilerInstruction()) {
-        static char buf[32];
+        char buf[32];
         snprintf(buf, 32, "[comp:%d]", o.toCompilerInstruction());
         putString(buf);
     } else if (o.isChar()) {

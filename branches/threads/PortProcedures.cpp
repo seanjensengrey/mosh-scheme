@@ -1608,7 +1608,6 @@ Object scheme::openInputFileEx(VM* theVM, int argc, const Object* argv)
 {
     DeclareProcedureName("open-input-file");
     checkArgumentLength(1);
-    LOG1("opath=~a\n", argv[0]);
     argumentAsString(0, path);
 
     Transcoder* transcoder = nativeTranscoder();
@@ -1632,8 +1631,6 @@ Object scheme::openFileInputPortEx(VM* theVM, int argc, const Object* argv)
     checkArgumentLengthBetween(1, 4);
     BinaryInputPort* in = NULL;
     Transcoder* transcoder = NULL;
-
-    LOG1("path=~a\n", argv[0]);
 
     // N.B. As R6RS says, we ignore "file-options" for input-port.
     if (argc == 1) {
