@@ -50,25 +50,16 @@ using namespace scheme;
 
 VM* VMFactory::create(int initialStackSize, bool isProfilerOn)
 {
-    // All VMs share the standard ports.
-    static BinaryInputPort* in  = NULL;
-    static BinaryOutputPort* out  = NULL;
-    static BinaryOutputPort* err  = NULL;
-    if (NULL == in) {
-        in = new StandardInputPort();
-    }
-    if (NULL == out) {
-        out = new StandardOutputPort();
-    }
-    if (NULL == err) {
-        err = new StandardErrorPort();
-    }
+    // At first, we shared the standard ports between VMs.
+    // But it causes inconsistent buffering state on Buffered port.
+    // So we never share the standard ports.
 
+    // N.B. For debug safety, we never close() the standard ports.
     Transcoder* transcoder = nativeConsoleTranscoder();
     Transcoder* native = nativeTranscoder();
-    const Object inPort    = Object::makeTextualInputPort(in, File::STANDARD_IN.isUTF16Console() ? transcoder : native);
-    const Object outPort   = Object::makeTextualOutputPort(out, File::STANDARD_OUT.isUTF16Console() ? transcoder : native);
-    const Object errorPort = Object::makeTextualOutputPort(err, transcoder);
+    const Object inPort    = Object::makeTextualInputPort(new StandardInputPort, File::STANDARD_IN.isUTF16Console() ? transcoder : native);
+    const Object outPort   = Object::makeTextualOutputPort(new StandardOutputPort, File::STANDARD_OUT.isUTF16Console() ? transcoder : native);
+    const Object errorPort = Object::makeTextualOutputPort(new StandardErrorPort, transcoder);
 
     VM* vm = new VM(initialStackSize, outPort, errorPort, inPort, isProfilerOn);
     vm->registerPort(outPort);

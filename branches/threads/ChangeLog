@@ -1,3 +1,7 @@
+2009-05-29  higepon  <higepon@users.sourceforge.jp>
+
+        * VMFactory.cpp : never close the standard ports.
+
 2009-05-28  higepon  <higepon@users.sourceforge.jp>
 
         * example/process-pool-echo-server.ss : Added not working yet.
