@@ -54,6 +54,7 @@
                                 (! supervisor `(done ,(self)))
                                 (main-loop supervisor index)]
                                [else
+                                (car 3)
                                 (format #t "received ~s\n" (utf8->string data))
                                 (socket-send conn data 0)
                                 (loop (socket-recv conn 100))]))]))
@@ -84,6 +85,8 @@
         [listen (process-listen)])
     (define (loop)
     (receive
+      [('exit why)
+       (display why)]
       [('connection conn)
        (display "conn comes\n")
        (cond
