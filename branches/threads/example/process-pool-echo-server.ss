@@ -33,42 +33,70 @@
         (mosh concurrent)
         (mosh socket))
 
-(let ([server (make-server-socket "4649")])
-  (let ([ready* (map (lambda (index) (spawn
-                (lambda ()
-                  (format #t "child start \n")
-                  ;; (receive
-;;                     [('connection conn)
-;;                      (let loop ([data (socket-recv conn 100)])
-;;                        (cond
-;;                         [(zero? (bytevector-length data))
-;;                          (socket-close conn)
-;;                          (display "Echo server: STOP\n")]
-;;                         [else
-;;                          (format #t "received ~s\n" (utf8->string data))
-;;                          (socket-send conn data 0)
-;;                          (loop (socket-recv conn 100))]))])
-                  )
-                '((rnrs) (mosh concurrent) (mosh) (mosh socket))))
-                     (list-ec (: i 60) i))])
-    #t))
-;;   (display "Echo server: START\n")
-;;   (let loop ([conn (socket-accept server)])
-;;     (let ([pid (spawn
-;;                 (lambda ()
-;;                   (display "child start\n")
-;;                   (receive
-;;                     [('connection conn)
-;;                      (let loop ([data (socket-recv conn 100)])
-;;                        (cond
-;;                         [(zero? (bytevector-length data))
-;;                          (socket-close conn)
-;;                          (display "Echo server: STOP\n")]
-;;                         [else
-;;                          (format #t "received ~s\n" (utf8->string data))
-;;                          (socket-send conn data 0)
-;;                          (loop (socket-recv conn 100))]))]))
-;;                 '((rnrs) (mosh concurrent) (mosh) (mosh socket)))])
-;;     (! pid `(connection ,conn)))
-;;   (loop (socket-accept server)))
-;;   (socket-close server)))
+(define (make-pool num)
+  (let loop ([i 0]
+             [ret '()])
+    (cond
+     [(= i num) ret]
+     [else
+      (let ([pid (spawn
+                  (lambda ()
+                    (define (main-loop supervisor index)
+                      (format #t "main-loop ~d\n" index)
+                       (receive
+                           [('connection conn)
+                            (format #t "child<~d> start echo\n" index)
+                            (let loop ([data (socket-recv conn 100)])
+                              (cond
+                               [(zero? (bytevector-length data))
+                                (socket-close conn)
+                                (display "Echo server: STOP\n")
+                                (! supervisor `(done ,(self)))
+                                (main-loop supervisor index)]
+                               [else
+                                (format #t "received ~s\n" (utf8->string data))
+                                (socket-send conn data 0)
+                                (loop (socket-recv conn 100))]))]))
+                    (receive
+                      [('supervisor supervisor index)
+                       (format #t "child start \n")
+                       (main-loop supervisor index)])
+                    )
+                '((rnrs) (mosh concurrent) (mosh) (mosh socket)))])
+        (! pid `(supervisor ,(self) ,i))
+        (loop (+ i 1) (cons pid ret)))])))
+
+(define (process-listen)
+  (let ([pid (spawn
+              (lambda ()
+                (let ([server (make-server-socket "4649")])
+                  (receive
+                      [('supervisor supervisor)
+                       (let loop ([conn (socket-accept server)])
+                         (! supervisor `(connection ,conn))
+                         (loop (socket-accept server)))))))
+              '((rnrs) (mosh concurrent) (mosh) (mosh socket)))])
+    (! pid `(supervisor ,(self)))
+    pid))
+
+  (let ([ready* (make-pool 3)]
+        [working* '()]
+        [listen (process-listen)])
+    (define (loop)
+    (receive
+      [('connection conn)
+       (display "conn comes\n")
+       (cond
+        [(pair? ready*)
+         (set! working* (append  working* (list (car ready*))))
+         (! (car ready*) `(connection ,conn))
+         (set! ready* (remq (car ready*) ready*))
+         (loop)]
+        [else
+           (error 'pool "not enough pool")])]
+      [('done from)
+       (set! working* (remq from working*))
+       (set! ready* (append ready* (list from)))
+       (loop)]))
+    (loop)
+    (join! listen))
