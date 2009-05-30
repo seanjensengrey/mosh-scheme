@@ -197,7 +197,11 @@ int main(int argc, char *argv[])
     VMFactory factory;
     const int INITIAL_STACK_SIZE = 10000;
     theVM = factory.create(INITIAL_STACK_SIZE, isProfilerOn);
-    MOSH_ASSERT(Thread::setSpecific(theVM));
+
+    if (!Thread::setSpecific(theVM)) {
+        fprintf(stderr, "fatal vm specific failure\n");
+        exit(-1);
+    }
 
 
     theVM->setValueString(UC("*command-line-args*"), argsToList(argc, optindU, argvU));
