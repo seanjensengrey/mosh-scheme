@@ -191,6 +191,7 @@ lib/mosh/dbd/mysql.ss  \
 lib/mosh/test.ss   \
 lib/mosh/pp.ss     \
 lib/mosh/control.ss     \
+lib/mosh/concurrent.ss     \
 lib/mosh/config.ss \
 lib/mosh/cgi.ss  \
 lib/clos/core.ss  lib/clos/helpers.ss  lib/clos/introspection.ss  lib/clos/slot-access.ss  lib/clos/user.ss \
