@@ -181,25 +181,43 @@ namespace scheme {
         }
     };
 
+    class ThreadSpecificKey : public gc_cleanup
+    {
+    private:
+        pthread_key_t key_;
+    public:
+        ThreadSpecificKey()
+        {
+            if (pthread_key_create(&key_, NULL) != 0) {
+                fprintf(stderr, "fatal : ThreadSpecificKey create\n");
+                ::exit(-1);
+            }
+        }
+
+        virtual~ ThreadSpecificKey()
+        {
+            if (pthread_key_delete(key_) != 0) {
+                fprintf(stderr, "fatal : ThreadSpecificKey delete\n");
+                ::exit(-1);
+            }
+        }
+
+        pthread_key_t key()
+        {
+            return key_;
+        }
+    };
 
     class Thread EXTEND_GC
     {
     private:
-        static pthread_key_t selfKey;
-        static pthread_key_t specficKey;
+        static ThreadSpecificKey* selfKey;
     public:
         static void initialize()
         {
-            if (pthread_key_create(&selfKey, NULL) != 0) {
-                fprintf(stderr, "fatal : Thread::init\n");
-                ::exit(-1);
-            }
-            if (pthread_key_create(&specficKey, NULL) != 0) {
-                fprintf(stderr, "fatal : Thread::init\n");
-                ::exit(-1);
-            }
+            selfKey = new ThreadSpecificKey;
             // Add dummy
-            if (pthread_setspecific(selfKey, new Thread) != 0) {
+            if (!Thread::setSpecific(selfKey, new Thread)) {
                 fprintf(stderr, "fatal : Thread store self\n");
                 ::exit(-1);
             }
@@ -207,20 +225,21 @@ namespace scheme {
 
         static Thread* self()
         {
-            volatile void* value = pthread_getspecific(selfKey);
+            volatile void* value = Thread::getSpecific(selfKey);
             MOSH_ASSERT(value != NULL);
             return (Thread*)value;
         }
 
-        static bool setSpecific(void* value)
+        static bool setSpecific(ThreadSpecificKey* key, void* value)
         {
-            return pthread_setspecific(specficKey, value) == 0;
+            return pthread_setspecific(key->key(), value) == 0;
         }
 
-        static void* getSpecific()
+        static void* getSpecific(ThreadSpecificKey* key)
         {
-            return pthread_getspecific(specficKey);
+            return pthread_getspecific(key->key());
         }
+
 
         Thread() : lastError_(0)
         {
@@ -247,7 +266,6 @@ namespace scheme {
         {
             pthread_exit(exitValue);
         }
-
 
     private:
         void setLastError()

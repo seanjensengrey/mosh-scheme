@@ -62,6 +62,7 @@
 #include "BufferedFileBinaryInputPort.h"
 #include "OSCompatThread.h"
 #include "VMFactory.h"
+#include "MultiVMProcedures.h"
 
 bool scheme::portIsClosed = false;
 
@@ -74,7 +75,7 @@ protected:
         mosh_init();
         VMFactory factory;
         theVM_ = factory.create(1000, false);
-        Thread::setSpecific(theVM_);
+        setCurrentVM(theVM_);
     }
 };
 

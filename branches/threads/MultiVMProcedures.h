@@ -57,11 +57,22 @@ namespace scheme {
     Object mutexTryLockDEx(VM* theVM, int argc, const Object* argv);
     Object mutexLockDEx(VM* theVM, int argc, const Object* argv);
     Object makeMutexEx(VM* theVM, int argc, const Object* argv);
-    static VM* currentVM()
+
+    extern ThreadSpecificKey* vmKey;
+    inline VM* currentVM()
     {
-        VM* vm = (VM*)Thread::getSpecific();
+        MOSH_ASSERT(vmKey != NULL);
+        VM* vm = (VM*)Thread::getSpecific(vmKey);
         MOSH_ASSERT(vm != NULL);
         return vm;
+    }
+
+    inline bool setCurrentVM(VM* vm)
+    {
+        if (NULL == vmKey) {
+            vmKey = new ThreadSpecificKey;
+        }
+        return Thread::setSpecific(vmKey, vm);
     }
 
 }; // namespace scheme

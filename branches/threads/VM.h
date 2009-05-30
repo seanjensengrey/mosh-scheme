@@ -78,19 +78,8 @@ typedef gc_vector<Object> Ports;
 
 class TextualOutputPort;
 class Thread;
-
-    class Reader2 EXTEND_GC
-    {
-    public:
-        Object read(TextualInputPort* port, bool& isErrorOccured);
-        ucs4string readString(const ucs4string& s);
-        ucs4string readSymbol(const ucs4string& s);
-        TextualInputPort* port() { return in_; }
-        Object parsed;
-        TextualInputPort* in_;
-    };
-
-
+class ReaderContext;
+class NumberReaderContext;
 
 class VM EXTEND_GC
 {
@@ -185,7 +174,8 @@ public:
     Object findGenerativeRtd(Object uid);
     void addGenerativeRtd(Object uid, Object rtd);
 
-    Reader2* reader() { return reader_; }
+    ReaderContext* readerContext() { return readerContext_; }
+    NumberReaderContext* numberReaderContext() { return numberReaderContext_; }
 
 protected:
     virtual int exit(int status)
@@ -284,7 +274,8 @@ protected:
 
     Object* callCode_;
     int callCodeLength_;
-    Reader2* reader_;
+    ReaderContext* readerContext_;
+    NumberReaderContext* numberReaderContext_;
 };
 
 } // namespace scheme

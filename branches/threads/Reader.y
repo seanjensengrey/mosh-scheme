@@ -75,8 +75,8 @@ extern int yyerror(const char *);
 
 %%
 
-top_level      : END_OF_FILE { currentVM()->reader()->parsed = Object::Eof; YYACCEPT; }
-               | datum { currentVM()->reader()->parsed = $$; YYACCEPT; }
+top_level      : END_OF_FILE { currentVM()->readerContext()->setParsed(Object::Eof); YYACCEPT; }
+               | datum { currentVM()->readerContext()->setParsed($$); YYACCEPT; }
 
 datum          : lexme_datum
                | compound_datum
@@ -87,21 +87,21 @@ datum          : lexme_datum
 
 lexme_datum    : SCHEME_BOOLEAN { $$ = $1 ? Object::True : Object::False; }
                | STRING {
-                   $$ = currentVM()->reader()->readString($1);
+                   $$ = ReaderHelper::readString($1);
                }
                | REGEXP {
                    $$ = Object::makeRegexp($1);
                }
                | NUMBER {
                    bool isErrorOccured = false;
-                   $$ = NumberReader::read($1, isErrorOccured);
+                   $$ = currentVM()->numberReaderContext()->read($1, isErrorOccured);
                    if (isErrorOccured) {
                        yyerror("invalid binary number sequence");
                        YYERROR;
                    }
                }
                | IDENTIFIER {
-                   $$ = Symbol::intern(currentVM()->reader()->readSymbol($1).strdup());
+                   $$ = Symbol::intern(ReaderHelper::readSymbol($1).strdup());
                }
                | CHARACTER {
                     $$ = Object::makeChar($1);
@@ -117,8 +117,8 @@ list           : LEFT_PAREN datum_list RIGHT_PAREN {
                    // TODO: not to use reverse.
                    $2 = Pair::reverse($2);
                    if ($2.isPair()) {
-                       $2.toPair()->sourceInfo = Pair::list2(Object::makeString(currentVM()->reader()->port()->toString()),
-                                                             Object::makeFixnum(currentVM()->reader()->port()->getLineNo()));
+                       $2.toPair()->sourceInfo = Pair::list2(Object::makeString(currentVM()->readerContext()->port()->toString()),
+                                                             Object::makeFixnum(currentVM()->readerContext()->port()->getLineNo()));
                    }
                    $$ = $2;
                }
@@ -167,10 +167,9 @@ abbreviation   : ABBV_QUOTE            { $$ = Symbol::QUOTE; }
 extern ucs4char* token;
 int yyerror(char const *str)
 {
-    TextualInputPort* const port = currentVM()->reader()->port();
+    TextualInputPort* const port = currentVM()->readerContext()->port();
     const Object prevError = port->error();
     if (prevError.isNil()) {
-        printf("%s %s:%d %s\n", __func__, __FILE__, __LINE__ ,str);fflush(stdout);// debug
         port->setError(format(NULL, UC("~a: ~a near [~a] at ~a:~d. "),
                               Pair::list5(prevError,
                                           str,
@@ -178,12 +177,11 @@ int yyerror(char const *str)
                                           port->toString(),
                                           Object::makeFixnum(port->getLineNo()))));
     } else {
-        printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
-      port->setError(format(NULL, UC("~a near [~a] at ~a:~d. "),
-                            Pair::list4(str,
-                                        Object::makeString(port->scanner()->currentToken()),
-                                        port->toString(),
-                                        Object::makeFixnum(port->getLineNo()))));
+        port->setError(format(NULL, UC("~a near [~a] at ~a:~d. "),
+                              Pair::list4(str,
+                                          Object::makeString(port->scanner()->currentToken()),
+                                          port->toString(),
+                                          Object::makeFixnum(port->getLineNo()))));
     }
     return 0;
 }

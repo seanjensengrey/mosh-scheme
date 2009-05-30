@@ -41,21 +41,20 @@
 
 using namespace scheme;
 
-pthread_key_t Thread::selfKey;
-pthread_key_t Thread::specficKey;
+ThreadSpecificKey* Thread::selfKey;
 
 struct StubInfo
 {
     void* (*func)(void*);
     void* argument;
     Thread* thread;
-    pthread_key_t selfKey;
+    ThreadSpecificKey* selfKey;
 };
 
 static void* stubFunction(void* param)
 {
     StubInfo* info = (StubInfo*)param;
-    if (pthread_setspecific(info->selfKey, info->thread) != 0) {
+    if (!Thread::setSpecific(info->selfKey, info->thread)) {
         fprintf(stderr, "fatal : Thread store self\n");
         exit(-1);
     }

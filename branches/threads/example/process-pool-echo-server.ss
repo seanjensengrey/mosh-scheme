@@ -54,7 +54,8 @@
                                 (! supervisor `(done ,(self)))
                                 (main-loop supervisor index)]
                                [else
-;                                (car 3)
+                                (display "before crash")
+ ;                               (car 3)
                                 (format #t "received ~s\n" (utf8->string data))
                                 (socket-send conn data 0)
                                 (loop (socket-recv conn 100))]))]))
@@ -80,7 +81,7 @@
     (! pid `(supervisor ,(self)))
     pid))
 
-  (let ([ready* (make-pool 3)]
+  (let ([ready* (make-pool 20)]
         [working* '()]
         [listen (process-listen)])
     (define (loop)

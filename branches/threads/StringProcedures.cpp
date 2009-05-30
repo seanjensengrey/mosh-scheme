@@ -42,6 +42,7 @@
 #include "TextualOutputPort.h"
 #include "StringTextualOutputPort.h"
 #include "NumberReader.h"
+#include "MultiVMProcedures.h"
 
 using namespace scheme;
 
@@ -175,7 +176,7 @@ Object scheme::stringTosymbolEx(VM* theVM, int argc, const Object* argv)
 Object stringToNumber(const ucs4string& text)
 {
     bool isErrorOccured = false;
-    const Object number = NumberReader::read(text, isErrorOccured);
+    const Object number = currentVM()->numberReaderContext()->read(text, isErrorOccured);
 
     if (isErrorOccured) {
         return Object::False;

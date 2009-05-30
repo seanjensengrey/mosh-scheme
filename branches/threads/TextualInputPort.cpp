@@ -158,5 +158,5 @@ Object TextualInputPort::error() const
 
 Object TextualInputPort::getDatum(bool& errorOccured)
 {
-    return currentVM()->reader()->read(this, errorOccured);
+    return currentVM()->readerContext()->read(this, errorOccured);
 }

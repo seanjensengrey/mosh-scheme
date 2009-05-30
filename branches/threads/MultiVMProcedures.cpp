@@ -51,23 +51,9 @@ using namespace scheme;
 
 static void* vmEntry(void* param);
 
-// TODO
-// 1. join all threads
-// 2. configure GC macros
-//
-// # (current-vm) => #<vm>
-// # (vm? obj) => #t or #f
-// # (vm-specific vm) => obj
-// # (vm-specific-set! vm obj) => undef
-// # (vm-start! thread) => undef
-// # (vm-yield!) => undef
-// # (vm-sleep! timeout) => undef
-// # (vm-terminate! vm) => unef
-// # (vm-join! vm [timeout [timeout-val]])
-
-// todo (network)
 // this should be global and shared between VM instances.
 static EqHashTable* processes = NULL;
+ThreadSpecificKey* scheme::vmKey = NULL;
 
 static EqHashTable* processesTable()
 {
@@ -129,8 +115,10 @@ Object scheme::vmStartDEx(VM* theVM, int argc, const Object* argv)
     argumentAsVM(0, vm);
     Thread* thread = new Thread;
     vm->setThread(thread);
-    // Stores the VM instance.
-    thread->setSpecific(vm);
+
+    // N.B.
+    // We store the VM instance in thread specific storage.
+    // Used for storing yylex and re2c which has only global interfaces.
     thread->create(vmEntry, vm);
     return Object::Undef;
 }
@@ -273,6 +261,7 @@ Object scheme::mutexPEx(VM* theVM, int argc, const Object* argv)
 void* vmEntry(void* param)
 {
     VM* vm = (VM*)param;
+    setCurrentVM(vm);
     const Object ret = vm->activateR6RSMode(false);
     Thread::exit(new Object(ret));
     return NULL;

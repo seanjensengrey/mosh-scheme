@@ -57,6 +57,7 @@
 #include "StandardOutputPort.h"
 #include "BlockBufferedFileBinaryOutputPort.h"
 #include "BlockBufferedFileBinaryInputOutputPort.h"
+#include "MultiVMProcedures.h"
 
 using namespace scheme;
 
@@ -70,7 +71,7 @@ protected:
         Object outPort   = Object::makeTextualOutputPort(new StandardOutputPort(), transcoder);
         Object errorPort = Object::makeTextualOutputPort(new FileBinaryOutputPort(UC("/dev/null")), transcoder);
         theVM_ = new TestingVM(10000, outPort, errorPort, inPort, false /* isProfiler */);
-        Thread::setSpecific(theVM_);
+        setCurrentVM(theVM_);
         theVM_->loadCompiler();
         theVM_->setValueString(UC("%loadpath"), Object::False);
     }
@@ -86,7 +87,7 @@ protected:
         Object outPort   = Object::makeTextualOutputPort(new StandardOutputPort(), transcoder);
         errorPort_ = Object::makeStringOutputPort();
         theVM_ = new TestingVM(10000, outPort, errorPort_, inPort, false /* isProfiler */);
-        Thread::setSpecific(theVM_);
+        setCurrentVM(theVM_);
         theVM_->loadCompiler();
         theVM_->setValueString(UC("%loadpath"), Object::False);
     }

@@ -32,11 +32,23 @@
         (mosh concurrent)
         (mosh socket))
 
-(let loop ()
-(spawn (lambda ()
-         (let ([socket (make-client-socket "127.0.0.1" "4649")])
-           (socket-send socket (string->utf8 "hello"))
-           (format #t "Reply from Server: ~a\n" (utf8->string (socket-recv socket 100)))
-           (socket-close socket)))
-       '((rnrs) (mosh concurrent) (mosh) (mosh socket)))
-(loop))
+(define (create-echo-clients num)
+  (let loop ([i 0]
+             [ret '()])
+    (cond
+     [(= i num) ret]
+     [else
+      (loop (+ i 1)
+            (cons (spawn (lambda ()
+                           (let loop ()
+                             (let ([socket (make-client-socket "127.0.0.1" "4649")])
+                               (socket-send socket (string->utf8 "hello"))
+                               (format #t "Reply from Server: ~a\n" (utf8->string (socket-recv socket 100)))
+                               (socket-close socket)
+                               (loop))))
+                         '((rnrs) (mosh concurrent) (mosh) (mosh socket)))
+                  ret))])))
+
+(let ([pid* (create-echo-clients 3)])
+  (join! (car pid*)))
+

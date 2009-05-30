@@ -49,6 +49,7 @@
 #include "getoptU.h"
 #include "OSCompat.h"
 #include "OSCompatThread.h"
+#include "MultiVMProcedures.h"
 #include "VMFactory.h"
 
 #ifdef __CYGWIN__ //gcc3?
@@ -196,9 +197,13 @@ int main(int argc, char *argv[])
 
     VMFactory factory;
     const int INITIAL_STACK_SIZE = 10000;
+
+    // N.B.
+    // We store the VM instance in thread specific storage.
+    // Used for storing yylex and re2c which has only global interfaces.
     theVM = factory.create(INITIAL_STACK_SIZE, isProfilerOn);
 
-    if (!Thread::setSpecific(theVM)) {
+    if (!setCurrentVM(theVM)) {
         fprintf(stderr, "fatal vm specific failure\n");
         exit(-1);
     }

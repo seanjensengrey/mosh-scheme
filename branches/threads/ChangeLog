@@ -1,5 +1,9 @@
 2009-05-30  higepon  <higepon@users.sourceforge.jp>
 
+        * example/echo-load.ss : OK this works.
+
+        * Reader.y : Now reader context becomes thread safe.
+
         * COPYING: Fixed COPYING.
 
 2009-05-29  higepon  <higepon@users.sourceforge.jp>

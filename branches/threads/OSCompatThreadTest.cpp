@@ -152,24 +152,30 @@ TEST_F(MoshTest, exit) {
     EXPECT_EQ(-1, *ret);
 }
 
-static void hoge()
-{
-    int* value = (int*)Thread::getSpecific();
+TEST_F(MoshTest, checkSpecific) {
+    Thread thread;
+    ThreadSpecificKey* key = new ThreadSpecificKey;
+    int ret = 1234;
+    EXPECT_TRUE(Thread::setSpecific(key, &ret));
+    int* value = (int*)Thread::getSpecific(key);
+    ASSERT_TRUE(value != NULL);
     EXPECT_EQ(1234, *value);
 }
 
-static void* checkSpecific(void* param)
-{
-    int value = 1234;
-    Thread::setSpecific(&value);
-    hoge();
-    return NULL;
-}
-
-TEST_F(MoshTest, checkSpecific) {
+TEST_F(MoshTest, checkSpecific2) {
     Thread thread;
-    ASSERT_TRUE(thread.create(checkSpecific, &thread));
-    thread.join(NULL);
+    ThreadSpecificKey* key1 = new ThreadSpecificKey;
+    ThreadSpecificKey* key2 = new ThreadSpecificKey;
+    int ret1 = 1234;
+    int ret2 = 1235;
+    EXPECT_TRUE(Thread::setSpecific(key1, &ret1));
+    EXPECT_TRUE(Thread::setSpecific(key2, &ret2));
+    int* value1 = (int*)Thread::getSpecific(key1);
+    ASSERT_TRUE(value1 != NULL);
+    EXPECT_EQ(1234, *value1);
+    int* value2 = (int*)Thread::getSpecific(key2);
+    ASSERT_TRUE(value2 != NULL);
+    EXPECT_EQ(1235, *value2);
 }
 
 Mutex* mutex = NULL;

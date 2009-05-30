@@ -1630,12 +1630,12 @@ yyreduce:
     {
         case 2:
 #line 102 "NumberReader.y"
-    { NumberReader::parsed = (yyval.object); YYACCEPT; ;}
+    { currentVM()->numberReaderContext()->setParsed((yyval.object)); YYACCEPT; ;}
     break;
 
   case 3:
 #line 103 "NumberReader.y"
-    { NumberReader::parsed = Object::Eof; YYACCEPT; ;}
+    { currentVM()->numberReaderContext()->setParsed(Object::Eof); YYACCEPT; ;}
     break;
 
   case 8:
@@ -2470,7 +2470,7 @@ yyreturn:
 extern ucs4char* token;
 int number_yyerror(char const *str)
 {
-  TextualInputPort* const port = currentVM()->reader()->port();
+  TextualInputPort* const port = currentVM()->readerContext()->port();
     port->setError(format(NULL, UC("~a near [~a] at ~a:~d. "),
                           Pair::list4(str, Object::makeString(port->scanner()->currentToken()), port->toString(), Object::makeFixnum(port->getLineNo()))));
     return 0;

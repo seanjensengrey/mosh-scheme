@@ -321,10 +321,14 @@ MAINTAINERCLEANFILES = $(GENERATED)
 #   (b) When we precompile system libraries, we want to control the start index of gensym.
 #       Since we should avoid index overlapping between pre-compile libraries and pre-compiled psyntax.
 #       So using environment variable MOSH_GENSYM_PREFIX, we control the prefix.
-update:
+
+# all fasl should be newer than *.ss and psyntax.h binary
+lib/mosh/queue.ss.fasl: $(mosh_core_libraries) psyntax.h
 	(find . -name "*.ss.fasl" | xargs rm) ; true
 	(find . -name "*.sls.fasl" | xargs rm) ; true
 	MOSH_GENSYM_PREFIX=L ./mosh scripts/pre-compile-r6rs.scm scripts/pre-compile-target.scm
+
+update: lib/mosh/queue.ss.fasl
 
 # when you release comment out start
 if DEVELOPER

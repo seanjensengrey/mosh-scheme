@@ -848,7 +848,6 @@ Object scheme::readEx(VM* theVM, int argc, const Object* argv)
     TRY_WITHOUT_DSTR
         const Object object = inputPort->getDatum(errorOccured);
         if (errorOccured) {
-            printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
             callLexicalAndIOReadAfter(theVM, procedureName, inputPort->error());
             return Object::Undef;
         }

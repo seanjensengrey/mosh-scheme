@@ -75,7 +75,7 @@ Scanner::~Scanner()
 // we need to give back read buffer to input-port.
 void Scanner::emptyBuffer()
 {
-    TextualInputPort* const inputPort = currentVM()->reader()->port();
+    TextualInputPort* const inputPort = currentVM()->readerContext()->port();
 
     for (ucs4char* p = limit_ - 1; p >= cursor_; p--) {
         // special case
@@ -98,7 +98,7 @@ void Scanner::emptyBuffer()
 void Scanner::fill(int n)
 {
     if (eofP_) return;
-    TextualInputPort* const inputPort = currentVM()->reader()->port();
+    TextualInputPort* const inputPort = currentVM()->readerContext()->port();
     const int restCharCount = limit_ - token_;
     const int tokenOffset = token_ - buffer_;
 
@@ -150,7 +150,7 @@ void Scanner::fill(int n)
 
 int yylex()
 {
-    return currentVM()->reader()->port()->scanner()->scan();
+    return currentVM()->readerContext()->port()->scanner()->scan();
 }
 
 int Scanner::scan()
