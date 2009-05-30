@@ -50,6 +50,7 @@
 #include "Ratnum.h"
 #include "Flonum.h"
 #include "ProcedureMacro.h"
+#include "MultiVMProcedures.h"
 
 using namespace scheme;
 extern int number_yylex();
@@ -382,7 +383,7 @@ naninf    : MY_NAN { $$ = Flonum::NOT_A_NUMBER; }
 extern ucs4char* token;
 int number_yyerror(char const *str)
 {
-    TextualInputPort* const port = Reader::port();
+  TextualInputPort* const port = currentVM()->reader()->port();
     port->setError(format(NULL, UC("~a near [~a] at ~a:~d. "),
                           Pair::list4(str, Object::makeString(port->scanner()->currentToken()), port->toString(), Object::makeFixnum(port->getLineNo()))));
     return 0;

@@ -77,6 +77,7 @@
 #include "BinaryOutputPort.h"
 #include "BinaryInputOutputPort.h"
 #include "TranscodedTextualInputOutputPort.h"
+#include "Scanner.h"
 
 #define TRY_VM     jmp_buf org;                     \
                 copyJmpBuf(org, returnPoint_);   \
@@ -110,7 +111,8 @@ VM::VM(int stackSize, Object outPort, Object errorPort, Object inputPort, bool i
     numValues_(0),
     isR6RSMode_(false),
     name_(UC("")),
-    thread_(NULL)
+    thread_(NULL),
+    reader_(new Reader2)
 {
     stack_ = Object::makeObjectArray(stackSize);
     values_ = Object::makeObjectArray(maxNumValues_);
@@ -878,4 +880,150 @@ Object VM::findGenerativeRtd(Object uid)
 void VM::addGenerativeRtd(Object uid, Object rtd)
 {
     generativeRtds_[uid] = rtd;
+}
+
+
+Object Reader2::read(TextualInputPort* port, bool& errorOccured)
+{
+    extern int yyparse ();
+    MOSH_ASSERT(port);
+    in_ = port;
+    for (;;) {
+        const bool isParseError = yyparse() == 1;
+        port->scanner()->emptyBuffer();
+//        LOG1("parsed=~a\n", parsed);
+        if (isParseError) {
+            errorOccured = true;
+            return Object::Undef;
+        }
+        // undef means #; ignored datum
+        if (!parsed.isUndef()) {
+            return parsed;
+        }
+    }
+}
+
+ucs4string Reader2::readSymbol(const ucs4string& s)
+{
+    ucs4string ret;
+    for (ucs4string::const_iterator it = s.begin(); it != s.end(); ++it) {
+        const ucs4char ch = *it;
+        if (ch == '\\') {
+            const ucs4char ch2 = *(++it);
+            if (it == s.end()) break;
+            switch (ch2)
+            {
+            case 'x':
+            {
+                ucs4char currentChar = 0;
+                for (int i = 0; ; i++) {
+                    const ucs4char hexChar = *(++it);
+                    if (it == s.end()) {
+                        fprintf(stderr, "invalid \\x in symbol end");
+                        break;
+                    } else if (hexChar == ';') {
+                        ret += currentChar;
+                        break;
+                    } else if (isdigit(hexChar)) {
+                        currentChar = (currentChar << 4) | (hexChar - '0');
+                    } else if ('a' <= hexChar && hexChar <= 'f') {
+                        currentChar = (currentChar << 4) | (hexChar - 'a' + 10);
+                    } else if ('A' <= hexChar && hexChar <= 'F') {
+                        currentChar = (currentChar << 4) | (hexChar - 'A' + 10);
+                    } else {
+                        fprintf(stderr, "invalid \\x in symbol <%c>", (char)hexChar);
+                        break;
+                    }
+                }
+                break;
+            }
+            default:
+                ret += ch;
+                ret += ch2;
+                break;
+            }
+        } else {
+            ret += ch;
+        }
+    }
+    return ret;
+}
+
+ucs4string Reader2::readString(const ucs4string& s)
+{
+    ucs4string ret;
+    for (ucs4string::const_iterator it = s.begin(); it != s.end(); ++it) {
+        const ucs4char ch = *it;
+        if (ch == '\\') {
+            const ucs4char ch2 = *(++it);
+            if (it == s.end()) break;
+            switch (ch2)
+            {
+            case '"':
+                ret += '"';
+                break;
+            case '\\':
+                ret += '\\';
+                break;
+            case 'a':
+                ret += 0x07;
+                break;
+            case 'b':
+                ret += 0x08;
+                break;
+            case 't':
+                ret += 0x09;
+                break;
+            case 'n':
+                ret += 0x0a;
+                break;
+            case 'v':
+                ret += 0x0b;
+                break;
+            case 'f':
+                ret += 0x0c;
+                break;
+            case 'r':
+                ret += 0x0d;
+                break;
+            case 'x':
+            {
+                ucs4char currentChar = 0;
+                for (int i = 0; ; i++) {
+                    const ucs4char hexChar = *(++it);
+                    if (it == s.end()) {
+                        fprintf(stderr, "invalid \\x in string end");
+                        break;
+                    } else if (hexChar == ';') {
+                        ret += currentChar;
+                        break;
+                    } else if (isdigit(hexChar)) {
+                        currentChar = (currentChar << 4) | (hexChar - '0');
+                    } else if ('a' <= hexChar && hexChar <= 'f') {
+                        currentChar = (currentChar << 4) | (hexChar - 'a' + 10);
+                    } else if ('A' <= hexChar && hexChar <= 'F') {
+                        currentChar = (currentChar << 4) | (hexChar - 'A' + 10);
+                    } else {
+                        fprintf(stderr, "invalid \\x in string <%c>", (char)hexChar);
+                        break;
+                    }
+                }
+                break;
+            }
+            case '\n':
+                ++it;
+                for (; *it == ' '; ++it) {
+                }
+                --it;
+                break;
+            default:
+                ret += ch;
+                ret += ch2;
+                break;
+            }
+        } else {
+            ret += ch;
+        }
+    }
+    return ret;
 }

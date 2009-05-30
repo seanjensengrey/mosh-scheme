@@ -41,17 +41,17 @@ namespace scheme {
     Object readNumber(const ucs4string& text, bool& errorOccured);
     Object read(TextualInputPort* port, bool& errorOccured);
 
-    class Reader EXTEND_GC
-    {
-    public:
-        static Object read(TextualInputPort* port, bool& isErrorOccured);
-        static ucs4string readString(const ucs4string& s);
-        static ucs4string readSymbol(const ucs4string& s);
-        static TextualInputPort* port() { return in_; }
-        static Object parsed;
-    private:
-        static TextualInputPort* in_;
-    };
+//     class Reader EXTEND_GC
+//     {
+//     public:
+//         static Object read(TextualInputPort* port, bool& isErrorOccured);
+//         static ucs4string readString(const ucs4string& s);
+//         static ucs4string readSymbol(const ucs4string& s);
+//         static TextualInputPort* port() { return in_; }
+//         static Object parsed;
+//     private:
+//         static TextualInputPort* in_;
+//     };
 };
 
 typedef struct EXTEND_GC {

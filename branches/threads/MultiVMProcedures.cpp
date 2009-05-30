@@ -129,6 +129,8 @@ Object scheme::vmStartDEx(VM* theVM, int argc, const Object* argv)
     argumentAsVM(0, vm);
     Thread* thread = new Thread;
     vm->setThread(thread);
+    // Stores the VM instance.
+    thread->setSpecific(vm);
     thread->create(vmEntry, vm);
     return Object::Undef;
 }

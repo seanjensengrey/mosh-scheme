@@ -212,9 +212,9 @@ namespace scheme {
             return (Thread*)value;
         }
 
-        static void setSpecific(void* value)
+        static bool setSpecific(void* value)
         {
-            pthread_setspecific(specficKey, value);
+            return pthread_setspecific(specficKey, value) == 0;
         }
 
         static void* getSpecific()

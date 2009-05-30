@@ -147,6 +147,8 @@
 #include "Reader.h"
 #include "NumberReader.h"
 #include "Scanner.h"
+#include "VM.h"
+#include "MultiVMProcedures.h"
 using namespace scheme;
 extern int yylex();
 extern int yyerror(const char *);
@@ -183,7 +185,7 @@ typedef int YYSTYPE;
 
 
 /* Line 216 of yacc.c.  */
-#line 187 "Reader.tab.cpp"
+#line 189 "Reader.tab.cpp"
 
 #ifdef short
 # undef short
@@ -233,7 +235,7 @@ typedef short int yytype_int16;
 #define YYSIZE_MAXIMUM ((YYSIZE_T) -1)
 
 #ifndef YY_
-# if defined YYENABLE_NLS && YYENABLE_NLS
+# if YYENABLE_NLS
 #  if ENABLE_NLS
 #   include <libintl.h> /* INFRINGES ON USER NAME SPACE */
 #   define YY_(msgid) dgettext ("bison-runtime", msgid)
@@ -478,10 +480,10 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    76,    76,    77,    79,    80,    81,    82,    83,    86,
-      87,    90,    93,   101,   104,   109,   110,   111,   114,   123,
-     127,   130,   133,   144,   151,   154,   155,   156,   157,   158,
-     159,   160,   161
+       0,    78,    78,    79,    81,    82,    83,    84,    85,    88,
+      89,    92,    95,   103,   106,   111,   112,   113,   116,   125,
+     129,   132,   135,   146,   153,   156,   157,   158,   159,   160,
+     161,   162,   163
 };
 #endif
 
@@ -692,7 +694,7 @@ while (YYID (0))
    we won't break user code: when these are the locations we know.  */
 
 #ifndef YY_LOCATION_PRINT
-# if defined YYLTYPE_IS_TRIVIAL && YYLTYPE_IS_TRIVIAL
+# if YYLTYPE_IS_TRIVIAL
 #  define YY_LOCATION_PRINT(File, Loc)			\
      fprintf (File, "%d.%d-%d.%d",			\
 	      (Loc).first_line, (Loc).first_column,	\
@@ -1433,51 +1435,51 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 76 "Reader.y"
-    { Reader::parsed = Object::Eof; YYACCEPT; ;}
+#line 78 "Reader.y"
+    { currentVM()->reader()->parsed = Object::Eof; YYACCEPT; ;}
     break;
 
   case 3:
-#line 77 "Reader.y"
-    { Reader::parsed = (yyval.object); YYACCEPT; ;}
+#line 79 "Reader.y"
+    { currentVM()->reader()->parsed = (yyval.object); YYACCEPT; ;}
     break;
 
   case 6:
-#line 81 "Reader.y"
+#line 83 "Reader.y"
     { (yyval.object) = (yyvsp[(3) - (3)].object); ;}
     break;
 
   case 7:
-#line 82 "Reader.y"
+#line 84 "Reader.y"
     { (yyval.object) = Object::Ignore; ;}
     break;
 
   case 8:
-#line 83 "Reader.y"
+#line 85 "Reader.y"
     { (yyval.object) = Object::Ignore; ;}
     break;
 
   case 9:
-#line 86 "Reader.y"
+#line 88 "Reader.y"
     { (yyval.object) = (yyvsp[(1) - (1)].boolValue) ? Object::True : Object::False; ;}
     break;
 
   case 10:
-#line 87 "Reader.y"
+#line 89 "Reader.y"
     {
-                   (yyval.object) = Reader::readString((yyvsp[(1) - (1)].stringValue));
+                   (yyval.object) = currentVM()->reader()->readString((yyvsp[(1) - (1)].stringValue));
                ;}
     break;
 
   case 11:
-#line 90 "Reader.y"
+#line 92 "Reader.y"
     {
                    (yyval.object) = Object::makeRegexp((yyvsp[(1) - (1)].stringValue));
                ;}
     break;
 
   case 12:
-#line 93 "Reader.y"
+#line 95 "Reader.y"
     {
                    bool isErrorOccured = false;
                    (yyval.object) = NumberReader::read((yyvsp[(1) - (1)].stringValue), isErrorOccured);
@@ -1489,34 +1491,34 @@ yyreduce:
     break;
 
   case 13:
-#line 101 "Reader.y"
+#line 103 "Reader.y"
     {
-                   (yyval.object) = Symbol::intern(Reader::readSymbol((yyvsp[(1) - (1)].stringValue)).strdup());
+                   (yyval.object) = Symbol::intern(currentVM()->reader()->readSymbol((yyvsp[(1) - (1)].stringValue)).strdup());
                ;}
     break;
 
   case 14:
-#line 104 "Reader.y"
+#line 106 "Reader.y"
     {
                     (yyval.object) = Object::makeChar((yyvsp[(1) - (1)].intValue));
                ;}
     break;
 
   case 18:
-#line 114 "Reader.y"
+#line 116 "Reader.y"
     {
                    // TODO: not to use reverse.
                    (yyvsp[(2) - (3)].object) = Pair::reverse((yyvsp[(2) - (3)].object));
                    if ((yyvsp[(2) - (3)].object).isPair()) {
-                       (yyvsp[(2) - (3)].object).toPair()->sourceInfo = Pair::list2(Object::makeString(Reader::port()->toString()),
-                                                             Object::makeFixnum(Reader::port()->getLineNo()));
+                       (yyvsp[(2) - (3)].object).toPair()->sourceInfo = Pair::list2(Object::makeString(currentVM()->reader()->port()->toString()),
+                                                             Object::makeFixnum(currentVM()->reader()->port()->getLineNo()));
                    }
                    (yyval.object) = (yyvsp[(2) - (3)].object);
                ;}
     break;
 
   case 19:
-#line 123 "Reader.y"
+#line 125 "Reader.y"
     {
                    (yyvsp[(2) - (6)].object) = Pair::reverse((yyvsp[(2) - (6)].object));
                    (yyval.object) = Pair::appendD2((yyvsp[(2) - (6)].object), Object::cons((yyvsp[(3) - (6)].object), (yyvsp[(5) - (6)].object)));
@@ -1524,17 +1526,17 @@ yyreduce:
     break;
 
   case 20:
-#line 127 "Reader.y"
+#line 129 "Reader.y"
     { (yyval.object) = Object::cons((yyvsp[(1) - (2)].object), Object::cons((yyvsp[(2) - (2)].object), Object::Nil)); ;}
     break;
 
   case 21:
-#line 130 "Reader.y"
+#line 132 "Reader.y"
     { (yyval.object) = Object::makeVector(Pair::reverse((yyvsp[(2) - (3)].object))); ;}
     break;
 
   case 22:
-#line 133 "Reader.y"
+#line 135 "Reader.y"
     {
                     const Object bytevector = u8ListToByteVector(Pair::reverse((yyvsp[(2) - (3)].object)));
                     if (bytevector.isNil()) {
@@ -1547,7 +1549,7 @@ yyreduce:
     break;
 
   case 23:
-#line 144 "Reader.y"
+#line 146 "Reader.y"
     {
                     if ((yyvsp[(2) - (2)].object) == Object::Ignore) {
                         (yyval.object) = (yyvsp[(1) - (2)].object);
@@ -1558,53 +1560,53 @@ yyreduce:
     break;
 
   case 24:
-#line 151 "Reader.y"
+#line 153 "Reader.y"
     {(yyval.object) = Object::Nil; ;}
     break;
 
   case 25:
-#line 154 "Reader.y"
+#line 156 "Reader.y"
     { (yyval.object) = Symbol::QUOTE; ;}
     break;
 
   case 26:
-#line 155 "Reader.y"
+#line 157 "Reader.y"
     { (yyval.object) = Symbol::UNQUOTE_SPLICING; ;}
     break;
 
   case 27:
-#line 156 "Reader.y"
+#line 158 "Reader.y"
     { (yyval.object) = Symbol::QUASIQUOTE; ;}
     break;
 
   case 28:
-#line 157 "Reader.y"
+#line 159 "Reader.y"
     { (yyval.object) = Symbol::UNQUOTE; ;}
     break;
 
   case 29:
-#line 158 "Reader.y"
+#line 160 "Reader.y"
     { (yyval.object) = Symbol::SYNTAX;;}
     break;
 
   case 30:
-#line 159 "Reader.y"
+#line 161 "Reader.y"
     { (yyval.object) = Symbol::UNSYNTAX_SPLICING; ;}
     break;
 
   case 31:
-#line 160 "Reader.y"
+#line 162 "Reader.y"
     { (yyval.object) = Symbol::QUASISYNTAX; ;}
     break;
 
   case 32:
-#line 161 "Reader.y"
+#line 163 "Reader.y"
     { (yyval.object) = Symbol::UNSYNTAX; ;}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1608 "Reader.tab.cpp"
+#line 1610 "Reader.tab.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1818,15 +1820,16 @@ yyreturn:
 }
 
 
-#line 163 "Reader.y"
+#line 165 "Reader.y"
 
 
 extern ucs4char* token;
 int yyerror(char const *str)
 {
-    TextualInputPort* const port = Reader::port();
+    TextualInputPort* const port = currentVM()->reader()->port();
     const Object prevError = port->error();
     if (prevError.isNil()) {
+        printf("%s %s:%d %s\n", __func__, __FILE__, __LINE__ ,str);fflush(stdout);// debug
         port->setError(format(NULL, UC("~a: ~a near [~a] at ~a:~d. "),
                               Pair::list5(prevError,
                                           str,
@@ -1834,6 +1837,7 @@ int yyerror(char const *str)
                                           port->toString(),
                                           Object::makeFixnum(port->getLineNo()))));
     } else {
+        printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
       port->setError(format(NULL, UC("~a near [~a] at ~a:~d. "),
                             Pair::list4(str,
                                         Object::makeString(port->scanner()->currentToken()),

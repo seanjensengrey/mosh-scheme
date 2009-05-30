@@ -54,7 +54,7 @@
                                 (! supervisor `(done ,(self)))
                                 (main-loop supervisor index)]
                                [else
-                                (car 3)
+;                                (car 3)
                                 (format #t "received ~s\n" (utf8->string data))
                                 (socket-send conn data 0)
                                 (loop (socket-recv conn 100))]))]))

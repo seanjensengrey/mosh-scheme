@@ -38,39 +38,6 @@
 namespace scheme {
 
 
-//     class MultiVMManager EXTEND_GC
-//     {
-//     private:
-//         typedef gc_vector<Thread*> Threads;
-//         Threads* threads_;
-//     public:
-//         MultiVMManager() : threads_(new gc_vector<Thread*>)
-//         {
-//         }
-//         void add(Thread* thread)
-//         {
-//             threads_->push_back(thread);
-//         }
-//         void remove(Thread* thread)
-//         {
-//             Threads::iterator it = threads_->begin();
-//             while (it != threads_->end()) {
-//                 if (thread == *it) {
-//                     threads_->erase(it);
-//                     return;
-//                 }
-//                 it++;
-//             }
-//             MOSH_ASSERT(false);
-//         }
-//         void joinAll()
-//         {
-//             for (Threads::iterator it = threads_->begin(); it != threads_->end(); ++it) {
-//                 (*it)->join(NULL);
-//             }
-//         }
-//     };
-
     Object whereisEx(VM* theVM, int argc, const Object* argv);
     Object registerEx(VM* theVM, int argc, const Object* argv);
     Object vmSelfEx(VM* theVM, int argc, const Object* argv);
@@ -90,10 +57,13 @@ namespace scheme {
     Object mutexTryLockDEx(VM* theVM, int argc, const Object* argv);
     Object mutexLockDEx(VM* theVM, int argc, const Object* argv);
     Object makeMutexEx(VM* theVM, int argc, const Object* argv);
+    static VM* currentVM()
+    {
+        VM* vm = (VM*)Thread::getSpecific();
+        MOSH_ASSERT(vm != NULL);
+        return vm;
+    }
 
-
-//    Object vmSpecificEx(VM* theVM, int argc, const Object* argv);
-//    MultiVMManager* getMultiVMManager();
 }; // namespace scheme
 
 #endif // SCHEME_MULTI_VM_PROCEDURES_
