@@ -17,15 +17,19 @@
 
 (test-false (assert-false (pair? 3)))
 
+(assert-eq 3 (+ 1 2))
+(assert-eq 4 (+ 1 2))
+
 (test-equal
-"unexpected error (assert-true (car 3)) :
+"(assert-true (number? #\\a))
+unexpected error (assert-true (car 3)) :
 Condition components:
  1. &assertion
  2. &who             who: \"car\"
  3. &message         message: \"pair required\"
  4. &irritants       irritants: (3)
 
-(assert-true (number? #\\a))
-6 run, 2 failed" (test-results))
+(+ 1 2) : expected 4, actual 3
+8 run, 3 failed" (test-results))
 
 (test-end)

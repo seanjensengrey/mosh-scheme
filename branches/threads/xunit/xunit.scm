@@ -1,5 +1,5 @@
 (library (xunit)
-         (export assert-true assert-false test-results)
+         (export assert-true assert-false assert-eq test-results)
          (import (rnrs) (mosh) (match))
 
 (define (condition-printer e port)
@@ -117,6 +117,25 @@
       [(_ expr)
        #'(test-bool '(assert-false expr) (lambda () expr) not)])))
 
+(define-syntax assert-eq
+  (lambda (x)
+    (syntax-case x ()
+      [(_ expected expr)
+       #'(begin
+           (run-count++)
+           (call/cc
+            (lambda (escape)
+              (with-exception-handler
+               (lambda (e)
+                 (failed-count++)
+                 (add-error! `(unexpected ,'expr ,e))
+                 (escape e))
+               (lambda ()
+                 (let ([val expr])
+                   (unless (eq? val expected)
+                     (add-error! `(compare-error expr expected ,val))
+                     (failed-count++))
+                   val))))))])))
 
 
 (define (test-results)
@@ -126,9 +145,11 @@
        (match error
         [('unexpected expr exception)
          (format out "unexpected error ~s :\n~a\n" expr (exception->string exception))]
+        [('compare-error expr expected actual)
+         (format out "~s : expected ~a, actual ~a\n" expr expected actual)]
         [else
          (format out "~s\n" error)]))
-     error*)
+     (reverse error*))
     (format out "~d run, ~d failed" run-count failed-count)
     (get-string)))
 
