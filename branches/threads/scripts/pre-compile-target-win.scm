@@ -45,4 +45,5 @@
         (mosh control)
         (mosh socket)
         (match)
+        (xunit)
         )

@@ -179,6 +179,7 @@ OSCompat.h OSCompat.cpp
 
 mosh_core_libraries = \
 lib/match.ss \
+lib/xunit.ss \
 lib/lambda/wiki.ss    \
 lib/mosh/ffi.ss    \
 lib/mosh/dbi.ss    \
