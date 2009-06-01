@@ -1,8 +1,7 @@
 (import (rnrs)
         (match)
-        (mosh test))
+        (xunit))
 
-(test-begin "match")
 
 (test-equal '(0 1 2 3 4 5)
             (match '(0 (1 2) (3 4 5))
@@ -28,4 +27,4 @@
             ((the answer is value) value)
             (else #f)))
 
-(test-end)
+(test-results)

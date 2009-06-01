@@ -30,11 +30,9 @@
 
 (import (rnrs)
         (mosh)
-        (mosh test)
+        (xunit)
         (mosh shell)
         (mosh process))
-
-(test-begin "output-port")
 
 ;; test utilitiy
 ;; (def-command rm)
@@ -574,4 +572,4 @@
       (test-equal accum '(#\z #\b #\a))
       (close-port p))
 
-(test-end)
+(test-results)

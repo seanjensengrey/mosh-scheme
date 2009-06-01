@@ -1,10 +1,9 @@
 (import (rnrs)
         (mosh dbi)
         (mosh)
-        (mosh test)
+        (xunit)
         (clos core))
 
-(test-begin "dbi")
 
 ;; (let ([conn (guard (c (#t #;(display "mysql not supporeted\n") #f))
 ;;                       (dbi-connect "dbi:mysql:mysql:127.0.0.1:3306" "root" ""))])
@@ -32,8 +31,6 @@
 ;;           (dbi-close conn))))))
 
 
-(test-end)
-
 ;; dangerous
 ;; (let ([conn (guard (c (#t (display "mysql not supporeted\n") #f))
 ;;                       (dbi-connect "dbi:mysql:mysql:127.0.0.1:3306" "root" ""))])
@@ -54,3 +51,4 @@
 ;;         (dbi-result->list result))))
 ;;    (dbi-do conn "drop table hoge")
 ;;    (dbi-close conn)))
+(test-results)

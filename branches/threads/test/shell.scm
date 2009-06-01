@@ -1,11 +1,9 @@
 (import (rnrs)
-        (mosh test)
+        (xunit)
         (system)
         (mosh)
         (mosh shell)
         (mosh shell repl))
-
-(test-begin "shell")
 
 (unless (string=? (host-os) "win32")
   (display "IN")
@@ -24,4 +22,4 @@
 
 ))
 
-(test-end)
+(test-results)

@@ -2,9 +2,7 @@
         (mosh)
         (mosh mysql)
         (mosh ffi)
-        (mosh test))
-
-(test-begin "mysql")
+        (xunit))
 
 (define mysql (guard (c (#t #f)) (mysql-init)))
 
@@ -113,5 +111,5 @@
 ;  (mysql-library-end)
   '())))
 
-(test-end)
+(test-results)
 )

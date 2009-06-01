@@ -1,6 +1,7 @@
 (library (xunit)
-         (export assert-true assert-false assert-eq assert-eqv assert-equal
-                 test-results fail
+         (export test-true test-false test-eq test-eqv test-equal test-null
+                 test-write-equal
+                 test-error test-results fail
                  test-error-string   ; exported for tests of xunit
                  test-summary-string ; exported for tests of xunit
                  )
@@ -128,35 +129,71 @@
 
 (define (identity x) x)
 
-(define-syntax assert-true
+(define-syntax test-true
   (lambda (x)
     (syntax-case x ()
       [(_ expr)
-       #'(test-bool '(assert-true expr) (lambda () expr) identity)])))
+       #'(test-bool '(test-true expr) (lambda () expr) identity)])))
 
-(define-syntax assert-false
+(define-syntax test-false
   (lambda (x)
     (syntax-case x ()
       [(_ expr)
-       #'(test-bool '(assert-false expr) (lambda () expr) not)])))
+       #'(test-bool '(test-false expr) (lambda () expr) not)])))
 
-(define-syntax assert-eq
+(define-syntax test-eq
   (lambda (x)
     (syntax-case x ()
       [(_ expected expr)
        #'(test-cmp 'expr eq? (lambda () expr) expected)])))
 
-(define-syntax assert-eqv
+(define-syntax test-eqv
   (lambda (x)
     (syntax-case x ()
       [(_ expected expr)
        #'(test-cmp 'expr eqv? (lambda () expr) expected)])))
 
-(define-syntax assert-equal
+(define-syntax test-equal
   (lambda (x)
     (syntax-case x ()
       [(_ expected expr)
        #'(test-cmp 'expr equal? (lambda () expr) expected)])))
+
+(define-syntax test-write-equal
+  (lambda (x)
+    (syntax-case x ()
+      [(_ expected expr)
+       #'(let-values ([(port get-string) (open-string-output-port)])
+           (write expr port)
+           (test-cmp '(write expr) string=? get-string expected))])))
+
+
+(define-syntax test-error
+  (lambda (x)
+    (syntax-case x ()
+      [(_ pred expr)
+       #'(begin
+           (run-count++)
+           (call/cc
+            (lambda (escape)
+              (with-exception-handler
+               (lambda (e)
+                 (unless (pred e)
+                   (failed-count++)
+                   (add-error! `(error-not-pred expr pred)))
+                 (escape e))
+               (lambda ()
+                 (let ([val expr])
+                   (add-error! `(error-not-raised expr pred))
+                     (failed-count++)
+                   val))))))])))
+
+(define-syntax test-null
+  (lambda (x)
+    (syntax-case x ()
+      [(_ expr)
+       #'(test-cmp 'expr eq? (lambda () expr) '())])))
+
 
 (define-syntax with-color
   (lambda (x)
@@ -194,6 +231,11 @@
          (format out "  ~s : expected ~a, actual ~a\n" expr expected actual)]
         [('failure message)
          (format out "  FAILURE : ~a\n" message)]
+        [('error-not-raised expr pred)
+         (format out "  ~a :\n    expected to raise error which satisfies ~a predicate\n"
+                 expr pred)]
+        [('error-not-pred expr pred)
+         (format out "  ~a :\n    raised error doesn't satisfy ~a predicate\n" expr pred)]
         [else
          (format out "  ~s\n" error)]))
      (reverse error*))
@@ -202,19 +244,22 @@
 (define (test-summary-string)
   (if (zero? failed-count)
       (format "[  PASSED  ] ~d tests." run-count failed-count)
-      (format "[  FAILED  ] ~d passed, ~d failed." run-count failed-count)))
+      (format "[  FAILED  ] ~d passed, ~d failed." (- run-count failed-count) failed-count)))
 
 (define (test-results)
+  (define has-error? (> failed-count 0))
   (display (test-error-string))
-  (when (> failed-count 0)
+  (when has-error?
     (newline))
   (cond
-   [(zero? failed-count)
-    (with-color-green
+   [has-error?
+    (with-color-red
      (display (test-summary-string)))]
    [else
-    (with-color-red
+    (with-color-green
      (display (test-summary-string)))])
-  (newline)))
+  (newline)
+  (when has-error?
+    (exit -1)))
 
 )

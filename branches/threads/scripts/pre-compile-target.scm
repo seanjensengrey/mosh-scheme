@@ -44,6 +44,6 @@
         (except (mosh concurrent) spawn receive)
         (mosh control)
         (mosh socket)
-        (xunit)
+        (prefix (xunit) xunit:)
         (match)
         )

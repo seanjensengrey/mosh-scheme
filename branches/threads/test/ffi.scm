@@ -1,9 +1,8 @@
 (import (rnrs)
         (mosh ffi)
         (mosh)
-        (mosh test))
+        (xunit))
 
-(test-begin "ffi")
 
 (when (ffi-supported?)
   (let ()
@@ -57,4 +56,4 @@
               (mysql-close mysql-obj)
               (mysql-free-result result))])))))))
 
-(test-end)
+(test-results)

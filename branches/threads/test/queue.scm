@@ -1,8 +1,6 @@
 (import (rnrs)
         (mosh queue)
-        (mosh test))
-
-(test-begin "queue")
+        (xunit))
 
 (let ([q (make-queue)])
   (test-true (queue-empty? q))
@@ -30,7 +28,7 @@
   (test-eqv 2 (queue-pop! q))
   (test-eqv 3 (queue-pop! q))
   (test-true (queue-empty? q))
-  (test-error (queue-pop! q)))
+  (test-error error? (queue-pop! q)))
 
 (let ([q1 (make-queue)]
       [q2 (make-queue)])
@@ -50,4 +48,4 @@
   (test-true (queue-empty? q1)))
 
 
-(test-end)
+(test-results)

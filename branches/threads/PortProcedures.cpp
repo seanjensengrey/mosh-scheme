@@ -336,7 +336,6 @@ Object scheme::getDatumEx(VM* theVM, int argc, const Object* argv)
     TRY_WITHOUT_DSTR
         const Object object = in->getDatum(errorOccured);
         if (errorOccured) {
-            printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
             callLexicalAndIOReadAfter(theVM, procedureName, in->error());
             return Object::Undef;
         }
