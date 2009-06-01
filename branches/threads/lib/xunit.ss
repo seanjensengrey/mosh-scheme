@@ -1,15 +1,19 @@
 (library (xunit)
-         (export assert-true assert-false assert-eq test-results)
+         (export assert-true assert-false assert-eq assert-eqv assert-equal
+                 test-results fail
+                 test-error-string   ; exported for tests of xunit
+                 test-summary-string ; exported for tests of xunit
+                 )
          (import (rnrs) (mosh) (match))
 
 (define (condition-printer e port)
     (define max-condition-len (apply max (map (lambda (c) (string-length (symbol->string (record-type-name (record-rtd c))))) (simple-conditions e))))
-    (display "Condition components:\n" port)
+    (display "    Condition components:\n" port)
     (for-each-with-index
      (lambda (i x)
        (let ([rtd (record-rtd x)]
              [fields-alist (record->field-alist x)])
-        (format port " ~d. ~a" i (rpad (symbol->string (record-type-name rtd)) " " max-condition-len))
+        (format port "     ~d. ~a" i (rpad (symbol->string (record-type-name rtd)) " " max-condition-len))
         (when (null? fields-alist)
           (newline port))
          (let loop ([first #t]
@@ -55,7 +59,6 @@
         (reverse ret)
         (loop (+ i 1) (cdr lst) (cons (proc i (car lst)) ret)))))
 
-
 (define (rpad str pad n)
   (let ([rest (- n (string-length (format "~a" str)))])
     (let loop ([rest rest]
@@ -87,6 +90,10 @@
 (define (add-error! expr)
   (set! error* (cons expr error*)))
 
+(define (fail message)
+  (failed-count++)
+  (add-error! `(failure ,message)))
+
 (define (test-bool expr thunk true?)
   (run-count++)
   (call/cc
@@ -100,6 +107,22 @@
         (let ([val (thunk)])
           (unless (true? val)
             (add-error! expr)
+            (failed-count++))
+          val))))))
+
+(define (test-cmp expr pred thunk expected)
+  (run-count++)
+  (call/cc
+   (lambda (escape)
+     (with-exception-handler
+      (lambda (e)
+        (failed-count++)
+        (add-error! `(unexpected ,expr ,e))
+        (escape e))
+      (lambda ()
+        (let ([val (thunk)])
+          (unless (pred val expected)
+            (add-error! `(compare-error ,expr ,expected ,val))
             (failed-count++))
           val))))))
 
@@ -121,36 +144,77 @@
   (lambda (x)
     (syntax-case x ()
       [(_ expected expr)
-       #'(begin
-           (run-count++)
-           (call/cc
-            (lambda (escape)
-              (with-exception-handler
-               (lambda (e)
-                 (failed-count++)
-                 (add-error! `(unexpected ,'expr ,e))
-                 (escape e))
-               (lambda ()
-                 (let ([val expr])
-                   (unless (eq? val expected)
-                     (add-error! `(compare-error expr expected ,val))
-                     (failed-count++))
-                   val))))))])))
+       #'(test-cmp 'expr eq? (lambda () expr) expected)])))
 
+(define-syntax assert-eqv
+  (lambda (x)
+    (syntax-case x ()
+      [(_ expected expr)
+       #'(test-cmp 'expr eqv? (lambda () expr) expected)])))
 
-(define (test-results)
+(define-syntax assert-equal
+  (lambda (x)
+    (syntax-case x ()
+      [(_ expected expr)
+       #'(test-cmp 'expr equal? (lambda () expr) expected)])))
+
+(define-syntax with-color
+  (lambda (x)
+    (syntax-case x ()
+      [(_ color expr more ...)
+       (if (string=? (host-os) "win32")
+           #'(begin expr more ...)
+           #'(dynamic-wind
+                 (lambda () (display color))
+                 (lambda () expr more ...)
+                 (lambda () (display "\x1b;[m")))]))))
+
+(define-syntax with-color-green
+  (lambda (x)
+    (syntax-case x ()
+      [(_ expr more ...)
+       #'(with-color "\x1b;[0;32m" expr more ...)])))
+
+(define-syntax with-color-red
+  (lambda (x)
+    (syntax-case x ()
+      [(_ expr more ...)
+       #'(with-color "\x1b;[0;31m" expr more ...)])))
+
+(define (test-error-string)
   (let-values (([out get-string] (open-string-output-port)))
     (for-each
      (lambda (error)
+       (display "============================================================" out)
+       (newline out)
        (match error
         [('unexpected expr exception)
-         (format out "unexpected error ~s :\n~a\n" expr (exception->string exception))]
+         (format out "\n  ERROR : ~s\n~a\n" expr (exception->string exception))]
         [('compare-error expr expected actual)
-         (format out "~s : expected ~a, actual ~a\n" expr expected actual)]
+         (format out "  ~s : expected ~a, actual ~a\n" expr expected actual)]
+        [('failure message)
+         (format out "  FAILURE : ~a\n" message)]
         [else
-         (format out "~s\n" error)]))
+         (format out "  ~s\n" error)]))
      (reverse error*))
-    (format out "~d run, ~d failed" run-count failed-count)
     (get-string)))
+
+(define (test-summary-string)
+  (if (zero? failed-count)
+      (format "[  PASSED  ] ~d tests." run-count failed-count)
+      (format "[  FAILED  ] ~d passed, ~d failed." run-count failed-count)))
+
+(define (test-results)
+  (display (test-error-string))
+  (when (> failed-count 0)
+    (newline))
+  (cond
+   [(zero? failed-count)
+    (with-color-green
+     (display (test-summary-string)))]
+   [else
+    (with-color-red
+     (display (test-summary-string)))])
+  (newline)))
 
 )

@@ -1,3 +1,7 @@
+2009-06-01  higepon  <higepon@users.sourceforge.jp>
+
+        * lib/xunit.ss (xunit): it works.
+
 2009-05-30  higepon  <higepon@users.sourceforge.jp>
 
         * example/echo-load.ss : OK this works.
