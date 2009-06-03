@@ -325,12 +325,12 @@ MAINTAINERCLEANFILES = $(GENERATED)
 #       So using environment variable MOSH_GENSYM_PREFIX, we control the prefix.
 
 # all fasl should be newer than *.ss and psyntax.h binary
-lib/mosh/queue.ss.fasl: $(mosh_core_libraries) psyntax.h
-	(find . -name "*.ss.fasl" | xargs rm) ; true
-	(find . -name "*.sls.fasl" | xargs rm) ; true
+lib/mosh/queue.ss.mosh-fasl: $(mosh_core_libraries) psyntax.h
+	(find . -name "*.ss.mosh-fasl" | xargs rm) ; true
+	(find . -name "*.sls.mosh-fasl" | xargs rm) ; true
 	MOSH_GENSYM_PREFIX=L ./mosh scripts/pre-compile-r6rs.scm scripts/pre-compile-target.scm
 
-update: lib/mosh/queue.ss.fasl
+update: lib/mosh/queue.ss.mosh-fasl
 
 # when you release comment out start
 if DEVELOPER

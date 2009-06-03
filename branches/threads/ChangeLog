@@ -1,5 +1,7 @@
 2009-06-03  higepon  <higepon@users.sourceforge.jp>
 
+        * Changed fasl file extension from *.fasl to *.mosh-fasl.
+
         * Makefile.am : Fixed the Issue 59.
 
 2009-06-01  higepon  <higepon@users.sourceforge.jp>
