@@ -1,3 +1,7 @@
+2009-06-03  higepon  <higepon@users.sourceforge.jp>
+
+        * Makefile.am : Fixed the Issue 59.
+
 2009-06-01  higepon  <higepon@users.sourceforge.jp>
 
         * lib/xunit.ss (xunit): it works.
