@@ -1,6 +1,19 @@
 (import (prefix (xunit) xunit:)
-        (mosh test)
+        (srfi :64)
         (rnrs))
+
+(define-syntax test-true
+  (lambda (x)
+    (syntax-case x ()
+      [(_ expr)
+      #'(test-eq #t expr)])))
+
+(define-syntax test-false
+  (lambda (x)
+    (syntax-case x ()
+      [(_ expr)
+      #'(test-eq #f expr)])))
+
 
 (test-begin "basic assert")
 

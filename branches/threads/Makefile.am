@@ -456,6 +456,7 @@ check: test
 test: ./mosh all-tests.scm update libffitest.so.1.0
 	./mosh -5 all-tests.scm
 	./mosh test/testing.scm
+	./mosh lib/xunit-test.scm
 	./mosh test/io-error.scm
 	./mosh test/input-output-port.scm
 	./mosh test/input-port.scm
