@@ -1,5 +1,7 @@
 2009-06-03  higepon  <higepon@users.sourceforge.jp>
 
+        * compiler.scm (pass3/$call): Fixed Issue 63.
+
         * Rewrote whole (mosh test) for performance reason.
 
         * Retry Issue 59.

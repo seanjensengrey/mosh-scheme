@@ -2945,9 +2945,9 @@
          (let ([args-size (pass3/compile-args let-cb ($call.args iform) locals frees-here can-frees sets #f
                                               (+ depth (pass3/let-frame-size)) (if need-display? (+ display-count 1) display-count))]
                [args-length (length ($call.args iform))])
-           (pass3/make-boxes let-cb sets-for-this-lvars vars)
            (code-builder-put-insn-arg1! let-cb 'ENTER args-length)
            (cput! let-cb label)
+           (pass3/make-boxes let-cb sets-for-this-lvars vars)
            ($label.set-visited?! label #t)
            (let1 body-size (pass3/rec let-cb
                                       body
