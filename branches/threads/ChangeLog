@@ -14,6 +14,8 @@
 
 2009-05-30  higepon  <higepon@users.sourceforge.jp>
 
+        * Fixed append. (append) => '().  Issue 62.
+
         * example/echo-load.ss : OK this works.
 
         * Reader.y : Now reader context becomes thread safe.

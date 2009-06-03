@@ -1130,6 +1130,8 @@
          (pass1/s->i-non-tail 0)]
         [(*)
          (pass1/s->i-non-tail 1)]
+        [(append)
+         (pass1/s->i-non-tail '())]
         [else
          (error operator " got too few argment")])]
      [(= 1 len)
@@ -1225,7 +1227,7 @@
       ;;---------------------------- quote -------------------------------------
       [(quote)
        ($const (second sexp))]
-      [(append)           (pass1/asm-n-args         'APPEND2      'dummy (cdr sexp) lvars)]
+      [(append)           (pass1/asm-n-args         'APPEND2      'append (cdr sexp) lvars)]
       [(+)                (pass1/asm-n-args         'NUMBER_ADD   '+  (cdr sexp)    lvars)]
       [(-)
        (if (for-all number? (cdr sexp))
