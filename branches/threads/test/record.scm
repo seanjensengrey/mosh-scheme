@@ -1,5 +1,5 @@
 (import (rnrs)
-        (xunit))
+        (mosh test))
 
 (let ()
   (define :point

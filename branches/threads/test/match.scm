@@ -1,6 +1,6 @@
 (import (rnrs)
         (match)
-        (xunit))
+        (mosh test))
 
 
 (test-equal '(0 1 2 3 4 5)

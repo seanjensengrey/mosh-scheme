@@ -1,5 +1,7 @@
 2009-06-03  higepon  <higepon@users.sourceforge.jp>
 
+        * Rewrote whole (mosh test) for performance reason.
+
         * Retry Issue 59.
 
         * Changed fasl file extension from *.fasl to *.mosh-fasl.

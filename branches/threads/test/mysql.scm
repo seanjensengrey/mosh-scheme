@@ -2,7 +2,7 @@
         (mosh)
         (mosh mysql)
         (mosh ffi)
-        (xunit))
+        (mosh test))
 
 (define mysql (guard (c (#t #f)) (mysql-init)))
 

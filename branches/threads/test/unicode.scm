@@ -1,5 +1,5 @@
 (import (rnrs)
-        (xunit))
+        (mosh test))
 
 (test-equal "\x41;" "A")
 (test-equal "\x41;\x42;C\x44;" "ABCD")

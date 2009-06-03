@@ -32,7 +32,7 @@
         (mosh)
         (mosh process)
         (mosh shell)
-        (xunit))
+        (mosh test))
 
 ;; N.B rm and cp should be written in pure scheme
 (define (rm file-name)

@@ -1,7 +1,7 @@
 (import (rnrs)
         (mosh ffi)
         (mosh)
-        (xunit))
+        (mosh test))
 
 
 (when (ffi-supported?)

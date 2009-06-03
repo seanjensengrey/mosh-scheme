@@ -30,7 +30,7 @@
 
 (import (rnrs)
         (mosh)
-        (xunit)
+        (mosh test)
         (mosh shell)
         (mosh process))
 

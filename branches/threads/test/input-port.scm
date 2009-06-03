@@ -31,7 +31,7 @@
 (import (rnrs)
         (rnrs mutable-strings)
         (mosh)
-        (xunit))
+        (mosh test))
 
 (define (with-all-buffer-mode proc)
   (for-each proc (list (buffer-mode none) (buffer-mode block) (buffer-mode line))))

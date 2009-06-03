@@ -1,6 +1,6 @@
 (import (rnrs)
         (mosh queue)
-        (xunit))
+        (mosh test))
 
 (let ([q (make-queue)])
   (test-true (queue-empty? q))

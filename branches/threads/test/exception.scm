@@ -1,5 +1,5 @@
 (import (rnrs)
-        (xunit))
+        (mosh test))
 
 (test-error violation? (car 3))
 (test-error violation? (cdr 3))

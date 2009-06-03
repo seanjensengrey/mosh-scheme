@@ -527,7 +527,6 @@ OSCompat.h OSCompat.cpp
 
 mosh_core_libraries = \
 lib/match.ss \
-lib/xunit.ss \
 lib/lambda/wiki.ss    \
 lib/mosh/queue.ss    \
 lib/mosh/ffi.ss    \
@@ -3118,7 +3117,7 @@ check: test
 test: ./mosh all-tests.scm update libffitest.so.1.0
 	./mosh -5 all-tests.scm
 	./mosh test/testing.scm
-	./mosh xunit-test.scm
+	./mosh test/mosh-test.scm
 	./mosh test/io-error.scm
 	./mosh test/input-output-port.scm
 	./mosh test/input-port.scm

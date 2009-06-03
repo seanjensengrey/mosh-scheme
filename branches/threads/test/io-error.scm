@@ -31,7 +31,7 @@
         (mosh)
         (mosh process)
         (mosh shell)
-        (xunit))
+        (mosh test))
 
 ;; utf-8-codec
 ;;   error-handling-mode: raise

@@ -2,7 +2,7 @@
         (clos user)
         (clos core)
         (mosh)
-        (xunit))
+        (mosh test))
 
 (define-class <person> () name age)
 

@@ -2,7 +2,7 @@
         (mosh)
         (only (mosh pp) pp)
         (mosh socket)
-        (xunit))
+        (mosh test))
 
 (define-syntax test-print
   (lambda (x)

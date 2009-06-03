@@ -25,7 +25,7 @@
         (srfi :78)
         (except (srfi :99) define-record-type)
         (rnrs mutable-pairs)
-        (xunit))
+        (mosh test))
 
 ;;;;;  SRFI-0   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (cond-expand

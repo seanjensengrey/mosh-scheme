@@ -1,5 +1,5 @@
 (import (rnrs)
-        (xunit))
+        (mosh test))
 
 (let ()
   (define-record-type (&cond1 make-cond1 real-cond1?)

@@ -1,4 +1,4 @@
-(import (prefix (xunit) xunit:)
+(import (prefix (mosh test) mosh-test:)
         (srfi :64)
         (rnrs))
 
@@ -17,31 +17,31 @@
 
 (test-begin "basic assert")
 
-(test-true (xunit:test-true #t))
-(test-true (xunit:test-true (number? 3)))
-(test-false (xunit:test-true (number? #\a)))
+(test-true (mosh-test:test-true #t))
+(test-true (mosh-test:test-true (number? 3)))
+(test-false (mosh-test:test-true (number? #\a)))
 
-;; xunit:test-true evaluate expression only once.
+;; mosh-test:test-true evaluate expression only once.
 (define once 0)
-(test-true (xunit:test-true (begin (set! once (+ once 1)) #t)))
+(test-true (mosh-test:test-true (begin (set! once (+ once 1)) #t)))
 (test-eq 1 once)
 
-(test-true (condition? (xunit:test-true (car 3))))
+(test-true (condition? (mosh-test:test-true (car 3))))
 
-(test-false (xunit:test-false (pair? 3)))
+(test-false (mosh-test:test-false (pair? 3)))
 
-(xunit:test-eq 3 (+ 1 2))
-(xunit:test-eq 4 (+ 1 2))
+(mosh-test:test-eq 3 (+ 1 2))
+(mosh-test:test-eq 4 (+ 1 2))
 
-(xunit:fail "my tests failed")
+(mosh-test:fail "my tests failed")
 
-(xunit:test-error error? 3)
+(mosh-test:test-error error? 3)
 
-(xunit:test-error pair? (car 3))
+(mosh-test:test-error pair? (car 3))
 
-(xunit:test-null 3)
+(mosh-test:test-null 3)
 
-(xunit:test-write-equal "#\\b" #\a)
+(mosh-test:test-write-equal "#\\b" #\a)
 
 (test-equal
 "============================================================
@@ -69,8 +69,8 @@
   3 : expected (), actual 3
 ============================================================
   (write #\\a) : expected #\\b, actual #\\a
-" (xunit:test-error-string))
+" (mosh-test:test-error-string))
 
 (test-equal
- "[  FAILED  ] 4 passed, 8 failed." (xunit:test-summary-string))
+ "[  FAILED  ] 4 passed, 8 failed." (mosh-test:test-summary-string))
 (test-end)

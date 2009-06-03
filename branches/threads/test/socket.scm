@@ -1,7 +1,7 @@
 (import (rnrs)
         (mosh socket)
         (only (srfi :13) string-contains)
-        (xunit))
+        (mosh test))
 
 (let ([server (make-server-socket "34565")])
   ;; predicate

@@ -1,7 +1,7 @@
 (import (rnrs)
         (mosh dbi)
         (mosh)
-        (xunit)
+        (mosh test)
         (clos core))
 
 
