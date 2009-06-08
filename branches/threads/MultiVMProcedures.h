@@ -47,6 +47,7 @@ namespace scheme {
     Object vmStartDEx(VM* theVM, int argc, const Object* argv);
     Object vmSetValueDEx(VM* theVM, int argc, const Object* argv);
     Object vmJoinDEx(VM* theVM, int argc, const Object* argv);
+    Object vmEvalEx(VM* theVM, int argc, const Object* argv);
 
     Object makeConditionVariableEx(VM* theVM, int argc, const Object* argv);
     Object conditionVariableNotifyAllDEx(VM* theVM, int argc, const Object* argv);

@@ -998,6 +998,7 @@
     (make-vm                                 mosh interaction)
     (vm-start!                               mosh interaction)
     (vm-self                                 mosh interaction)
+    (vm-eval                                 mosh interaction)
     (main-vm?                                mosh interaction)
     (vm?                                     mosh interaction)
     (vm-set-value!                           mosh interaction)

@@ -266,3 +266,4 @@ void* vmEntry(void* param)
     Thread::exit(new Object(ret));
     return NULL;
 }
+
