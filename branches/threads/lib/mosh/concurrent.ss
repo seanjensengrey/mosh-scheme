@@ -29,9 +29,9 @@
 
 (library (mosh concurrent)
   (export ! receive spawn self join! register whereis link process-exit spawn-link
-          make-process-error process-error?)
+          make-process-error process-error? process-error)
   (import (only (mosh) main-vm? vm-set-value! vm-self make-condition-variable make-mutex mutex-lock! mutex-unlock! condition-variable-notify!
-                whereis vm-start! make-vm symbol-value condition-variable-wait! vm-join! register time vm-eval)
+                whereis vm-start! make-vm symbol-value condition-variable-wait! vm-join! register time)
           (only (rnrs) define-record-type immutable mutable protocol lambda define for-each quote exit fields _ ... define-syntax
                 syntax-case syntax integer? syntax->datum when let quasiquote unless error if let* memq remq cons cond pair? not car cadr
                 else letrec unquote display define-condition-type &error)
@@ -40,8 +40,8 @@
           (only (match) match))
 
 (define-condition-type &process &error
-  make-process-error process-error?)
-
+  make-process-error process-error?
+  (error process-error))
 
 (define-record-type mail-box
   (fields
@@ -53,14 +53,6 @@
      (lambda ()
        (c (make-condition-variable) (make-mutex) (make-queue))))))
 
-(define (process-exit status)
-  (for-each
-   (lambda (to)
-     (display "send to\n")
-     (! to `(exit ,status)))
-   (pid-links (self)))
-  (exit status))
-
 (define-record-type pid
   (fields
    (immutable vm)
@@ -70,6 +62,17 @@
    (lambda (c)
      (lambda (vm)
        (c vm (make-mail-box) '())))))
+
+(define (process-exit status)
+  (for-each
+   (lambda (to)
+     (display "send to\n")
+     (display to)
+     (! to `(exit ,status)))
+   (pid-links (self)))
+  (exit status))
+
+
 
 (define (! pid obj)
   (let ([p (if (pid? pid)
@@ -116,10 +119,8 @@
            pid)])))
 
 (define (spawn-internal thunk import-spec)
-  (let* ([on-error '(vm-eval vm '(display 3))]
-         [vm (make-vm `(lambda () (guard (c [#t (display "debug:spawn got error\n") (make-process-error (process-exit c)) ]) (,thunk) (process-exit 'normal))) import-spec)]
+  (let* ([vm (make-vm `(lambda () (guard (c [#t (display "debug:spawn got error\n") (process-exit (make-process-error c)) ]) (,thunk) (process-exit 'normal))) import-spec)]
          [pid (make-pid vm)])
-    (set-car! (cadr on-error) vm)
     (vm-set-value! vm 'self pid)
     (vm-start! vm)
     pid))
