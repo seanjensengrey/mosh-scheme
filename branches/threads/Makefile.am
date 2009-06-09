@@ -476,6 +476,8 @@ test: ./mosh all-tests.scm update libffitest.so.1.0
 	./mosh test/socket.scm
 	./mosh test/match.scm
 	./mosh test/print.scm
+	./mosh test/concurrent.scm
+	./mosh test/concurrent-crash.scm
 	(cd r6rs-test-suite && $(MAKE) $@)
 
 
