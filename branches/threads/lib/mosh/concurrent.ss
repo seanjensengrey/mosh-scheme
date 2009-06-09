@@ -28,7 +28,7 @@
 ;  $Id: concurrent.ss 621 2008-11-09 06:22:47Z higepon $
 
 (library (mosh concurrent)
-  (export ! receive spawn self join! register whereis link process-exit spawn-link
+  (export ! receive spawn self join! register whereis link unlink process-exit spawn-link
           make-process-error process-error? process-error)
   (import (only (mosh) main-vm? vm-set-value! vm-self make-condition-variable make-mutex mutex-lock! mutex-unlock! condition-variable-notify!
                 whereis vm-start! make-vm symbol-value condition-variable-wait! vm-join! register time)
@@ -71,8 +71,6 @@
      (! to `(exit ,status)))
    (pid-links (self)))
   (exit status))
-
-
 
 (define (! pid obj)
   (let ([p (if (pid? pid)

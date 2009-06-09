@@ -15,4 +15,15 @@
     [x (fail (format "unexpected ~a\n" x))])
   (join! pid))
 
+(let ([pid (spawn-link
+            (lambda () #;(sleep 500) (car 3)) ;; this causes error
+            '((rnrs) (mosh) (mosh concurrent)))])
+;  (unlink pid)
+  (test-eq 'timeout
+    (receive
+      [('exit why)
+       (fail "not reached")]
+      [after 100000 'timeout]))
+  (join! pid))
+
 (test-results)
