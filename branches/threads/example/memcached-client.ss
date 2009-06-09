@@ -1,0 +1,21 @@
+(import (rnrs)
+        (mosh)
+        (mosh socket))
+
+(let ([socket (make-client-socket "localhost" "11121")])
+  (define (send text)
+    (socket-send socket (string->utf8 text)))
+  (define (set key value)
+    (send (format "set ~a 0 0 ~d\r\n~a\r\n" key (string-length value) value))
+    (socket-recv socket 1024))
+  (define (get key1 key2)
+    (send (format "get ~a ~a\r\n" key1 key2))
+    (let* ([line (utf8->string (socket-recv socket 1024))]
+           [m (#/VALUE [^\s]+ [^\s]+ \d+\n(.*)\nEND/ line)])
+      (display line)
+      (if m
+          (m 1)
+          #f)))
+  (set "Hello" "World!")
+  (set "Good" "Bye!")
+  (display (get "Hello" "Goo")))
