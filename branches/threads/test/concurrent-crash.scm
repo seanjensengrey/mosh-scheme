@@ -16,14 +16,19 @@
   (join! pid))
 
 (let ([pid (spawn-link
-            (lambda () #;(sleep 500) (car 3)) ;; this causes error
+            (lambda ()
+              (define (sleep msec)
+                (condition-variable-wait! (make-condition-variable) msec))
+              (sleep 600) (car 3)) ;; this causes error
             '((rnrs) (mosh) (mosh concurrent)))])
-;  (unlink pid)
+  (define (sleep msec)
+    (condition-variable-wait! (make-condition-variable) msec))
+  (unlink pid)
   (test-eq 'timeout
     (receive
       [('exit why)
        (fail "not reached")]
-      [after 100000 'timeout]))
+      [after 50 'timeout]))
   (join! pid))
 
 (test-results)

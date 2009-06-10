@@ -63,6 +63,8 @@
 #  endif
 #endif
 
+#include <time.h>
+
 // If you add new thread support for new operating system
 // See and add some macro to scheme.h, just before include gc.h
 
@@ -170,12 +172,29 @@ namespace scheme {
         // returns false if timeout
         bool waitWithTimeout(int msecs)
         {
-            struct timespec timeout = { time(NULL), msecs * 1000L };
+            struct timeval  now;
+            struct timespec timeout;
+            if (gettimeofday(&now, NULL) !=0 ) {
+                fprintf(stderr,"Fail to get current time\n");
+                exit(-1);
+            }
+            now.tv_usec += msecs * 1000;
+            while (now.tv_usec >= 1000000) {
+                now.tv_sec++;
+                now.tv_usec -= 1000000;
+            }
+            timeout.tv_sec = now.tv_sec;
+            timeout.tv_nsec = now.tv_usec * 1000;
+            while (timeout.tv_nsec >= 1000000000) {
+                timeout.tv_sec++;
+                timeout.tv_nsec -= 1000000000;
+            }
             mutex_.lock();
             int ret = 0;
             do {
                 ret = pthread_cond_timedwait(&cond_, &mutex_.mutex_, &timeout);
             } while (ret == EINTR);
+            MOSH_ASSERT(ret != EINVAL);
             mutex_.unlock();
             return ETIMEDOUT != ret;
         }
