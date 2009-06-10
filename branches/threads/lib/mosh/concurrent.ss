@@ -66,8 +66,8 @@
 (define (process-exit status)
   (for-each
    (lambda (to)
-     (display "send to\n")
-     (display to)
+;;      (display "send to\n")
+;;      (display to)
      (! to `(exit ,status)))
    (pid-links (self)))
   (exit status))
@@ -117,7 +117,8 @@
            pid)])))
 
 (define (spawn-internal thunk import-spec)
-  (let* ([vm (make-vm `(lambda () (guard (c [#t (display "debug:spawn got error\n") (process-exit (make-process-error c)) ]) (,thunk) (process-exit 'normal))) import-spec)]
+  (let* ([vm (make-vm `(lambda () (guard (c [#t ;; (display "debug:spawn got error\n")
+                                                (process-exit (make-process-error c)) ]) (,thunk) (process-exit 'normal))) import-spec)]
          [pid (make-pid vm)])
     (vm-set-value! vm 'self pid)
     (vm-start! vm)
