@@ -27,6 +27,15 @@
 ;
 ;  $Id: concurrent.ss 621 2008-11-09 06:22:47Z higepon $
 
+#|
+    Title: Concurrent
+
+    Multi-Process library
+
+    library: (mosh concurrent)
+
+    Multi-Process Library
+|#
 (library (mosh concurrent)
   (export ! receive spawn self join! register whereis link unlink process-exit spawn-link
           make-process-error process-error? process-error process-arg)
@@ -72,6 +81,14 @@
    (pid-links (self)))
   (exit status))
 
+#|
+    Function: !
+
+    Send a message object to pid process. ! procedure will not be blocked, returns immediately.
+
+    Prototype:
+    > (! pid obj)
+|#
 (define (! pid obj)
   (let ([p (if (pid? pid)
                pid
@@ -102,6 +119,17 @@
       (unless (memq self links)
         (pid-links-set! pid (cons self links))))))
 
+#|
+    Function: spawn
+
+    Create a process which execute proc. On Mosh, a process means an independent VM instance.
+    The process which is spawn-ed and calls spawn share nothing.
+    Each processes has own namespace.
+
+    Prototype:
+    > (spawn proc-expr arg import-spec)
+
+|#
 (define-syntax spawn
   (lambda (x)
     (syntax-case x ()
@@ -131,6 +159,39 @@
 (define (process-arg)
   (symbol-value 'process-arg))
 
+#|
+    Function: receive
+
+    Receive a message which matches <match clause>. If there is no message or no matched message, receive is blocked.
+    <match clause> may have [after timeout ...], receive wait timeout msec and returns 
+
+    Prototype:
+    > (receive <match clause> ...)
+
+    Example:
+    (start code)
+    ;; wait and receive ('exit why) message.
+    (receive
+      [('exit why)
+        (display why)])
+
+    ;; wait two pattern messages.
+    (receive
+      [('exit why)
+        (display why)]
+      [x
+        (display "unknown message")
+        (display x)])
+
+    ;; wait with timeout
+    (receive
+      [('exit why)
+        (display why)]
+      [after 1000
+        (display "exit why doesn't come in 1000 msec")])
+    (end code)
+
+|#
 (define-syntax receive
   (lambda (x)
   (syntax-case x (after)
