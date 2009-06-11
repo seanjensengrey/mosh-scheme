@@ -1,3 +1,7 @@
+2009-06-11  higepon  <higepon@users.sourceforge.jp>
+
+        * Added one argument to spawn.
+
 2009-06-10  higepon  <higepon@users.sourceforge.jp>
 
         * OSCompatThread.h : Conditional variables waitWithTimeout works.

@@ -1,10 +1,12 @@
 (import (rnrs)
         (mosh)
+        (system)
+        (mosh queue)
         (mosh concurrent)
         (mosh test))
 
 (let ([pid (spawn
-             (lambda ()
+             (lambda (x)
                (test-eqv 'hello
                          (receive
                           [('apple)
@@ -51,7 +53,9 @@
 ;               (process-exit 'normal)
 ;               (error 'hoge "hage")
                )
-             '((rnrs) (mosh concurrent) (mosh) (mosh test)))])
+             '()
+             '((rnrs) (mosh concurrent) (mosh) (mosh test))
+            )])
 
 (link pid)
 
@@ -72,16 +76,18 @@
 
 (receive
     [('exit why) (test-equal 'normal why)])
+(join! pid)
+)
 
-(let ([pid2 (spawn-link (lambda () (error 'unknown "hogehoge2")) '((rnrs) (mosh concurrent)))])
+(let ([pid2 (spawn-link (lambda (arg) (error 'unknown "hogehoge2")) '() '((rnrs) (mosh concurrent)))])
   (receive
       [('exit why) (test-true (error? why))
        #;(raise why)]))
 
-
+(let ([pid (spawn (lambda (arg) (test-eq 1234 arg) (test-results)) 1234 '((rnrs) (mosh test) (mosh concurrent)))])
+  (join! pid))
 
 (test-results)
 
 
-(join! pid))
 

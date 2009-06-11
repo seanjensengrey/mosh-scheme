@@ -29,12 +29,12 @@
 
 (library (mosh concurrent)
   (export ! receive spawn self join! register whereis link unlink process-exit spawn-link
-          make-process-error process-error? process-error)
+          make-process-error process-error? process-error process-arg)
   (import (only (mosh) main-vm? vm-set-value! vm-self make-condition-variable make-mutex mutex-lock! mutex-unlock! condition-variable-notify!
                 whereis vm-start! make-vm symbol-value condition-variable-wait! vm-join! register time)
           (only (rnrs) define-record-type immutable mutable protocol lambda define for-each quote exit fields _ ... define-syntax
                 syntax-case syntax integer? syntax->datum when let quasiquote unless error if let* memq remq cons cond pair? not car cadr
-                else letrec unquote display define-condition-type &error)
+                else letrec unquote display define-condition-type &error quasisyntax unsyntax unquote)
           (only (mosh queue) make-queue queue-push! queue-empty? queue-pop! queue-append!)
           (only (rnrs mutable-pairs) set-car!)
           (only (match) match))
@@ -105,27 +105,31 @@
 (define-syntax spawn
   (lambda (x)
     (syntax-case x ()
-      [(_ expr import-spec)
-       #'(spawn-internal 'expr import-spec)])))
+      [(_ expr args import-spec)
+       #'(spawn-internal 'expr args import-spec)])))
 
 (define-syntax spawn-link
   (lambda (x)
     (syntax-case x ()
-      [(_ expr import-spec)
-       #'(let ([pid (spawn-internal 'expr import-spec)])
+      [(_ expr args import-spec)
+       #'(let ([pid (spawn-internal 'expr args import-spec)])
            (link pid)
            pid)])))
 
-(define (spawn-internal thunk import-spec)
-  (let* ([vm (make-vm `(lambda () (guard (c [#t ;; (display "debug:spawn got error\n")
-                                                (process-exit (make-process-error c)) ]) (,thunk) (process-exit 'normal))) import-spec)]
+(define (spawn-internal thunk args import-spec)
+  (let* ([vm (make-vm `(lambda () (guard (c [#t (process-exit (make-process-error c))])
+                                         (,thunk (process-arg)) (process-exit 'normal))) import-spec)]
          [pid (make-pid vm)])
     (vm-set-value! vm 'self pid)
+    (vm-set-value! vm 'process-arg args)
     (vm-start! vm)
     pid))
 
 (define (self)
   (symbol-value 'self))
+
+(define (process-arg)
+  (symbol-value 'process-arg))
 
 (define-syntax receive
   (lambda (x)

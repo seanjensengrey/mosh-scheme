@@ -39,13 +39,14 @@
      [(= i num) ret]
      [else
       (loop (+ i 1)
-            (cons (spawn (lambda ()
+            (cons (spawn (lambda (arg)
                            (let loop ()
                              (let ([socket (make-client-socket "127.0.0.1" "4649")])
                                (socket-send socket (string->utf8 "hello"))
                                (format #t "Reply from Server: ~a\n" (utf8->string (socket-recv socket 100)))
                                (socket-close socket)
                                (loop))))
+                         '()
                          '((rnrs) (mosh concurrent) (mosh) (mosh socket)))
                   ret))])))
 

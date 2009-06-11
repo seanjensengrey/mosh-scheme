@@ -4,7 +4,8 @@
         (mosh test))
 
 (let ([pid (spawn-link
-            (lambda () (car 3)) ;; this causes error
+            (lambda (arg) (car 3)) ;; this causes error
+            '()
             '((rnrs) (mosh) (mosh concurrent)))])
   (receive
     [('exit why)
@@ -16,10 +17,11 @@
   (join! pid))
 
 (let ([pid (spawn-link
-            (lambda ()
+            (lambda (arg)
               (define (sleep msec)
                 (condition-variable-wait! (make-condition-variable) msec))
               (sleep 600) (car 3)) ;; this causes error
+            '()
             '((rnrs) (mosh) (mosh concurrent)))])
   (define (sleep msec)
     (condition-variable-wait! (make-condition-variable) msec))

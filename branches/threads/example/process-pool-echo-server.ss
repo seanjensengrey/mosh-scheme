@@ -40,7 +40,7 @@
      [(= i num) ret]
      [else
       (let ([pid (spawn
-                  (lambda ()
+                  (lambda (arg)
                     (define (main-loop supervisor index)
                       (format #t "main-loop ~d\n" index)
                        (receive
@@ -64,19 +64,21 @@
                        (format #t "child start \n")
                        (main-loop supervisor index)])
                     )
+                  '()
                 '((rnrs) (mosh concurrent) (mosh) (mosh socket)))])
         (! pid `(supervisor ,(self) ,i))
         (loop (+ i 1) (cons pid ret)))])))
 
 (define (process-listen)
   (let ([pid (spawn
-              (lambda ()
+              (lambda (arg)
                 (let ([server (make-server-socket "4649")])
                   (receive
                       [('supervisor supervisor)
                        (let loop ([conn (socket-accept server)])
                          (! supervisor `(connection ,conn))
                          (loop (socket-accept server)))))))
+              '()
               '((rnrs) (mosh concurrent) (mosh) (mosh socket)))])
     (! pid `(supervisor ,(self)))
     pid))
