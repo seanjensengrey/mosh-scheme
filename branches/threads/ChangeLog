@@ -1,3 +1,7 @@
+2009-06-12  higepon  <higepon@users.sourceforge.jp>
+
+        * lib/mosh/concurrent.ss: Added document.
+
 2009-06-11  higepon  <higepon@users.sourceforge.jp>
 
         * Added one argument to spawn.

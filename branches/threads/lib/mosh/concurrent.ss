@@ -72,11 +72,75 @@
      (lambda (vm)
        (c vm (make-mail-box) '())))))
 
+#|
+    Function: spawn
+
+    Create a process which executes proc. On Mosh, a process means an independent VM instance.
+    The process which is spawn-ed and calls spawn share nothing.
+    Each processes has own independent namespace.
+
+    Prototype:
+    > (spawn proc-expr arg import-spec)
+
+    Parameters:
+
+      proc-expr - (lambda (arg) ...) expression to execute.
+      arg - argument for proc-expr.
+      import-spec - import spec.
+
+    Example:
+    (start code)
+    (spawn (lambda (x) (display x)) 'hello '((rnrs)))
+    (end code)
+
+    Returns:
+
+      pid
+|#
+(define-syntax spawn
+  (lambda (x)
+    (syntax-case x ()
+      [(_ expr args import-spec)
+       #'(spawn-internal 'expr args import-spec)])))
+
+#|
+    Function: spawn-link
+
+    spawn and link.
+
+    Prototype:
+    > (spawn-link proc-expr arg import-spec)
+
+    Parameters:
+
+      proc-expr - (lambda (arg) ...) expression to execute.
+      arg - argument for proc-expr.
+      import-spec - import spec.
+
+    Returns:
+
+      pid
+|#
+(define-syntax spawn-link
+  (lambda (x)
+    (syntax-case x ()
+      [(_ expr args import-spec)
+       #'(let ([pid (spawn-internal 'expr args import-spec)])
+           (link pid)
+           pid)])))
+
+#|
+    Function: process-exit
+
+    exit process with status.
+    status is sent to linked process as '(exit status) message.
+
+    Prototype:
+    > (process-exit status)
+|#
 (define (process-exit status)
   (for-each
    (lambda (to)
-;;      (display "send to\n")
-;;      (display to)
      (! to `(exit ,status)))
    (pid-links (self)))
   (exit status))
@@ -101,15 +165,19 @@
       (mutex-unlock! (mail-box-mutex mb))
       (condition-variable-notify! (mail-box-condition mb)))))
 
-(define (unlink pid)
-  (let* ([self (self)]
-         [links (pid-links pid)])
-    (when (memq pid links)
-      (pid-links-set! pid (remq pid links)))
-    (let ([links (pid-links self)])
-      (when (memq self links)
-        (pid-links-set! pid (remq self links))))))
+#|
+    Function: link
 
+    Link self and other process.
+    Linked processes send '(exit why) message when exit to each other.
+
+    Prototype:
+    > (link pid)
+
+    Parameters:
+
+      pid - pid of process
+|#
 (define (link pid)
   (let* ([self (self)]
          [links (pid-links pid)])
@@ -120,29 +188,26 @@
         (pid-links-set! pid (cons self links))))))
 
 #|
-    Function: spawn
+    Function: unlink
 
-    Create a process which execute proc. On Mosh, a process means an independent VM instance.
-    The process which is spawn-ed and calls spawn share nothing.
-    Each processes has own namespace.
+    unlink linked process
 
     Prototype:
-    > (spawn proc-expr arg import-spec)
+    > (unlink pid)
 
+    Parameters:
+
+      pid - pid of process
 |#
-(define-syntax spawn
-  (lambda (x)
-    (syntax-case x ()
-      [(_ expr args import-spec)
-       #'(spawn-internal 'expr args import-spec)])))
+(define (unlink pid)
+  (let* ([self (self)]
+         [links (pid-links pid)])
+    (when (memq pid links)
+      (pid-links-set! pid (remq pid links)))
+    (let ([links (pid-links self)])
+      (when (memq self links)
+        (pid-links-set! pid (remq self links))))))
 
-(define-syntax spawn-link
-  (lambda (x)
-    (syntax-case x ()
-      [(_ expr args import-spec)
-       #'(let ([pid (spawn-internal 'expr args import-spec)])
-           (link pid)
-           pid)])))
 
 (define (spawn-internal thunk args import-spec)
   (let* ([vm (make-vm `(lambda () (guard (c [#t (process-exit (make-process-error c))])
@@ -153,6 +218,18 @@
     (vm-start! vm)
     pid))
 
+#|
+    Function: self
+
+    Returns self pid.
+
+    Prototype:
+    > (self)
+
+    Returns:
+
+      pid
+|#
 (define (self)
   (symbol-value 'self))
 
@@ -256,8 +333,97 @@
         (mutex-unlock! (mail-box-mutex mb))
         val)]))))
 
+#|
+    Function: join!
+
+    Waits termination of process.
+
+    Prototype:
+    > (join! pid)
+
+    Parameters:
+
+      pid - pid of process.
+
+    Example:
+    (start code)
+    (let ([pid (spawn (lambda (x) (display x)) 'hello '((rnrs)))])
+       (join! pid))
+    (end code)
+|#
 (define (join! pid)
   (vm-join! (pid-vm pid)))
+
+#|
+    Function: register
+
+    Register a process by name.
+    Registered process can be fetch with whereis procedure by name.
+
+    Prototype:
+    > (register name pid)
+
+    Parameters:
+
+      name - name to register
+      pid - pid of process
+|#
+
+#|
+    Function: whereis
+
+    Look up process by name
+
+    Prototype:
+    > (whereis name)
+
+    Parameters:
+
+      name - name to look up
+
+    Returns:
+      pid of found process or #f
+|#
+
+#|
+    Function: make-process-error
+
+    Make a process-error
+
+    Prototype:
+    > (make-process-error state)
+
+    Parameters:
+
+      state - error state
+
+    Returns:
+      process-error condition
+|#
+
+#|
+    Function: process-error?
+
+    Returns #t if obj is process-error condition, otherwise #f.
+
+    Prototype:
+    > (process-error? obj)
+
+    Returns:
+      #t if obj is process-error condition, otherwise #f.
+|#
+
+#|
+    Function: process-error
+
+    Returns error state of process-error condition.
+
+    Prototype:
+    > (process-error process-error-condition)
+
+    Returns:
+      Returns error state of process-error condition.
+|#
 
 (when (main-vm?)
   (let ([pid (make-pid (vm-self))])
