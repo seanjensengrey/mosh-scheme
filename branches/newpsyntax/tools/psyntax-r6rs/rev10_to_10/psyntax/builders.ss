@@ -24,28 +24,19 @@
     build-global-assignment build-global-definition build-lambda
     build-case-lambda build-let build-primref build-foreign-call
     build-data build-sequence build-void build-letrec build-letrec*
-    build-global-define build-library-letrec* build-and build-or)
+    build-global-define build-library-letrec*
+    build-and build-or) ;; Mosh
   (import (rnrs) (psyntax compat) (psyntax config))
 
   (define (build-global-define x)
     (if-wants-global-defines
       `(define ,x '#f)
       (build-void)))
-  (define-syntax build-application
-    (syntax-rules ()
-      ((_ ae fun-exp arg-exps)
-       `(,fun-exp . ,arg-exps))))
-
-  (define-syntax build-and
-    (syntax-rules ()
-      ((_ ae exp*)
-       `(and . ,exp*))))
-
-  (define-syntax build-or
-    (syntax-rules ()
-      ((_ ae exp*)
-       `(or . ,exp*))))
-
+  (define build-application
+    (lambda (ae fun-exp arg-exps)
+      (if ae
+          `(annotated-call ,ae ,fun-exp . ,arg-exps)
+          (cons fun-exp arg-exps))))
   (define-syntax build-conditional
     (syntax-rules ()
       ((_ ae test-exp then-exp else-exp)
@@ -68,12 +59,14 @@
   (define build-lambda
     (lambda (ae vars exp) 
       (if-wants-case-lambda
-          `(case-lambda (,vars ,exp))
-          `(lambda ,vars ,exp))))
+        (build-case-lambda ae (list vars) (list exp))
+        `(lambda ,vars ,exp))))
   (define build-case-lambda
     (if-wants-case-lambda
       (lambda (ae vars* exp*)
-        `(case-lambda . ,(map list vars* exp*)))
+        (if ae
+            `(annotated-case-lambda ,ae . ,(map list vars* exp*))
+            `(case-lambda . ,(map list vars* exp*))))
       (lambda (ae vars* exp*)
         (define (build-error ae)
           (build-application ae 
@@ -152,14 +145,27 @@
                      vars val-exps)
                 (list body-exp)))))))))
   (define build-library-letrec*
-    (lambda (ae name vars locs val-exps body-exp)
-      `(library-letrec* ,name ,(map list vars locs val-exps) ,body-exp)))
-  (define build-receive
-    (lambda (ae vars producer body*)
-      (display "************** in ")
-      `(receive ,vars ,producer ,@body*)))
+    (lambda (ae top? vars locs val-exps body-exp)
+      (if-wants-library-letrec*
+        `(library-letrec* ,(map list vars locs val-exps) ,body-exp)
+        (build-letrec* ae vars val-exps 
+          (if top? 
+              body-exp
+              (build-sequence ae
+                (cons body-exp
+                  (map (lambda (var loc) 
+                         (build-global-assignment ae loc var))
+                     vars locs))))))))
 
+  ;; Mosh optimizes (and ...) and (or ...)
+  (define-syntax build-and
+    (syntax-rules ()
+      ((_ ae exp*)
+       `(and . ,exp*))))
+
+  (define-syntax build-or
+    (syntax-rules ()
+      ((_ ae exp*)
+       `(or . ,exp*))))
 
   )
-
-

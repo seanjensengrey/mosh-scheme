@@ -19,10 +19,15 @@
 ;;; DEALINGS IN THE SOFTWARE. 
 
 (library (psyntax config)
-  (export if-wants-define-struct if-wants-case-lambda
+  (export if-wants-define-record if-wants-define-struct 
+          if-wants-case-lambda
           if-wants-letrec* if-wants-global-defines
-          if-wants-library-letrec*)
+          if-wants-library-letrec*
+          base-of-interaction-library)
   (import (rnrs))
+
+  (define (base-of-interaction-library) '(ikarus))
+
   (define-syntax define-option
     (syntax-rules ()
       ((_ name #t) 
@@ -35,6 +40,7 @@
            ((_ sk fk) fk))))))
   
   (define-option if-wants-define-struct  #f)
+  (define-option if-wants-define-record  #f)
   ;;; define-record is an ikarus-specific extension.
   ;;; should be disabled for all other implementations
   ;;; the source is included to illustrate how
