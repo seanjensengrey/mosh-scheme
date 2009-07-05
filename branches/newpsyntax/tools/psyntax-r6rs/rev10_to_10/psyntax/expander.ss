@@ -3745,27 +3745,6 @@
       (display "#<environment>" p)))
 
 
-  (define (interaction-environment-symbols)
-    (environment-symbols (interaction-environment)))
-
-
-  (define (environment-bindings e)
-    (vector->list
-      (vector-map
-        (lambda (name label)
-          (parse-binding (cons name (imported-label->binding label))))
-        (env-names e)
-        (env-labels e))))
-
-  (define (parse-binding b)
-    (cons (car b)
-      (case (cadr b)
-        ((core-prim global) 'procedure)
-        ((core-macro macro global-macro) 'syntax)
-        (($core-rtd) 'record)
-        (else (if (eq? (car b) (cadr b)) 'syntax 'unknown)))))
-
-
   (define environment?
     (lambda (x) (or (env? x) (interaction-env? x))))
 
@@ -3783,8 +3762,8 @@
   ;;; eval and/or expand.
   (define environment
     (lambda imp*
-      (let ([itc (make-collector)])
-        (parameterize ([imp-collector itc])
+      (let ((itc (make-collector)))
+        (parameterize ((imp-collector itc))
           (let-values (((subst-names subst-labels)
                         (parse-import-spec* imp*)))
             (make-env subst-names subst-labels itc))))))
@@ -3804,10 +3783,10 @@
   ;;; expander (chi-expr).   It takes an expression and an environment.
   ;;; It returns two values: The resulting core-expression and a list of
   ;;; libraries that must be invoked before evaluating the core expr.
-  (define expand
+  (define core-expand
     (lambda (x env)
       (cond
-        [(env? env)
+        ((env? env)
          (let ((rib (make-top-rib (env-names env) (env-labels env))))
            (let ((x (make-stx x top-mark* (list rib) '()))
                  (itc (env-itc env))
@@ -3820,22 +3799,22 @@
                                      (imp-collector itc))
                          (chi-expr x '() '()))))
                  (seal-rib! rib)
-                 (values x (rtc)))))]
-        [(interaction-env? env)
-         (let ([rib (interaction-env-rib env)]
-               [r (interaction-env-r env)]
-               [rtc (make-collector)])
-           (let ([x (make-stx x top-mark* (list rib) '())])
-             (let-values ([(e r^)
-                           (parameterize ([top-level-context env]
-                                          [inv-collector rtc]
-                                          [vis-collector (make-collector)]
-                                          [imp-collector (make-collector)])
-                             (chi-interaction-expr x rib r))])
+                 (values x (rtc))))))
+        ((interaction-env? env)
+         (let ((rib (interaction-env-rib env))
+               (r (interaction-env-r env))
+               (rtc (make-collector)))
+           (let ((x (make-stx x top-mark* (list rib) '())))
+             (let-values (((e r^) 
+                           (parameterize ((top-level-context env)
+                                          (inv-collector rtc)
+                                          (vis-collector (make-collector))
+                                          (imp-collector (make-collector)))
+                             (chi-interaction-expr x rib r))))
                (set-interaction-env-r! env r^)
-               (values e (rtc)))))]
-        [else
-         (assertion-violation 'expand "not an environment" env)])))
+               (values e (rtc))))))
+        (else
+         (assertion-violation 'expand "not an environment" env)))))
 
   ;;; This is R6RS's eval.  It takes an expression and an environment,
   ;;; expands the expression, invokes its invoke-required libraries and
@@ -3844,7 +3823,7 @@
     (lambda (x env)
       (unless (environment? env)
         (error 'eval "not an environment" env))
-      (let-values (((x invoke-req*) (expand x env)))
+      (let-values (((x invoke-req*) (core-expand x env)))
         (for-each invoke-library invoke-req*)
         (eval-core (expanded->core x)))))
 
@@ -3852,9 +3831,15 @@
   ;;; Given a (library . _) s-expression, library-expander expands
   ;;; it to core-form, registers it with the library manager, and
   ;;; returns its invoke-code, visit-code, subst and env.
+  (define (initial-visit! macro*)
+    (for-each (lambda (x)
+                 (let ((loc (car x)) (proc (cadr x)))
+                   (set-symbol-value! loc proc)))
+      macro*))
+
   (define library-expander
-    (case-lambda
-      [(x filename verify-name)
+    (case-lambda 
+      ((x filename verify-name)
        (define (build-visit-code macro*)
          (if (null? macro*)
              (build-void)
@@ -3863,13 +3848,9 @@
                       (let ((loc (car x)) (src (cddr x)))
                         (build-global-assignment no-source loc src)))
                     macro*))))
-       (define (visit! macro*)
-         (for-each (lambda (x)
-                     (let ((loc (car x)) (proc (cadr x)))
-                       (set-symbol-value! loc proc)))
-                   macro*))
-       (let-values (((name ver imp* inv* vis*
-                      invoke-code macro* export-subst export-env)
+       (let-values (((name ver imp* inv* vis* 
+                      invoke-code macro* export-subst export-env
+                      guard-code guard-req*)
                      (core-library-expander x verify-name)))
          (let ((id (gensym))
                (name name)
@@ -3877,8 +3858,9 @@
                (imp* (map library-spec imp*))
                (vis* (map library-spec vis*))
                (inv* (map library-spec inv*))
-               (visit-proc (lambda () (visit! macro*)))
-               (invoke-proc
+               (guard-req* (map library-spec guard-req*))
+               (visit-proc (lambda () (initial-visit! macro*)))
+               (invoke-proc 
                 (lambda () (eval-core (expanded->core invoke-code))))
                (visit-code (build-visit-code macro*))
                (invoke-code invoke-code))
@@ -3886,30 +3868,33 @@
               imp* vis* inv* export-subst export-env
               visit-proc invoke-proc
               visit-code invoke-code
+              guard-code guard-req*
               #t filename)
-           (values id name ver imp* vis* inv*
+           (values id name ver imp* vis* inv* 
                    invoke-code visit-code
-                   export-subst export-env)))]
-      [(x filename)
-       (library-expander x filename (lambda (x) (values)))]
-      [(x)
-       (library-expander x #f (lambda (x) (values)))]))
+                   export-subst export-env 
+                   guard-code guard-req*))))
+      ((x filename)
+       (library-expander x filename (lambda (x) (values))))
+      ((x)
+       (library-expander x #f (lambda (x) (values))))))
 
   ;;; when bootstrapping the system, visit-code is not (and cannot
   ;;; be) be used in the "next" system.  So, we drop it.
   (define (boot-library-expand x)
-    (let-values (((id name ver imp* vis* inv*
-                   invoke-code visit-code export-subst export-env)
+    (let-values (((id name ver imp* vis* inv* 
+                   invoke-code visit-code export-subst export-env
+                   guard-code guard-dep*)
                   (library-expander x)))
       (values name invoke-code export-subst export-env)))
-
+  
   (define (rev-map-append f ls ac)
     (cond
       ((null? ls) ac)
       (else
        (rev-map-append f (cdr ls)
           (cons (f (car ls)) ac)))))
-
+  
   (define build-exports
     (lambda (lex*+loc* init*)
       (build-sequence no-source
@@ -3919,7 +3904,7 @@
               (build-global-assignment no-source (cdr x) (car x)))
             lex*+loc*
             init*)))))
-
+  
   (define (make-export-subst name* id*)
     (map
       (lambda (name id)
@@ -3928,16 +3913,16 @@
             (stx-error id "cannot export unbound identifier"))
           (cons name label)))
       name* id*))
-
+  
   (define (make-export-env/macros lex* loc* r)
     (define (lookup x)
-      (let f ([x x] [lex* lex*] [loc* loc*])
+      (let f ((x x) (lex* lex*) (loc* loc*))
         (cond
-          [(pair? lex*)
-           (if (eq? x (car lex*))
+          ((pair? lex*) 
+           (if (eq? x (car lex*)) 
                (car loc*)
-               (f x (cdr lex*) (cdr loc*)))]
-          [else (assertion-violation 'lookup-make-export "BUG")])))
+               (f x (cdr lex*) (cdr loc*))))
+          (else (assertion-violation 'lookup-make-export "BUG")))))
     (let f ((r r) (env '()) (global* '()) (macro* '()))
       (cond
         ((null? r) (values env global* macro*))
@@ -3946,9 +3931,9 @@
            (let ((label (car x)) (b (cdr x)))
              (case (binding-type b)
                ((lexical)
-                (let ([v (binding-value b)])
+                (let ((v (binding-value b)))
                   (let ((loc (lookup (lexical-var v)))
-                        (type (if (lexical-mutable? v)
+                        (type (if (lexical-mutable? v) 
                                   'mutable
                                   'global)))
                     (f (cdr r)
@@ -3967,27 +3952,33 @@
                      (cons (cons* label 'global-macro! loc) env)
                      global*
                      (cons (cons loc (binding-value b)) macro*))))
+               ((local-ctv)
+                (let ((loc (gensym)))
+                  (f (cdr r)
+                     (cons (cons* label 'global-ctv loc) env)
+                     global*
+                     (cons (cons loc (binding-value b)) macro*))))
                (($rtd $module) (f (cdr r) (cons x env) global* macro*))
                (else
                 (assertion-violation 'expander "BUG: do not know how to export"
                        (binding-type b) (binding-value b))))))))))
-
+  
   (define generate-temporaries
     (lambda (ls)
       (syntax-match ls ()
         ((ls ...)
          (map (lambda (x)
-                (make-stx
-                  (let ([x (syntax->datum x)])
+                (make-stx 
+                  (let ((x (syntax->datum x)))
                     (cond
-                      [(or (symbol? x) (string? x))
-                       (gensym x)]
-                      [else (gensym 't)]))
+                      ((or (symbol? x) (string? x)) 
+                       (gensym x))
+                      (else (gensym 't))))
                   top-mark* '() '()))
               ls))
-        (_
+        (_ 
          (assertion-violation 'generate-temporaries "not a list")))))
-
+  
   (define free-identifier=?
     (lambda (x y)
       (if (id? x)
@@ -3995,7 +3986,7 @@
               (free-id=? x y)
               (assertion-violation 'free-identifier=? "not an identifier" y))
           (assertion-violation 'free-identifier=? "not an identifier" x))))
-
+  
   (define bound-identifier=?
     (lambda (x y)
       (if (id? x)
@@ -4003,24 +3994,31 @@
               (bound-id=? x y)
               (assertion-violation 'bound-identifier=? "not an identifier" y))
           (assertion-violation 'bound-identifier=? "not an identifier" x))))
-
-  (define (make-source-condition x)
-    (define-condition-type &source-information &condition
-      make-source-condition source-condition?
-      (file-name source-filename)
-      (character source-character))
+  
+  (define (position->condition x)
     (if (pair? x)
-        (make-source-condition (car x) (cdr x))
+        (make-source-position-condition (car x) (cdr x))
         (condition)))
 
   (define (extract-position-condition x)
-    (make-source-condition (expression-position x)))
+    (position->condition (expression-position x)))
 
   (define (expression-position x)
     (and (stx? x)
          (let ((x (stx-expr x)))
            (and (annotation? x)
                 (annotation-source x)))))
+
+  (define (syntax-annotation x)
+    (if (stx? x) (stx-expr x) x))
+
+;  (define (syntax-annotation x)
+;    (if (stx? x)
+;        (let ([expr (stx-expr x)])
+;          (if (annotation? x)
+;              x
+;              (stx->datum x)))
+;        (stx->datum x)))
 
   (define (assertion-error expr pos)
     (raise
@@ -4029,121 +4027,135 @@
         (make-who-condition 'assert)
         (make-message-condition "assertion failed")
         (make-irritants-condition (list expr))
-        (make-source-condition pos))))
+        (position->condition pos))))
 
   (define syntax-error
     (lambda (x . args)
       (unless (for-all string? args)
         (assertion-violation 'syntax-error "invalid argument" args))
-      (raise
-        (condition
+      (raise 
+        (condition 
           (make-message-condition
-            (if (null? args)
+            (if (null? args) 
                 "invalid syntax"
                 (apply string-append args)))
-          (make-syntax-violation
+          (make-syntax-violation 
             (syntax->datum x)
             #f)
           (extract-position-condition x)
-          ;; (extract-trace x) ;; not used on Mosh
-          ))))
+          (extract-trace x)))))
 
-  ;; (define (extract-trace x)
-;;     (define-condition-type &trace &condition
-;;       make-trace trace?
-;;       (form trace-form))
-;;     (let f ([x x])
-;;       (cond
-;;         [(stx? x)
-;;          (apply condition
-;;             (make-trace x)
-;;             (map f (stx-ae* x)))]
-;;         [(annotation? x)
-;;          (make-trace (make-stx x '() '() '()))]
-;;         [else (condition)])))
+  (define (extract-trace x)
+    (define-condition-type &trace &condition
+      make-trace trace?
+      (form trace-form))
+    (let f ((x x))
+      (cond
+        ((stx? x)
+         (apply condition 
+            (make-trace x)
+            (map f (stx-ae* x))))
+        ((annotation? x)
+         (make-trace (make-stx x '() '() '())))
+        (else (condition)))))
 
-
-  (define syntax-violation*
+    
+  (define syntax-violation* 
     (lambda (who msg form condition-object)
-       (unless (string? msg)
+       (unless (string? msg) 
          (assertion-violation 'syntax-violation "message is not a string" msg))
-       (let ([who
+       (let ((who
               (cond
-                [(or (string? who) (symbol? who)) who]
-                [(not who)
+                ((or (string? who) (symbol? who)) who)
+                ((not who) 
                  (syntax-match form ()
-                   [id (id? id) (syntax->datum id)]
-                   [(id . rest) (id? id) (syntax->datum id)]
-                   [_  #f])]
-                [else
-                 (assertion-violation 'syntax-violation
-                    "invalid who argument" who)])])
-         (raise
+                   (id (id? id) (syntax->datum id))
+                   ((id . rest) (id? id) (syntax->datum id))
+                   (_  #f)))
+                (else
+                 (assertion-violation 'syntax-violation 
+                    "invalid who argument" who)))))
+         (raise 
            (condition
-             (if who
+             (if who 
                  (make-who-condition who)
                  (condition))
              (make-message-condition msg)
              condition-object
              (extract-position-condition form)
-             ;; (extract-trace form) ;; not used on Mosh
-             )))))
+             (extract-trace form))))))
 
   (define syntax-violation
     (case-lambda
-      [(who msg form) (syntax-violation who msg form #f)]
-      [(who msg form subform)
-       (syntax-violation* who msg form
-          (make-syntax-violation
+      ((who msg form) (syntax-violation who msg form #f))
+      ((who msg form subform) 
+       (syntax-violation* who msg form 
+          (make-syntax-violation 
             (syntax->datum form)
-            (syntax->datum subform)))]))
+            (syntax->datum subform))))))
 
   (define identifier? (lambda (x) (id? x)))
-
+  
   (define datum->syntax
     (lambda (id datum)
       (if (id? id)
           (datum->stx id datum)
           (assertion-violation 'datum->syntax "not an identifier" id))))
-
+  
   (define syntax->datum
     (lambda (x) (stx->datum x)))
 
+  (define top-level-expander
+    (lambda (e*)
+      (let-values (((imp* b*) (parse-top-level-program e*)))
+        (let-values (((imp* invoke-req* visit-req* invoke-code
+                       macro* export-subst export-env)
+                      (library-body-expander 'all imp* b* #t)))
+          (values invoke-req* invoke-code macro* 
+                  export-subst export-env)))))
+
   (define compile-r6rs-top-level
     (lambda (x*)
-      (let-values (((lib* invoke-code) (top-level-expander x*)))
+      (let-values (((lib* invoke-code macro* export-subst export-env) 
+                    (top-level-expander x*)))
         (lambda ()
           (for-each invoke-library lib*)
-          (when (symbol-value 'debug-expand)
-            (format #t "psyntax expanded=~a\n" (expanded->core invoke-code)))
-          (eval-core (expanded->core invoke-code))))))
+          (initial-visit! macro*)
+          (eval-core (expanded->core invoke-code))
+          (make-interaction-env 
+            (subst->rib export-subst)
+            (map 
+              (lambda (x)
+                (let ([label (car x)] [binding (cdr x)])
+                  (let ([type (car binding)] [val (cdr binding)])
+                   (cons* label type '*interaction* val))))
+              export-env)
+            '())))))
 
-  (define pre-compile-r6rs-top-level
-    (lambda (x*)
-      (let-values (((lib* invoke-code) (top-level-expander x*)))
-        (for-each invoke-library lib*)
-        (compile-core (expanded->core invoke-code)))))
+  (define (subst->rib subst)
+    (let ([rib (make-empty-rib)])
+      (set-rib-sym*! rib (map car subst))
+      (set-rib-mark**! rib 
+        (map (lambda (x) top-mark*) subst))
+      (set-rib-label*! rib (map cdr subst))
+      rib))
+
+  (define (new-interaction-environment)
+    (let ((lib (find-library-by-name
+                 (base-of-interaction-library))))
+      (let ((rib (subst->rib (library-subst lib))))
+        (make-interaction-env rib '() '()))))
 
   (define interaction-environment
-    (let ([the-env #f])
-      (lambda ()
-        (or the-env
-            (let ([lib (find-library-by-name '(mosh interaction))]
-                  [rib
-                   ;; (make-cache-rib)
-                   ;; causes multiple difinition error on interaction-environment
-                   ;; TODO: update psyntax
-                   (make-empty-rib)
-                       ])
-              (let ([subst (library-subst lib)])
-                (set-rib-sym*! rib (map car subst))
-                (set-rib-mark**! rib
-                  (map (lambda (x) top-mark*) subst))
-                (set-rib-label*! rib (map cdr subst)))
-              (let ([env (make-interaction-env rib '() '())])
-                (set! the-env env)
-                env))))))
-
+    (let ((e #f))
+      (case-lambda 
+        [()
+         (or e (begin (set! e (new-interaction-environment)) e))]
+        [(x) 
+         (unless (environment? x)
+           (assertion-violation 'interaction-environment
+             "not an environment" x))
+         (set! e x)])))
 
   (define top-level-context (make-parameter #f))
 

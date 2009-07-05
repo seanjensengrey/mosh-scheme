@@ -37,12 +37,13 @@
 
 ;; here we put libraries used in psyntax.
 (define scheme-library-files
-  `("psyntax/compat.ss"
-    "psyntax/internal.ss"
-    "psyntax/config.ss"
-    "psyntax/library-manager.ss"
-    "psyntax/builders.ss"
-    "psyntax/expander.ss"
+  `(
+     "psyntax/compat.ss"
+     "psyntax/internal.ss"
+     "psyntax/config.ss"
+     "psyntax/library-manager.ss"
+     "psyntax/builders.ss"
+     "psyntax/expander.ss"
     ,(string-append (get-environment-variable "HOME") "/mosh/lib/mosh/condition.ss")
 ;    ,(string-append (get-environment-variable "HOME") "/mosh/lib/mosh/io/conditions.ss")
     "psyntax/main.ss"))
@@ -1235,7 +1236,6 @@
       (() set)
       ((x) (set! set (cons x set))))))
 
-
 (define (make-system-data subst env)
   (define who 'make-system-data)
   (let ((export-subst    (make-collection))
@@ -1309,46 +1309,76 @@
 
 (define (build-system-library export-subst export-env primlocs)
   (define (build-library legend-entry)
-    (let ((key (car legend-entry))
-          (name (cadr legend-entry))
-          (visible? (caddr legend-entry)))
-      (let ((id     (gensym))
-            (name       name)
-            (version     (if (eq? (car name) 'rnrs) '(6) '()))
-            (import-libs '())
-            (visit-libs  '())
-            (invoke-libs '()))
-        (let-values (((subst env)
-                      (if (equal? name '(psyntax system $all))
+    (let ([key (car legend-entry)]
+          [name (cadr legend-entry)]
+          [visible? (caddr legend-entry)]) 
+      (let ([id     (gensym)]
+            [name       name]
+            [version    (if (eq? (car name) 'rnrs) '(6) '())]
+            [import-libs '()]
+            [visit-libs  '()]
+            [invoke-libs '()])
+        (let-values ([(subst env)
+                      (if (equal? name '(psyntax system $all)) 
                           (values export-subst export-env)
                           (values
                             (get-export-subset key export-subst)
-                            '()))))
-          `(install-library
+                            '()))])
+          `(install-library 
              ',id ',name ',version ',import-libs ',visit-libs ',invoke-libs
-             ',subst ',env values values '#f '#f ',visible? '#f)))))
-  (let ((code `(library (psyntax primlocs)
+             ',subst ',env void void '#f '#f '#f '() ',visible? '#f)))))
+  (let ([code `(library (psyntax primlocs)
                   (export) ;;; must be empty
-                  (import
+                  (import 
+                    (only (ikarus.symbols) system-value-gensym)
                     (only (psyntax library-manager)
                           install-library)
-                    (only (psyntax internal)
+                    (only (ikarus.compiler)
                           current-primitive-locations)
-                    (rnrs lists)
-                    (rnrs base))
-                  (current-primitive-locations
-                    (lambda (x)
-                      (cond
-                        ((assq x ',primlocs) => cdr)
-                        (else #f))))
-                  ,@(map build-library library-legend))))
-    (let-values (((name code empty-subst empty-env)
-                  (boot-library-expand code)))
-       code)))
+                    (ikarus))
+                  (let ([g system-value-gensym])
+                    (for-each
+                      (lambda (x) (putprop (car x) g (cdr x)))
+                      ',primlocs)
+                    (let ([proc 
+                           (lambda (x) (getprop x g))])
+                      (current-primitive-locations proc)))
+                  ,@(map build-library library-legend))])
+    (let-values ([(name code empty-subst empty-env)
+                  (boot-library-expand code)])
+       (values name code))))
 
 (define (make-init-code)
   (values '() '() '()))
 
+
+#;(define (make-init-code)
+  (define proc (gensym))
+  (define loc (gensym))
+  (define label (gensym))
+  (define sym (gensym))
+  (define val (gensym))
+  (define args (gensym))
+  (values 
+    (list '(ikarus.init))
+    (list
+      `((case-lambda 
+          [(,proc) (,proc ',loc ,proc)])
+        (case-lambda
+          [(,sym ,val)
+           (begin
+             ((primitive $set-symbol-value!) ,sym ,val)
+             (if ((primitive procedure?) ,val) 
+                 ((primitive $set-symbol-proc!) ,sym ,val)
+                 ((primitive $set-symbol-proc!) ,sym
+                    (case-lambda 
+                      [,args
+                       ((primitive error)
+                         'apply 
+                         '"not a procedure"
+                         ((primitive $symbol-value) ,sym))]))))])))
+    `([$init-symbol-value! . ,label])
+    `([,label . (global . ,loc)])))
 (define (expand-all files)
   (define (prune-subst subst env)
     (cond
@@ -1393,7 +1423,7 @@
       ((x)
        (unless (memq x ls)
          (set! ls (cons x ls)))))))
-
+(display "[]]]")
 (verify-map)
 
 
@@ -1430,7 +1460,7 @@
                    id name version import-libs visit-libs invoke-libs
                    subst env values values #f #f visible? #f)))))))
     (for-each build-library library-legend)))
-
+  (display "here[0]")
 (let ()
   (define-syntax define-prims
     (syntax-rules ()
@@ -1453,10 +1483,11 @@
 
 
 
-
+  (display "here2")
 (let-values (((core* locs)
                (parameterize ((current-library-collection bootstrap-collection))
                  (expand-all scheme-library-files))))
+  (display "here")
     (current-primitive-locations
       (lambda (x)
         (cond

@@ -37,14 +37,15 @@
           void gensym eval-core set-symbol-value! symbol-value))
 
   (define (library-version-mismatch-warning name depname filename)
-    (fprintf (current-error-port)
+    (format (current-error-port)
         "WARNING: library ~s has an inconsistent dependency \
          on library ~s; file ~s will be recompiled from \
          source.\n"
        name depname filename))
 
   (define (library-stale-warning name filename)
-    (fprintf (current-error-port)
+    (format
+ (current-error-port)
        "WARNING: library ~s is stale; file ~s will be recompiled from source.\n"
        name filename))
 
@@ -82,11 +83,12 @@
     (set-symbol-value! label binding))
 
   (define (label-binding label)
-    (and (symbol-bound? label) (symbol-value label)))
+    (symbol-value label)) ; mosh
+;    (and (symbol-bound? label) (symbol-value label)))
 
   (define (remove-location x)
     (import (ikarus system $symbols))
-    ($unintern-gensym x)))
+    ($unintern-gensym x))
 
   ;; defined for mosh
   (define read-annotated read)
