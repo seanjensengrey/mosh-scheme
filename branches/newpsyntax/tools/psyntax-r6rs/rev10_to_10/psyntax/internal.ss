@@ -22,4 +22,19 @@
   (export current-primitive-locations compile-core-expr-to-port expanded->core)
   (import (rnrs) (psyntax compat) #;(ikarus.compiler))
 
-  (define (expanded->core x) x))
+  (define current-primitive-locations
+    (make-parameter
+      (lambda (x) #f)
+      (lambda (p)
+;        (assert (procedure? p))
+        p)))
+
+
+  (define (expanded->core x) x)
+
+  ;; defined for mosh
+  (define pretty-print write)
+
+
+  (define (compile-core-expr-to-port x p)
+    (pretty-print x p)))

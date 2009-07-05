@@ -36,16 +36,30 @@
     (only (psyntax system $bootstrap)
           void gensym eval-core set-symbol-value! symbol-value))
 
+
+  ;; mosh 
+  (define (make-record-printer name proc) display)
+  ;; mosh
+  (define-condition-type &source-position &condition
+    make-source-position-condition source-position-condition?
+    (file-name source-position-file-name)
+    (character source-position-character))
+  
+  ;; Mosh
+
+  ;; mosh
+  (define (make-struct-type . x)
+    (error 'make-struct-type "mosh doesn't need this, because define-struct-macro is unused"))
+
   (define (library-version-mismatch-warning name depname filename)
     (format (current-error-port)
         "WARNING: library ~s has an inconsistent dependency \
          on library ~s; file ~s will be recompiled from \
          source.\n"
        name depname filename))
-
+ 
   (define (library-stale-warning name filename)
-    (format
- (current-error-port)
+    (format (current-error-port)
        "WARNING: library ~s is stale; file ~s will be recompiled from source.\n"
        name filename))
 
@@ -59,14 +73,15 @@
        make-imported-from-condition imported-from-condition?
        (importing-library importing-library))
 
-    (raise
+    (raise 
       (apply condition (make-error)
         (make-who-condition 'expander)
         (make-message-condition
           "cannot locate library in library-path")
-        (make-library-resolution-condition
+        (make-library-resolution-condition 
           libname failed-list)
         (map make-imported-from-condition pending-list))))
+
 
 ;;   (define-syntax define-record
 ;;     (syntax-rules ()
@@ -83,12 +98,18 @@
     (set-symbol-value! label binding))
 
   (define (label-binding label)
-    (symbol-value label)) ; mosh
+    (guard (c (#t #f))
+    (symbol-value label))) ; mosh
 ;    (and (symbol-bound? label) (symbol-value label)))
 
+;;   (define (remove-location x)
+;;     (import (ikarus system $symbols))
+;;     ($unintern-gensym x))
+
+  ;; Mosh
   (define (remove-location x)
-    (import (ikarus system $symbols))
-    ($unintern-gensym x))
+    (gensym x))
+
 
   ;; defined for mosh
   (define read-annotated read)

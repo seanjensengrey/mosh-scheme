@@ -1458,7 +1458,7 @@
                               bootstrap-collection))
                 (install-library
                    id name version import-libs visit-libs invoke-libs
-                   subst env values values #f #f visible? #f)))))))
+                   subst env values values #f #f #f '() visible? #f)))))))
     (for-each build-library library-legend)))
   (display "here[0]")
 (let ()

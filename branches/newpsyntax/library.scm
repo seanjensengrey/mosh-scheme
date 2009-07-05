@@ -3891,3 +3891,6 @@
   (display obj)
   (newline)
   (apply values obj))
+
+(define (primitive x)
+  x) ;; psyntax

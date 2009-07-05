@@ -26,7 +26,7 @@
           syntax-violation
           syntax->datum
           make-variable-transformer make-compile-time-value
-          pre-compile-r6rs-top-level ;; Mosh only. necessary?
+;          pre-compile-r6rs-top-level ;; Mosh only. necessary?
           variable-transformer?
           variable-transformer-procedure
           compile-r6rs-top-level boot-library-expand
@@ -794,6 +794,7 @@
   ;;; for the resulting object.
   (define make-eval-transformer
     (lambda (x)
+      (display x)
       (sanitize-binding (eval-core (expanded->core x)) x)))
 
   ;;; The syntax-match macro is almost like syntax-case macro.
