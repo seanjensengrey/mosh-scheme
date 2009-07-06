@@ -1330,19 +1330,32 @@
   (let ([code `(library (psyntax primlocs)
                   (export) ;;; must be empty
                   (import 
-                    (only (ikarus.symbols) system-value-gensym)
                     (only (psyntax library-manager)
                           install-library)
-                    (only (ikarus.compiler)
+                    (only (psyntax internal)
                           current-primitive-locations)
-                    (ikarus))
-                  (let ([g system-value-gensym])
-                    (for-each
-                      (lambda (x) (putprop (car x) g (cdr x)))
-                      ',primlocs)
-                    (let ([proc 
-                           (lambda (x) (getprop x g))])
-                      (current-primitive-locations proc)))
+                    (psyntax compat)
+                    (rnrs lists)
+                    (rnrs base))
+
+;;                     (only (ikarus.symbols) system-value-gensym)
+;;                     (only (psyntax library-manager)
+;;                           install-library)
+;;                     (only (ikarus.compiler)
+;;                           current-primitive-locations)
+;;                     (ikarus))
+                  ;; (let ([g system-value-gensym])
+;;                     (for-each
+;;                       (lambda (x) (putprop (car x) g (cdr x)))
+;;                       ',primlocs)
+;;                     (let ([proc 
+;;                            (lambda (x) (getprop x g))])
+;;                       (current-primitive-locations proc)))
+                  (current-primitive-locations
+                    (lambda (x)
+                      (cond
+                        ((assq x ',primlocs) => cdr)
+                        (else #f))))
                   ,@(map build-library library-legend))])
     (let-values ([(name code empty-subst empty-env)
                   (boot-library-expand code)])

@@ -708,8 +708,11 @@ Object VM::activateR6RSMode(bool isDebugExpand)
     setValueString(UC("debug-expand"), Object::makeBool(isDebugExpand));
     const Object libPsyntax = FASL_GET(psyntax_image);
     TRY_VM {
+        printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
         return evaluateCodeVector(libPsyntax);
+        printf("%s %s:%d\n", __func__, __FILE__, __LINE__);fflush(stdout);// debug
     CATCH_VM
+        VM_LOG1("~a\n", errorObj_);
         // call default error handler
         defaultExceptionHandler(errorObj_);
         this->exit(-1);

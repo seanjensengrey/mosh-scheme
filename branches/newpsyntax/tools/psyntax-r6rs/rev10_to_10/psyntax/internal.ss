@@ -19,7 +19,7 @@
 ;;; DEALINGS IN THE SOFTWARE.
 
 (library (psyntax internal)
-  (export current-primitive-locations compile-core-expr-to-port expanded->core)
+  (export current-primitive-locations compile-core-expr-to-port expanded->core compile-core-expr)
   (import (rnrs) (psyntax compat) #;(ikarus.compiler))
 
   (define current-primitive-locations
@@ -30,11 +30,68 @@
         p)))
 
 
-  (define (expanded->core x) x)
+  ;; (primitive x) should be expanded here.
+  (define (expanded->core x)
+    (define (f x)
+      (cond
+        ((pair? x)
+         (case (car x)
+           ((quote)
+            x)
+           ((case-lambda)
+            (cons 'case-lambda
+              (map
+                (lambda (x)
+                  (cons (car x) (map f (cdr x))))
+                (cdr x))))
+           ((lambda)
+            (cons* 'lambda (cadr x) (map f (cddr x))))
+           ((letrec)
+            (let ((bindings (cadr x)) (body* (cddr x)))
+              (let ((lhs* (map car bindings)) (rhs* (map cadr bindings)))
+                (cons* 'letrec
+                       (map list lhs* (map f rhs*))
+                       (map f body*)))))
+           ((letrec*)
+            (let ((bindings (cadr x)) (body* (cddr x)))
+              (let ((lhs* (map car bindings)) (rhs* (map cadr bindings)))
+                (cons* 'letrec*
+                       (map list lhs* (map f rhs*))
+                       (map f body*)))))
+           ((library-letrec*)
+            (let ((name (cadr x))(x (cdr x)))
+              (let ((bindings (cadr x)) (body* (cddr x)))
+                (let ((lhs* (map car bindings))
+                      (lhs** (map cadr bindings))
+                      (rhs* (map caddr bindings)))
+                  (cons* 'library-letrec* name
+                         (map list lhs* lhs** (map f rhs*))
+                         (map f body*))))))
+           ((begin)
+            (cons 'begin (map f (cdr x))))
+           ((set!)
+            (list 'set! (cadr x) (f (caddr x))))
+           ((primitive)
+            (let ((op (cadr x)))
+              (cond
+                (((current-primitive-locations) op) =>
+                 (lambda (loc)
+                   loc))
+                (else op))))
+           ((define) x)
+           (else
+            (if (list? x)
+                (map f x)
+                (error 'rewrite "invalid form ~s ~s" x (list? x))))))
+        (else x)))
+    (f x))
 
   ;; defined for mosh
   (define pretty-print write)
 
 
+  (define (compile-core-expr x)
+    (expanded->core x))
+
   (define (compile-core-expr-to-port x p)
-    (pretty-print x p)))
+    (pretty-print (expanded->core x) p)))

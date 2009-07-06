@@ -794,7 +794,6 @@
   ;;; for the resulting object.
   (define make-eval-transformer
     (lambda (x)
-      (display x)
       (sanitize-binding (eval-core (expanded->core x)) x)))
 
   ;;; The syntax-match macro is almost like syntax-case macro.

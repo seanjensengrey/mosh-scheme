@@ -24,7 +24,11 @@
           library-stale-warning
           file-locator-resolution-error
           label-binding set-label-binding! remove-location
-          make-source-position-condition)
+          make-source-position-condition
+          load-serialized-library ;; mosh
+          void
+          serialize-library
+          )
   (import
 ;    (only (ikarus.compiler) eval-core)
 ;    (only (ikarus.reader.annotated) read-library-source-file)

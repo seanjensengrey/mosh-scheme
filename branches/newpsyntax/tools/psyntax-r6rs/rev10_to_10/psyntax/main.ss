@@ -271,7 +271,8 @@
                          '()
                          (cons x (f)))))))))
         (case how
-          ((closure)   (pre-compile-r6rs-top-level x*))
+;temp 
+;          ((closure)   (pre-compile-r6rs-top-level x*))
           ((load)
            (parameterize ([command-line (cons filename (car args))])
              ((compile-r6rs-top-level x*))))
@@ -297,7 +298,7 @@
   ;;   (set-symbol-value! 'compile compile)
   ;;   (set-symbol-value! 'compile->closure compile->closure)
   (set-symbol-value! 'eval-r6rs eval-top-level)
-  (set-symbol-value! 'int-env-syms interaction-environment-symbols)
+;  (set-symbol-value! 'int-env-syms interaction-environment-symbols)
   (set-symbol-value! 'expanded2core expanded->core)
 
   (set-symbol-value! 'trace-printer trace-printer)
