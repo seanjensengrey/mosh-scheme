@@ -1236,7 +1236,60 @@
       (() set)
       ((x) (set! set (cons x set))))))
 
+(define (macro-identifier? x) 
+  (and (assq x psyntax-system-macros) #t))
+
+
+(define (procedure-identifier? x)
+  (not (macro-identifier? x)))
+
+
 (define (make-system-data subst env)
+  (define who 'make-system-data)
+  (let ([export-subst    (make-collection)] 
+        [export-env      (make-collection)]
+        [export-primlocs (make-collection)])
+    (for-each
+      (lambda (x)
+        (let ([name (car x)] [binding (cadr x)])
+          (let ([label (gensym)])
+            (export-subst (cons name label))
+            (export-env   (cons label binding)))))
+      psyntax-system-macros)
+    (for-each
+      (lambda (x)
+        (when (procedure-identifier? x)
+          (cond
+            [(assq x (export-subst))
+             (error who "ambiguous export" x)]
+            [(assq x subst) =>
+             ;;; primitive defined (exported) within the compiled libraries
+             (lambda (p)
+               (unless (pair? p) 
+                 (error who "invalid exports" p x))
+               (let ([label (cdr p)])
+                 (cond
+                   [(assq label env) =>
+                    (lambda (p)
+                      (let ([binding (cdr p)])
+                        (case (car binding)
+                          [(global) 
+                           (export-subst (cons x label))
+                           (export-env   (cons label (cons 'core-prim x)))
+                           (export-primlocs (cons x (cdr binding)))]
+                          [else 
+                           (error #f "invalid binding for identifier" p x)])))]
+                   [else (error #f "cannot find binding" x label)])))]
+            [else 
+             ;;; core primitive with no backing definition, assumed to
+             ;;; be defined in other strata of the system
+             ;(printf "undefined primitive ~s\n" x)
+             (let ([label (gensym)])
+               (export-subst (cons x label))
+               (export-env (cons label (cons 'core-prim x))))])))
+      (map car identifier->library-map))
+    (values (export-subst) (export-env) (export-primlocs))))
+#;(define (make-system-data subst env)
   (define who 'make-system-data)
   (let ((export-subst    (make-collection))
         (export-env      (make-collection))
@@ -1361,11 +1414,11 @@
                   (boot-library-expand code)])
        (values name code))))
 
-(define (make-init-code)
-  (values '() '() '()))
-
-
 #;(define (make-init-code)
+  (values '() '() '() '()))
+
+
+(define (make-init-code)
   (define proc (gensym))
   (define loc (gensym))
   (define label (gensym))
@@ -1373,26 +1426,66 @@
   (define val (gensym))
   (define args (gensym))
   (values 
-    (list '(ikarus.init))
+    (list '(mosh.init))
     (list
       `((case-lambda 
           [(,proc) (,proc ',loc ,proc)])
         (case-lambda
           [(,sym ,val)
            (begin
-             ((primitive $set-symbol-value!) ,sym ,val)
-             (if ((primitive procedure?) ,val) 
-                 ((primitive $set-symbol-proc!) ,sym ,val)
-                 ((primitive $set-symbol-proc!) ,sym
+             (set-symbol-value! ,sym ,val)
+             (if (procedure? ,val) 
+                 (set-symbol-value! ,sym ,val)
+                 (set-symbol-value! ,sym
                     (case-lambda 
                       [,args
-                       ((primitive error)
+                       (error
                          'apply 
                          '"not a procedure"
-                         ((primitive $symbol-value) ,sym))]))))])))
+                         (symbol-value ,sym))]))))])))
     `([$init-symbol-value! . ,label])
     `([,label . (global . ,loc)])))
+
 (define (expand-all files)
+  ;;; remove all re-exported identifiers (those with labels in
+  ;;; subst but not binding in env).
+(define (load file proc)
+    (with-input-from-file file
+       (lambda ()
+         (let f ()
+           (let ((x (read)))
+             (unless (eof-object? x)
+               (proc x)
+               (f)))))))
+  (define (prune-subst subst env)
+    (cond 
+      ((null? subst) '()) 
+      ((not (assq (cdar subst) env)) (prune-subst (cdr subst) env)) 
+      (else (cons (car subst) (prune-subst (cdr subst) env)))))
+  (let-values (((name* code* subst env) (make-init-code)))
+    (debugf "Expanding ")
+    (for-each
+      (lambda (file)
+        (debugf " ~s" file)
+        (load (string-append file)
+          (lambda (x) 
+            (let-values ([(name code export-subst export-env)
+                          (boot-library-expand x)])
+               (set! name* (cons name name*))
+               (set! code* (cons code code*))
+               (set! subst (append export-subst subst))
+               (set! env (append export-env env))))))
+      files)
+    (debugf "\n")
+    (let-values ([(export-subst export-env export-locs)
+                  (make-system-data (prune-subst subst env) env)])
+      (let-values ([(name code)
+                    (build-system-library export-subst export-env export-locs)])
+        (values 
+          (reverse (cons* (car name*) name (cdr name*)))
+          (reverse (cons* (car code*) code (cdr code*)))
+          export-locs)))))
+#;(define (expand-all files)
   (define (prune-subst subst env)
     (cond
       ((null? subst) '())
@@ -1436,7 +1529,6 @@
       ((x)
        (unless (memq x ls)
          (set! ls (cons x ls)))))))
-(display "[]]]")
 (verify-map)
 
 
@@ -1473,7 +1565,6 @@
                    id name version import-libs visit-libs invoke-libs
                    subst env values values #f #f #f '() visible? #f)))))))
     (for-each build-library library-legend)))
-  (display "here[0]")
 (let ()
   (define-syntax define-prims
     (syntax-rules ()
@@ -1496,8 +1587,7 @@
 
 
 
-  (display "here2")
-(let-values (((core* locs)
+#;(let-values (((core* locs)
                (parameterize ((current-library-collection bootstrap-collection))
                  (expand-all scheme-library-files))))
   (display "here")
@@ -1520,7 +1610,30 @@
       (close-output-port p)
 ))
 
-(display "Happy Happy Joy Joy\n")
+(define (debugf . x) (apply format (current-error-port) x))
+
+    (let-values ([(name* core* locs)
+                      (parameterize ([current-library-collection
+                                       bootstrap-collection])
+                        (expand-all scheme-library-files))])
+        (current-primitive-locations
+          (lambda (x)
+            (cond
+              [(assq x locs) => cdr]
+              [else 
+               (error 'bootstrap "no location for primitive" x)])))
+        (let ([p (open-output-file "./psyntax.scm")])
+              (debugf "Compiling ")
+              (for-each 
+                (lambda (name core) 
+                  (debugf " ~s" name)
+                  (compile-core-expr-to-port core p))
+                name*
+                core*) 
+              (debugf "\n"))
+          (close-output-port p))
+
+;(display "Happy Happy Joy Joy\n")
 
 
 ;;; vim:syntax=scheme

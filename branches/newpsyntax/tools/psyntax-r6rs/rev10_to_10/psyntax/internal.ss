@@ -94,4 +94,7 @@
     (expanded->core x))
 
   (define (compile-core-expr-to-port x p)
-    (pretty-print (expanded->core x) p)))
+   (pretty-print (expanded->core x) p))
+ ;   (pretty-print x p))
+
+)
