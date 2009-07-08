@@ -1397,13 +1397,13 @@
 ;;                     (only (ikarus.compiler)
 ;;                           current-primitive-locations)
 ;;                     (ikarus))
-                  ;; (let ([g system-value-gensym])
-;;                     (for-each
-;;                       (lambda (x) (putprop (car x) g (cdr x)))
-;;                       ',primlocs)
-;;                     (let ([proc 
-;;                            (lambda (x) (getprop x g))])
-;;                       (current-primitive-locations proc)))
+                  (let ([g system-value-gensym])
+                    (for-each
+                      (lambda (x) (putprop (car x) g (cdr x)))
+                      ',primlocs)
+                    (let ([proc 
+                           (lambda (x) (getprop x g))])
+                      (current-primitive-locations proc)))
                   (current-primitive-locations
                     (lambda (x)
                       (cond
@@ -1522,13 +1522,32 @@
 
 
 
+;; (define bootstrap-collection
+;;   (let ((ls '()))
+;;     (case-lambda
+;;       (() ls)
+;;       ((x)
+;;        (unless (memq x ls)
+;;          (set! ls (cons x ls)))))))
+
+(display "bootstrap-collection start\n")
 (define bootstrap-collection
-  (let ((ls '()))
+  (let ([ls 
+         (let f ([ls library-legend])
+           (define required? cadddr)
+           (define library-name cadr)
+           (cond
+             [(null? ls) '()]
+             [(required? (car ls)) 
+              (cons (find-library-by-name (library-name (car ls)))
+                    (f (cdr ls)))]
+             [else (f (cdr ls))]))])
     (case-lambda
-      (() ls)
-      ((x)
-       (unless (memq x ls)
-         (set! ls (cons x ls)))))))
+      [() ls]
+      [(x) (unless (memq x ls) 
+             (set! ls (cons x ls)))])))
+
+(display "bootstrap-collection end\n")
 (verify-map)
 
 
