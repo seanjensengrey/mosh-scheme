@@ -143,15 +143,22 @@ inline Object VM::referFree(int n)
 
 inline Object VM::makeContinuation(Object n)
 {
-    const int codeSize = 7;
+    const int codeSize = 14;
     Object* code = Object::makeObjectArray(codeSize);
-    code[0] = Object::makeRaw(Instruction::REFER_LOCAL);
-    code[1] = Object::makeFixnum(0);
-    code[2] = Object::makeRaw(Instruction::CONTINUATION_VALUES);
-    code[3] = Object::makeRaw(Instruction::RESTORE_CONTINUATION);
-    code[4] = Object::makeStack(stack_, sp_ - stack_);
-    code[5] = Object::makeRaw(Instruction::RETURN);
-    code[6] = n;
+    code[0] = Object::makeRaw(Instruction::FRAME);
+    code[1] = Object::makeFixnum(6);
+    code[2] = Object::makeRaw(Instruction::CONSTANT_PUSH);
+    code[3] = dynamicWinders();
+    code[4] = Object::makeRaw(Instruction::REFER_GLOBAL_CALL);
+    code[5] = Symbol::intern(UC("perform-dynamic-wind"));
+    code[6] = Object::makeFixnum(1);
+    code[7] = Object::makeRaw(Instruction::REFER_LOCAL);
+    code[8] = Object::makeFixnum(0);
+    code[9] = Object::makeRaw(Instruction::CONTINUATION_VALUES);
+    code[10] = Object::makeRaw(Instruction::RESTORE_CONTINUATION);
+    code[11] = Object::makeStack(stack_, sp_ - stack_);
+    code[12] = Object::makeRaw(Instruction::RETURN);
+    code[13] = n;
     Object* c = getDirectThreadedCode(code, codeSize);
     const Object closure = Object::makeClosure(c, codeSize, 1, true, sp_, 0, 1, Object::False);
     return closure;
