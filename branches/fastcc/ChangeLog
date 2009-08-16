@@ -1,3 +1,7 @@
+2009-08-17  higepon  <higepon@users.sourceforge.jp>
+
+	* VM-inl.h (VM::makeContinuation): Rewrote winders in C++ for performance reason.
+
 2009-08-14  higepon  <higepon@users.sourceforge.jp>
 
 	* UtilityProcedures.cpp (current-dynamic-winders): Adeed.

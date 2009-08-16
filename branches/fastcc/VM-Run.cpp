@@ -1218,7 +1218,6 @@ Object VM::run(Object* code, jmp_buf returnPoint, bool returnTable /* = false */
         }
         CASE(CONTINUATION_VALUES)
         {
-            VM_LOG1("CONTINUATION_VALUES:<~a>\n", ac_);
             MOSH_ASSERT(ac_.isPair() || ac_.isNil());
             const int num = Pair::length(ac_);
             if (num > maxNumValues_ + 1) {
