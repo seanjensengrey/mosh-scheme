@@ -1,6 +1,6 @@
-;(import (rnrs)
-;        (core)
-;        (mosh))
+(import (rnrs)
+;       (core)
+       (mosh))
 
 #;(define-syntax time
   (syntax-rules ()
@@ -15,13 +15,14 @@
                    (- sys-end sys-start)))
          result)))))
 
-;; (define a '())
-;; (let loop ([i 0])
-;;   (cond
-;;    [(= i 100000) '()]
-;;    [else
-;;     (%call/cc (lambda (c) (set! a 3)c))
-;;     (loop (+ i 1))]))
+(define a '())
+(time
+(let loop ([i 0])
+  (cond
+   [(= i 100000) '()]
+   [else
+    (call/cc (lambda (c) (set! a 3)c))
+    (loop (+ i 1))])))
 
 ;; (define dynamic-wind2
 ;;   (lambda (in body out)
@@ -65,33 +66,33 @@
 ;;                ((caar rec))
 ;;                (current-dynamic-winders rec)))))))
 
-(define k '())
-(dynamic-wind
- (lambda () (display "before\n"))
- (lambda () (display (call/cc (lambda (c) (set! k c) c))))
- (lambda () (display "after\n")))
+;; (define k '())
+;; (dynamic-wind
+;;  (lambda () (display "before\n"))
+;;  (lambda () (display (call/cc (lambda (c) (set! k c) c))))
+;;  (lambda () (display "after\n")))
 
-(k 'hello)
-(display
-(letrec ((paths '())
-         (c #f)
-         (add (lambda (s) (set! paths (cons s paths)))))
-  (dynamic-wind
-   (lambda () (add 'connect))
-   (lambda ()
-     (add (call/cc (lambda (c0) (set! c c0) 'talk1))))
-   (lambda () (add 'disconnect)))
-  (display (length paths))
-  (if (< (length paths) 4)
-      (c 'talk2)
-      (reverse paths))))
+;; (k 'hello)
+;; (display
+;; (letrec ((paths '())
+;;          (c #f)
+;;          (add (lambda (s) (set! paths (cons s paths)))))
+;;   (dynamic-wind
+;;    (lambda () (add 'connect))
+;;    (lambda ()
+;;      (add (call/cc (lambda (c0) (set! c c0) 'talk1))))
+;;    (lambda () (add 'disconnect)))
+;;   (display (length paths))
+;;   (if (< (length paths) 4)
+;;       (c 'talk2)
+;;       (reverse paths))))
 
-(define q '())
+;; (define q '())
 
-(display (call/cc (lambda (k) (set! q k))))
-(q 1 2 3)
-(define cont '())
-(call/cc (lambda (k)
-           (call/cc (lambda (c) (set! cont c)))
-           ))
-(cont 1)
+;; (display (call/cc (lambda (k) (set! q k))))
+;; (q 1 2 3)
+;; (define cont '())
+;; (call/cc (lambda (k)
+;;            (call/cc (lambda (c) (set! cont c)))
+;;            ))
+;; (cont 1)
