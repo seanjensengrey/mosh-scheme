@@ -1,0 +1,13 @@
+#summary Mosh source code is now at GitHub
+
+= Source Repository =
+
+https://github.com/higepon/mosh
+
+= Build from Git Source =
+
+(Release tarball and mosh-current.tar.gz are already "bootstrapped". If you build from them, you can just `./configure && make && make install`.)
+
+You will need some additional tool if you decided build Mosh from Git source. Install subversion, re2c, bison, autoconf, automake, Gauche and latest mosh-current tarball release ( http://storage.osdev.info/pub/mosh/mosh-current.tar.gz ) then `./gen-git-build.sh`.
+
+gen-git-build currently not "fail-proof". Please run `git clean` if you failed something in generation process.
