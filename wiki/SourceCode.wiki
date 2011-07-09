@@ -6,7 +6,7 @@ https://github.com/higepon/mosh
 
 = Build from Git Source =
 
-(Release tarball and mosh-current.tar.gz are already "bootstrapped". If you build from them, you can just `./configure && make && make install`.)
+([http://code.google.com/p/mosh-scheme/downloads/list Release tarballs] and [http://storage.osdev.info/pub/mosh/mosh-current.tar.gz mosh-current] are already "bootstrapped". If you build from them, you can just `./configure && make && make install`. BSD users: use `gmake`.)
 
 You will need some additional tool if you build Mosh from Git source.
 
